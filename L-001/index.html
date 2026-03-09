@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARIA BEAUTE | 藤沢のプライベートエステサロン</title>
+  <meta name="description" content="藤沢駅徒歩5分。エステ歴26年のオーナーによるオーダーメイド痩身エステ。最新マシン5台とゴッドハンド技術で理想のボディへ。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A962;
+      --gold-light: #E5D4A1;
+      --dark: #1A1A1A;
+      --dark-brown: #2D2622;
+      --cream: #FDF8F3;
+      --cream-dark: #F5EDE3;
+      --text: #333;
+      --text-light: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.8;
+      background: var(--cream);
+    }
+
+    .en {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.1em;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(253, 248, 243, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 12px 20px;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--dark);
+      transition: all 0.3s ease;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--dark-brown);
+      transition: right 0.4s ease;
+      padding: 80px 40px;
+      z-index: 999;
+    }
+
+    nav.open {
+      right: 0;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav li {
+      margin-bottom: 24px;
+    }
+
+    nav a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      display: block;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(201, 169, 98, 0.2);
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 998;
+    }
+
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Desktop Nav */
+    @media (min-width: 768px) {
+      .nav-toggle {
+        display: none;
+      }
+
+      nav {
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        padding: 0;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 32px;
+      }
+
+      nav li {
+        margin: 0;
+      }
+
+      nav a {
+        color: var(--text);
+        border: none;
+        font-size: 0.85rem;
+        padding: 0;
+      }
+
+      nav a:hover {
+        color: var(--gold);
+      }
+
+      .nav-close {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, var(--dark-brown) 0%, #1A1515 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="moroccan" patternUnits="userSpaceOnUse" width="50" height="50"><path d="M25 0 L50 25 L25 50 L0 25 Z" fill="none" stroke="%23C9A962" stroke-width="0.3" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23moroccan)"/></svg>');
+      background-size: 80px 80px;
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--dark);
+      padding: 8px 20px;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 24px;
+      border-radius: 2px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      color: var(--cream);
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 32px;
+    }
+
+    .hero-description {
+      color: rgba(253, 248, 243, 0.8);
+      max-width: 500px;
+      margin: 0 auto 40px;
+      font-size: 0.95rem;
+      line-height: 2;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    @media (min-width: 480px) {
+      .hero-cta {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 36px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      min-width: 220px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--dark);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 169, 98, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .btn-line {
+      background: #06C755;
+      color: white;
+    }
+
+    .btn-line:hover {
+      background: #05b04c;
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 120px 40px;
+      }
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
+
+    .section-subtitle {
+      color: var(--text-light);
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+
+    /* About Section */
+    .about {
+      background: var(--cream-dark);
+    }
+
+    .about-content {
+      display: grid;
+      gap: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .about-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+    }
+
+    .about-image {
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--dark-brown) 0%, #3D3330 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border: 1px solid var(--gold);
+      opacity: 0.3;
+    }
+
+    .about-image-text {
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.2em;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .about-text h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      color: var(--text-light);
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+
+    .about-feature::before {
+      content: '✦';
+      color: var(--gold);
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .service-card {
+      background: white;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(201, 169, 98, 0.1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* Machines Section */
+    .machines {
+      background: var(--dark-brown);
+      color: var(--cream);
+    }
+
+    .machines .section-title {
+      color: var(--cream);
+    }
+
+    .machines .section-subtitle {
+      color: rgba(253, 248, 243, 0.7);
+    }
+
+    .machines-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .machines-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .machine-card {
+      background: rgba(255,255,255,0.05);
+      padding: 28px 24px;
+      border: 1px solid rgba(201, 169, 98, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .machine-card:hover {
+      background: rgba(201, 169, 98, 0.1);
+      border-color: var(--gold);
+    }
+
+    .machine-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .machine-name-ja {
+      font-size: 0.8rem;
+      color: rgba(253, 248, 243, 0.6);
+      margin-bottom: 16px;
+    }
+
+    .machine-card p {
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: rgba(253, 248, 243, 0.8);
+    }
+
+    /* Owner Section */
+    .owner {
+      background: var(--cream-dark);
+    }
+
+    .owner-content {
+      display: grid;
+      gap: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .owner-content {
+        grid-template-columns: 280px 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+    }
+
+    .owner-image {
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--dark-brown) 0%, #3D3330 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .owner-image::before {
+      content: '';
+      position: absolute;
+      inset: 15px;
+      border: 1px solid var(--gold);
+      opacity: 0.3;
+    }
+
+    .owner-image-text {
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.15em;
+    }
+
+    .owner-info h3 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .owner-name-en {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 24px;
+    }
+
+    .owner-info p {
+      margin-bottom: 20px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .owner-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .credential {
+      background: white;
+      padding: 10px 16px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(201, 169, 98, 0.3);
+    }
+
+    /* Pricing Section */
+    .pricing {
+      background: white;
+    }
+
+    .pricing-note {
+      text-align: center;
+      background: var(--cream);
+      padding: 24px;
+      margin-bottom: 40px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .pricing-note p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .pricing-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .pricing-card {
+      border: 1px solid rgba(201, 169, 98, 0.3);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--gold);
+      position: relative;
+    }
+
+    .pricing-card.featured::before {
+      content: 'POPULAR';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--dark);
+      padding: 4px 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+
+    .pricing-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .pricing-time {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .pricing-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .pricing-price span {
+      font-size: 1rem;
+    }
+
+    .pricing-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 16px;
+      line-height: 1.8;
+    }
+
+    /* Reviews Section */
+    .reviews {
+      background: var(--cream-dark);
+    }
+
+    .review-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 1.2rem;
+      letter-spacing: 4px;
+    }
+
+    .review-score {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--gold);
+    }
+
+    .review-source {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .reviews-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .review-card {
+      background: white;
+      padding: 28px 24px;
+    }
+
+    .review-card p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+
+    .review-author {
+      font-size: 0.85rem;
+      color: var(--text);
+      text-align: right;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--dark-brown);
+      color: var(--cream);
+    }
+
+    .contact .section-title {
+      color: var(--cream);
+    }
+
+    .contact-content {
+      display: grid;
+      gap: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+      }
+    }
+
+    .contact-info h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: var(--gold);
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .contact-item dt {
+      min-width: 80px;
+      color: rgba(253, 248, 243, 0.6);
+    }
+
+    .contact-item dd {
+      color: var(--cream);
+    }
+
+    .contact-form h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: var(--gold);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      color: rgba(253, 248, 243, 0.8);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201, 169, 98, 0.3);
+      color: var(--cream);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(253, 248, 243, 0.4);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: rgba(253, 248, 243, 0.6);
+      margin-bottom: 24px;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, var(--gold) 0%, #B8954F 100%);
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .cta h2 {
+      color: var(--dark);
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      color: var(--dark-brown);
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    @media (min-width: 480px) {
+      .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .cta .btn-primary {
+      background: var(--dark);
+      color: var(--cream);
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--dark-brown);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: var(--cream);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .footer-address {
+      font-size: 0.85rem;
+      color: rgba(253, 248, 243, 0.6);
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .footer-links a {
+      color: rgba(253, 248, 243, 0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .copyright {
+      font-size: 0.75rem;
+      color: rgba(253, 248, 243, 0.4);
+    }
+
+    /* Fixed CTA */
+    .fixed-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--dark);
+      padding: 12px 20px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      z-index: 900;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .fixed-cta.show {
+      transform: translateY(0);
+    }
+
+    .fixed-cta .btn {
+      padding: 12px 24px;
+      min-width: auto;
+      flex: 1;
+      max-width: 180px;
+      font-size: 0.85rem;
+    }
+
+    @media (min-width: 768px) {
+      .fixed-cta {
+        display: none;
+      }
+    }
+
+    /* Demo Banner */
+    .demo-banner {
+      background: linear-gradient(90deg, #ff6b6b, #ee5a5a);
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
+    }
+
+    .demo-banner + header {
+      top: 36px;
+    }
+
+    .demo-banner ~ .hero {
+      padding-top: 36px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Demo Banner -->
+  <div class="demo-banner">
+    📋 これはリニューアル提案用のデモサイトです
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">MARIA BEAUTE</a>
+      <button class="nav-toggle" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <button class="nav-close" aria-label="閉じる">&times;</button>
+        <ul>
+          <li><a href="#about">サロンについて</a></li>
+          <li><a href="#services">サービス</a></li>
+          <li><a href="#machines">最新マシン</a></li>
+          <li><a href="#owner">オーナー紹介</a></li>
+          <li><a href="#pricing">料金</a></li>
+          <li><a href="#contact">ご予約・お問合せ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="overlay"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">PRIVATE SALON in FUJISAWA</span>
+      <h1 class="en">MARIA BEAUTE</h1>
+      <p class="hero-tagline">藤沢のプライベートエステサロン</p>
+      <p class="hero-description">
+        エステ歴26年のオーナーによる完全予約制サロン。<br>
+        最新マシン5台とゴッドハンド技術で、<br>
+        あなただけの理想のボディへ導きます。
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Web予約・お問合せ</a>
+        <a href="https://lin.ee/Rpz0CnO" class="btn btn-line" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINE予約
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label en">About</span>
+        <h2 class="section-title">マリアボーテについて</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <div class="about-image-text">
+            Moroccan<br>Interior<br>Photo
+          </div>
+        </div>
+        <div class="about-text">
+          <h3>アラビアンナイトの世界で<br>至福のひとときを</h3>
+          <p>
+            マリアボーテは、藤沢駅から徒歩5分のプライベートエステサロン。モロッコをイメージしたこだわりの内装で、まるでディズニー映画「アラジン」の世界に迷い込んだような非日常空間です。
+          </p>
+          <p>
+            完全予約制のプライベートサロンだから、ご予約いただいた時間はすべてあなただけのもの。エステ歴26年のオーナーが、お一人おひとりのお悩みに寄り添い、オーダーメイドの施術をご提供します。
+          </p>
+          <div class="about-features">
+            <div class="about-feature">完全予約制</div>
+            <div class="about-feature">Google評価5.0</div>
+            <div class="about-feature">最新マシン5台</div>
+            <div class="about-feature">駐車場完備</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label en">Services</span>
+        <h2 class="section-title">サービス内容</h2>
+        <p class="section-subtitle">お客様のお悩みに合わせた<br class="sp-only">オーダーメイドコース</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">💎</div>
+          <h3>全身痩身</h3>
+          <p>冷えむくみ・セルライト・サイズダウン。お悩みに合わせて最新マシンを使い分け、全身をトータルケア。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3>部分痩身</h3>
+          <p>気になる部位を集中ケア。二の腕、お腹、太もも、背中など、ピンポイントでアプローチ。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌟</div>
+          <h3>たるみ引き締め</h3>
+          <p>HIFU（ハイフ）による高い引き締め効果。リバウンドしにくいと評判の人気メニュー。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌸</div>
+          <h3>筋膜リリース</h3>
+          <p>全身の筋膜をほぐし、血行促進・柔軟性アップ。痩せやすい身体づくりをサポート。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <h3>セルライトケア</h3>
+          <p>強固なセルライトも最新キャビテーションで効果的に解消。滑らかな肌へ導きます。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👐</div>
+          <h3>ハンドマッサージ</h3>
+          <p>「感動した！」の声多数。エステ歴26年で培ったゴッドハンド技術をご体感ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Machines -->
+  <section id="machines" class="machines">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label en">Machines</span>
+        <h2 class="section-title">最新マシン5台</h2>
+        <p class="section-subtitle">お客様のお悩みに合わせて使い分ける<br>プロフェッショナル機器</p>
+      </div>
+      <div class="machines-grid">
+        <div class="machine-card">
+          <div class="machine-name en">3MAX beauty</div>
+          <div class="machine-name-ja">スリーマックス</div>
+          <p>キャビテーション・ラジオ波・クラッシュ吸引の3機能を搭載。セルライトを効果的に解消し、理想のボディラインを実現。</p>
+        </div>
+        <div class="machine-card">
+          <div class="machine-name en">Z-Shock</div>
+          <div class="machine-name-ja">ゼットショック</div>
+          <p>衝撃波による圧力痩身。電気的アプローチに慣れた方にも効果絶大。湘南エリアで受けられるのは当店のみ。</p>
+        </div>
+        <div class="machine-card">
+          <div class="machine-name en">HIFU</div>
+          <div class="machine-name-ja">ハイフ</div>
+          <p>高密度焦点式超音波で脂肪細胞にピンポイントでアプローチ。高い痩身効果とたるみ引き締め、リバウンドしにくい。</p>
+        </div>
+        <div class="machine-card">
+          <div class="machine-name en">Near Infrared Dome</div>
+          <div class="machine-name-ja">近赤外線ドーム</div>
+          <p>近赤外線LEDで硬い脂肪を分解。痛みも熱さもなく快適に脂肪細胞の数を減らし、リバウンドのない体づくりを。</p>
+        </div>
+        <div class="machine-card">
+          <div class="machine-name en">Fascia Release</div>
+          <div class="machine-name-ja">筋膜リリース</div>
+          <p>全身の筋膜をほぐし血行促進。むくみ・セルライト予防、柔軟性アップで痩せやすい体質へ改善。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Owner -->
+  <section id="owner" class="owner">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label en">Owner</span>
+        <h2 class="section-title">オーナー紹介</h2>
+      </div>
+      <div class="owner-content">
+        <div class="owner-image">
+          <div class="owner-image-text">Owner Photo</div>
+        </div>
+        <div class="owner-info">
+          <h3>島本 千賀</h3>
+          <p class="owner-name-en en">Shimamoto Chika</p>
+          <p>
+            エステティシャン歴26年。お客様一人一人の身体と向き合い、身体の声を汲み取り、経験と知識を元に結果を積み重ねてきました。
+          </p>
+          <p>
+            私の考えるエステの効果とは、痩せてキレイになる以上に、年齢と共に感じる身体の衰え、不調箇所のお悩みを改善して、身体を楽にすること。健康維持の1つとしての美容法がエステサロンでの施術ケアと実感しております。
+          </p>
+          <p>
+            アラビアンナイトのような異空間で癒されながら、身体のメンテナンスにぜひお越しくださいませ。
+          </p>
+          <div class="owner-credentials">
+            <span class="credential">AEA認定エステティシャン</span>
+            <span class="credential">INFA国際エステティシャン</span>
+            <span class="credential">SSSストレッチ認定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label en">Pricing</span>
+        <h2 class="section-title">料金プラン</h2>
+      </div>
+      <div class="pricing-note">
+        <p>💡 初回限定のお得な体験コースをご用意しています。<br>詳しい料金はお気軽にお問い合わせください。</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card featured">
+          <div class="pricing-title">初回体験コース</div>
+          <div class="pricing-time">約90分</div>
+          <div class="pricing-price">¥XX,XXX<span>（税込）</span></div>
+          <p class="pricing-desc">カウンセリング＋全身痩身施術。<br>初めての方限定の特別価格。</p>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-title">全身痩身コース</div>
+          <div class="pricing-time">約120分</div>
+          <div class="pricing-price">¥XX,XXX<span>（税込）</span></div>
+          <p class="pricing-desc">最新マシン＋ハンドマッサージ。<br>オーダーメイドの本格施術。</p>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-title">部分痩身コース</div>
+          <div class="pricing-time">約60分</div>
+          <div class="pricing-price">¥XX,XXX<span>（税込）</span></div>
+          <p class="pricing-desc">気になる部位を集中ケア。<br>お忙しい方にもおすすめ。</p>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-title">HIFU（ハイフ）</div>
+          <div class="pricing-time">約60分</div>
+          <div class="pricing-price">¥XX,XXX<span>（税込）</span></div>
+          <p class="pricing-desc">たるみ引き締め専門コース。<br>リバウンドしにくいと評判。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label en">Voice</span>
+        <h2 class="section-title">お客様の声</h2>
+      </div>
+      <div class="review-badge">
+        <span class="review-stars">★★★★★</span>
+        <span class="review-score en">5.0</span>
+        <span class="review-source">Google口コミ</span>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <p>「身体のメンテナンスが必要だとずっと感じていました。マリアボーテに出会い驚かされました。むくみなど美容面の変化だけでなく、腰痛や肩こりの改善も感じたのです。私に必要なサロンはここだったと確信しました。」</p>
+          <div class="review-author">― 40代女性</div>
+        </div>
+        <div class="review-card">
+          <p>「数回通った時、旦那に『最近なんか変わった？顔が小さくなった』と言われて嬉しかったです。身体メインの施術なのに、首・肩周りがスッキリして小顔効果も！夫婦仲も良くなった気がします。」</p>
+          <div class="review-author">― 40代女性</div>
+        </div>
+        <div class="review-card">
+          <p>「産後の身体の衰えに悩んでいました。店内はまるでアラジンの世界。プライベートサロンなので特別感に高揚しながらもリラックス。オーナーさんのゴッドハンドには受けてみないとわからない魅力があります。」</p>
+          <div class="review-author">― 30代女性</div>
+        </div>
+        <div class="review-card">
+          <p>「ハンドマッサージに感動しました！マシン以上にすごいと感じたオーナーさんの技術。身体のラインや姿勢を褒められることも増えました。私の身体のメンテナンスに欠かせないパートナーです。」</p>
+          <div class="review-author">― 50代女性</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label en">Contact</span>
+        <h2 class="section-title">ご予約・お問い合わせ</h2>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>店舗情報</h3>
+          <dl>
+            <div class="contact-item">
+              <dt>住所</dt>
+              <dd>〒251-0052<br>神奈川県藤沢市藤沢969-1<br>グランドメゾン藤沢弐番館2F</dd>
+            </div>
+            <div class="contact-item">
+              <dt>アクセス</dt>
+              <dd>JR藤沢駅 徒歩5分</dd>
+            </div>
+            <div class="contact-item">
+              <dt>電話番号</dt>
+              <dd><a href="tel:0466-54-7186" style="color: var(--gold);">0466-54-7186</a></dd>
+            </div>
+            <div class="contact-item">
+              <dt>営業時間</dt>
+              <dd>[平日・土] 10:00〜20:00<br>[日・祝] 10:00〜18:00</dd>
+            </div>
+            <div class="contact-item">
+              <dt>定休日</dt>
+              <dd>不定休</dd>
+            </div>
+            <div class="contact-item">
+              <dt>駐車場</dt>
+              <dd>提携駐車場あり</dd>
+            </div>
+            <div class="contact-item">
+              <dt>お支払い</dt>
+              <dd>現金 / VISA / MasterCard / JCB</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="contact-form">
+          <h3>Web予約・お問い合わせ</h3>
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="name">お名前 *</label>
+              <input type="text" id="name" name="name" required placeholder="山田 花子">
+            </div>
+            <div class="form-group">
+              <label for="email">メールアドレス *</label>
+              <input type="email" id="email" name="email" required placeholder="example@email.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">電話番号</label>
+              <input type="tel" id="phone" name="phone" placeholder="090-1234-5678">
+            </div>
+            <div class="form-group">
+              <label for="type">お問い合わせ種別 *</label>
+              <select id="type" name="type" required>
+                <option value="">選択してください</option>
+                <option value="booking">ご予約</option>
+                <option value="trial">初回体験のお申込み</option>
+                <option value="question">ご質問・ご相談</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">メッセージ</label>
+              <textarea id="message" name="message" placeholder="ご希望の日時やご質問などをご記入ください"></textarea>
+            </div>
+            <p class="form-note">* 必須項目。通常1〜2営業日以内にご返信いたします。</p>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">送信する</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>次は、あなたの願いを叶える番です。</h2>
+    <p>まずはお気軽にご相談ください</p>
+    <div class="cta-buttons">
+      <a href="#contact" class="btn btn-primary">Web予約・お問合せ</a>
+      <a href="https://lin.ee/Rpz0CnO" class="btn btn-line" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINE予約
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo en">MARIA BEAUTE</div>
+    <p class="footer-address">
+      〒251-0052 神奈川県藤沢市藤沢969-1<br>
+      グランドメゾン藤沢弐番館2F<br>
+      TEL: 0466-54-7186
+    </p>
+    <div class="footer-links">
+      <a href="#about">サロンについて</a>
+      <a href="#services">サービス</a>
+      <a href="#pricing">料金</a>
+      <a href="#contact">お問い合わせ</a>
+    </div>
+    <p class="copyright">&copy; 2024 MARIA BEAUTE All rights reserved.</p>
+  </footer>
+
+  <!-- Fixed CTA (Mobile) -->
+  <div class="fixed-cta">
+    <a href="tel:0466-54-7186" class="btn btn-outline" style="color: var(--cream); border-color: var(--cream);">📞 電話</a>
+    <a href="https://lin.ee/Rpz0CnO" class="btn btn-line" target="_blank" rel="noopener">LINE予約</a>
+  </div>
+
+  <script>
+    // Navigation Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navClose = document.querySelector('.nav-close');
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
+
+    navToggle.addEventListener('click', () => {
+      nav.classList.add('open');
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+
+    const closeNav = () => {
+      nav.classList.remove('open');
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+    };
+
+    navClose.addEventListener('click', closeNav);
+    overlay.addEventListener('click', closeNav);
+
+    // Close nav on link click (mobile)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', closeNav);
+    });
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Fixed CTA show on scroll
+    const fixedCta = document.querySelector('.fixed-cta');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        fixedCta.classList.add('show');
+      } else {
+        fixedCta.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
