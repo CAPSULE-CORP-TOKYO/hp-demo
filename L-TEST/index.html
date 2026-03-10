@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テスト整体院 癒しの森 | 横浜市青葉区の整体・マッサージ</title>
+<meta name="description" content="横浜市青葉区青葉台の整体・マッサージ専門院「癒しの森」。お身体のお悩みに寄り添い、一人ひとりに合った施術をご提供します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --green-dark: #2d5a3d;
+  --green: #4a7c5c;
+  --green-light: #7bab8e;
+  --green-pale: #e8f0eb;
+  --cream: #faf8f5;
+  --brown: #6b5344;
+  --brown-light: #8a7265;
+  --text: #333333;
+  --text-light: #666666;
+  --white: #ffffff;
+  --shadow: 0 2px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --radius: 12px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 10px rgba(0,0,0,0.06);
+  transition: all 0.3s;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--green-dark);
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+.logo-text {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.logo-text small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--green-light);
+  letter-spacing: 0.5px;
+}
+
+nav { display: flex; align-items: center; gap: 28px; }
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav a:hover { color: var(--green); }
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--green);
+  transition: width 0.3s;
+}
+
+nav a:hover::after { width: 100%; }
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green);
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 13px !important;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.header-cta::after { display: none !important; }
+.header-cta:hover { background: var(--green-dark); color: white; transform: translateY(-1px); }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+
+/* ===== HERO ===== */
+.hero {
+  margin-top: 70px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 50%, var(--green-light) 100%);
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(255,255,255,0.15) 0%, transparent 40%);
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content { color: white; }
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.hero-title {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  font-size: clamp(15px, 2.5vw, 20px);
+  font-weight: 300;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: white;
+  color: var(--green-dark);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(0,0,0,0.2); }
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ===== FEATURES BAR ===== */
+.features-bar {
+  background: white;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.features-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 30px;
+  border-right: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.feature-item:last-child { border-right: none; }
+.feature-item:hover { background: var(--green-pale); }
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  background: var(--green-pale);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--green);
+}
+
+.feature-item h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.feature-item p {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 90px 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(24px, 4vw, 34px);
+  color: var(--green-dark);
+  margin-bottom: 8px;
+}
+
+.section-header .en {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--green-light);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  color: var(--text-light);
+  font-size: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-line {
+  width: 40px;
+  height: 3px;
+  background: var(--green);
+  margin: 16px auto;
+  border-radius: 2px;
+}
+
+/* ===== SERVICES ===== */
+.services { background: var(--cream); }
+
+.services-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.service-card-body {
+  padding: 24px;
+}
+
+.service-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.service-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brown);
+}
+
+.service-price span {
+  font-size: 22px;
+}
+
+/* ===== ABOUT ===== */
+.about { background: white; }
+
+.about-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.about-content h3 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 24px;
+  color: var(--green-dark);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.about-content p {
+  color: var(--text-light);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.about-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.about-list li::before {
+  content: '✓';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  background: var(--green-pale);
+  color: var(--green);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ===== INFO ===== */
+.info { background: var(--green-pale); }
+
+.info-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.info-details {
+  background: white;
+  border-radius: var(--radius);
+  padding: 36px;
+  box-shadow: var(--shadow);
+}
+
+.info-details h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--green-pale);
+}
+
+.info-table {
+  width: 100%;
+}
+
+.info-table tr { border-bottom: 1px solid #f0f0f0; }
+.info-table tr:last-child { border-bottom: none; }
+
+.info-table th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green);
+  padding: 14px 16px 14px 0;
+  white-space: nowrap;
+  vertical-align: top;
+  width: 90px;
+}
+
+.info-table td {
+  font-size: 14px;
+  padding: 14px 0;
+}
+
+.info-map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: 380px;
+}
+
+.info-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border: none;
+}
+
+/* ===== CTA ===== */
+.cta {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image:
+    radial-gradient(circle at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.2) 0%, transparent 40%);
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta h2 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(22px, 4vw, 32px);
+  margin-bottom: 16px;
+}
+
+.cta p {
+  font-size: 15px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.cta-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(26px, 5vw, 38px);
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.cta-phone:hover { opacity: 0.9; }
+
+.cta-note {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+
+.btn-cta {
+  background: white;
+  color: var(--green-dark);
+  padding: 18px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.3);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #1a2e22;
+  color: rgba(255,255,255,0.7);
+  padding: 50px 20px 30px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .logo-text {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.footer-brand .logo-text small { color: var(--green-light); }
+
+.footer-brand p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer h4 {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.footer ul { list-style: none; }
+
+.footer ul li { margin-bottom: 8px; }
+
+.footer ul a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.footer ul a:hover { color: white; }
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+.demo-badge {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.85);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    gap: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  nav.active { display: flex; }
+
+  nav a {
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+    width: 100%;
+  }
+
+  nav a::after { display: none; }
+
+  .header-cta {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+    padding: 14px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-buttons { justify-content: center; }
+
+  .hero-image { order: -1; }
+  .hero-image img { max-width: 320px; }
+
+  .hero { min-height: auto; padding: 0; }
+
+  .features-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item { border-right: none; border-bottom: 1px solid #f0f0f0; }
+  .feature-item:last-child { border-bottom: none; }
+
+  .services-grid { grid-template-columns: 1fr; }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .section { padding: 60px 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 26px; }
+  .hero-buttons { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">
+        癒しの森
+        <small>テスト整体院</small>
+      </div>
+    </a>
+    <nav id="nav">
+      <a href="#services">施術メニュー</a>
+      <a href="#about">当院について</a>
+      <a href="#info">アクセス</a>
+      <a href="tel:045-123-4567" class="header-cta">📞 ご予約はこちら</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="hero-badge">横浜市青葉区の整体・マッサージ専門院</span>
+      <h1 class="hero-title">あなたの身体に<br>やさしい癒しを</h1>
+      <p class="hero-subtitle">
+        一人ひとりのお悩みに合わせた丁寧な施術で、<br>
+        心と身体のバランスを整えます。
+      </p>
+      <div class="hero-buttons">
+        <a href="tel:045-123-4567" class="btn btn-primary">📞 電話で予約する</a>
+        <a href="#services" class="btn btn-outline">施術メニューを見る →</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://placehold.co/480x540/4a7c5c/ffffff?text=%E6%96%BD%E8%A1%93%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8" alt="施術イメージ" width="480" height="540">
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <div class="features-inner">
+    <div class="feature-item">
+      <div class="feature-icon">🕐</div>
+      <div>
+        <h3>当日予約OK</h3>
+        <p>お電話でお気軽にお問い合わせください</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">👤</div>
+      <div>
+        <h3>完全個室対応</h3>
+        <p>プライベート空間で安心の施術</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🅿</div>
+      <div>
+        <h3>駐車場完備</h3>
+        <p>お車でもお気軽にお越しください</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-header">
+    <span class="en">Services</span>
+    <h2>施術メニュー</h2>
+    <div class="section-line"></div>
+    <p>お身体の状態に合わせて、最適な施術プランをご提案いたします</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="https://placehold.co/400x200/e8f0eb/2d5a3d?text=%E6%95%B4%E4%BD%93" alt="全身整体" width="400" height="200">
+      <div class="service-card-body">
+        <h3>全身整体コース</h3>
+        <p>骨格・筋肉のバランスを整え、肩こり・腰痛などの根本原因にアプローチします。</p>
+        <div class="service-price"><span>¥5,500</span>〜 / 60分</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="https://placehold.co/400x200/e8f0eb/2d5a3d?text=%E3%83%9E%E3%83%83%E3%82%B5%E3%83%BC%E3%82%B8" alt="リラクゼーションマッサージ" width="400" height="200">
+      <div class="service-card-body">
+        <h3>リラクゼーションマッサージ</h3>
+        <p>心地よい圧で全身の疲れをほぐし、深いリラクゼーションをお届けします。</p>
+        <div class="service-price"><span>¥4,400</span>〜 / 60分</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="https://placehold.co/400x200/e8f0eb/2d5a3d?text=%E9%AA%A8%E7%9B%A4%E7%9F%AF%E6%AD%A3" alt="骨盤矯正" width="400" height="200">
+      <div class="service-card-body">
+        <h3>骨盤矯正</h3>
+        <p>骨盤のゆがみを丁寧に矯正し、姿勢改善や産後ケアをサポートします。</p>
+        <div class="service-price"><span>¥6,600</span>〜 / 50分</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="https://placehold.co/400x200/e8f0eb/2d5a3d?text=%E3%83%98%E3%83%83%E3%83%89%E3%82%B9%E3%83%91" alt="ヘッドスパ" width="400" height="200">
+      <div class="service-card-body">
+        <h3>ヘッドスパ・小顔矯正</h3>
+        <p>頭部の筋肉をほぐし、頭痛や眼精疲労の緩和、リフトアップ効果が期待できます。</p>
+        <div class="service-price"><span>¥3,300</span>〜 / 30分</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="section-header">
+    <span class="en">About</span>
+    <h2>当院について</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-image">
+      <img src="https://placehold.co/520x400/4a7c5c/ffffff?text=%E9%99%A2%E5%86%85%E5%86%99%E7%9C%9F" alt="院内の様子" width="520" height="400">
+    </div>
+    <div class="about-content">
+      <h3>心と身体に寄り添う<br>丁寧な施術を</h3>
+      <p>
+        テスト整体院 癒しの森は、横浜市青葉区で整体・マッサージを専門に提供しております。
+        お客様一人ひとりのお身体の状態を丁寧にカウンセリングし、最適な施術をご提案。
+        痛みの根本原因にアプローチし、健やかな毎日をサポートいたします。
+      </p>
+      <ul class="about-list">
+        <li>丁寧なカウンセリングで症状を的確に把握</li>
+        <li>一人ひとりに合わせたオーダーメイド施術</li>
+        <li>清潔で落ち着いた完全個室の施術空間</li>
+        <li>アフターケアのアドバイスも充実</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="section info" id="info">
+  <div class="section-header">
+    <span class="en">Access</span>
+    <h2>店舗情報・アクセス</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="info-grid">
+    <div class="info-details">
+      <h3>テスト整体院 癒しの森</h3>
+      <table class="info-table">
+        <tr>
+          <th>住所</th>
+          <td>〒227-0062<br>神奈川県横浜市青葉区青葉台1-1-1</td>
+        </tr>
+        <tr>
+          <th>電話</th>
+          <td><a href="tel:045-123-4567" style="color:var(--green);font-weight:700;text-decoration:none;">045-123-4567</a></td>
+        </tr>
+        <tr>
+          <th>営業時間</th>
+          <td>10:00〜20:00（最終受付 19:00）</td>
+        </tr>
+        <tr>
+          <th>定休日</th>
+          <td>毎週水曜日・第3木曜日</td>
+        </tr>
+        <tr>
+          <th>アクセス</th>
+          <td>東急田園都市線「青葉台駅」北口より徒歩3分</td>
+        </tr>
+        <tr>
+          <th>駐車場</th>
+          <td>2台分あり（無料）</td>
+        </tr>
+      </table>
+    </div>
+    <div class="info-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3248.0!2d139.5154!3d35.5537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1700000000000"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="テスト整体院 癒しの森 地図">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>お身体のお悩みを伺い、最適な施術プランをご提案いたします。<br>ご予約・ご質問はお電話にてお気軽にどうぞ。</p>
+    <a href="tel:045-123-4567" class="cta-phone">📞 045-123-4567</a>
+    <p class="cta-note">受付時間 10:00〜20:00（水曜定休）</p>
+    <a href="tel:045-123-4567" class="btn btn-cta">今すぐ電話で予約する</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-text">
+        癒しの森
+        <small>テスト整体院</small>
+      </div>
+      <p>
+        横浜市青葉区で整体・マッサージ専門院として、<br>
+        皆さまの健やかな毎日をサポートしています。
+      </p>
+    </div>
+    <div>
+      <h4>メニュー</h4>
+      <ul>
+        <li><a href="#services">施術メニュー</a></li>
+        <li><a href="#about">当院について</a></li>
+        <li><a href="#info">アクセス</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>ご案内</h4>
+      <ul>
+        <li><a href="#">初めての方へ</a></li>
+        <li><a href="#">よくあるご質問</a></li>
+        <li><a href="#">プライバシーポリシー</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 テスト整体院 癒しの森 All rights reserved.
+  </div>
+</footer>
+
+<!-- DEMO BADGE -->
+<div class="demo-badge">DEMO SITE</div>
+
+<script>
+// Mobile menu toggle
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  const spans = hamburger.querySelectorAll('span');
+  if (nav.classList.contains('active')) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  }
+});
+
+// Close menu on link click
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+    const spans = hamburger.querySelectorAll('span');
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  });
+});
+
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .about-grid, .info-grid').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
