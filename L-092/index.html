@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>横浜さいわい税理士法人 | 横浜駅西口徒歩4分の税理士事務所</title>
+<meta name="description" content="横浜さいわい税理士法人は横浜駅西口徒歩4分。認定経営革新等支援機関として、法人・個人の税務・会計・経営をトータルサポートいたします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  background: #fff;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== CSS Variables ===== */
+:root {
+  --primary: #1e3a5f;
+  --primary-light: #2a4f7f;
+  --accent: #4a90d9;
+  --accent-light: #6ba8e8;
+  --warm-gray: #f5f3f0;
+  --warm-gray-dark: #e8e4df;
+  --text: #333;
+  --text-light: #666;
+  --white: #fff;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Utility ===== */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+.text-center { text-align: center; }
+
+/* ===== Header ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo img {
+  height: 28px;
+  width: auto;
+}
+.nav-desktop { display: none; }
+.nav-desktop a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary);
+  margin-left: 28px;
+  position: relative;
+  transition: var(--transition);
+}
+.nav-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+.nav-desktop a:hover::after { width: 100%; }
+.nav-desktop a:hover { color: var(--accent); }
+.header-cta {
+  display: none;
+  background: var(--accent);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.header-cta:hover {
+  background: var(--primary);
+  transform: translateY(-1px);
+}
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ===== Mobile Nav ===== */
+.mobile-nav {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: var(--white);
+  overflow: hidden;
+  transition: height 0.4s ease;
+  z-index: 999;
+  box-shadow: var(--shadow-lg);
+}
+.mobile-nav.open { height: calc(100vh - 64px); }
+.mobile-nav-inner {
+  padding: 24px 20px;
+}
+.mobile-nav a {
+  display: block;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary);
+  border-bottom: 1px solid #f0f0f0;
+  transition: var(--transition);
+}
+.mobile-nav a:hover { color: var(--accent); padding-left: 8px; }
+.mobile-nav-cta {
+  display: block;
+  margin-top: 24px;
+  background: var(--accent);
+  color: var(--white) !important;
+  text-align: center;
+  padding: 16px !important;
+  border-radius: 8px;
+  font-weight: 700 !important;
+  border-bottom: none !important;
+}
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  margin-top: 64px;
+  overflow: hidden;
+  background: var(--primary);
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://saiwai-tax.com/wp-content/uploads/2020/03/YokohamaSaiwai_top4_1.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30,58,95,0.92) 0%, rgba(30,58,95,0.75) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 0 80px;
+  color: var(--white);
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(74,144,217,0.2);
+  border: 1px solid rgba(74,144,217,0.4);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+.hero-badge i { color: var(--accent-light); }
+.hero h1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.hero h1 span {
+  display: block;
+  color: var(--accent-light);
+}
+.hero-desc {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  opacity: 0.9;
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,144,217,0.3); }
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.hero-stat-number {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--accent-light);
+}
+.hero-stat-label {
+  font-size: 0.72rem;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* ===== Reasons / Why Us ===== */
+.reasons {
+  padding: 72px 0;
+  background: var(--warm-gray);
+}
+.reasons-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.reason-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.reason-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: var(--transition);
+}
+.reason-card:hover::before { transform: scaleY(1); }
+.reason-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.reason-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.reason-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.reason-card p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ===== Services ===== */
+.services {
+  padding: 72px 0;
+  background: var(--white);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.service-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  background: var(--white);
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.service-img {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.service-card:hover .service-img img { transform: scale(1.05); }
+.service-body {
+  padding: 24px;
+}
+.service-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.service-body p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.service-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+.service-link:hover { gap: 10px; }
+
+/* ===== Certification Banner ===== */
+.certification {
+  padding: 56px 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--white);
+}
+.cert-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+.cert-icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.cert-inner h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.cert-inner p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+/* ===== Company Info ===== */
+.company {
+  padding: 72px 0;
+  background: var(--warm-gray);
+}
+.company-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.company-photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.company-photo img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+.info-table {
+  width: 100%;
+}
+.info-table dl {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--warm-gray-dark);
+}
+.info-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  border-bottom: 1px solid var(--warm-gray-dark);
+  background: var(--white);
+}
+.info-row dt {
+  padding: 14px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(30,58,95,0.04);
+}
+.info-row dd {
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+/* ===== Access ===== */
+.access {
+  padding: 72px 0;
+  background: var(--white);
+}
+.access-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.access-info {
+  background: var(--warm-gray);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+}
+.access-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.access-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.access-detail i {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-top: 4px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.access-detail div {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.access-detail strong {
+  display: block;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.access-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+.map-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 300px;
+}
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ===== Contact ===== */
+.contact {
+  padding: 72px 0;
+  background: var(--primary);
+  color: var(--white);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.contact-text h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.contact-text p {
+  font-size: 0.92rem;
+  opacity: 0.85;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.contact-method:hover { background: rgba(255,255,255,0.14); }
+.contact-method-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.contact-method-label {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+.contact-method-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #111c2d;
+  color: rgba(255,255,255,0.6);
+  padding: 40px 0 100px;
+  font-size: 0.82rem;
+  text-align: center;
+}
+.footer-logo {
+  margin-bottom: 16px;
+}
+.footer-logo img {
+  height: 24px;
+  margin: 0 auto;
+  filter: brightness(10);
+  opacity: 0.6;
+}
+.footer p { margin-bottom: 4px; }
+.footer-copy {
+  margin-top: 20px;
+  opacity: 0.5;
+}
+
+/* ===== Sticky Mobile CTA ===== */
+.mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--white);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  padding: 10px 16px;
+  display: flex;
+  gap: 10px;
+}
+.mobile-cta a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 12px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+.cta-phone {
+  background: var(--accent);
+  color: var(--white);
+}
+.cta-contact {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ===== Animations ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Tablet (min 640px) ===== */
+@media (min-width: 640px) {
+  .container { padding: 0 32px; }
+  .section-title { font-size: 1.9rem; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-buttons { flex-direction: row; }
+  .hero-stat-number { font-size: 2rem; }
+  .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .company-content { grid-template-columns: 1fr 1fr; align-items: start; }
+  .company-photo img { height: 100%; min-height: 320px; }
+  .access-content { grid-template-columns: 1fr 1fr; }
+  .map-wrapper { height: 100%; min-height: 300px; }
+  .contact-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+  .info-row { grid-template-columns: 130px 1fr; }
+}
+
+/* ===== Desktop (min 1024px) ===== */
+@media (min-width: 1024px) {
+  .container { padding: 0 40px; }
+  .header-inner { height: 72px; }
+  .logo img { height: 32px; }
+  .nav-desktop { display: flex; align-items: center; }
+  .header-cta { display: inline-flex; margin-left: 28px; }
+  .hamburger { display: none; }
+  .hero { min-height: 90vh; }
+  .hero h1 { font-size: 2.8rem; }
+  .hero-content { padding: 80px 0 100px; }
+  .hero-stat-number { font-size: 2.4rem; }
+  .section-title { font-size: 2.1rem; }
+  .reasons { padding: 96px 0; }
+  .reasons-grid { grid-template-columns: repeat(4, 1fr); }
+  .services { padding: 96px 0; }
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .service-img { height: 200px; }
+  .certification { padding: 72px 0; }
+  .cert-inner { flex-direction: row; text-align: left; }
+  .company { padding: 96px 0; }
+  .access { padding: 96px 0; }
+  .contact { padding: 96px 0; }
+  .mobile-cta { display: none; }
+  .footer { padding: 48px 0; }
+  .mobile-nav { display: none !important; }
+}
+
+/* ===== Large Desktop ===== */
+@media (min-width: 1280px) {
+  .hero h1 { font-size: 3.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <img src="https://saiwai-tax.com/wp-content/uploads/2016/08/logox320x36.png" alt="横浜さいわい税理士法人" width="320" height="36">
+    </a>
+    <nav class="nav-desktop">
+      <a href="#reasons">選ばれる理由</a>
+      <a href="#services">サービス</a>
+      <a href="#company">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="header-cta"><i class="fas fa-envelope"></i> お問い合わせ</a>
+    </nav>
+    <button class="hamburger" aria-label="メニュー" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== Mobile Nav ===== -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="#reasons" onclick="closeNav()">選ばれる理由</a>
+    <a href="#services" onclick="closeNav()">サービス</a>
+    <a href="#company" onclick="closeNav()">事務所概要</a>
+    <a href="#access" onclick="closeNav()">アクセス</a>
+    <a href="#contact" class="mobile-nav-cta" onclick="closeNav()"><i class="fas fa-envelope"></i>&nbsp; お問い合わせ</a>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <i class="fas fa-award"></i>
+      認定経営革新等支援機関
+    </div>
+    <h1>
+      横浜の企業を支える、<span>信頼のパートナー。</span>
+    </h1>
+    <p class="hero-desc">
+      横浜駅西口徒歩4分。横浜さいわい税理士法人は、法人・個人のお客様の税務・会計・経営をワンストップでサポート。お客様と共に歩み、最適なソリューションをご提案いたします。
+    </p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
+      <a href="tel:045-312-9919" class="btn btn-outline"><i class="fas fa-phone"></i> 045-312-9919</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-number">30<span style="font-size:0.6em">年+</span></div>
+        <div class="hero-stat-label">豊富な実績</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">徒歩<span style="font-size:0.6em">4</span>分</div>
+        <div class="hero-stat-label">横浜駅西口より</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">認定</div>
+        <div class="hero-stat-label">経営革新等支援機関</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 選ばれる理由 ===== -->
+<section class="reasons" id="reasons">
+  <div class="container text-center">
+    <span class="section-label">Why Choose Us</span>
+    <h2 class="section-title fade-up">横浜さいわい税理士法人が<br>選ばれる理由</h2>
+    <p class="section-subtitle fade-up">地域密着で培った信頼と、専門性の高いサポートで、お客様の発展をお手伝いいたします。</p>
+  </div>
+  <div class="container">
+    <div class="reasons-grid">
+      <div class="reason-card fade-up">
+        <div class="reason-icon"><i class="fas fa-handshake"></i></div>
+        <h3>親身な対応</h3>
+        <p>お客様一人ひとりの状況を丁寧にヒアリングし、最適なアドバイスをご提供。いつでも気軽にご相談いただけます。</p>
+      </div>
+      <div class="reason-card fade-up">
+        <div class="reason-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>認定支援機関</h3>
+        <p>国から認定された経営革新等支援機関として、融資・補助金申請や経営改善計画の策定もサポートいたします。</p>
+      </div>
+      <div class="reason-card fade-up">
+        <div class="reason-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>経営を強くする</h3>
+        <p>単なる記帳代行ではなく、経営分析や将来のプランニングまで、企業の成長を見据えたご支援を行います。</p>
+      </div>
+      <div class="reason-card fade-up">
+        <div class="reason-icon"><i class="fas fa-location-dot"></i></div>
+        <h3>横浜駅すぐ</h3>
+        <p>横浜駅西口から徒歩4分の好アクセス。お気軽にお越しいただけるロケーションで、対面でのご相談も安心です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== サービス ===== -->
+<section class="services" id="services">
+  <div class="container text-center">
+    <span class="section-label">Services</span>
+    <h2 class="section-title fade-up">サービス内容</h2>
+    <p class="section-subtitle fade-up">法人・個人のお客様のあらゆる税務・会計ニーズにお応えいたします。</p>
+  </div>
+  <div class="container">
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-img">
+          <img src="https://saiwai-tax.com/wp-content/uploads/2016/08/saiwai_top_06.png" alt="法人向けサービス" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>法人向け税務・会計</h3>
+          <p>月次巡回監査、決算申告、税務相談、経営アドバイスまで、法人のお客様をトータルにサポートいたします。</p>
+          <span class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-img">
+          <img src="https://saiwai-tax.com/wp-content/uploads/2016/08/saiwai_top_14.png" alt="個人向けサービス" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>個人向けサービス</h3>
+          <p>確定申告、個人事業主の記帳指導、所得税・住民税のご相談など、個人のお客様のお悩みを解決いたします。</p>
+          <span class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-img">
+          <img src="https://saiwai-tax.com/wp-content/uploads/2016/04/saiwai_top_08.jpg" alt="起業支援" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>起業・会社設立支援</h3>
+          <p>会社設立手続き、開業届、創業融資のご相談まで、起業をワンストップでバックアップいたします。</p>
+          <span class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-img">
+          <img src="https://saiwai-tax.com/wp-content/uploads/2016/04/saiwai_top_13.jpg" alt="円満相続" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>円満相続支援</h3>
+          <p>相続税の申告、生前贈与対策、事業承継など、ご家族みなさまが納得できる円満な相続をサポートいたします。</p>
+          <span class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-img">
+          <img src="https://saiwai-tax.com/wp-content/uploads/2016/08/saiwai_top_04.png" alt="税理士変更" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>税理士変更</h3>
+          <p>現在の税理士にご不満をお持ちの方へ。スムーズな引継ぎで、安心して税理士を変更いただけます。</p>
+          <span class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-img" style="background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center;">
+          <i class="fas fa-laptop-code" style="font-size: 3rem; color: rgba(255,255,255,0.7);"></i>
+        </div>
+        <div class="service-body">
+          <h3>会計ソフト導入支援</h3>
+          <p>お客様の業種・規模に合った会計ソフトの選定から導入・運用まで、丁寧にサポートいたします。</p>
+          <span class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 認定経営革新等支援機関 Banner ===== -->
+<section class="certification">
+  <div class="container">
+    <div class="cert-inner fade-up">
+      <div class="cert-icon"><i class="fas fa-medal"></i></div>
+      <div>
+        <h2>認定経営革新等支援機関</h2>
+        <p>横浜さいわい税理士法人は、中小企業庁より「認定経営革新等支援機関」として認定されています。経営改善計画の策定支援、補助金・助成金の申請サポート、融資支援など、中小企業の経営課題解決を専門的な立場からご支援いたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 事務所概要 ===== -->
+<section class="company" id="company">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">About Us</span>
+      <h2 class="section-title fade-up">事務所概要</h2>
+    </div>
+    <div class="company-content fade-up" style="margin-top: 40px;">
+      <div class="company-photo">
+        <img src="https://saiwai-tax.com/wp-content/uploads/2020/03/YokohamaSaiwai_top4_1.jpg" alt="横浜さいわい税理士法人 事務所外観" loading="lazy">
+      </div>
+      <div class="info-table">
+        <dl>
+          <div class="info-row">
+            <dt>事務所名</dt>
+            <dd>横浜さいわい税理士法人</dd>
+          </div>
+          <div class="info-row">
+            <dt>代表</dt>
+            <dd>代表社員税理士 渡辺好史</dd>
+          </div>
+          <div class="info-row">
+            <dt>所在地</dt>
+            <dd>〒220-0004<br>横浜市西区北幸2-8-29<br>東武横浜第3ビル1階</dd>
+          </div>
+          <div class="info-row">
+            <dt>電話番号</dt>
+            <dd><a href="tel:045-312-9919" style="color:var(--accent);font-weight:600;">045-312-9919</a></dd>
+          </div>
+          <div class="info-row">
+            <dt>FAX</dt>
+            <dd>045-312-9929</dd>
+          </div>
+          <div class="info-row">
+            <dt>アクセス</dt>
+            <dd>横浜駅西口 徒歩4分</dd>
+          </div>
+          <div class="info-row">
+            <dt>認定</dt>
+            <dd>認定経営革新等支援機関</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== アクセス ===== -->
+<section class="access" id="access">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Access</span>
+      <h2 class="section-title fade-up">アクセス</h2>
+      <p class="section-subtitle fade-up">横浜駅西口から徒歩4分。お気軽にお越しください。</p>
+    </div>
+    <div class="access-content fade-up">
+      <div class="access-info">
+        <h3><i class="fas fa-building" style="color:var(--accent);margin-right:8px;"></i>横浜さいわい税理士法人</h3>
+        <div class="access-detail">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>住所</strong>
+            〒220-0004<br>横浜市西区北幸2-8-29<br>東武横浜第3ビル1階
+          </div>
+        </div>
+        <div class="access-detail">
+          <i class="fas fa-train"></i>
+          <div>
+            <strong>最寄り駅</strong>
+            JR・私鉄各線「横浜駅」西口より徒歩4分
+          </div>
+        </div>
+        <div class="access-detail">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>お電話</strong>
+            <a href="tel:045-312-9919" style="color:var(--accent);font-weight:600;">045-312-9919</a>
+          </div>
+        </div>
+        <div class="access-badge">
+          <i class="fas fa-walking"></i> 横浜駅西口から徒歩4分
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.128!2d139.6175!3d35.4657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185c0c1a5bb5a1%3A0x7e5c5a7e5b5b5b5b!2z5qiq5rWc5biC6KW_5Yy65YyX5bmxMi04LTI5!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="横浜さいわい税理士法人の地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== お問い合わせ ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid fade-up">
+      <div class="contact-text">
+        <span class="section-label" style="color:var(--accent-light);">Contact</span>
+        <h2>まずはお気軽に<br>ご相談ください</h2>
+        <p>税務・会計に関するお悩み、経営のご相談、起業・相続のことなど、どんな小さなことでもお気軽にお問い合わせください。初回のご相談は無料で承っております。</p>
+      </div>
+      <div class="contact-methods">
+        <a href="tel:045-312-9919" class="contact-method">
+          <div class="contact-method-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="contact-method-label">お電話でのお問い合わせ</div>
+            <div class="contact-method-value">045-312-9919</div>
+          </div>
+        </a>
+        <div class="contact-method">
+          <div class="contact-method-icon"><i class="fas fa-fax"></i></div>
+          <div>
+            <div class="contact-method-label">FAX</div>
+            <div class="contact-method-value">045-312-9929</div>
+          </div>
+        </div>
+        <a href="mailto:info@saiwai-tax.com" class="contact-method">
+          <div class="contact-method-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="contact-method-label">メールでのお問い合わせ</div>
+            <div class="contact-method-value" style="font-size:1rem;">メールフォームへ</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">
+      <img src="https://saiwai-tax.com/wp-content/uploads/2016/08/logox320x36.png" alt="横浜さいわい税理士法人" width="320" height="36">
+    </div>
+    <p>〒220-0004 横浜市西区北幸2-8-29 東武横浜第3ビル1階</p>
+    <p>TEL: 045-312-9919 / FAX: 045-312-9929</p>
+    <p class="footer-copy">&copy; 横浜さいわい税理士法人 All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ===== Sticky Mobile CTA ===== -->
+<div class="mobile-cta">
+  <a href="tel:045-312-9919" class="cta-phone"><i class="fas fa-phone"></i> 電話する</a>
+  <a href="#contact" class="cta-contact"><i class="fas fa-envelope"></i> お問い合わせ</a>
+</div>
+
+<script>
+// Mobile nav toggle
+function toggleNav() {
+  document.querySelector('.hamburger').classList.toggle('active');
+  document.getElementById('mobileNav').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileNav').classList.contains('open') ? 'hidden' : '';
+}
+function closeNav() {
+  document.querySelector('.hamburger').classList.remove('active');
+  document.getElementById('mobileNav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Scroll animation (Intersection Observer)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Header shadow on scroll
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header');
+  if (window.scrollY > 10) {
+    header.style.boxShadow = '0 2px 16px rgba(0,0,0,0.1)';
+  } else {
+    header.style.boxShadow = '0 1px 8px rgba(0,0,0,0.06)';
+  }
+});
+</script>
+</body>
+</html>

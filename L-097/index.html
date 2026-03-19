@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山本孝之公認会計士事務所｜横浜・新横浜の税務・経営支援</title>
+<meta name="description" content="横浜市港北区新横浜の公認会計士事務所。税務相談、経営支援、起業家支援、相続対策、経理代行。顧問料月額8,400円～。明確な料金体系で安心。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --green: #2d5a3d;
+  --green-dark: #1e3d29;
+  --green-light: #3d7a52;
+  --gold: #c49b2a;
+  --gold-light: #d4af37;
+  --gold-pale: #f5e6b8;
+  --off-white: #f8f6f0;
+  --white: #ffffff;
+  --text: #333333;
+  --text-light: #666666;
+  --border: #e0ddd5;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--off-white);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 70px;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo img { height: 36px; width: auto; }
+.logo-text { font-size: 0.75rem; color: var(--green); font-weight: 500; line-height: 1.3; }
+.logo-text span { display: block; font-size: 0.65rem; color: var(--text-light); }
+
+/* Desktop nav */
+.nav-desktop { display: none; }
+.nav-desktop a {
+  font-size: 0.85rem; font-weight: 500; color: var(--text);
+  padding: 8px 14px; border-radius: 6px;
+  transition: var(--transition);
+}
+.nav-desktop a:hover { color: var(--green); background: rgba(45,90,61,0.06); }
+
+/* Mobile hamburger */
+.hamburger {
+  display: flex; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 8px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--green); border-radius: 2px;
+  transition: var(--transition);
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+/* Mobile nav overlay */
+.nav-mobile {
+  position: fixed; top: 60px; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(10px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+  opacity: 0; visibility: hidden;
+  transition: var(--transition);
+  z-index: 999;
+}
+.nav-mobile.active { opacity: 1; visibility: visible; }
+.nav-mobile a {
+  font-size: 1.1rem; font-weight: 500; color: var(--text);
+  padding: 14px 40px; border-radius: 8px;
+  transition: var(--transition);
+}
+.nav-mobile a:hover { color: var(--green); background: rgba(45,90,61,0.06); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; margin-top: 60px;
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 50%, var(--green-light) 100%);
+  overflow: hidden; min-height: 90vh;
+  display: flex; align-items: center;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('https://yamamoto-cpa.com/wp/wp-content/themes/original1.4.4_blue/img/home/mainimg000.png') center/cover no-repeat;
+  opacity: 0.15;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--off-white), transparent);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  padding: 60px 24px 80px;
+  text-align: center; color: var(--white);
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(196,155,42,0.2);
+  border: 1px solid rgba(196,155,42,0.4);
+  color: var(--gold-pale);
+  font-size: 0.8rem; font-weight: 500;
+  padding: 6px 20px; border-radius: 50px;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+.hero h1 {
+  font-size: 1.8rem; font-weight: 900;
+  line-height: 1.5; margin-bottom: 20px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+.hero h1 .accent { color: var(--gold-light); }
+.hero-sub {
+  font-size: 1rem; font-weight: 300;
+  opacity: 0.9; margin-bottom: 36px;
+  line-height: 1.8;
+}
+.hero-price {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius);
+  padding: 20px 32px;
+  margin-bottom: 36px;
+}
+.hero-price .label { font-size: 0.85rem; opacity: 0.8; margin-bottom: 4px; }
+.hero-price .amount {
+  font-size: 2.2rem; font-weight: 900;
+  color: var(--gold-light);
+}
+.hero-price .amount small { font-size: 0.9rem; font-weight: 400; }
+.hero-price .note { font-size: 0.75rem; opacity: 0.7; margin-top: 4px; }
+.hero-buttons { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 36px; border-radius: 50px;
+  font-size: 1rem; font-weight: 700;
+  transition: var(--transition);
+  cursor: pointer; border: none;
+  text-align: center; justify-content: center;
+}
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(196,155,42,0.4);
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(196,155,42,0.5); }
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+
+/* ===== SECTIONS ===== */
+.section { padding: 60px 20px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-header .en {
+  display: block; font-size: 0.75rem; font-weight: 700;
+  color: var(--gold); letter-spacing: 0.15em;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.section-header h2 {
+  font-size: 1.6rem; font-weight: 900; color: var(--green-dark);
+  margin-bottom: 16px; line-height: 1.4;
+}
+.section-header p {
+  font-size: 0.95rem; color: var(--text-light);
+  max-width: 600px; margin: 0 auto;
+}
+.section-green { background: var(--green-dark); color: var(--white); }
+.section-green .section-header .en { color: var(--gold-pale); }
+.section-green .section-header h2 { color: var(--white); }
+.section-green .section-header p { color: rgba(255,255,255,0.7); }
+
+/* ===== 4つの強み ===== */
+.strengths-grid {
+  display: grid; grid-template-columns: 1fr; gap: 20px;
+}
+.strength-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--border);
+}
+.strength-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.strength-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 20px;
+}
+.strength-card h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--green-dark);
+  margin-bottom: 12px;
+}
+.strength-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+.strength-num {
+  display: inline-block;
+  font-size: 0.7rem; font-weight: 700;
+  color: var(--gold);
+  background: var(--gold-pale);
+  padding: 2px 12px; border-radius: 50px;
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+}
+
+/* ===== サービス ===== */
+.services-grid {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+}
+.service-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  display: flex; align-items: flex-start; gap: 16px;
+  transition: var(--transition);
+}
+.service-card:hover { background: rgba(255,255,255,0.14); transform: translateX(4px); }
+.service-icon {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+.service-card p { font-size: 0.85rem; opacity: 0.75; line-height: 1.6; }
+
+/* ===== 料金 ===== */
+.pricing-intro {
+  text-align: center; margin-bottom: 40px;
+  background: linear-gradient(135deg, var(--gold-pale), #fdf6e3);
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+}
+.pricing-intro i { color: var(--gold); font-size: 1.5rem; margin-bottom: 8px; }
+.pricing-intro p { font-size: 0.95rem; font-weight: 500; color: var(--green-dark); }
+
+.pricing-grid {
+  display: grid; grid-template-columns: 1fr; gap: 20px;
+}
+.price-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.price-card.featured {
+  border: 2px solid var(--gold);
+  position: relative;
+}
+.price-card.featured::before {
+  content: '人気No.1';
+  position: absolute; top: 16px; right: -28px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.7rem; font-weight: 700;
+  padding: 4px 36px;
+  transform: rotate(45deg);
+  z-index: 2;
+}
+.price-card-header {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color: var(--white);
+  padding: 20px 24px;
+  text-align: center;
+}
+.price-card.featured .price-card-header {
+  background: linear-gradient(135deg, var(--gold), #b8860b);
+}
+.price-card-header h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.price-card-header .subtitle { font-size: 0.8rem; opacity: 0.8; }
+.price-card-body { padding: 24px; text-align: center; }
+.price-amount {
+  font-size: 2rem; font-weight: 900; color: var(--green-dark);
+  margin-bottom: 4px;
+}
+.price-card.featured .price-amount { color: var(--gold); }
+.price-amount small { font-size: 0.85rem; font-weight: 400; color: var(--text-light); }
+.price-amount .yen { font-size: 1rem; font-weight: 500; }
+.price-note { font-size: 0.8rem; color: var(--text-light); margin-bottom: 16px; }
+.price-features { text-align: left; }
+.price-features li {
+  font-size: 0.85rem; padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.price-features li:last-child { border-bottom: none; }
+.price-features li i { color: var(--green); font-size: 0.8rem; }
+
+.price-free {
+  background: var(--white);
+  border: 2px dashed var(--gold);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+.price-free .free-label {
+  font-size: 2.5rem; font-weight: 900; color: var(--gold);
+}
+.price-free h3 { font-size: 1.1rem; font-weight: 700; color: var(--green-dark); margin-bottom: 8px; }
+.price-free p { font-size: 0.85rem; color: var(--text-light); }
+
+/* ===== 事務所概要 ===== */
+.office-content {
+  display: grid; grid-template-columns: 1fr; gap: 32px;
+}
+.office-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.office-image img {
+  width: 100%; height: 250px; object-fit: cover;
+}
+.office-table { width: 100%; }
+.office-table tr { border-bottom: 1px solid var(--border); }
+.office-table th, .office-table td {
+  padding: 14px 0;
+  font-size: 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+.office-table th {
+  font-weight: 700; color: var(--green-dark);
+  width: 110px;
+  white-space: nowrap;
+  padding-right: 16px;
+}
+.office-table td { color: var(--text); }
+
+/* ===== アクセス ===== */
+.map-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+.map-wrapper iframe { width: 100%; height: 300px; border: none; display: block; }
+.access-info {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+}
+.access-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex; align-items: flex-start; gap: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.access-card i {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.access-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--green-dark); margin-bottom: 2px; }
+.access-card p { font-size: 0.85rem; color: var(--text-light); }
+
+/* ===== CTA ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  text-align: center; color: var(--white);
+  padding: 60px 20px;
+}
+.cta-section h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 12px; }
+.cta-section p { font-size: 0.95rem; opacity: 0.85; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.btn-white {
+  background: var(--white); color: var(--green-dark);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+.btn-tel {
+  background: transparent; color: var(--white);
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.btn-tel:hover { background: rgba(255,255,255,0.1); }
+.btn-tel .num { font-size: 1.3rem; font-weight: 900; letter-spacing: 0.05em; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #1a1a1a; color: rgba(255,255,255,0.6);
+  padding: 40px 20px 100px; text-align: center;
+}
+.footer-logo { margin-bottom: 16px; }
+.footer-logo img { height: 30px; margin: 0 auto; filter: brightness(2); }
+.footer-info { font-size: 0.8rem; line-height: 2; margin-bottom: 20px; }
+.footer-copy { font-size: 0.7rem; opacity: 0.5; }
+
+/* ===== STICKY MOBILE CTA ===== */
+.mobile-cta {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--white);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  display: flex; z-index: 1000;
+  padding: 8px;
+  gap: 8px;
+}
+.mobile-cta a {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  font-size: 0.85rem; font-weight: 700;
+  transition: var(--transition);
+}
+.mobile-cta .cta-tel {
+  background: var(--green); color: var(--white);
+}
+.mobile-cta .cta-mail {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--white);
+}
+
+/* ===== FADE-IN ANIMATION ===== */
+.fade-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE: TABLET ===== */
+@media (min-width: 600px) {
+  .strengths-grid { grid-template-columns: 1fr 1fr; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .access-info { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-buttons { flex-direction: row; justify-content: center; }
+  .cta-buttons { flex-direction: row; justify-content: center; }
+  .map-wrapper iframe { height: 400px; }
+}
+
+/* ===== RESPONSIVE: DESKTOP ===== */
+@media (min-width: 960px) {
+  body { padding-bottom: 0; }
+  .header-inner { padding: 14px 40px; }
+  .logo img { height: 40px; }
+  .logo-text { font-size: 0.85rem; }
+  .hamburger { display: none; }
+  .nav-desktop { display: flex; align-items: center; gap: 4px; }
+  .mobile-cta { display: none; }
+  .section { padding: 90px 40px; }
+  .hero { min-height: 80vh; }
+  .hero-content { padding: 80px 40px 100px; text-align: left; }
+  .hero h1 { font-size: 2.8rem; }
+  .hero-sub { font-size: 1.1rem; }
+  .hero-buttons { justify-content: flex-start; }
+  .hero-price { margin-bottom: 40px; }
+  .section-header h2 { font-size: 2rem; }
+  .strengths-grid { grid-template-columns: repeat(4, 1fr); }
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+  .office-content { grid-template-columns: 1fr 1.2fr; align-items: start; }
+  .office-image img { height: 320px; }
+  .access-info { grid-template-columns: repeat(3, 1fr); }
+  .map-wrapper iframe { height: 450px; }
+  .footer { padding-bottom: 40px; }
+  .cta-section { padding: 80px 40px; }
+}
+
+/* ===== RESPONSIVE: LARGE DESKTOP ===== */
+@media (min-width: 1200px) {
+  .hero h1 { font-size: 3.2rem; }
+  .pricing-grid { gap: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo">
+      <img src="https://yamamoto-cpa.com/wp/wp-content/themes/original1.4.4_blue/img/common/title.png" alt="山本孝之公認会計士事務所">
+      <div class="logo-text">
+        山本孝之公認会計士事務所
+        <span>Yamamoto CPA Office</span>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#strengths">強み</a>
+      <a href="#services">サービス</a>
+      <a href="#pricing">料金</a>
+      <a href="#office">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="btn btn-gold" style="padding:10px 24px;font-size:0.85rem;">無料相談</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="nav-mobile" id="mobileNav">
+  <a href="#strengths" class="nav-link">4つの強み</a>
+  <a href="#services" class="nav-link">サービス内容</a>
+  <a href="#pricing" class="nav-link">料金案内</a>
+  <a href="#office" class="nav-link">事務所概要</a>
+  <a href="#access" class="nav-link">アクセス</a>
+  <a href="#contact" class="nav-link" style="color:var(--gold);font-weight:700;">無料相談はこちら</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-badge"><i class="fas fa-shield-halved"></i>&ensp;公認会計士の安心サポート</span>
+    <h1>
+      「分かりやすさ」と<br>
+      <span class="accent">「明確な料金」</span>で<br>
+      経営をサポートします
+    </h1>
+    <p class="hero-sub">
+      難しい専門用語は使いません。<br>
+      経験豊富なスタッフがお客様の目線で丁寧にご対応いたします。
+    </p>
+    <div class="hero-price">
+      <div class="label">顧問料</div>
+      <div class="amount"><span class="yen">&#165;</span>8,400<small>～/月（税別）</small></div>
+      <div class="note">会社設立のご相談は無料</div>
+    </div>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-gold"><i class="fas fa-envelope"></i> 無料相談する</a>
+      <a href="tel:045-534-9473" class="btn btn-outline"><i class="fas fa-phone"></i> 045-534-9473</a>
+    </div>
+  </div>
+</section>
+
+<!-- 4つの強み -->
+<section class="section" id="strengths">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="en">Our Strengths</span>
+      <h2>選ばれる4つの理由</h2>
+      <p>お客様に安心してお任せいただくために、私たちが大切にしていること</p>
+    </div>
+    <div class="strengths-grid">
+      <div class="strength-card fade-in">
+        <span class="strength-num">POINT 01</span>
+        <div class="strength-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>経験豊富なスタッフ</h3>
+        <p>経理経験3年以上のスタッフが中心。実務を熟知したプロフェッショナルが正確かつ迅速に対応いたします。</p>
+      </div>
+      <div class="strength-card fade-in">
+        <span class="strength-num">POINT 02</span>
+        <div class="strength-icon"><i class="fas fa-coins"></i></div>
+        <h3>明確な料金体系</h3>
+        <p>細分化された料金体系で、お客様に必要なサービスだけを選択可能。不透明なコストは一切ありません。</p>
+      </div>
+      <div class="strength-card fade-in">
+        <span class="strength-num">POINT 03</span>
+        <div class="strength-icon"><i class="fas fa-handshake-angle"></i></div>
+        <h3>柔軟な対応力</h3>
+        <p>お客様一人ひとりの状況に合わせ、臨機応変に柔軟対応。型にはまらないオーダーメイドのサポートを提供します。</p>
+      </div>
+      <div class="strength-card fade-in">
+        <span class="strength-num">POINT 04</span>
+        <div class="strength-icon"><i class="fas fa-comments"></i></div>
+        <h3>分かりやすい説明</h3>
+        <p>難しい専門用語を使わず、お客様が理解しやすい言葉で丁寧にご説明いたします。初めての方もご安心ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- サービス -->
+<section class="section section-green" id="services">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="en">Services</span>
+      <h2>サービス内容</h2>
+      <p>お客様のビジネスステージに合わせた幅広いサポートをご提供</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-calculator"></i></div>
+        <div>
+          <h3>税務相談</h3>
+          <p>法人・個人の税務に関するあらゆるご相談に対応。節税対策から申告手続きまでトータルサポートいたします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+        <div>
+          <h3>経営支援</h3>
+          <p>経営計画の策定、資金繰り改善、業績分析など、経営の安定・成長を支援いたします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-rocket"></i></div>
+        <div>
+          <h3>起業家支援</h3>
+          <p>会社設立から事業計画、融資相談まで、起業のスタートダッシュを全面的にバックアップいたします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-house-chimney"></i></div>
+        <div>
+          <h3>相続対策</h3>
+          <p>相続税の試算、生前対策、遺産分割のアドバイスなど、円満な相続をサポートいたします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-book-open"></i></div>
+        <div>
+          <h3>経理代行</h3>
+          <p>記帳代行から給与計算まで、煩雑な経理業務をまるごとお任せいただけます。本業に集中できる環境を実現。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="section" id="pricing">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="en">Pricing</span>
+      <h2>料金案内</h2>
+      <p>すべての料金を明確にご提示。お見積もりとの差額は発生しません。</p>
+    </div>
+    <div class="pricing-intro fade-in">
+      <i class="fas fa-circle-check"></i>
+      <p>料金はすべて事前にご案内。<br>「思っていたより高かった」ということはありません。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card fade-in">
+        <div class="price-card-header">
+          <h3>顧問契約</h3>
+          <div class="subtitle">税務顧問サービス</div>
+        </div>
+        <div class="price-card-body">
+          <div class="price-amount"><span class="yen">&#165;</span>8,400<small>～/月</small></div>
+          <div class="price-note">税別</div>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> 税務に関する相談対応</li>
+            <li><i class="fas fa-check"></i> 経営アドバイス</li>
+            <li><i class="fas fa-check"></i> 節税対策のご提案</li>
+            <li><i class="fas fa-check"></i> 各種届出書の作成</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price-card featured fade-in">
+        <div class="price-card-header">
+          <h3>記帳代行</h3>
+          <div class="subtitle">経理まるごとおまかせ</div>
+        </div>
+        <div class="price-card-body">
+          <div class="price-amount"><span class="yen">&#165;</span>15,000<small>～/月</small></div>
+          <div class="price-note">税別</div>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> 仕訳入力・帳簿作成</li>
+            <li><i class="fas fa-check"></i> 試算表の作成</li>
+            <li><i class="fas fa-check"></i> 月次報告</li>
+            <li><i class="fas fa-check"></i> 経理業務の効率化提案</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price-card fade-in">
+        <div class="price-card-header">
+          <h3>決算・申告</h3>
+          <div class="subtitle">決算書・申告書作成</div>
+        </div>
+        <div class="price-card-body">
+          <div class="price-amount"><span class="yen">&#165;</span>120,000<small>～</small></div>
+          <div class="price-note">税別</div>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> 決算書の作成</li>
+            <li><i class="fas fa-check"></i> 法人税申告書作成</li>
+            <li><i class="fas fa-check"></i> 消費税申告書作成</li>
+            <li><i class="fas fa-check"></i> 電子申告対応</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="price-free fade-in">
+      <h3><i class="fas fa-gift"></i>&ensp;会社設立のご相談</h3>
+      <div class="free-label">無料</div>
+      <p>起業をお考えの方は、まずはお気軽にご相談ください。<br>設立手続きから事業計画まで、初回相談は無料です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 事務所概要 -->
+<section class="section" style="background:var(--white);" id="office">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="en">About Us</span>
+      <h2>事務所概要</h2>
+    </div>
+    <div class="office-content fade-in">
+      <div class="office-image">
+        <img src="https://yamamoto-cpa.com/wp/wp-content/themes/original1.4.4_blue/img/common/price_b.jpg" alt="山本孝之公認会計士事務所">
+      </div>
+      <div>
+        <table class="office-table">
+          <tr>
+            <th>事務所名</th>
+            <td>山本孝之公認会計士事務所</td>
+          </tr>
+          <tr>
+            <th>代表者</th>
+            <td>山本 孝之（公認会計士・税理士）</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>〒222-0033<br>神奈川県横浜市港北区新横浜3-19-11<br>加瀬ビル88-1002</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><a href="tel:045-534-9473" style="color:var(--green);font-weight:500;">045-534-9473</a></td>
+          </tr>
+          <tr>
+            <th>営業時間</th>
+            <td>9:00〜18:00（平日）</td>
+          </tr>
+          <tr>
+            <th>対応地域</th>
+            <td>神奈川県、東京都、埼玉県</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- アクセス -->
+<section class="section" id="access">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="en">Access</span>
+      <h2>アクセス</h2>
+    </div>
+    <div class="map-wrapper fade-in">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.5!2d139.617!3d35.5076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5paw5qiq5rWc!5e0!3m2!1sja!2sjp!4v1700000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="access-info">
+      <div class="access-card fade-in">
+        <i class="fas fa-train"></i>
+        <div>
+          <h4>電車でお越しの方</h4>
+          <p>JR横浜線・横浜市営地下鉄「新横浜駅」より徒歩約5分</p>
+        </div>
+      </div>
+      <div class="access-card fade-in">
+        <i class="fas fa-car"></i>
+        <div>
+          <h4>お車でお越しの方</h4>
+          <p>近隣にコインパーキングあり。お車でのご来所も可能です。</p>
+        </div>
+      </div>
+      <div class="access-card fade-in">
+        <i class="fas fa-clock"></i>
+        <div>
+          <h4>営業時間</h4>
+          <p>平日 9:00〜18:00<br>土日祝はお休み（事前予約で対応可）</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-inner">
+    <h2 class="fade-in">まずはお気軽にご相談ください</h2>
+    <p class="fade-in">初回のご相談は無料です。どんな小さなことでもお気軽にお問い合わせください。</p>
+    <div class="cta-buttons fade-in">
+      <a href="mailto:info@yamamoto-cpa.com" class="btn btn-white"><i class="fas fa-envelope"></i> メールで相談する</a>
+      <a href="tel:045-534-9473" class="btn btn-tel">
+        <i class="fas fa-phone"></i>
+        <span><span class="num">045-534-9473</span><br><small style="font-size:0.7rem;opacity:0.7;">平日 9:00〜18:00</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="https://yamamoto-cpa.com/wp/wp-content/themes/original1.4.4_blue/img/common/title.png" alt="山本孝之公認会計士事務所">
+  </div>
+  <div class="footer-info">
+    〒222-0033 神奈川県横浜市港北区新横浜3-19-11 加瀬ビル88-1002<br>
+    TEL: 045-534-9473 ／ 営業時間: 平日 9:00〜18:00
+  </div>
+  <div class="footer-copy">&copy; 山本孝之公認会計士事務所 All Rights Reserved.</div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="mobile-cta">
+  <a href="tel:045-534-9473" class="cta-tel"><i class="fas fa-phone"></i> 電話する</a>
+  <a href="#contact" class="cta-mail"><i class="fas fa-envelope"></i> 無料相談</a>
+</div>
+
+<script>
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('active');
+  mobileNav.classList.toggle('active');
+  document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+});
+// Close mobile nav on link click
+mobileNav.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+
+// Scroll fade-in with IntersectionObserver
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(function(el) {
+  observer.observe(el);
+});
+
+// Header shadow on scroll
+var header = document.querySelector('.header');
+window.addEventListener('scroll', function() {
+  header.style.boxShadow = window.scrollY > 10
+    ? '0 4px 20px rgba(0,0,0,0.1)'
+    : '0 2px 10px rgba(0,0,0,0.06)';
+});
+</script>
+</body>
+</html>
