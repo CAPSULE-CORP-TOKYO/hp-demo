@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小寺勇毅税理士事務所 | 新横浜駅徒歩8分・わかりやすい税務サポート</title>
+<meta name="description" content="新横浜駅徒歩8分。わかりやすさを大切に、記帳代行から確定申告、税務調査対応まで。初回相談無料。小寺勇毅税理士事務所。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+ul { list-style: none; }
+
+:root {
+  --indigo: #2c3e6b;
+  --indigo-light: #3d5590;
+  --coral: #e07850;
+  --coral-dark: #c96640;
+  --cream: #faf8f5;
+  --white: #ffffff;
+  --gray-light: #f4f5f7;
+  --text: #333;
+  --text-light: #666;
+  --shadow: 0 4px 24px rgba(44,62,107,0.08);
+  --shadow-lg: 0 8px 40px rgba(44,62,107,0.12);
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section-padding { padding: 60px 0; }
+.section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--coral); text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-size: 1.6rem; font-weight: 700; color: var(--indigo); margin-bottom: 12px; line-height: 1.4; }
+.section-subtitle { font-size: 0.95rem; color: var(--text-light); margin-bottom: 40px; }
+.text-center { text-align: center; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 700; transition: all var(--transition); cursor: pointer; border: none; font-family: inherit; }
+.btn-coral { background: var(--coral); color: #fff; box-shadow: 0 4px 16px rgba(224,120,80,0.3); }
+.btn-coral:hover { background: var(--coral-dark); transform: translateY(-2px); }
+
+.header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 40px; height: 40px; background: var(--indigo); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 1.1rem; }
+.logo-text { font-size: 0.82rem; font-weight: 700; color: var(--indigo); line-height: 1.3; }
+.logo-text small { display: block; font-size: 0.6rem; color: var(--text-light); font-weight: 400; }
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text); transition: var(--transition); }
+.nav-links a:hover { color: var(--coral); }
+.nav-cta { background: var(--coral); color: #fff !important; padding: 8px 20px; border-radius: 50px; font-weight: 700 !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { width: 24px; height: 2px; background: var(--indigo); }
+
+/* HERO */
+.hero { margin-top: 70px; padding: 80px 0 60px; background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-light) 100%); position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; bottom: -40%; right: -15%; width: 50%; height: 180%; background: radial-gradient(circle, rgba(224,120,80,0.1) 0%, transparent 70%); }
+.hero-content { position: relative; z-index: 2; }
+.hero-badge { display: inline-block; background: rgba(224,120,80,0.25); color: #f0b89c; padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 20px; }
+.hero h1 { font-size: 2rem; font-weight: 900; color: #fff; line-height: 1.5; margin-bottom: 16px; }
+.hero h1 span { color: #f0b89c; }
+.hero-desc { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 600px; }
+.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-points { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.15); }
+.hero-point { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.8); font-size: 0.85rem; }
+.hero-point i { color: #f0b89c; }
+
+/* CONCEPT */
+.concept { background: var(--cream); }
+.concept-card { max-width: 700px; margin: 0 auto; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px; text-align: center; }
+.concept-card h3 { font-size: 1.4rem; font-weight: 700; color: var(--indigo); margin-bottom: 16px; }
+.concept-card h3 span { color: var(--coral); }
+.concept-card p { font-size: 0.95rem; color: var(--text-light); }
+
+/* SERVICES */
+.service-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.service-card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transition: var(--transition); }
+.service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.service-card-top { padding: 20px 24px; background: var(--indigo); color: #fff; display: flex; align-items: center; gap: 12px; }
+.service-card-top i { font-size: 1.3rem; color: #f0b89c; }
+.service-card-top h3 { font-size: 1rem; font-weight: 700; }
+.service-card-body { padding: 20px 24px; }
+.service-card-body p { font-size: 0.9rem; color: var(--text-light); }
+
+/* FLOW */
+.flow { background: var(--gray-light); }
+.flow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.flow-step { text-align: center; padding: 24px 16px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); position: relative; }
+.flow-step::after { content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); color: var(--coral); font-size: 1.2rem; font-weight: 900; }
+.flow-step:last-child::after { display: none; }
+.flow-num { width: 40px; height: 40px; border-radius: 50%; background: var(--coral); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-weight: 900; font-size: 1.1rem; }
+.flow-step h4 { font-size: 0.9rem; font-weight: 700; color: var(--indigo); margin-bottom: 4px; }
+.flow-step p { font-size: 0.8rem; color: var(--text-light); }
+
+/* ACCESS */
+.access-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.access-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); min-height: 300px; }
+.access-map iframe { width: 100%; height: 100%; min-height: 300px; border: 0; }
+.access-info { display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+.access-item { display: flex; gap: 12px; }
+.access-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--indigo); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.access-detail h4 { font-size: 0.9rem; font-weight: 700; color: var(--indigo); margin-bottom: 2px; }
+.access-detail p { font-size: 0.85rem; color: var(--text-light); }
+
+/* CTA */
+.cta-section { background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-light) 100%); padding: 60px 0; text-align: center; }
+.cta-section h2 { font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 12px; }
+.cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 32px; font-size: 0.95rem; }
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+.footer { background: #161f35; color: rgba(255,255,255,0.7); padding: 40px 0 20px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+.footer-info h3 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
+.footer-info p { font-size: 0.8rem; line-height: 1.8; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.6); transition: var(--transition); }
+.footer-links a:hover { color: var(--coral); }
+.footer-bottom { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; }
+
+.mobile-nav { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: #fff; box-shadow: var(--shadow-lg); padding: 20px; z-index: 999; }
+.mobile-nav.active { display: block; }
+.mobile-nav a { display: block; padding: 12px 0; font-size: 1rem; font-weight: 500; border-bottom: 1px solid #eee; }
+.floating-cta { display: none; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 998; background: var(--coral); padding: 12px 20px; }
+.floating-cta a { display: flex; align-items: center; justify-content: center; gap: 8px; color: #fff; font-weight: 700; font-size: 1rem; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero { padding: 60px 0 40px; }
+  .service-cards { grid-template-columns: 1fr; }
+  .flow-steps { grid-template-columns: repeat(2, 1fr); }
+  .flow-step::after { display: none; }
+  .access-content { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; }
+  .floating-cta { display: block; }
+  .section-padding { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">K</div>
+      <div class="logo-text">小寺勇毅税理士事務所<small>Kotera Tax Office</small></div>
+    </a>
+    <nav class="nav-links">
+      <a href="#concept">事務所について</a>
+      <a href="#services">サービス</a>
+      <a href="#flow">ご契約の流れ</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta"><i class="fas fa-envelope"></i> 無料相談</a>
+    </nav>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#concept" onclick="toggleNav()">事務所について</a>
+  <a href="#services" onclick="toggleNav()">サービス</a>
+  <a href="#flow" onclick="toggleNav()">ご契約の流れ</a>
+  <a href="#access" onclick="toggleNav()">アクセス</a>
+  <a href="#contact" onclick="toggleNav()">無料相談</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-badge"><i class="fas fa-gift"></i> 初回相談無料</div>
+    <h1><span>「わかりやすさ」</span>を<br>大切にする税理士</h1>
+    <p class="hero-desc">新横浜エリアを中心に、個人事業主・中小企業の税務をサポート。難しい税制も、独自の補足資料でわかりやすくご説明します。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-coral"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
+      <a href="tel:045-717-9303" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.5)"><i class="fas fa-phone"></i> 045-717-9303</a>
+    </div>
+    <div class="hero-points">
+      <span class="hero-point"><i class="fas fa-check-circle"></i> 初回相談無料</span>
+      <span class="hero-point"><i class="fas fa-check-circle"></i> 新横浜駅徒歩8分</span>
+      <span class="hero-point"><i class="fas fa-check-circle"></i> 東京・神奈川全域対応</span>
+      <span class="hero-point"><i class="fas fa-check-circle"></i> インボイス制度対応</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept section-padding" id="concept">
+  <div class="container text-center">
+    <div class="section-label">Concept</div>
+    <h2 class="section-title">事務所について</h2>
+    <p class="section-subtitle">地域密着・フットワーク軽い対応</p>
+    <div class="concept-card">
+      <h3><span>「わかりやすさ」</span>へのこだわり</h3>
+      <p>電子帳簿保存法やインボイス制度など、複雑化する税制。当事務所では、オリジナルの補足資料を作成し、お客様が理解・納得できるまで丁寧にご説明します。「税理士に聞いてもよくわからない」ということがないよう、わかりやすさを最優先に考えています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-padding" id="services">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">サービス内容</h2>
+      <p class="section-subtitle">個人事業主から法人まで幅広くサポート</p>
+    </div>
+    <div class="service-cards">
+      <div class="service-card">
+        <div class="service-card-top"><i class="fas fa-pen-fancy"></i><h3>記帳代行・記帳指導</h3></div>
+        <div class="service-card-body"><p>日々の取引の記帳を代行、または自計化に向けた記帳指導を行います。お客様の状況に合わせて最適な方法をご提案。</p></div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><i class="fas fa-file-alt"></i><h3>確定申告書の作成・提出</h3></div>
+        <div class="service-card-body"><p>所得税・法人税の確定申告書を正確に作成・提出代行。節税ポイントもしっかりアドバイスします。</p></div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><i class="fas fa-clipboard-list"></i><h3>各種届出書の提出代行</h3></div>
+        <div class="service-card-body"><p>開業届、青色申告承認申請書など、税務関係の届出書の作成・提出を代行します。</p></div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top"><i class="fas fa-shield-alt"></i><h3>税務調査の立ち合い</h3></div>
+        <div class="service-card-body"><p>万が一の税務調査にも安心。事前準備から調査当日の立ち合い、修正申告まで全面的にサポートします。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow section-padding" id="flow">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Flow</div>
+      <h2 class="section-title">ご契約までの流れ</h2>
+      <p class="section-subtitle">4つのステップで簡単スタート</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <h4>お問い合わせ</h4>
+        <p>お電話・メールでお気軽にご連絡ください</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <h4>初回面談（無料）</h4>
+        <p>ご状況をヒアリングし、最適なプランをご提案</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <h4>お見積り</h4>
+        <p>内容とお見積りにご納得いただけたらご契約</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <h4>サービス開始</h4>
+        <p>月次サポートで安心の税務管理をスタート</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="section-padding" id="access">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Access</div>
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-subtitle">新横浜駅より徒歩8分</p>
+    </div>
+    <div class="access-content">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.5!2d139.617!3d35.508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5paw5qiq5rWc!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="access-info">
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="access-detail">
+            <h4>住所</h4>
+            <p>〒222-0026<br>神奈川県横浜市港北区篠原町2794-4<br>グランビューライフ新横浜 301号室</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-train"></i></div>
+          <div class="access-detail">
+            <h4>最寄り駅</h4>
+            <p>新横浜駅より徒歩8分</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-phone"></i></div>
+          <div class="access-detail">
+            <h4>電話番号</h4>
+            <p>045-717-9303</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-fax"></i></div>
+          <div class="access-detail">
+            <h4>FAX</h4>
+            <p>045-717-9343</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-clock"></i></div>
+          <div class="access-detail">
+            <h4>受付時間</h4>
+            <p>AM 9:00〜PM 5:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>初回相談無料 ― お気軽にご連絡ください</h2>
+    <p>「わかりやすさ」を大切にする税理士が、あなたの税務の不安を解消します。</p>
+    <div class="cta-buttons">
+      <a href="tel:045-717-9303" class="btn btn-coral"><i class="fas fa-phone"></i> 045-717-9303</a>
+      <a href="mailto:info@kotera-tax.com" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.5)"><i class="fas fa-envelope"></i> メールで相談</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <h3>小寺勇毅税理士事務所</h3>
+        <p>〒222-0026 神奈川県横浜市港北区篠原町2794-4 グランビューライフ新横浜301<br>TEL: 045-717-9303 / FAX: 045-717-9343</p>
+      </div>
+      <div class="footer-links">
+        <a href="#concept">事務所について</a>
+        <a href="#services">サービス</a>
+        <a href="#flow">ご契約の流れ</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">無料相談</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 小寺勇毅税理士事務所 All Rights Reserved.</div>
+  </div>
+</footer>
+
+<div class="floating-cta">
+  <a href="tel:045-717-9303"><i class="fas fa-phone"></i> 今すぐ電話で相談する</a>
+</div>
+
+<script>
+function toggleNav(){document.getElementById('mobileNav').classList.toggle('active')}
+</script>
+</body>
+</html>

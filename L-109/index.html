@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日野一義税理士事務所 | 横浜駅徒歩3分・経営と税務のパートナー</title>
+<meta name="description" content="横浜駅徒歩3分。300社超の実績。会計・税務・経営コンサルティング。法人顧問月額2万円〜。日野一義税理士事務所。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  background: #fff;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+ul { list-style: none; }
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #1a3a5c;
+  --primary-light: #2a5580;
+  --accent: #c8962e;
+  --accent-dark: #b07e1f;
+  --cream: #faf7f2;
+  --white: #ffffff;
+  --gray-light: #f5f6f8;
+  --gray: #888;
+  --text: #333;
+  --text-light: #666;
+  --shadow: 0 4px 24px rgba(26,58,92,0.08);
+  --shadow-lg: 0 8px 40px rgba(26,58,92,0.12);
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+/* ===== UTILITY ===== */
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section-padding { padding: 60px 0; }
+.section-label {
+  display: inline-block; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px;
+}
+.section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; line-height: 1.4; }
+.section-subtitle { font-size: 0.95rem; color: var(--text-light); margin-bottom: 40px; }
+.text-center { text-align: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px;
+  border-radius: 50px; font-size: 1rem; font-weight: 700;
+  transition: all var(--transition); cursor: pointer; border: none; font-family: inherit;
+}
+.btn-accent { background: var(--accent); color: #fff; box-shadow: 0 4px 16px rgba(200,150,46,0.3); }
+.btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(200,150,46,0.4); }
+.btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+.btn-outline:hover { background: var(--primary); color: #fff; }
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06); transition: var(--transition);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 40px; height: 40px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-weight: 900; font-size: 1.2rem; }
+.logo-text { font-size: 0.85rem; font-weight: 700; color: var(--primary); line-height: 1.3; }
+.logo-text small { display: block; font-size: 0.65rem; color: var(--text-light); font-weight: 400; }
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text); transition: var(--transition); }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta { background: var(--accent); color: #fff !important; padding: 8px 20px; border-radius: 50px; font-weight: 700 !important; }
+.nav-cta:hover { background: var(--accent-dark); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { width: 24px; height: 2px; background: var(--primary); transition: var(--transition); }
+
+/* ===== HERO ===== */
+.hero {
+  margin-top: 70px; padding: 80px 0 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%;
+  background: radial-gradient(circle, rgba(200,150,46,0.1) 0%, transparent 70%);
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-badge {
+  display: inline-block; background: rgba(200,150,46,0.2); color: var(--accent);
+  padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 20px;
+}
+.hero h1 { font-size: 2rem; font-weight: 900; color: #fff; line-height: 1.4; margin-bottom: 16px; }
+.hero h1 span { color: var(--accent); }
+.hero-desc { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 600px; }
+.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15);
+}
+.hero-stat { text-align: center; }
+.hero-stat-num { font-size: 1.8rem; font-weight: 900; color: var(--accent); }
+.hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+/* ===== FEATURES ===== */
+.features { background: var(--cream); }
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card {
+  background: #fff; padding: 32px 24px; border-radius: var(--radius);
+  box-shadow: var(--shadow); text-align: center; transition: var(--transition);
+}
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.feature-icon {
+  width: 64px; height: 64px; border-radius: 16px; display: flex;
+  align-items: center; justify-content: center; margin: 0 auto 16px;
+  font-size: 1.5rem;
+}
+.feature-icon.blue { background: rgba(26,58,92,0.1); color: var(--primary); }
+.feature-icon.gold { background: rgba(200,150,46,0.15); color: var(--accent); }
+.feature-icon.green { background: rgba(46,160,120,0.1); color: #2ea078; }
+.feature-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.feature-card p { font-size: 0.9rem; color: var(--text-light); }
+
+/* ===== SERVICES ===== */
+.service-list { display: flex; flex-direction: column; gap: 24px; }
+.service-item {
+  display: flex; gap: 24px; background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden; transition: var(--transition);
+}
+.service-item:hover { box-shadow: var(--shadow-lg); }
+.service-num {
+  min-width: 64px; background: var(--primary); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; font-weight: 900;
+}
+.service-body { padding: 24px; flex: 1; }
+.service-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.service-body p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 12px; }
+.service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.service-tag {
+  font-size: 0.75rem; background: var(--gray-light); color: var(--text-light);
+  padding: 4px 12px; border-radius: 50px;
+}
+
+/* ===== PRICING ===== */
+.pricing { background: var(--gray-light); }
+.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.pricing-card {
+  background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);
+  overflow: hidden; transition: var(--transition);
+}
+.pricing-card.featured { border: 2px solid var(--accent); }
+.pricing-header {
+  padding: 24px; background: var(--primary); color: #fff; text-align: center;
+}
+.pricing-card.featured .pricing-header { background: var(--accent); }
+.pricing-header h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.pricing-header .price { font-size: 1.8rem; font-weight: 900; }
+.pricing-header .price small { font-size: 0.85rem; font-weight: 400; }
+.pricing-body { padding: 24px; }
+.pricing-body li { padding: 8px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; color: var(--text-light); display: flex; align-items: center; gap: 8px; }
+.pricing-body li i { color: var(--accent); font-size: 0.8rem; }
+
+/* ===== PROFILE ===== */
+.profile-content { display: flex; gap: 40px; align-items: center; }
+.profile-img-wrap { flex-shrink: 0; width: 200px; }
+.profile-img {
+  width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
+  border: 4px solid var(--accent); box-shadow: var(--shadow);
+  background: var(--gray-light); display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; color: var(--primary);
+}
+.profile-info h3 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+.profile-info .title { font-size: 0.9rem; color: var(--accent); font-weight: 700; margin-bottom: 16px; }
+.profile-info p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 12px; }
+.profile-highlights { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.profile-highlight {
+  display: flex; align-items: center; gap: 6px; padding: 6px 14px;
+  background: var(--cream); border-radius: 50px; font-size: 0.8rem; color: var(--primary); font-weight: 500;
+}
+
+/* ===== ACCESS ===== */
+.access { background: var(--gray-light); }
+.access-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.access-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); min-height: 300px; }
+.access-map iframe { width: 100%; height: 100%; min-height: 300px; border: 0; }
+.access-info { display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+.access-item { display: flex; gap: 12px; }
+.access-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.access-detail h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+.access-detail p { font-size: 0.85rem; color: var(--text-light); }
+
+/* ===== CTA ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  padding: 60px 0; text-align: center;
+}
+.cta-section h2 { font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 12px; }
+.cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 32px; font-size: 0.95rem; }
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-phone { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 1.5rem; font-weight: 900; }
+.cta-phone small { display: block; font-size: 0.75rem; font-weight: 400; }
+
+/* ===== FOOTER ===== */
+.footer { background: #0d1b2e; color: rgba(255,255,255,0.7); padding: 40px 0 20px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+.footer-info h3 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
+.footer-info p { font-size: 0.8rem; line-height: 1.8; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.6); transition: var(--transition); }
+.footer-links a:hover { color: var(--accent); }
+.footer-bottom { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; }
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav {
+  display: none; position: fixed; top: 70px; left: 0; width: 100%; background: #fff;
+  box-shadow: var(--shadow-lg); padding: 20px; z-index: 999;
+}
+.mobile-nav.active { display: block; }
+.mobile-nav a { display: block; padding: 12px 0; font-size: 1rem; font-weight: 500; border-bottom: 1px solid #eee; }
+
+/* ===== FLOATING CTA ===== */
+.floating-cta {
+  display: none; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 998;
+  background: var(--accent); padding: 12px 20px;
+}
+.floating-cta a {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  color: #fff; font-weight: 700; font-size: 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero { padding: 60px 0 40px; }
+  .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .hero-stat-num { font-size: 1.3rem; }
+  .features-grid { grid-template-columns: 1fr; }
+  .service-item { flex-direction: column; }
+  .service-num { min-width: auto; padding: 12px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .profile-content { flex-direction: column; text-align: center; }
+  .profile-img-wrap { margin: 0 auto; }
+  .profile-highlights { justify-content: center; }
+  .access-content { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; }
+  .floating-cta { display: block; }
+  .section-padding { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">日</div>
+      <div class="logo-text">日野一義税理士事務所<small>Hino Kazuyoshi Tax Office</small></div>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">選ばれる理由</a>
+      <a href="#services">サービス</a>
+      <a href="#pricing">料金案内</a>
+      <a href="#profile">事務所紹介</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta"><i class="fas fa-envelope"></i> お問い合わせ</a>
+    </nav>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#features" onclick="toggleNav()">選ばれる理由</a>
+  <a href="#services" onclick="toggleNav()">サービス</a>
+  <a href="#pricing" onclick="toggleNav()">料金案内</a>
+  <a href="#profile" onclick="toggleNav()">事務所紹介</a>
+  <a href="#access" onclick="toggleNav()">アクセス</a>
+  <a href="#contact" onclick="toggleNav()">お問い合わせ</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-badge"><i class="fas fa-award"></i> 横浜駅徒歩3分・スカイビル27F</div>
+    <h1>ベテランと若手の力で<br><span>経営の未来</span>を支える</h1>
+    <p class="hero-desc">建設業・飲食業・NPOなど幅広い業種に対応。会計・税務・経営のトータルサポートで、300社超のお客様と共に歩んできました。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-accent"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
+      <a href="tel:045-548-3514" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.5)"><i class="fas fa-phone"></i> 045-548-3514</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">300<small>社超</small></div>
+        <div class="hero-stat-label">顧問実績</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4<small>拠点</small></div>
+        <div class="hero-stat-label">横浜・東京・仙台・石巻</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">徒歩3<small>分</small></div>
+        <div class="hero-stat-label">JR横浜駅から</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features section-padding" id="features">
+  <div class="container text-center">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">選ばれる3つの理由</h2>
+    <p class="section-subtitle">お客様のビジネスに寄り添い、最適な解決策をご提案します</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon blue"><i class="fas fa-users"></i></div>
+        <h3>ベテラン×若手の<br>チーム対応</h3>
+        <p>経験豊富なベテランと、フットワークの軽い若手がチームでサポート。迅速かつ的確なアドバイスを実現します。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon gold"><i class="fas fa-building"></i></div>
+        <h3>幅広い業種に<br>対応</h3>
+        <p>建設業・飲食業・NPOなど多様な業種の300社超をサポートしてきた実績。業界特有の課題にも精通しています。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon green"><i class="fas fa-handshake"></i></div>
+        <h3>セカンド<br>オピニオン対応</h3>
+        <p>現在の税理士に不安がある方にも対応。客観的な視点から、最善の税務戦略をご提案いたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-padding" id="services">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">業務内容</h2>
+      <p class="section-subtitle">会計・税務・経営のトータルサポート</p>
+    </div>
+    <div class="service-list">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <div class="service-body">
+          <h3>会計業務コンサルティング</h3>
+          <p>日々の記帳から月次監査まで、正確な会計処理をサポート。経営判断に必要な財務資料をタイムリーにご提供します。</p>
+          <div class="service-tags">
+            <span class="service-tag">記帳代行</span>
+            <span class="service-tag">会計監査</span>
+            <span class="service-tag">月次資料提供</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <div class="service-body">
+          <h3>財務・税務コンサルティング</h3>
+          <p>決算診断から経営計画策定、税務顧問、相続税対策まで。お客様の状況に合わせた最適な税務戦略をご提案します。</p>
+          <div class="service-tags">
+            <span class="service-tag">決算診断</span>
+            <span class="service-tag">経営計画策定</span>
+            <span class="service-tag">税務顧問</span>
+            <span class="service-tag">相続税対策</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <div class="service-body">
+          <h3>経営・人事コンサルティング</h3>
+          <p>会社設立から給与計算のアウトソーシングまで。経営基盤の強化と業務効率化をトータルでサポートします。</p>
+          <div class="service-tags">
+            <span class="service-tag">会社設立支援</span>
+            <span class="service-tag">給与計算</span>
+            <span class="service-tag">アウトソーシング</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing section-padding" id="pricing">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">料金案内</h2>
+      <p class="section-subtitle">明瞭な料金体系で安心してご依頼いただけます</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card featured">
+        <div class="pricing-header">
+          <h3>法人顧問プラン</h3>
+          <div class="price">月額 20,000<small>円〜</small></div>
+        </div>
+        <ul class="pricing-body">
+          <li><i class="fas fa-check"></i> 月次顧問料（年商規模に応じて）</li>
+          <li><i class="fas fa-check"></i> 年商1,000万円未満：月額20,000円</li>
+          <li><i class="fas fa-check"></i> 年商3,000万円未満：月額30,000円</li>
+          <li><i class="fas fa-check"></i> 年商5,000万円未満：月額40,000円</li>
+          <li><i class="fas fa-check"></i> 年商1億円未満：月額50,000円</li>
+          <li><i class="fas fa-check"></i> 年商1億円以上：月額60,000円</li>
+          <li><i class="fas fa-check"></i> 決算報酬：年100,000〜300,000円</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>相続税対策プラン</h3>
+          <div class="price">150,000<small>円〜</small></div>
+        </div>
+        <ul class="pricing-body">
+          <li><i class="fas fa-check"></i> 遺産額3,000万円未満：150,000円</li>
+          <li><i class="fas fa-check"></i> 遺産額に応じて変動</li>
+          <li><i class="fas fa-check"></i> 生前対策のご相談対応</li>
+          <li><i class="fas fa-check"></i> 相続税申告書の作成</li>
+          <li><i class="fas fa-check"></i> 遺産分割のアドバイス</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section class="section-padding" id="profile">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">事務所紹介</h2>
+      <p class="section-subtitle">お客様のビジネスパートナーとして</p>
+    </div>
+    <div class="profile-content">
+      <div class="profile-img-wrap">
+        <div class="profile-img"><i class="fas fa-user-tie"></i></div>
+      </div>
+      <div class="profile-info">
+        <h3>日野一義税理士事務所</h3>
+        <div class="title">代表税理士</div>
+        <p>横浜を拠点に東京・仙台・石巻と4つの活動拠点を持ち、300社超の経営相談実績を重ねてまいりました。復興支援活動を通じた地域貢献にも力を入れています。</p>
+        <p>ベテランスタッフと若手の協力体制により、お客様一人ひとりに寄り添った丁寧なサービスを提供しています。</p>
+        <div class="profile-highlights">
+          <span class="profile-highlight"><i class="fas fa-check-circle"></i> 300社超の実績</span>
+          <span class="profile-highlight"><i class="fas fa-check-circle"></i> 4拠点展開</span>
+          <span class="profile-highlight"><i class="fas fa-check-circle"></i> 復興支援活動</span>
+          <span class="profile-highlight"><i class="fas fa-check-circle"></i> セカンドオピニオン</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access section-padding" id="access">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Access</div>
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-subtitle">JR横浜駅から徒歩3分のアクセス良好な立地</p>
+    </div>
+    <div class="access-content">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.1!2d139.6185!3d35.4615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185c13f4e1c3e1%3A0x3c46d14449361c0!2z44K544Kr44Kk44OT44Or!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="access-info">
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="access-detail">
+            <h4>住所</h4>
+            <p>〒220-0011<br>神奈川県横浜市西区高島2-19-12<br>スカイビル27F</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-train"></i></div>
+          <div class="access-detail">
+            <h4>最寄り駅</h4>
+            <p>JR横浜駅 改札口より徒歩3分</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-phone"></i></div>
+          <div class="access-detail">
+            <h4>電話番号</h4>
+            <p>045-548-3514</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-fax"></i></div>
+          <div class="access-detail">
+            <h4>FAX</h4>
+            <p>045-548-3614</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-envelope"></i></div>
+          <div class="access-detail">
+            <h4>メール</h4>
+            <p>info@one-justice.jp</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>初回のご相談は無料です。お電話またはメールにてお問い合わせください。</p>
+    <div class="cta-buttons">
+      <a href="tel:045-548-3514" class="btn btn-accent"><i class="fas fa-phone"></i> 045-548-3514</a>
+      <a href="mailto:info@one-justice.jp" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.5)"><i class="fas fa-envelope"></i> メールで相談</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <h3>日野一義税理士事務所</h3>
+        <p>〒220-0011 神奈川県横浜市西区高島2-19-12 スカイビル27F<br>TEL: 045-548-3514 / FAX: 045-548-3614</p>
+      </div>
+      <div class="footer-links">
+        <a href="#features">選ばれる理由</a>
+        <a href="#services">サービス</a>
+        <a href="#pricing">料金案内</a>
+        <a href="#profile">事務所紹介</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 日野一義税理士事務所 All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING CTA (MOBILE) -->
+<div class="floating-cta">
+  <a href="tel:045-548-3514"><i class="fas fa-phone"></i> 今すぐ電話で相談する</a>
+</div>
+
+<script>
+function toggleNav() {
+  document.getElementById('mobileNav').classList.toggle('active');
+}
+document.addEventListener('scroll', function() {
+  const h = document.querySelector('.header');
+  h.style.boxShadow = window.scrollY > 50 ? '0 2px 16px rgba(0,0,0,0.1)' : '0 1px 8px rgba(0,0,0,0.06)';
+});
+</script>
+</body>
+</html>

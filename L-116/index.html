@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ウィズグロース会計事務所 | 横浜駅徒歩3分・会社設立&創業支援</title>
+<meta name="description" content="横浜駅徒歩3分。会社設立手数料0円（月3社限定）。創業融資は着手金0円の完全成功報酬。中小企業の黒字化支援に強いウィズグロース会計事務所。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+ul { list-style: none; }
+
+:root {
+  --blue: #1a5276;
+  --blue-light: #2471a3;
+  --orange: #e67e22;
+  --orange-dark: #d35400;
+  --cream: #fef9f3;
+  --white: #ffffff;
+  --gray-light: #f5f7fa;
+  --text: #333;
+  --text-light: #666;
+  --shadow: 0 4px 24px rgba(26,82,118,0.08);
+  --shadow-lg: 0 8px 40px rgba(26,82,118,0.12);
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section-padding { padding: 60px 0; }
+.section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--orange); text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-size: 1.6rem; font-weight: 700; color: var(--blue); margin-bottom: 12px; line-height: 1.4; }
+.section-subtitle { font-size: 0.95rem; color: var(--text-light); margin-bottom: 40px; }
+.text-center { text-align: center; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 700; transition: all var(--transition); cursor: pointer; border: none; font-family: inherit; }
+.btn-orange { background: var(--orange); color: #fff; box-shadow: 0 4px 16px rgba(230,126,34,0.3); }
+.btn-orange:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+.header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 40px; height: 40px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--orange); font-weight: 900; font-size: 0.9rem; }
+.logo-text { font-size: 0.8rem; font-weight: 700; color: var(--blue); line-height: 1.3; }
+.logo-text small { display: block; font-size: 0.6rem; color: var(--text-light); font-weight: 400; }
+.nav-links { display: flex; gap: 20px; align-items: center; }
+.nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--text); transition: var(--transition); }
+.nav-links a:hover { color: var(--orange); }
+.nav-cta { background: var(--orange); color: #fff !important; padding: 8px 20px; border-radius: 50px; font-weight: 700 !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { width: 24px; height: 2px; background: var(--blue); }
+
+/* HERO */
+.hero { margin-top: 70px; padding: 80px 0 60px; background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -30%; right: -10%; width: 50%; height: 160%; background: radial-gradient(circle, rgba(230,126,34,0.12) 0%, transparent 70%); }
+.hero-content { position: relative; z-index: 2; }
+.hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.hero-badge { display: inline-block; background: rgba(230,126,34,0.25); color: #f5cba7; padding: 6px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; }
+.hero h1 { font-size: 1.9rem; font-weight: 900; color: #fff; line-height: 1.4; margin-bottom: 16px; }
+.hero h1 span { color: #f5cba7; }
+.hero-desc { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 600px; }
+.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15); }
+.hero-stat { text-align: center; }
+.hero-stat-num { font-size: 1.6rem; font-weight: 900; color: #f5cba7; }
+.hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+/* ZERO-YEN BANNER */
+.zero-banner { background: var(--cream); }
+.zero-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.zero-card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px; text-align: center; border: 2px solid var(--orange); }
+.zero-price { font-size: 2.5rem; font-weight: 900; color: var(--orange); }
+.zero-price small { font-size: 1rem; }
+.zero-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--blue); margin: 8px 0; }
+.zero-card p { font-size: 0.85rem; color: var(--text-light); }
+.zero-card .limit { display: inline-block; margin-top: 8px; background: var(--orange); color: #fff; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; }
+
+/* FEATURES */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card { background: var(--gray-light); padding: 32px 24px; border-radius: var(--radius); text-align: center; transition: var(--transition); }
+.feature-card:hover { background: #fff; box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.feature-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.5rem; background: rgba(26,82,118,0.1); color: var(--blue); }
+.feature-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+.feature-card p { font-size: 0.9rem; color: var(--text-light); }
+
+/* SERVICES */
+.services { background: var(--gray-light); }
+.service-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.service-item { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px 20px; text-align: center; transition: var(--transition); }
+.service-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.service-item i { font-size: 2rem; color: var(--blue); margin-bottom: 12px; }
+.service-item h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+.service-item p { font-size: 0.85rem; color: var(--text-light); }
+
+/* PROFILE */
+.profile-box { max-width: 800px; margin: 0 auto; background: var(--gray-light); border-radius: var(--radius); padding: 40px; }
+.profile-box h3 { font-size: 1.2rem; font-weight: 700; color: var(--blue); margin-bottom: 4px; }
+.profile-box .title { color: var(--orange); font-weight: 700; font-size: 0.9rem; margin-bottom: 16px; }
+.profile-box p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 12px; }
+.profile-box .mission { background: #fff; border-left: 4px solid var(--orange); padding: 16px 20px; margin-top: 16px; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: var(--text); line-height: 1.8; }
+
+/* ACCESS */
+.access { background: var(--gray-light); }
+.access-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.access-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); min-height: 300px; }
+.access-map iframe { width: 100%; height: 100%; min-height: 300px; border: 0; }
+.access-info { display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+.access-item { display: flex; gap: 12px; }
+.access-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.access-detail h4 { font-size: 0.9rem; font-weight: 700; color: var(--blue); margin-bottom: 2px; }
+.access-detail p { font-size: 0.85rem; color: var(--text-light); }
+
+/* CTA */
+.cta-section { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%); padding: 60px 0; text-align: center; }
+.cta-section h2 { font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 12px; }
+.cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 32px; font-size: 0.95rem; }
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+.footer { background: #0d2137; color: rgba(255,255,255,0.7); padding: 40px 0 20px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+.footer-info h3 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
+.footer-info p { font-size: 0.8rem; line-height: 1.8; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.6); transition: var(--transition); }
+.footer-links a:hover { color: var(--orange); }
+.footer-bottom { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; }
+
+.mobile-nav { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: #fff; box-shadow: var(--shadow-lg); padding: 20px; z-index: 999; }
+.mobile-nav.active { display: block; }
+.mobile-nav a { display: block; padding: 12px 0; font-size: 1rem; font-weight: 500; border-bottom: 1px solid #eee; }
+.floating-cta { display: none; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 998; background: var(--orange); padding: 12px 20px; }
+.floating-cta a { display: flex; align-items: center; justify-content: center; gap: 8px; color: #fff; font-weight: 700; font-size: 1rem; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero { padding: 60px 0 40px; }
+  .hero-stats { gap: 8px; }
+  .hero-stat-num { font-size: 1.3rem; }
+  .zero-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .service-list { grid-template-columns: 1fr; }
+  .access-content { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; }
+  .floating-cta { display: block; }
+  .section-padding { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">WG</div>
+      <div class="logo-text">ウィズグロース会計事務所<small>With Growth Accounting</small></div>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">サービス</a>
+      <a href="#features">強み</a>
+      <a href="#profile">事務所案内</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta"><i class="fas fa-envelope"></i> 無料相談</a>
+    </nav>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="toggleNav()">サービス</a>
+  <a href="#features" onclick="toggleNav()">強み</a>
+  <a href="#profile" onclick="toggleNav()">事務所案内</a>
+  <a href="#access" onclick="toggleNav()">アクセス</a>
+  <a href="#contact" onclick="toggleNav()">無料相談</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-badges">
+      <span class="hero-badge"><i class="fas fa-star"></i> Google口コミ 5.0（74件）</span>
+      <span class="hero-badge"><i class="fas fa-map-marker-alt"></i> 横浜駅徒歩3分</span>
+    </div>
+    <h1>税金を計算するだけの<br>税理士ではない。<br><span>共に成長するパートナー</span></h1>
+    <p class="hero-desc">会社設立手数料0円・創業融資は着手金0円。中小企業の黒字化支援に全力で取り組む、ウィズグロース会計事務所です。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-orange"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
+      <a href="tel:045-620-6456" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.5)"><i class="fas fa-phone"></i> 045-620-6456</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">0<small>円</small></div>
+        <div class="hero-stat-label">会社設立手数料</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5.0</div>
+        <div class="hero-stat-label">Google口コミ評価</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">徒歩3<small>分</small></div>
+        <div class="hero-stat-label">横浜駅から</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZERO-YEN BANNER -->
+<section class="zero-banner section-padding">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Special Offer</div>
+      <h2 class="section-title">創業・会社設立をお考えの方へ</h2>
+      <p class="section-subtitle">スタートアップを全力でサポートします</p>
+    </div>
+    <div class="zero-grid">
+      <div class="zero-card">
+        <div class="zero-price">0<small>円</small></div>
+        <h3>会社設立手数料</h3>
+        <p>法人設立に必要な手続きを完全サポート。設立後の税務顧問もお任せください。</p>
+        <span class="limit">月3社限定</span>
+      </div>
+      <div class="zero-card">
+        <div class="zero-price">0<small>円</small></div>
+        <h3>創業融資 着手金</h3>
+        <p>完全成功報酬制。融資が実行されなければ費用は一切かかりません。</p>
+        <span class="limit">完全成功報酬</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section-padding" id="features">
+  <div class="container text-center">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">選ばれる理由</h2>
+    <p class="section-subtitle">税金計算だけではない、真の経営パートナー</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+        <h3>毎月の定期訪問</h3>
+        <p>毎月お客様を訪問し、経営状況を把握。タイムリーなアドバイスで経営課題の早期解決を支援します。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+        <h3>黒字化支援</h3>
+        <p>「黒字化」を最重要ミッションとし、財務分析・経営改善提案で中小企業の収益力向上をサポートします。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-file-shield"></i></div>
+        <h3>書面添付制度</h3>
+        <p>税務申告に書面添付を行うことで、税務調査の負担を軽減。信頼性の高い申告をお約束します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services section-padding" id="services">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">サービス内容</h2>
+      <p class="section-subtitle">ワンストップで経営を支える総合サービス</p>
+    </div>
+    <div class="service-list">
+      <div class="service-item">
+        <i class="fas fa-building"></i>
+        <h3>会社設立・法人化</h3>
+        <p>設立手数料0円。法人化のメリット・デメリットを丁寧にご説明します。</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-file-invoice-dollar"></i>
+        <h3>決算申告</h3>
+        <p>設立3期目以内の会社様限定割引。正確・迅速な申告をお約束します。</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-hand-holding-usd"></i>
+        <h3>創業融資サポート</h3>
+        <p>着手金0円の完全成功報酬。事業計画書の作成から面談対策まで全面支援。</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-user-tie"></i>
+        <h3>税務顧問</h3>
+        <p>毎月の定期訪問で経営をサポート。節税対策と経営改善を両立します。</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-family"></i>
+        <h3>相続サポート</h3>
+        <p>相続税申告から生前対策まで。大切な資産を次世代へ円滑に承継します。</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-chart-line"></i>
+        <h3>経営サポート</h3>
+        <p>経営計画の策定、資金繰り改善、提携専門家のご紹介などワンストップ対応。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section class="section-padding" id="profile">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">About</div>
+      <h2 class="section-title">事務所案内</h2>
+      <p class="section-subtitle">代表税理士 藤原 嘉文</p>
+    </div>
+    <div class="profile-box">
+      <h3>ウィズグロース会計事務所</h3>
+      <div class="title">代表税理士 藤原 嘉文</div>
+      <p>神奈川県・東京都全域に対応。毎月の定期訪問と黒字化支援で、中小・零細企業の成長をトータルサポートしています。</p>
+      <div class="mission">
+        <strong>経営理念</strong><br>
+        中小・零細企業の業績向上および黒字化のために何ができるかを常に考え、実行し、他人の為に自分を成長させることが出来る一流の集団になる。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access section-padding" id="access">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Access</div>
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-subtitle">横浜駅から徒歩3分の好立地</p>
+    </div>
+    <div class="access-content">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.2!2d139.624!3d35.466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5qiq5rWc6aeF!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="access-info">
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="access-detail">
+            <h4>住所</h4>
+            <p>〒221-0056<br>神奈川県横浜市神奈川区金港町6-3<br>横浜金港町ビル3階</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-train"></i></div>
+          <div class="access-detail">
+            <h4>最寄り駅</h4>
+            <p>JR横浜駅 きた東口より徒歩3分</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-phone"></i></div>
+          <div class="access-detail">
+            <h4>電話番号</h4>
+            <p>045-620-6456</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-clock"></i></div>
+          <div class="access-detail">
+            <h4>営業時間</h4>
+            <p>平日対応（夕方以降の無料相談も可能）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>まずは無料相談から始めませんか？</h2>
+    <p>会社設立・創業融資・税務顧問…どんなお悩みもお気軽にご相談ください。平日夕方の相談も対応可能です。</p>
+    <div class="cta-buttons">
+      <a href="tel:045-620-6456" class="btn btn-orange"><i class="fas fa-phone"></i> 045-620-6456</a>
+      <a href="https://yokohama-fujiwarakaikei.com/contact/" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.5)"><i class="fas fa-envelope"></i> お問い合わせフォーム</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <h3>ウィズグロース会計事務所</h3>
+        <p>〒221-0056 神奈川県横浜市神奈川区金港町6-3 横浜金港町ビル3階<br>TEL: 045-620-6456 / 代表税理士：藤原 嘉文</p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">サービス</a>
+        <a href="#features">強み</a>
+        <a href="#profile">事務所案内</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">無料相談</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 ウィズグロース会計事務所 All Rights Reserved.</div>
+  </div>
+</footer>
+
+<div class="floating-cta">
+  <a href="tel:045-620-6456"><i class="fas fa-phone"></i> 今すぐ無料相談する</a>
+</div>
+
+<script>
+function toggleNav(){document.getElementById('mobileNav').classList.toggle('active')}
+</script>
+</body>
+</html>
