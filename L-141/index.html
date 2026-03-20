@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和み税理士事務所 | 町田市の税理士</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .contact-info {
+            text-align: right;
+        }
+        .phone {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .hero {
+            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)),
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        .cta-button:hover {
+            background: #ee5a52;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+        }
+        section {
+            padding: 60px 20px;
+        }
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #667eea;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .price-table {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .map-container {
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-button {
+            background: #667eea;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .submit-button:hover {
+            background: #5568d3;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>和み税理士事務所</h1>
+                    <p>町田市の税理士 | 御社の事業拡大をサポート</p>
+                </div>
+                <div class="contact-info">
+                    <div>📞 お電話でのお問い合わせ</div>
+                    <div class="phone">042-785-4750</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>面倒な経理事務をお任せください<br>御社の事業拡大をサポート</h2>
+            <p>JR横浜線「成瀬駅」より徒歩5分<br>新規開業者に限り特別料金で開業を全面サポート</p>
+            <a href="#contact" class="cta-button">無料相談のお申し込み</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>事務所紹介</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+                現在町田市を拠点に東京都、神奈川県、埼玉県、千葉県の中小企業をサポートしています。<br>
+                経営者の方が経理や会計事務に時間をかける事が業務拡大につながるでしょうか？<br>
+                当事務所は経営者の大切な時間を有効に活用して頂き、業務拡大に時間を利用して頂きたいと思います。
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>わかりやすい帳表</h3>
+                    <p>経営判断の助けとなるオリジナル帳表をご用意</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>業務の省力化</h3>
+                    <p>短時間で書類をまとめられる効率化ツール</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h3>身近な相談相手</h3>
+                    <p>社長の身近な相談相手として全力サポート</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>業務内容</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>税務会計顧問</h3>
+                    <p>税務や会計に関する諸々の課題にアドバイスや提案をいたします。御社の業務拡大を目指したサポートと、経理にかける時間の省力化や効率化を実現します。</p>
+                </div>
+                <div class="service-card">
+                    <h3>創業支援</h3>
+                    <p>新規開業者に限り特別料金にて開業時の各種届出、融資、事業計画など起業を全面サポートします。設立後２年以内の法人様も対象です。</p>
+                </div>
+                <div class="service-card">
+                    <h3>経営強化セミナー</h3>
+                    <p>経営強化研修「はりねずみMG」など、体験して学ぶ経営者にとって最高のセミナーを開催しています。</p>
+                </div>
+                <div class="service-card">
+                    <h3>資金繰りサポート</h3>
+                    <p>会社が倒産する時は現金預金がなくなった時です。資金繰りに困らないように融資をはじめ安定した経営ができるようにお手伝い致します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <h2>料金目安</h2>
+            <div class="price-table">
+                <div class="price-item">
+                    <span>新規開業サポート（設立後2年以内）</span>
+                    <strong style="color: #667eea;">特別料金でご案内</strong>
+                </div>
+                <div class="price-item">
+                    <span>税務会計顧問</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>記帳代行</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>決算・申告</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
+            </p>
+        </div>
+    </section>
+
+    <section id="area">
+        <div class="container">
+            <h2>対応エリア</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                町田市、多摩市、横浜市、川崎市、相模原市、大和市、海老名市、座間市、厚木市など<br>
+                東京都、神奈川県、埼玉県、千葉県の中小企業をサポートしています
+            </p>
+        </div>
+    </section>
+
+    <section id="access">
+        <div class="container">
+            <h2>アクセス</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                〒194-0045 東京都町田市南成瀬１丁目7−９ 中里ビル 2･3階<br>
+                📞 042-785-4750<br>
+                JR横浜線「成瀬駅」より徒歩5分
+            </p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.5068978362847!2d139.4686!3d35.5503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f1a2a2a2a2a2%3A0x1!2z5p2x5Lqs6YO955S677yU77yU77yV5p2x5Lqs6YO955S6576O5rSl77yR5LiB55uu!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">お名前 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">会社名</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 和み税理士事務所 All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

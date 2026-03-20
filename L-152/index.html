@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税理士法人宮本会計事務所 横浜事務所 | わかりやすく、シンプルに</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .contact-info {
+            text-align: right;
+        }
+        .phone {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .hero {
+            background: linear-gradient(rgba(6, 95, 70, 0.85), rgba(4, 120, 87, 0.85)),
+                        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+        .cta-button:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+        }
+        section {
+            padding: 60px 20px;
+        }
+        section:nth-child(even) {
+            background: #f0fdf4;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #065f46;
+        }
+        .philosophy {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            max-width: 900px;
+            border-left: 5px solid #065f46;
+        }
+        .philosophy h3 {
+            color: #065f46;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .philosophy p {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #065f46;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .feature h3 {
+            color: #065f46;
+            margin-bottom: 10px;
+        }
+        .price-table {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .map-container {
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-button {
+            background: #065f46;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .submit-button:hover {
+            background: #047857;
+        }
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>税理士法人宮本会計事務所</h1>
+                    <p>横浜事務所 | わかりやすく、シンプルに</p>
+                </div>
+                <div class="contact-info">
+                    <div>📞 お電話でのお問い合わせ</div>
+                    <div class="phone">045-532-6188</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>わかりやすく、シンプルに<br>中小企業経営者をトータルサポート</h2>
+            <p>信頼できる片腕（相談相手）として<br>御社の良好な経営をサポートいたします</p>
+            <a href="#contact" class="cta-button">無料相談のお申し込み</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>事務所理念</h2>
+            <div class="philosophy">
+                <h3>「わかりやすく、シンプルに」</h3>
+                <p>
+                    様々な問題に直面する中小企業経営者にとって、信頼できる片腕（相談相手）がいることはとても心強いことだと思います。
+                </p>
+                <p>
+                    経営者は、時に孤独な判断を迫られる時が有りますが、そんな時頼りになる片腕（相談役）として当事務所をお選びください。
+                </p>
+                <p>
+                    当事務所は、中小企業経営者の一番最初の相談相手として、難しい税務や会計、日々訪れる問題や疑問、複雑な手続きや、難しい経営分析など、とにかく<strong style="color: #065f46;">「わかりやすく、シンプルに」</strong>中小企業経営者をトータルサポートいたします。
+                </p>
+                <p>
+                    節税のアドバイスや情報提供など、自分の身に係ることであれば（お客様目線で経営を考えているのであれば）税理士事務所が積極的に行うことは、当たり前のことです。
+                </p>
+                <p>
+                    当事務所は、それらサポートを如何に<strong style="color: #065f46;">「わかりやすく、シンプルに」</strong>ご提供することを常に心がけています。
+                </p>
+                <p style="text-align: right; margin-top: 30px; font-weight: bold;">税理士　宮本拓馬</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>当事務所の特徴</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3>税理士が直接対応</h3>
+                    <p>担当は常に税理士が対応します</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌐</div>
+                    <h3>万全のネットワーク</h3>
+                    <p>あらゆる問題を解決するネットワーク</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>数字に強い経営者へ</h3>
+                    <p>経営判断に役立つノウハウを提供</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💻</div>
+                    <h3>遠隔記帳指導</h3>
+                    <p>遠隔操作で記帳指導を実施</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏢</div>
+                    <h3>安心の環境づくり</h3>
+                    <p>仕事に専念できる環境を提案</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>本業に専念</h3>
+                    <p>本業に専念できる環境をサポート</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>業務内容</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>税務会計顧問</h3>
+                    <p>月次決算、税務相談、決算申告など、わかりやすく、シンプルに企業の税務会計業務をサポートいたします。</p>
+                </div>
+                <div class="service-card">
+                    <h3>記帳代行</h3>
+                    <p>日々の記帳業務を代行し、経営者が本業に専念できる環境を整えます。遠隔操作での記帳指導も可能です。</p>
+                </div>
+                <div class="service-card">
+                    <h3>経営相談</h3>
+                    <p>難しい経営分析や日々の問題・疑問に、わかりやすく、シンプルにお答えします。お客様の良き相談役として。</p>
+                </div>
+                <div class="service-card">
+                    <h3>節税対策</h3>
+                    <p>お客様目線で、積極的に節税のアドバイスや情報提供を行います。わかりやすい説明を心がけています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <h2>料金目安</h2>
+            <div class="price-table">
+                <div class="price-item">
+                    <span>税務顧問（法人）</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>税務顧問（個人）</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>記帳代行</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>決算・申告</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
+            </p>
+        </div>
+    </section>
+
+    <section id="access">
+        <div class="container">
+            <h2>アクセス</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                〒226-0015 神奈川県横浜市緑区三保町２０６９<br>
+                📞 045-532-6188<br>
+                JR横浜線・横浜市営地下鉄グリーンライン「中山駅」より車で約10分
+            </p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.567!2d139.545!3d35.515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMwJzU0LjAiTiAxMznCsDMyJzQyLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <div class="contact-form">
+                <form action="http://www.miyamo-tax.com/" method="post">
+                    <div class="form-group">
+                        <label for="name">お名前 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">会社名</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 税理士法人宮本会計事務所 横浜事務所 All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

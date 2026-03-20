@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税理士 行政書士 五味英樹事務所 | 川崎市宮前区の税理士</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .contact-info {
+            text-align: right;
+        }
+        .phone {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 64, 175, 0.85)),
+                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+        .cta-button:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+        }
+        section {
+            padding: 60px 20px;
+        }
+        section:nth-child(even) {
+            background: #f1f5f9;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #1e3a8a;
+        }
+        .highlight-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            max-width: 800px;
+            border-left: 5px solid #1e3a8a;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .price-table {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .map-container {
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-button {
+            background: #1e3a8a;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .submit-button:hover {
+            background: #1e40af;
+        }
+        footer {
+            background: #334155;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>税理士 行政書士 五味英樹事務所</h1>
+                    <p>川崎市宮前区 | 鷺沼駅徒歩1分 | 24時間電話対応</p>
+                </div>
+                <div class="contact-info">
+                    <div>📞 お電話でのお問い合わせ（24時間対応）</div>
+                    <div class="phone">044-870-5177</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>必ず税理士の五味英樹が<br>直接担当します</h2>
+            <p>田園都市線鷺沼駅徒歩1分<br>大手事務所のように無資格の担当者任せにはいたしません</p>
+            <a href="#contact" class="cta-button">24時間受付中 お問い合わせ</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>弊事務所について</h2>
+            <div class="highlight-box">
+                <h3 style="color: #1e3a8a; margin-bottom: 20px; font-size: 1.5rem;">川崎生まれ、川崎育ちの税理士が皆様をサポート</h3>
+                <p style="font-size: 1.1rem; line-height: 2;">
+                    田園都市線鷺沼駅徒歩1分のところに事務所があります。車でお越しの方、目の前に駐車場もございます。<br><br>
+                    大手事務所のように無資格の担当者任せにはいたしません。税理士が直接、御社の担当者となります。これほど心強いことはありません。<br><br>
+                    川崎生まれ、川崎育ちの税理士が皆様をサポートいたします。<strong style="color: #1e3a8a;">担当は私五味が、直接</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>選ばれる理由</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3>税理士が直接対応</h3>
+                    <p>大手のように無資格者に任せず、必ず税理士五味英樹が直接ご対応</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📞</div>
+                    <h3>24時間電話対応</h3>
+                    <p>お急ぎの場合でも安心。24時間お電話を受け付けています</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚃</div>
+                    <h3>駅徒歩1分</h3>
+                    <p>田園都市線鷺沼駅徒歩1分。駐車場も完備でアクセス抜群</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌏</div>
+                    <h3>地元密着</h3>
+                    <p>川崎生まれ、川崎育ちの税理士が地域の皆様をサポート</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>業務内容</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>税務顧問</h3>
+                    <p>月次決算、税務相談、決算申告など、企業の税務会計業務を税理士が直接サポートいたします。</p>
+                </div>
+                <div class="service-card">
+                    <h3>会社設立支援</h3>
+                    <p>会社設立時の各種手続き、融資相談、事業計画の作成など、創業をトータルサポートいたします。</p>
+                </div>
+                <div class="service-card">
+                    <h3>確定申告</h3>
+                    <p>個人事業主の確定申告を税理士が丁寧にサポート。正確な申告で安心の事業運営を実現します。</p>
+                </div>
+                <div class="service-card">
+                    <h3>行政書士業務</h3>
+                    <p>許認可申請、契約書作成など、行政書士業務も対応可能。ワンストップでサポートいたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <h2>料金目安</h2>
+            <div class="price-table">
+                <div class="price-item">
+                    <span>税務顧問（法人）</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>税務顧問（個人）</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>確定申告</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>会社設立支援</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
+            </p>
+        </div>
+    </section>
+
+    <section id="access">
+        <div class="container">
+            <h2>アクセス</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                〒216-0004 神奈川県川崎市宮前区鷺沼１丁目１１−１ ＤＩＫマンション鷺沼 216<br>
+                📞 044-870-5177（24時間対応）<br>
+                東急田園都市線「鷺沼駅」より徒歩1分 | 駐車場完備
+            </p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.789!2d139.575!3d35.570!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM0JzEyLjAiTiAxMznCsDM0JzMwLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <div class="contact-form">
+                <p style="text-align: center; margin-bottom: 30px; color: #1e3a8a; font-weight: bold;">
+                    📞 お急ぎの方はお電話ください：044-870-5177（24時間対応）
+                </p>
+                <form action="https://gomikaikei.biz/" method="post">
+                    <div class="form-group">
+                        <label for="name">お名前 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">会社名</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 税理士 行政書士 五味英樹事務所 All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

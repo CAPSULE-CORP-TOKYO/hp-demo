@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiB会計事務所 | 横浜市青葉区の会計事務所・経理代行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .contact-info {
+            text-align: right;
+        }
+        .phone {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .hero {
+            background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.9)),
+                        url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #0ea5e9;
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+            letter-spacing: 1px;
+        }
+        .cta-button:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+        }
+        section {
+            padding: 80px 20px;
+        }
+        section:nth-child(even) {
+            background: #f8fafc;
+        }
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #1e293b;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .tagline {
+            text-align: center;
+            font-size: 2rem;
+            line-height: 2.5;
+            margin: 60px auto;
+            max-width: 700px;
+            color: #475569;
+            font-weight: 300;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid #0ea5e9;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .service-card h3 {
+            color: #1e293b;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        .service-card p {
+            color: #64748b;
+            line-height: 1.9;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .feature {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .feature h3 {
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .price-table {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-top: 60px;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .map-container {
+            margin-top: 60px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 60px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #475569;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0ea5e9;
+        }
+        .form-group textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+        .submit-button {
+            background: #1e293b;
+            color: white;
+            padding: 16px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .submit-button:hover {
+            background: #334155;
+        }
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>SiB会計事務所</h1>
+                    <p>横浜市青葉区 | 税理顧問・経理代行・記帳代行・確定申告</p>
+                </div>
+                <div class="contact-info">
+                    <div>📞 お電話でのお問い合わせ</div>
+                    <div class="phone">090-6652-3357</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>信頼のおけるパートナーとして<br>ともに歩む。</h2>
+            <p>Walk together as a trusted partner.</p>
+            <a href="#contact" class="cta-button">お問い合わせ</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="tagline">
+                信頼のおけるパートナーとして<br>
+                ともに歩む。
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 2; color: #64748b;">
+                SiB会計事務所は、横浜市青葉区に事務所を構え、税理顧問、経理代行、記帳代行、確定申告など、<br>
+                お客様の会計・税務業務を総合的にサポートしております。<br><br>
+                信頼のおけるパートナーとして、お客様とともに歩んでまいります。
+            </p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>サービス内容</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>税理顧問</h3>
+                    <p>税務に関する専門的なアドバイスを提供し、企業の税務戦略をサポートいたします。定期的な訪問により、タイムリーなサービスを実現します。</p>
+                </div>
+                <div class="service-card">
+                    <h3>経理代行</h3>
+                    <p>日々の経理業務を代行し、経営者が本業に専念できる環境を整えます。正確で効率的な経理処理をお約束します。</p>
+                </div>
+                <div class="service-card">
+                    <h3>記帳代行</h3>
+                    <p>記帳業務を代行し、月次決算資料を迅速に作成いたします。経営判断に必要なデータを適時に提供します。</p>
+                </div>
+                <div class="service-card">
+                    <h3>確定申告</h3>
+                    <p>個人事業主の確定申告をサポート。正確な申告により、安心して事業に専念していただけます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>選ばれる理由</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h3>信頼のパートナー</h3>
+                    <p>お客様の信頼のおけるパートナーとして、長期的な関係を大切にします</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💼</div>
+                    <h3>専門的なサービス</h3>
+                    <p>税務・会計の専門知識を活かし、質の高いサービスを提供</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>きめ細かな対応</h3>
+                    <p>お客様一人ひとりのニーズに合わせた、きめ細かなサービスを実現</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <h2>料金目安</h2>
+            <div class="price-table">
+                <div class="price-item">
+                    <span>税理顧問</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>経理代行</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>記帳代行</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>確定申告</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: #64748b;">
+                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
+            </p>
+        </div>
+    </section>
+
+    <section id="access">
+        <div class="container">
+            <h2>アクセス</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: #64748b;">
+                〒227-0033 神奈川県横浜市青葉区鴨志田町５５２−２<br>
+                📞 090-6652-3357<br>
+                東急田園都市線「青葉台駅」よりバス利用
+            </p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.234!2d139.523!3d35.561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMzJzM5LjYiTiAxMznCsDMxJzIyLjgiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <div class="contact-form">
+                <form action="https://sib-accounting.com/" method="post">
+                    <div class="form-group">
+                        <label for="name">お名前 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">会社名</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SiB会計事務所 All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

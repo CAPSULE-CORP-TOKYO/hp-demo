@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"="width=device-width, initial-scale=1.0">
+    <title>駒田誠税理士事務所 | 横浜市青葉区の税理士</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .contact-info {
+            text-align: right;
+        }
+        .phone {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .hero {
+            background: linear-gradient(rgba(44, 82, 130, 0.85), rgba(26, 54, 93, 0.85)),
+                        url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
+        }
+        .cta-button:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.5);
+        }
+        section {
+            padding: 60px 20px;
+        }
+        section:nth-child(even) {
+            background: #f7fafc;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c5282;
+        }
+        .motto {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 2;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #2c5282;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #2c5282;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .price-table {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .map-container {
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-button {
+            background: #2c5282;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .submit-button:hover {
+            background: #1a365d;
+        }
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>駒田誠税理士事務所</h1>
+                    <p>横浜市青葉区 | お客様に満足していただくために</p>
+                </div>
+                <div class="contact-info">
+                    <div>📞 お電話でのお問い合わせ</div>
+                    <div class="phone">045-532-3757</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>世の中、持ちつ持たれつ</h2>
+            <p>人と人の関わり、営利を目的とする企業間の関わり、人と自然との関わり<br>全てにおいて「持ちつ持たれつ」の関係が重要と考えます</p>
+            <a href="#contact" class="cta-button">お気軽にご相談ください</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>事務所のモットー</h2>
+            <div class="motto">
+                「世の中、持ちつ持たれつ」これが駒田誠税理士事務所のモットーです。<br><br>
+                当事務所では、人と人の関わり、営利を目的とする企業間の関わり、人と自然との関わり、全てにおいて「持ちつ持たれつ」の関係が重要と考えます。<br><br>
+                税務、会計はもちろん他の些細なことでもお悩みごとがございましたらお気軽に当事務所までご相談下さい。<br>
+                プライバシーを守り、一生懸命お客様に満足していただくように努力させていただきます。
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>業務内容</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>税務会計顧問</h3>
+                    <p>月次決算、決算申告、税務相談など、企業の税務会計業務を総合的にサポートいたします。お客様の事業発展のため、きめ細かなサービスを提供します。</p>
+                </div>
+                <div class="service-card">
+                    <h3>確定申告</h3>
+                    <p>個人事業主の方の確定申告をサポートいたします。正確な申告により、安心して事業に専念していただけます。</p>
+                </div>
+                <div class="service-card">
+                    <h3>相続税・贈与税</h3>
+                    <p>相続税・贈与税の申告、相続対策、事業承継など、資産税に関するあらゆるご相談に対応いたします。</p>
+                </div>
+                <div class="service-card">
+                    <h3>経営相談</h3>
+                    <p>些細なことでもお悩みごとがございましたらお気軽にご相談ください。プライバシーを守り、一生懸命お客様に満足していただくよう努力いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>当事務所の特徴</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h3>信頼関係</h3>
+                    <p>「持ちつ持たれつ」の精神で、お客様との長期的な信頼関係を大切にします</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>プライバシー重視</h3>
+                    <p>お客様の情報を厳重に管理し、プライバシーを守ります</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💡</div>
+                    <h3>親身な対応</h3>
+                    <p>些細なことでもお気軽にご相談いただけるアットホームな事務所です</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <h2>料金目安</h2>
+            <div class="price-table">
+                <div class="price-item">
+                    <span>税務顧問（法人）</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>税務顧問（個人）</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>確定申告</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>相続税申告</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
+            </p>
+        </div>
+    </section>
+
+    <section id="access">
+        <div class="container">
+            <h2>アクセス</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                〒227-0062 神奈川県横浜市青葉区青葉台１丁目５番地７ 司ビル５０７<br>
+                📞 045-532-3757<br>
+                東急田園都市線「青葉台駅」より徒歩圏内
+            </p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.123!2d139.515!3d35.552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMzJzA3LjIiTiAxMznCsDMwJzU0LjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <div class="contact-form">
+                <form action="https://www.komada-kaikei.jp/form/komada-kaikeijp/inquiry" method="post">
+                    <div class="form-group">
+                        <label for="name">お名前 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">会社名</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 駒田誠税理士事務所 All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

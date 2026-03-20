@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>創和パートナーズ（税理士法人）| 横浜市緑区中山の税理士</title>
+<meta name="description" content="横浜市緑区中山の税理士法人 創和パートナーズ。法人・個人の税務顧問、相続税、会社設立をトータルサポート。">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#1e3a5f;--primary-light:#2d5a8e;--accent:#c8a45c;--accent-light:#f5edd6;--text:#2d2d2d;--text-light:#6b6b6b;--bg:#f8f9fa;--white:#fff;--shadow:0 4px 24px rgba(0,0,0,.07);--radius:10px}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--text);line-height:1.8;background:var(--bg);padding-bottom:56px}
+a{color:var(--primary);text-decoration:none}
+
+.header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);z-index:1000;box-shadow:0 1px 8px rgba(0,0,0,.06)}
+.header-inner{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.15rem;font-weight:700;color:var(--primary)}
+.logo span{color:var(--accent)}
+.logo small{display:block;font-size:.65rem;font-weight:400;color:var(--text-light);letter-spacing:.1em}
+.header-phone{display:flex;align-items:center;gap:6px;background:var(--primary);color:#fff;padding:8px 16px;border-radius:50px;font-weight:700;font-size:.9rem}
+.header-phone svg{width:16px;height:16px;fill:#fff}
+nav{display:none}
+.nav-toggle{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav-toggle span{width:22px;height:2px;background:var(--primary)}
+nav.active{display:flex;position:absolute;top:100%;left:0;width:100%;background:var(--white);flex-direction:column;box-shadow:var(--shadow)}
+nav a{padding:14px 24px;color:var(--text);font-size:.95rem;border-bottom:1px solid #eee}
+
+.hero{margin-top:64px;padding:80px 20px 60px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 60%,#3a7bd5 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:60px;background:linear-gradient(transparent,var(--bg))}
+.hero-badge{display:inline-block;background:var(--accent);color:var(--primary);padding:4px 18px;border-radius:50px;font-size:.8rem;font-weight:700;margin-bottom:16px;letter-spacing:.05em}
+.hero h1{font-size:1.9rem;margin-bottom:10px;line-height:1.4}
+.hero p{opacity:.9;max-width:550px;margin:0 auto 28px;font-size:.95rem}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--primary);padding:14px 30px;border-radius:50px;font-weight:700;font-size:1rem;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:transform .3s}
+.hero-cta:hover{transform:translateY(-2px)}
+
+.section{padding:60px 20px;max-width:1100px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-size:1.5rem;color:var(--primary);margin-bottom:8px}
+.section-title h2::after{content:'';display:block;width:40px;height:3px;background:var(--accent);margin:10px auto 0;border-radius:2px}
+.section-title p{color:var(--text-light);font-size:.9rem}
+
+.about-grid{display:grid;gap:28px}
+.about-card{background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.about-card h3{color:var(--primary);font-size:1.1rem;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.about-card h3 .icon{width:36px;height:36px;background:var(--accent-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.about-card h3 svg{width:20px;height:20px;fill:var(--accent)}
+.about-card p{color:var(--text-light);font-size:.92rem}
+
+.services-bg{background:var(--white)}
+.services-grid{display:grid;gap:18px}
+.s-card{background:var(--bg);border-radius:var(--radius);padding:24px;border-left:4px solid var(--accent);transition:transform .3s,box-shadow .3s}
+.s-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.s-card h3{font-size:1rem;color:var(--primary);margin-bottom:6px}
+.s-card p{font-size:.88rem;color:var(--text-light)}
+
+.price-grid{display:grid;gap:18px}
+.p-card{background:var(--white);border-radius:var(--radius);padding:28px;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.p-card.pop{border:2px solid var(--accent)}
+.p-card.pop::before{content:'おすすめ';position:absolute;top:10px;right:-28px;background:var(--accent);color:#fff;padding:3px 36px;font-size:.72rem;font-weight:700;transform:rotate(45deg)}
+.p-card h3{font-size:1.05rem;color:var(--primary);margin-bottom:4px}
+.p-card .amt{font-size:1.8rem;font-weight:700;color:var(--accent);margin:10px 0}
+.p-card .amt small{font-size:.8rem;font-weight:400;color:var(--text-light)}
+.p-card ul{list-style:none;text-align:left;margin-top:14px}
+.p-card li{padding:5px 0;font-size:.88rem;color:var(--text-light);border-bottom:1px solid #f0f0f0}
+.p-card li::before{content:'✓';color:var(--accent);margin-right:6px;font-weight:700}
+
+.access-grid{display:grid;gap:24px}
+.info-box{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.info-box h3{font-size:1.05rem;color:var(--primary);margin-bottom:14px}
+.info-box dl{display:grid;gap:10px}
+.info-box dt{font-weight:700;font-size:.85rem;color:var(--accent)}
+.info-box dd{font-size:.92rem;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid #f0f0f0}
+.map-wrap{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.map-wrap iframe{width:100%;height:280px;border:0}
+
+.cta{background:linear-gradient(135deg,var(--primary),var(--primary-light));padding:60px 20px;text-align:center;color:#fff}
+.cta h2{font-size:1.4rem;margin-bottom:10px}
+.cta p{opacity:.9;margin-bottom:24px;font-size:.92rem}
+.cta-btns{display:flex;flex-direction:column;gap:12px;align-items:center}
+.btn-w{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:50px;font-weight:700;font-size:.95rem;transition:transform .3s}
+.btn-w.ph{background:var(--accent);color:var(--primary)}
+.btn-w.ml{border:2px solid #fff;color:#fff}
+.btn-w:hover{transform:translateY(-2px)}
+
+footer{background:var(--primary);color:rgba(255,255,255,.7);text-align:center;padding:28px 20px;font-size:.82rem}
+footer a{color:rgba(255,255,255,.9)}
+
+.mob-bar{display:flex;position:fixed;bottom:0;left:0;width:100%;background:var(--primary);z-index:999}
+.mob-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;color:#fff;font-weight:700;padding:13px;font-size:.9rem}
+.mob-bar svg{width:18px;height:18px;fill:#fff}
+
+.fade-up{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+@media(min-width:768px){
+  nav{display:flex!important;position:static;background:none;box-shadow:none;padding:0;gap:4px}
+  nav a{padding:8px 14px;border-bottom:none;border-radius:6px;font-size:.85rem}
+  .nav-toggle{display:none}
+  .hero{padding:110px 20px 80px}
+  .hero h1{font-size:2.4rem}
+  .about-grid{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:repeat(3,1fr)}
+  .price-grid{grid-template-columns:repeat(3,1fr)}
+  .access-grid{grid-template-columns:1fr 1fr}
+  .map-wrap iframe{height:100%;min-height:320px}
+  .cta-btns{flex-direction:row;justify-content:center}
+  .mob-bar{display:none}
+  body{padding-bottom:0}
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">創和<span>パートナーズ</span><small>税理士法人</small></div>
+    <nav id="nav">
+      <a href="#about">私たちについて</a>
+      <a href="#services">業務内容</a>
+      <a href="#pricing">料金</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問合せ</a>
+    </nav>
+    <a href="tel:045-933-0600" class="header-phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>045-933-0600</a>
+    <div class="nav-toggle" onclick="document.getElementById('nav').classList.toggle('active')"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">税理士法人</div>
+  <h1>共に創る、<br>最善のパートナーシップ</h1>
+  <p>横浜市緑区中山を拠点に、法人・個人のお客様の税務・経営を力強くサポート。<br>「創和」の名の通り、お客様と共に最善を創り上げます。</p>
+  <a href="tel:045-933-0600" class="hero-cta"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>045-933-0600</a>
+</section>
+
+<section class="section" id="about">
+  <div class="section-title fade-up"><h2>私たちについて</h2><p>お客様と共に歩む税理士法人</p></div>
+  <div class="about-grid">
+    <div class="about-card fade-up">
+      <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>パートナーシップ</h3>
+      <p>創和パートナーズは「お客様のパートナー」として、単なる税務処理にとどまらず、経営全般をサポートする税理士法人です。法人格ならではの組織的な対応力で、安定したサービスを提供します。</p>
+    </div>
+    <div class="about-card fade-up">
+      <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>私たちの強み</h3>
+      <p>税理士法人として複数の専門家が在籍。担当者不在時もチームで対応可能な安心の体制を整えております。中山エリアの法人・個人事業主の皆様を長年にわたりサポートしてきた実績があります。</p>
+    </div>
+  </div>
+</section>
+
+<section class="services-bg" id="services">
+  <div class="section">
+    <div class="section-title fade-up"><h2>業務内容</h2><p>幅広い税務・会計サービス</p></div>
+    <div class="services-grid">
+      <div class="s-card fade-up"><h3>法人税務顧問</h3><p>月次巡回監査から決算申告まで、法人経営をトータルサポートいたします。</p></div>
+      <div class="s-card fade-up"><h3>確定申告</h3><p>個人事業主・フリーランスの方の所得税確定申告を正確・迅速に対応。</p></div>
+      <div class="s-card fade-up"><h3>相続税・贈与税</h3><p>相続税申告、生前対策、遺産分割のご相談を経験豊富なスタッフが承ります。</p></div>
+      <div class="s-card fade-up"><h3>会社設立支援</h3><p>法人設立の手続きから届出、経理体制構築までワンストップでお手伝い。</p></div>
+      <div class="s-card fade-up"><h3>記帳代行・経理支援</h3><p>日々の記帳業務を代行し、経営者が本業に集中できる環境を整えます。</p></div>
+      <div class="s-card fade-up"><h3>経営コンサルティング</h3><p>資金繰り、事業計画策定、融資支援など経営課題の解決をお手伝い。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="section-title fade-up"><h2>料金の目安</h2><p>明朗会計で安心の料金体系</p></div>
+  <div class="price-grid">
+    <div class="p-card fade-up"><h3>個人事業主</h3><div class="amt">¥15,000〜<small>/月</small></div><ul><li>記帳チェック</li><li>確定申告書作成</li><li>税務相談（随時）</li><li>年末調整</li></ul></div>
+    <div class="p-card pop fade-up"><h3>法人顧問</h3><div class="amt">¥25,000〜<small>/月</small></div><ul><li>月次巡回監査</li><li>決算申告書作成</li><li>経営アドバイス</li><li>税務相談（随時）</li><li>年末調整・法定調書</li></ul></div>
+    <div class="p-card fade-up"><h3>相続税申告</h3><div class="amt">¥200,000〜<small></small></div><ul><li>財産評価</li><li>申告書作成・提出</li><li>遺産分割アドバイス</li><li>二次相続対策</li></ul></div>
+  </div>
+  <p style="text-align:center;margin-top:18px;font-size:.82rem;color:var(--text-light)">※ 料金は目安です。詳細はお気軽にお問合せください。初回相談無料。</p>
+</section>
+
+<section class="services-bg" id="access">
+  <div class="section">
+    <div class="section-title fade-up"><h2>アクセス</h2><p>JR横浜線・グリーンライン「中山駅」近く</p></div>
+    <div class="access-grid fade-up">
+      <div class="info-box">
+        <h3>事務所情報</h3>
+        <dl>
+          <dt>事務所名</dt><dd>税理士法人 創和パートナーズ</dd>
+          <dt>所在地</dt><dd>〒226-0011<br>神奈川県横浜市緑区中山１丁目２５−１２</dd>
+          <dt>電話番号</dt><dd><a href="tel:045-933-0600" style="font-size:1.15rem;font-weight:700;color:var(--accent)">045-933-0600</a></dd>
+          <dt>メール</dt><dd><a href="mailto:info@souwa-p.net">info@souwa-p.net</a></dd>
+          <dt>アクセス</dt><dd>JR横浜線・横浜市営地下鉄グリーンライン「中山駅」より徒歩約5分</dd>
+        </dl>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.5!2d139.54!3d35.51!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5qiq5rWc5biC57eR5Yy65Lit5bGx77yR5LiB55uu77yS77yV4oiS77yR77yS!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>初回のご相談は無料で承っております。<br>お電話またはメールでお問合せください。</p>
+  <div class="cta-btns">
+    <a href="tel:045-933-0600" class="btn-w ph"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>045-933-0600</a>
+    <a href="mailto:info@souwa-p.net" class="btn-w ml"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>メールで問合せ</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2024 税理士法人 創和パートナーズ. All Rights Reserved.</p>
+  <p style="margin-top:4px">神奈川県横浜市緑区中山１丁目２５−１２ ｜ TEL: <a href="tel:045-933-0600">045-933-0600</a></p>
+</footer>
+
+<div class="mob-bar">
+  <a href="tel:045-933-0600"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>電話する</a>
+  <a href="mailto:info@souwa-p.net"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>メール</a>
+</div>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+document.querySelectorAll('nav a').forEach(l=>{l.addEventListener('click',()=>{document.getElementById('nav').classList.remove('active')})});
+</script>
+</body>
+</html>

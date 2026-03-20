@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カラーオブライフ 水庫 清税理士事務所 | 相続・不動産税務15年の実績</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .contact-info {
+            text-align: right;
+        }
+        .phone {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .hero {
+            background: linear-gradient(rgba(5, 150, 105, 0.85), rgba(16, 185, 129, 0.85)),
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #f97316;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+        }
+        .cta-button:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+        }
+        section {
+            padding: 60px 20px;
+        }
+        section:nth-child(even) {
+            background: #f0fdf4;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #059669;
+        }
+        .philosophy {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            max-width: 800px;
+            border-left: 5px solid #059669;
+        }
+        .philosophy h3 {
+            color: #059669;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .philosophy p {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 15px;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #059669;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .problems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid #f97316;
+        }
+        .problem-card h3 {
+            color: #f97316;
+            margin-bottom: 15px;
+        }
+        .solutions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .solution-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #059669;
+        }
+        .solution-card h3 {
+            color: #059669;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .price-table {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .map-container {
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-button {
+            background: #059669;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .submit-button:hover {
+            background: #10b981;
+        }
+        footer {
+            background: #064e3b;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>カラーオブライフ 水庫 清税理士事務所</h1>
+                    <p>相続・不動産税務15年の実績 | 町田市</p>
+                </div>
+                <div class="contact-info">
+                    <div>📞 お電話でのお問い合わせ</div>
+                    <div class="phone">042-738-4362</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>相続・不動産税務のご相談を中心に<br>15年歩んでまいりました</h2>
+            <p>お客様の良きパートナーとなれるよう努めます</p>
+            <a href="#contact" class="cta-button">お気軽にご相談ください</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>事務所紹介</h2>
+            <div class="philosophy">
+                <p>
+                    水庫 清税理士事務所では、相続・不動産税務（資産税）のご相談を中心に、15年歩んでまいりました。<br>
+                    お客様の良きパートナーとなれるよう努めます。
+                </p>
+                <h3 style="margin-top: 30px;">経営理念</h3>
+                <p><strong style="color: #059669;">利他</strong><br>
+                出会って良かったと思っていただける存在であること</p>
+                <p><strong style="color: #059669;">変化と挑戦</strong><br>
+                激動する社会に常に変化し挑み続けること</p>
+                <p>この二つをモットーに、日々精進してまいります。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="problems">
+        <div class="container">
+            <h2>相続・不動産のお悩み</h2>
+            <div class="problems">
+                <div class="problem-card">
+                    <h3>遺産分割</h3>
+                    <p>どのように分割したらいいのか？誰の名義にすればいいのか分からない。</p>
+                </div>
+                <div class="problem-card">
+                    <h3>納税</h3>
+                    <p>どの位の税金になるのか？また、納税はどうしたらいいのか分からない。</p>
+                </div>
+                <div class="problem-card">
+                    <h3>その後の生活は</h3>
+                    <p>相続はしたが、その後どうしたらいいか分からない。</p>
+                </div>
+                <div class="problem-card">
+                    <h3>申告内容の不安</h3>
+                    <p>相続税の申告が正しくされているか不安。</p>
+                </div>
+                <div class="problem-card">
+                    <h3>税金が高い</h3>
+                    <p>毎年の「所得税」「固定資産税」が高い</p>
+                </div>
+                <div class="problem-card">
+                    <h3>負動産？</h3>
+                    <p>不動産の運用状況を把握していない。</p>
+                </div>
+                <div class="problem-card">
+                    <h3>資金繰り</h3>
+                    <p>金利が高い、いくら儲かっているのか分からない。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions">
+        <div class="container">
+            <h2>当事務所のご提案</h2>
+            
+            <h3 style="text-align: center; color: #059669; margin-top: 40px; margin-bottom: 30px;">相続の問題に対するご提案</h3>
+            <div class="solutions">
+                <div class="solution-card">
+                    <h3>① 遺産分割</h3>
+                    <p>相続人のご意向を把握、調整しながら二次相続等も含めたトータル的にバランスを重視しながら分割案のご提案を致します。</p>
+                </div>
+                <div class="solution-card">
+                    <h3>② 納税</h3>
+                    <p>納税額を算出するだけでなく、「分割」と同時にどのような形で納税を行うかのケースにより「延納」「物納」の可能性も視野に入れご相談してまいります。</p>
+                </div>
+                <div class="solution-card">
+                    <h3>③ その後の生活</h3>
+                    <p>「遺産分割」「納税」の短期的な視点も必要ですが、相続人の相続後の生活という長期的な視点も含めてご提案いたします。</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: #059669; margin-top: 60px; margin-bottom: 30px;">不動産の問題に対するご提案</h3>
+            <div class="solutions">
+                <div class="solution-card">
+                    <h3>① 税金</h3>
+                    <p>申告内容、物件ごとの収支チェックを行い節税対策のご提案をいたします。</p>
+                </div>
+                <div class="solution-card">
+                    <h3>② 負動産</h3>
+                    <p>運用形態のチェック、オーナー様のご意向を踏まえながらニーズにあったご提案をいたします。</p>
+                </div>
+                <div class="solution-card">
+                    <h3>③ 資金繰り</h3>
+                    <p>「資金繰り表」の作成を行い「見える化」を行います。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>サービス内容</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>相続のご相談</h3>
+                    <p>申告業務から生前対策、セカンドオピニオン（申告業務の見直し）など、幅広いご相談に対応させていただきます。</p>
+                </div>
+                <div class="service-card">
+                    <h3>不動産のご相談</h3>
+                    <p>申告業務から節税対策、キャッシュフロー経営に関するご相談など、トータルでサポートいたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <h2>料金目安</h2>
+            <div class="price-table">
+                <div class="price-item">
+                    <span>相続税申告</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>相続対策・生前対策</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>不動産税務相談</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+                <div class="price-item">
+                    <span>セカンドオピニオン</span>
+                    <strong>お問い合わせください</strong>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
+            </p>
+        </div>
+    </section>
+
+    <section id="access">
+        <div class="container">
+            <h2>アクセス</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                〒101号室 東京都町田市鶴間３丁目15-10 サンクリエイト南町田 101号室<br>
+                📞 042-738-4362　FAX: 042-738-5953<br>
+                E-mail: mirai@color02life.com<br>
+                東急田園都市線「南町田グランベリーパーク駅」より徒歩圏内
+            </p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.234!2d139.447!3d35.513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMwJzQ2LjgiTiAxMznCsDI2JzQ5LjIiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <div class="contact-form">
+                <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; line-height: 2;">
+                    どうにかしたいけど、どうしたらいいのか分からない。<br>
+                    専門家に聞いてみたいけれど・・・。<br>
+                    そんな不安はありませんか？<br><br>
+                    実際にお話をお伺いさせていただければ、まずはそういった心の迷いがなくなります。<br>
+                    どうぞお気軽にご一報ください。
+                </p>
+                <form action="mailto:mirai@color02life.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">お名前 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 カラーオブライフ 水庫 清税理士事務所 All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
