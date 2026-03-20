@@ -3,864 +3,500 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>税理士法人Rays | 横浜市青葉区の税理士事務所</title>
-<meta name="description" content="横浜市青葉区・美しが丘エリアの税理士法人Rays。明るく前向きなチームが最適な税務ソリューションをご提供します。">
+<title>税理士法人Rays | 横浜市青葉区の税理士法人</title>
+<meta name="description" content="横浜市青葉区たまプラーザの税理士法人Rays。丁寧なヒアリングで、法人・個人の税務を幅広くサポートいたします。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 :root {
-  --blue-900: #0F4C81;
-  --blue-700: #1565C0;
-  --blue-600: #1976D2;
-  --blue-500: #1E88E5;
-  --blue-400: #42A5F5;
-  --blue-100: #BBDEFB;
-  --blue-50: #E3F2FD;
-  --orange-700: #FF8F00;
-  --orange-500: #FFA726;
-  --orange-400: #FFB74D;
-  --orange-100: #FFE0B2;
-  --orange-50: #FFF3E0;
-  --dark-900: #0D1B2A;
-  --dark-800: #1B2838;
-  --dark-700: #243447;
-  --gray-50: #F8FAFC;
-  --gray-100: #F1F5F9;
-  --gray-200: #E2E8F0;
-  --gray-400: #94A3B8;
-  --gray-500: #64748B;
-  --gray-600: #475569;
-  --gray-700: #334155;
-  --gray-800: #1E293B;
-  --white: #FFFFFF;
-  --shadow-sm: 0 1px 3px rgba(15,76,129,0.08);
-  --shadow-md: 0 4px 16px rgba(15,76,129,0.10);
-  --shadow-lg: 0 8px 32px rgba(15,76,129,0.12);
-  --shadow-xl: 0 16px 48px rgba(15,76,129,0.15);
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --primary: #1e3a5f;
+  --primary-light: #2a4d7a;
+  --primary-dark: #142842;
+  --accent: #e8a838;
+  --accent-light: #f0be5e;
+  --accent-dark: #d4952a;
+  --white: #ffffff;
+  --off-white: #f7f8fa;
+  --gray-50: #f0f2f5;
+  --gray-100: #e2e5ea;
+  --gray-200: #c5cbd4;
+  --gray-400: #8b95a5;
+  --gray-600: #556073;
+  --gray-800: #2c3545;
+  --text: #2c3545;
+  --text-light: #556073;
+  --shadow-sm: 0 1px 3px rgba(30,58,95,0.08);
+  --shadow-md: 0 4px 16px rgba(30,58,95,0.10);
+  --shadow-lg: 0 8px 32px rgba(30,58,95,0.14);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --header-h: 64px;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  color: var(--gray-800); line-height: 1.8; font-weight: 400;
-  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+  color: var(--text);
+  line-height: 1.8;
+  font-weight: 400;
+  background: var(--white);
+  overflow-x: hidden;
 }
-
-/* ===== HEADER ===== */
-.header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(15,76,129,0.08);
-  transition: var(--transition);
-}
-.header.scrolled { background: rgba(255,255,255,0.95); box-shadow: var(--shadow-md); }
-.header-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 20px; height: 64px;
-}
-.logo {
-  display: flex; align-items: center; gap: 10px;
-  text-decoration: none; color: var(--blue-900);
-  font-weight: 700; font-size: 1.15rem;
-}
-.logo-icon {
-  width: 38px; height: 38px;
-  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--white); font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(255,143,0,0.3);
-}
-.logo-text-en {
-  font-size: 0.6rem; font-weight: 500;
-  color: var(--gray-500); letter-spacing: 0.08em;
-  display: block; margin-top: -2px;
-}
-.nav-desktop { display: none; gap: 32px; list-style: none; }
-.nav-desktop a {
-  text-decoration: none; color: var(--gray-600);
-  font-size: 0.85rem; font-weight: 500;
-  position: relative; transition: var(--transition);
-}
-.nav-desktop a::after {
-  content: ''; position: absolute;
-  bottom: -4px; left: 0; width: 0; height: 2px;
-  background: var(--orange-500); border-radius: 1px;
-  transition: var(--transition);
-}
-.nav-desktop a:hover { color: var(--blue-700); }
-.nav-desktop a:hover::after { width: 100%; }
-.header-cta { display: none; }
-.header-cta a {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
-  color: var(--white); text-decoration: none;
-  padding: 8px 20px; border-radius: 50px;
-  font-size: 0.8rem; font-weight: 600;
-  box-shadow: 0 2px 12px rgba(255,143,0,0.3);
-  transition: var(--transition);
-}
-.header-cta a:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(255,143,0,0.4);
-}
-
-/* Hamburger */
-.hamburger {
-  display: flex; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer;
-  padding: 8px; z-index: 1100;
-}
-.hamburger span {
-  display: block; width: 22px; height: 2px;
-  background: var(--blue-900); border-radius: 2px;
-  transition: var(--transition);
-}
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-/* Mobile Nav */
-.nav-mobile {
-  position: fixed; top: 0; right: -100%; width: 80%; max-width: 360px;
-  height: 100vh; background: var(--white);
-  z-index: 1050; padding: 80px 32px 40px;
-  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: -8px 0 32px rgba(0,0,0,0.1);
-  overflow-y: auto;
-}
-.nav-mobile.open { right: 0; }
-.nav-mobile-overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(13,27,42,0.5); z-index: 1040;
-  opacity: 0; visibility: hidden; transition: var(--transition);
-}
-.nav-mobile-overlay.open { opacity: 1; visibility: visible; }
-.nav-mobile ul { list-style: none; }
-.nav-mobile li { border-bottom: 1px solid var(--gray-100); }
-.nav-mobile a {
-  display: flex; align-items: center; gap: 12px;
-  text-decoration: none; color: var(--gray-700);
-  padding: 16px 0; font-size: 0.95rem; font-weight: 500;
-  transition: var(--transition);
-}
-.nav-mobile a i { color: var(--blue-600); width: 20px; text-align: center; font-size: 0.85rem; }
-.nav-mobile a:hover { color: var(--blue-700); }
-.nav-mobile-cta { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
-.nav-mobile-cta a {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 14px; border-radius: var(--radius-md);
-  text-decoration: none; font-weight: 600; font-size: 0.9rem;
-  transition: var(--transition);
-}
-.nav-mobile-cta .btn-phone { background: var(--blue-50); color: var(--blue-700); }
-.nav-mobile-cta .btn-contact {
-  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
-  color: var(--white); box-shadow: 0 2px 12px rgba(255,143,0,0.3);
-}
-
-/* ===== HERO ===== */
-.hero {
-  position: relative; min-height: 100vh;
-  display: flex; align-items: center;
-  background: linear-gradient(160deg, var(--blue-50) 0%, var(--white) 40%, var(--orange-50) 100%);
-  overflow: hidden;
-}
-.hero::before {
-  content: ''; position: absolute; top: -30%; right: -15%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(255,167,38,0.12) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.hero::after {
-  content: ''; position: absolute; bottom: -20%; left: -10%;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(21,101,192,0.08) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.hero-rays {
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  overflow: hidden; opacity: 0.07; pointer-events: none;
-}
-.hero-rays span {
-  position: absolute; top: -50%; left: 50%;
-  width: 2px; height: 200%;
-  background: linear-gradient(to bottom, transparent, var(--orange-500), transparent);
-  transform-origin: top center;
-}
-.hero-rays span:nth-child(1) { transform: rotate(-30deg); }
-.hero-rays span:nth-child(2) { transform: rotate(-15deg); }
-.hero-rays span:nth-child(3) { transform: rotate(0deg); }
-.hero-rays span:nth-child(4) { transform: rotate(15deg); }
-.hero-rays span:nth-child(5) { transform: rotate(30deg); }
-.hero-inner {
-  position: relative; z-index: 1;
-  max-width: 1200px; margin: 0 auto;
-  padding: 120px 20px 80px; width: 100%;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--white); border: 1px solid var(--orange-100);
-  padding: 6px 16px; border-radius: 50px;
-  font-size: 0.78rem; font-weight: 500;
-  color: var(--orange-700); margin-bottom: 24px;
-  box-shadow: var(--shadow-sm);
-}
-.hero-badge i { font-size: 0.7rem; }
-.hero-title {
-  font-size: 2.2rem; font-weight: 900;
-  line-height: 1.4; margin-bottom: 20px;
-  color: var(--blue-900);
-}
-.hero-title .accent {
-  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-subtitle {
-  font-size: 1.1rem; font-weight: 600;
-  color: var(--blue-700); margin-bottom: 16px;
-  letter-spacing: 0.05em;
-}
-.hero-desc {
-  font-size: 0.92rem; color: var(--gray-600);
-  max-width: 540px; margin-bottom: 32px; line-height: 1.9;
-}
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
-  color: var(--white); text-decoration: none;
-  padding: 14px 28px; border-radius: 50px;
-  font-size: 0.88rem; font-weight: 600;
-  box-shadow: 0 4px 16px rgba(21,101,192,0.3);
-  transition: var(--transition);
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(21,101,192,0.4);
-}
-.btn-secondary {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--white); color: var(--blue-700);
-  text-decoration: none;
-  padding: 14px 28px; border-radius: 50px;
-  font-size: 0.88rem; font-weight: 600;
-  border: 2px solid var(--blue-100);
-  transition: var(--transition);
-}
-.btn-secondary:hover {
-  border-color: var(--blue-600);
-  background: var(--blue-50);
-  transform: translateY(-2px);
-}
-
-/* ===== SECTIONS COMMON ===== */
-.section { padding: 80px 20px; }
-.section-inner { max-width: 1200px; margin: 0 auto; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+.container { width: 90%; max-width: 1080px; margin: 0 auto; }
+.section-padding { padding: 80px 0; }
 .section-label {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.75rem; font-weight: 600;
-  color: var(--blue-600); letter-spacing: 0.1em;
-  text-transform: uppercase; margin-bottom: 12px;
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 8px;
 }
-.section-label i { color: var(--orange-500); }
 .section-title {
-  font-size: 1.6rem; font-weight: 800;
-  color: var(--blue-900); margin-bottom: 12px; line-height: 1.4;
-}
-.section-desc {
-  font-size: 0.9rem; color: var(--gray-500);
-  max-width: 600px; line-height: 1.8;
-}
-.section-header { margin-bottom: 48px; }
-
-/* ===== FEATURES ===== */
-.features { background: var(--gray-50); }
-.features-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
-.feature-card {
-  background: var(--white); border-radius: var(--radius-lg);
-  padding: 32px 28px; border: 1px solid var(--gray-200);
-  transition: var(--transition); position: relative; overflow: hidden;
-}
-.feature-card::before {
-  content: ''; position: absolute; top: 0; left: 0;
-  width: 100%; height: 3px;
-  background: linear-gradient(90deg, var(--blue-600), var(--orange-500));
-  opacity: 0; transition: var(--transition);
-}
-.feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg); border-color: transparent;
-}
-.feature-card:hover::before { opacity: 1; }
-.feature-icon {
-  width: 52px; height: 52px; border-radius: var(--radius-md);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; margin-bottom: 20px;
-}
-.feature-icon.blue { background: var(--blue-50); color: var(--blue-600); }
-.feature-icon.orange { background: var(--orange-50); color: var(--orange-700); }
-.feature-icon.green { background: #E8F5E9; color: #2E7D32; }
-.feature-card h3 {
-  font-size: 1.05rem; font-weight: 700;
-  color: var(--blue-900); margin-bottom: 10px;
-}
-.feature-card p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.8; }
-
-/* ===== SERVICES (DARK) ===== */
-.services {
-  background: linear-gradient(160deg, var(--dark-900), var(--dark-800));
-  position: relative; overflow: hidden;
-}
-.services::before {
-  content: ''; position: absolute; top: -50%; right: -20%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(255,143,0,0.06) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.services .section-label { color: var(--orange-400); }
-.services .section-title { color: var(--white); }
-.services .section-desc { color: var(--gray-400); }
-.services-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
-.service-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-md);
-  padding: 28px 24px; transition: var(--transition);
-  position: relative; overflow: hidden;
-}
-.service-card::after {
-  content: ''; position: absolute; top: 0; right: 0;
-  width: 60px; height: 60px;
-  background: radial-gradient(circle at top right, rgba(255,167,38,0.08), transparent);
-}
-.service-card:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,167,38,0.2);
-  transform: translateY(-3px);
-}
-.service-num {
-  font-size: 0.7rem; font-weight: 700;
-  color: var(--orange-500); letter-spacing: 0.1em;
-  margin-bottom: 12px; display: block;
-}
-.service-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-.service-card p { font-size: 0.82rem; color: var(--gray-400); line-height: 1.8; }
-.service-icon {
-  width: 44px; height: 44px;
-  background: rgba(255,167,38,0.1); border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--orange-400); font-size: 1rem; margin-bottom: 16px;
-}
-
-/* ===== ABOUT / PROFILE ===== */
-.about { background: var(--white); }
-.about-content { display: grid; gap: 40px; grid-template-columns: 1fr; }
-.about-text h3 {
-  font-size: 1.15rem; font-weight: 700;
-  color: var(--blue-900); margin-bottom: 16px;
-}
-.about-text p {
-  font-size: 0.88rem; color: var(--gray-600); line-height: 1.9;
-  margin-bottom: 28px;
-}
-.info-table { width: 100%; border-collapse: collapse; }
-.info-table tr { border-bottom: 1px solid var(--gray-100); }
-.info-table th {
-  text-align: left; padding: 14px 16px;
-  font-size: 0.82rem; font-weight: 600;
-  color: var(--blue-700); white-space: nowrap;
-  width: 110px; vertical-align: top;
-  background: var(--blue-50);
-}
-.info-table td { padding: 14px 16px; font-size: 0.85rem; color: var(--gray-700); }
-.about-visual {
-  background: linear-gradient(135deg, var(--blue-50), var(--orange-50));
-  border-radius: var(--radius-lg); padding: 40px 32px;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; text-align: center;
-  min-height: 280px;
-}
-.about-visual-icon {
-  width: 80px; height: 80px;
-  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
-  border-radius: 20px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2rem; color: var(--white); margin-bottom: 20px;
-  box-shadow: 0 8px 24px rgba(21,101,192,0.25);
-}
-.about-visual h4 {
-  font-size: 1.1rem; font-weight: 700;
-  color: var(--blue-900); margin-bottom: 8px;
-}
-.about-visual p { font-size: 0.82rem; color: var(--gray-500); }
-
-/* ===== ACCESS ===== */
-.access { background: var(--gray-50); }
-.access-content { display: grid; gap: 24px; grid-template-columns: 1fr; }
-.access-map {
-  border-radius: var(--radius-lg); overflow: hidden;
-  border: 1px solid var(--gray-200); box-shadow: var(--shadow-md);
-}
-.access-map iframe { width: 100%; height: 300px; border: 0; display: block; }
-.access-info { display: flex; flex-direction: column; gap: 16px; }
-.access-item {
-  display: flex; align-items: flex-start; gap: 14px;
-  padding: 16px; background: var(--white);
-  border-radius: var(--radius-md); border: 1px solid var(--gray-200);
-}
-.access-item-icon {
-  width: 40px; height: 40px; flex-shrink: 0;
-  background: var(--blue-50); border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--blue-600); font-size: 0.9rem;
-}
-.access-item h4 {
-  font-size: 0.82rem; font-weight: 600;
-  color: var(--blue-900); margin-bottom: 4px;
-}
-.access-item p { font-size: 0.82rem; color: var(--gray-500); line-height: 1.6; }
-
-/* ===== CONTACT ===== */
-.contact { background: linear-gradient(160deg, var(--blue-50), var(--white), var(--orange-50)); }
-.contact-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
-.contact-card {
-  background: var(--white); border-radius: var(--radius-lg);
-  padding: 36px 28px; text-align: center;
-  border: 1px solid var(--gray-200); transition: var(--transition);
-}
-.contact-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg); border-color: transparent;
-}
-.contact-card-icon {
-  width: 60px; height: 60px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem; margin: 0 auto 20px;
-}
-.contact-card-icon.phone {
-  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
-  color: var(--white); box-shadow: 0 4px 16px rgba(21,101,192,0.25);
-}
-.contact-card-icon.email {
-  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
-  color: var(--white); box-shadow: 0 4px 16px rgba(255,143,0,0.25);
-}
-.contact-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--gray-500); margin-bottom: 8px; }
-.contact-card .contact-value { font-size: 1.3rem; font-weight: 700; color: var(--blue-900); margin-bottom: 6px; }
-.contact-card .contact-note { font-size: 0.78rem; color: var(--gray-400); margin-bottom: 20px; }
-.contact-card .contact-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 12px 28px; border-radius: 50px;
-  text-decoration: none; font-size: 0.85rem; font-weight: 600;
-  transition: var(--transition);
-}
-.contact-card .btn-blue { background: var(--blue-50); color: var(--blue-700); }
-.contact-card .btn-blue:hover { background: var(--blue-100); }
-.contact-card .btn-orange { background: var(--orange-50); color: var(--orange-700); }
-.contact-card .btn-orange:hover { background: var(--orange-100); }
-
-/* ===== FOOTER ===== */
-.footer { background: var(--dark-900); color: var(--gray-400); padding: 48px 20px 100px; }
-.footer-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
-.footer-logo {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.4;
   margin-bottom: 16px;
+  color: var(--primary-dark);
 }
-.footer-logo-icon {
-  width: 36px; height: 36px;
-  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--white); font-size: 0.9rem;
+.section-title--white { color: var(--white); }
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  text-align: center;
 }
-.footer-logo-text { color: var(--white); font-weight: 700; font-size: 1rem; }
-.footer p { font-size: 0.78rem; line-height: 1.8; margin-bottom: 4px; }
-.footer-copy {
-  margin-top: 24px; padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  font-size: 0.72rem; color: var(--gray-500);
-}
-
-/* ===== MOBILE CTA BAR ===== */
-.mobile-cta {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid var(--gray-200);
-  padding: 10px 16px; display: flex; gap: 10px;
-  transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.mobile-cta.visible { transform: translateY(0); }
-.mobile-cta a {
-  flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-  padding: 12px; border-radius: var(--radius-md);
-  text-decoration: none; font-size: 0.8rem; font-weight: 600;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.95rem;
   transition: var(--transition);
+  white-space: nowrap;
 }
-.mobile-cta .cta-phone { background: var(--blue-50); color: var(--blue-700); }
-.mobile-cta .cta-contact {
-  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
-  color: var(--white); box-shadow: 0 2px 8px rgba(255,143,0,0.3);
-}
+.btn--primary { background: var(--accent); color: var(--white); }
+.btn--primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,168,56,0.35); }
+.btn--outline { border: 2px solid var(--white); color: var(--white); }
+.btn--outline:hover { background: var(--white); color: var(--primary); transform: translateY(-2px); }
+.btn--accent-outline { border: 2px solid var(--accent); color: var(--accent); }
+.btn--accent-outline:hover { background: var(--accent); color: var(--white); transform: translateY(-2px); }
+.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.is-visible { opacity: 1; transform: translateY(0); }
 
-/* ===== ANIMATIONS ===== */
-.fade-up {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+/* Header */
+.header {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--header-h); z-index: 1000;
+  background: rgba(255,255,255,0);
+  transition: background 0.3s, box-shadow 0.3s;
 }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
+.header.scrolled { background: rgba(255,255,255,0.97); box-shadow: var(--shadow-sm); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+.logo { display: flex; flex-direction: column; line-height: 1.2; }
+.logo-main { font-size: 1.15rem; font-weight: 700; color: var(--white); transition: color 0.3s; }
+.logo-sub { font-size: 0.55rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.7); font-weight: 400; transition: color 0.3s; }
+.header.scrolled .logo-main { color: var(--primary-dark); }
+.header.scrolled .logo-sub { color: var(--gray-400); }
+.nav-desktop { display: none; }
+.nav-desktop a { font-size: 0.85rem; font-weight: 500; color: var(--white); margin-left: 28px; position: relative; transition: color 0.3s; }
+.header.scrolled .nav-desktop a { color: var(--text); }
+.nav-desktop a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s; }
+.nav-desktop a:hover::after { transform: scaleX(1); }
+.hamburger { width: 32px; height: 32px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; z-index: 1100; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+.header.scrolled .hamburger span { background: var(--primary-dark); }
+.hamburger.active span { background: var(--white); }
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-overlay { position: fixed; inset: 0; background: rgba(20,40,66,0.97); z-index: 1050; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+.nav-overlay.open { opacity: 1; pointer-events: auto; }
+.nav-overlay-list { text-align: center; }
+.nav-overlay-list a { display: block; font-size: 1.2rem; font-weight: 500; color: var(--white); padding: 16px 0; opacity: 0; transform: translateY(10px); transition: opacity 0.3s, transform 0.3s, color 0.2s; }
+.nav-overlay.open .nav-overlay-list a { opacity: 1; transform: translateY(0); }
+.nav-overlay-list a:nth-child(1) { transition-delay: 0.1s; }
+.nav-overlay-list a:nth-child(2) { transition-delay: 0.15s; }
+.nav-overlay-list a:nth-child(3) { transition-delay: 0.2s; }
+.nav-overlay-list a:nth-child(4) { transition-delay: 0.25s; }
+.nav-overlay-list a:nth-child(5) { transition-delay: 0.3s; }
+.nav-overlay-list a:nth-child(6) { transition-delay: 0.35s; }
+.nav-overlay-list a:hover { color: var(--accent); }
 
-/* ===== RESPONSIVE ===== */
+/* Hero */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 24px; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80') center/cover no-repeat; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(20,40,66,0.88) 0%, rgba(30,58,95,0.78) 50%, rgba(42,77,122,0.7) 100%); }
+.hero-content { position: relative; z-index: 2; max-width: 680px; }
+.hero-badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--accent); border: 1px solid rgba(232,168,56,0.5); padding: 6px 20px; border-radius: 50px; margin-bottom: 24px; font-weight: 500; }
+.hero-title { font-size: 2.4rem; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 12px; letter-spacing: 0.04em; }
+.hero-subtitle { font-size: 1rem; color: var(--accent-light); font-weight: 500; letter-spacing: 0.08em; margin-bottom: 20px; }
+.hero-desc { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.9; margin-bottom: 36px; }
+.hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* Features */
+.features { background: var(--off-white); text-align: center; }
+.features-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.feature-card { background: var(--white); border-radius: var(--radius-lg); padding: 40px 28px; box-shadow: var(--shadow-sm); transition: var(--transition); }
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.feature-icon { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.3rem; color: var(--white); }
+.feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--primary-dark); }
+.feature-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.8; }
+.features-image { margin-top: 48px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+.features-image img { width: 100%; height: 280px; object-fit: cover; }
+
+/* Services */
+.services { background: linear-gradient(160deg, var(--primary-dark), var(--primary)); text-align: center; }
+.services .section-desc { color: rgba(255,255,255,0.7); }
+.services-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.service-item { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 32px 24px; transition: var(--transition); }
+.service-item:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+.service-item .icon { font-size: 1.6rem; color: var(--accent); margin-bottom: 14px; }
+.service-item h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.service-item p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+/* Image Break */
+.image-break { position: relative; height: 400px; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 24px; }
+.image-break-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80') center/cover no-repeat; background-attachment: fixed; }
+.image-break-bg::after { content: ''; position: absolute; inset: 0; background: rgba(20,40,66,0.75); }
+.image-break-content { position: relative; z-index: 2; max-width: 560px; }
+.image-break-content h2 { font-size: 1.5rem; color: var(--white); font-weight: 700; margin-bottom: 16px; line-height: 1.5; }
+.image-break-content p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.9; }
+
+/* About */
+.about { text-align: center; }
+.about-table { width: 100%; max-width: 700px; margin: 0 auto; border-collapse: collapse; }
+.about-table tr { border-bottom: 1px solid var(--gray-100); }
+.about-table th, .about-table td { padding: 16px 12px; font-size: 0.9rem; text-align: left; vertical-align: top; }
+.about-table th { width: 120px; font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+.about-table td { color: var(--text-light); }
+
+/* Access */
+.access { background: var(--off-white); text-align: center; }
+.access-map { width: 100%; height: 320px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 32px; }
+.access-map iframe { width: 100%; height: 100%; border: 0; }
+.access-info { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 700px; margin: 0 auto; }
+.access-info-item { display: flex; align-items: flex-start; gap: 14px; text-align: left; background: var(--white); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+.access-info-item .icon { width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+.access-info-item .label { font-size: 0.75rem; color: var(--gray-400); font-weight: 500; margin-bottom: 2px; }
+.access-info-item .value { font-size: 0.92rem; font-weight: 500; color: var(--text); }
+
+/* Contact */
+.contact { text-align: center; }
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 700px; margin: 0 auto; }
+.contact-card { background: var(--off-white); border-radius: var(--radius-lg); padding: 40px 28px; transition: var(--transition); }
+.contact-card:hover { box-shadow: var(--shadow-md); }
+.contact-card .icon { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.contact-card:nth-child(1) .icon { background: var(--primary); color: var(--white); }
+.contact-card:nth-child(2) .icon { background: var(--accent); color: var(--white); }
+.contact-card h3 { font-size: 1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+.contact-card .contact-value { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.contact-card .contact-note { font-size: 0.8rem; color: var(--gray-400); }
+
+/* Footer */
+.footer { background: var(--primary-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 48px 0 100px; }
+.footer-logo { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.footer-logo-en { font-size: 0.6rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+.footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+.footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.5); transition: color 0.3s; }
+.footer-links a:hover { color: var(--accent); }
+.footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
+
+/* Mobile CTA Bar */
+.mobile-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 900; display: flex; background: var(--white); box-shadow: 0 -2px 12px rgba(0,0,0,0.1); transform: translateY(100%); transition: transform 0.4s; }
+.mobile-cta.show { transform: translateY(0); }
+.mobile-cta a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 0; font-size: 0.85rem; font-weight: 700; color: var(--white); }
+.mobile-cta a:first-child { background: var(--primary); }
+.mobile-cta a:last-child { background: var(--accent); }
+
+/* Responsive */
 @media (min-width: 600px) {
-  .hero-title { font-size: 2.8rem; }
-  .section-title { font-size: 1.8rem; }
   .features-grid { grid-template-columns: repeat(3, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: repeat(2, 1fr); }
-  .access-content { grid-template-columns: 1fr 1fr; }
-  .access-map iframe { height: 100%; min-height: 320px; }
-  .section { padding: 100px 24px; }
+  .access-info { grid-template-columns: repeat(3, 1fr); }
+  .hero-title { font-size: 2.8rem; }
+  .section-title { font-size: 1.8rem; }
+  .about-table th { width: 140px; }
 }
 @media (min-width: 900px) {
-  .header-inner { height: 72px; padding: 0 40px; }
-  .nav-desktop { display: flex; }
-  .header-cta { display: block; }
+  :root { --header-h: 72px; }
   .hamburger { display: none; }
-  .hero-inner { padding: 140px 40px 100px; }
-  .hero-title { font-size: 3.2rem; }
-  .section { padding: 120px 40px; }
-  .section-title { font-size: 2rem; }
+  .nav-desktop { display: flex; align-items: center; }
   .services-grid { grid-template-columns: repeat(3, 1fr); }
-  .about-content { grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: start; }
-  .mobile-cta { display: none; }
+  .hero-title { font-size: 3.2rem; }
+  .section-title { font-size: 2rem; }
+  .features-image img { height: 360px; }
+  .access-map { height: 400px; }
   .footer { padding-bottom: 48px; }
+  .mobile-cta { display: none; }
+}
+@supports (-webkit-touch-callout: none) {
+  .image-break-bg { background-attachment: scroll; }
 }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header class="header" id="header">
-  <div class="header-inner">
+  <div class="container header-inner">
     <a href="#" class="logo">
-      <div class="logo-icon"><i class="fa-solid fa-sun"></i></div>
-      <div>
-        <span>税理士法人Rays</span>
-        <span class="logo-text-en">RAYS TAX CORPORATION</span>
-      </div>
+      <span class="logo-main">税理士法人Rays</span>
+      <span class="logo-sub">RAYS TAX CORPORATION</span>
     </a>
-    <ul class="nav-desktop">
-      <li><a href="#features">選ばれる理由</a></li>
-      <li><a href="#services">サービス</a></li>
-      <li><a href="#about">事務所概要</a></li>
-      <li><a href="#access">アクセス</a></li>
-      <li><a href="#contact">お問い合わせ</a></li>
-    </ul>
-    <div class="header-cta">
-      <a href="tel:045-530-9945"><i class="fa-solid fa-phone"></i> 045-530-9945</a>
-    </div>
+    <nav class="nav-desktop">
+      <a href="#features">選ばれる理由</a>
+      <a href="#services">サービス</a>
+      <a href="#about">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
     <button class="hamburger" id="hamburger" aria-label="メニュー">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- Mobile Nav -->
-<div class="nav-mobile-overlay" id="navOverlay"></div>
-<nav class="nav-mobile" id="navMobile">
-  <ul>
-    <li><a href="#features"><i class="fa-solid fa-star"></i>選ばれる理由</a></li>
-    <li><a href="#services"><i class="fa-solid fa-briefcase"></i>サービス</a></li>
-    <li><a href="#about"><i class="fa-solid fa-building"></i>事務所概要</a></li>
-    <li><a href="#access"><i class="fa-solid fa-map-location-dot"></i>アクセス</a></li>
-    <li><a href="#contact"><i class="fa-solid fa-envelope"></i>お問い合わせ</a></li>
-  </ul>
-  <div class="nav-mobile-cta">
-    <a href="tel:045-530-9945" class="btn-phone"><i class="fa-solid fa-phone"></i> 045-530-9945</a>
-    <a href="#contact" class="btn-contact"><i class="fa-solid fa-envelope"></i> お問い合わせ</a>
-  </div>
-</nav>
+<div class="nav-overlay" id="navOverlay">
+  <nav class="nav-overlay-list">
+    <a href="#features">選ばれる理由</a>
+    <a href="#services">サービス</a>
+    <a href="#about">事務所概要</a>
+    <a href="#access">アクセス</a>
+    <a href="#contact">お問い合わせ</a>
+    <a href="tel:045-530-9945">045-530-9945</a>
+  </nav>
+</div>
 
-<!-- Hero -->
 <section class="hero" id="hero">
-  <div class="hero-rays">
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-  <div class="hero-inner">
-    <div class="hero-badge fade-up"><i class="fa-solid fa-sun"></i> 横浜市青葉区の税理士法人</div>
-    <h1 class="hero-title fade-up">
-      未来を<span class="accent">照らす</span><br>税務のプロ集団
-    </h1>
-    <p class="hero-subtitle fade-up">税理士法人Rays</p>
-    <p class="hero-desc fade-up">
-      横浜市青葉区・美しが丘エリアの税理士法人。明るく前向きなチームが、お客様の事業と暮らしに光を当て、最適な税務ソリューションをご提供します。
-    </p>
-    <div class="hero-actions fade-up">
-      <a href="#contact" class="btn-primary"><i class="fa-solid fa-envelope"></i> 無料相談はこちら</a>
-      <a href="tel:045-530-9945" class="btn-secondary"><i class="fa-solid fa-phone"></i> 045-530-9945</a>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-badge">横浜市青葉区の税理士法人</span>
+    <h1 class="hero-title">光をあてる<br>税務サービス</h1>
+    <p class="hero-subtitle">税理士法人Rays</p>
+    <p class="hero-desc">横浜市青葉区たまプラーザを拠点に、法人・個人のお客様へ丁寧で幅広い税務サービスを提供しております。お客様一人ひとりに寄り添い、最適な解決策をご提案いたします。</p>
+    <div class="hero-buttons">
+      <a href="tel:045-530-9945" class="btn btn--primary"><i class="fas fa-phone"></i>045-530-9945</a>
+      <a href="#contact" class="btn btn--outline"><i class="fas fa-envelope"></i>お問い合わせ</a>
     </div>
   </div>
 </section>
 
-<!-- Features -->
-<section class="section features" id="features">
-  <div class="section-inner">
-    <div class="section-header fade-up">
-      <div class="section-label"><i class="fa-solid fa-star"></i> WHY CHOOSE US</div>
-      <h2 class="section-title">Raysが選ばれる理由</h2>
-      <p class="section-desc">光のように明るく、確かな専門知識でお客様をサポートする私たちの3つの強みをご紹介します。</p>
-    </div>
+<section class="features section-padding" id="features">
+  <div class="container">
+    <span class="section-label fade-up">Why Choose Us</span>
+    <h2 class="section-title fade-up">選ばれる3つの理由</h2>
+    <p class="section-desc fade-up">地域に根ざした信頼と実績で、お客様のビジネスと暮らしを支えます。</p>
     <div class="features-grid">
       <div class="feature-card fade-up">
-        <div class="feature-icon orange"><i class="fa-solid fa-users"></i></div>
-        <h3>明るく前向きなチーム</h3>
-        <p>「Rays（光）」の名の通り、明るく親しみやすいスタッフが揃っています。気軽にご相談いただける雰囲気で、お客様に寄り添ったサービスをご提供します。</p>
+        <div class="feature-icon"><i class="fas fa-comments"></i></div>
+        <h3>丁寧なヒアリング</h3>
+        <p>お客様の状況やお悩みを丁寧にお伺いし、最適なご提案をいたします。初回相談から安心してお話しいただける環境づくりを心がけています。</p>
       </div>
       <div class="feature-card fade-up">
-        <div class="feature-icon blue"><i class="fa-solid fa-bolt"></i></div>
-        <h3>スピーディーな対応</h3>
-        <p>お問い合わせには迅速に対応。急な税務相談や期限の迫った申告にも、チーム一丸となって素早く正確にお応えします。</p>
+        <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
+        <h3>幅広い業務対応</h3>
+        <p>税務顧問から確定申告、相続税、法人設立まで幅広く対応。ワンストップでさまざまな税務ニーズにお応えします。</p>
       </div>
       <div class="feature-card fade-up">
-        <div class="feature-icon green"><i class="fa-solid fa-microchip"></i></div>
-        <h3>最新テクノロジー活用</h3>
-        <p>クラウド会計・電子申告など最新のテクノロジーを積極的に導入。効率的かつ正確な税務処理で、お客様の業務負担を軽減します。</p>
+        <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>地域に根ざした安心感</h3>
+        <p>横浜市青葉区を中心に、地域のお客様との信頼関係を大切にしています。身近な税理士として、長期的にサポートいたします。</p>
       </div>
+    </div>
+    <div class="features-image fade-up">
+      <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="オフィスの様子" loading="lazy">
     </div>
   </div>
 </section>
 
-<!-- Services -->
-<section class="section services" id="services">
-  <div class="section-inner">
-    <div class="section-header fade-up">
-      <div class="section-label"><i class="fa-solid fa-briefcase"></i> SERVICES</div>
-      <h2 class="section-title">サービス一覧</h2>
-      <p class="section-desc">個人から法人まで、幅広い税務ニーズにお応えするサービスラインナップです。</p>
-    </div>
+<section class="services section-padding" id="services">
+  <div class="container">
+    <span class="section-label fade-up">Services</span>
+    <h2 class="section-title section-title--white fade-up">サービス一覧</h2>
+    <p class="section-desc fade-up">法人・個人を問わず、幅広い税務サービスでお客様をサポートいたします。</p>
     <div class="services-grid">
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fa-solid fa-handshake"></i></div>
-        <span class="service-num">SERVICE 01</span>
+      <div class="service-item fade-up">
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
         <h3>税務顧問</h3>
-        <p>月次の帳簿チェックから決算・申告まで、顧問税理士として経営をトータルサポート。日常の税務相談もお任せください。</p>
+        <p>毎月の記帳指導や決算申告、税務相談まで、継続的にサポートいたします。経営に専念できる環境を整えます。</p>
       </div>
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fa-solid fa-file-invoice"></i></div>
-        <span class="service-num">SERVICE 02</span>
+      <div class="service-item fade-up">
+        <div class="icon"><i class="fas fa-file-invoice"></i></div>
         <h3>確定申告</h3>
-        <p>個人事業主やフリーランスの方の確定申告を正確・迅速に代行。節税対策もあわせてご提案いたします。</p>
+        <p>個人事業主やフリーランスの方の確定申告を正確・迅速に代行。節税対策もご提案します。</p>
       </div>
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fa-solid fa-landmark"></i></div>
-        <span class="service-num">SERVICE 03</span>
-        <h3>相続税対策</h3>
-        <p>相続税の試算から申告、生前対策まで丁寧にサポート。大切な資産を次世代へスムーズに引き継ぐお手伝いをします。</p>
+      <div class="service-item fade-up">
+        <div class="icon"><i class="fas fa-handshake"></i></div>
+        <h3>相続・贈与税</h3>
+        <p>相続税の申告・対策から贈与税のご相談まで、円満な資産承継をお手伝いいたします。</p>
       </div>
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
-        <span class="service-num">SERVICE 04</span>
-        <h3>創業支援</h3>
-        <p>法人設立や開業届の手続きから事業計画の策定、資金調達のアドバイスまで、創業をワンストップで支援します。</p>
+      <div class="service-item fade-up">
+        <div class="icon"><i class="fas fa-building"></i></div>
+        <h3>法人設立</h3>
+        <p>会社設立の手続きから設立後の税務まで一貫してサポート。スムーズな事業開始を実現します。</p>
       </div>
-      <div class="service-card fade-up">
-        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-        <span class="service-num">SERVICE 05</span>
-        <h3>経営アドバイザリー</h3>
-        <p>経営数値の分析や事業戦略のご提案を通じて、企業の持続的成長をサポート。経営判断に役立つ情報をお届けします。</p>
+      <div class="service-item fade-up">
+        <div class="icon"><i class="fas fa-coins"></i></div>
+        <h3>資金調達支援</h3>
+        <p>融資申請に必要な事業計画書の作成支援や金融機関との折衝をお手伝いいたします。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- About -->
-<section class="section about" id="about">
-  <div class="section-inner">
-    <div class="section-header fade-up">
-      <div class="section-label"><i class="fa-solid fa-building"></i> ABOUT</div>
-      <h2 class="section-title">事務所概要</h2>
-      <p class="section-desc">横浜市青葉区・美しが丘エリアに根差し、地域の皆様と共に歩む税理士法人です。</p>
-    </div>
-    <div class="about-content">
-      <div class="about-text fade-up">
-        <h3>プロフェッショナルとして光を届ける</h3>
-        <p>
-          税理士法人Raysは、「Rays（光線）」の名の通り、お客様の未来を明るく照らす存在でありたいと考えています。確かな専門知識と最新技術を駆使しながら、一人ひとりのお客様に合った最適なソリューションをご提供します。お気軽にご相談ください。
-        </p>
-        <table class="info-table">
-          <tr>
-            <th>事務所名</th>
-            <td>税理士法人Rays<br><small style="color:var(--gray-400)">RAYS TAX CORPORATION</small></td>
-          </tr>
-          <tr>
-            <th>所在地</th>
-            <td>〒225-0002<br>神奈川県横浜市青葉区美しが丘4-25-31</td>
-          </tr>
-          <tr>
-            <th>電話番号</th>
-            <td><a href="tel:045-530-9945" style="color:var(--blue-600);text-decoration:none;font-weight:600;">045-530-9945</a></td>
-          </tr>
-        </table>
-      </div>
-      <div class="about-visual fade-up">
-        <div class="about-visual-icon"><i class="fa-solid fa-sun"></i></div>
-        <h4>税理士法人Rays</h4>
-        <p>RAYS TAX CORPORATION</p>
-        <p style="margin-top:16px;font-size:0.78rem;color:var(--gray-400);">
-          光のように明るく<br>未来を照らす税務パートナー
-        </p>
-      </div>
-    </div>
+<section class="image-break">
+  <div class="image-break-bg"></div>
+  <div class="image-break-content fade-up">
+    <h2>信頼が、すべての基盤。</h2>
+    <p>私たちは、お客様との信頼関係を何よりも大切にしています。<br>一つひとつのご相談に真摯に向き合い、<br>確かな専門知識でお応えいたします。</p>
   </div>
 </section>
 
-<!-- Access -->
-<section class="section access" id="access">
-  <div class="section-inner">
-    <div class="section-header fade-up">
-      <div class="section-label"><i class="fa-solid fa-map-location-dot"></i> ACCESS</div>
-      <h2 class="section-title">アクセス</h2>
-      <p class="section-desc">お気軽にお越しください。</p>
+<section class="about section-padding" id="about">
+  <div class="container">
+    <span class="section-label fade-up">About</span>
+    <h2 class="section-title fade-up">事務所概要</h2>
+    <p class="section-desc fade-up">横浜市青葉区たまプラーザを拠点に、地域の皆様をサポートしております。</p>
+    <table class="about-table fade-up">
+      <tr><th>事務所名</th><td>税理士法人Rays</td></tr>
+      <tr><th>英語名称</th><td>RAYS TAX CORPORATION</td></tr>
+      <tr><th>所在地</th><td>神奈川県横浜市青葉区美しが丘4-25-31</td></tr>
+      <tr><th>電話番号</th><td><a href="tel:045-530-9945" style="color:var(--primary);font-weight:500;">045-530-9945</a></td></tr>
+      <tr><th>最寄駅</th><td>東急田園都市線「たまプラーザ駅」</td></tr>
+      <tr><th>ウェブサイト</th><td><a href="https://rays-tax.jp/" target="_blank" rel="noopener" style="color:var(--primary);font-weight:500;">https://rays-tax.jp/</a></td></tr>
+      <tr><th>業務内容</th><td>税務顧問、確定申告、相続・贈与税対策、法人設立支援、資金調達支援、記帳代行、経営相談 他</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="access section-padding" id="access">
+  <div class="container">
+    <span class="section-label fade-up">Access</span>
+    <h2 class="section-title fade-up">アクセス</h2>
+    <p class="section-desc fade-up">お気軽にお越しください。駅からのアクセスも便利です。</p>
+    <div class="access-map fade-up">
+      <iframe src="https://maps.google.com/maps?q=神奈川県横浜市青葉区美しが丘4-25-31&output=embed&z=16" allowfullscreen loading="lazy" title="税理士法人Rays 所在地"></iframe>
     </div>
-    <div class="access-content fade-up">
-      <div class="access-map">
-        <iframe
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=%E6%A8%AA%E6%B5%9C%E5%B8%82%E9%9D%92%E8%91%89%E5%8C%BA%E7%BE%8E%E3%81%97%E3%81%8C%E4%B8%984-25-31&zoom=16"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="税理士法人Rays所在地"></iframe>
+    <div class="access-info">
+      <div class="access-info-item fade-up">
+        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <div class="label">所在地</div>
+          <div class="value">神奈川県横浜市青葉区<br>美しが丘4-25-31</div>
+        </div>
       </div>
-      <div class="access-info">
-        <div class="access-item">
-          <div class="access-item-icon"><i class="fa-solid fa-location-dot"></i></div>
-          <div>
-            <h4>所在地</h4>
-            <p>〒225-0002<br>神奈川県横浜市青葉区美しが丘4-25-31</p>
-          </div>
+      <div class="access-info-item fade-up">
+        <div class="icon"><i class="fas fa-train"></i></div>
+        <div>
+          <div class="label">最寄駅</div>
+          <div class="value">東急田園都市線<br>「たまプラーザ駅」</div>
         </div>
-        <div class="access-item">
-          <div class="access-item-icon"><i class="fa-solid fa-phone"></i></div>
-          <div>
-            <h4>お電話</h4>
-            <p><a href="tel:045-530-9945" style="color:var(--blue-600);text-decoration:none;font-weight:600;">045-530-9945</a></p>
-          </div>
-        </div>
-        <div class="access-item">
-          <div class="access-item-icon"><i class="fa-solid fa-train"></i></div>
-          <div>
-            <h4>最寄り駅</h4>
-            <p>東急田園都市線 たまプラーザ駅より徒歩圏内</p>
-          </div>
+      </div>
+      <div class="access-info-item fade-up">
+        <div class="icon"><i class="fas fa-phone"></i></div>
+        <div>
+          <div class="label">お電話</div>
+          <div class="value"><a href="tel:045-530-9945" style="color:var(--primary);">045-530-9945</a></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contact -->
-<section class="section contact" id="contact">
-  <div class="section-inner">
-    <div class="section-header fade-up" style="text-align:center;">
-      <div class="section-label" style="justify-content:center;"><i class="fa-solid fa-envelope"></i> CONTACT</div>
-      <h2 class="section-title">お問い合わせ</h2>
-      <p class="section-desc" style="margin:0 auto;">まずはお気軽にお問い合わせください。初回のご相談は無料で承っております。</p>
-    </div>
+<section class="contact section-padding" id="contact">
+  <div class="container">
+    <span class="section-label fade-up">Contact</span>
+    <h2 class="section-title fade-up">お問い合わせ</h2>
+    <p class="section-desc fade-up">ご相談・ご質問はお気軽にお問い合わせください。</p>
     <div class="contact-grid">
       <div class="contact-card fade-up">
-        <div class="contact-card-icon phone"><i class="fa-solid fa-phone"></i></div>
+        <div class="icon"><i class="fas fa-phone"></i></div>
         <h3>お電話でのお問い合わせ</h3>
-        <div class="contact-value">045-530-9945</div>
-        <div class="contact-note">平日 9:00 - 18:00</div>
-        <a href="tel:045-530-9945" class="contact-btn btn-blue"><i class="fa-solid fa-phone"></i> 電話する</a>
+        <div class="contact-value"><a href="tel:045-530-9945">045-530-9945</a></div>
+        <p class="contact-note">受付時間：平日 9:00〜18:00</p>
       </div>
       <div class="contact-card fade-up">
-        <div class="contact-card-icon email"><i class="fa-solid fa-envelope"></i></div>
+        <div class="icon"><i class="fas fa-envelope"></i></div>
         <h3>メールでのお問い合わせ</h3>
-        <div class="contact-value">メール相談</div>
-        <div class="contact-note">24時間受付・翌営業日に返信</div>
-        <a href="mailto:info@rays-tax.jp" class="contact-btn btn-orange"><i class="fa-solid fa-envelope"></i> メールする</a>
+        <a href="https://rays-tax.jp/" target="_blank" rel="noopener" class="btn btn--accent-outline" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i>公式サイトへ</a>
+        <p class="contact-note" style="margin-top:12px;">24時間受付中</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <div class="footer-logo-icon"><i class="fa-solid fa-sun"></i></div>
-      <span class="footer-logo-text">税理士法人Rays</span>
+  <div class="container">
+    <div class="footer-logo">税理士法人Rays</div>
+    <div class="footer-logo-en">RAYS TAX CORPORATION</div>
+    <div class="footer-links">
+      <a href="#features">選ばれる理由</a>
+      <a href="#services">サービス</a>
+      <a href="#about">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
     </div>
-    <p>〒225-0002 神奈川県横浜市青葉区美しが丘4-25-31</p>
-    <p>TEL: 045-530-9945</p>
-    <div class="footer-copy">
-      &copy; 2026 税理士法人Rays All Rights Reserved.
-    </div>
+    <p class="footer-copy">&copy; 2026 税理士法人Rays All Rights Reserved.</p>
   </div>
 </footer>
 
-<!-- Mobile CTA -->
 <div class="mobile-cta" id="mobileCta">
-  <a href="tel:045-530-9945" class="cta-phone"><i class="fa-solid fa-phone"></i> 電話する</a>
-  <a href="#contact" class="cta-contact"><i class="fa-solid fa-envelope"></i> お問い合わせ</a>
+  <a href="tel:045-530-9945"><i class="fas fa-phone"></i>電話する</a>
+  <a href="#contact"><i class="fas fa-envelope"></i>お問い合わせ</a>
 </div>
 
 <script>
-(function() {
-  var hamburger = document.getElementById('hamburger');
-  var navMobile = document.getElementById('navMobile');
-  var navOverlay = document.getElementById('navOverlay');
-
-  function toggleNav() {
-    hamburger.classList.toggle('active');
-    navMobile.classList.toggle('open');
-    navOverlay.classList.toggle('open');
-    document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
-  }
-
-  hamburger.addEventListener('click', toggleNav);
-  navOverlay.addEventListener('click', toggleNav);
-
-  navMobile.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function() {
-      if (navMobile.classList.contains('open')) toggleNav();
-    });
-  });
-
+(function(){
   var header = document.getElementById('header');
   var mobileCta = document.getElementById('mobileCta');
+  function onScroll(){
+    var y = window.scrollY;
+    header.classList.toggle('scrolled', y > 60);
+    mobileCta.classList.toggle('show', y > 400);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 
-  window.addEventListener('scroll', function() {
-    var scrollY = window.scrollY;
-    if (scrollY > 50) { header.classList.add('scrolled'); }
-    else { header.classList.remove('scrolled'); }
-    if (scrollY > 400) { mobileCta.classList.add('visible'); }
-    else { mobileCta.classList.remove('visible'); }
+  var hamburger = document.getElementById('hamburger');
+  var overlay = document.getElementById('navOverlay');
+  function toggleNav(){
+    hamburger.classList.toggle('active');
+    overlay.classList.toggle('open');
+    document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+  }
+  hamburger.addEventListener('click', toggleNav);
+  overlay.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(overlay.classList.contains('open')) toggleNav();
+    });
   });
 
-  var fadeElements = document.querySelectorAll('.fade-up');
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  fadeElements.forEach(function(el) { observer.observe(el); });
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(function(el){ obs.observe(el); });
+  } else {
+    fadeEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
 })();
 </script>
 </body>

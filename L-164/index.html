@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>カラーオブライフ 水庫清税理士事務所｜相続・不動産税務の専門家</title>
-<meta name="description" content="東京都町田市のカラーオブライフ 水庫清税理士事務所。相続税・不動産税務15年の実績。「利他」の精神で大切な資産をお守りします。">
+<title>カラーオブライフ 水庫 清税理士事務所｜相続・不動産税務の専門家</title>
+<meta name="description" content="東京都町田市の税理士事務所。相続税・不動産税務15年の実績。南町田グランベリーパーク駅近く。相続税申告・生前対策・不動産税務はお任せください。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 /* ===== RESET & BASE ===== */
@@ -26,90 +26,83 @@ img { max-width: 100%; height: auto; }
 
 /* ===== CSS VARIABLES ===== */
 :root {
-  --teal: #1b6b5a;
-  --teal-light: #238c75;
-  --teal-dark: #0f4d40;
-  --teal-deeper: #0a3a30;
-  --gold: #c59b4a;
-  --gold-light: #d4af6a;
-  --gold-dark: #a68235;
-  --warm: #f0e6d3;
+  --primary: #5c2434;
+  --primary-light: #7a3248;
+  --primary-dark: #3e1824;
+  --accent: #c8a45c;
+  --accent-light: #d4b876;
+  --accent-dark: #b08e44;
   --white: #ffffff;
-  --off-white: #f9f7f3;
-  --cream: #fdf9f2;
-  --gray-light: #e8e4dd;
-  --gray: #999;
-  --text: #2d2d2d;
+  --off-white: #f9f7f5;
+  --gray-light: #ebe7e3;
+  --gray: #888;
+  --text: #333;
   --text-light: #666;
-  --text-muted: #888;
-  --shadow: 0 4px 24px rgba(27, 107, 90, 0.08);
-  --shadow-lg: 0 12px 48px rgba(27, 107, 90, 0.12);
-  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.06);
-  --radius: 14px;
-  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(92, 36, 52, 0.10);
+  --shadow-lg: 0 8px 40px rgba(92, 36, 52, 0.15);
+  --radius: 12px;
   --transition: 0.3s ease;
-  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ===== HEADER ===== */
 .header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(62, 24, 36, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 0 20px;
   transition: var(--transition);
-  border-bottom: 1px solid transparent;
 }
 .header.scrolled {
-  background: rgba(255, 255, 255, 0.97);
-  border-bottom-color: rgba(27, 107, 90, 0.08);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
 }
 .header-inner {
-  max-width: 1140px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 60px;
 }
 .logo {
   display: flex;
   flex-direction: column;
-  line-height: 1.25;
-}
-.logo-en {
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--gold);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  line-height: 1.2;
 }
 .logo-main {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  color: var(--teal-dark);
-  letter-spacing: 0.04em;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+.logo-sub {
+  font-size: 8px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  font-weight: 400;
 }
 .nav-desktop { display: none; }
 .nav-desktop a {
-  color: var(--text);
+  color: rgba(255,255,255,0.85);
   font-size: 13px;
   font-weight: 500;
   padding: 8px 14px;
   transition: var(--transition);
   position: relative;
 }
-.nav-desktop a:hover { color: var(--teal); }
+.nav-desktop a:hover { color: var(--accent); }
 .nav-desktop a::after {
   content: '';
   position: absolute;
-  bottom: 2px; left: 50%;
-  width: 0; height: 2px;
-  background: var(--teal);
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
   transition: var(--transition);
   transform: translateX(-50%);
 }
@@ -126,8 +119,9 @@ img { max-width: 100%; height: auto; }
 }
 .hamburger span {
   display: block;
-  width: 22px; height: 2px;
-  background: var(--teal-dark);
+  width: 22px;
+  height: 2px;
+  background: var(--white);
   transition: var(--transition);
   border-radius: 2px;
 }
@@ -138,34 +132,36 @@ img { max-width: 100%; height: auto; }
 /* Mobile Nav */
 .nav-mobile {
   position: fixed;
-  top: 0; right: -100%;
-  width: 300px; height: 100vh;
-  background: var(--teal-deeper);
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: var(--primary-dark);
   z-index: 1050;
   transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 90px 32px 40px;
+  padding: 80px 30px 40px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 .nav-mobile.open { right: 0; }
 .nav-mobile a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255,255,255,0.9);
   font-size: 15px;
   font-weight: 500;
-  padding: 15px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   transition: var(--transition);
 }
-.nav-mobile a i { color: var(--gold); width: 20px; text-align: center; font-size: 14px; }
-.nav-mobile a:hover { color: var(--gold); padding-left: 8px; }
+.nav-mobile a i { color: var(--accent); width: 20px; text-align: center; font-size: 14px; }
+.nav-mobile a:hover { color: var(--accent); padding-left: 8px; }
 .nav-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   z-index: 1040;
   opacity: 0;
   pointer-events: none;
@@ -180,105 +176,66 @@ img { max-width: 100%; height: auto; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(160deg, var(--teal-deeper) 0%, var(--teal-dark) 30%, var(--teal) 70%, var(--teal-light) 100%);
   overflow: hidden;
-  padding: 100px 20px 80px;
+  padding: 80px 24px 60px;
 }
-.hero::before {
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80') center center / cover no-repeat;
+}
+.hero-bg::after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background:
-    radial-gradient(ellipse 700px 500px at 15% 85%, rgba(197, 155, 74, 0.1) 0%, transparent 70%),
-    radial-gradient(ellipse 600px 600px at 85% 15%, rgba(197, 155, 74, 0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 300px at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  background: linear-gradient(135deg, rgba(62, 24, 36, 0.88) 0%, rgba(92, 36, 52, 0.82) 40%, rgba(62, 24, 36, 0.90) 100%);
 }
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 80px 80px;
-}
-/* Decorative leaf-like shapes */
-.hero-deco {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.06;
-  background: var(--gold);
-}
-.hero-deco-1 {
-  width: 400px; height: 400px;
-  top: -100px; right: -80px;
-  animation: floatSlow 20s ease-in-out infinite;
-}
-.hero-deco-2 {
-  width: 250px; height: 250px;
-  bottom: -50px; left: -60px;
-  animation: floatSlow 15s ease-in-out infinite reverse;
-}
-@keyframes floatSlow {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20px, -20px) scale(1.05); }
-}
-
 .hero-content {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 720px;
+  max-width: 700px;
+  padding: 0 24px;
 }
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(197, 155, 74, 0.15);
-  border: 1px solid rgba(197, 155, 74, 0.3);
+  background: rgba(200, 164, 92, 0.15);
+  border: 1px solid rgba(200, 164, 92, 0.3);
   border-radius: 50px;
-  padding: 7px 22px;
-  margin-bottom: 28px;
+  padding: 6px 20px;
+  margin-bottom: 24px;
   font-size: 12px;
-  color: var(--gold-light);
-  letter-spacing: 0.1em;
+  color: var(--accent-light);
+  letter-spacing: 0.08em;
   font-weight: 500;
 }
-.hero-badge i { font-size: 11px; }
-.hero-catch {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(13px, 2.5vw, 16px);
-  color: rgba(255, 255, 255, 0.6);
-  letter-spacing: 0.2em;
-  margin-bottom: 16px;
-  font-weight: 400;
-}
+.hero-badge i { font-size: 10px; }
 .hero-title {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(30px, 7vw, 52px);
-  font-weight: 700;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 900;
   color: var(--white);
-  line-height: 1.35;
-  margin-bottom: 12px;
-  letter-spacing: 0.04em;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
 }
 .hero-title-accent {
-  color: var(--gold-light);
-  position: relative;
+  color: var(--accent);
 }
 .hero-subtitle {
-  font-size: clamp(14px, 2.8vw, 18px);
-  color: rgba(255, 255, 255, 0.65);
+  font-size: clamp(14px, 3vw, 18px);
+  color: rgba(255,255,255,0.7);
   font-weight: 300;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   letter-spacing: 0.06em;
 }
 .hero-desc {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255,255,255,0.55);
   line-height: 2;
   margin-bottom: 40px;
-  max-width: 560px;
+  max-width: 540px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -293,7 +250,7 @@ img { max-width: 100%; height: auto; }
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 15px 38px;
+  padding: 14px 36px;
   border-radius: 50px;
   font-size: 15px;
   font-weight: 700;
@@ -304,175 +261,86 @@ img { max-width: 100%; height: auto; }
   letter-spacing: 0.04em;
   min-width: 240px;
 }
-.btn-gold {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
   color: var(--white);
-  box-shadow: 0 4px 24px rgba(197, 155, 74, 0.35);
+  box-shadow: 0 4px 20px rgba(200, 164, 92, 0.35);
 }
-.btn-gold:hover {
+.btn-accent:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(197, 155, 74, 0.5);
+  box-shadow: 0 6px 28px rgba(200, 164, 92, 0.5);
 }
 .btn-outline {
   background: transparent;
   color: var(--white);
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(255,255,255,0.3);
 }
 .btn-outline:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--accent);
+  color: var(--accent);
   transform: translateY(-2px);
 }
 .hero-scroll {
   position: absolute;
-  bottom: 30px; left: 50%;
+  bottom: 30px;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  font-size: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  letter-spacing: 0.2em;
+  animation: scrollBounce 2s infinite;
 }
-.hero-scroll::after {
-  content: '';
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
-  animation: scrollLine 2s infinite;
-}
-@keyframes scrollLine {
-  0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
-  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
-  100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
-}
-
-/* ===== STATS BANNER ===== */
-.stats-banner {
-  background: var(--off-white);
-  padding: 40px 20px;
-  position: relative;
-}
-.stats-grid {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  text-align: center;
-}
-.stat-item {
-  padding: 20px 10px;
-}
-.stat-number {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(32px, 6vw, 44px);
-  font-weight: 700;
-  color: var(--teal);
-  line-height: 1.1;
-  margin-bottom: 4px;
-}
-.stat-number span {
-  font-size: 0.5em;
-  font-weight: 400;
-}
-.stat-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
 }
 
 /* ===== SECTIONS ===== */
 .section {
-  padding: 70px 20px;
+  padding: 60px 20px;
 }
 .section-alt {
   background: var(--off-white);
 }
-.section-cream {
-  background: var(--cream);
-}
 .section-dark {
-  background: linear-gradient(160deg, var(--teal-deeper) 0%, var(--teal-dark) 50%, var(--teal) 100%);
+  background: var(--primary);
   color: var(--white);
 }
 .section-header {
   text-align: center;
-  margin-bottom: 52px;
+  margin-bottom: 48px;
 }
 .section-label {
   display: inline-block;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.2em;
-  color: var(--gold);
+  color: var(--accent);
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .section-title {
-  font-family: 'Noto Serif JP', serif;
   font-size: clamp(24px, 5vw, 36px);
-  font-weight: 700;
-  color: var(--teal-dark);
+  font-weight: 900;
+  color: var(--primary);
   line-height: 1.4;
   margin-bottom: 12px;
 }
 .section-dark .section-title { color: var(--white); }
-.section-subtitle {
-  font-size: 14px;
-  color: var(--text-muted);
-  max-width: 480px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-.section-dark .section-subtitle { color: rgba(255, 255, 255, 0.55); }
 .section-divider {
-  width: 50px; height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   margin: 0 auto;
   border-radius: 2px;
 }
 .container {
-  max-width: 1140px;
+  max-width: 1100px;
   margin: 0 auto;
-}
-
-/* ===== PHILOSOPHY ===== */
-.philosophy {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-}
-.philosophy-quote {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(20px, 4vw, 28px);
-  font-weight: 600;
-  color: var(--teal-dark);
-  line-height: 1.6;
-  margin-bottom: 24px;
-  position: relative;
-  padding: 0 20px;
-}
-.philosophy-quote::before,
-.philosophy-quote::after {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 60px;
-  color: var(--gold);
-  opacity: 0.3;
-  position: absolute;
-  line-height: 1;
-}
-.philosophy-quote::before { content: '\201C'; top: -10px; left: -5px; }
-.philosophy-quote::after { content: '\201D'; bottom: -30px; right: -5px; }
-.philosophy-text {
-  font-size: 14px;
-  color: var(--text-light);
-  line-height: 2.2;
-}
-.philosophy-accent {
-  color: var(--gold-dark);
-  font-weight: 700;
 }
 
 /* ===== FEATURES ===== */
@@ -484,60 +352,43 @@ img { max-width: 100%; height: auto; }
 .feature-card {
   background: var(--white);
   border-radius: var(--radius);
-  padding: 36px 28px;
-  box-shadow: var(--shadow-card);
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
   transition: var(--transition);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 .feature-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--teal), var(--gold));
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   transform: scaleX(0);
   transition: var(--transition);
-  transform-origin: left;
 }
 .feature-card:hover::before { transform: scaleX(1); }
-.feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .feature-icon {
-  width: 60px; height: 60px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(27, 107, 90, 0.1), rgba(27, 107, 90, 0.03));
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(200,164,92,0.12), rgba(200,164,92,0.04));
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  transition: var(--transition);
 }
-.feature-card:hover .feature-icon {
-  background: linear-gradient(135deg, var(--teal), var(--teal-light));
-}
-.feature-card:hover .feature-icon i { color: var(--white); }
 .feature-icon i {
-  font-size: 24px;
-  color: var(--teal);
-  transition: var(--transition);
-}
-.feature-num {
-  position: absolute;
-  top: 20px; right: 24px;
-  font-family: 'Noto Serif JP', serif;
-  font-size: 48px;
-  font-weight: 700;
-  color: rgba(27, 107, 90, 0.05);
-  line-height: 1;
+  font-size: 22px;
+  color: var(--accent);
 }
 .feature-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--teal-dark);
+  color: var(--primary);
   margin-bottom: 10px;
 }
 .feature-text {
@@ -545,155 +396,122 @@ img { max-width: 100%; height: auto; }
   color: var(--text-light);
   line-height: 1.9;
 }
+.feature-img {
+  margin-top: 48px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.feature-img img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
 
 /* ===== SERVICES ===== */
-.services-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-}
-.service-group {
-  position: relative;
-}
-.service-group-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-bottom: 20px;
-  padding: 6px 16px;
-  border-radius: 50px;
-}
-.service-group-label.primary {
-  background: rgba(197, 155, 74, 0.15);
-  color: var(--gold-light);
-}
-.service-group-label.secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
-}
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 16px;
 }
 .service-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius);
   padding: 28px 24px;
   transition: var(--transition);
   display: flex;
   align-items: flex-start;
-  gap: 18px;
+  gap: 20px;
 }
 .service-card:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(197, 155, 74, 0.3);
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(200,164,92,0.3);
   transform: translateY(-2px);
 }
 .service-icon-wrap {
   flex-shrink: 0;
-  width: 50px; height: 50px;
-  border-radius: 14px;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.service-icon-wrap.gold {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-}
-.service-icon-wrap.teal {
-  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
-  border: 1px solid rgba(255,255,255,0.15);
 }
 .service-icon-wrap i {
   font-size: 20px;
   color: var(--white);
 }
 .service-name {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .service-desc {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255,255,255,0.6);
   line-height: 1.8;
 }
 
-/* ===== WORRY / PROBLEM SECTION ===== */
-.worry-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-.worry-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 28px 24px;
-  box-shadow: var(--shadow-card);
-  border-left: 4px solid var(--gold);
-  transition: var(--transition);
-}
-.worry-card:hover {
-  transform: translateX(4px);
-  box-shadow: var(--shadow);
-}
-.worry-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-.worry-card-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(197, 155, 74, 0.12), rgba(197, 155, 74, 0.04));
+/* ===== IMAGE BREAK ===== */
+.image-break {
+  position: relative;
+  min-height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  overflow: hidden;
 }
-.worry-card-icon i {
-  font-size: 16px;
-  color: var(--gold);
+.image-break-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://images.unsplash.com/photo-1582407947092-dfe57855f08f?w=800&q=80') center center / cover no-repeat;
 }
-.worry-card-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--teal-dark);
-}
-.worry-card-list {
-  list-style: none;
-  padding-left: 52px;
-}
-.worry-card-list li {
-  font-size: 14px;
-  color: var(--text-light);
-  padding: 4px 0;
-  position: relative;
-  padding-left: 20px;
-}
-.worry-card-list li::before {
+.image-break-bg::after {
   content: '';
   position: absolute;
-  left: 0; top: 12px;
-  width: 6px; height: 6px;
-  background: var(--gold);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(62, 24, 36, 0.85) 0%, rgba(92, 36, 52, 0.75) 100%);
+}
+.image-break-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  padding: 60px 24px;
+}
+.image-break-icon {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  background: rgba(200, 164, 92, 0.2);
+  border: 1px solid rgba(200, 164, 92, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+.image-break-icon i {
+  font-size: 24px;
+  color: var(--accent);
+}
+.image-break-title {
+  font-size: clamp(22px, 4.5vw, 32px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.image-break-text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  line-height: 2;
 }
 
 /* ===== ABOUT / PROFILE ===== */
-.profile-wrap {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  align-items: start;
-}
 .profile-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -701,88 +519,48 @@ img { max-width: 100%; height: auto; }
   overflow: hidden;
 }
 .profile-header {
-  background: linear-gradient(135deg, var(--teal-dark), var(--teal));
-  padding: 36px 28px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  padding: 32px 24px;
   text-align: center;
   position: relative;
-  overflow: hidden;
-}
-.profile-header::before {
-  content: '';
-  position: absolute;
-  top: -50px; right: -50px;
-  width: 200px; height: 200px;
-  background: rgba(197, 155, 74, 0.08);
-  border-radius: 50%;
 }
 .profile-avatar {
-  width: 100px; height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 16px;
-  border: 4px solid rgba(255, 255, 255, 0.2);
-  position: relative;
-  z-index: 1;
+  border: 3px solid rgba(255,255,255,0.2);
 }
 .profile-avatar i {
-  font-size: 40px;
+  font-size: 36px;
   color: var(--white);
 }
 .profile-name {
-  font-family: 'Noto Serif JP', serif;
   font-size: 22px;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 2px;
-  position: relative;
-  z-index: 1;
-}
-.profile-name-reading {
-  font-size: 11px;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 6px;
-  letter-spacing: 0.1em;
+  margin-bottom: 4px;
 }
 .profile-title-text {
   font-size: 13px;
-  color: var(--gold-light);
+  color: var(--accent-light);
   font-weight: 500;
-  position: relative;
-  z-index: 1;
 }
 .profile-body {
-  padding: 32px 28px;
+  padding: 28px 24px;
 }
 .profile-message {
   font-size: 14px;
   color: var(--text-light);
-  line-height: 2.1;
+  line-height: 2;
   margin-bottom: 28px;
   position: relative;
   padding-left: 20px;
-  border-left: 3px solid var(--gold);
-}
-
-.office-info {
-  background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 32px 28px;
-}
-.office-info-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--teal-dark);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.office-info-title i {
-  color: var(--gold);
+  border-left: 3px solid var(--accent);
 }
 .info-table {
   width: 100%;
@@ -796,7 +574,7 @@ img { max-width: 100%; height: auto; }
   text-align: left;
   font-size: 13px;
   font-weight: 700;
-  color: var(--teal-dark);
+  color: var(--primary);
   padding: 14px 12px 14px 0;
   width: 100px;
   vertical-align: top;
@@ -808,12 +586,6 @@ img { max-width: 100%; height: auto; }
   padding: 14px 0;
   line-height: 1.7;
 }
-.info-table a {
-  color: var(--teal);
-  font-weight: 600;
-  transition: var(--transition);
-}
-.info-table a:hover { color: var(--gold); }
 
 /* ===== ACCESS ===== */
 .access-content {
@@ -829,7 +601,8 @@ img { max-width: 100%; height: auto; }
   aspect-ratio: 4/3;
 }
 .map-wrap iframe {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   border: 0;
 }
 .access-info {
@@ -849,21 +622,22 @@ img { max-width: 100%; height: auto; }
 .access-item:last-child { border-bottom: none; padding-bottom: 0; }
 .access-icon {
   flex-shrink: 0;
-  width: 42px; height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(27, 107, 90, 0.1), rgba(27, 107, 90, 0.03));
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(200,164,92,0.12), rgba(200,164,92,0.04));
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .access-icon i {
   font-size: 16px;
-  color: var(--teal);
+  color: var(--accent);
 }
 .access-label {
   font-size: 11px;
   font-weight: 700;
-  color: var(--gold-dark);
+  color: var(--accent-dark);
   letter-spacing: 0.1em;
   margin-bottom: 2px;
 }
@@ -872,17 +646,11 @@ img { max-width: 100%; height: auto; }
   color: var(--text);
   line-height: 1.7;
 }
-.access-text a {
-  color: var(--teal);
-  font-weight: 700;
-  transition: var(--transition);
-}
-.access-text a:hover { color: var(--gold); }
 
 /* ===== CONTACT ===== */
 .contact-section {
-  background: linear-gradient(160deg, var(--teal-deeper) 0%, var(--teal-dark) 50%, var(--teal) 100%);
-  padding: 70px 20px;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  padding: 60px 20px;
   position: relative;
   overflow: hidden;
 }
@@ -890,29 +658,26 @@ img { max-width: 100%; height: auto; }
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background:
-    radial-gradient(ellipse 600px 400px at 80% 50%, rgba(197, 155, 74, 0.08), transparent),
-    radial-gradient(ellipse 400px 300px at 20% 80%, rgba(197, 155, 74, 0.05), transparent);
+  background: radial-gradient(ellipse 500px 400px at 80% 50%, rgba(200,164,92,0.08), transparent);
 }
 .contact-inner {
   position: relative;
   z-index: 2;
-  max-width: 720px;
+  max-width: 700px;
   margin: 0 auto;
   text-align: center;
 }
 .contact-title {
-  font-family: 'Noto Serif JP', serif;
   font-size: clamp(24px, 5vw, 34px);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--white);
   margin-bottom: 12px;
 }
 .contact-subtitle {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255,255,255,0.55);
   margin-bottom: 40px;
-  line-height: 2;
+  line-height: 1.9;
 }
 .contact-cards {
   display: grid;
@@ -921,39 +686,39 @@ img { max-width: 100%; height: auto; }
   margin-bottom: 32px;
 }
 .contact-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius);
-  padding: 32px 24px;
+  padding: 28px 20px;
   transition: var(--transition);
 }
 .contact-card:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(197, 155, 74, 0.3);
-  transform: translateY(-2px);
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(200,164,92,0.3);
 }
 .contact-card-icon {
-  width: 54px; height: 54px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 16px;
 }
 .contact-card-icon i {
-  font-size: 22px;
+  font-size: 20px;
   color: var(--white);
 }
 .contact-card-label {
   font-size: 12px;
-  color: var(--gold-light);
+  color: var(--accent-light);
   font-weight: 500;
   margin-bottom: 8px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 .contact-card-value {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--white);
 }
@@ -961,176 +726,138 @@ img { max-width: 100%; height: auto; }
   color: var(--white);
   transition: var(--transition);
 }
-.contact-card-value a:hover { color: var(--gold); }
+.contact-card-value a:hover { color: var(--accent); }
 .contact-card-note {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255,255,255,0.4);
   margin-top: 8px;
 }
 .contact-note {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
-  line-height: 1.9;
-}
-.contact-note strong {
-  color: var(--gold-light);
-  font-weight: 600;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.8;
 }
 
 /* ===== FOOTER ===== */
 .footer {
-  background: var(--teal-deeper);
-  padding: 36px 20px;
+  background: var(--primary-dark);
+  padding: 32px 20px;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-.footer-logo-en {
-  font-size: 11px;
-  color: var(--gold);
-  letter-spacing: 0.2em;
-  margin-bottom: 4px;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 .footer-logo {
   font-size: 15px;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 .footer-address {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255,255,255,0.4);
   margin-bottom: 16px;
   line-height: 1.7;
 }
 .footer-copy {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255,255,255,0.25);
 }
 
 /* ===== MOBILE CTA BAR ===== */
 .mobile-cta {
   position: fixed;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 999;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
   transform: translateY(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mobile-cta.show { transform: translateY(0); }
 .mobile-cta a {
-  flex: 1;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 700;
-  padding: 15px 10px;
-  letter-spacing: 0.02em;
-}
-.mobile-cta-phone {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-}
-.mobile-cta-mail {
-  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  gap: 10px;
+  letter-spacing: 0.04em;
 }
 .mobile-cta i {
-  font-size: 16px;
-}
-.mobile-cta-phone i {
-  animation: phoneRing 3s infinite;
+  font-size: 18px;
+  animation: phoneRing 2s infinite;
 }
 @keyframes phoneRing {
   0%, 100% { transform: rotate(0deg); }
-  5% { transform: rotate(-12deg); }
-  10% { transform: rotate(12deg); }
-  15% { transform: rotate(-8deg); }
-  20% { transform: rotate(8deg); }
-  25% { transform: rotate(0deg); }
+  10% { transform: rotate(-12deg); }
+  20% { transform: rotate(12deg); }
+  30% { transform: rotate(-8deg); }
+  40% { transform: rotate(8deg); }
+  50% { transform: rotate(0deg); }
+}
+.mobile-cta-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 400;
 }
 
 /* ===== SCROLL ANIMATIONS ===== */
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
-}
-.fade-up-delay-1 { transition-delay: 0.1s; }
-.fade-up-delay-2 { transition-delay: 0.2s; }
-.fade-up-delay-3 { transition-delay: 0.3s; }
-
-/* ===== BACK TO TOP ===== */
-.back-to-top {
-  position: fixed;
-  bottom: 80px; right: 20px;
-  z-index: 998;
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--teal);
-  color: var(--white);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(27, 107, 90, 0.3);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: var(--transition);
-  font-size: 16px;
-}
-.back-to-top.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.back-to-top:hover {
-  background: var(--teal-dark);
-  transform: translateY(-2px);
 }
 
 /* ===== RESPONSIVE: TABLET ===== */
 @media (min-width: 600px) {
   .features-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .worry-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-cards { grid-template-columns: repeat(2, 1fr); }
   .hero-cta-group { flex-direction: row; justify-content: center; }
   .btn { min-width: 200px; }
-  .section { padding: 90px 30px; }
-  .stats-banner { padding: 50px 30px; }
-  .contact-section { padding: 90px 30px; }
+  .section { padding: 80px 30px; }
+  .contact-section { padding: 80px 30px; }
+  .feature-img img { height: 320px; }
 }
 
 /* ===== RESPONSIVE: DESKTOP ===== */
 @media (min-width: 900px) {
-  .header-inner { height: 76px; }
+  .header-inner { height: 72px; }
   .logo-main { font-size: 15px; }
-  .logo-en { font-size: 11px; }
+  .logo-sub { font-size: 9px; }
   .nav-desktop {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
   }
   .hamburger { display: none; }
   .features-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .worry-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .services-wrapper { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .profile-wrap { grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: start; }
+  .services-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .access-content { grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: start; }
-  .map-wrap { aspect-ratio: auto; min-height: 420px; }
-  .section { padding: 110px 40px; }
-  .stats-banner { padding: 60px 40px; }
-  .contact-section { padding: 110px 40px; }
+  .map-wrap { aspect-ratio: auto; min-height: 400px; }
+  .section { padding: 100px 40px; }
+  .contact-section { padding: 100px 40px; }
   .mobile-cta { display: none !important; }
-  .footer { padding-bottom: 36px; }
-  .back-to-top { bottom: 30px; right: 30px; }
+  .footer { padding-bottom: 32px; }
+  .feature-img img { height: 360px; }
+  .image-break { min-height: 420px; }
 }
 
+@media (min-width: 1080px) {
+  .services-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* Bottom padding for mobile CTA */
 @media (max-width: 899px) {
   .footer { padding-bottom: 80px; }
 }
@@ -1142,14 +869,12 @@ img { max-width: 100%; height: auto; }
 <header class="header" id="header">
   <div class="header-inner">
     <a href="#" class="logo">
-      <span class="logo-en">Color of Life</span>
-      <span class="logo-main">水庫清税理士事務所</span>
+      <span class="logo-main">カラーオブライフ 水庫 清税理士事務所</span>
+      <span class="logo-sub">COLOR OF LIFE TAX ACCOUNTANT OFFICE</span>
     </a>
     <nav class="nav-desktop">
-      <a href="#philosophy">理念</a>
-      <a href="#features">選ばれる理由</a>
+      <a href="#features">事務所の特徴</a>
       <a href="#services">業務内容</a>
-      <a href="#worries">お悩み</a>
       <a href="#about">事務所概要</a>
       <a href="#access">アクセス</a>
       <a href="#contact">お問い合わせ</a>
@@ -1165,11 +890,9 @@ img { max-width: 100%; height: auto; }
 <!-- MOBILE NAV -->
 <div class="nav-overlay" id="navOverlay"></div>
 <nav class="nav-mobile" id="navMobile">
-  <a href="#philosophy"><i class="fas fa-heart"></i>理念</a>
-  <a href="#features"><i class="fas fa-star"></i>選ばれる理由</a>
+  <a href="#features"><i class="fas fa-star"></i>事務所の特徴</a>
   <a href="#services"><i class="fas fa-briefcase"></i>業務内容</a>
-  <a href="#worries"><i class="fas fa-comments"></i>お悩み</a>
-  <a href="#about"><i class="fas fa-user-tie"></i>事務所概要</a>
+  <a href="#about"><i class="fas fa-building"></i>事務所概要</a>
   <a href="#access"><i class="fas fa-map-marker-alt"></i>アクセス</a>
   <a href="#contact"><i class="fas fa-envelope"></i>お問い合わせ</a>
   <a href="tel:042-738-4362"><i class="fas fa-phone"></i>電話する</a>
@@ -1177,25 +900,23 @@ img { max-width: 100%; height: auto; }
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-deco hero-deco-1"></div>
-  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-badge fade-up">
-      <i class="fas fa-leaf"></i>
-      相続・不動産税務 15年の実績
+      <i class="fas fa-shield-alt"></i>
+      相続・不動産税務の専門家
     </div>
-    <p class="hero-catch fade-up">── 人生に、彩りを。</p>
     <h1 class="hero-title fade-up">
-      大切な資産を守る<br><span class="hero-title-accent">税務パートナー</span>
+      大切な資産を<br><span class="hero-title-accent">次世代へ</span>
     </h1>
-    <p class="hero-subtitle fade-up">カラーオブライフ 水庫清税理士事務所</p>
+    <p class="hero-subtitle fade-up">カラーオブライフ 水庫 清税理士事務所</p>
     <p class="hero-desc fade-up">
-      相続税・不動産に関する税務を専門に15年以上の実績。<br>
-      「利他」の精神で、お客様一人ひとりに寄り添い、<br>
-      大切なご家族の資産を確かな知識と経験でお守りします。
+      相続税・不動産税務に特化して15年。<br>
+      豊富な経験と専門知識で、お客様の大切な資産を守り、<br>
+      円滑な承継をサポートいたします。
     </p>
     <div class="hero-cta-group fade-up">
-      <a href="tel:042-738-4362" class="btn btn-gold">
+      <a href="tel:042-738-4362" class="btn btn-accent">
         <i class="fas fa-phone-alt"></i>042-738-4362
       </a>
       <a href="#contact" class="btn btn-outline">
@@ -1205,48 +926,7 @@ img { max-width: 100%; height: auto; }
   </div>
   <div class="hero-scroll">
     <span>SCROLL</span>
-  </div>
-</section>
-
-<!-- STATS BANNER -->
-<div class="stats-banner">
-  <div class="stats-grid fade-up">
-    <div class="stat-item">
-      <div class="stat-number">15<span>年+</span></div>
-      <div class="stat-label">資産税の実績</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">500<span>件+</span></div>
-      <div class="stat-label">相談実績</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">2<span>つ</span></div>
-      <div class="stat-label">の専門分野</div>
-    </div>
-  </div>
-</div>
-
-<!-- PHILOSOPHY -->
-<section class="section" id="philosophy">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="section-label">Philosophy</span>
-      <h2 class="section-title">経営理念</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="philosophy fade-up">
-      <p class="philosophy-quote">
-        利他の心で、<br>変化と挑戦を続ける
-      </p>
-      <p class="philosophy-text">
-        「カラーオブライフ（Color of Life）」── 人生に彩りを添えたい。<br>
-        その想いを事務所名に込めました。<br><br>
-        お客様の人生をより豊かに彩るために、<br>
-        <span class="philosophy-accent">「利他」</span>の精神を大切にし、常に<span class="philosophy-accent">「変化と挑戦」</span>を続けます。<br>
-        税務の専門家として、お客様の大切な資産を守り、<br>
-        次の世代へ安心をつなげるお手伝いをいたします。
-      </p>
-    </div>
+    <i class="fas fa-chevron-down"></i>
   </div>
 </section>
 
@@ -1254,35 +934,35 @@ img { max-width: 100%; height: auto; }
 <section class="section section-alt" id="features">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label">Why Choose Us</span>
-      <h2 class="section-title">選ばれる3つの理由</h2>
+      <span class="section-label">Features</span>
+      <h2 class="section-title">事務所の特徴</h2>
       <div class="section-divider"></div>
     </div>
     <div class="features-grid">
-      <div class="feature-card fade-up fade-up-delay-1">
-        <span class="feature-num">01</span>
+      <div class="feature-card fade-up">
         <div class="feature-icon">
-          <i class="fas fa-landmark"></i>
+          <i class="fas fa-award"></i>
         </div>
-        <h3 class="feature-title">相続・不動産税務の専門家</h3>
-        <p class="feature-text">資産税（相続税・不動産に関する税務）に特化して15年以上。豊富な経験に基づく的確なアドバイスと、お客様に最適なプランをご提案いたします。</p>
+        <h3 class="feature-title">相続税の専門家</h3>
+        <p class="feature-text">相続税申告において15年の豊富な実績を持つ専門家が、複雑な案件にも的確に対応。安心してお任せいただけます。</p>
       </div>
-      <div class="feature-card fade-up fade-up-delay-2">
-        <span class="feature-num">02</span>
+      <div class="feature-card fade-up">
         <div class="feature-icon">
-          <i class="fas fa-hands-helping"></i>
+          <i class="fas fa-building"></i>
         </div>
-        <h3 class="feature-title">「利他」の精神で寄り添う</h3>
-        <p class="feature-text">お客様のことを第一に考え、難しい税務の話をわかりやすくご説明。丁寧なヒアリングを通じて、ご家族の将来を見据えた最善のご提案をいたします。</p>
+        <h3 class="feature-title">不動産税務に精通</h3>
+        <p class="feature-text">不動産に関する税務は複雑で専門性が求められます。土地評価・譲渡所得・賃貸経営まで幅広く対応いたします。</p>
       </div>
-      <div class="feature-card fade-up fade-up-delay-3">
-        <span class="feature-num">03</span>
+      <div class="feature-card fade-up">
         <div class="feature-icon">
-          <i class="fas fa-shield-alt"></i>
+          <i class="fas fa-handshake"></i>
         </div>
-        <h3 class="feature-title">ワンストップで安心</h3>
-        <p class="feature-text">相続の申告から生前対策、不動産の税務からキャッシュフロー経営まで。相続と不動産に関するあらゆるお悩みをワンストップでサポートいたします。</p>
+        <h3 class="feature-title">親身な相談対応</h3>
+        <p class="feature-text">お客様一人ひとりの状況を丁寧にお伺いし、最適なプランをご提案。わかりやすい説明を心がけております。</p>
       </div>
+    </div>
+    <div class="feature-img fade-up">
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80" alt="税務相談イメージ" loading="lazy">
     </div>
   </div>
 </section>
@@ -1294,118 +974,71 @@ img { max-width: 100%; height: auto; }
       <span class="section-label">Services</span>
       <h2 class="section-title">業務内容</h2>
       <div class="section-divider"></div>
-      <p class="section-subtitle">相続・不動産を中心に、幅広い税務サービスをご提供</p>
     </div>
-    <div class="services-wrapper">
-      <div class="service-group fade-up">
-        <div class="service-group-label primary"><i class="fas fa-crown"></i>相続のご相談</div>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon-wrap gold">
-              <i class="fas fa-file-signature"></i>
-            </div>
-            <div>
-              <h3 class="service-name">相続税申告業務</h3>
-              <p class="service-desc">財産調査・評価から申告書作成・提出まで。相続発生後の手続きをワンストップで対応します。</p>
-            </div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon-wrap gold">
-              <i class="fas fa-seedling"></i>
-            </div>
-            <div>
-              <h3 class="service-name">生前対策</h3>
-              <p class="service-desc">生前贈与、家族信託、遺言書作成支援。将来を見据えた円満な資産承継をプランニングします。</p>
-            </div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon-wrap gold">
-              <i class="fas fa-balance-scale"></i>
-            </div>
-            <div>
-              <h3 class="service-name">セカンドオピニオン</h3>
-              <p class="service-desc">他の税理士に依頼済みの方も、相続税の専門家の視点から改めてアドバイスいたします。</p>
-            </div>
-          </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon-wrap">
+          <i class="fas fa-file-invoice-dollar"></i>
+        </div>
+        <div>
+          <h3 class="service-name">相続税申告</h3>
+          <p class="service-desc">相続税の申告書作成から税務署への提出まで、一貫してサポート。適正な財産評価で納税額を最適化します。</p>
         </div>
       </div>
-      <div class="service-group fade-up">
-        <div class="service-group-label secondary"><i class="fas fa-building"></i>不動産のご相談</div>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon-wrap teal">
-              <i class="fas fa-calculator"></i>
-            </div>
-            <div>
-              <h3 class="service-name">不動産税務申告</h3>
-              <p class="service-desc">不動産売買の譲渡所得、賃貸経営の確定申告、土地・建物の評価を正確に処理します。</p>
-            </div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon-wrap teal">
-              <i class="fas fa-chart-pie"></i>
-            </div>
-            <div>
-              <h3 class="service-name">節税対策</h3>
-              <p class="service-desc">不動産活用による節税、法人化のご提案など。お客様の状況に合わせた最適な対策を。</p>
-            </div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon-wrap teal">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <div>
-              <h3 class="service-name">キャッシュフロー経営</h3>
-              <p class="service-desc">不動産の収支改善、資金繰りの最適化。長期的な視点で安定経営をサポートします。</p>
-            </div>
-          </div>
+      <div class="service-card fade-up">
+        <div class="service-icon-wrap">
+          <i class="fas fa-home"></i>
+        </div>
+        <div>
+          <h3 class="service-name">不動産税務</h3>
+          <p class="service-desc">不動産の取得・保有・売却に伴う税務を総合的にサポート。土地評価や譲渡所得の申告もお任せください。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon-wrap">
+          <i class="fas fa-seedling"></i>
+        </div>
+        <div>
+          <h3 class="service-name">生前対策・贈与</h3>
+          <p class="service-desc">将来の相続に備えた生前対策をご提案。贈与税の申告や節税スキームの構築をサポートいたします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon-wrap">
+          <i class="fas fa-calculator"></i>
+        </div>
+        <div>
+          <h3 class="service-name">税務顧問</h3>
+          <p class="service-desc">個人事業主・法人の方の税務顧問として、月次の記帳指導から決算・申告まで継続的にサポートします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon-wrap">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <div>
+          <h3 class="service-name">確定申告</h3>
+          <p class="service-desc">個人の確定申告を正確かつ迅速に対応。不動産所得・譲渡所得など複雑な申告もお気軽にご相談ください。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WORRIES -->
-<section class="section section-alt" id="worries">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="section-label">For You</span>
-      <h2 class="section-title">こんなお悩みはありませんか？</h2>
-      <div class="section-divider"></div>
+<!-- IMAGE BREAK -->
+<section class="image-break">
+  <div class="image-break-bg"></div>
+  <div class="image-break-content fade-up">
+    <div class="image-break-icon">
+      <i class="fas fa-heart"></i>
     </div>
-    <div class="worry-grid">
-      <div class="worry-card fade-up fade-up-delay-1">
-        <div class="worry-card-header">
-          <div class="worry-card-icon"><i class="fas fa-users"></i></div>
-          <h3 class="worry-card-title">相続の問題</h3>
-        </div>
-        <ul class="worry-card-list">
-          <li>遺産分割をどう進めればよいかわからない</li>
-          <li>相続税がいくらかかるのか不安</li>
-          <li>相続後の生活設計をどうすればよいか</li>
-          <li>生前のうちにできる対策を知りたい</li>
-        </ul>
-      </div>
-      <div class="worry-card fade-up fade-up-delay-2">
-        <div class="worry-card-header">
-          <div class="worry-card-icon"><i class="fas fa-home"></i></div>
-          <h3 class="worry-card-title">不動産の問題</h3>
-        </div>
-        <ul class="worry-card-list">
-          <li>不動産にかかる税金を正しく知りたい</li>
-          <li>使っていない不動産（負動産）をどうすべきか</li>
-          <li>不動産経営の資金繰りを改善したい</li>
-          <li>賃貸収入の確定申告に不安がある</li>
-        </ul>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:40px" class="fade-up">
-      <p style="font-size:15px;color:var(--teal-dark);font-weight:700;margin-bottom:8px;">
-        <i class="fas fa-check-circle" style="color:var(--gold);margin-right:6px;"></i>
-        これらのお悩み、すべて当事務所の専門分野です
-      </p>
-      <p style="font-size:13px;color:var(--text-muted);">まずはお気軽にご相談ください。初回相談は無料です。</p>
-    </div>
+    <h2 class="image-break-title">ご家族の大切な資産を<br>しっかりとお守りします</h2>
+    <p class="image-break-text">
+      相続は人生で何度も経験するものではありません。<br>
+      だからこそ、専門家による的確なサポートが必要です。<br>
+      15年の実績と経験を活かし、ご家族の想いに寄り添いながら<br>
+      最善のご提案をさせていただきます。
+    </p>
   </div>
 </section>
 
@@ -1417,50 +1050,42 @@ img { max-width: 100%; height: auto; }
       <h2 class="section-title">事務所概要</h2>
       <div class="section-divider"></div>
     </div>
-    <div class="profile-wrap">
-      <div class="profile-card fade-up">
-        <div class="profile-header">
-          <div class="profile-avatar">
-            <i class="fas fa-user-tie"></i>
-          </div>
-          <div class="profile-name">水庫 清</div>
-          <div class="profile-name-reading">みずくら きよし</div>
-          <div class="profile-title-text">代表税理士</div>
+    <div class="profile-card fade-up">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <i class="fas fa-user-tie"></i>
         </div>
-        <div class="profile-body">
-          <p class="profile-message">
-            「カラーオブライフ（Color of Life）」── 人生に彩りを。その想いを事務所名に込めました。相続税・不動産に関する税務を中心に15年以上の実績を持ち、お客様一人ひとりの状況に寄り添った最適なご提案をいたします。「難しい税務の話を、わかりやすく」をモットーに、丁寧なヒアリングと説明を心がけています。大切な資産を次の世代へ安心してつなげるお手伝いを、ぜひお任せください。
-          </p>
-        </div>
+        <div class="profile-name">水庫 清</div>
+        <div class="profile-title-text">税理士 ／ 相続・不動産税務専門</div>
       </div>
-      <div class="office-info fade-up">
-        <div class="office-info-title">
-          <i class="fas fa-building"></i>事務所情報
-        </div>
+      <div class="profile-body">
+        <p class="profile-message">
+          相続税・不動産税務の分野に15年間携わってまいりました。お客様の大切な資産を次世代へ円滑に承継するため、一件一件丁寧に向き合い、最善のご提案をさせていただきます。「相続のことは何もわからない」という方も、どうぞお気軽にご相談ください。わかりやすくご説明いたします。
+        </p>
         <table class="info-table">
           <tr>
             <th>事務所名</th>
-            <td>カラーオブライフ<br>水庫清税理士事務所</td>
+            <td>カラーオブライフ 水庫 清税理士事務所</td>
           </tr>
           <tr>
             <th>代表</th>
             <td>水庫 清（税理士）</td>
           </tr>
           <tr>
-            <th>専門分野</th>
-            <td>相続税・不動産税務（資産税）</td>
-          </tr>
-          <tr>
             <th>所在地</th>
-            <td>〒194-0004<br>東京都町田市鶴間3-15-10<br>サンクリエイト南町田 101号室</td>
+            <td>東京都町田市鶴間3-15-10<br>サンクリエイト南町田101号室</td>
           </tr>
           <tr>
             <th>電話番号</th>
-            <td><a href="tel:042-738-4362">042-738-4362</a></td>
+            <td><a href="tel:042-738-4362" style="color:var(--accent-dark);">042-738-4362</a></td>
           </tr>
           <tr>
-            <th>メール</th>
-            <td><a href="mailto:mirai@color02life.com">mirai@color02life.com</a></td>
+            <th>Webサイト</th>
+            <td><a href="https://www.color02life.com/" target="_blank" rel="noopener" style="color:var(--accent-dark);">https://www.color02life.com/</a></td>
+          </tr>
+          <tr>
+            <th>専門分野</th>
+            <td>相続税申告 ／ 不動産税務 ／ 生前対策・贈与 ／ 税務顧問 ／ 確定申告</td>
           </tr>
         </table>
       </div>
@@ -1479,10 +1104,10 @@ img { max-width: 100%; height: auto; }
     <div class="access-content fade-up">
       <div class="map-wrap">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248!2d139.47!3d35.51!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z55S655Sw5biC6ba06ZaT77yT5LiB55uu!5e0!3m2!1sja!2sjp!4v1&q=%E7%94%BA%E7%94%B0%E5%B8%82%E9%B6%B4%E9%96%933-15-10"
+          src="https://maps.google.com/maps?q=東京都町田市鶴間3-15-10&output=embed&z=16"
           width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="カラーオブライフ 水庫清税理士事務所の地図"></iframe>
+          title="カラーオブライフ 水庫 清税理士事務所の地図"></iframe>
       </div>
       <div class="access-info">
         <div class="access-item">
@@ -1491,7 +1116,7 @@ img { max-width: 100%; height: auto; }
           </div>
           <div>
             <div class="access-label">住所</div>
-            <div class="access-text">〒194-0004<br>東京都町田市鶴間3-15-10<br>サンクリエイト南町田 101号室</div>
+            <div class="access-text">東京都町田市鶴間3-15-10<br>サンクリエイト南町田101号室</div>
           </div>
         </div>
         <div class="access-item">
@@ -1500,7 +1125,7 @@ img { max-width: 100%; height: auto; }
           </div>
           <div>
             <div class="access-label">最寄り駅</div>
-            <div class="access-text">東急田園都市線<br>「南町田グランベリーパーク駅」<br>より徒歩約5分</div>
+            <div class="access-text">東急田園都市線<br>「南町田グランベリーパーク駅」</div>
           </div>
         </div>
         <div class="access-item">
@@ -1509,16 +1134,16 @@ img { max-width: 100%; height: auto; }
           </div>
           <div>
             <div class="access-label">お電話</div>
-            <div class="access-text"><a href="tel:042-738-4362">042-738-4362</a></div>
+            <div class="access-text"><a href="tel:042-738-4362" style="color:var(--accent-dark);font-weight:700;">042-738-4362</a></div>
           </div>
         </div>
         <div class="access-item">
           <div class="access-icon">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-globe"></i>
           </div>
           <div>
-            <div class="access-label">メール</div>
-            <div class="access-text"><a href="mailto:mirai@color02life.com">mirai@color02life.com</a></div>
+            <div class="access-label">Webサイト</div>
+            <div class="access-text"><a href="https://www.color02life.com/" target="_blank" rel="noopener" style="color:var(--accent-dark);">www.color02life.com</a></div>
           </div>
         </div>
       </div>
@@ -1535,9 +1160,7 @@ img { max-width: 100%; height: auto; }
       <div class="section-divider"></div>
     </div>
     <p class="contact-subtitle fade-up">
-      相続のこと、不動産のこと、<br>
-      「まだ早い」と思っているうちに始めるのが最善の対策です。<br>
-      まずはお気軽にご相談ください。
+      相続・不動産税務に関するご相談は、<br>まずはお気軽にお問い合わせください。
     </p>
     <div class="contact-cards fade-up">
       <div class="contact-card">
@@ -1552,46 +1175,38 @@ img { max-width: 100%; height: auto; }
       </div>
       <div class="contact-card">
         <div class="contact-card-icon">
-          <i class="fas fa-envelope"></i>
+          <i class="fas fa-globe"></i>
         </div>
-        <div class="contact-card-label">メールでのお問い合わせ</div>
+        <div class="contact-card-label">Webサイトからのお問い合わせ</div>
         <div class="contact-card-value">
-          <a href="mailto:mirai@color02life.com">メールを送る</a>
+          <a href="https://www.color02life.com/" target="_blank" rel="noopener">公式サイトへ</a>
         </div>
-        <div class="contact-card-note">24時間受付・2営業日以内にご返信</div>
+        <div class="contact-card-note">24時間受付・お気軽にどうぞ</div>
       </div>
     </div>
     <p class="contact-note fade-up">
-      <strong>初回のご相談は無料です。</strong><br>
-      相続や不動産に関するお悩み、どんな小さなことでもお気軽にお問い合わせください。
+      初回のご相談は無料です。<br>相続・不動産税務のことなら何でもお気軽にお問い合わせください。
     </p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-logo-en">COLOR OF LIFE</div>
-  <div class="footer-logo">水庫清税理士事務所</div>
-  <div class="footer-address">〒194-0004 東京都町田市鶴間3-15-10 サンクリエイト南町田 101号室</div>
-  <div class="footer-copy">&copy; カラーオブライフ 水庫清税理士事務所 All Rights Reserved.</div>
+  <div class="footer-logo">カラーオブライフ 水庫 清税理士事務所</div>
+  <div class="footer-address">東京都町田市鶴間3-15-10 サンクリエイト南町田101号室</div>
+  <div class="footer-copy">&copy; カラーオブライフ 水庫 清税理士事務所 All Rights Reserved.</div>
 </footer>
 
 <!-- MOBILE CTA BAR -->
 <div class="mobile-cta" id="mobileCta">
-  <a href="tel:042-738-4362" class="mobile-cta-phone">
+  <a href="tel:042-738-4362">
     <i class="fas fa-phone-alt"></i>
-    電話する
-  </a>
-  <a href="mailto:mirai@color02life.com" class="mobile-cta-mail">
-    <i class="fas fa-envelope"></i>
-    メール
+    <div>
+      <div>042-738-4362</div>
+      <div class="mobile-cta-sub">タップして電話する</div>
+    </div>
   </a>
 </div>
-
-<!-- BACK TO TOP -->
-<button class="back-to-top" id="backToTop" aria-label="ページトップへ戻る">
-  <i class="fas fa-chevron-up"></i>
-</button>
 
 <script>
 // === Hamburger Menu ===
@@ -1617,7 +1232,6 @@ navMobile.querySelectorAll('a').forEach(function(link) {
 // === Header scroll effect ===
 var header = document.getElementById('header');
 var mobileCta = document.getElementById('mobileCta');
-var backToTop = document.getElementById('backToTop');
 
 function onScroll() {
   var scrollY = window.scrollY;
@@ -1628,27 +1242,20 @@ function onScroll() {
   }
   if (scrollY > 400) {
     mobileCta.classList.add('show');
-    backToTop.classList.add('show');
   } else {
     mobileCta.classList.remove('show');
-    backToTop.classList.remove('show');
   }
 }
 window.addEventListener('scroll', onScroll, { passive: true });
 
-// === Back to top ===
-backToTop.addEventListener('click', function() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// === Scroll Animations ===
+// === Scroll Animations (IntersectionObserver fade-up) ===
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.fade-up').forEach(function(el) {
   observer.observe(el);
@@ -1668,43 +1275,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     }
   });
 });
-
-// === Counter animation for stats ===
-var statsAnimated = false;
-var statsObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting && !statsAnimated) {
-      statsAnimated = true;
-      document.querySelectorAll('.stat-number').forEach(function(el) {
-        var text = el.textContent;
-        var match = text.match(/(\d+)/);
-        if (match) {
-          var target = parseInt(match[1]);
-          var suffix = text.replace(match[1], '');
-          var duration = 1500;
-          var start = 0;
-          var startTime = null;
-          function animate(timestamp) {
-            if (!startTime) startTime = timestamp;
-            var progress = Math.min((timestamp - startTime) / duration, 1);
-            var eased = 1 - Math.pow(1 - progress, 3);
-            var current = Math.round(eased * target);
-            el.innerHTML = current + '<span>' + suffix.replace(/\d/g, '') + '</span>';
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            } else {
-              el.innerHTML = target + '<span>' + suffix.replace(/\d/g, '') + '</span>';
-            }
-          }
-          requestAnimationFrame(animate);
-        }
-      });
-    }
-  });
-}, { threshold: 0.3 });
-
-var statsBanner = document.querySelector('.stats-banner');
-if (statsBanner) statsObserver.observe(statsBanner);
 </script>
 
 </body>
