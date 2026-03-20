@@ -1,434 +1,1583 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>税理士法人宮本会計事務所 横浜事務所 | わかりやすく、シンプルに</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            line-height: 1.8;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        .contact-info {
-            text-align: right;
-        }
-        .phone {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        .hero {
-            background: linear-gradient(rgba(6, 95, 70, 0.85), rgba(4, 120, 87, 0.85)),
-                        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80') center/cover;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #f59e0b;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-        }
-        .cta-button:hover {
-            background: #d97706;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
-        }
-        section {
-            padding: 60px 20px;
-        }
-        section:nth-child(even) {
-            background: #f0fdf4;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #065f46;
-        }
-        .philosophy {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin: 40px auto;
-            max-width: 900px;
-            border-left: 5px solid #065f46;
-        }
-        .philosophy h3 {
-            color: #065f46;
-            font-size: 1.8rem;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .philosophy p {
-            font-size: 1.1rem;
-            line-height: 2;
-            margin-bottom: 20px;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            color: #065f46;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .feature {
-            text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        .feature h3 {
-            color: #065f46;
-            margin-bottom: 10px;
-        }
-        .price-table {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: 40px;
-        }
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .price-item:last-child {
-            border-bottom: none;
-        }
-        .map-container {
-            margin-top: 40px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 40px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        .submit-button {
-            background: #065f46;
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-        }
-        .submit-button:hover {
-            background: #047857;
-        }
-        footer {
-            background: #1f2937;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-info {
-                text-align: center;
-                margin-top: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士法人宮本会計事務所 横浜事務所 | MIYAMOTO ACCOUNTING OFFICE YOKOHAMA</title>
+<meta name="description" content="横浜市緑区を拠点に、法人・個人のお客様の税務・会計を幅広くサポート。確定申告から相続税対策まで、経験豊富なスタッフが丁寧に対応いたします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ========== CSS Custom Properties ========== */
+:root {
+  --green-900: #1B4332;
+  --green-700: #2D6A4F;
+  --green-500: #40916C;
+  --green-400: #52B788;
+  --green-300: #74C69D;
+  --green-100: #D8F3DC;
+  --green-50: #F0FFF4;
+  --gold-500: #D4A373;
+  --gold-400: #E9C46A;
+  --gold-300: #F2D98B;
+  --white: #FFFFFF;
+  --gray-50: #FAFAFA;
+  --gray-100: #F5F5F5;
+  --gray-200: #E8E8E8;
+  --gray-300: #D1D1D1;
+  --gray-600: #6B6B6B;
+  --gray-700: #4A4A4A;
+  --gray-800: #2D2D2D;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.15);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: 'Noto Sans JP', sans-serif;
+}
+
+/* ========== Reset & Base ========== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font);
+  font-weight: 400;
+  color: var(--gray-800);
+  line-height: 1.8;
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition);
+}
+
+ul { list-style: none; }
+
+/* ========== Utilities ========== */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green-500);
+  margin-bottom: 12px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold-500);
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--green-900);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.9;
+  max-width: 600px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header .section-desc {
+  margin: 0 auto;
+}
+
+/* Fade-up animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Header ========== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(27,67,50,0.08);
+  transition: box-shadow var(--transition);
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 20px rgba(27,67,50,0.1);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--green-900);
+  z-index: 1001;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--green-700), var(--green-500));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  line-height: 1.3;
+}
+
+.logo-text small {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--gray-600);
+  letter-spacing: 0.08em;
+}
+
+/* Desktop Nav */
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.nav-desktop a:hover {
+  color: var(--green-700);
+  background: var(--green-50);
+}
+
+.header-cta {
+  display: none;
+}
+
+.header-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-700);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 50px;
+  transition: all var(--transition);
+}
+
+.header-cta a:hover {
+  background: var(--green-900);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45,106,79,0.3);
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--green-900);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Nav Overlay */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  background: rgba(27,67,50,0.97);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.nav-mobile.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-mobile a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.nav-mobile.open a {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.nav-mobile a:nth-child(1) { transition-delay: 0.1s; }
+.nav-mobile a:nth-child(2) { transition-delay: 0.15s; }
+.nav-mobile a:nth-child(3) { transition-delay: 0.2s; }
+.nav-mobile a:nth-child(4) { transition-delay: 0.25s; }
+.nav-mobile a:nth-child(5) { transition-delay: 0.3s; }
+.nav-mobile a:nth-child(6) { transition-delay: 0.35s; }
+
+.nav-mobile a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.nav-mobile-tel {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold-400);
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease 0.4s;
+}
+
+.nav-mobile.open .nav-mobile-tel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Hero ========== */
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(160deg, var(--green-900) 0%, var(--green-700) 40%, var(--green-500) 100%);
+  overflow: hidden;
+  padding-top: 64px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba(212,163,115,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -20%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(64,145,108,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Decorative pattern */
+.hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--white) 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, var(--white) 1px, transparent 1px),
+    radial-gradient(circle at 60% 20%, var(--white) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 40% 80%, var(--white) 0.5px, transparent 0.5px);
+  background-size: 100px 100px, 80px 80px, 60px 60px, 90px 90px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 60px 0 80px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gold-300);
+  margin-bottom: 28px;
+  letter-spacing: 0.05em;
+}
+
+.hero-badge i {
+  font-size: 0.7rem;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.hero-title strong {
+  display: block;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  background: linear-gradient(135deg, var(--white) 30%, var(--gold-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--green-300);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+  padding-left: 2px;
+}
+
+.hero-desc {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 2;
+  max-width: 520px;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-500);
+  color: var(--green-900);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--gold-400);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212,163,115,0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* Hero scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  z-index: 1;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* ========== Features ========== */
+.features {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.feature-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: all var(--transition);
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green-500), var(--gold-500));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover {
+  border-color: var(--green-300);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--green-50), var(--green-100));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--green-700);
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green-900);
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 0.88rem;
+  color: var(--gray-600);
+  line-height: 1.9;
+}
+
+/* ========== Services ========== */
+.services {
+  padding: 80px 0;
+  background: var(--green-900);
+  position: relative;
+  overflow: hidden;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(212,163,115,0.06) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.services .section-label {
+  color: var(--gold-400);
+}
+
+.services .section-title {
+  color: var(--white);
+}
+
+.services .section-desc {
+  color: rgba(255,255,255,0.6);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: all var(--transition);
+  cursor: default;
+}
+
+.service-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+
+.service-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold-500);
+  background: rgba(212,163,115,0.12);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.service-card p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.8;
+}
+
+/* ========== About / Profile ========== */
+.about {
+  padding: 80px 0;
+  background: var(--gray-50);
+}
+
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.about-text {
+  order: 2;
+}
+
+.about-visual {
+  order: 1;
+}
+
+.about-image-block {
+  position: relative;
+  background: linear-gradient(135deg, var(--green-700), var(--green-500));
+  border-radius: var(--radius-lg);
+  padding: 48px 32px;
+  color: var(--white);
+  text-align: center;
+  overflow: hidden;
+}
+
+.about-image-block::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(233,196,106,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.about-image-block i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.about-image-block h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.about-image-block p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  position: relative;
+}
+
+.about-text .section-desc {
+  margin-bottom: 32px;
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table tr {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.profile-table th {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--green-700);
+  text-align: left;
+  padding: 14px 12px 14px 0;
+  white-space: nowrap;
+  vertical-align: top;
+  width: 110px;
+}
+
+.profile-table td {
+  font-size: 0.88rem;
+  color: var(--gray-700);
+  padding: 14px 0;
+  line-height: 1.7;
+}
+
+/* ========== Access ========== */
+.access {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.access-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.access-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.access-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.access-detail-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--green-50);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-700);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.access-detail h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--green-700);
+  margin-bottom: 2px;
+}
+
+.access-detail p {
+  font-size: 0.88rem;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.map-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-md);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
+
+/* ========== Contact ========== */
+.contact {
+  padding: 80px 0;
+  background: var(--green-50);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.contact-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.contact-card-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.contact-card.phone .contact-card-icon {
+  background: linear-gradient(135deg, var(--green-500), var(--green-700));
+  color: var(--white);
+}
+
+.contact-card.email .contact-card-icon {
+  background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
+  color: var(--white);
+}
+
+.contact-card h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+
+.contact-card .contact-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--green-900);
+  margin-bottom: 6px;
+}
+
+.contact-card .contact-note {
+  font-size: 0.78rem;
+  color: var(--gray-600);
+}
+
+.contact-card .contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green-700);
+  padding: 10px 24px;
+  border: 1px solid var(--green-300);
+  border-radius: 50px;
+  transition: all var(--transition);
+}
+
+.contact-card .contact-link:hover {
+  background: var(--green-700);
+  color: var(--white);
+  border-color: var(--green-700);
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: var(--green-900);
+  color: var(--white);
+  padding: 48px 0 24px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-400);
+}
+
+.footer-brand-text h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.footer-brand-text small {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.08em;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--gold-400);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+}
+
+/* ========== Mobile CTA Bar ========== */
+.mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 998;
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  padding: 10px 16px;
+  display: flex;
+  gap: 8px;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.mobile-cta.show {
+  transform: translateY(0);
+}
+
+.mobile-cta a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.mobile-cta .cta-phone {
+  background: var(--green-700);
+  color: var(--white);
+}
+
+.mobile-cta .cta-mail {
+  background: var(--gold-500);
+  color: var(--green-900);
+}
+
+/* ========== Responsive: Tablet (600px+) ========== */
+@media (min-width: 600px) {
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-title strong {
+    font-size: 3.2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .access-wrapper {
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+  }
+
+  .map-container iframe {
+    height: 360px;
+  }
+
+  .about-wrapper {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .about-text {
+    order: 1;
+  }
+
+  .about-visual {
+    order: 2;
+  }
+}
+
+/* ========== Responsive: Desktop (900px+) ========== */
+@media (min-width: 900px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .header-inner {
+    height: 72px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .header-cta {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .hero-title strong {
+    font-size: 3.6rem;
+  }
+
+  .section-title {
+    font-size: 2.1rem;
+  }
+
+  .features {
+    padding: 100px 0;
+  }
+
+  .services {
+    padding: 100px 0;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about {
+    padding: 100px 0;
+  }
+
+  .access {
+    padding: 100px 0;
+  }
+
+  .contact {
+    padding: 100px 0;
+  }
+
+  .mobile-cta {
+    display: none !important;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .about-image-block {
+    padding: 64px 40px;
+  }
+}
+
+/* Add bottom padding for mobile CTA */
+@media (max-width: 899px) {
+  .footer {
+    padding-bottom: 80px;
+  }
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div>
-                    <h1>税理士法人宮本会計事務所</h1>
-                    <p>横浜事務所 | わかりやすく、シンプルに</p>
-                </div>
-                <div class="contact-info">
-                    <div>📞 お電話でのお問い合わせ</div>
-                    <div class="phone">045-532-6188</div>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>わかりやすく、シンプルに<br>中小企業経営者をトータルサポート</h2>
-            <p>信頼できる片腕（相談相手）として<br>御社の良好な経営をサポートいたします</p>
-            <a href="#contact" class="cta-button">無料相談のお申し込み</a>
-        </div>
-    </section>
+<!-- ========== Header ========== -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">宮</div>
+      <div class="logo-text">
+        宮本会計事務所
+        <small>MIYAMOTO ACCOUNTING</small>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#features">選ばれる理由</a>
+      <a href="#services">業務内容</a>
+      <a href="#about">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:045-532-6188"><i class="fas fa-phone"></i> 045-532-6188</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
 
-    <section id="about">
-        <div class="container">
-            <h2>事務所理念</h2>
-            <div class="philosophy">
-                <h3>「わかりやすく、シンプルに」</h3>
-                <p>
-                    様々な問題に直面する中小企業経営者にとって、信頼できる片腕（相談相手）がいることはとても心強いことだと思います。
-                </p>
-                <p>
-                    経営者は、時に孤独な判断を迫られる時が有りますが、そんな時頼りになる片腕（相談役）として当事務所をお選びください。
-                </p>
-                <p>
-                    当事務所は、中小企業経営者の一番最初の相談相手として、難しい税務や会計、日々訪れる問題や疑問、複雑な手続きや、難しい経営分析など、とにかく<strong style="color: #065f46;">「わかりやすく、シンプルに」</strong>中小企業経営者をトータルサポートいたします。
-                </p>
-                <p>
-                    節税のアドバイスや情報提供など、自分の身に係ることであれば（お客様目線で経営を考えているのであれば）税理士事務所が積極的に行うことは、当たり前のことです。
-                </p>
-                <p>
-                    当事務所は、それらサポートを如何に<strong style="color: #065f46;">「わかりやすく、シンプルに」</strong>ご提供することを常に心がけています。
-                </p>
-                <p style="text-align: right; margin-top: 30px; font-weight: bold;">税理士　宮本拓馬</p>
-            </div>
-        </div>
-    </section>
+<!-- Mobile Nav Overlay -->
+<nav class="nav-mobile" id="navMobile">
+  <a href="#features" class="nav-mobile-link">選ばれる理由</a>
+  <a href="#services" class="nav-mobile-link">業務内容</a>
+  <a href="#about" class="nav-mobile-link">事務所概要</a>
+  <a href="#access" class="nav-mobile-link">アクセス</a>
+  <a href="#contact" class="nav-mobile-link">お問い合わせ</a>
+  <div class="nav-mobile-tel">
+    <i class="fas fa-phone"></i>
+    <a href="tel:045-532-6188">045-532-6188</a>
+  </div>
+</nav>
 
-    <section id="features">
-        <div class="container">
-            <h2>当事務所の特徴</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">👨‍💼</div>
-                    <h3>税理士が直接対応</h3>
-                    <p>担当は常に税理士が対応します</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🌐</div>
-                    <h3>万全のネットワーク</h3>
-                    <p>あらゆる問題を解決するネットワーク</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h3>数字に強い経営者へ</h3>
-                    <p>経営判断に役立つノウハウを提供</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💻</div>
-                    <h3>遠隔記帳指導</h3>
-                    <p>遠隔操作で記帳指導を実施</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🏢</div>
-                    <h3>安心の環境づくり</h3>
-                    <p>仕事に専念できる環境を提案</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h3>本業に専念</h3>
-                    <p>本業に専念できる環境をサポート</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ========== Hero ========== -->
+<section class="hero" id="hero">
+  <div class="hero-pattern"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <i class="fas fa-leaf"></i>
+      横浜市緑区の税理士事務所
+    </div>
+    <h1 class="hero-title">
+      確かな信頼と実績の<strong>会計パートナー</strong>
+    </h1>
+    <p class="hero-subtitle">税理士法人宮本会計事務所 横浜事務所</p>
+    <p class="hero-desc">
+      横浜市緑区を拠点に、法人・個人のお客様の税務・会計を幅広くサポート。確定申告から相続税対策まで、経験豊富なスタッフが丁寧に対応いたします。
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary"><i class="fas fa-envelope"></i> お問い合わせ</a>
+      <a href="tel:045-532-6188" class="btn-outline"><i class="fas fa-phone"></i> 045-532-6188</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    SCROLL
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
 
-    <section id="services">
-        <div class="container">
-            <h2>業務内容</h2>
-            <div class="services">
-                <div class="service-card">
-                    <h3>税務会計顧問</h3>
-                    <p>月次決算、税務相談、決算申告など、わかりやすく、シンプルに企業の税務会計業務をサポートいたします。</p>
-                </div>
-                <div class="service-card">
-                    <h3>記帳代行</h3>
-                    <p>日々の記帳業務を代行し、経営者が本業に専念できる環境を整えます。遠隔操作での記帳指導も可能です。</p>
-                </div>
-                <div class="service-card">
-                    <h3>経営相談</h3>
-                    <p>難しい経営分析や日々の問題・疑問に、わかりやすく、シンプルにお答えします。お客様の良き相談役として。</p>
-                </div>
-                <div class="service-card">
-                    <h3>節税対策</h3>
-                    <p>お客様目線で、積極的に節税のアドバイスや情報提供を行います。わかりやすい説明を心がけています。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ========== Features ========== -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Strengths</div>
+      <h2 class="section-title">選ばれる3つの理由</h2>
+      <p class="section-desc">お客様に安心してお任せいただける、確かな理由があります。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><i class="fas fa-award"></i></div>
+        <h3>豊富な経験と実績</h3>
+        <p>長年にわたる税務・会計の実務経験を活かし、多種多様な業種のお客様をサポートしてまいりました。複雑な税務案件にも的確に対応いたします。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+        <h3>きめ細やかなサポート</h3>
+        <p>お客様一人ひとりの状況に寄り添い、丁寧なヒアリングと分かりやすいご説明を心がけています。些細なご質問にも親身に対応いたします。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
+        <h3>幅広い業務対応</h3>
+        <p>税務顧問や確定申告はもちろん、相続税対策や法人設立支援、経営コンサルティングまで、多岐にわたるニーズにワンストップでお応えします。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="price">
-        <div class="container">
-            <h2>料金目安</h2>
-            <div class="price-table">
-                <div class="price-item">
-                    <span>税務顧問（法人）</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>税務顧問（個人）</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>記帳代行</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>決算・申告</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: #666;">
-                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
-            </p>
+<!-- ========== Services ========== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">業務内容</h2>
+      <p class="section-desc">法人・個人問わず、お客様の多様なニーズに対応する幅広いサービスをご提供しています。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-num">01</div>
+        <div>
+          <h3>税務顧問</h3>
+          <p>月次・年次の税務顧問として、記帳指導から決算・申告まで一貫したサポートをご提供。経営判断に必要な情報をタイムリーにお届けします。</p>
         </div>
-    </section>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">02</div>
+        <div>
+          <h3>確定申告</h3>
+          <p>個人事業主やフリーランスの方の所得税確定申告を正確かつ迅速に代行。節税対策のアドバイスも合わせてご提案いたします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">03</div>
+        <div>
+          <h3>相続税・贈与税</h3>
+          <p>相続税の申告・対策から生前贈与のプランニングまで、ご家族の大切な資産をお守りするための最適な方法をご提案します。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">04</div>
+        <div>
+          <h3>法人設立支援</h3>
+          <p>法人設立の手続きから設立後の届出、会計体制の構築まで、起業をトータルでサポート。スムーズなスタートをお手伝いします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">05</div>
+        <div>
+          <h3>経営コンサルティング</h3>
+          <p>資金繰り改善や事業計画の策定など、経営課題の解決を会計の専門家としてサポート。持続的な成長に向けた戦略をご提案します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="access">
-        <div class="container">
-            <h2>アクセス</h2>
-            <p style="text-align: center; margin-bottom: 30px;">
-                〒226-0015 神奈川県横浜市緑区三保町２０６９<br>
-                📞 045-532-6188<br>
-                JR横浜線・横浜市営地下鉄グリーンライン「中山駅」より車で約10分
-            </p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.567!2d139.545!3d35.515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMwJzU0LjAiTiAxMznCsDMyJzQyLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+<!-- ========== About / Profile ========== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-wrapper">
+      <div class="about-text fade-up">
+        <div class="section-label">About</div>
+        <h2 class="section-title">事務所概要</h2>
+        <p class="section-desc">
+          横浜市緑区に根ざし、地域の皆さまと共に歩んでまいりました。お客様の大切な「お金」に関わるパートナーとして、誠実で確かな仕事をお約束いたします。
+        </p>
+        <table class="profile-table">
+          <tr>
+            <th>事務所名</th>
+            <td>税理士法人宮本会計事務所<br>横浜事務所</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>〒226-0015<br>神奈川県横浜市緑区三保町2069</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><a href="tel:045-532-6188" style="color:var(--green-700);font-weight:500;">045-532-6188</a></td>
+          </tr>
+          <tr>
+            <th>業務内容</th>
+            <td>税務顧問・確定申告・相続税対策<br>法人設立支援・経営コンサルティング</td>
+          </tr>
+        </table>
+      </div>
+      <div class="about-visual fade-up">
+        <div class="about-image-block">
+          <i class="fas fa-building-columns"></i>
+          <h3>MIYAMOTO<br>ACCOUNTING OFFICE</h3>
+          <p>横浜事務所 / YOKOHAMA</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>お問い合わせ</h2>
-            <div class="contact-form">
-                <form action="http://www.miyamo-tax.com/" method="post">
-                    <div class="form-group">
-                        <label for="name">お名前 *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">会社名</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">メールアドレス *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">送信する</button>
-                </form>
-            </div>
+<!-- ========== Access ========== -->
+<section class="access" id="access">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Access</div>
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-desc">お車でのお越しが便利です。駐車場完備。</p>
+    </div>
+    <div class="access-wrapper fade-up">
+      <div class="access-info">
+        <div class="access-detail">
+          <div class="access-detail-icon"><i class="fas fa-location-dot"></i></div>
+          <div>
+            <h4>所在地</h4>
+            <p>〒226-0015<br>神奈川県横浜市緑区三保町2069</p>
+          </div>
         </div>
-    </section>
+        <div class="access-detail">
+          <div class="access-detail-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>電話番号</h4>
+            <p><a href="tel:045-532-6188" style="color:var(--green-700);font-weight:500;">045-532-6188</a></p>
+          </div>
+        </div>
+        <div class="access-detail">
+          <div class="access-detail-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>営業時間</h4>
+            <p>月〜金 9:00 - 17:00<br><span style="font-size:0.78rem;color:var(--gray-600);">※土日祝休業</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps?q=横浜市緑区三保町2069&output=embed"
+          width="100%"
+          height="360"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="宮本会計事務所 横浜事務所 地図">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 税理士法人宮本会計事務所 横浜事務所 All Rights Reserved.</p>
+<!-- ========== Contact ========== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-desc">税務・会計に関するご相談はお気軽にお問い合わせください。初回相談は無料で承っております。</p>
+    </div>
+    <div class="contact-grid fade-up">
+      <div class="contact-card phone">
+        <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+        <h3>お電話でのお問い合わせ</h3>
+        <div class="contact-value">045-532-6188</div>
+        <div class="contact-note">受付時間：月〜金 9:00 - 17:00</div>
+        <a href="tel:045-532-6188" class="contact-link"><i class="fas fa-phone"></i> 電話する</a>
+      </div>
+      <div class="contact-card email">
+        <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+        <h3>メールでのお問い合わせ</h3>
+        <div class="contact-value">メール相談</div>
+        <div class="contact-note">24時間受付・2営業日以内に返信</div>
+        <a href="mailto:info@miyamo-tax.com" class="contact-link"><i class="fas fa-envelope"></i> メールする</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-icon">宮</div>
+        <div class="footer-brand-text">
+          <h4>宮本会計事務所 横浜事務所</h4>
+          <small>MIYAMOTO ACCOUNTING OFFICE YOKOHAMA</small>
         </div>
-    </footer>
+      </div>
+      <div class="footer-links">
+        <a href="#features">選ばれる理由</a>
+        <a href="#services">業務内容</a>
+        <a href="#about">事務所概要</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2024 税理士法人宮本会計事務所 横浜事務所 All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== Mobile CTA Bar ========== -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="tel:045-532-6188" class="cta-phone"><i class="fas fa-phone"></i> 電話する</a>
+  <a href="mailto:info@miyamo-tax.com" class="cta-mail"><i class="fas fa-envelope"></i> メールする</a>
+</div>
+
+<!-- ========== JavaScript ========== -->
+<script>
+(function() {
+  'use strict';
+
+  // --- Hamburger Menu ---
+  var hamburger = document.getElementById('hamburger');
+  var navMobile = document.getElementById('navMobile');
+  var mobileLinks = navMobile.querySelectorAll('a');
+
+  function toggleMenu() {
+    hamburger.classList.toggle('active');
+    navMobile.classList.toggle('open');
+    document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (navMobile.classList.contains('open')) {
+        toggleMenu();
+      }
+    });
+  });
+
+  // --- Header Scroll Effect ---
+  var header = document.getElementById('header');
+  var mobileCta = document.getElementById('mobileCta');
+
+  function onScroll() {
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+
+    if (scrollY > 400) {
+      mobileCta.classList.add('show');
+    } else {
+      mobileCta.classList.remove('show');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // --- IntersectionObserver for Fade-Up ---
+  var fadeEls = document.querySelectorAll('.fade-up');
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    fadeEls.forEach(function(el) {
+      observer.observe(el);
+    });
+  } else {
+    fadeEls.forEach(function(el) {
+      el.classList.add('is-visible');
+    });
+  }
+
+  // --- Smooth scroll for anchor links ---
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        var headerHeight = header.offsetHeight;
+        var targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({
+          top: targetPos,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+})();
+</script>
 </body>
 </html>

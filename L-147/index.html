@@ -1,394 +1,1561 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"="width=device-width, initial-scale=1.0">
-    <title>駒田誠税理士事務所 | 横浜市青葉区の税理士</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            line-height: 1.8;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        .contact-info {
-            text-align: right;
-        }
-        .phone {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        .hero {
-            background: linear-gradient(rgba(44, 82, 130, 0.85), rgba(26, 54, 93, 0.85)),
-                        url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80') center/cover;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #48bb78;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
-        }
-        .cta-button:hover {
-            background: #38a169;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.5);
-        }
-        section {
-            padding: 60px 20px;
-        }
-        section:nth-child(even) {
-            background: #f7fafc;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #2c5282;
-        }
-        .motto {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 2;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #2c5282;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            color: #2c5282;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .feature {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        .price-table {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: 40px;
-        }
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .price-item:last-child {
-            border-bottom: none;
-        }
-        .map-container {
-            margin-top: 40px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 40px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        .submit-button {
-            background: #2c5282;
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-        }
-        .submit-button:hover {
-            background: #1a365d;
-        }
-        footer {
-            background: #2d3748;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-info {
-                text-align: center;
-                margin-top: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>駒田誠税理士事務所 | 青葉台の税理士</title>
+<meta name="description" content="横浜市青葉区青葉台の税理士事務所。税務顧問・確定申告・相続税対策・法人設立など、地域密着の丁寧なサポートをご提供いたします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #2c4a6e;
+  --primary-dark: #1e3550;
+  --primary-light: #3a5f8a;
+  --accent: #6b9cc4;
+  --accent-light: #a3c4e0;
+  --accent-pale: #d8e8f4;
+  --bg-white: #ffffff;
+  --bg-light: #f5f8fb;
+  --bg-section: #edf2f7;
+  --text-dark: #1a2a3a;
+  --text-body: #3a4a5a;
+  --text-muted: #6a7a8a;
+  --text-light: #8a9aaa;
+  --border-color: #d0dce8;
+  --shadow-sm: 0 1px 3px rgba(44,74,110,0.08);
+  --shadow-md: 0 4px 16px rgba(44,74,110,0.10);
+  --shadow-lg: 0 8px 32px rgba(44,74,110,0.12);
+  --shadow-xl: 0 16px 48px rgba(44,74,110,0.14);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  --header-height: 72px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-body);
+  line-height: 1.8;
+  background: var(--bg-white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  transition: box-shadow var(--transition), background var(--transition);
+}
+
+.header.scrolled {
+  box-shadow: 0 1px 12px rgba(44,74,110,0.10);
+  background: rgba(255,255,255,0.98);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  text-decoration: none;
+}
+
+.logo-main {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+.logo-sub {
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-body);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  position: relative;
+}
+
+.nav-desktop a:hover {
+  color: var(--primary);
+  background: var(--accent-pale);
+}
+
+.header-cta {
+  display: none;
+}
+
+.header-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.header-cta a:hover {
+  background: var(--primary-dark);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 6px;
+  padding: 0;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: all var(--transition);
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Nav */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 360px;
+  height: 100vh;
+  background: var(--bg-white);
+  z-index: 1050;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 100px 32px 40px;
+  box-shadow: var(--shadow-xl);
+  overflow-y: auto;
+}
+
+.nav-mobile.open {
+  right: 0;
+}
+
+.nav-mobile a {
+  display: block;
+  padding: 16px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-color);
+  transition: all var(--transition);
+}
+
+.nav-mobile a:last-child {
+  border-bottom: none;
+}
+
+.nav-mobile a:hover {
+  color: var(--primary);
+  padding-left: 8px;
+}
+
+.nav-mobile-phone {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.nav-mobile-phone a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+}
+
+.nav-mobile-phone a:hover {
+  color: #fff;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26,42,58,0.4);
+  z-index: 1040;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+}
+
+.nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #1e3550 0%, #2c4a6e 35%, #3a5f8a 65%, #6b9cc4 100%);
+  overflow: hidden;
+  padding: calc(var(--header-height) + 40px) 20px 80px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(107,156,196,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(163,196,224,0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(44,74,110,0.20) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50px;
+  color: rgba(255,255,255,0.85);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+  backdrop-filter: blur(8px);
+}
+
+.hero-badge i {
+  font-size: 11px;
+  color: var(--accent-light);
+}
+
+.hero-title {
+  font-size: clamp(28px, 6vw, 52px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.hero-title span {
+  display: inline;
+  background: linear-gradient(135deg, #a3c4e0, #d8e8f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-size: clamp(14px, 2.5vw, 17px);
+  color: rgba(255,255,255,0.75);
+  line-height: 2;
+  margin-bottom: 40px;
+  font-weight: 300;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 40px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  font-family: var(--font-family);
+  letter-spacing: 0.03em;
+  min-width: 240px;
+}
+
+.btn-primary {
+  background: #fff;
+  color: var(--primary);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.20);
+  color: var(--primary-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.35);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.55);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.4);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: heroScrollBounce 2s ease-in-out infinite;
+}
+
+.hero-scroll i {
+  font-size: 14px;
+}
+
+@keyframes heroScrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ===== SECTION COMMON ===== */
+.section {
+  padding: 80px 20px;
+}
+
+.section-alt {
+  background: var(--bg-light);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== FEATURES ===== */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(208,220,232,0.5);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-pale), var(--bg-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  transition: all var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  transform: scale(1.08);
+}
+
+.feature-icon i {
+  font-size: 24px;
+  color: var(--primary);
+  transition: color var(--transition);
+}
+
+.feature-card:hover .feature-icon i {
+  color: #fff;
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+}
+
+.feature-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ===== SERVICES ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px 24px;
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(208,220,232,0.4);
+  transition: all var(--transition);
+}
+
+.service-item:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-light);
+}
+
+.service-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  transition: all var(--transition);
+}
+
+.service-item:hover .service-num {
+  background: var(--primary);
+  color: #fff;
+}
+
+.service-content {
+  flex: 1;
+}
+
+.service-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.service-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ===== ABOUT ===== */
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.about-message {
+  font-size: 15px;
+  line-height: 2.2;
+  color: var(--text-body);
+}
+
+.about-message p {
+  margin-bottom: 20px;
+}
+
+.about-message p:last-child {
+  margin-bottom: 0;
+}
+
+.about-name {
+  text-align: right;
+  margin-top: 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 15px;
+}
+
+.about-name small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.info-table {
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(208,220,232,0.5);
+}
+
+.info-row {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  padding: 14px 20px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--bg-light);
+  letter-spacing: 0.05em;
+}
+
+.info-value {
+  padding: 4px 20px 14px;
+  font-size: 14px;
+  color: var(--text-body);
+  background: var(--bg-light);
+}
+
+/* ===== ACCESS ===== */
+.access-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.map-container {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+.access-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.access-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(208,220,232,0.4);
+}
+
+.access-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.access-icon i {
+  font-size: 16px;
+  color: var(--primary);
+}
+
+.access-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+
+.access-value {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* ===== CONTACT ===== */
+.contact-section {
+  background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  position: relative;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.contact-section .section-label {
+  color: var(--accent-light);
+}
+
+.contact-section .section-title {
+  color: #fff;
+}
+
+.contact-section .section-subtitle {
+  color: rgba(255,255,255,0.65);
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.contact-card:hover {
+  background: rgba(255,255,255,0.14);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.contact-card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.contact-card-icon i {
+  font-size: 22px;
+  color: var(--accent-light);
+}
+
+.contact-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.contact-card-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.60);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.contact-card .btn-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all var(--transition);
+  text-decoration: none;
+  font-family: var(--font-family);
+}
+
+.btn-contact-phone {
+  background: #fff;
+  color: var(--primary);
+}
+
+.btn-contact-phone:hover {
+  background: var(--accent-pale);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-contact-web {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.35);
+}
+
+.btn-contact-web:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.55);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.contact-hours {
+  text-align: center;
+  margin-top: 36px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--text-dark);
+  padding: 56px 20px 24px;
+  color: rgba(255,255,255,0.50);
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .logo-main {
+  color: #fff;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.footer-brand .logo-sub {
+  color: rgba(255,255,255,0.35);
+  font-size: 9px;
+}
+
+.footer-brand p {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer-nav-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.80);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.footer-nav a {
+  display: block;
+  padding: 6px 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  transition: color var(--transition);
+}
+
+.footer-nav a:hover {
+  color: var(--accent-light);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.30);
+}
+
+/* ===== MOBILE CTA BAR ===== */
+.mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  display: flex;
+  background: var(--primary);
+  box-shadow: 0 -4px 20px rgba(44,74,110,0.25);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-cta.visible {
+  transform: translateY(0);
+}
+
+.mobile-cta a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--transition);
+}
+
+.mobile-cta a:hover {
+  color: #fff;
+}
+
+.mobile-cta a:first-child {
+  background: var(--primary);
+}
+
+.mobile-cta a:first-child:hover {
+  background: var(--primary-dark);
+}
+
+.mobile-cta a:last-child {
+  background: var(--primary-light);
+}
+
+.mobile-cta a:last-child:hover {
+  background: var(--primary);
+}
+
+.mobile-cta i {
+  font-size: 16px;
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* ===== RESPONSIVE: TABLET ===== */
+@media (min-width: 600px) {
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-row {
+    flex-direction: row;
+  }
+
+  .info-label {
+    padding: 16px 20px;
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+  }
+
+  .info-value {
+    padding: 16px 20px;
+    flex: 1;
+  }
+
+  .map-container iframe {
+    height: 360px;
+  }
+
+  .footer-top {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+/* ===== RESPONSIVE: DESKTOP ===== */
+@media (min-width: 960px) {
+  :root {
+    --header-height: 80px;
+  }
+
+  .section {
+    padding: 112px 40px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .header-cta {
+    display: block;
+  }
+
+  .hero {
+    padding-bottom: 100px;
+  }
+
+  .about-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .access-wrapper {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .map-container iframe {
+    height: 420px;
+  }
+
+  .mobile-cta {
+    display: none !important;
+  }
+
+  .services-grid {
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 48px 32px;
+  }
+}
+
+/* ===== RESPONSIVE: LARGE DESKTOP ===== */
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 52px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+}
+
+/* Safe area for mobile CTA */
+@media (max-width: 959px) {
+  .footer {
+    padding-bottom: 80px;
+  }
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div>
-                    <h1>駒田誠税理士事務所</h1>
-                    <p>横浜市青葉区 | お客様に満足していただくために</p>
-                </div>
-                <div class="contact-info">
-                    <div>📞 お電話でのお問い合わせ</div>
-                    <div class="phone">045-532-3757</div>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>世の中、持ちつ持たれつ</h2>
-            <p>人と人の関わり、営利を目的とする企業間の関わり、人と自然との関わり<br>全てにおいて「持ちつ持たれつ」の関係が重要と考えます</p>
-            <a href="#contact" class="cta-button">お気軽にご相談ください</a>
-        </div>
-    </section>
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-main">駒田誠税理士事務所</span>
+      <span class="logo-sub">Komada Tax Accountant Office</span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#features">選ばれる理由</a>
+      <a href="#services">業務内容</a>
+      <a href="#about">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:045-532-3757"><i class="fas fa-phone"></i>045-532-3757</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
 
-    <section id="about">
-        <div class="container">
-            <h2>事務所のモットー</h2>
-            <div class="motto">
-                「世の中、持ちつ持たれつ」これが駒田誠税理士事務所のモットーです。<br><br>
-                当事務所では、人と人の関わり、営利を目的とする企業間の関わり、人と自然との関わり、全てにおいて「持ちつ持たれつ」の関係が重要と考えます。<br><br>
-                税務、会計はもちろん他の些細なことでもお悩みごとがございましたらお気軽に当事務所までご相談下さい。<br>
-                プライバシーを守り、一生懸命お客様に満足していただくように努力させていただきます。
-            </div>
-        </div>
-    </section>
+<!-- Mobile Nav -->
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-mobile" id="navMobile">
+  <a href="#features">選ばれる理由</a>
+  <a href="#services">業務内容</a>
+  <a href="#about">事務所概要</a>
+  <a href="#access">アクセス</a>
+  <a href="#contact">お問い合わせ</a>
+  <div class="nav-mobile-phone">
+    <a href="tel:045-532-3757"><i class="fas fa-phone"></i>045-532-3757</a>
+  </div>
+</nav>
 
-    <section id="services">
-        <div class="container">
-            <h2>業務内容</h2>
-            <div class="services">
-                <div class="service-card">
-                    <h3>税務会計顧問</h3>
-                    <p>月次決算、決算申告、税務相談など、企業の税務会計業務を総合的にサポートいたします。お客様の事業発展のため、きめ細かなサービスを提供します。</p>
-                </div>
-                <div class="service-card">
-                    <h3>確定申告</h3>
-                    <p>個人事業主の方の確定申告をサポートいたします。正確な申告により、安心して事業に専念していただけます。</p>
-                </div>
-                <div class="service-card">
-                    <h3>相続税・贈与税</h3>
-                    <p>相続税・贈与税の申告、相続対策、事業承継など、資産税に関するあらゆるご相談に対応いたします。</p>
-                </div>
-                <div class="service-card">
-                    <h3>経営相談</h3>
-                    <p>些細なことでもお悩みごとがございましたらお気軽にご相談ください。プライバシーを守り、一生懸命お客様に満足していただくよう努力いたします。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-building-columns"></i>青葉台駅から徒歩圏内</div>
+    <h1 class="hero-title">青葉台の<span>税理士</span>として<br>暮らしと事業に寄り添う</h1>
+    <p class="hero-description">横浜市青葉区を拠点に、個人・法人のお客様へ<br>きめ細やかな税務サービスをご提供。<br>お一人おひとりの状況に合わせた、丁寧な対応を心がけております。</p>
+    <div class="hero-buttons">
+      <a href="tel:045-532-3757" class="btn btn-primary"><i class="fas fa-phone"></i>電話で相談する</a>
+      <a href="#services" class="btn btn-outline"><i class="fas fa-arrow-down"></i>業務内容を見る</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>SCROLL</span><i class="fas fa-chevron-down"></i></div>
+</section>
 
-    <section id="features">
-        <div class="container">
-            <h2>当事務所の特徴</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🤝</div>
-                    <h3>信頼関係</h3>
-                    <p>「持ちつ持たれつ」の精神で、お客様との長期的な信頼関係を大切にします</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🔒</div>
-                    <h3>プライバシー重視</h3>
-                    <p>お客様の情報を厳重に管理し、プライバシーを守ります</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💡</div>
-                    <h3>親身な対応</h3>
-                    <p>些細なことでもお気軽にご相談いただけるアットホームな事務所です</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ===== FEATURES ===== -->
+<section class="section section-alt" id="features">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Reason</span>
+      <h2 class="section-title">選ばれる3つの理由</h2>
+      <p class="section-subtitle">地域に根ざした信頼のサービスで、お客様の大切な資産と事業をお守りします。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up stagger-1">
+        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+        <h3 class="feature-title">地域密着の信頼</h3>
+        <p class="feature-text">横浜市青葉区に根ざし、地域の個人・法人の皆さまと長年にわたり信頼関係を築いてまいりました。地元に密着した税理士だからこそできる、きめ細やかな対応をお約束します。</p>
+      </div>
+      <div class="feature-card fade-up stagger-2">
+        <div class="feature-icon"><i class="fas fa-comments"></i></div>
+        <h3 class="feature-title">丁寧なコミュニケーション</h3>
+        <p class="feature-text">税務に関する専門用語はわかりやすくご説明いたします。お客様のご不安やご要望にしっかりと耳を傾け、納得いただけるまでお話をお伺いする姿勢を大切にしています。</p>
+      </div>
+      <div class="feature-card fade-up stagger-3">
+        <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3 class="feature-title">幅広い対応力</h3>
+        <p class="feature-text">日々の記帳や確定申告から、相続税対策、法人設立まで、税務に関する幅広いニーズにワンストップで対応。お客様のライフステージに合わせた最適なサポートをご提供します。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="price">
-        <div class="container">
-            <h2>料金目安</h2>
-            <div class="price-table">
-                <div class="price-item">
-                    <span>税務顧問（法人）</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>税務顧問（個人）</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>確定申告</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>相続税申告</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: #666;">
-                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
-            </p>
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Service</span>
+      <h2 class="section-title">業務内容</h2>
+      <p class="section-subtitle">個人のお客様から法人のお客様まで、税務に関するあらゆるご相談に対応いたします。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-item fade-up stagger-1">
+        <div class="service-num">01</div>
+        <div class="service-content">
+          <h3 class="service-title">税務顧問</h3>
+          <p class="service-text">月次の記帳代行から決算・申告まで、法人・個人事業主の税務を継続的にサポート。経営に関するアドバイスも行い、事業の安定と成長をお手伝いします。</p>
         </div>
-    </section>
+      </div>
+      <div class="service-item fade-up stagger-2">
+        <div class="service-num">02</div>
+        <div class="service-content">
+          <h3 class="service-title">確定申告</h3>
+          <p class="service-text">個人の所得税、不動産所得、譲渡所得など、各種確定申告に対応。正確な申告で適切な納税をサポートし、節税のアドバイスもいたします。</p>
+        </div>
+      </div>
+      <div class="service-item fade-up stagger-3">
+        <div class="service-num">03</div>
+        <div class="service-content">
+          <h3 class="service-title">相続税対策</h3>
+          <p class="service-text">相続税の試算から申告、生前対策まで幅広くサポート。大切なご家族の資産を守るため、早い段階からの計画的な対策をご提案いたします。</p>
+        </div>
+      </div>
+      <div class="service-item fade-up stagger-4">
+        <div class="service-num">04</div>
+        <div class="service-content">
+          <h3 class="service-title">法人設立</h3>
+          <p class="service-text">会社設立の手続きから設立後の届出、記帳体制の整備まで、事業のスタートをトータルにサポート。法人化のメリット・デメリットも丁寧にご説明します。</p>
+        </div>
+      </div>
+      <div class="service-item fade-up stagger-5">
+        <div class="service-num">05</div>
+        <div class="service-content">
+          <h3 class="service-title">経営サポート</h3>
+          <p class="service-text">資金繰り、事業計画の策定、経営分析など、税務の枠を超えた経営全般のご相談に対応。お客様の事業の発展を共に考えるパートナーとしてお力添えいたします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="access">
-        <div class="container">
-            <h2>アクセス</h2>
-            <p style="text-align: center; margin-bottom: 30px;">
-                〒227-0062 神奈川県横浜市青葉区青葉台１丁目５番地７ 司ビル５０７<br>
-                📞 045-532-3757<br>
-                東急田園都市線「青葉台駅」より徒歩圏内
-            </p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.123!2d139.515!3d35.552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMzJzA3LjIiTiAxMznCsDMwJzU0LjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+<!-- ===== ABOUT ===== -->
+<section class="section section-alt" id="about">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">About</span>
+      <h2 class="section-title">事務所概要</h2>
+    </div>
+    <div class="about-wrapper">
+      <div class="about-message fade-up">
+        <p>駒田誠税理士事務所のホームページをご覧いただき、誠にありがとうございます。</p>
+        <p>当事務所は、横浜市青葉区青葉台を拠点に、地域の皆さまの税務・会計のお悩みに寄り添い、誠実かつ丁寧なサービスをご提供しております。</p>
+        <p>税務に関するご相談は、専門的で難しく感じる方も多いかと思います。だからこそ、お客様にわかりやすくご説明し、安心してお任せいただけるよう努めております。まずはお気軽にご相談ください。</p>
+        <div class="about-name">
+          <small>駒田誠税理士事務所 代表</small>
+          駒田 誠
         </div>
-    </section>
+      </div>
+      <div class="fade-up stagger-2">
+        <div class="info-table">
+          <div class="info-row">
+            <div class="info-label">事務所名</div>
+            <div class="info-value">駒田誠税理士事務所</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">代表</div>
+            <div class="info-value">駒田 誠（税理士）</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">所在地</div>
+            <div class="info-value">〒227-0062<br>神奈川県横浜市青葉区青葉台1-5-7<br>司ビル507</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">電話番号</div>
+            <div class="info-value"><a href="tel:045-532-3757">045-532-3757</a></div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">最寄り駅</div>
+            <div class="info-value">東急田園都市線 青葉台駅</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>お問い合わせ</h2>
-            <div class="contact-form">
-                <form action="https://www.komada-kaikei.jp/form/komada-kaikeijp/inquiry" method="post">
-                    <div class="form-group">
-                        <label for="name">お名前 *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">会社名</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">メールアドレス *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">送信する</button>
-                </form>
-            </div>
+<!-- ===== ACCESS ===== -->
+<section class="section" id="access">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Access</span>
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-subtitle">東急田園都市線 青葉台駅より徒歩圏内。お気軽にお越しください。</p>
+    </div>
+    <div class="access-wrapper fade-up">
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.5!2d139.517!3d35.541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z6Z2S6JGJ5Y-w!5e0!3m2!1sja!2sjp!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="access-info">
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-location-dot"></i></div>
+          <div>
+            <div class="access-label">所在地</div>
+            <div class="access-value">〒227-0062<br>神奈川県横浜市青葉区青葉台1-5-7<br>司ビル507</div>
+          </div>
         </div>
-    </section>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-train"></i></div>
+          <div>
+            <div class="access-label">青葉台駅からのアクセス</div>
+            <div class="access-value">東急田園都市線「青葉台」駅より徒歩約3分</div>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="access-label">お電話</div>
+            <div class="access-value"><a href="tel:045-532-3757">045-532-3757</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 駒田誠税理士事務所 All Rights Reserved.</p>
-        </div>
-    </footer>
+<!-- ===== CONTACT ===== -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-subtitle">税務に関するお悩みやご相談がございましたら、お気軽にお問い合わせください。</p>
+    </div>
+    <div class="contact-cards">
+      <div class="contact-card fade-up stagger-1">
+        <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+        <h3 class="contact-card-title">お電話でのお問い合わせ</h3>
+        <p class="contact-card-text">お電話でのご相談・お問い合わせを<br>承っております。お気軽にどうぞ。</p>
+        <a href="tel:045-532-3757" class="btn-contact btn-contact-phone"><i class="fas fa-phone"></i>045-532-3757</a>
+      </div>
+      <div class="contact-card fade-up stagger-2">
+        <div class="contact-card-icon"><i class="fas fa-globe"></i></div>
+        <h3 class="contact-card-title">Webサイト</h3>
+        <p class="contact-card-text">当事務所のWebサイトも<br>あわせてご覧ください。</p>
+        <a href="http://www.komada-kaikei.jp/" target="_blank" rel="noopener noreferrer" class="btn-contact btn-contact-web"><i class="fas fa-arrow-up-right-from-square"></i>公式サイトへ</a>
+      </div>
+    </div>
+    <p class="contact-hours fade-up">受付時間：平日 9:00〜17:00（土日祝休み）</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-main">駒田誠税理士事務所</div>
+        <div class="logo-sub">Komada Tax Accountant Office</div>
+        <p>神奈川県横浜市青葉区青葉台1-5-7 司ビル507<br>TEL: 045-532-3757</p>
+      </div>
+      <div>
+        <div class="footer-nav-title">メニュー</div>
+        <nav class="footer-nav">
+          <a href="#features">選ばれる理由</a>
+          <a href="#services">業務内容</a>
+          <a href="#about">事務所概要</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-nav-title">お問い合わせ</div>
+        <nav class="footer-nav">
+          <a href="#access">アクセス</a>
+          <a href="#contact">お問い合わせ</a>
+          <a href="http://www.komada-kaikei.jp/" target="_blank" rel="noopener noreferrer">公式サイト</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 駒田誠税理士事務所 All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MOBILE CTA BAR ===== -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="tel:045-532-3757"><i class="fas fa-phone"></i>電話する</a>
+  <a href="#contact"><i class="fas fa-envelope"></i>お問い合わせ</a>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // === Header scroll effect ===
+  var header = document.getElementById('header');
+
+  function onScroll() {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // === Hamburger menu ===
+  var hamburger = document.getElementById('hamburger');
+  var navMobile = document.getElementById('navMobile');
+  var navOverlay = document.getElementById('navOverlay');
+
+  function closeMenu() {
+    hamburger.classList.remove('active');
+    navMobile.classList.remove('open');
+    navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function toggleMenu() {
+    if (navMobile.classList.contains('open')) {
+      closeMenu();
+    } else {
+      hamburger.classList.add('active');
+      navMobile.classList.add('open');
+      navOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  navOverlay.addEventListener('click', closeMenu);
+
+  var mobileLinks = navMobile.querySelectorAll('a[href^="#"]');
+  for (var i = 0; i < mobileLinks.length; i++) {
+    mobileLinks[i].addEventListener('click', closeMenu);
+  }
+
+  // === Mobile CTA bar ===
+  var mobileCta = document.getElementById('mobileCta');
+  var ctaVisible = false;
+
+  function checkMobileCta() {
+    if (window.innerWidth >= 960) return;
+    if (window.scrollY > 500 && !ctaVisible) {
+      mobileCta.classList.add('visible');
+      ctaVisible = true;
+    } else if (window.scrollY <= 500 && ctaVisible) {
+      mobileCta.classList.remove('visible');
+      ctaVisible = false;
+    }
+  }
+
+  window.addEventListener('scroll', checkMobileCta, { passive: true });
+
+  // === Scroll animations (IntersectionObserver) ===
+  var fadeEls = document.querySelectorAll('.fade-up');
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      for (var j = 0; j < entries.length; j++) {
+        if (entries[j].isIntersecting) {
+          entries[j].target.classList.add('visible');
+          observer.unobserve(entries[j].target);
+        }
+      }
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    for (var k = 0; k < fadeEls.length; k++) {
+      observer.observe(fadeEls[k]);
+    }
+  } else {
+    for (var m = 0; m < fadeEls.length; m++) {
+      fadeEls[m].classList.add('visible');
+    }
+  }
+
+  // === Smooth scroll for anchor links ===
+  var anchors = document.querySelectorAll('a[href^="#"]');
+  for (var n = 0; n < anchors.length; n++) {
+    anchors[n].addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        var style = getComputedStyle(document.documentElement);
+        var headerH = parseInt(style.getPropertyValue('--header-height')) || 72;
+        var top = target.getBoundingClientRect().top + window.scrollY - headerH;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  }
+
+})();
+</script>
 </body>
 </html>

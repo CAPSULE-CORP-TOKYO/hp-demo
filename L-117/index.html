@@ -3,358 +3,1741 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小寺勇毅税理士事務所 | 新横浜駅徒歩8分・わかりやすい税務サポート</title>
-<meta name="description" content="新横浜駅徒歩8分。わかりやすさを大切に、記帳代行から確定申告、税務調査対応まで。初回相談無料。小寺勇毅税理士事務所。">
+<title>小寺勇毅税理士事務所 | 新横浜のIT・クラウド会計に強い税理士</title>
+<meta name="description" content="新横浜エリアの若手税理士。freee・マネーフォワード等のクラウド会計に精通し、IT活用で効率的な税務・会計サービスをご提供します。初回相談無料。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; line-height: 1.8; -webkit-font-smoothing: antialiased; }
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; height: auto; display: block; }
-ul { list-style: none; }
-
+/* ========================================
+   CSS Custom Properties
+   ======================================== */
 :root {
-  --indigo: #2c3e6b;
-  --indigo-light: #3d5590;
-  --coral: #e07850;
-  --coral-dark: #c96640;
-  --cream: #faf8f5;
-  --white: #ffffff;
-  --gray-light: #f4f5f7;
-  --text: #333;
-  --text-light: #666;
-  --shadow: 0 4px 24px rgba(44,62,107,0.08);
-  --shadow-lg: 0 8px 40px rgba(44,62,107,0.12);
-  --radius: 12px;
-  --transition: 0.3s ease;
+  --color-primary: #1a1a2e;
+  --color-primary-deep: #0f0f1e;
+  --color-secondary: #16213e;
+  --color-accent: #4361ee;
+  --color-accent-light: #4895ef;
+  --color-accent-glow: rgba(67, 97, 238, 0.15);
+  --color-white: #ffffff;
+  --color-off-white: #f0f2f8;
+  --color-gray-100: #e8eaf0;
+  --color-gray-200: #d1d5e0;
+  --color-gray-400: #8892a8;
+  --color-gray-600: #5a6378;
+  --color-gray-800: #2d3348;
+  --color-text: #1e2234;
+  --color-text-light: #6b7394;
+  --color-text-on-dark: #c8cee0;
+  --color-surface: #ffffff;
+  --color-surface-dark: #131328;
+  --font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --header-height: 64px;
+  --section-padding: 80px 0;
+  --container-width: 1080px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --shadow-accent: 0 4px 24px rgba(67, 97, 238, 0.2);
+  --transition-base: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-smooth: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-.section-padding { padding: 60px 0; }
-.section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--coral); text-transform: uppercase; margin-bottom: 8px; }
-.section-title { font-size: 1.6rem; font-weight: 700; color: var(--indigo); margin-bottom: 12px; line-height: 1.4; }
-.section-subtitle { font-size: 0.95rem; color: var(--text-light); margin-bottom: 40px; }
-.text-center { text-align: center; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 700; transition: all var(--transition); cursor: pointer; border: none; font-family: inherit; }
-.btn-coral { background: var(--coral); color: #fff; box-shadow: 0 4px 16px rgba(224,120,80,0.3); }
-.btn-coral:hover { background: var(--coral-dark); transform: translateY(-2px); }
+/* ========================================
+   Reset & Base
+   ======================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-.header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
-.logo { display: flex; align-items: center; gap: 10px; }
-.logo-icon { width: 40px; height: 40px; background: var(--indigo); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 1.1rem; }
-.logo-text { font-size: 0.82rem; font-weight: 700; color: var(--indigo); line-height: 1.3; }
-.logo-text small { display: block; font-size: 0.6rem; color: var(--text-light); font-weight: 400; }
-.nav-links { display: flex; gap: 24px; align-items: center; }
-.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text); transition: var(--transition); }
-.nav-links a:hover { color: var(--coral); }
-.nav-cta { background: var(--coral); color: #fff !important; padding: 8px 20px; border-radius: 50px; font-weight: 700 !important; }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
-.hamburger span { width: 24px; height: 2px; background: var(--indigo); }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
-/* HERO */
-.hero { margin-top: 70px; padding: 80px 0 60px; background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-light) 100%); position: relative; overflow: hidden; }
-.hero::after { content: ''; position: absolute; bottom: -40%; right: -15%; width: 50%; height: 180%; background: radial-gradient(circle, rgba(224,120,80,0.1) 0%, transparent 70%); }
-.hero-content { position: relative; z-index: 2; }
-.hero-badge { display: inline-block; background: rgba(224,120,80,0.25); color: #f0b89c; padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 20px; }
-.hero h1 { font-size: 2rem; font-weight: 900; color: #fff; line-height: 1.5; margin-bottom: 16px; }
-.hero h1 span { color: #f0b89c; }
-.hero-desc { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 600px; }
-.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-points { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.15); }
-.hero-point { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.8); font-size: 0.85rem; }
-.hero-point i { color: #f0b89c; }
+body {
+  font-family: var(--font-family);
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--color-text);
+  background: var(--color-white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-/* CONCEPT */
-.concept { background: var(--cream); }
-.concept-card { max-width: 700px; margin: 0 auto; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px; text-align: center; }
-.concept-card h3 { font-size: 1.4rem; font-weight: 700; color: var(--indigo); margin-bottom: 16px; }
-.concept-card h3 span { color: var(--coral); }
-.concept-card p { font-size: 0.95rem; color: var(--text-light); }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-/* SERVICES */
-.service-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.service-card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transition: var(--transition); }
-.service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-.service-card-top { padding: 20px 24px; background: var(--indigo); color: #fff; display: flex; align-items: center; gap: 12px; }
-.service-card-top i { font-size: 1.3rem; color: #f0b89c; }
-.service-card-top h3 { font-size: 1rem; font-weight: 700; }
-.service-card-body { padding: 20px 24px; }
-.service-card-body p { font-size: 0.9rem; color: var(--text-light); }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-/* FLOW */
-.flow { background: var(--gray-light); }
-.flow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.flow-step { text-align: center; padding: 24px 16px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); position: relative; }
-.flow-step::after { content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); color: var(--coral); font-size: 1.2rem; font-weight: 900; }
-.flow-step:last-child::after { display: none; }
-.flow-num { width: 40px; height: 40px; border-radius: 50%; background: var(--coral); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-weight: 900; font-size: 1.1rem; }
-.flow-step h4 { font-size: 0.9rem; font-weight: 700; color: var(--indigo); margin-bottom: 4px; }
-.flow-step p { font-size: 0.8rem; color: var(--text-light); }
+ul, ol {
+  list-style: none;
+}
 
-/* ACCESS */
-.access-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-.access-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); min-height: 300px; }
-.access-map iframe { width: 100%; height: 100%; min-height: 300px; border: 0; }
-.access-info { display: flex; flex-direction: column; justify-content: center; gap: 20px; }
-.access-item { display: flex; gap: 12px; }
-.access-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--indigo); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.access-detail h4 { font-size: 0.9rem; font-weight: 700; color: var(--indigo); margin-bottom: 2px; }
-.access-detail p { font-size: 0.85rem; color: var(--text-light); }
+/* ========================================
+   Utilities
+   ======================================== */
+.container {
+  width: 90%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
 
-/* CTA */
-.cta-section { background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-light) 100%); padding: 60px 0; text-align: center; }
-.cta-section h2 { font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 12px; }
-.cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 32px; font-size: 0.95rem; }
-.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-.footer { background: #161f35; color: rgba(255,255,255,0.7); padding: 40px 0 20px; }
-.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
-.footer-info h3 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
-.footer-info p { font-size: 0.8rem; line-height: 1.8; }
-.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
-.footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.6); transition: var(--transition); }
-.footer-links a:hover { color: var(--coral); }
-.footer-bottom { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; }
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-.mobile-nav { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: #fff; box-shadow: var(--shadow-lg); padding: 20px; z-index: 999; }
-.mobile-nav.active { display: block; }
-.mobile-nav a { display: block; padding: 12px 0; font-size: 1rem; font-weight: 500; border-bottom: 1px solid #eee; }
-.floating-cta { display: none; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 998; background: var(--coral); padding: 12px 20px; }
-.floating-cta a { display: flex; align-items: center; justify-content: center; gap: 8px; color: #fff; font-weight: 700; font-size: 1rem; }
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+.fade-up-delay-4 { transition-delay: 0.4s; }
+.fade-up-delay-5 { transition-delay: 0.5s; }
 
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .hero h1 { font-size: 1.5rem; }
-  .hero { padding: 60px 0 40px; }
-  .service-cards { grid-template-columns: 1fr; }
-  .flow-steps { grid-template-columns: repeat(2, 1fr); }
-  .flow-step::after { display: none; }
-  .access-content { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; }
-  .floating-cta { display: block; }
-  .section-padding { padding: 40px 0; }
+/* ========================================
+   Section Header
+   ======================================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header__en {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.section-header__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.section-header__divider {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+.section-header--light .section-header__title {
+  color: var(--color-white);
+}
+
+.section-header--light .section-header__en {
+  color: var(--color-accent-light);
+}
+
+/* ========================================
+   Header
+   ======================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.header.is-scrolled {
+  border-bottom-color: var(--color-gray-100);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.header__logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.2;
+}
+
+.header__logo-main {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+}
+
+.header__logo-sub {
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: var(--color-gray-400);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Desktop nav */
+.header__nav {
+  display: none;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 32px;
+}
+
+.header__nav-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-gray-600);
+  letter-spacing: 0.02em;
+  position: relative;
+  transition: color var(--transition-base);
+}
+
+.header__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 1px;
+  transition: width var(--transition-base);
+}
+
+.header__nav-link:hover {
+  color: var(--color-accent);
+}
+
+.header__nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  padding: 0;
+  z-index: 1010;
+}
+
+.hamburger__line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 1px;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.hamburger.is-active .hamburger__line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.is-active .hamburger__line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active .hamburger__line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 30, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 990;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.mobile-nav-overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  max-width: 80vw;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--color-white);
+  z-index: 995;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+  padding: 96px 32px 48px;
+  overflow-y: auto;
+}
+
+.mobile-nav.is-active {
+  transform: translateX(0);
+}
+
+.mobile-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav__link {
+  display: block;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.mobile-nav__link:hover {
+  background: var(--color-accent-glow);
+  color: var(--color-accent);
+}
+
+.mobile-nav__contact {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-gray-100);
+}
+
+.mobile-nav__phone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  padding: 12px 0;
+}
+
+.mobile-nav__phone i {
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   Hero
+   ======================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 40%, #1b2a52 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(67, 97, 238, 0.08) 1px, transparent 0);
+  background-size: 40px 40px;
+  z-index: 1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(67, 97, 238, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.hero__orb {
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(72, 149, 239, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 720px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(67, 97, 238, 0.15);
+  border: 1px solid rgba(67, 97, 238, 0.25);
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-accent-light);
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hero__badge i {
+  font-size: 0.7rem;
+}
+
+.hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.hero__title-accent {
+  background: linear-gradient(90deg, var(--color-accent-light), #7b9ef7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero__subtitle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text-on-dark);
+  line-height: 1.9;
+  margin-bottom: 36px;
+  opacity: 0.85;
+}
+
+.hero__cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  min-width: 220px;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+  color: var(--color-white);
+  box-shadow: 0 4px 20px rgba(67, 97, 238, 0.35);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(67, 97, 238, 0.5);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn--outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__scroll-text {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--color-accent-light);
+  animation: scrollDown 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+  0% { top: -50%; }
+  100% { top: 110%; }
+}
+
+/* ========================================
+   Features Section
+   ======================================== */
+.features {
+  padding: 96px 0 80px;
+  background: var(--color-off-white);
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.feature-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.feature-card__icon i {
+  font-size: 1.2rem;
+  color: var(--color-accent);
+}
+
+.feature-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+.feature-card__text {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* ========================================
+   Services Section
+   ======================================== */
+.services {
+  padding: var(--section-padding);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-surface-dark) 100%);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-light));
+  transition: height var(--transition-base);
+}
+
+.service-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(67, 97, 238, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::after {
+  height: 100%;
+}
+
+.service-card__icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(67, 97, 238, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card__icon i {
+  font-size: 1rem;
+  color: var(--color-accent-light);
+}
+
+.service-card__body {
+  flex: 1;
+}
+
+.service-card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.service-card__text {
+  font-size: 0.8rem;
+  color: var(--color-text-on-dark);
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+/* ========================================
+   About Section
+   ======================================== */
+.about {
+  padding: var(--section-padding);
+  background: var(--color-white);
+}
+
+.about__card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  max-width: 720px;
+  margin: 0 auto;
+  border: 1px solid var(--color-gray-100);
+}
+
+.about__profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 28px 32px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  text-align: center;
+}
+
+.about__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(67, 97, 238, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.about__avatar i {
+  font-size: 2rem;
+  color: var(--color-accent-light);
+}
+
+.about__name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.about__title {
+  font-size: 0.78rem;
+  color: var(--color-accent-light);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.about__message {
+  padding: 32px 28px;
+  font-size: 0.88rem;
+  color: var(--color-text-light);
+  line-height: 2;
+  border-bottom: 1px solid var(--color-gray-100);
+  position: relative;
+}
+
+.about__message::before {
+  content: '\201C';
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 3rem;
+  color: var(--color-accent-glow);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.about__info {
+  padding: 0;
+}
+
+.about__info-row {
+  display: flex;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.about__info-row:last-child {
+  border-bottom: none;
+}
+
+.about__info-label {
+  flex-shrink: 0;
+  width: 100px;
+  padding: 16px 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-off-white);
+}
+
+.about__info-value {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 0.84rem;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* ========================================
+   Access Section
+   ======================================== */
+.access {
+  padding: var(--section-padding);
+  background: var(--color-off-white);
+}
+
+.access__map {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 32px;
+  aspect-ratio: 16 / 10;
+}
+
+.access__map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.access__info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.access__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--color-white);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.access__item-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--color-accent-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.access__item-icon i {
+  font-size: 0.9rem;
+  color: var(--color-accent);
+}
+
+.access__item-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.access__item-text {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* ========================================
+   Contact Section
+   ======================================== */
+.contact {
+  padding: var(--section-padding);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-surface-dark) 100%);
+}
+
+.contact__free {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.contact__free-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(67, 97, 238, 0.12);
+  border: 1px solid rgba(67, 97, 238, 0.25);
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent-light);
+  letter-spacing: 0.04em;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.contact-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(67, 97, 238, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(67, 97, 238, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.contact-card__icon i {
+  font-size: 1.2rem;
+  color: var(--color-accent-light);
+}
+
+.contact-card__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.contact-card__value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.contact-card__value--sm {
+  font-size: 0.95rem;
+}
+
+.contact-card__note {
+  font-size: 0.78rem;
+  color: var(--color-text-on-dark);
+  opacity: 0.6;
+}
+
+.contact-card__btn {
+  margin-top: 18px;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.footer {
+  background: var(--color-primary-deep);
+  padding: 40px 0 24px;
+  text-align: center;
+}
+
+.footer__logo {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.footer__logo-en {
+  font-size: 0.6rem;
+  color: var(--color-gray-400);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.footer__link {
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  transition: color var(--transition-base);
+}
+
+.footer__link:hover {
+  color: var(--color-accent-light);
+}
+
+.footer__copy {
+  font-size: 0.7rem;
+  color: var(--color-gray-400);
+  opacity: 0.6;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ========================================
+   Mobile CTA Bar
+   ======================================== */
+.mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-gray-100);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  padding: 10px 16px;
+  transform: translateY(100%);
+  transition: transform var(--transition-smooth);
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-cta.is-visible {
+  transform: translateY(0);
+}
+
+.mobile-cta__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family);
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mobile-cta__btn--phone {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+  color: var(--color-white);
+}
+
+.mobile-cta__btn--contact {
+  background: var(--color-off-white);
+  color: var(--color-primary);
+}
+
+/* ========================================
+   Responsive: Tablet (600px+)
+   ======================================== */
+@media (min-width: 600px) {
+  .hero__title {
+    font-size: 2.6rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .hero__cta-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .section-header__title {
+    font-size: 1.8rem;
+  }
+
+  .features__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .about__message {
+    padding: 36px 40px;
+  }
+
+  .about__message::before {
+    left: 28px;
+  }
+
+  .about__info-label {
+    width: 120px;
+  }
+
+  .access__map {
+    aspect-ratio: 16 / 7;
+  }
+
+  .access__info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   Responsive: Desktop (900px+)
+   ======================================== */
+@media (min-width: 900px) {
+  :root {
+    --header-height: 72px;
+    --section-padding: 100px 0;
+  }
+
+  .header__nav {
+    display: block;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .mobile-cta {
+    display: none !important;
+  }
+
+  .hero__title {
+    font-size: 3rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.05rem;
+  }
+
+  .section-header__title {
+    font-size: 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 56px;
+  }
+
+  .features {
+    padding: 100px 0 88px;
+  }
+
+  .features__grid {
+    gap: 28px;
+  }
+
+  .feature-card {
+    padding: 40px 32px;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .service-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 36px 28px;
+    gap: 14px;
+  }
+
+  .service-card::after {
+    bottom: auto;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: width var(--transition-base);
+  }
+
+  .service-card:hover::after {
+    width: 100%;
+    height: 3px;
+  }
+
+  .about__profile {
+    flex-direction: row;
+    gap: 28px;
+    text-align: left;
+    padding: 40px 44px;
+  }
+
+  .about__avatar {
+    margin-bottom: 0;
+  }
+
+  .about__message {
+    padding: 40px 48px;
+  }
+
+  .about__message::before {
+    left: 36px;
+  }
+
+  .about__info-label {
+    width: 140px;
+    padding: 18px 28px;
+  }
+
+  .about__info-value {
+    padding: 18px 28px;
+  }
+
+  .contact-card {
+    padding: 40px 32px;
+  }
+
+  .contact-card__value {
+    font-size: 1.6rem;
+  }
+}
+
+/* Footer padding for mobile CTA */
+@media (max-width: 899px) {
+  .footer {
+    padding-bottom: 88px;
+  }
+}
+
+/* Hide break on small screens */
+@media (max-width: 599px) {
+  .hide-sp {
+    display: none;
+  }
 }
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="container header-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon">K</div>
-      <div class="logo-text">小寺勇毅税理士事務所<small>Kotera Tax Office</small></div>
+<!-- ============ Header ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#" class="header__logo">
+      <span class="header__logo-main">小寺勇毅税理士事務所</span>
+      <span class="header__logo-sub">Kotera Yuki Tax Accountant Office</span>
     </a>
-    <nav class="nav-links">
-      <a href="#concept">事務所について</a>
-      <a href="#services">サービス</a>
-      <a href="#flow">ご契約の流れ</a>
-      <a href="#access">アクセス</a>
-      <a href="#contact" class="nav-cta"><i class="fas fa-envelope"></i> 無料相談</a>
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li><a href="#features" class="header__nav-link">特徴</a></li>
+        <li><a href="#services" class="header__nav-link">業務内容</a></li>
+        <li><a href="#about" class="header__nav-link">事務所概要</a></li>
+        <li><a href="#access" class="header__nav-link">アクセス</a></li>
+        <li><a href="#contact" class="header__nav-link">お問い合わせ</a></li>
+      </ul>
     </nav>
-    <div class="hamburger" onclick="toggleNav()">
-      <span></span><span></span><span></span>
-    </div>
+    <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
   </div>
 </header>
 
-<div class="mobile-nav" id="mobileNav">
-  <a href="#concept" onclick="toggleNav()">事務所について</a>
-  <a href="#services" onclick="toggleNav()">サービス</a>
-  <a href="#flow" onclick="toggleNav()">ご契約の流れ</a>
-  <a href="#access" onclick="toggleNav()">アクセス</a>
-  <a href="#contact" onclick="toggleNav()">無料相談</a>
-</div>
+<!-- Mobile Nav -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav">
+  <ul class="mobile-nav__list">
+    <li><a href="#features" class="mobile-nav__link">特徴</a></li>
+    <li><a href="#services" class="mobile-nav__link">業務内容</a></li>
+    <li><a href="#about" class="mobile-nav__link">事務所概要</a></li>
+    <li><a href="#access" class="mobile-nav__link">アクセス</a></li>
+    <li><a href="#contact" class="mobile-nav__link">お問い合わせ</a></li>
+  </ul>
+  <div class="mobile-nav__contact">
+    <a href="tel:045-717-9303" class="mobile-nav__phone">
+      <i class="fas fa-phone"></i>045-717-9303
+    </a>
+  </div>
+</nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero-content">
-    <div class="hero-badge"><i class="fas fa-gift"></i> 初回相談無料</div>
-    <h1><span>「わかりやすさ」</span>を<br>大切にする税理士</h1>
-    <p class="hero-desc">新横浜エリアを中心に、個人事業主・中小企業の税務をサポート。難しい税制も、独自の補足資料でわかりやすくご説明します。</p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn btn-coral"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
-      <a href="tel:045-717-9303" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.5)"><i class="fas fa-phone"></i> 045-717-9303</a>
+<!-- ============ Hero ============ -->
+<section class="hero" id="hero">
+  <div class="hero__orb"></div>
+  <div class="hero__content">
+    <div class="hero__badge">
+      <i class="fas fa-cloud"></i>
+      IT・クラウド会計に強い税理士事務所
     </div>
-    <div class="hero-points">
-      <span class="hero-point"><i class="fas fa-check-circle"></i> 初回相談無料</span>
-      <span class="hero-point"><i class="fas fa-check-circle"></i> 新横浜駅徒歩8分</span>
-      <span class="hero-point"><i class="fas fa-check-circle"></i> 東京・神奈川全域対応</span>
-      <span class="hero-point"><i class="fas fa-check-circle"></i> インボイス制度対応</span>
+    <h1 class="hero__title">
+      テクノロジーで<br>
+      税務を<span class="hero__title-accent">もっと身近に</span>
+    </h1>
+    <p class="hero__subtitle">
+      新横浜エリアの若手税理士が、freee・マネーフォワード等の<br class="hide-sp">
+      クラウド会計を活用し、効率的な税務・会計サービスをご提供します。
+    </p>
+    <div class="hero__cta-group">
+      <a href="tel:045-717-9303" class="btn btn--primary">
+        <i class="fas fa-phone"></i>無料相談はこちら
+      </a>
+      <a href="#services" class="btn btn--outline">
+        <i class="fas fa-arrow-down"></i>業務内容を見る
+      </a>
     </div>
+  </div>
+  <div class="hero__scroll">
+    <span class="hero__scroll-text">Scroll</span>
+    <div class="hero__scroll-line"></div>
   </div>
 </section>
 
-<!-- CONCEPT -->
-<section class="concept section-padding" id="concept">
-  <div class="container text-center">
-    <div class="section-label">Concept</div>
-    <h2 class="section-title">事務所について</h2>
-    <p class="section-subtitle">地域密着・フットワーク軽い対応</p>
-    <div class="concept-card">
-      <h3><span>「わかりやすさ」</span>へのこだわり</h3>
-      <p>電子帳簿保存法やインボイス制度など、複雑化する税制。当事務所では、オリジナルの補足資料を作成し、お客様が理解・納得できるまで丁寧にご説明します。「税理士に聞いてもよくわからない」ということがないよう、わかりやすさを最優先に考えています。</p>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section-padding" id="services">
+<!-- ============ Features ============ -->
+<section class="features" id="features">
   <div class="container">
-    <div class="text-center">
-      <div class="section-label">Services</div>
-      <h2 class="section-title">サービス内容</h2>
-      <p class="section-subtitle">個人事業主から法人まで幅広くサポート</p>
+    <div class="section-header fade-up">
+      <span class="section-header__en">Features</span>
+      <h2 class="section-header__title">当事務所の特徴</h2>
+      <div class="section-header__divider"></div>
     </div>
-    <div class="service-cards">
-      <div class="service-card">
-        <div class="service-card-top"><i class="fas fa-pen-fancy"></i><h3>記帳代行・記帳指導</h3></div>
-        <div class="service-card-body"><p>日々の取引の記帳を代行、または自計化に向けた記帳指導を行います。お客様の状況に合わせて最適な方法をご提案。</p></div>
+    <div class="features__grid">
+      <div class="feature-card fade-up fade-up-delay-1">
+        <div class="feature-card__icon">
+          <i class="fas fa-cloud-arrow-up"></i>
+        </div>
+        <h3 class="feature-card__title">IT・クラウド会計に強い</h3>
+        <p class="feature-card__text">freee・マネーフォワード等のクラウド会計ソフトに精通。効率的な経理体制を構築し、リアルタイムな経営状況の把握を実現します。</p>
       </div>
-      <div class="service-card">
-        <div class="service-card-top"><i class="fas fa-file-alt"></i><h3>確定申告書の作成・提出</h3></div>
-        <div class="service-card-body"><p>所得税・法人税の確定申告書を正確に作成・提出代行。節税ポイントもしっかりアドバイスします。</p></div>
+      <div class="feature-card fade-up fade-up-delay-2">
+        <div class="feature-card__icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3 class="feature-card__title">若手税理士の柔軟な対応</h3>
+        <p class="feature-card__text">フットワーク軽く、お客様のニーズに合わせた柔軟でスピーディーな対応。チャットやオンライン相談にも対応いたします。</p>
       </div>
-      <div class="service-card">
-        <div class="service-card-top"><i class="fas fa-clipboard-list"></i><h3>各種届出書の提出代行</h3></div>
-        <div class="service-card-body"><p>開業届、青色申告承認申請書など、税務関係の届出書の作成・提出を代行します。</p></div>
-      </div>
-      <div class="service-card">
-        <div class="service-card-top"><i class="fas fa-shield-alt"></i><h3>税務調査の立ち合い</h3></div>
-        <div class="service-card-body"><p>万が一の税務調査にも安心。事前準備から調査当日の立ち合い、修正申告まで全面的にサポートします。</p></div>
+      <div class="feature-card fade-up fade-up-delay-3">
+        <div class="feature-card__icon">
+          <i class="fas fa-location-dot"></i>
+        </div>
+        <h3 class="feature-card__title">新横浜エリアの好立地</h3>
+        <p class="feature-card__text">新横浜駅から徒歩圏内、新幹線でのアクセスも便利な立地。遠方のお客様のご相談にも対応しやすい環境です。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FLOW -->
-<section class="flow section-padding" id="flow">
+<!-- ============ Services ============ -->
+<section class="services" id="services">
   <div class="container">
-    <div class="text-center">
-      <div class="section-label">Flow</div>
-      <h2 class="section-title">ご契約までの流れ</h2>
-      <p class="section-subtitle">4つのステップで簡単スタート</p>
+    <div class="section-header section-header--light fade-up">
+      <span class="section-header__en">Services</span>
+      <h2 class="section-header__title">業務内容</h2>
+      <div class="section-header__divider"></div>
     </div>
-    <div class="flow-steps">
-      <div class="flow-step">
-        <div class="flow-num">1</div>
-        <h4>お問い合わせ</h4>
-        <p>お電話・メールでお気軽にご連絡ください</p>
+    <div class="services__grid">
+      <div class="service-card fade-up fade-up-delay-1">
+        <div class="service-card__icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">税務顧問</h3>
+          <p class="service-card__text">クラウド会計を活用した月次サポートから決算・申告までトータル対応いたします。</p>
+        </div>
       </div>
-      <div class="flow-step">
-        <div class="flow-num">2</div>
-        <h4>初回面談（無料）</h4>
-        <p>ご状況をヒアリングし、最適なプランをご提案</p>
+      <div class="service-card fade-up fade-up-delay-2">
+        <div class="service-card__icon">
+          <i class="fas fa-file-invoice"></i>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">確定申告</h3>
+          <p class="service-card__text">個人事業主・副業の方の確定申告をスムーズにサポートいたします。</p>
+        </div>
       </div>
-      <div class="flow-step">
-        <div class="flow-num">3</div>
-        <h4>お見積り</h4>
-        <p>内容とお見積りにご納得いただけたらご契約</p>
+      <div class="service-card fade-up fade-up-delay-3">
+        <div class="service-card__icon">
+          <i class="fas fa-building"></i>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">会社設立</h3>
+          <p class="service-card__text">法人設立の手続きからクラウド会計の導入設定まで一括サポートいたします。</p>
+        </div>
       </div>
-      <div class="flow-step">
-        <div class="flow-num">4</div>
-        <h4>サービス開始</h4>
-        <p>月次サポートで安心の税務管理をスタート</p>
+      <div class="service-card fade-up fade-up-delay-4">
+        <div class="service-card__icon">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">相続税申告</h3>
+          <p class="service-card__text">相続税の申告・生前対策を丁寧にサポートいたします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up fade-up-delay-5">
+        <div class="service-card__icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">IT導入支援</h3>
+          <p class="service-card__text">クラウド会計・電子帳簿保存法対応など、経理のIT化を支援いたします。</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ACCESS -->
-<section class="section-padding" id="access">
+<!-- ============ About ============ -->
+<section class="about" id="about">
   <div class="container">
-    <div class="text-center">
-      <div class="section-label">Access</div>
-      <h2 class="section-title">アクセス</h2>
-      <p class="section-subtitle">新横浜駅より徒歩8分</p>
+    <div class="section-header fade-up">
+      <span class="section-header__en">About</span>
+      <h2 class="section-header__title">事務所概要</h2>
+      <div class="section-header__divider"></div>
     </div>
-    <div class="access-content">
-      <div class="access-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.5!2d139.617!3d35.508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5paw5qiq5rWc!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
+    <div class="about__card fade-up">
+      <div class="about__profile">
+        <div class="about__avatar">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div>
+          <div class="about__name">小寺 勇毅</div>
+          <div class="about__title">税理士 ｜ KOTERA YUKI</div>
+        </div>
       </div>
-      <div class="access-info">
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="access-detail">
-            <h4>住所</h4>
-            <p>〒222-0026<br>神奈川県横浜市港北区篠原町2794-4<br>グランビューライフ新横浜 301号室</p>
-          </div>
+      <div class="about__message">
+        <p>ITとクラウド会計の力で、税務・会計をもっと身近に、もっと効率的に。お客様の経営に寄り添いながら、テクノロジーを活用した新しい時代の税務サービスをご提供いたします。お気軽にご相談ください。</p>
+      </div>
+      <div class="about__info">
+        <div class="about__info-row">
+          <div class="about__info-label">事務所名</div>
+          <div class="about__info-value">小寺勇毅税理士事務所</div>
         </div>
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-train"></i></div>
-          <div class="access-detail">
-            <h4>最寄り駅</h4>
-            <p>新横浜駅より徒歩8分</p>
-          </div>
+        <div class="about__info-row">
+          <div class="about__info-label">代表</div>
+          <div class="about__info-value">小寺 勇毅（税理士）</div>
         </div>
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-phone"></i></div>
-          <div class="access-detail">
-            <h4>電話番号</h4>
-            <p>045-717-9303</p>
-          </div>
+        <div class="about__info-row">
+          <div class="about__info-label">所在地</div>
+          <div class="about__info-value">〒222-0026<br>神奈川県横浜市港北区篠原町2794-4<br>グランビューライフ新横浜301</div>
         </div>
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-fax"></i></div>
-          <div class="access-detail">
-            <h4>FAX</h4>
-            <p>045-717-9343</p>
-          </div>
-        </div>
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-clock"></i></div>
-          <div class="access-detail">
-            <h4>受付時間</h4>
-            <p>AM 9:00〜PM 5:00</p>
-          </div>
+        <div class="about__info-row">
+          <div class="about__info-label">電話番号</div>
+          <div class="about__info-value"><a href="tel:045-717-9303" style="color: var(--color-accent);">045-717-9303</a></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="contact">
+<!-- ============ Access ============ -->
+<section class="access" id="access">
   <div class="container">
-    <h2>初回相談無料 ― お気軽にご連絡ください</h2>
-    <p>「わかりやすさ」を大切にする税理士が、あなたの税務の不安を解消します。</p>
-    <div class="cta-buttons">
-      <a href="tel:045-717-9303" class="btn btn-coral"><i class="fas fa-phone"></i> 045-717-9303</a>
-      <a href="mailto:info@kotera-tax.com" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.5)"><i class="fas fa-envelope"></i> メールで相談</a>
+    <div class="section-header fade-up">
+      <span class="section-header__en">Access</span>
+      <h2 class="section-header__title">アクセス</h2>
+      <div class="section-header__divider"></div>
+    </div>
+    <div class="access__map fade-up">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.123!2d139.6172!3d35.5104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5qiq5rWc5biC5riv5YyX5Yy657-g5Y6f55S6Mjc5NA!5e0!3m2!1sja!2sjp!4v1"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="小寺勇毅税理士事務所の地図">
+      </iframe>
+    </div>
+    <div class="access__info fade-up">
+      <div class="access__item">
+        <div class="access__item-icon">
+          <i class="fas fa-location-dot"></i>
+        </div>
+        <div>
+          <div class="access__item-label">住所</div>
+          <div class="access__item-text">〒222-0026<br>神奈川県横浜市港北区篠原町2794-4<br>グランビューライフ新横浜301</div>
+        </div>
+      </div>
+      <div class="access__item">
+        <div class="access__item-icon">
+          <i class="fas fa-train"></i>
+        </div>
+        <div>
+          <div class="access__item-label">最寄り駅</div>
+          <div class="access__item-text">JR横浜線・横浜市営地下鉄<br>「新横浜駅」より徒歩圏内</div>
+        </div>
+      </div>
+      <div class="access__item">
+        <div class="access__item-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div>
+          <div class="access__item-label">電話番号</div>
+          <div class="access__item-text"><a href="tel:045-717-9303" style="color: var(--color-accent); font-weight: 600;">045-717-9303</a></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ============ Contact ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header section-header--light fade-up">
+      <span class="section-header__en">Contact</span>
+      <h2 class="section-header__title">お問い合わせ</h2>
+      <div class="section-header__divider"></div>
+    </div>
+    <div class="contact__free fade-up">
+      <span class="contact__free-badge">
+        <i class="fas fa-gift"></i>初回相談無料
+      </span>
+    </div>
+    <div class="contact__grid">
+      <div class="contact-card fade-up fade-up-delay-1">
+        <div class="contact-card__icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-card__label">お電話でのお問い合わせ</div>
+        <div class="contact-card__value">
+          <a href="tel:045-717-9303" style="color: inherit;">045-717-9303</a>
+        </div>
+        <div class="contact-card__note">受付時間：平日 9:00〜18:00</div>
+        <div class="contact-card__btn">
+          <a href="tel:045-717-9303" class="btn btn--primary" style="min-width: 180px; padding: 12px 24px; font-size: 0.85rem;">
+            <i class="fas fa-phone"></i>電話する
+          </a>
+        </div>
+      </div>
+      <div class="contact-card fade-up fade-up-delay-2">
+        <div class="contact-card__icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-card__label">ホームページからのお問い合わせ</div>
+        <div class="contact-card__value contact-card__value--sm">
+          メールフォームで<br>お気軽にご相談ください
+        </div>
+        <div class="contact-card__note">24時間受付・翌営業日までに回答</div>
+        <div class="contact-card__btn">
+          <a href="https://kotera-tax.com/" class="btn btn--outline" style="min-width: 180px; padding: 12px 24px; font-size: 0.85rem;" target="_blank" rel="noopener">
+            <i class="fas fa-arrow-up-right-from-square"></i>お問い合わせ
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-inner">
-      <div class="footer-info">
-        <h3>小寺勇毅税理士事務所</h3>
-        <p>〒222-0026 神奈川県横浜市港北区篠原町2794-4 グランビューライフ新横浜301<br>TEL: 045-717-9303 / FAX: 045-717-9343</p>
-      </div>
-      <div class="footer-links">
-        <a href="#concept">事務所について</a>
-        <a href="#services">サービス</a>
-        <a href="#flow">ご契約の流れ</a>
-        <a href="#access">アクセス</a>
-        <a href="#contact">無料相談</a>
-      </div>
-    </div>
-    <div class="footer-bottom">&copy; 2024 小寺勇毅税理士事務所 All Rights Reserved.</div>
+    <div class="footer__logo">小寺勇毅税理士事務所</div>
+    <div class="footer__logo-en">Kotera Yuki Tax Accountant Office</div>
+    <nav class="footer__links">
+      <a href="#features" class="footer__link">特徴</a>
+      <a href="#services" class="footer__link">業務内容</a>
+      <a href="#about" class="footer__link">事務所概要</a>
+      <a href="#access" class="footer__link">アクセス</a>
+      <a href="#contact" class="footer__link">お問い合わせ</a>
+    </nav>
+    <div class="footer__copy">&copy; 2026 小寺勇毅税理士事務所 All Rights Reserved.</div>
   </div>
 </footer>
 
-<div class="floating-cta">
-  <a href="tel:045-717-9303"><i class="fas fa-phone"></i> 今すぐ電話で相談する</a>
+<!-- ============ Mobile CTA Bar ============ -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="tel:045-717-9303" class="mobile-cta__btn mobile-cta__btn--phone">
+    <i class="fas fa-phone"></i>電話で相談
+  </a>
+  <a href="#contact" class="mobile-cta__btn mobile-cta__btn--contact">
+    <i class="fas fa-envelope"></i>お問い合わせ
+  </a>
 </div>
 
+<!-- ============ JavaScript ============ -->
 <script>
-function toggleNav(){document.getElementById('mobileNav').classList.toggle('active')}
+(function() {
+  'use strict';
+
+  // ---- Header scroll effect ----
+  var header = document.getElementById('header');
+
+  function handleHeaderScroll() {
+    if (window.scrollY > 10) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+  }
+
+  // ---- Mobile nav ----
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  var mobileOverlay = document.getElementById('mobileOverlay');
+  var mobileNavLinks = mobileNav.querySelectorAll('.mobile-nav__link');
+
+  function openMobileNav() {
+    hamburger.classList.add('is-active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileNav.classList.add('is-active');
+    mobileOverlay.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileNav() {
+    hamburger.classList.remove('is-active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileNav.classList.remove('is-active');
+    mobileOverlay.classList.remove('is-active');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function() {
+    if (mobileNav.classList.contains('is-active')) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
+    }
+  });
+
+  mobileOverlay.addEventListener('click', closeMobileNav);
+
+  mobileNavLinks.forEach(function(link) {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  // ---- Mobile CTA bar ----
+  var mobileCta = document.getElementById('mobileCta');
+
+  function handleMobileCtaScroll() {
+    if (window.innerWidth >= 900) return;
+    if (window.scrollY > 400) {
+      mobileCta.classList.add('is-visible');
+    } else {
+      mobileCta.classList.remove('is-visible');
+    }
+  }
+
+  // ---- Scroll animations (IntersectionObserver) ----
+  var fadeElements = document.querySelectorAll('.fade-up');
+
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  fadeElements.forEach(function(el) {
+    fadeObserver.observe(el);
+  });
+
+  // ---- Smooth scroll for anchor links ----
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        var headerHeight = header.offsetHeight;
+        var targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // ---- Scroll listener (throttled via rAF) ----
+  var ticking = false;
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        handleHeaderScroll();
+        handleMobileCtaScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Initial calls
+  handleHeaderScroll();
+  handleMobileCtaScroll();
+})();
 </script>
+
 </body>
 </html>

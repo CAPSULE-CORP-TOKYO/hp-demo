@@ -1,380 +1,1897 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>和み税理士事務所 | 町田市の税理士</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            line-height: 1.8;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        .contact-info {
-            text-align: right;
-        }
-        .phone {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        .hero {
-            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)),
-                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80') center/cover;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-        }
-        .cta-button:hover {
-            background: #ee5a52;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
-        }
-        section {
-            padding: 60px 20px;
-        }
-        section:nth-child(even) {
-            background: #f8f9fa;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #667eea;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .feature {
-            text-align: center;
-            padding: 20px;
-        }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        .price-table {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: 40px;
-        }
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .price-item:last-child {
-            border-bottom: none;
-        }
-        .map-container {
-            margin-top: 40px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 40px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        .submit-button {
-            background: #667eea;
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-        }
-        .submit-button:hover {
-            background: #5568d3;
-        }
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-info {
-                text-align: center;
-                margin-top: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>和み税理士事務所 | 町田市の税理士 成瀬駅すぐ</title>
+<meta name="description" content="東京都町田市の和み税理士事務所。成瀬駅すぐ。セミナー開催、創業支援、明確な料金体系で安心の税務サポート。お気軽にご相談ください。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ========== CSS Custom Properties ========== */
+:root {
+  --primary: #3a2d6b;
+  --primary-light: #5a4a9e;
+  --primary-dark: #2a1f50;
+  --accent: #e8943a;
+  --accent-light: #f0ad5e;
+  --accent-dark: #d07a28;
+  --cream: #faf6f0;
+  --cream-dark: #f0e8d8;
+  --white: #ffffff;
+  --text: #333333;
+  --text-light: #666666;
+  --text-lighter: #999999;
+  --border: #e0dcd6;
+  --shadow: rgba(58, 45, 107, 0.08);
+  --shadow-md: rgba(58, 45, 107, 0.12);
+  --shadow-lg: rgba(58, 45, 107, 0.18);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+  --transition: 0.3s ease;
+  --header-height: 70px;
+  --font: 'Noto Sans JP', sans-serif;
+  --max-width: 1100px;
+}
+
+/* ========== Reset & Base ========== */
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========== Scroll Animations ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ========== Header ========== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-height);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  transition: box-shadow var(--transition), background var(--transition);
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 20px var(--shadow-md);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1001;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.logo-sub {
+  font-size: 9px;
+  color: var(--text-lighter);
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  position: relative;
+  transition: color var(--transition);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent);
+  transition: width var(--transition);
+  border-radius: 1px;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--white) !important;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 600 !important;
+  transition: background var(--transition), transform var(--transition) !important;
+}
+
+.nav-cta::after { display: none !important; }
+
+.nav-cta:hover {
+  background: var(--accent-dark) !important;
+  transform: translateY(-1px);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  z-index: 1001;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Nav Overlay */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(42, 31, 80, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.nav-overlay.active {
+  opacity: 1;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0; right: -300px;
+  width: 300px;
+  height: 100%;
+  background: var(--white);
+  z-index: 1000;
+  padding: 100px 30px 40px;
+  transition: right var(--transition);
+  overflow-y: auto;
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.mobile-nav a:hover {
+  color: var(--primary);
+  padding-left: 8px;
+}
+
+.mobile-nav .mobile-cta {
+  display: block;
+  margin-top: 24px;
+  padding: 14px;
+  background: var(--accent);
+  color: var(--white);
+  text-align: center;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.mobile-nav .mobile-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 14px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 17px;
+  border-bottom: none;
+}
+
+/* ========== Hero ========== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 40%, var(--primary-light) 100%);
+  overflow: hidden;
+  padding-top: var(--header-height);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 148, 58, 0.15) 0%, transparent 70%);
+  animation: float 8s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; left: -10%;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -30px); }
+}
+
+/* Decorative pattern */
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(232, 148, 58, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-content {
+  color: var(--white);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-badge i {
+  color: var(--accent-light);
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+.hero-title .highlight {
+  color: var(--accent-light);
+}
+
+.hero-desc {
+  font-size: 16px;
+  line-height: 2;
+  opacity: 0.85;
+  margin-bottom: 36px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  font-family: var(--font);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(232, 148, 58, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(232, 148, 58, 0.45);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Hero Visual */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  max-width: 380px;
+  width: 100%;
+}
+
+.hero-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.hero-card-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-card-item:last-child {
+  border-bottom: none;
+}
+
+.hero-card-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: rgba(232, 148, 58, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-light);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.hero-card-text h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.hero-card-text p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}
+
+/* Hero bottom stats */
+.hero-stats {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.hero-stat {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 22px;
+  text-align: center;
+  color: var(--white);
+}
+
+.hero-stat-number {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--accent-light);
+  line-height: 1.2;
+}
+
+.hero-stat-number span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.hero-stat-label {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+/* ========== Section Common ========== */
+.section {
+  padding: 90px 0;
+}
+
+.section-bg {
+  background: var(--cream);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ========== Features ========== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: 0 2px 16px var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transition: transform var(--transition);
+  transform-origin: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px var(--shadow-md);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-icon {
+  width: 68px; height: 68px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(58, 45, 107, 0.08), rgba(232, 148, 58, 0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  font-size: 26px;
+  color: var(--primary);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* ========== Services ========== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.service-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 18px;
+  text-align: center;
+  box-shadow: 0 2px 12px var(--shadow);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+  cursor: default;
+}
+
+.service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px var(--shadow-md);
+  border-color: var(--accent-light);
+}
+
+.service-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--white);
+  font-size: 20px;
+  transition: transform var(--transition);
+}
+
+.service-item:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.service-item h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.service-item p {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ========== Pricing ========== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.pricing-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: 0 2px 16px var(--shadow);
+  border: 2px solid var(--border);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card.popular {
+  border-color: var(--accent);
+  transform: scale(1.03);
+}
+
+.pricing-card.popular::before {
+  content: '人気';
+  position: absolute;
+  top: 16px; right: -28px;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 34px;
+  transform: rotate(45deg);
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--shadow-md);
+}
+
+.pricing-card.popular:hover {
+  transform: scale(1.03) translateY(-4px);
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pricing-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.pricing-desc {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.pricing-features {
+  margin-bottom: 28px;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.pricing-features li i {
+  color: var(--accent);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.pricing-cta {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.pricing-cta-primary {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.pricing-cta-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.pricing-cta-secondary {
+  background: var(--cream);
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.pricing-cta-secondary:hover {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.pricing-note {
+  text-align: center;
+  margin-top: 36px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(58, 45, 107, 0.04), rgba(232, 148, 58, 0.04));
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.pricing-note i {
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+/* ========== About ========== */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.about-text h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.about-text p {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.about-philosophy {
+  background: linear-gradient(135deg, rgba(58, 45, 107, 0.06), rgba(232, 148, 58, 0.06));
+  border-radius: var(--radius);
+  padding: 28px;
+  border-left: 4px solid var(--accent);
+  margin-bottom: 20px;
+}
+
+.about-philosophy p {
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.info-table th {
+  background: rgba(58, 45, 107, 0.04);
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  width: 120px;
+  vertical-align: top;
+}
+
+.info-table td {
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ========== Access ========== */
+.access-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 360px;
+  border: none;
+  display: block;
+}
+
+.access-info {
+  padding: 10px 0;
+}
+
+.access-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.access-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+
+.access-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.access-detail h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.access-detail p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.access-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(232, 148, 58, 0.1);
+  color: var(--accent-dark);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* ========== Contact ========== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: 0 4px 20px var(--shadow);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--shadow-md);
+}
+
+.contact-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 24px;
+}
+
+.contact-phone .contact-icon {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+}
+
+.contact-web .contact-icon {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: var(--white);
+}
+
+.contact-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.contact-card p {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 18px;
+}
+
+.contact-number {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+.contact-hours {
+  font-size: 12px;
+  color: var(--text-lighter);
+  margin-top: 8px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--accent);
+  color: var(--white);
+  transition: all var(--transition);
+}
+
+.contact-btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 60px 0 0;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 50px;
+}
+
+.footer-brand .logo-icon {
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 16px;
+}
+
+.footer-brand .logo-name {
+  color: var(--white);
+  font-size: 18px;
+}
+
+.footer-brand .logo-sub {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-brand p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 14px;
+  line-height: 1.9;
+}
+
+.footer h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--accent-light);
+}
+
+.footer-links a {
+  display: block;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 6px 0;
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--white);
+  padding-left: 6px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-contact-item i {
+  color: var(--accent-light);
+  margin-top: 3px;
+  width: 16px;
+  text-align: center;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ========== Mobile CTA Bar ========== */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 10px 16px;
+  z-index: 998;
+  box-shadow: 0 -4px 20px var(--shadow-md);
+}
+
+.mobile-cta-bar-inner {
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-cta-bar a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mcta-phone {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.mcta-web {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .access-content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+  }
+
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav, .nav-overlay { display: block; }
+  .mobile-cta-bar { display: block; }
+
+  .section { padding: 60px 0; }
+
+  .section-title { font-size: 24px; }
+
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 30px);
+    padding-bottom: 0;
+  }
+
+  .hero-inner {
+    padding: 40px 20px;
+  }
+
+  .hero-title { font-size: 28px; }
+  .hero-desc { font-size: 14px; }
+
+  .hero-stats {
+    padding-bottom: 30px;
+  }
+
+  .hero-stat-number { font-size: 24px; }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feature-card { padding: 30px 24px; }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .service-item { padding: 24px 14px; }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pricing-card.popular {
+    transform: none;
+  }
+
+  .pricing-card.popular:hover {
+    transform: translateY(-4px);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  body { padding-bottom: 70px; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 24px; }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero-stat {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .hero-stat-number { font-size: 22px; }
+
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div>
-                    <h1>和み税理士事務所</h1>
-                    <p>町田市の税理士 | 御社の事業拡大をサポート</p>
-                </div>
-                <div class="contact-info">
-                    <div>📞 お電話でのお問い合わせ</div>
-                    <div class="phone">042-785-4750</div>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>面倒な経理事務をお任せください<br>御社の事業拡大をサポート</h2>
-            <p>JR横浜線「成瀬駅」より徒歩5分<br>新規開業者に限り特別料金で開業を全面サポート</p>
-            <a href="#contact" class="cta-button">無料相談のお申し込み</a>
-        </div>
-    </section>
+<!-- ========== Header ========== -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">和</div>
+      <div class="logo-text">
+        <span class="logo-name">和み税理士事務所</span>
+        <span class="logo-sub">NAGOMI TAX ACCOUNTANT OFFICE</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">選ばれる理由</a>
+      <a href="#services">サービス</a>
+      <a href="#pricing">料金</a>
+      <a href="#about">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <section id="about">
-        <div class="container">
-            <h2>事務所紹介</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-                現在町田市を拠点に東京都、神奈川県、埼玉県、千葉県の中小企業をサポートしています。<br>
-                経営者の方が経理や会計事務に時間をかける事が業務拡大につながるでしょうか？<br>
-                当事務所は経営者の大切な時間を有効に活用して頂き、業務拡大に時間を利用して頂きたいと思います。
-            </p>
-            
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h3>わかりやすい帳表</h3>
-                    <p>経営判断の助けとなるオリジナル帳表をご用意</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>業務の省力化</h3>
-                    <p>短時間で書類をまとめられる効率化ツール</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🤝</div>
-                    <h3>身近な相談相手</h3>
-                    <p>社長の身近な相談相手として全力サポート</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Mobile Nav -->
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#features">選ばれる理由</a>
+  <a href="#services">サービス</a>
+  <a href="#pricing">料金</a>
+  <a href="#about">事務所概要</a>
+  <a href="#access">アクセス</a>
+  <a href="#contact" class="mobile-cta">お問い合わせ</a>
+  <a href="tel:042-785-4750" class="mobile-phone"><i class="fas fa-phone"></i> 042-785-4750</a>
+</nav>
 
-    <section id="services">
-        <div class="container">
-            <h2>業務内容</h2>
-            <div class="services">
-                <div class="service-card">
-                    <h3>税務会計顧問</h3>
-                    <p>税務や会計に関する諸々の課題にアドバイスや提案をいたします。御社の業務拡大を目指したサポートと、経理にかける時間の省力化や効率化を実現します。</p>
-                </div>
-                <div class="service-card">
-                    <h3>創業支援</h3>
-                    <p>新規開業者に限り特別料金にて開業時の各種届出、融資、事業計画など起業を全面サポートします。設立後２年以内の法人様も対象です。</p>
-                </div>
-                <div class="service-card">
-                    <h3>経営強化セミナー</h3>
-                    <p>経営強化研修「はりねずみMG」など、体験して学ぶ経営者にとって最高のセミナーを開催しています。</p>
-                </div>
-                <div class="service-card">
-                    <h3>資金繰りサポート</h3>
-                    <p>会社が倒産する時は現金預金がなくなった時です。資金繰りに困らないように融資をはじめ安定した経営ができるようにお手伝い致します。</p>
-                </div>
-            </div>
+<!-- ========== Hero ========== -->
+<section class="hero" id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-map-marker-alt"></i> 東京都町田市・成瀬駅すぐ</div>
+      <h1 class="hero-title">町田市の税理士に<br><span class="highlight">安心と和み</span>を。</h1>
+      <p class="hero-desc">和み税理士事務所は、お客様一人ひとりに寄り添い、<br>「わかりやすさ」と「温かさ」を大切にした税務サポートをお届けします。<br>セミナー開催・創業支援・明確な料金体系で安心をお約束。</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
+        <a href="tel:042-785-4750" class="btn btn-outline"><i class="fas fa-phone"></i> 042-785-4750</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-title"><i class="fas fa-star" style="color:var(--accent-light);margin-right:6px;font-size:14px;"></i>和みの3つの約束</div>
+        <div class="hero-card-item">
+          <div class="hero-card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="hero-card-text">
+            <h4>セミナーで学べる</h4>
+            <p>わかりやすいセミナーで税務知識をしっかりサポート</p>
+          </div>
         </div>
-    </section>
+        <div class="hero-card-item">
+          <div class="hero-card-icon"><i class="fas fa-rocket"></i></div>
+          <div class="hero-card-text">
+            <h4>創業・起業を全力支援</h4>
+            <p>開業から軌道に乗るまで一緒に歩みます</p>
+          </div>
+        </div>
+        <div class="hero-card-item">
+          <div class="hero-card-icon"><i class="fas fa-yen-sign"></i></div>
+          <div class="hero-card-text">
+            <h4>料金が明確で安心</h4>
+            <p>事前に料金をお伝えし、不安のないお取引を</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-number">10<span>年以上</span></div>
+      <div class="hero-stat-label">地域密着の実績</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">300<span>件+</span></div>
+      <div class="hero-stat-label">累計サポート実績</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">年50<span>回+</span></div>
+      <div class="hero-stat-label">セミナー開催実績</div>
+    </div>
+  </div>
+</section>
 
-    <section id="price">
-        <div class="container">
-            <h2>料金目安</h2>
-            <div class="price-table">
-                <div class="price-item">
-                    <span>新規開業サポート（設立後2年以内）</span>
-                    <strong style="color: #667eea;">特別料金でご案内</strong>
-                </div>
-                <div class="price-item">
-                    <span>税務会計顧問</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>記帳代行</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>決算・申告</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: #666;">
-                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
-            </p>
-        </div>
-    </section>
+<!-- ========== Features ========== -->
+<section class="section section-bg" id="features">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">和み税理士事務所が選ばれる理由</h2>
+      <p class="section-subtitle">お客様に「和み」をお届けする、私たちの3つの特長</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <h3>セミナーで学べる</h3>
+        <p>税務や経営に関するセミナーを定期的に開催。専門知識をわかりやすく解説し、経営者の皆さまの「知りたい」にお応えします。参加者同士の交流の場としても好評です。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+        <h3>創業・起業を全力サポート</h3>
+        <p>事業計画の策定から届出書類の準備、融資申請まで、創業に必要なすべてをワンストップでサポート。初めての起業でも安心してスタートを切れるよう伴走します。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+        <h3>明確な料金体系</h3>
+        <p>「いくらかかるかわからない」という不安をなくすため、料金体系を明確にご提示。事前にしっかりご説明し、納得いただいたうえでサービスを開始します。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="area">
-        <div class="container">
-            <h2>対応エリア</h2>
-            <p style="text-align: center; margin-bottom: 30px;">
-                町田市、多摩市、横浜市、川崎市、相模原市、大和市、海老名市、座間市、厚木市など<br>
-                東京都、神奈川県、埼玉県、千葉県の中小企業をサポートしています
-            </p>
-        </div>
-    </section>
+<!-- ========== Services ========== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">サービス内容</h2>
+      <p class="section-subtitle">個人事業主から法人まで、幅広いニーズにお応えする税務サービス</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-item fade-in">
+        <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>税務顧問</h3>
+        <p>月次訪問や経営アドバイスで事業の成長をサポート</p>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+        <h3>確定申告</h3>
+        <p>個人・法人の確定申告を正確かつ迅速に対応</p>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-icon"><i class="fas fa-store"></i></div>
+        <h3>創業支援</h3>
+        <p>事業計画・届出・融資まで創業をトータル支援</p>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-icon"><i class="fas fa-chalkboard"></i></div>
+        <h3>セミナー・研修</h3>
+        <p>税務・経営のセミナーを定期開催し知識を共有</p>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <h3>相続・贈与</h3>
+        <p>相続税申告・贈与税対策を丁寧にサポート</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="access">
-        <div class="container">
-            <h2>アクセス</h2>
-            <p style="text-align: center; margin-bottom: 30px;">
-                〒194-0045 東京都町田市南成瀬１丁目7−９ 中里ビル 2･3階<br>
-                📞 042-785-4750<br>
-                JR横浜線「成瀬駅」より徒歩5分
-            </p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.5068978362847!2d139.4686!3d35.5503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f1a2a2a2a2a2%3A0x1!2z5p2x5Lqs6YO955S677yU77yU77yV5p2x5Lqs6YO955S6576O5rSl77yR5LiB55uu!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+<!-- ========== Pricing ========== -->
+<section class="section section-bg" id="pricing">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-subtitle">明確な料金体系で、安心してご依頼いただけます</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-in">
+        <div class="pricing-header">
+          <div class="pricing-name">個人事業主プラン</div>
+          <div class="pricing-desc">フリーランス・個人事業の方向け</div>
         </div>
-    </section>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> 確定申告書の作成・提出</li>
+          <li><i class="fas fa-check"></i> 記帳代行・指導</li>
+          <li><i class="fas fa-check"></i> 各種届出書の作成</li>
+          <li><i class="fas fa-check"></i> 税務に関するご相談</li>
+          <li><i class="fas fa-check"></i> メール・電話サポート</li>
+        </ul>
+        <a href="#contact" class="pricing-cta pricing-cta-secondary">お問い合わせ</a>
+      </div>
+      <div class="pricing-card popular fade-in">
+        <div class="pricing-header">
+          <div class="pricing-name">法人プラン</div>
+          <div class="pricing-desc">中小企業・法人の方向け</div>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> 月次訪問・経営相談</li>
+          <li><i class="fas fa-check"></i> 決算・法人税申告</li>
+          <li><i class="fas fa-check"></i> 年末調整・法定調書</li>
+          <li><i class="fas fa-check"></i> 経営計画の策定支援</li>
+          <li><i class="fas fa-check"></i> 税務調査の立会い</li>
+          <li><i class="fas fa-check"></i> セミナー無料参加</li>
+        </ul>
+        <a href="#contact" class="pricing-cta pricing-cta-primary">お問い合わせ</a>
+      </div>
+      <div class="pricing-card fade-in">
+        <div class="pricing-header">
+          <div class="pricing-name">スポット対応</div>
+          <div class="pricing-desc">単発でのご依頼に対応</div>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> 確定申告のみの対応</li>
+          <li><i class="fas fa-check"></i> 相続税の申告</li>
+          <li><i class="fas fa-check"></i> 会社設立サポート</li>
+          <li><i class="fas fa-check"></i> セカンドオピニオン</li>
+          <li><i class="fas fa-check"></i> 単発の税務相談</li>
+        </ul>
+        <a href="#contact" class="pricing-cta pricing-cta-secondary">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="pricing-note fade-in">
+      <i class="fas fa-info-circle"></i>
+      料金はお客様の状況に応じてお見積もりいたします。まずはお気軽にお問い合わせください。初回相談は無料です。
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>お問い合わせ</h2>
-            <div class="contact-form">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">お名前 *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">会社名</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">メールアドレス *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">送信する</button>
-                </form>
-            </div>
+<!-- ========== About ========== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">About</div>
+      <h2 class="section-title">事務所概要</h2>
+      <p class="section-subtitle">地域に根ざし、温かみのある税務サービスをご提供します</p>
+    </div>
+    <div class="about-content">
+      <div class="about-text fade-in-left">
+        <h3>「和み」の心で寄り添う税務パートナー</h3>
+        <div class="about-philosophy">
+          <p>「和み」とは、心がなごみ、安らぐこと。私たちは、税務という専門分野においても、お客様が安心して相談でき、ほっとしていただける関係性を大切にしています。難しい税金の話も、わかりやすく丁寧にご説明することをお約束します。</p>
         </div>
-    </section>
+        <p>東京都町田市に事務所を構え、地域の個人事業主・中小企業の皆さまを中心に税務サービスをご提供しています。セミナーの開催や創業支援にも力を入れ、お客様の事業の成長を全力で応援しています。</p>
+      </div>
+      <div class="fade-in-right">
+        <table class="info-table">
+          <tr>
+            <th>事務所名</th>
+            <td>和み税理士事務所</td>
+          </tr>
+          <tr>
+            <th>英名</th>
+            <td>NAGOMI TAX ACCOUNTANT OFFICE</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>〒194-0045<br>東京都町田市南成瀬1-7-9<br>中里ビル2・3階</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><a href="tel:042-785-4750" style="color:var(--primary);font-weight:600;">042-785-4750</a></td>
+          </tr>
+          <tr>
+            <th>最寄駅</th>
+            <td>JR横浜線 成瀬駅</td>
+          </tr>
+          <tr>
+            <th>業務内容</th>
+            <td>税務顧問、確定申告、創業支援、<br>セミナー・研修、相続・贈与</td>
+          </tr>
+          <tr>
+            <th>URL</th>
+            <td><a href="http://tax-machida.com/" target="_blank" rel="noopener" style="color:var(--primary);">tax-machida.com</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 和み税理士事務所 All Rights Reserved.</p>
+<!-- ========== Access ========== -->
+<section class="section section-bg" id="access">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Access</div>
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-subtitle">JR横浜線 成瀬駅からすぐ。お気軽にお越しください。</p>
+    </div>
+    <div class="access-content">
+      <div class="map-container fade-in-left">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.3!2d139.4790!3d35.5361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMyJzEwLjAiTiAxMznCsDI4JzQ0LjAiRQ!5e0!3m2!1sja!2sjp!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="access-info fade-in-right">
+        <h3>事務所へのアクセス</h3>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="access-detail">
+            <h4>所在地</h4>
+            <p>〒194-0045<br>東京都町田市南成瀬1-7-9<br>中里ビル2・3階</p>
+          </div>
         </div>
-    </footer>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-train"></i></div>
+          <div class="access-detail">
+            <h4>電車でお越しの場合</h4>
+            <p>JR横浜線「成瀬駅」下車<br>南口より徒歩すぐ</p>
+            <div class="access-tag"><i class="fas fa-walking"></i> 成瀬駅から徒歩すぐ</div>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-clock"></i></div>
+          <div class="access-detail">
+            <h4>営業時間</h4>
+            <p>平日 9:00 - 18:00<br>（土日祝は事前予約制）</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-phone"></i></div>
+          <div class="access-detail">
+            <h4>お電話</h4>
+            <p><a href="tel:042-785-4750" style="color:var(--primary);font-weight:600;font-size:17px;">042-785-4750</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Contact ========== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-subtitle">初回相談は無料です。どうぞお気軽にご連絡ください。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card contact-phone fade-in-left">
+        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+        <h3>お電話でのお問い合わせ</h3>
+        <p>お急ぎの方はお電話が便利です</p>
+        <a href="tel:042-785-4750" class="contact-number">042-785-4750</a>
+        <div class="contact-hours">受付時間：平日 9:00 - 18:00</div>
+      </div>
+      <div class="contact-card contact-web fade-in-right">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <h3>Webからのお問い合わせ</h3>
+        <p>24時間受付・翌営業日までにご返信</p>
+        <a href="mailto:info@tax-machida.com" class="contact-btn"><i class="fas fa-paper-plane"></i> お問い合わせフォーム</a>
+        <div class="contact-hours">24時間受付中</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">和</div>
+          <div class="logo-text">
+            <span class="logo-name">和み税理士事務所</span>
+            <span class="logo-sub">NAGOMI TAX ACCOUNTANT OFFICE</span>
+          </div>
+        </div>
+        <p>東京都町田市に根ざし、お客様に「和み」と安心をお届けする税理士事務所です。セミナー開催・創業支援・明確な料金体系で、皆さまの事業を全力でサポートいたします。</p>
+      </div>
+      <div>
+        <h4>メニュー</h4>
+        <div class="footer-links">
+          <a href="#features">選ばれる理由</a>
+          <a href="#services">サービス内容</a>
+          <a href="#pricing">料金プラン</a>
+          <a href="#about">事務所概要</a>
+          <a href="#access">アクセス</a>
+          <a href="#contact">お問い合わせ</a>
+        </div>
+      </div>
+      <div>
+        <h4>お問い合わせ</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>東京都町田市南成瀬1-7-9<br>中里ビル2・3階</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>042-785-4750</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-train"></i>
+          <span>JR横浜線 成瀬駅すぐ</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock"></i>
+          <span>平日 9:00 - 18:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 和み税理士事務所 All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- ========== Mobile CTA Bar ========== -->
+<div class="mobile-cta-bar" id="mobileCta">
+  <div class="mobile-cta-bar-inner">
+    <a href="tel:042-785-4750" class="mcta-phone"><i class="fas fa-phone"></i> 電話する</a>
+    <a href="#contact" class="mcta-web"><i class="fas fa-envelope"></i> お問い合わせ</a>
+  </div>
+</div>
+
+<!-- ========== JavaScript ========== -->
+<script>
+(function() {
+  'use strict';
+
+  // --- Header scroll effect ---
+  var header = document.getElementById('header');
+
+  function handleHeaderScroll() {
+    if (window.pageYOffset > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+
+  // --- Hamburger menu ---
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  var navOverlay = document.getElementById('navOverlay');
+
+  function toggleMenu() {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  navOverlay.addEventListener('click', closeMenu);
+
+  // Close menu on link click
+  var mobileLinks = mobileNav.querySelectorAll('a');
+  for (var i = 0; i < mobileLinks.length; i++) {
+    mobileLinks[i].addEventListener('click', closeMenu);
+  }
+
+  // --- Smooth scroll for anchor links ---
+  var anchors = document.querySelectorAll('a[href^="#"]');
+  for (var j = 0; j < anchors.length; j++) {
+    anchors[j].addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        var headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
+        var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    });
+  }
+
+  // --- Scroll animations (IntersectionObserver) ---
+  var animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      for (var k = 0; k < entries.length; k++) {
+        var entry = entries[k];
+        if (entry.isIntersecting) {
+          // Stagger animations for sibling elements
+          var parent = entry.target.parentElement;
+          var siblings = parent.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+          var index = -1;
+          for (var m = 0; m < siblings.length; m++) {
+            if (siblings[m] === entry.target) { index = m; break; }
+          }
+          var delay = index * 100;
+
+          (function(el, d) {
+            setTimeout(function() { el.classList.add('visible'); }, d);
+          })(entry.target, delay);
+
+          observer.unobserve(entry.target);
+        }
+      }
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    for (var n = 0; n < animatedElements.length; n++) {
+      observer.observe(animatedElements[n]);
+    }
+  } else {
+    // Fallback for older browsers
+    for (var p = 0; p < animatedElements.length; p++) {
+      animatedElements[p].classList.add('visible');
+    }
+  }
+
+  // --- Mobile CTA bar show/hide ---
+  var mobileCta = document.getElementById('mobileCta');
+  var heroSection = document.getElementById('hero');
+
+  if (mobileCta && heroSection) {
+    var ctaObserver = new IntersectionObserver(function(entries) {
+      for (var q = 0; q < entries.length; q++) {
+        if (entries[q].isIntersecting) {
+          mobileCta.style.transform = 'translateY(100%)';
+        } else {
+          mobileCta.style.transform = 'translateY(0)';
+        }
+      }
+    }, { threshold: 0 });
+
+    mobileCta.style.transition = 'transform 0.3s ease';
+    mobileCta.style.transform = 'translateY(100%)';
+    ctaObserver.observe(heroSection);
+  }
+
+  // --- Close menu on resize ---
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      closeMenu();
+    }
+  });
+
+})();
+</script>
+
 </body>
 </html>

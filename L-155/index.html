@@ -1,426 +1,867 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>税理士法人Rays | 横浜・川崎の税理士法人</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            line-height: 1.8;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        .contact-info {
-            text-align: right;
-        }
-        .phone {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        .hero {
-            background: linear-gradient(rgba(124, 58, 237, 0.85), rgba(167, 139, 250, 0.85)),
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') center/cover;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #ec4899;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
-        }
-        .cta-button:hover {
-            background: #db2777;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
-        }
-        section {
-            padding: 60px 20px;
-        }
-        section:nth-child(even) {
-            background: #faf5ff;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #7c3aed;
-        }
-        .intro {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin: 0 auto;
-            max-width: 800px;
-            text-align: center;
-        }
-        .intro p {
-            font-size: 1.1rem;
-            line-height: 2;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            color: #7c3aed;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .feature {
-            text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        .price-table {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: 40px;
-        }
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .price-item:last-child {
-            border-bottom: none;
-        }
-        .map-container {
-            margin-top: 40px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 40px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        .submit-button {
-            background: #7c3aed;
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-        }
-        .submit-button:hover {
-            background: #a78bfa;
-        }
-        footer {
-            background: #4c1d95;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        .consultation-box {
-            background: linear-gradient(135deg, #7c3aed, #a78bfa);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        .consultation-box h3 {
-            color: white;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-info {
-                text-align: center;
-                margin-top: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士法人Rays | 横浜市青葉区の税理士事務所</title>
+<meta name="description" content="横浜市青葉区・美しが丘エリアの税理士法人Rays。明るく前向きなチームが最適な税務ソリューションをご提供します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --blue-900: #0F4C81;
+  --blue-700: #1565C0;
+  --blue-600: #1976D2;
+  --blue-500: #1E88E5;
+  --blue-400: #42A5F5;
+  --blue-100: #BBDEFB;
+  --blue-50: #E3F2FD;
+  --orange-700: #FF8F00;
+  --orange-500: #FFA726;
+  --orange-400: #FFB74D;
+  --orange-100: #FFE0B2;
+  --orange-50: #FFF3E0;
+  --dark-900: #0D1B2A;
+  --dark-800: #1B2838;
+  --dark-700: #243447;
+  --gray-50: #F8FAFC;
+  --gray-100: #F1F5F9;
+  --gray-200: #E2E8F0;
+  --gray-400: #94A3B8;
+  --gray-500: #64748B;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1E293B;
+  --white: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(15,76,129,0.08);
+  --shadow-md: 0 4px 16px rgba(15,76,129,0.10);
+  --shadow-lg: 0 8px 32px rgba(15,76,129,0.12);
+  --shadow-xl: 0 16px 48px rgba(15,76,129,0.15);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--gray-800); line-height: 1.8; font-weight: 400;
+  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(15,76,129,0.08);
+  transition: var(--transition);
+}
+.header.scrolled { background: rgba(255,255,255,0.95); box-shadow: var(--shadow-md); }
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; height: 64px;
+}
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--blue-900);
+  font-weight: 700; font-size: 1.15rem;
+}
+.logo-icon {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(255,143,0,0.3);
+}
+.logo-text-en {
+  font-size: 0.6rem; font-weight: 500;
+  color: var(--gray-500); letter-spacing: 0.08em;
+  display: block; margin-top: -2px;
+}
+.nav-desktop { display: none; gap: 32px; list-style: none; }
+.nav-desktop a {
+  text-decoration: none; color: var(--gray-600);
+  font-size: 0.85rem; font-weight: 500;
+  position: relative; transition: var(--transition);
+}
+.nav-desktop a::after {
+  content: ''; position: absolute;
+  bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--orange-500); border-radius: 1px;
+  transition: var(--transition);
+}
+.nav-desktop a:hover { color: var(--blue-700); }
+.nav-desktop a:hover::after { width: 100%; }
+.header-cta { display: none; }
+.header-cta a {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
+  color: var(--white); text-decoration: none;
+  padding: 8px 20px; border-radius: 50px;
+  font-size: 0.8rem; font-weight: 600;
+  box-shadow: 0 2px 12px rgba(255,143,0,0.3);
+  transition: var(--transition);
+}
+.header-cta a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(255,143,0,0.4);
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  padding: 8px; z-index: 1100;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--blue-900); border-radius: 2px;
+  transition: var(--transition);
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile Nav */
+.nav-mobile {
+  position: fixed; top: 0; right: -100%; width: 80%; max-width: 360px;
+  height: 100vh; background: var(--white);
+  z-index: 1050; padding: 80px 32px 40px;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -8px 0 32px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+.nav-mobile.open { right: 0; }
+.nav-mobile-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(13,27,42,0.5); z-index: 1040;
+  opacity: 0; visibility: hidden; transition: var(--transition);
+}
+.nav-mobile-overlay.open { opacity: 1; visibility: visible; }
+.nav-mobile ul { list-style: none; }
+.nav-mobile li { border-bottom: 1px solid var(--gray-100); }
+.nav-mobile a {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--gray-700);
+  padding: 16px 0; font-size: 0.95rem; font-weight: 500;
+  transition: var(--transition);
+}
+.nav-mobile a i { color: var(--blue-600); width: 20px; text-align: center; font-size: 0.85rem; }
+.nav-mobile a:hover { color: var(--blue-700); }
+.nav-mobile-cta { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+.nav-mobile-cta a {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px; border-radius: var(--radius-md);
+  text-decoration: none; font-weight: 600; font-size: 0.9rem;
+  transition: var(--transition);
+}
+.nav-mobile-cta .btn-phone { background: var(--blue-50); color: var(--blue-700); }
+.nav-mobile-cta .btn-contact {
+  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
+  color: var(--white); box-shadow: 0 2px 12px rgba(255,143,0,0.3);
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  background: linear-gradient(160deg, var(--blue-50) 0%, var(--white) 40%, var(--orange-50) 100%);
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -30%; right: -15%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,167,38,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -20%; left: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(21,101,192,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-rays {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  overflow: hidden; opacity: 0.07; pointer-events: none;
+}
+.hero-rays span {
+  position: absolute; top: -50%; left: 50%;
+  width: 2px; height: 200%;
+  background: linear-gradient(to bottom, transparent, var(--orange-500), transparent);
+  transform-origin: top center;
+}
+.hero-rays span:nth-child(1) { transform: rotate(-30deg); }
+.hero-rays span:nth-child(2) { transform: rotate(-15deg); }
+.hero-rays span:nth-child(3) { transform: rotate(0deg); }
+.hero-rays span:nth-child(4) { transform: rotate(15deg); }
+.hero-rays span:nth-child(5) { transform: rotate(30deg); }
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto;
+  padding: 120px 20px 80px; width: 100%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); border: 1px solid var(--orange-100);
+  padding: 6px 16px; border-radius: 50px;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--orange-700); margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.hero-badge i { font-size: 0.7rem; }
+.hero-title {
+  font-size: 2.2rem; font-weight: 900;
+  line-height: 1.4; margin-bottom: 20px;
+  color: var(--blue-900);
+}
+.hero-title .accent {
+  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-subtitle {
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--blue-700); margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.hero-desc {
+  font-size: 0.92rem; color: var(--gray-600);
+  max-width: 540px; margin-bottom: 32px; line-height: 1.9;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
+  color: var(--white); text-decoration: none;
+  padding: 14px 28px; border-radius: 50px;
+  font-size: 0.88rem; font-weight: 600;
+  box-shadow: 0 4px 16px rgba(21,101,192,0.3);
+  transition: var(--transition);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(21,101,192,0.4);
+}
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); color: var(--blue-700);
+  text-decoration: none;
+  padding: 14px 28px; border-radius: 50px;
+  font-size: 0.88rem; font-weight: 600;
+  border: 2px solid var(--blue-100);
+  transition: var(--transition);
+}
+.btn-secondary:hover {
+  border-color: var(--blue-600);
+  background: var(--blue-50);
+  transform: translateY(-2px);
+}
+
+/* ===== SECTIONS COMMON ===== */
+.section { padding: 80px 20px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--blue-600); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.section-label i { color: var(--orange-500); }
+.section-title {
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--blue-900); margin-bottom: 12px; line-height: 1.4;
+}
+.section-desc {
+  font-size: 0.9rem; color: var(--gray-500);
+  max-width: 600px; line-height: 1.8;
+}
+.section-header { margin-bottom: 48px; }
+
+/* ===== FEATURES ===== */
+.features { background: var(--gray-50); }
+.features-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.feature-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 32px 28px; border: 1px solid var(--gray-200);
+  transition: var(--transition); position: relative; overflow: hidden;
+}
+.feature-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--blue-600), var(--orange-500));
+  opacity: 0; transition: var(--transition);
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg); border-color: transparent;
+}
+.feature-card:hover::before { opacity: 1; }
+.feature-icon {
+  width: 52px; height: 52px; border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; margin-bottom: 20px;
+}
+.feature-icon.blue { background: var(--blue-50); color: var(--blue-600); }
+.feature-icon.orange { background: var(--orange-50); color: var(--orange-700); }
+.feature-icon.green { background: #E8F5E9; color: #2E7D32; }
+.feature-card h3 {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--blue-900); margin-bottom: 10px;
+}
+.feature-card p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.8; }
+
+/* ===== SERVICES (DARK) ===== */
+.services {
+  background: linear-gradient(160deg, var(--dark-900), var(--dark-800));
+  position: relative; overflow: hidden;
+}
+.services::before {
+  content: ''; position: absolute; top: -50%; right: -20%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,143,0,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.services .section-label { color: var(--orange-400); }
+.services .section-title { color: var(--white); }
+.services .section-desc { color: var(--gray-400); }
+.services-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+.service-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 28px 24px; transition: var(--transition);
+  position: relative; overflow: hidden;
+}
+.service-card::after {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 60px; height: 60px;
+  background: radial-gradient(circle at top right, rgba(255,167,38,0.08), transparent);
+}
+.service-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,167,38,0.2);
+  transform: translateY(-3px);
+}
+.service-num {
+  font-size: 0.7rem; font-weight: 700;
+  color: var(--orange-500); letter-spacing: 0.1em;
+  margin-bottom: 12px; display: block;
+}
+.service-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.service-card p { font-size: 0.82rem; color: var(--gray-400); line-height: 1.8; }
+.service-icon {
+  width: 44px; height: 44px;
+  background: rgba(255,167,38,0.1); border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--orange-400); font-size: 1rem; margin-bottom: 16px;
+}
+
+/* ===== ABOUT / PROFILE ===== */
+.about { background: var(--white); }
+.about-content { display: grid; gap: 40px; grid-template-columns: 1fr; }
+.about-text h3 {
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--blue-900); margin-bottom: 16px;
+}
+.about-text p {
+  font-size: 0.88rem; color: var(--gray-600); line-height: 1.9;
+  margin-bottom: 28px;
+}
+.info-table { width: 100%; border-collapse: collapse; }
+.info-table tr { border-bottom: 1px solid var(--gray-100); }
+.info-table th {
+  text-align: left; padding: 14px 16px;
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--blue-700); white-space: nowrap;
+  width: 110px; vertical-align: top;
+  background: var(--blue-50);
+}
+.info-table td { padding: 14px 16px; font-size: 0.85rem; color: var(--gray-700); }
+.about-visual {
+  background: linear-gradient(135deg, var(--blue-50), var(--orange-50));
+  border-radius: var(--radius-lg); padding: 40px 32px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  min-height: 280px;
+}
+.about-visual-icon {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+  border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; color: var(--white); margin-bottom: 20px;
+  box-shadow: 0 8px 24px rgba(21,101,192,0.25);
+}
+.about-visual h4 {
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--blue-900); margin-bottom: 8px;
+}
+.about-visual p { font-size: 0.82rem; color: var(--gray-500); }
+
+/* ===== ACCESS ===== */
+.access { background: var(--gray-50); }
+.access-content { display: grid; gap: 24px; grid-template-columns: 1fr; }
+.access-map {
+  border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--gray-200); box-shadow: var(--shadow-md);
+}
+.access-map iframe { width: 100%; height: 300px; border: 0; display: block; }
+.access-info { display: flex; flex-direction: column; gap: 16px; }
+.access-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px; background: var(--white);
+  border-radius: var(--radius-md); border: 1px solid var(--gray-200);
+}
+.access-item-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: var(--blue-50); border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue-600); font-size: 0.9rem;
+}
+.access-item h4 {
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--blue-900); margin-bottom: 4px;
+}
+.access-item p { font-size: 0.82rem; color: var(--gray-500); line-height: 1.6; }
+
+/* ===== CONTACT ===== */
+.contact { background: linear-gradient(160deg, var(--blue-50), var(--white), var(--orange-50)); }
+.contact-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.contact-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 36px 28px; text-align: center;
+  border: 1px solid var(--gray-200); transition: var(--transition);
+}
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg); border-color: transparent;
+}
+.contact-card-icon {
+  width: 60px; height: 60px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; margin: 0 auto 20px;
+}
+.contact-card-icon.phone {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+  color: var(--white); box-shadow: 0 4px 16px rgba(21,101,192,0.25);
+}
+.contact-card-icon.email {
+  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
+  color: var(--white); box-shadow: 0 4px 16px rgba(255,143,0,0.25);
+}
+.contact-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--gray-500); margin-bottom: 8px; }
+.contact-card .contact-value { font-size: 1.3rem; font-weight: 700; color: var(--blue-900); margin-bottom: 6px; }
+.contact-card .contact-note { font-size: 0.78rem; color: var(--gray-400); margin-bottom: 20px; }
+.contact-card .contact-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; border-radius: 50px;
+  text-decoration: none; font-size: 0.85rem; font-weight: 600;
+  transition: var(--transition);
+}
+.contact-card .btn-blue { background: var(--blue-50); color: var(--blue-700); }
+.contact-card .btn-blue:hover { background: var(--blue-100); }
+.contact-card .btn-orange { background: var(--orange-50); color: var(--orange-700); }
+.contact-card .btn-orange:hover { background: var(--orange-100); }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--dark-900); color: var(--gray-400); padding: 48px 20px 100px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+.footer-logo {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.footer-logo-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 0.9rem;
+}
+.footer-logo-text { color: var(--white); font-weight: 700; font-size: 1rem; }
+.footer p { font-size: 0.78rem; line-height: 1.8; margin-bottom: 4px; }
+.footer-copy {
+  margin-top: 24px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.72rem; color: var(--gray-500);
+}
+
+/* ===== MOBILE CTA BAR ===== */
+.mobile-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--gray-200);
+  padding: 10px 16px; display: flex; gap: 10px;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-cta.visible { transform: translateY(0); }
+.mobile-cta a {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 12px; border-radius: var(--radius-md);
+  text-decoration: none; font-size: 0.8rem; font-weight: 600;
+  transition: var(--transition);
+}
+.mobile-cta .cta-phone { background: var(--blue-50); color: var(--blue-700); }
+.mobile-cta .cta-contact {
+  background: linear-gradient(135deg, var(--orange-700), var(--orange-500));
+  color: var(--white); box-shadow: 0 2px 8px rgba(255,143,0,0.3);
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 600px) {
+  .hero-title { font-size: 2.8rem; }
+  .section-title { font-size: 1.8rem; }
+  .features-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: repeat(2, 1fr); }
+  .access-content { grid-template-columns: 1fr 1fr; }
+  .access-map iframe { height: 100%; min-height: 320px; }
+  .section { padding: 100px 24px; }
+}
+@media (min-width: 900px) {
+  .header-inner { height: 72px; padding: 0 40px; }
+  .nav-desktop { display: flex; }
+  .header-cta { display: block; }
+  .hamburger { display: none; }
+  .hero-inner { padding: 140px 40px 100px; }
+  .hero-title { font-size: 3.2rem; }
+  .section { padding: 120px 40px; }
+  .section-title { font-size: 2rem; }
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .about-content { grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: start; }
+  .mobile-cta { display: none; }
+  .footer { padding-bottom: 48px; }
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div>
-                    <h1>税理士法人Rays</h1>
-                    <p>横浜・川崎の税理士法人 | 中小企業・個人事業主をサポート</p>
-                </div>
-                <div class="contact-info">
-                    <div>📞 お電話でのお問い合わせ</div>
-                    <div class="phone">045-530-9945</div>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>東京都・神奈川県の<br>中小企業から個人事業主まで<br>総合的なサービスを提供</h2>
-            <p>税務に関する法律家として税務・会計業務から<br>認定支援機関としての経営助言までサポート</p>
-            <a href="#contact" class="cta-button">無料相談のお申し込み</a>
-        </div>
-    </section>
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon"><i class="fa-solid fa-sun"></i></div>
+      <div>
+        <span>税理士法人Rays</span>
+        <span class="logo-text-en">RAYS TAX CORPORATION</span>
+      </div>
+    </a>
+    <ul class="nav-desktop">
+      <li><a href="#features">選ばれる理由</a></li>
+      <li><a href="#services">サービス</a></li>
+      <li><a href="#about">事務所概要</a></li>
+      <li><a href="#access">アクセス</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <div class="header-cta">
+      <a href="tel:045-530-9945"><i class="fa-solid fa-phone"></i> 045-530-9945</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <section id="about">
-        <div class="container">
-            <h2>税理士法人Raysについて</h2>
-            <div class="intro">
-                <p>
-                    私たちは神奈川県に２カ所の事務所を構える税理士法人です。<br><br>
-                    主に東京都・神奈川県の中小企業から個人事業主の方々に対し、税務に関する法律家として税務・会計業務から認定支援機関としての経営助言など総合的なサービスのご提供をしています。<br><br>
-                    <strong style="color: #7c3aed;">皆さまのお役に立てることを楽しみにしています。</strong>
-                </p>
-            </div>
-            
-            <div class="consultation-box">
-                <h3>初回相談は無料です</h3>
-                <p>お気軽にご利用ください</p>
-                <p style="font-size: 0.9rem; margin-top: 10px;">メールフォームからのお問合せは24時間受け付けております。<br>こちらからのご連絡は、状況によって翌営業日以降となることがあります。ご了承ください。</p>
-            </div>
-        </div>
-    </section>
+<!-- Mobile Nav -->
+<div class="nav-mobile-overlay" id="navOverlay"></div>
+<nav class="nav-mobile" id="navMobile">
+  <ul>
+    <li><a href="#features"><i class="fa-solid fa-star"></i>選ばれる理由</a></li>
+    <li><a href="#services"><i class="fa-solid fa-briefcase"></i>サービス</a></li>
+    <li><a href="#about"><i class="fa-solid fa-building"></i>事務所概要</a></li>
+    <li><a href="#access"><i class="fa-solid fa-map-location-dot"></i>アクセス</a></li>
+    <li><a href="#contact"><i class="fa-solid fa-envelope"></i>お問い合わせ</a></li>
+  </ul>
+  <div class="nav-mobile-cta">
+    <a href="tel:045-530-9945" class="btn-phone"><i class="fa-solid fa-phone"></i> 045-530-9945</a>
+    <a href="#contact" class="btn-contact"><i class="fa-solid fa-envelope"></i> お問い合わせ</a>
+  </div>
+</nav>
 
-    <section id="services">
-        <div class="container">
-            <h2>業務内容 (Service)</h2>
-            <div class="services">
-                <div class="service-card">
-                    <h3>税務・会計業務</h3>
-                    <p>月次決算、税務相談、節税対策など、企業の税務・会計業務を総合的にサポートいたします。</p>
-                </div>
-                <div class="service-card">
-                    <h3>決算・申告業務</h3>
-                    <p>法人・個人の決算申告を正確かつ迅速に対応。電子申告にも完全対応しています。</p>
-                </div>
-                <div class="service-card">
-                    <h3>経理業務代行</h3>
-                    <p>日々の記帳業務から給与計算まで、経理業務を代行し、本業に専念できる環境を整えます。</p>
-                </div>
-                <div class="service-card">
-                    <h3>認定支援機関業務</h3>
-                    <p>経営革新等支援機関として、経営改善計画の策定、各種補助金申請支援などを行います。</p>
-                </div>
-                <div class="service-card">
-                    <h3>相続・贈与対策</h3>
-                    <p>相続税・贈与税の申告、相続対策、事業承継など、資産税に関するご相談に対応します。</p>
-                </div>
-                <div class="service-card">
-                    <h3>会社設立支援</h3>
-                    <p>会社設立時の各種手続き、定款作成、融資相談など、創業をトータルサポートいたします。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-rays">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge fade-up"><i class="fa-solid fa-sun"></i> 横浜市青葉区の税理士法人</div>
+    <h1 class="hero-title fade-up">
+      未来を<span class="accent">照らす</span><br>税務のプロ集団
+    </h1>
+    <p class="hero-subtitle fade-up">税理士法人Rays</p>
+    <p class="hero-desc fade-up">
+      横浜市青葉区・美しが丘エリアの税理士法人。明るく前向きなチームが、お客様の事業と暮らしに光を当て、最適な税務ソリューションをご提供します。
+    </p>
+    <div class="hero-actions fade-up">
+      <a href="#contact" class="btn-primary"><i class="fa-solid fa-envelope"></i> 無料相談はこちら</a>
+      <a href="tel:045-530-9945" class="btn-secondary"><i class="fa-solid fa-phone"></i> 045-530-9945</a>
+    </div>
+  </div>
+</section>
 
-    <section id="features">
-        <div class="container">
-            <h2>当法人の特徴</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🏢</div>
-                    <h3>2カ所の事務所</h3>
-                    <p>神奈川県に2カ所の事務所を構え、地域に密着したサービスを提供</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎓</div>
-                    <h3>認定支援機関</h3>
-                    <p>経営革新等支援機関として、経営助言や補助金支援が可能</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💰</div>
-                    <h3>初回相談無料</h3>
-                    <p>初回相談は無料。お気軽にご相談いただけます</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Features -->
+<section class="section features" id="features">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fa-solid fa-star"></i> WHY CHOOSE US</div>
+      <h2 class="section-title">Raysが選ばれる理由</h2>
+      <p class="section-desc">光のように明るく、確かな専門知識でお客様をサポートする私たちの3つの強みをご紹介します。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon orange"><i class="fa-solid fa-users"></i></div>
+        <h3>明るく前向きなチーム</h3>
+        <p>「Rays（光）」の名の通り、明るく親しみやすいスタッフが揃っています。気軽にご相談いただける雰囲気で、お客様に寄り添ったサービスをご提供します。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon blue"><i class="fa-solid fa-bolt"></i></div>
+        <h3>スピーディーな対応</h3>
+        <p>お問い合わせには迅速に対応。急な税務相談や期限の迫った申告にも、チーム一丸となって素早く正確にお応えします。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon green"><i class="fa-solid fa-microchip"></i></div>
+        <h3>最新テクノロジー活用</h3>
+        <p>クラウド会計・電子申告など最新のテクノロジーを積極的に導入。効率的かつ正確な税務処理で、お客様の業務負担を軽減します。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="price">
-        <div class="container">
-            <h2>料金目安</h2>
-            <div class="price-table">
-                <div class="price-item">
-                    <span>税務顧問（法人）</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>税務顧問（個人）</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>決算・申告</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>相続税申告</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: #666;">
-                ※初回相談は無料です。まずはお気軽にご相談ください。
-            </p>
-        </div>
-    </section>
+<!-- Services -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fa-solid fa-briefcase"></i> SERVICES</div>
+      <h2 class="section-title">サービス一覧</h2>
+      <p class="section-desc">個人から法人まで、幅広い税務ニーズにお応えするサービスラインナップです。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-handshake"></i></div>
+        <span class="service-num">SERVICE 01</span>
+        <h3>税務顧問</h3>
+        <p>月次の帳簿チェックから決算・申告まで、顧問税理士として経営をトータルサポート。日常の税務相談もお任せください。</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-file-invoice"></i></div>
+        <span class="service-num">SERVICE 02</span>
+        <h3>確定申告</h3>
+        <p>個人事業主やフリーランスの方の確定申告を正確・迅速に代行。節税対策もあわせてご提案いたします。</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-landmark"></i></div>
+        <span class="service-num">SERVICE 03</span>
+        <h3>相続税対策</h3>
+        <p>相続税の試算から申告、生前対策まで丁寧にサポート。大切な資産を次世代へスムーズに引き継ぐお手伝いをします。</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
+        <span class="service-num">SERVICE 04</span>
+        <h3>創業支援</h3>
+        <p>法人設立や開業届の手続きから事業計画の策定、資金調達のアドバイスまで、創業をワンストップで支援します。</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <span class="service-num">SERVICE 05</span>
+        <h3>経営アドバイザリー</h3>
+        <p>経営数値の分析や事業戦略のご提案を通じて、企業の持続的成長をサポート。経営判断に役立つ情報をお届けします。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="access">
-        <div class="container">
-            <h2>アクセス</h2>
-            <p style="text-align: center; margin-bottom: 30px;">
-                〒225-0002 神奈川県横浜市青葉区美しが丘４丁目２５−３１<br>
-                📞 045-530-9945<br>
-                東急田園都市線「たまプラーザ駅」より徒歩圏内
-            </p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.567!2d139.564!3d35.572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM0JzE5LjIiTiAxMznCsDMzJzUwLjQiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
+<!-- About -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fa-solid fa-building"></i> ABOUT</div>
+      <h2 class="section-title">事務所概要</h2>
+      <p class="section-desc">横浜市青葉区・美しが丘エリアに根差し、地域の皆様と共に歩む税理士法人です。</p>
+    </div>
+    <div class="about-content">
+      <div class="about-text fade-up">
+        <h3>プロフェッショナルとして光を届ける</h3>
+        <p>
+          税理士法人Raysは、「Rays（光線）」の名の通り、お客様の未来を明るく照らす存在でありたいと考えています。確かな専門知識と最新技術を駆使しながら、一人ひとりのお客様に合った最適なソリューションをご提供します。お気軽にご相談ください。
+        </p>
+        <table class="info-table">
+          <tr>
+            <th>事務所名</th>
+            <td>税理士法人Rays<br><small style="color:var(--gray-400)">RAYS TAX CORPORATION</small></td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>〒225-0002<br>神奈川県横浜市青葉区美しが丘4-25-31</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><a href="tel:045-530-9945" style="color:var(--blue-600);text-decoration:none;font-weight:600;">045-530-9945</a></td>
+          </tr>
+        </table>
+      </div>
+      <div class="about-visual fade-up">
+        <div class="about-visual-icon"><i class="fa-solid fa-sun"></i></div>
+        <h4>税理士法人Rays</h4>
+        <p>RAYS TAX CORPORATION</p>
+        <p style="margin-top:16px;font-size:0.78rem;color:var(--gray-400);">
+          光のように明るく<br>未来を照らす税務パートナー
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>お問い合わせ</h2>
-            <div class="contact-form">
-                <p style="text-align: center; margin-bottom: 30px; color: #7c3aed; font-weight: bold;">
-                    初回相談は無料です。お気軽にご利用ください。
-                </p>
-                <form action="https://rays-tax.jp/" method="post">
-                    <div class="form-group">
-                        <label for="name">お名前 *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">会社名</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">メールアドレス *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">送信する</button>
-                </form>
-            </div>
+<!-- Access -->
+<section class="section access" id="access">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fa-solid fa-map-location-dot"></i> ACCESS</div>
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-desc">お気軽にお越しください。</p>
+    </div>
+    <div class="access-content fade-up">
+      <div class="access-map">
+        <iframe
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=%E6%A8%AA%E6%B5%9C%E5%B8%82%E9%9D%92%E8%91%89%E5%8C%BA%E7%BE%8E%E3%81%97%E3%81%8C%E4%B8%984-25-31&zoom=16"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="税理士法人Rays所在地"></iframe>
+      </div>
+      <div class="access-info">
+        <div class="access-item">
+          <div class="access-item-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h4>所在地</h4>
+            <p>〒225-0002<br>神奈川県横浜市青葉区美しが丘4-25-31</p>
+          </div>
         </div>
-    </section>
+        <div class="access-item">
+          <div class="access-item-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h4>お電話</h4>
+            <p><a href="tel:045-530-9945" style="color:var(--blue-600);text-decoration:none;font-weight:600;">045-530-9945</a></p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-item-icon"><i class="fa-solid fa-train"></i></div>
+          <div>
+            <h4>最寄り駅</h4>
+            <p>東急田園都市線 たまプラーザ駅より徒歩圏内</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 税理士法人Rays All Rights Reserved.</p>
-        </div>
-    </footer>
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="section-header fade-up" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;"><i class="fa-solid fa-envelope"></i> CONTACT</div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-desc" style="margin:0 auto;">まずはお気軽にお問い合わせください。初回のご相談は無料で承っております。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card fade-up">
+        <div class="contact-card-icon phone"><i class="fa-solid fa-phone"></i></div>
+        <h3>お電話でのお問い合わせ</h3>
+        <div class="contact-value">045-530-9945</div>
+        <div class="contact-note">平日 9:00 - 18:00</div>
+        <a href="tel:045-530-9945" class="contact-btn btn-blue"><i class="fa-solid fa-phone"></i> 電話する</a>
+      </div>
+      <div class="contact-card fade-up">
+        <div class="contact-card-icon email"><i class="fa-solid fa-envelope"></i></div>
+        <h3>メールでのお問い合わせ</h3>
+        <div class="contact-value">メール相談</div>
+        <div class="contact-note">24時間受付・翌営業日に返信</div>
+        <a href="mailto:info@rays-tax.jp" class="contact-btn btn-orange"><i class="fa-solid fa-envelope"></i> メールする</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-icon"><i class="fa-solid fa-sun"></i></div>
+      <span class="footer-logo-text">税理士法人Rays</span>
+    </div>
+    <p>〒225-0002 神奈川県横浜市青葉区美しが丘4-25-31</p>
+    <p>TEL: 045-530-9945</p>
+    <div class="footer-copy">
+      &copy; 2026 税理士法人Rays All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile CTA -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="tel:045-530-9945" class="cta-phone"><i class="fa-solid fa-phone"></i> 電話する</a>
+  <a href="#contact" class="cta-contact"><i class="fa-solid fa-envelope"></i> お問い合わせ</a>
+</div>
+
+<script>
+(function() {
+  var hamburger = document.getElementById('hamburger');
+  var navMobile = document.getElementById('navMobile');
+  var navOverlay = document.getElementById('navOverlay');
+
+  function toggleNav() {
+    hamburger.classList.toggle('active');
+    navMobile.classList.toggle('open');
+    navOverlay.classList.toggle('open');
+    document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
+  }
+
+  hamburger.addEventListener('click', toggleNav);
+  navOverlay.addEventListener('click', toggleNav);
+
+  navMobile.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (navMobile.classList.contains('open')) toggleNav();
+    });
+  });
+
+  var header = document.getElementById('header');
+  var mobileCta = document.getElementById('mobileCta');
+
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY;
+    if (scrollY > 50) { header.classList.add('scrolled'); }
+    else { header.classList.remove('scrolled'); }
+    if (scrollY > 400) { mobileCta.classList.add('visible'); }
+    else { mobileCta.classList.remove('visible'); }
+  });
+
+  var fadeElements = document.querySelectorAll('.fade-up');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  fadeElements.forEach(function(el) { observer.observe(el); });
+})();
+</script>
 </body>
 </html>

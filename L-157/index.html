@@ -1,415 +1,1235 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SiB会計事務所 | 横浜市青葉区の会計事務所・経理代行</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            line-height: 1.8;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        .contact-info {
-            text-align: right;
-        }
-        .phone {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        .hero {
-            background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.9)),
-                        url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80') center/cover;
-            color: white;
-            padding: 120px 20px;
-            text-align: center;
-        }
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #0ea5e9;
-            color: white;
-            padding: 18px 50px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
-            letter-spacing: 1px;
-        }
-        .cta-button:hover {
-            background: #0284c7;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
-        }
-        section {
-            padding: 80px 20px;
-        }
-        section:nth-child(even) {
-            background: #f8fafc;
-        }
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #1e293b;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-        .tagline {
-            text-align: center;
-            font-size: 2rem;
-            line-height: 2.5;
-            margin: 60px auto;
-            max-width: 700px;
-            color: #475569;
-            font-weight: 300;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        .service-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border-left: 4px solid #0ea5e9;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
-        .service-card h3 {
-            color: #1e293b;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-        .service-card p {
-            color: #64748b;
-            line-height: 1.9;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        .feature {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-        .feature h3 {
-            color: #1e293b;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-        .price-table {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-top: 60px;
-        }
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .price-item:last-child {
-            border-bottom: none;
-        }
-        .map-container {
-            margin-top: 60px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 60px auto;
-            background: white;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .form-group {
-            margin-bottom: 25px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #475569;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0ea5e9;
-        }
-        .form-group textarea {
-            min-height: 160px;
-            resize: vertical;
-        }
-        .submit-button {
-            background: #1e293b;
-            color: white;
-            padding: 16px 50px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-        }
-        .submit-button:hover {
-            background: #334155;
-        }
-        footer {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            .hero h2 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1.2rem;
-            }
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-info {
-                text-align: center;
-                margin-top: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SiB会計事務所 | 経理代行のプロフェッショナル</title>
+<meta name="description" content="横浜市青葉区の会計事務所。経理代行のプロフェッショナルとして、中小企業・個人事業主の経理・税務をトータルサポート。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --teal-dark: #0D4F4F;
+  --teal: #127C7C;
+  --teal-light: #17A2A2;
+  --teal-pale: #e0f5f5;
+  --amber: #F4A261;
+  --amber-light: #E9C46A;
+  --yellow: #F9DC5C;
+  --white: #ffffff;
+  --gray-50: #f8fafa;
+  --gray-100: #f0f4f4;
+  --gray-200: #dce4e4;
+  --gray-600: #5a6b6b;
+  --gray-700: #3d4f4f;
+  --gray-800: #2a3a3a;
+  --shadow-sm: 0 2px 8px rgba(13,79,79,0.08);
+  --shadow-md: 0 4px 20px rgba(13,79,79,0.12);
+  --shadow-lg: 0 8px 40px rgba(13,79,79,0.16);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-h: 70px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--gray-800);
+  line-height: 1.8;
+  font-weight: 400;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(13,79,79,0.06);
+  transition: box-shadow var(--transition);
+}
+
+.header.scrolled {
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-main {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+  letter-spacing: 0.02em;
+}
+
+.logo-sub {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--teal-light);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-desktop a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: color var(--transition);
+  position: relative;
+}
+
+.nav-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--teal-light);
+  border-radius: 1px;
+  transition: width var(--transition);
+}
+
+.nav-desktop a:hover { color: var(--teal); }
+.nav-desktop a:hover::after { width: 100%; }
+
+.nav-cta {
+  display: none;
+  background: var(--teal);
+  color: var(--white) !important;
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-size: 0.82rem !important;
+  font-weight: 600;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.nav-cta::after { display: none !important; }
+.nav-cta:hover {
+  background: var(--teal-dark) !important;
+  color: var(--white) !important;
+  transform: translateY(-1px);
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+  z-index: 1010;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--teal-dark);
+  border-radius: 2px;
+  transition: var(--transition);
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ── Mobile Nav ── */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--white);
+  z-index: 1005;
+  padding: 100px 32px 40px;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-lg);
+}
+
+.mobile-nav.open { right: 0; }
+
+.mobile-nav a {
+  display: block;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-100);
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.mobile-nav a:hover {
+  color: var(--teal);
+  padding-left: 8px;
+}
+
+.mobile-nav-phone {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--teal-pale);
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  color: var(--teal-dark);
+  font-weight: 600;
+}
+
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13,79,79,0.3);
+  z-index: 1004;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(160deg, var(--teal-pale) 0%, var(--white) 40%, var(--gray-50) 100%);
+  overflow: hidden;
+  padding-top: var(--header-h);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(23,162,162,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(244,162,97,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 60px 0 80px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--teal);
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-badge i { color: var(--amber); }
+
+.hero-title {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--teal-dark);
+  margin-bottom: 20px;
+}
+
+.hero-title .accent {
+  color: var(--teal-light);
+}
+
+.hero-title .line {
+  display: block;
+}
+
+.hero-desc {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--gray-600);
+  max-width: 560px;
+  line-height: 2;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(18,124,124,0.3);
+}
+
+.btn-primary:hover {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(18,124,124,0.35);
+}
+
+.btn-outline {
+  background: var(--white);
+  color: var(--teal);
+  border: 2px solid var(--teal-light);
+}
+
+.btn-outline:hover {
+  background: var(--teal-pale);
+  transform: translateY(-2px);
+}
+
+.hero-decoration {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 340px;
+  height: 340px;
+  display: none;
+}
+
+.hero-deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(23,162,162,0.12);
+}
+
+.hero-deco-circle:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: pulse-ring 4s ease-in-out infinite;
+}
+
+.hero-deco-circle:nth-child(2) {
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+  border-color: rgba(244,162,97,0.15);
+  animation: pulse-ring 4s ease-in-out 1s infinite;
+}
+
+.hero-deco-circle:nth-child(3) {
+  width: 40%;
+  height: 40%;
+  top: 30%;
+  left: 30%;
+  background: rgba(23,162,162,0.04);
+  border-color: rgba(23,162,162,0.1);
+  animation: pulse-ring 4s ease-in-out 2s infinite;
+}
+
+.hero-deco-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: var(--teal-light);
+  opacity: 0.3;
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+}
+
+/* ── Section Base ── */
+.section {
+  padding: 80px 0;
+}
+
+.section-dark {
+  background: var(--teal-dark);
+  color: var(--white);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--teal-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.section-dark .section-label { color: var(--amber-light); }
+
+.section-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.section-dark .section-title { color: var(--white); }
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  line-height: 1.9;
+}
+
+.section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header .section-subtitle {
+  margin: 0 auto;
+}
+
+/* ── Features ── */
+.features {
+  background: var(--gray-50);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 36px 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  border: 1px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(23,162,162,0.1);
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--teal-pale), rgba(23,162,162,0.15));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--teal);
+  margin-bottom: 20px;
+  transition: all var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  color: var(--white);
+}
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.9;
+}
+
+/* ── Services ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.service-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: all var(--transition);
+}
+
+.service-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateX(4px);
+}
+
+.service-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--amber);
+  background: rgba(244,162,97,0.12);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.service-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.service-card p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+}
+
+.service-highlight {
+  background: rgba(244,162,97,0.08) !important;
+  border-color: rgba(244,162,97,0.2) !important;
+}
+
+.service-highlight .service-num {
+  background: var(--amber);
+  color: var(--teal-dark);
+}
+
+/* ── About ── */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-text p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 2;
+  margin-bottom: 16px;
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table tr {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.profile-table th,
+.profile-table td {
+  padding: 16px 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.profile-table th {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--teal);
+  white-space: nowrap;
+  padding-right: 24px;
+  width: 100px;
+}
+
+.profile-table td {
+  font-size: 0.92rem;
+  color: var(--gray-700);
+}
+
+/* ── Access ── */
+.access {
+  background: var(--gray-50);
+}
+
+.access-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.map-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4/3;
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.access-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.access-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.access-item-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--teal-pale);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.access-item h4 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 2px;
+}
+
+.access-item p {
+  font-size: 0.9rem;
+  color: var(--gray-700);
+}
+
+/* ── Contact ── */
+.contact-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 40px 28px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.4rem;
+  color: var(--white);
+}
+
+.contact-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.contact-card .phone-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.contact-card .phone-note {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* ── Footer ── */
+.footer {
+  background: var(--gray-800);
+  color: rgba(255,255,255,0.7);
+  padding: 50px 0 30px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.footer-logo .logo-main { color: var(--white); }
+.footer-logo .logo-sub { color: rgba(255,255,255,0.5); }
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover { color: var(--amber-light); }
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 10px;
+}
+
+/* ── Mobile CTA Bar ── */
+.mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  padding: 10px 16px;
+  z-index: 999;
+  display: flex;
+  gap: 10px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+}
+
+.mobile-cta a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.mobile-cta-phone {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.mobile-cta-phone:hover { background: var(--teal-dark); }
+
+.mobile-cta-map {
+  background: var(--gray-100);
+  color: var(--teal-dark);
+}
+
+.mobile-cta-map:hover { background: var(--gray-200); }
+
+/* ── Fade-up animation ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Tablet (600px) ── */
+@media (min-width: 600px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .access-content {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: start;
+  }
+
+  .map-wrap {
+    aspect-ratio: auto;
+    min-height: 350px;
+  }
+
+  .hero-decoration { display: block; }
+
+  .section { padding: 100px 0; }
+}
+
+/* ── Desktop (900px) ── */
+@media (min-width: 900px) {
+  .hamburger { display: none; }
+  .nav-desktop { display: flex; }
+  .nav-cta { display: inline-flex; }
+  .mobile-cta { display: none; }
+
+  .footer {
+    padding-bottom: 30px;
+  }
+
+  .hero-content {
+    padding: 80px 0 100px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-cards {
+    max-width: 500px;
+  }
+
+  .hero-decoration {
+    width: 420px;
+    height: 420px;
+    right: 8%;
+  }
+}
+
+/* extra bottom padding on mobile for CTA bar */
+@media (max-width: 899px) {
+  .footer { padding-bottom: 80px; }
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div>
-                    <h1>SiB会計事務所</h1>
-                    <p>横浜市青葉区 | 税理顧問・経理代行・記帳代行・確定申告</p>
-                </div>
-                <div class="contact-info">
-                    <div>📞 お電話でのお問い合わせ</div>
-                    <div class="phone">090-6652-3357</div>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>信頼のおけるパートナーとして<br>ともに歩む。</h2>
-            <p>Walk together as a trusted partner.</p>
-            <a href="#contact" class="cta-button">お問い合わせ</a>
-        </div>
-    </section>
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <span class="logo-main">SiB会計事務所</span>
+      <span class="logo-sub">SiB Accounting Office</span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#features">選ばれる理由</a>
+      <a href="#services">サービス</a>
+      <a href="#about">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta"><i class="fas fa-phone"></i> お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <section id="about">
-        <div class="container">
-            <div class="tagline">
-                信頼のおけるパートナーとして<br>
-                ともに歩む。
-            </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 2; color: #64748b;">
-                SiB会計事務所は、横浜市青葉区に事務所を構え、税理顧問、経理代行、記帳代行、確定申告など、<br>
-                お客様の会計・税務業務を総合的にサポートしております。<br><br>
-                信頼のおけるパートナーとして、お客様とともに歩んでまいります。
-            </p>
-        </div>
-    </section>
+<!-- Mobile Nav -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#features">選ばれる理由</a>
+  <a href="#services">サービス</a>
+  <a href="#about">事務所概要</a>
+  <a href="#access">アクセス</a>
+  <a href="#contact">お問い合わせ</a>
+  <div class="mobile-nav-phone">
+    <i class="fas fa-phone"></i>
+    <span>090-6652-3357</span>
+  </div>
+</nav>
 
-    <section id="services">
-        <div class="container">
-            <h2>サービス内容</h2>
-            <div class="services">
-                <div class="service-card">
-                    <h3>税理顧問</h3>
-                    <p>税務に関する専門的なアドバイスを提供し、企業の税務戦略をサポートいたします。定期的な訪問により、タイムリーなサービスを実現します。</p>
-                </div>
-                <div class="service-card">
-                    <h3>経理代行</h3>
-                    <p>日々の経理業務を代行し、経営者が本業に専念できる環境を整えます。正確で効率的な経理処理をお約束します。</p>
-                </div>
-                <div class="service-card">
-                    <h3>記帳代行</h3>
-                    <p>記帳業務を代行し、月次決算資料を迅速に作成いたします。経営判断に必要なデータを適時に提供します。</p>
-                </div>
-                <div class="service-card">
-                    <h3>確定申告</h3>
-                    <p>個人事業主の確定申告をサポート。正確な申告により、安心して事業に専念していただけます。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="container hero-content">
+    <div class="hero-badge fade-up">
+      <i class="fas fa-star"></i>
+      経理代行の専門家
+    </div>
+    <h1 class="hero-title fade-up">
+      <span class="line">経理のプロに、</span>
+      <span class="line accent">おまかせください。</span>
+    </h1>
+    <p class="hero-subtitle fade-up" style="font-size:1.1rem;font-weight:600;color:var(--teal);margin-bottom:12px;">SiB会計事務所</p>
+    <p class="hero-desc fade-up">
+      経理代行のプロフェッショナル。面倒な経理業務をまるごとお任せいただけます。横浜市青葉区を拠点に、中小企業・個人事業主の皆様の経理・税務をトータルサポート。
+    </p>
+    <div class="hero-actions fade-up">
+      <a href="tel:09066523357" class="btn btn-primary"><i class="fas fa-phone"></i> 電話で相談</a>
+      <a href="#services" class="btn btn-outline"><i class="fas fa-arrow-down"></i> サービス一覧</a>
+    </div>
+  </div>
+  <div class="hero-decoration" aria-hidden="true">
+    <div class="hero-deco-circle"></div>
+    <div class="hero-deco-circle"></div>
+    <div class="hero-deco-circle"></div>
+    <i class="fas fa-calculator hero-deco-icon"></i>
+  </div>
+</section>
 
-    <section id="features">
-        <div class="container">
-            <h2>選ばれる理由</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🤝</div>
-                    <h3>信頼のパートナー</h3>
-                    <p>お客様の信頼のおけるパートナーとして、長期的な関係を大切にします</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💼</div>
-                    <h3>専門的なサービス</h3>
-                    <p>税務・会計の専門知識を活かし、質の高いサービスを提供</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h3>きめ細かな対応</h3>
-                    <p>お客様一人ひとりのニーズに合わせた、きめ細かなサービスを実現</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Features -->
+<section class="section features" id="features">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-check-circle"></i> Why Choose Us</div>
+      <h2 class="section-title">SiB会計事務所が選ばれる理由</h2>
+      <p class="section-subtitle">経理代行に特化した専門事務所として、お客様のビジネスを全力でサポートします。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>経理代行のプロ集団</h3>
+        <p>日々の経理業務から月次決算まで、経理業務をまるごとアウトソーシング。専門スタッフが正確かつ迅速に対応し、安心の経理体制を構築します。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><i class="fas fa-coins"></i></div>
+        <h3>コスト削減を実現</h3>
+        <p>経理担当者を雇用するよりも大幅なコストダウンが可能。採用費・教育費・社会保険料の負担なく、プロの経理サービスをご利用いただけます。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+        <h3>本業に集中できる環境</h3>
+        <p>煩雑な経理業務から解放されることで、経営者様は売上拡大やサービス向上など、本来注力すべきコア業務に集中していただけます。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="price">
-        <div class="container">
-            <h2>料金目安</h2>
-            <div class="price-table">
-                <div class="price-item">
-                    <span>税理顧問</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>経理代行</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>記帳代行</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>確定申告</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 30px; color: #64748b;">
-                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
-            </p>
+<!-- Services -->
+<section class="section section-dark" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-briefcase"></i> Services</div>
+      <h2 class="section-title">サービス一覧</h2>
+      <p class="section-subtitle">経理代行を中心に、税務・会計に関する幅広いサービスを提供しています。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card service-highlight fade-up">
+        <div class="service-num">01</div>
+        <div>
+          <h3>経理代行</h3>
+          <p>日常の経理業務を丸ごとお任せ。仕訳入力、請求書管理、支払業務、経費精算など、経理のすべてをプロが代行します。当事務所の最も得意とするサービスです。</p>
         </div>
-    </section>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">02</div>
+        <div>
+          <h3>記帳代行</h3>
+          <p>領収書や通帳のコピーをお預かりし、会計ソフトへの入力・帳簿作成を正確に行います。月次の試算表もスピーディにご提供。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">03</div>
+        <div>
+          <h3>税務顧問</h3>
+          <p>月次・年次の税務相談から節税対策まで、顧問税理士として継続的にサポート。経営判断に必要な税務アドバイスをご提供します。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">04</div>
+        <div>
+          <h3>確定申告</h3>
+          <p>個人事業主・フリーランスの確定申告をサポート。青色申告の届出から申告書の作成・提出まで、ワンストップで対応します。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">05</div>
+        <div>
+          <h3>給与計算</h3>
+          <p>毎月の給与計算、賞与計算、年末調整を代行。社会保険料や源泉所得税の計算も正確に行い、給与明細の発行まで対応します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="access">
-        <div class="container">
-            <h2>アクセス</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: #64748b;">
-                〒227-0033 神奈川県横浜市青葉区鴨志田町５５２−２<br>
-                📞 090-6652-3357<br>
-                東急田園都市線「青葉台駅」よりバス利用
-            </p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.234!2d139.523!3d35.561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMzJzM5LjYiTiAxMznCsDMxJzIyLjgiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
+<!-- About -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-building"></i> About</div>
+      <h2 class="section-title">事務所概要</h2>
+      <p class="section-subtitle">横浜市青葉区を拠点に、経理代行を軸とした会計サービスを提供しています。</p>
+    </div>
+    <div class="about-content fade-up">
+      <div class="about-text">
+        <p>SiB会計事務所は、「経理のプロフェッショナル」として、中小企業・個人事業主の皆様の経理業務をトータルでサポートする会計事務所です。</p>
+        <p>特に経理代行サービスに強みを持ち、お客様が本業に集中できる環境づくりをお手伝いしています。面倒な経理業務は私たちにお任せください。</p>
+      </div>
+      <div>
+        <table class="profile-table">
+          <tr>
+            <th>事務所名</th>
+            <td>SiB会計事務所<br><small style="color:var(--gray-600);">SiB ACCOUNTING OFFICE</small></td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>神奈川県横浜市青葉区鴨志田町552-2</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><a href="tel:09066523357" style="color:var(--teal);font-weight:600;">090-6652-3357</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>お問い合わせ</h2>
-            <div class="contact-form">
-                <form action="https://sib-accounting.com/" method="post">
-                    <div class="form-group">
-                        <label for="name">お名前 *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">会社名</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">メールアドレス *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">送信する</button>
-                </form>
-            </div>
+<!-- Access -->
+<section class="section access" id="access">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-map-marker-alt"></i> Access</div>
+      <h2 class="section-title">アクセス</h2>
+    </div>
+    <div class="access-content fade-up">
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=%E6%A8%AA%E6%B5%9C%E5%B8%82%E9%9D%92%E8%91%89%E5%8C%BA%E9%B4%A8%E5%BF%97%E7%94%B0%E7%94%BA552-2&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="SiB会計事務所の地図"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="access-info">
+        <div class="access-item">
+          <div class="access-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>所在地</h4>
+            <p>神奈川県横浜市青葉区<br>鴨志田町552-2</p>
+          </div>
         </div>
-    </section>
+        <div class="access-item">
+          <div class="access-item-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>お電話</h4>
+            <p><a href="tel:09066523357" style="color:var(--teal);font-weight:600;">090-6652-3357</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 SiB会計事務所 All Rights Reserved.</p>
+<!-- Contact -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-envelope"></i> Contact</div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-subtitle">経理代行・税務に関するご相談は、お気軽にお電話ください。</p>
+    </div>
+    <div class="contact-cards fade-up">
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <h3>お電話でのお問い合わせ</h3>
+        <div class="phone-number">
+          <a href="tel:09066523357" style="color:inherit;">090-6652-3357</a>
         </div>
-    </footer>
+        <p class="phone-note">携帯電話での受付となります。<br>お気軽にお問い合わせください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo logo">
+      <span class="logo-main">SiB会計事務所</span>
+      <span class="logo-sub">SiB Accounting Office</span>
+    </div>
+    <div class="footer-links">
+      <a href="#features">選ばれる理由</a>
+      <a href="#services">サービス</a>
+      <a href="#about">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </div>
+    <p class="footer-copy">&copy; SiB会計事務所 All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- Mobile CTA Bar -->
+<div class="mobile-cta">
+  <a href="tel:09066523357" class="mobile-cta-phone"><i class="fas fa-phone"></i> 電話する</a>
+  <a href="#access" class="mobile-cta-map"><i class="fas fa-map-marker-alt"></i> アクセス</a>
+</div>
+
+<script>
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function toggleMenu() {
+  hamburger.classList.toggle('active');
+  mobileNav.classList.toggle('open');
+  mobileOverlay.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+}
+
+hamburger.addEventListener('click', toggleMenu);
+mobileOverlay.addEventListener('click', toggleMenu);
+
+mobileNav.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    if (mobileNav.classList.contains('open')) toggleMenu();
+  });
+});
+
+// Header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+// Intersection Observer for fade-up
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry, i) {
+    if (entry.isIntersecting) {
+      setTimeout(function() {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+document.querySelectorAll('.fade-up').forEach(function(el) {
+  observer.observe(el);
+});
+</script>
+
 </body>
 </html>

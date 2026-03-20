@@ -3,511 +3,1471 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日野一義税理士事務所 | 横浜駅徒歩3分・経営と税務のパートナー</title>
-<meta name="description" content="横浜駅徒歩3分。300社超の実績。会計・税務・経営コンサルティング。法人顧問月額2万円〜。日野一義税理士事務所。">
+<title>日野一義税理士事務所 | 横浜駅直結 法人税務のプロフェッショナル</title>
+<meta name="description" content="横浜駅直結スカイビル27階。300社超の実績を持つ日野一義税理士事務所。法人税務顧問、確定申告、会社設立支援、相続・事業承継、経営コンサルティング。初回相談無料。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-/* ===== RESET & BASE ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+/* ============================================
+   CSS Custom Properties
+   ============================================ */
+:root {
+  --color-primary: #0f2b5b;
+  --color-primary-dark: #091d3e;
+  --color-primary-light: #1a3f7a;
+  --color-accent: #e67e22;
+  --color-accent-light: #f39c12;
+  --color-accent-glow: rgba(230, 126, 34, 0.15);
+  --color-white: #ffffff;
+  --color-off-white: #f7f8fa;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-text: #1a1a2e;
+  --color-text-light: #555e6e;
+  --color-text-muted: #8a929e;
+  --font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.15);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-height: 72px;
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  font-family: 'Noto Sans JP', sans-serif;
-  color: #333;
-  background: #fff;
+  font-family: var(--font-family);
+  font-weight: 400;
   line-height: 1.8;
+  color: var(--color-text);
+  background: var(--color-white);
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; height: auto; display: block; }
-ul { list-style: none; }
 
-/* ===== CSS VARIABLES ===== */
-:root {
-  --primary: #1a3a5c;
-  --primary-light: #2a5580;
-  --accent: #c8962e;
-  --accent-dark: #b07e1f;
-  --cream: #faf7f2;
-  --white: #ffffff;
-  --gray-light: #f5f6f8;
-  --gray: #888;
-  --text: #333;
-  --text-light: #666;
-  --shadow: 0 4px 24px rgba(26,58,92,0.08);
-  --shadow-lg: 0 8px 40px rgba(26,58,92,0.12);
-  --radius: 12px;
-  --transition: 0.3s ease;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* ===== UTILITY ===== */
-.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-.section-padding { padding: 60px 0; }
-.section-label {
-  display: inline-block; font-size: 0.75rem; font-weight: 700;
-  letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px;
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
 }
-.section-title { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; line-height: 1.4; }
-.section-subtitle { font-size: 0.95rem; color: var(--text-light); margin-bottom: 40px; }
-.text-center { text-align: center; }
-.btn {
-  display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px;
-  border-radius: 50px; font-size: 1rem; font-weight: 700;
-  transition: all var(--transition); cursor: pointer; border: none; font-family: inherit;
-}
-.btn-accent { background: var(--accent); color: #fff; box-shadow: 0 4px 16px rgba(200,150,46,0.3); }
-.btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(200,150,46,0.4); }
-.btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
-.btn-outline:hover { background: var(--primary); color: #fff; }
 
-/* ===== HEADER ===== */
+ul, ol {
+  list-style: none;
+}
+
+/* ============================================
+   Utility
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+/* Scroll animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   Section Header
+   ============================================ */
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-header__en {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.section-header__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+}
+
+.section-header__divider {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+.section-header--light .section-header__title {
+  color: var(--color-white);
+}
+
+.section-header--light .section-header__en {
+  color: var(--color-accent-light);
+}
+
+/* ============================================
+   Header
+   ============================================ */
 .header {
-  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-  background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
-  box-shadow: 0 1px 8px rgba(0,0,0,0.06); transition: var(--transition);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1000;
+  transition: background var(--transition), box-shadow var(--transition);
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
-.logo { display: flex; align-items: center; gap: 10px; }
-.logo-icon { width: 40px; height: 40px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-weight: 900; font-size: 1.2rem; }
-.logo-text { font-size: 0.85rem; font-weight: 700; color: var(--primary); line-height: 1.3; }
-.logo-text small { display: block; font-size: 0.65rem; color: var(--text-light); font-weight: 400; }
-.nav-links { display: flex; gap: 24px; align-items: center; }
-.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text); transition: var(--transition); }
-.nav-links a:hover { color: var(--accent); }
-.nav-cta { background: var(--accent); color: #fff !important; padding: 8px 20px; border-radius: 50px; font-weight: 700 !important; }
-.nav-cta:hover { background: var(--accent-dark); }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
-.hamburger span { width: 24px; height: 2px; background: var(--primary); transition: var(--transition); }
 
-/* ===== HERO ===== */
+.header.is-scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 12px rgba(15, 43, 91, 0.08);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header__logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  z-index: 1001;
+}
+
+.header__logo-main {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+}
+
+.header__logo-sub {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.08em;
+  transition: color var(--transition);
+}
+
+.header.is-scrolled .header__logo-main {
+  color: var(--color-primary);
+}
+
+.header.is-scrolled .header__logo-sub {
+  color: var(--color-text-muted);
+}
+
+/* Desktop nav */
+.header__nav {
+  display: none;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 32px;
+}
+
+.header__nav-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+  position: relative;
+  padding: 4px 0;
+  transition: color var(--transition);
+}
+
+.header__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width var(--transition);
+}
+
+.header__nav-link:hover::after {
+  width: 100%;
+}
+
+.header.is-scrolled .header__nav-link {
+  color: var(--color-text);
+}
+
+.header.is-scrolled .header__nav-link:hover {
+  color: var(--color-primary);
+}
+
+.header__cta {
+  display: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 6px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.header__cta:hover {
+  background: var(--color-accent-light);
+  transform: translateY(-1px);
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  gap: 6px;
+}
+
+.hamburger__line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-white);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition), background var(--transition);
+}
+
+.header.is-scrolled .hamburger__line {
+  background: var(--color-primary);
+}
+
+.hamburger.is-active .hamburger__line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background: var(--color-primary);
+}
+
+.hamburger.is-active .hamburger__line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active .hamburger__line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background: var(--color-primary);
+}
+
+/* Mobile nav overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 43, 91, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.mobile-nav-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--color-white);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 100px 32px 40px;
+  overflow-y: auto;
+}
+
+.mobile-nav.is-active {
+  transform: translateX(0);
+}
+
+.mobile-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav__link {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-gray-100);
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.mobile-nav__link:hover {
+  color: var(--color-accent);
+  padding-left: 8px;
+}
+
+.mobile-nav__contact {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 2px solid var(--color-primary);
+}
+
+.mobile-nav__phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.mobile-nav__hours {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   Hero
+   ============================================ */
 .hero {
-  margin-top: 70px; padding: 80px 0 60px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  position: relative; overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, var(--color-primary-dark) 0%, var(--color-primary) 40%, var(--color-primary-light) 100%);
+  overflow: hidden;
 }
-.hero::before {
-  content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%;
-  background: radial-gradient(circle, rgba(200,150,46,0.1) 0%, transparent 70%);
-}
-.hero-content { position: relative; z-index: 2; }
-.hero-badge {
-  display: inline-block; background: rgba(200,150,46,0.2); color: var(--accent);
-  padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 20px;
-}
-.hero h1 { font-size: 2rem; font-weight: 900; color: #fff; line-height: 1.4; margin-bottom: 16px; }
-.hero h1 span { color: var(--accent); }
-.hero-desc { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 600px; }
-.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-stats {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-  margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15);
-}
-.hero-stat { text-align: center; }
-.hero-stat-num { font-size: 1.8rem; font-weight: 900; color: var(--accent); }
-.hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
 
-/* ===== FEATURES ===== */
-.features { background: var(--cream); }
-.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.feature-card {
-  background: #fff; padding: 32px 24px; border-radius: var(--radius);
-  box-shadow: var(--shadow); text-align: center; transition: var(--transition);
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(230, 126, 34, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
 }
-.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.feature-icon {
-  width: 64px; height: 64px; border-radius: 16px; display: flex;
-  align-items: center; justify-content: center; margin: 0 auto 16px;
+
+.hero__pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 720px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(230, 126, 34, 0.15);
+  border: 1px solid rgba(230, 126, 34, 0.3);
+  color: var(--color-accent-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  letter-spacing: 0.04em;
+}
+
+.hero__badge i {
+  font-size: 0.75rem;
+}
+
+.hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+.hero__title-accent {
+  color: var(--color-accent-light);
+  font-weight: 900;
+}
+
+.hero__subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+
+.hero__en {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  min-width: 240px;
+}
+
+.hero__btn--primary {
+  background: var(--color-accent);
+  color: var(--color-white);
+  box-shadow: 0 4px 20px rgba(230, 126, 34, 0.3);
+}
+
+.hero__btn--primary:hover {
+  background: var(--color-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(230, 126, 34, 0.4);
+}
+
+.hero__btn--outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero__btn--outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* ============================================
+   Features
+   ============================================ */
+.features {
+  background: var(--color-off-white);
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  border-radius: 0 0 2px 2px;
+  transition: width var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card:hover::before {
+  width: 100%;
+}
+
+.feature-card__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: var(--color-white);
   font-size: 1.5rem;
 }
-.feature-icon.blue { background: rgba(26,58,92,0.1); color: var(--primary); }
-.feature-icon.gold { background: rgba(200,150,46,0.15); color: var(--accent); }
-.feature-icon.green { background: rgba(46,160,120,0.1); color: #2ea078; }
-.feature-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-.feature-card p { font-size: 0.9rem; color: var(--text-light); }
 
-/* ===== SERVICES ===== */
-.service-list { display: flex; flex-direction: column; gap: 24px; }
-.service-item {
-  display: flex; gap: 24px; background: #fff; border-radius: var(--radius);
-  box-shadow: var(--shadow); overflow: hidden; transition: var(--transition);
-}
-.service-item:hover { box-shadow: var(--shadow-lg); }
-.service-num {
-  min-width: 64px; background: var(--primary); color: var(--accent);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem; font-weight: 900;
-}
-.service-body { padding: 24px; flex: 1; }
-.service-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-.service-body p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 12px; }
-.service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.service-tag {
-  font-size: 0.75rem; background: var(--gray-light); color: var(--text-light);
-  padding: 4px 12px; border-radius: 50px;
+.feature-card__number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
-/* ===== PRICING ===== */
-.pricing { background: var(--gray-light); }
-.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.pricing-card {
-  background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);
-  overflow: hidden; transition: var(--transition);
-}
-.pricing-card.featured { border: 2px solid var(--accent); }
-.pricing-header {
-  padding: 24px; background: var(--primary); color: #fff; text-align: center;
-}
-.pricing-card.featured .pricing-header { background: var(--accent); }
-.pricing-header h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-.pricing-header .price { font-size: 1.8rem; font-weight: 900; }
-.pricing-header .price small { font-size: 0.85rem; font-weight: 400; }
-.pricing-body { padding: 24px; }
-.pricing-body li { padding: 8px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; color: var(--text-light); display: flex; align-items: center; gap: 8px; }
-.pricing-body li i { color: var(--accent); font-size: 0.8rem; }
-
-/* ===== PROFILE ===== */
-.profile-content { display: flex; gap: 40px; align-items: center; }
-.profile-img-wrap { flex-shrink: 0; width: 200px; }
-.profile-img {
-  width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
-  border: 4px solid var(--accent); box-shadow: var(--shadow);
-  background: var(--gray-light); display: flex; align-items: center; justify-content: center;
-  font-size: 3rem; color: var(--primary);
-}
-.profile-info h3 { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
-.profile-info .title { font-size: 0.9rem; color: var(--accent); font-weight: 700; margin-bottom: 16px; }
-.profile-info p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 12px; }
-.profile-highlights { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-.profile-highlight {
-  display: flex; align-items: center; gap: 6px; padding: 6px 14px;
-  background: var(--cream); border-radius: 50px; font-size: 0.8rem; color: var(--primary); font-weight: 500;
+.feature-card__number-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+  font-weight: 500;
 }
 
-/* ===== ACCESS ===== */
-.access { background: var(--gray-light); }
-.access-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-.access-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); min-height: 300px; }
-.access-map iframe { width: 100%; height: 100%; min-height: 300px; border: 0; }
-.access-info { display: flex; flex-direction: column; justify-content: center; gap: 20px; }
-.access-item { display: flex; gap: 12px; }
-.access-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.access-detail h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
-.access-detail p { font-size: 0.85rem; color: var(--text-light); }
-
-/* ===== CTA ===== */
-.cta-section {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  padding: 60px 0; text-align: center;
-}
-.cta-section h2 { font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 12px; }
-.cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 32px; font-size: 0.95rem; }
-.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-.cta-phone { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 1.5rem; font-weight: 900; }
-.cta-phone small { display: block; font-size: 0.75rem; font-weight: 400; }
-
-/* ===== FOOTER ===== */
-.footer { background: #0d1b2e; color: rgba(255,255,255,0.7); padding: 40px 0 20px; }
-.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
-.footer-info h3 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
-.footer-info p { font-size: 0.8rem; line-height: 1.8; }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.6); transition: var(--transition); }
-.footer-links a:hover { color: var(--accent); }
-.footer-bottom { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; }
-
-/* ===== MOBILE NAV ===== */
-.mobile-nav {
-  display: none; position: fixed; top: 70px; left: 0; width: 100%; background: #fff;
-  box-shadow: var(--shadow-lg); padding: 20px; z-index: 999;
-}
-.mobile-nav.active { display: block; }
-.mobile-nav a { display: block; padding: 12px 0; font-size: 1rem; font-weight: 500; border-bottom: 1px solid #eee; }
-
-/* ===== FLOATING CTA ===== */
-.floating-cta {
-  display: none; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 998;
-  background: var(--accent); padding: 12px 20px;
-}
-.floating-cta a {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  color: #fff; font-weight: 700; font-size: 1rem;
+.feature-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 12px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .hero h1 { font-size: 1.5rem; }
-  .hero { padding: 60px 0 40px; }
-  .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .hero-stat-num { font-size: 1.3rem; }
-  .features-grid { grid-template-columns: 1fr; }
-  .service-item { flex-direction: column; }
-  .service-num { min-width: auto; padding: 12px; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .profile-content { flex-direction: column; text-align: center; }
-  .profile-img-wrap { margin: 0 auto; }
-  .profile-highlights { justify-content: center; }
-  .access-content { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; }
-  .floating-cta { display: block; }
-  .section-padding { padding: 40px 0; }
+.feature-card__text {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* ============================================
+   Services
+   ============================================ */
+.services {
+  background: linear-gradient(170deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  position: relative;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 80% 80%, rgba(230, 126, 34, 0.05) 0%, transparent 60%);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::after {
+  width: 100%;
+}
+
+.service-card__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(230, 126, 34, 0.15);
+  color: var(--color-accent-light);
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.service-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
+
+.service-card__text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+}
+
+/* ============================================
+   About
+   ============================================ */
+.about {
+  background: var(--color-off-white);
+}
+
+.about__card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about__profile {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  padding: 40px 28px;
+  text-align: center;
+}
+
+.about__avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.about__name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 4px;
+}
+
+.about__title {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 400;
+}
+
+.about__body {
+  padding: 36px 28px;
+}
+
+.about__message {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 2;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: var(--color-gray-50);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-accent);
+}
+
+.about__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.about__table th,
+.about__table td {
+  padding: 14px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--color-gray-100);
+  text-align: left;
+  vertical-align: top;
+}
+
+.about__table th {
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+  width: 110px;
+  padding-right: 20px;
+}
+
+.about__table td {
+  color: var(--color-text-light);
+}
+
+/* ============================================
+   Access
+   ============================================ */
+.access__wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.access__map {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4/3;
+}
+
+.access__map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.access__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.access__item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.access__item-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: var(--color-white);
+  font-size: 1rem;
+}
+
+.access__item-content {
+  flex: 1;
+}
+
+.access__item-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.access__item-value {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ============================================
+   Contact
+   ============================================ */
+.contact {
+  background: linear-gradient(170deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  position: relative;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 30% 70%, rgba(230, 126, 34, 0.06) 0%, transparent 60%);
+}
+
+.contact__free {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact__free-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(230, 126, 34, 0.15);
+  border: 1px solid rgba(230, 126, 34, 0.3);
+  color: var(--color-accent-light);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 10px 28px;
+  border-radius: 100px;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  text-align: center;
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+  color: var(--color-white);
+  font-size: 1.3rem;
+  margin: 0 auto 16px;
+}
+
+.contact-card__label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.contact-card__value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.contact-card__value a {
+  color: var(--color-white);
+  transition: color var(--transition);
+}
+
+.contact-card__value a:hover {
+  color: var(--color-accent-light);
+}
+
+.contact-card__sub {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-white);
+  margin-top: 16px;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.contact-card__btn:hover {
+  background: var(--color-accent-light);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+  background: #060f1f;
+  padding: 48px 0 24px;
+}
+
+.footer__inner {
+  text-align: center;
+}
+
+.footer__logo {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 4px;
+}
+
+.footer__logo-en {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.footer__info {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.footer__divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: 20px;
+}
+
+.footer__copy {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   Mobile CTA Bar
+   ============================================ */
+.mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 998;
+  background: var(--color-primary);
+  padding: 0;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-cta.is-visible {
+  transform: translateY(0);
+}
+
+.mobile-cta__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 20px;
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.mobile-cta__link i {
+  font-size: 1.1rem;
+  color: var(--color-accent-light);
+}
+
+.mobile-cta__sub {
+  font-size: 0.65rem;
+  font-weight: 400;
+  opacity: 0.6;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ============================================
+   Responsive: Tablet (600px+)
+   ============================================ */
+@media (min-width: 600px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .hero__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .features__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services__grid .service-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
+  }
+
+  .contact__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .access__wrapper {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .access__map {
+    aspect-ratio: auto;
+    min-height: 320px;
+  }
+
+  .about__body {
+    padding: 40px 36px;
+  }
+
+  .section-header__title {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   Responsive: Desktop (900px+)
+   ============================================ */
+@media (min-width: 900px) {
+  :root {
+    --header-height: 80px;
+  }
+
+  .section-padding {
+    padding: 100px 0;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .header__nav {
+    display: block;
+  }
+
+  .header__cta {
+    display: inline-flex;
+  }
+
+  .hero__title {
+    font-size: 3rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.05rem;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services__grid .service-card:last-child {
+    grid-column: auto;
+    max-width: none;
+    justify-self: auto;
+  }
+
+  .feature-card {
+    padding: 44px 32px;
+  }
+
+  .about__profile {
+    padding: 48px 40px;
+  }
+
+  .about__body {
+    padding: 48px 44px;
+  }
+
+  .mobile-cta {
+    display: none;
+  }
+
+  .section-header__title {
+    font-size: 2.2rem;
+  }
+
+  .section-header {
+    margin-bottom: 64px;
+  }
+}
+
+/* ============================================
+   Safe area (notch devices)
+   ============================================ */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-cta {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="container header-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon">日</div>
-      <div class="logo-text">日野一義税理士事務所<small>Hino Kazuyoshi Tax Office</small></div>
+<!-- ========== Header ========== -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="#" class="header__logo">
+      <span class="header__logo-main">日野一義税理士事務所</span>
+      <span class="header__logo-sub">HINO TAX ACCOUNTANT OFFICE</span>
     </a>
-    <nav class="nav-links">
-      <a href="#features">選ばれる理由</a>
-      <a href="#services">サービス</a>
-      <a href="#pricing">料金案内</a>
-      <a href="#profile">事務所紹介</a>
-      <a href="#access">アクセス</a>
-      <a href="#contact" class="nav-cta"><i class="fas fa-envelope"></i> お問い合わせ</a>
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li><a href="#features" class="header__nav-link">特徴</a></li>
+        <li><a href="#services" class="header__nav-link">業務内容</a></li>
+        <li><a href="#about" class="header__nav-link">事務所概要</a></li>
+        <li><a href="#access" class="header__nav-link">アクセス</a></li>
+        <li><a href="#contact" class="header__nav-link">お問い合わせ</a></li>
+      </ul>
     </nav>
-    <div class="hamburger" onclick="toggleNav()">
-      <span></span><span></span><span></span>
-    </div>
+    <a href="tel:045-548-3514" class="header__cta">
+      <i class="fas fa-phone"></i> 045-548-3514
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
   </div>
 </header>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="#features" onclick="toggleNav()">選ばれる理由</a>
-  <a href="#services" onclick="toggleNav()">サービス</a>
-  <a href="#pricing" onclick="toggleNav()">料金案内</a>
-  <a href="#profile" onclick="toggleNav()">事務所紹介</a>
-  <a href="#access" onclick="toggleNav()">アクセス</a>
-  <a href="#contact" onclick="toggleNav()">お問い合わせ</a>
-</div>
+<!-- Mobile Nav -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+<nav class="mobile-nav" id="mobileNav">
+  <ul class="mobile-nav__list">
+    <li><a href="#features" class="mobile-nav__link">特徴</a></li>
+    <li><a href="#services" class="mobile-nav__link">業務内容</a></li>
+    <li><a href="#about" class="mobile-nav__link">事務所概要</a></li>
+    <li><a href="#access" class="mobile-nav__link">アクセス</a></li>
+    <li><a href="#contact" class="mobile-nav__link">お問い合わせ</a></li>
+  </ul>
+  <div class="mobile-nav__contact">
+    <div class="mobile-nav__phone">
+      <i class="fas fa-phone"></i>
+      <a href="tel:045-548-3514">045-548-3514</a>
+    </div>
+    <div class="mobile-nav__hours">平日 9:00〜17:00</div>
+  </div>
+</nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero-content">
-    <div class="hero-badge"><i class="fas fa-award"></i> 横浜駅徒歩3分・スカイビル27F</div>
-    <h1>ベテランと若手の力で<br><span>経営の未来</span>を支える</h1>
-    <p class="hero-desc">建設業・飲食業・NPOなど幅広い業種に対応。会計・税務・経営のトータルサポートで、300社超のお客様と共に歩んできました。</p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn btn-accent"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
-      <a href="tel:045-548-3514" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.5)"><i class="fas fa-phone"></i> 045-548-3514</a>
+<!-- ========== Hero ========== -->
+<section class="hero" id="hero">
+  <div class="hero__pattern"></div>
+  <div class="hero__content">
+    <div class="hero__badge">
+      <i class="fas fa-award"></i>
+      法人税務の実績300社超
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">300<small>社超</small></div>
-        <div class="hero-stat-label">顧問実績</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">4<small>拠点</small></div>
-        <div class="hero-stat-label">横浜・東京・仙台・石巻</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">徒歩3<small>分</small></div>
-        <div class="hero-stat-label">JR横浜駅から</div>
-      </div>
+    <p class="hero__subtitle">横浜駅直結 スカイビル27階</p>
+    <h1 class="hero__title">
+      <span class="hero__title-accent">300社超</span>の信頼と実績で<br>
+      企業の成長を支える
+    </h1>
+    <p class="hero__en">Hino Kazuyoshi Tax Accountant Office</p>
+    <div class="hero__actions">
+      <a href="tel:045-548-3514" class="hero__btn hero__btn--primary">
+        <i class="fas fa-phone"></i>
+        無料相談はこちら
+      </a>
+      <a href="#services" class="hero__btn hero__btn--outline">
+        <i class="fas fa-arrow-right"></i>
+        業務内容を見る
+      </a>
     </div>
+  </div>
+  <div class="hero__scroll">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- ========== Features ========== -->
 <section class="features section-padding" id="features">
-  <div class="container text-center">
-    <div class="section-label">Why Choose Us</div>
-    <h2 class="section-title">選ばれる3つの理由</h2>
-    <p class="section-subtitle">お客様のビジネスに寄り添い、最適な解決策をご提案します</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon blue"><i class="fas fa-users"></i></div>
-        <h3>ベテラン×若手の<br>チーム対応</h3>
-        <p>経験豊富なベテランと、フットワークの軽い若手がチームでサポート。迅速かつ的確なアドバイスを実現します。</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon gold"><i class="fas fa-building"></i></div>
-        <h3>幅広い業種に<br>対応</h3>
-        <p>建設業・飲食業・NPOなど多様な業種の300社超をサポートしてきた実績。業界特有の課題にも精通しています。</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon green"><i class="fas fa-handshake"></i></div>
-        <h3>セカンド<br>オピニオン対応</h3>
-        <p>現在の税理士に不安がある方にも対応。客観的な視点から、最善の税務戦略をご提案いたします。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section-padding" id="services">
   <div class="container">
-    <div class="text-center">
-      <div class="section-label">Services</div>
-      <h2 class="section-title">業務内容</h2>
-      <p class="section-subtitle">会計・税務・経営のトータルサポート</p>
+    <div class="section-header fade-up">
+      <span class="section-header__en">Features</span>
+      <h2 class="section-header__title">選ばれる3つの理由</h2>
+      <span class="section-header__divider"></span>
     </div>
-    <div class="service-list">
-      <div class="service-item">
-        <div class="service-num">01</div>
-        <div class="service-body">
-          <h3>会計業務コンサルティング</h3>
-          <p>日々の記帳から月次監査まで、正確な会計処理をサポート。経営判断に必要な財務資料をタイムリーにご提供します。</p>
-          <div class="service-tags">
-            <span class="service-tag">記帳代行</span>
-            <span class="service-tag">会計監査</span>
-            <span class="service-tag">月次資料提供</span>
-          </div>
+    <div class="features__grid">
+      <div class="feature-card fade-up">
+        <div class="feature-card__icon">
+          <i class="fas fa-building"></i>
         </div>
+        <div class="feature-card__number">300<span style="font-size:1.2rem">社</span>超</div>
+        <div class="feature-card__number-label">CLIENT TRACK RECORD</div>
+        <h3 class="feature-card__title">300社超の支援実績</h3>
+        <p class="feature-card__text">法人を中心に300社を超える企業の税務をサポートしてきた豊富な実績があります。</p>
       </div>
-      <div class="service-item">
-        <div class="service-num">02</div>
-        <div class="service-body">
-          <h3>財務・税務コンサルティング</h3>
-          <p>決算診断から経営計画策定、税務顧問、相続税対策まで。お客様の状況に合わせた最適な税務戦略をご提案します。</p>
-          <div class="service-tags">
-            <span class="service-tag">決算診断</span>
-            <span class="service-tag">経営計画策定</span>
-            <span class="service-tag">税務顧問</span>
-            <span class="service-tag">相続税対策</span>
-          </div>
+      <div class="feature-card fade-up" style="transition-delay:0.1s">
+        <div class="feature-card__icon">
+          <i class="fas fa-location-dot"></i>
         </div>
+        <h3 class="feature-card__title">横浜駅直結の好アクセス</h3>
+        <p class="feature-card__text">スカイビル27階、横浜駅から直結でアクセス抜群。お気軽にご来所ください。</p>
       </div>
-      <div class="service-item">
-        <div class="service-num">03</div>
-        <div class="service-body">
-          <h3>経営・人事コンサルティング</h3>
-          <p>会社設立から給与計算のアウトソーシングまで。経営基盤の強化と業務効率化をトータルでサポートします。</p>
-          <div class="service-tags">
-            <span class="service-tag">会社設立支援</span>
-            <span class="service-tag">給与計算</span>
-            <span class="service-tag">アウトソーシング</span>
-          </div>
+      <div class="feature-card fade-up" style="transition-delay:0.2s">
+        <div class="feature-card__icon">
+          <i class="fas fa-scale-balanced"></i>
         </div>
+        <h3 class="feature-card__title">法人税務のプロフェッショナル</h3>
+        <p class="feature-card__text">法人税務を専門に、経営に直結する税務戦略をご提案します。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing section-padding" id="pricing">
+<!-- ========== Services ========== -->
+<section class="services section-padding" id="services">
   <div class="container">
-    <div class="text-center">
-      <div class="section-label">Pricing</div>
-      <h2 class="section-title">料金案内</h2>
-      <p class="section-subtitle">明瞭な料金体系で安心してご依頼いただけます</p>
+    <div class="section-header section-header--light fade-up">
+      <span class="section-header__en">Services</span>
+      <h2 class="section-header__title">業務内容</h2>
+      <span class="section-header__divider"></span>
     </div>
-    <div class="pricing-grid">
-      <div class="pricing-card featured">
-        <div class="pricing-header">
-          <h3>法人顧問プラン</h3>
-          <div class="price">月額 20,000<small>円〜</small></div>
+    <div class="services__grid">
+      <div class="service-card fade-up">
+        <div class="service-card__icon">
+          <i class="fas fa-handshake"></i>
         </div>
-        <ul class="pricing-body">
-          <li><i class="fas fa-check"></i> 月次顧問料（年商規模に応じて）</li>
-          <li><i class="fas fa-check"></i> 年商1,000万円未満：月額20,000円</li>
-          <li><i class="fas fa-check"></i> 年商3,000万円未満：月額30,000円</li>
-          <li><i class="fas fa-check"></i> 年商5,000万円未満：月額40,000円</li>
-          <li><i class="fas fa-check"></i> 年商1億円未満：月額50,000円</li>
-          <li><i class="fas fa-check"></i> 年商1億円以上：月額60,000円</li>
-          <li><i class="fas fa-check"></i> 決算報酬：年100,000〜300,000円</li>
-        </ul>
+        <h3 class="service-card__title">法人税務顧問</h3>
+        <p class="service-card__text">月次監査から決算・申告まで、法人の税務を包括的にサポートいたします。</p>
       </div>
-      <div class="pricing-card">
-        <div class="pricing-header">
-          <h3>相続税対策プラン</h3>
-          <div class="price">150,000<small>円〜</small></div>
+      <div class="service-card fade-up" style="transition-delay:0.1s">
+        <div class="service-card__icon">
+          <i class="fas fa-file-invoice"></i>
         </div>
-        <ul class="pricing-body">
-          <li><i class="fas fa-check"></i> 遺産額3,000万円未満：150,000円</li>
-          <li><i class="fas fa-check"></i> 遺産額に応じて変動</li>
-          <li><i class="fas fa-check"></i> 生前対策のご相談対応</li>
-          <li><i class="fas fa-check"></i> 相続税申告書の作成</li>
-          <li><i class="fas fa-check"></i> 遺産分割のアドバイス</li>
-        </ul>
+        <h3 class="service-card__title">確定申告</h3>
+        <p class="service-card__text">個人事業主・フリーランスの確定申告を正確・迅速に対応いたします。</p>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.2s">
+        <div class="service-card__icon">
+          <i class="fas fa-building-columns"></i>
+        </div>
+        <h3 class="service-card__title">会社設立支援</h3>
+        <p class="service-card__text">法人設立の手続きから設立後の届出・税務まで一括サポートいたします。</p>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.3s">
+        <div class="service-card__icon">
+          <i class="fas fa-people-arrows"></i>
+        </div>
+        <h3 class="service-card__title">相続・事業承継</h3>
+        <p class="service-card__text">相続税対策から事業承継プランの策定までトータルにご支援いたします。</p>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.4s">
+        <div class="service-card__icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="service-card__title">経営コンサルティング</h3>
+        <p class="service-card__text">資金繰り改善・事業計画策定・節税対策など経営全般をアドバイスいたします。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROFILE -->
-<section class="section-padding" id="profile">
+<!-- ========== About ========== -->
+<section class="about section-padding" id="about">
   <div class="container">
-    <div class="text-center">
-      <div class="section-label">About Us</div>
-      <h2 class="section-title">事務所紹介</h2>
-      <p class="section-subtitle">お客様のビジネスパートナーとして</p>
+    <div class="section-header fade-up">
+      <span class="section-header__en">About</span>
+      <h2 class="section-header__title">事務所概要</h2>
+      <span class="section-header__divider"></span>
     </div>
-    <div class="profile-content">
-      <div class="profile-img-wrap">
-        <div class="profile-img"><i class="fas fa-user-tie"></i></div>
-      </div>
-      <div class="profile-info">
-        <h3>日野一義税理士事務所</h3>
-        <div class="title">代表税理士</div>
-        <p>横浜を拠点に東京・仙台・石巻と4つの活動拠点を持ち、300社超の経営相談実績を重ねてまいりました。復興支援活動を通じた地域貢献にも力を入れています。</p>
-        <p>ベテランスタッフと若手の協力体制により、お客様一人ひとりに寄り添った丁寧なサービスを提供しています。</p>
-        <div class="profile-highlights">
-          <span class="profile-highlight"><i class="fas fa-check-circle"></i> 300社超の実績</span>
-          <span class="profile-highlight"><i class="fas fa-check-circle"></i> 4拠点展開</span>
-          <span class="profile-highlight"><i class="fas fa-check-circle"></i> 復興支援活動</span>
-          <span class="profile-highlight"><i class="fas fa-check-circle"></i> セカンドオピニオン</span>
+    <div class="about__card fade-up">
+      <div class="about__profile">
+        <div class="about__avatar">
+          <i class="fas fa-user-tie"></i>
         </div>
+        <div class="about__name">日野 一義</div>
+        <div class="about__title">税理士</div>
+      </div>
+      <div class="about__body">
+        <p class="about__message">300社を超えるお客様にお選びいただいてきた実績を胸に、一社一社のお客様と真摯に向き合い、最適な税務戦略をご提案してまいります。横浜駅直結のスカイビル27階にて、お客様のご来所をお待ちしております。</p>
+        <table class="about__table">
+          <tr>
+            <th>事務所名</th>
+            <td>日野一義税理士事務所</td>
+          </tr>
+          <tr>
+            <th>代表</th>
+            <td>日野 一義（税理士）</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>〒220-0011<br>神奈川県横浜市西区高島2-19-12<br>スカイビル27階</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><a href="tel:045-548-3514" style="color:var(--color-accent);font-weight:600;">045-548-3514</a></td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ACCESS -->
+<!-- ========== Access ========== -->
 <section class="access section-padding" id="access">
   <div class="container">
-    <div class="text-center">
-      <div class="section-label">Access</div>
-      <h2 class="section-title">アクセス</h2>
-      <p class="section-subtitle">JR横浜駅から徒歩3分のアクセス良好な立地</p>
+    <div class="section-header fade-up">
+      <span class="section-header__en">Access</span>
+      <h2 class="section-header__title">アクセス</h2>
+      <span class="section-header__divider"></span>
     </div>
-    <div class="access-content">
-      <div class="access-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.1!2d139.6185!3d35.4615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185c13f4e1c3e1%3A0x3c46d14449361c0!2z44K544Kr44Kk44OT44Or!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
+    <div class="access__wrapper fade-up">
+      <div class="access__map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.879!2d139.6185!3d35.4657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185c0c1b4c5e8d%3A0x3f1e5e7f!2z44K544Kr44Kk44OT44Or!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="日野一義税理士事務所 地図"></iframe>
       </div>
-      <div class="access-info">
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="access-detail">
-            <h4>住所</h4>
-            <p>〒220-0011<br>神奈川県横浜市西区高島2-19-12<br>スカイビル27F</p>
+      <div class="access__info">
+        <div class="access__item">
+          <div class="access__item-icon">
+            <i class="fas fa-location-dot"></i>
+          </div>
+          <div class="access__item-content">
+            <div class="access__item-label">住所</div>
+            <div class="access__item-value">〒220-0011<br>神奈川県横浜市西区高島2-19-12<br>スカイビル27階</div>
           </div>
         </div>
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-train"></i></div>
-          <div class="access-detail">
-            <h4>最寄り駅</h4>
-            <p>JR横浜駅 改札口より徒歩3分</p>
+        <div class="access__item">
+          <div class="access__item-icon">
+            <i class="fas fa-train"></i>
+          </div>
+          <div class="access__item-content">
+            <div class="access__item-label">最寄り駅</div>
+            <div class="access__item-value">JR・私鉄各線「横浜駅」東口直結<br>スカイビル27階</div>
           </div>
         </div>
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-phone"></i></div>
-          <div class="access-detail">
-            <h4>電話番号</h4>
-            <p>045-548-3514</p>
+        <div class="access__item">
+          <div class="access__item-icon">
+            <i class="fas fa-phone"></i>
           </div>
-        </div>
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-fax"></i></div>
-          <div class="access-detail">
-            <h4>FAX</h4>
-            <p>045-548-3614</p>
-          </div>
-        </div>
-        <div class="access-item">
-          <div class="access-icon"><i class="fas fa-envelope"></i></div>
-          <div class="access-detail">
-            <h4>メール</h4>
-            <p>info@one-justice.jp</p>
+          <div class="access__item-content">
+            <div class="access__item-label">電話番号</div>
+            <div class="access__item-value"><a href="tel:045-548-3514" style="color:var(--color-accent);font-weight:600;">045-548-3514</a></div>
           </div>
         </div>
       </div>
@@ -515,54 +1475,168 @@ ul { list-style: none; }
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="contact">
+<!-- ========== Contact ========== -->
+<section class="contact section-padding" id="contact">
   <div class="container">
-    <h2>まずはお気軽にご相談ください</h2>
-    <p>初回のご相談は無料です。お電話またはメールにてお問い合わせください。</p>
-    <div class="cta-buttons">
-      <a href="tel:045-548-3514" class="btn btn-accent"><i class="fas fa-phone"></i> 045-548-3514</a>
-      <a href="mailto:info@one-justice.jp" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.5)"><i class="fas fa-envelope"></i> メールで相談</a>
+    <div class="section-header section-header--light fade-up">
+      <span class="section-header__en">Contact</span>
+      <h2 class="section-header__title">お問い合わせ</h2>
+      <span class="section-header__divider"></span>
+    </div>
+    <div class="contact__free fade-up">
+      <div class="contact__free-badge">
+        <i class="fas fa-gift"></i>
+        初回相談無料
+      </div>
+    </div>
+    <div class="contact__grid">
+      <div class="contact-card fade-up">
+        <div class="contact-card__icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-card__label">お電話でのお問い合わせ</div>
+        <div class="contact-card__value">
+          <a href="tel:045-548-3514">045-548-3514</a>
+        </div>
+        <div class="contact-card__sub">受付時間：平日 9:00〜17:00</div>
+      </div>
+      <div class="contact-card fade-up" style="transition-delay:0.1s">
+        <div class="contact-card__icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-card__label">Webからのお問い合わせ</div>
+        <div class="contact-card__value" style="font-size:1.1rem;">24時間受付中</div>
+        <div class="contact-card__sub">通常1営業日以内にご返信</div>
+        <a href="https://www.one-justice.jp/" class="contact-card__btn" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-external-link-alt"></i>
+          お問い合わせフォーム
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ========== Footer ========== -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-inner">
-      <div class="footer-info">
-        <h3>日野一義税理士事務所</h3>
-        <p>〒220-0011 神奈川県横浜市西区高島2-19-12 スカイビル27F<br>TEL: 045-548-3514 / FAX: 045-548-3614</p>
+    <div class="footer__inner">
+      <div class="footer__logo">日野一義税理士事務所</div>
+      <div class="footer__logo-en">HINO KAZUYOSHI TAX ACCOUNTANT OFFICE</div>
+      <div class="footer__info">
+        〒220-0011 神奈川県横浜市西区高島2-19-12 スカイビル27階<br>
+        TEL: 045-548-3514 ｜ 受付時間: 平日 9:00〜17:00
       </div>
-      <div class="footer-links">
-        <a href="#features">選ばれる理由</a>
-        <a href="#services">サービス</a>
-        <a href="#pricing">料金案内</a>
-        <a href="#profile">事務所紹介</a>
-        <a href="#access">アクセス</a>
-        <a href="#contact">お問い合わせ</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2024 日野一義税理士事務所 All Rights Reserved.
+      <div class="footer__divider"></div>
+      <div class="footer__copy">&copy; 2024 日野一義税理士事務所 All Rights Reserved.</div>
     </div>
   </div>
 </footer>
 
-<!-- FLOATING CTA (MOBILE) -->
-<div class="floating-cta">
-  <a href="tel:045-548-3514"><i class="fas fa-phone"></i> 今すぐ電話で相談する</a>
+<!-- ========== Mobile CTA Bar ========== -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="tel:045-548-3514" class="mobile-cta__link">
+    <i class="fas fa-phone"></i>
+    <span>
+      045-548-3514
+      <span class="mobile-cta__sub">初回相談無料 ｜ 平日 9:00〜17:00</span>
+    </span>
+  </a>
 </div>
 
+<!-- ========== JavaScript ========== -->
 <script>
-function toggleNav() {
-  document.getElementById('mobileNav').classList.toggle('active');
-}
-document.addEventListener('scroll', function() {
-  const h = document.querySelector('.header');
-  h.style.boxShadow = window.scrollY > 50 ? '0 2px 16px rgba(0,0,0,0.1)' : '0 1px 8px rgba(0,0,0,0.06)';
-});
+(function() {
+  'use strict';
+
+  // ---- Header scroll effect ----
+  var header = document.getElementById('header');
+  var mobileCta = document.getElementById('mobileCta');
+
+  function onScroll() {
+    var y = window.scrollY;
+    if (y > 40) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+    if (y > window.innerHeight * 0.6) {
+      mobileCta.classList.add('is-visible');
+    } else {
+      mobileCta.classList.remove('is-visible');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---- Hamburger menu ----
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  var overlay = document.getElementById('mobileNavOverlay');
+
+  function toggleMenu() {
+    var isActive = mobileNav.classList.contains('is-active');
+    hamburger.classList.toggle('is-active', !isActive);
+    mobileNav.classList.toggle('is-active', !isActive);
+    overlay.classList.toggle('is-active', !isActive);
+    document.body.style.overflow = isActive ? '' : 'hidden';
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove('is-active');
+    mobileNav.classList.remove('is-active');
+    overlay.classList.remove('is-active');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  var mobileLinks = document.querySelectorAll('.mobile-nav__link');
+  for (var i = 0; i < mobileLinks.length; i++) {
+    mobileLinks[i].addEventListener('click', closeMenu);
+  }
+
+  // ---- Smooth scroll for anchor links ----
+  var anchors = document.querySelectorAll('a[href^="#"]');
+  for (var j = 0; j < anchors.length; j++) {
+    anchors[j].addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        var headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 72;
+        var top = target.getBoundingClientRect().top + window.scrollY - headerH;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  }
+
+  // ---- Scroll animations (IntersectionObserver) ----
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      for (var k = 0; k < entries.length; k++) {
+        if (entries[k].isIntersecting) {
+          entries[k].target.classList.add('is-visible');
+          observer.unobserve(entries[k].target);
+        }
+      }
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+    for (var m = 0; m < fadeEls.length; m++) {
+      observer.observe(fadeEls[m]);
+    }
+  } else {
+    for (var n = 0; n < fadeEls.length; n++) {
+      fadeEls[n].classList.add('is-visible');
+    }
+  }
+
+})();
 </script>
 </body>
 </html>

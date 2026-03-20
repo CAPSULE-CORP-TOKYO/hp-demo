@@ -1,398 +1,838 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>税理士 行政書士 五味英樹事務所 | 川崎市宮前区の税理士</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            line-height: 1.8;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        .contact-info {
-            text-align: right;
-        }
-        .phone {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        .hero {
-            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 64, 175, 0.85)),
-                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80') center/cover;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #f59e0b;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-        }
-        .cta-button:hover {
-            background: #d97706;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
-        }
-        section {
-            padding: 60px 20px;
-        }
-        section:nth-child(even) {
-            background: #f1f5f9;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #1e3a8a;
-        }
-        .highlight-box {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin: 40px auto;
-            max-width: 800px;
-            border-left: 5px solid #1e3a8a;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            color: #1e3a8a;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .feature {
-            text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        .price-table {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: 40px;
-        }
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .price-item:last-child {
-            border-bottom: none;
-        }
-        .map-container {
-            margin-top: 40px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 40px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        .submit-button {
-            background: #1e3a8a;
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-        }
-        .submit-button:hover {
-            background: #1e40af;
-        }
-        footer {
-            background: #334155;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-info {
-                text-align: center;
-                margin-top: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士 行政書士 五味英樹事務所 | 鷺沼駅すぐ・川崎市宮前区</title>
+<meta name="description" content="川崎市宮前区鷺沼の税理士・行政書士事務所。税務顧問・確定申告・相続税対策から許認可申請・法人設立まで、ダブル資格でワンストップ対応。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #5a2535;
+  --primary-dark: #3e1a25;
+  --primary-light: #7a3a4e;
+  --accent: #b87333;
+  --accent-light: #d4975a;
+  --accent-pale: #f0dcc8;
+  --ivory: #faf7f2;
+  --ivory-dark: #f0ebe3;
+  --text: #2d2d2d;
+  --text-light: #5a5a5a;
+  --text-muted: #8a8a8a;
+  --white: #ffffff;
+  --shadow-sm: 0 2px 8px rgba(90,37,53,0.08);
+  --shadow-md: 0 4px 20px rgba(90,37,53,0.12);
+  --shadow-lg: 0 8px 40px rgba(90,37,53,0.16);
+  --radius: 8px;
+  --radius-lg: 16px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-height: 72px;
+  --font: 'Noto Sans JP', sans-serif;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--ivory);
+  line-height: 1.8;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: var(--transition);
+  border-bottom: 1px solid transparent;
+}
+.header.scrolled {
+  background: rgba(255,255,255,0.98);
+  border-bottom-color: rgba(90,37,53,0.08);
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: var(--header-height);
+  max-width: 1100px; margin: 0 auto; padding: 0 20px;
+}
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-icon {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 18px; font-weight: 700;
+  letter-spacing: -1px;
+  flex-shrink: 0;
+}
+.logo-text { font-size: 14px; font-weight: 700; color: var(--primary); line-height: 1.3; }
+.logo-sub { font-size: 10px; color: var(--text-muted); font-weight: 400; letter-spacing: 0.5px; }
+
+.nav { display: none; }
+.nav.active { display: flex; }
+.nav-list { display: flex; gap: 28px; align-items: center; }
+.nav-list a {
+  font-size: 14px; font-weight: 500; color: var(--text-light);
+  transition: var(--transition); position: relative;
+}
+.nav-list a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--accent); transition: var(--transition);
+}
+.nav-list a:hover { color: var(--primary); }
+.nav-list a:hover::after { width: 100%; }
+
+.hamburger {
+  display: flex; flex-direction: column; gap: 5px; cursor: pointer;
+  background: none; border: none; padding: 8px; z-index: 1001;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px; background: var(--primary);
+  transition: var(--transition); border-radius: 1px;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile nav overlay */
+@media (max-width: 768px) {
+  .nav {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(16px);
+    flex-direction: column; align-items: center; justify-content: center;
+    z-index: 999;
+  }
+  .nav-list { flex-direction: column; gap: 32px; text-align: center; }
+  .nav-list a { font-size: 18px; }
+}
+@media (min-width: 769px) {
+  .nav { display: flex !important; }
+  .hamburger { display: none; }
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; min-height: 100vh; display: flex; align-items: center;
+  background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 40%, var(--primary-light) 100%);
+  overflow: hidden; padding-top: var(--header-height);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(184,115,51,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(184,115,51,0.1) 0%, transparent 50%);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(to top, var(--ivory), transparent);
+}
+.hero-deco {
+  position: absolute; top: 50%; right: -5%; transform: translateY(-50%);
+  width: 500px; height: 500px;
+  border: 1px solid rgba(184,115,51,0.12);
+  border-radius: 50%; pointer-events: none;
+}
+.hero-deco::before {
+  content: ''; position: absolute; top: 40px; left: 40px; right: 40px; bottom: 40px;
+  border: 1px solid rgba(184,115,51,0.08);
+  border-radius: 50%;
+}
+.hero-content { position: relative; z-index: 1; padding: 60px 0 80px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(184,115,51,0.2); border: 1px solid rgba(184,115,51,0.3);
+  padding: 6px 16px; border-radius: 50px;
+  font-size: 13px; color: var(--accent-pale); font-weight: 500;
+  margin-bottom: 24px;
+}
+.hero-badge i { font-size: 11px; color: var(--accent-light); }
+.hero h1 {
+  font-size: clamp(28px, 5vw, 48px); font-weight: 700;
+  color: var(--white); line-height: 1.4; margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+.hero h1 span { color: var(--accent-light); }
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px); color: rgba(255,255,255,0.75);
+  max-width: 540px; margin-bottom: 36px; font-weight: 300; line-height: 1.9;
+}
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; border-radius: 50px;
+  font-size: 15px; font-weight: 600; font-family: var(--font);
+  transition: var(--transition); cursor: pointer; border: none;
+}
+.btn-primary {
+  background: var(--accent); color: var(--white);
+  box-shadow: 0 4px 16px rgba(184,115,51,0.3);
+}
+.btn-primary:hover {
+  background: var(--accent-light); transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(184,115,51,0.4);
+}
+.btn-outline {
+  background: transparent; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.35);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6);
+  transform: translateY(-2px);
+}
+.hero-stats {
+  display: flex; gap: 40px; margin-top: 48px; padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hero-stat-value { font-size: 28px; font-weight: 700; color: var(--accent-light); }
+.hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+
+/* ===== SECTIONS ===== */
+.section { padding: 80px 0; }
+.section-alt { background: var(--white); }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+}
+.section-label::before, .section-label::after {
+  content: ''; width: 20px; height: 1px; background: var(--accent);
+}
+.section-title {
+  font-size: clamp(24px, 4vw, 34px); font-weight: 700; color: var(--primary);
+  line-height: 1.4; margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 15px; color: var(--text-light); max-width: 560px; margin: 0 auto;
+}
+
+/* ===== FEATURES ===== */
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.feature-card {
+  background: var(--white); padding: 36px 28px; border-radius: var(--radius-lg);
+  border: 1px solid rgba(90,37,53,0.06);
+  transition: var(--transition); position: relative; overflow: hidden;
+}
+.feature-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0); transition: var(--transition); transform-origin: left;
+}
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.feature-card:hover::before { transform: scaleX(1); }
+.feature-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(90,37,53,0.08), rgba(184,115,51,0.08));
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px; font-size: 22px; color: var(--primary);
+}
+.feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--primary-dark); }
+.feature-card p { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+
+/* ===== SERVICES ===== */
+.services-split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 768px) { .services-split { grid-template-columns: 1fr; } }
+
+.services-group { background: var(--ivory); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(90,37,53,0.06); }
+.services-group-header {
+  padding: 24px 28px; display: flex; align-items: center; gap: 14px;
+}
+.services-group-header.tax {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+}
+.services-group-header.admin {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: var(--white);
+}
+.services-group-header i { font-size: 24px; }
+.services-group-header h3 { font-size: 18px; font-weight: 700; }
+.services-group-header p { font-size: 12px; opacity: 0.8; margin-top: 2px; }
+
+.service-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 22px 28px; border-bottom: 1px solid rgba(90,37,53,0.05);
+  transition: var(--transition); background: var(--white);
+}
+.service-item:last-child { border-bottom: none; }
+.service-item:hover { background: var(--ivory); }
+.service-num {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+}
+.services-group:first-child .service-num { background: rgba(90,37,53,0.08); color: var(--primary); }
+.services-group:last-child .service-num { background: rgba(184,115,51,0.1); color: var(--accent); }
+
+.service-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.service-item p { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+
+/* ===== ABOUT ===== */
+.about-card {
+  background: var(--white); border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(90,37,53,0.06);
+}
+.about-header {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  padding: 36px 32px; color: var(--white);
+  display: flex; align-items: center; gap: 20px;
+}
+.about-header-icon {
+  width: 64px; height: 64px; border-radius: 16px;
+  background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center;
+  font-size: 28px; flex-shrink: 0;
+}
+.about-header h3 { font-size: 22px; font-weight: 700; }
+.about-header p { font-size: 13px; opacity: 0.7; margin-top: 4px; letter-spacing: 0.5px; }
+
+.about-table { width: 100%; border-collapse: collapse; }
+.about-table tr { border-bottom: 1px solid rgba(90,37,53,0.06); }
+.about-table tr:last-child { border-bottom: none; }
+.about-table th {
+  padding: 18px 28px; text-align: left; font-size: 14px; font-weight: 600;
+  color: var(--primary); background: rgba(90,37,53,0.02);
+  width: 160px; vertical-align: top; white-space: nowrap;
+}
+.about-table td { padding: 18px 28px; font-size: 14px; color: var(--text); }
+.qual-badge {
+  display: inline-block; padding: 3px 12px; border-radius: 50px;
+  font-size: 12px; font-weight: 600; margin-right: 6px; margin-bottom: 4px;
+}
+.qual-tax { background: rgba(90,37,53,0.08); color: var(--primary); }
+.qual-admin { background: rgba(184,115,51,0.1); color: var(--accent); }
+
+@media (max-width: 600px) {
+  .about-table th, .about-table td { display: block; width: 100%; padding: 12px 24px; }
+  .about-table th { padding-bottom: 4px; background: none; }
+  .about-table td { padding-top: 0; padding-bottom: 18px; }
+}
+
+/* ===== ACCESS ===== */
+.access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+@media (max-width: 768px) { .access-grid { grid-template-columns: 1fr; } }
+
+.access-map {
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);
+  aspect-ratio: 4/3;
+}
+.access-map iframe { width: 100%; height: 100%; border: none; }
+
+.access-info-card {
+  background: var(--white); border-radius: var(--radius-lg); padding: 32px;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(90,37,53,0.06);
+}
+.access-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 0; border-bottom: 1px solid rgba(90,37,53,0.05);
+}
+.access-item:first-child { padding-top: 0; }
+.access-item:last-child { border-bottom: none; padding-bottom: 0; }
+.access-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: linear-gradient(135deg, rgba(90,37,53,0.06), rgba(184,115,51,0.06));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--primary); font-size: 16px; flex-shrink: 0;
+}
+.access-item h4 { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 3px; }
+.access-item p { font-size: 15px; color: var(--text); }
+
+/* ===== CONTACT ===== */
+.contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 720px; margin: 0 auto; }
+@media (max-width: 600px) { .contact-cards { grid-template-columns: 1fr; } }
+
+.contact-card {
+  background: var(--white); border-radius: var(--radius-lg); padding: 36px 28px;
+  text-align: center; border: 1px solid rgba(90,37,53,0.06);
+  transition: var(--transition);
+}
+.contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.contact-card-icon {
+  width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+.contact-card:first-child .contact-card-icon {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+}
+.contact-card:last-child .contact-card-icon {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: var(--white);
+}
+.contact-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--primary-dark); }
+.contact-card p { font-size: 13px; color: var(--text-light); margin-bottom: 18px; line-height: 1.7; }
+.contact-card .phone-num {
+  font-size: 24px; font-weight: 700; color: var(--primary);
+  letter-spacing: 1px; display: block; margin-bottom: 4px;
+}
+.contact-card .phone-note { font-size: 12px; color: var(--text-muted); }
+
+.btn-contact {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; border-radius: 50px;
+  font-size: 14px; font-weight: 600; font-family: var(--font);
+  background: var(--accent); color: var(--white);
+  border: none; cursor: pointer; transition: var(--transition);
+}
+.btn-contact:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--primary-dark); color: rgba(255,255,255,0.7); padding: 48px 0 0;
+}
+.footer-inner {
+  display: flex; flex-wrap: wrap; justify-content: space-between;
+  gap: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand { max-width: 360px; }
+.footer-brand h4 { color: var(--white); font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+.footer-brand p { font-size: 13px; line-height: 1.8; }
+.footer-links h5 { color: var(--white); font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+.footer-links a {
+  display: block; font-size: 13px; color: rgba(255,255,255,0.55);
+  padding: 4px 0; transition: var(--transition);
+}
+.footer-links a:hover { color: var(--accent-light); }
+.footer-bottom {
+  text-align: center; padding: 20px 0;
+  font-size: 12px; color: rgba(255,255,255,0.35);
+}
+
+/* ===== MOBILE CTA BAR ===== */
+.mobile-cta {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+  background: var(--primary); padding: 12px 16px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+.mobile-cta a {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  color: var(--white); font-size: 16px; font-weight: 700;
+  padding: 12px; background: var(--accent); border-radius: 50px;
+  transition: var(--transition);
+}
+.mobile-cta a:active { transform: scale(0.97); }
+@media (max-width: 768px) {
+  .mobile-cta { display: block; }
+  .footer { padding-bottom: 80px; }
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-up:nth-child(3) { transition-delay: 0.2s; }
+
+/* ===== UTILITIES ===== */
+@media (max-width: 768px) {
+  .section { padding: 60px 0; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .hero-content { padding: 40px 0 60px; }
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div>
-                    <h1>税理士 行政書士 五味英樹事務所</h1>
-                    <p>川崎市宮前区 | 鷺沼駅徒歩1分 | 24時間電話対応</p>
-                </div>
-                <div class="contact-info">
-                    <div>📞 お電話でのお問い合わせ（24時間対応）</div>
-                    <div class="phone">044-870-5177</div>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>必ず税理士の五味英樹が<br>直接担当します</h2>
-            <p>田園都市線鷺沼駅徒歩1分<br>大手事務所のように無資格の担当者任せにはいたしません</p>
-            <a href="#contact" class="cta-button">24時間受付中 お問い合わせ</a>
-        </div>
-    </section>
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">五味</div>
+      <div>
+        <div class="logo-text">五味英樹事務所</div>
+        <div class="logo-sub">TAX &amp; ADMINISTRATIVE SCRIVENER</div>
+      </div>
+    </a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="#features" onclick="closeNav()">選ばれる理由</a></li>
+        <li><a href="#services" onclick="closeNav()">業務内容</a></li>
+        <li><a href="#about" onclick="closeNav()">事務所概要</a></li>
+        <li><a href="#access" onclick="closeNav()">アクセス</a></li>
+        <li><a href="#contact" onclick="closeNav()">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <section id="about">
-        <div class="container">
-            <h2>弊事務所について</h2>
-            <div class="highlight-box">
-                <h3 style="color: #1e3a8a; margin-bottom: 20px; font-size: 1.5rem;">川崎生まれ、川崎育ちの税理士が皆様をサポート</h3>
-                <p style="font-size: 1.1rem; line-height: 2;">
-                    田園都市線鷺沼駅徒歩1分のところに事務所があります。車でお越しの方、目の前に駐車場もございます。<br><br>
-                    大手事務所のように無資格の担当者任せにはいたしません。税理士が直接、御社の担当者となります。これほど心強いことはありません。<br><br>
-                    川崎生まれ、川崎育ちの税理士が皆様をサポートいたします。<strong style="color: #1e3a8a;">担当は私五味が、直接</strong>
-                </p>
-            </div>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-deco"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-award"></i>
+        税理士・行政書士 ダブル資格
+      </div>
+      <h1>鷺沼の<span>税理士・行政書士</span>に<br>税務も行政手続きも<br>まとめてお任せ</h1>
+      <p class="hero-sub">川崎市宮前区鷺沼で、税務顧問・確定申告・相続税対策から許認可申請・法人設立まで。ダブル資格を活かしたワンストップサービスで、事業主様の負担を軽減します。</p>
+      <div class="hero-buttons">
+        <a href="tel:044-870-5177" class="btn btn-primary">
+          <i class="fas fa-phone"></i> 電話で相談する
+        </a>
+        <a href="#services" class="btn btn-outline">
+          <i class="fas fa-arrow-right"></i> 業務内容を見る
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-value">2<span style="font-size:16px;opacity:0.7">つの</span></div>
+          <div class="hero-stat-label">国家資格を保有</div>
         </div>
-    </section>
+        <div>
+          <div class="hero-stat-value">鷺沼駅</div>
+          <div class="hero-stat-label">東急田園都市線</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">One-Stop</div>
+          <div class="hero-stat-label">税務×行政を一括対応</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="features">
-        <div class="container">
-            <h2>選ばれる理由</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">👨‍💼</div>
-                    <h3>税理士が直接対応</h3>
-                    <p>大手のように無資格者に任せず、必ず税理士五味英樹が直接ご対応</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📞</div>
-                    <h3>24時間電話対応</h3>
-                    <p>お急ぎの場合でも安心。24時間お電話を受け付けています</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🚃</div>
-                    <h3>駅徒歩1分</h3>
-                    <p>田園都市線鷺沼駅徒歩1分。駐車場も完備でアクセス抜群</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🌏</div>
-                    <h3>地元密着</h3>
-                    <p>川崎生まれ、川崎育ちの税理士が地域の皆様をサポート</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Strengths</div>
+      <h2 class="section-title">選ばれる3つの理由</h2>
+      <p class="section-desc">税理士と行政書士、二つの専門資格を持つ五味英樹が、お客様の多様なニーズにお応えします。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+        <h3>税理士×行政書士の<br>ダブル資格</h3>
+        <p>税務と行政手続き、両方の専門知識を一人の専門家が対応。複数の事務所に依頼する必要がなく、スムーズかつ的確なサポートを実現します。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+        <h3>ワンストップ<br>サービス</h3>
+        <p>法人設立時の届出から税務顧問、許認可申請まで一括対応。窓口を一本化することで、時間とコストの削減につながります。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h3>地域に根差した<br>信頼</h3>
+        <p>鷺沼を拠点に、川崎市宮前区の事業主様・個人のお客様に寄り添った対応を大切にしています。お気軽にご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="services">
-        <div class="container">
-            <h2>業務内容</h2>
-            <div class="services">
-                <div class="service-card">
-                    <h3>税務顧問</h3>
-                    <p>月次決算、税務相談、決算申告など、企業の税務会計業務を税理士が直接サポートいたします。</p>
-                </div>
-                <div class="service-card">
-                    <h3>会社設立支援</h3>
-                    <p>会社設立時の各種手続き、融資相談、事業計画の作成など、創業をトータルサポートいたします。</p>
-                </div>
-                <div class="service-card">
-                    <h3>確定申告</h3>
-                    <p>個人事業主の確定申告を税理士が丁寧にサポート。正確な申告で安心の事業運営を実現します。</p>
-                </div>
-                <div class="service-card">
-                    <h3>行政書士業務</h3>
-                    <p>許認可申請、契約書作成など、行政書士業務も対応可能。ワンストップでサポートいたします。</p>
-                </div>
-            </div>
+<!-- SERVICES -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">業務内容</h2>
+      <p class="section-desc">税理士業務と行政書士業務の両面から、幅広くサポートいたします。</p>
+    </div>
+    <div class="services-split fade-up">
+      <!-- 税理士業務 -->
+      <div class="services-group">
+        <div class="services-group-header tax">
+          <i class="fas fa-calculator"></i>
+          <div>
+            <h3>税理士業務</h3>
+            <p>Tax Accountant Services</p>
+          </div>
         </div>
-    </section>
+        <div class="service-item">
+          <div class="service-num">01</div>
+          <div class="service-item-content">
+            <h4>税務顧問</h4>
+            <p>月次の記帳指導から決算・申告まで、企業経営をトータルにサポート。節税対策や経営相談もお任せください。</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">02</div>
+          <div class="service-item-content">
+            <h4>確定申告</h4>
+            <p>個人事業主の方から不動産所得のある方まで、正確かつ有利な確定申告書の作成・提出を代行します。</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">03</div>
+          <div class="service-item-content">
+            <h4>相続税対策</h4>
+            <p>生前の相続税シミュレーションや節税プラン、相続発生後の申告まで、一貫してお手伝いいたします。</p>
+          </div>
+        </div>
+      </div>
+      <!-- 行政書士業務 -->
+      <div class="services-group">
+        <div class="services-group-header admin">
+          <i class="fas fa-file-signature"></i>
+          <div>
+            <h3>行政書士業務</h3>
+            <p>Administrative Scrivener Services</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">01</div>
+          <div class="service-item-content">
+            <h4>許認可申請</h4>
+            <p>建設業・飲食業・運送業など、各種許認可の申請を代行。複雑な要件整理から書類作成までお引き受けします。</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">02</div>
+          <div class="service-item-content">
+            <h4>法人設立・届出</h4>
+            <p>会社設立の定款作成から税務届出までワンストップで対応。ダブル資格の強みを最大限に活かせる分野です。</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">03</div>
+          <div class="service-item-content">
+            <h4>各種届出書類作成</h4>
+            <p>官公署への届出・申請書類を正確に作成。必要書類の確認から提出までトータルでサポートいたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="price">
-        <div class="container">
-            <h2>料金目安</h2>
-            <div class="price-table">
-                <div class="price-item">
-                    <span>税務顧問（法人）</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>税務顧問（個人）</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>確定申告</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-                <div class="price-item">
-                    <span>会社設立支援</span>
-                    <strong>お問い合わせください</strong>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: #666;">
-                ※料金は事業規模や業務内容により異なります。まずはお気軽にご相談ください。
-            </p>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">About</div>
+      <h2 class="section-title">事務所概要</h2>
+    </div>
+    <div class="about-card fade-up">
+      <div class="about-header">
+        <div class="about-header-icon"><i class="fas fa-landmark"></i></div>
+        <div>
+          <h3>税理士 行政書士 五味英樹事務所</h3>
+          <p>GOMI TAX &amp; ADMINISTRATIVE SCRIVENER OFFICE</p>
         </div>
-    </section>
+      </div>
+      <table class="about-table">
+        <tr>
+          <th>事務所名</th>
+          <td>税理士 行政書士 五味英樹事務所</td>
+        </tr>
+        <tr>
+          <th>代表</th>
+          <td>五味 英樹（ごみ ひでき）</td>
+        </tr>
+        <tr>
+          <th>保有資格</th>
+          <td>
+            <span class="qual-badge qual-tax">税理士</span>
+            <span class="qual-badge qual-admin">行政書士</span>
+          </td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>〒216-0004<br>神奈川県川崎市宮前区鷺沼1-11-1<br>DIKマンション鷺沼216</td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><a href="tel:044-870-5177" style="color:var(--primary);font-weight:600;">044-870-5177</a></td>
+        </tr>
+        <tr>
+          <th>アクセス</th>
+          <td>東急田園都市線「鷺沼駅」より徒歩圏内</td>
+        </tr>
+        <tr>
+          <th>Webサイト</th>
+          <td><a href="http://www.gomikaikei.biz/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:500;">www.gomikaikei.biz</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
 
-    <section id="access">
-        <div class="container">
-            <h2>アクセス</h2>
-            <p style="text-align: center; margin-bottom: 30px;">
-                〒216-0004 神奈川県川崎市宮前区鷺沼１丁目１１−１ ＤＩＫマンション鷺沼 216<br>
-                📞 044-870-5177（24時間対応）<br>
-                東急田園都市線「鷺沼駅」より徒歩1分 | 駐車場完備
-            </p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.789!2d139.575!3d35.570!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM0JzEyLjAiTiAxMznCsDM0JzMwLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+<!-- ACCESS -->
+<section class="section section-alt" id="access">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Access</div>
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-desc">東急田園都市線「鷺沼駅」からのアクセスが便利です。</p>
+    </div>
+    <div class="access-grid fade-up">
+      <div class="access-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.5!2d139.5766!3d35.5796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z6ay65rKg6aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="access-info-card">
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>所在地</h4>
+            <p>神奈川県川崎市宮前区鷺沼1-11-1<br>DIKマンション鷺沼216</p>
+          </div>
         </div>
-    </section>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-train"></i></div>
+          <div>
+            <h4>最寄り駅</h4>
+            <p>東急田園都市線「鷺沼駅」<br>徒歩圏内</p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>お電話</h4>
+            <p><a href="tel:044-870-5177" style="color:var(--primary);font-weight:600;font-size:18px;">044-870-5177</a></p>
+          </div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>ご相談受付</h4>
+            <p>お気軽にお電話ください<br><span style="font-size:12px;color:var(--text-muted);">※事前予約制</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>お問い合わせ</h2>
-            <div class="contact-form">
-                <p style="text-align: center; margin-bottom: 30px; color: #1e3a8a; font-weight: bold;">
-                    📞 お急ぎの方はお電話ください：044-870-5177（24時間対応）
-                </p>
-                <form action="https://gomikaikei.biz/" method="post">
-                    <div class="form-group">
-                        <label for="name">お名前 *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">会社名</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">メールアドレス *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">送信する</button>
-                </form>
-            </div>
-        </div>
-    </section>
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-desc">税務・行政手続きのご相談は、お電話にてお気軽にお問い合わせください。</p>
+    </div>
+    <div class="contact-cards fade-up">
+      <div class="contact-card">
+        <div class="contact-card-icon"><i class="fas fa-phone-alt"></i></div>
+        <h3>お電話でのご相談</h3>
+        <p>お急ぎの方はお電話が便利です。<br>お気軽にお問い合わせください。</p>
+        <a href="tel:044-870-5177" class="phone-num">044-870-5177</a>
+        <span class="phone-note">電話受付</span>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon"><i class="fas fa-calendar-check"></i></div>
+        <h3>ご来所によるご相談</h3>
+        <p>じっくりご相談されたい方は、事前にご予約のうえお越しください。</p>
+        <a href="tel:044-870-5177" class="btn-contact" style="margin-top:8px;">
+          <i class="fas fa-phone"></i> 予約する
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 税理士 行政書士 五味英樹事務所 All Rights Reserved.</p>
-        </div>
-    </footer>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>税理士 行政書士 五味英樹事務所</h4>
+        <p>神奈川県川崎市宮前区鷺沼1-11-1 DIKマンション鷺沼216<br>
+        TEL: 044-870-5177</p>
+      </div>
+      <div class="footer-links">
+        <h5>サイトマップ</h5>
+        <a href="#features">選ばれる理由</a>
+        <a href="#services">業務内容</a>
+        <a href="#about">事務所概要</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+      <div class="footer-links">
+        <h5>業務案内</h5>
+        <a href="#services">税務顧問</a>
+        <a href="#services">確定申告</a>
+        <a href="#services">相続税対策</a>
+        <a href="#services">許認可申請</a>
+        <a href="#services">法人設立</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 税理士 行政書士 五味英樹事務所 All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE CTA BAR -->
+<div class="mobile-cta">
+  <a href="tel:044-870-5177">
+    <i class="fas fa-phone-alt"></i>
+    044-870-5177 に電話する
+  </a>
+</div>
+
+<script>
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+  document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+});
+function closeNav() {
+  hamburger.classList.remove('active');
+  nav.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 60) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// Scroll animations with IntersectionObserver
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
 </body>
 </html>
