@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>後藤税理士法人 | 鎌倉・大船の相続税と法人設立の専門家</title>
+  <title>坂本博史税理士事務所 | ONE TEAMで明るい未来をつくる</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
-      --primary-color: #f57c00;
-      --primary-dark: #e65100;
-      --primary-light: #ffb74d;
-      --accent-color: #ff6f00;
-      --text-dark: #212121;
-      --text-light: #757575;
-      --bg-light: #fef5e7;
+      --primary-color: #00acc1;
+      --primary-dark: #007c91;
+      --primary-light: #4dd0e1;
+      --accent-color: #00bcd4;
+      --text-dark: #263238;
+      --text-light: #607d8b;
+      --bg-light: #e0f7fa;
       --white: #ffffff;
-      --shadow: 0 4px 20px rgba(245, 124, 0, 0.1);
-      --shadow-hover: 0 8px 30px rgba(245, 124, 0, 0.2);
+      --shadow: 0 4px 20px rgba(0, 172, 193, 0.1);
+      --shadow-hover: 0 8px 30px rgba(0, 172, 193, 0.2);
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -42,8 +42,8 @@
       width: 100%;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(15px);
       box-shadow: var(--shadow);
       transition: var(--transition);
     }
@@ -55,37 +55,32 @@
     nav {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1.4rem;
+      font-weight: 900;
       color: var(--primary-color);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .logo i {
-      font-size: 1.8rem;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 2rem;
+      gap: 2.5rem;
       align-items: center;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--text-dark);
-      font-weight: 500;
+      font-weight: 600;
       transition: var(--transition);
       position: relative;
     }
@@ -96,8 +91,8 @@
       bottom: -5px;
       left: 0;
       width: 0;
-      height: 2px;
-      background: var(--primary-color);
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
       transition: var(--transition);
     }
 
@@ -108,30 +103,32 @@
     .cta-btn {
       background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
       color: var(--white);
-      padding: 0.8rem 1.5rem;
+      padding: 0.9rem 1.8rem;
       border-radius: 50px;
       box-shadow: var(--shadow);
       transition: var(--transition);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
     }
 
     .cta-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       box-shadow: var(--shadow-hover);
     }
 
     .menu-toggle {
       display: none;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       color: var(--primary-color);
       cursor: pointer;
     }
 
     /* ヒーロー */
     .hero {
-      margin-top: 80px;
-      height: 90vh;
-      background: linear-gradient(135deg, rgba(245, 124, 0, 0.9), rgba(255, 111, 0, 0.8)), 
-                  url('https://images.unsplash.com/photo-1554224311-beee1113b93d?w=1600') center/cover;
+      margin-top: 85px;
+      height: 95vh;
+      background: linear-gradient(135deg, rgba(0, 172, 193, 0.85), rgba(0, 188, 212, 0.75)), 
+                  url('https://images.unsplash.com/photo-1554224311-beee1113b93d?w=1800') center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -144,30 +141,35 @@
     .hero::before {
       content: '';
       position: absolute;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-      background-size: 50px 50px;
-      animation: moveBackground 20s linear infinite;
+      width: 150%;
+      height: 150%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.03) 10px,
+        rgba(255, 255, 255, 0.03) 20px
+      );
+      animation: heroPattern 30s linear infinite;
     }
 
-    @keyframes moveBackground {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(50px, 50px); }
+    @keyframes heroPattern {
+      0% { transform: translate(0, 0) rotate(45deg); }
+      100% { transform: translate(100px, 100px) rotate(45deg); }
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 900px;
       padding: 2rem;
       position: relative;
       z-index: 1;
-      animation: fadeInUp 1s ease;
+      animation: fadeInUp 1.2s ease;
     }
 
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -176,39 +178,45 @@
     }
 
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
       line-height: 1.2;
-      font-weight: 700;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .hero p {
-      font-size: 1.3rem;
-      margin-bottom: 2rem;
+    .hero .tagline {
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
       opacity: 0.95;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
     .hero-btn {
       display: inline-block;
       background: var(--white);
       color: var(--primary-color);
-      padding: 1rem 2.5rem;
+      padding: 1.2rem 3rem;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: var(--shadow-hover);
+      font-weight: 900;
+      font-size: 1.2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       transition: var(--transition);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
     }
 
     .hero-btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.3);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 50px rgba(255, 255, 255, 0.4);
     }
 
     /* セクション共通 */
     section {
-      padding: 5rem 2rem;
+      padding: 6rem 2rem;
       opacity: 0;
       transform: translateY(30px);
       transition: var(--transition);
@@ -226,125 +234,117 @@
 
     .section-title {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
 
     .section-title h2 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: var(--primary-color);
       margin-bottom: 1rem;
       position: relative;
       display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
     }
 
     .section-title h2::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -12px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
+      width: 100px;
+      height: 5px;
       background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
     .section-title p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--text-light);
       max-width: 700px;
-      margin: 1.5rem auto 0;
+      margin: 2rem auto 0;
     }
 
-    /* 特徴 */
-    .features {
+    /* 理念 */
+    .philosophy {
       background: var(--bg-light);
     }
 
-    .features-grid {
+    .philosophy-content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .feature-card {
-      background: var(--white);
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      text-align: center;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .feature-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-      border-radius: 50%;
-      display: flex;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
       align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
+    }
+
+    .philosophy-text {
+      font-size: 1.2rem;
+      line-height: 2;
+      color: var(--text-dark);
+    }
+
+    .philosophy-text h3 {
       font-size: 2rem;
-      color: var(--white);
-    }
-
-    .feature-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
       color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    .feature-card p {
-      color: var(--text-light);
-      line-height: 1.8;
+    .philosophy-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .philosophy-img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: var(--shadow-hover);
     }
 
     /* サービス */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
     }
 
     .service-card {
       background: var(--white);
-      border-radius: 15px;
+      border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: var(--transition);
+      border: 3px solid transparent;
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
       box-shadow: var(--shadow-hover);
+      border-color: var(--primary-light);
     }
 
     .service-img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
     }
 
     .service-content {
-      padding: 2rem;
+      padding: 2.5rem;
     }
 
     .service-content h3 {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       margin-bottom: 1rem;
       color: var(--primary-color);
+      font-weight: 900;
     }
 
     .service-content p {
       color: var(--text-light);
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
+      margin-bottom: 1.8rem;
+      line-height: 1.9;
     }
 
     .service-link {
@@ -361,137 +361,108 @@
       gap: 1rem;
     }
 
-    /* 実績 */
-    .stats {
-      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-      color: var(--white);
-      text-align: center;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 3rem;
-    }
-
-    .stat-item {
-      padding: 2rem;
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .stat-label {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    /* スタッフ */
-    .team {
+    /* 特徴 */
+    .features {
       background: var(--bg-light);
     }
 
-    .team-grid {
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
-    .team-member {
+    .feature-card {
       background: var(--white);
-      border-radius: 15px;
-      overflow: hidden;
+      padding: 3rem;
+      border-radius: 20px;
       box-shadow: var(--shadow);
       transition: var(--transition);
       text-align: center;
+      border-top: 5px solid var(--primary-color);
     }
 
-    .team-member:hover {
+    .feature-card:hover {
       transform: translateY(-10px);
       box-shadow: var(--shadow-hover);
     }
 
-    .team-img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
+    .feature-icon {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.8rem;
+      font-size: 2.5rem;
+      color: var(--white);
     }
 
-    .team-info {
-      padding: 2rem;
-    }
-
-    .team-info h3 {
-      font-size: 1.4rem;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-    }
-
-    .team-info .role {
-      color: var(--text-light);
+    .feature-card h3 {
+      font-size: 1.6rem;
       margin-bottom: 1rem;
-      font-size: 0.95rem;
+      color: var(--primary-color);
+      font-weight: 900;
     }
 
-    .team-info p {
+    .feature-card p {
       color: var(--text-light);
-      line-height: 1.7;
-      font-size: 0.9rem;
+      line-height: 1.9;
     }
 
     /* アクセス */
     .access-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      gap: 4rem;
       align-items: center;
     }
 
     .access-info {
       background: var(--bg-light);
-      padding: 3rem;
-      border-radius: 20px;
+      padding: 3.5rem;
+      border-radius: 25px;
     }
 
     .access-item {
       display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
       align-items: flex-start;
     }
 
     .access-icon {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--white);
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       flex-shrink: 0;
     }
 
     .access-text h4 {
       color: var(--primary-color);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
+      font-size: 1.2rem;
+      font-weight: 900;
     }
 
     .access-text p {
       color: var(--text-light);
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .map-container {
-      border-radius: 20px;
+      border-radius: 25px;
       overflow: hidden;
-      box-shadow: var(--shadow);
-      height: 450px;
+      box-shadow: var(--shadow-hover);
+      height: 500px;
     }
 
     .map-container iframe {
@@ -509,9 +480,9 @@
       max-width: 700px;
       margin: 0 auto;
       background: var(--white);
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
+      padding: 3.5rem;
+      border-radius: 25px;
+      box-shadow: var(--shadow-hover);
     }
 
     .form-group {
@@ -520,17 +491,17 @@
 
     .form-group label {
       display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
+      margin-bottom: 0.7rem;
+      font-weight: 700;
       color: var(--primary-color);
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 1rem;
+      padding: 1.2rem;
       border: 2px solid #e0e0e0;
-      border-radius: 10px;
+      border-radius: 12px;
       font-family: inherit;
       font-size: 1rem;
       transition: var(--transition);
@@ -540,29 +511,32 @@
     .form-group textarea:focus {
       outline: none;
       border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(0, 172, 193, 0.1);
     }
 
     .form-group textarea {
       resize: vertical;
-      min-height: 150px;
+      min-height: 160px;
     }
 
     .submit-btn {
       width: 100%;
-      padding: 1.2rem;
+      padding: 1.4rem;
       background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
       color: var(--white);
       border: none;
       border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 700;
+      font-size: 1.2rem;
+      font-weight: 900;
       cursor: pointer;
       transition: var(--transition);
       box-shadow: var(--shadow);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
     }
 
     .submit-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       box-shadow: var(--shadow-hover);
     }
 
@@ -570,7 +544,7 @@
     footer {
       background: var(--text-dark);
       color: var(--white);
-      padding: 3rem 2rem 1rem;
+      padding: 4rem 2rem 1.5rem;
     }
 
     .footer-content {
@@ -579,39 +553,40 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 3rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .footer-section h3 {
       color: var(--primary-light);
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 900;
     }
 
     .footer-section p,
     .footer-section a {
       color: rgba(255, 255, 255, 0.8);
-      line-height: 1.8;
+      line-height: 2;
       text-decoration: none;
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
       transition: var(--transition);
     }
 
     .footer-section a:hover {
       color: var(--primary-light);
-      padding-left: 5px;
+      padding-left: 8px;
     }
 
     .social-links {
       display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
     }
 
     .social-links a {
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       display: flex;
@@ -622,12 +597,12 @@
 
     .social-links a:hover {
       background: var(--primary-color);
-      transform: translateY(-3px);
+      transform: translateY(-5px);
     }
 
     .footer-bottom {
       text-align: center;
-      padding-top: 2rem;
+      padding-top: 2.5rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       color: rgba(255, 255, 255, 0.6);
     }
@@ -636,7 +611,7 @@
     @media (max-width: 768px) {
       .nav-links {
         position: fixed;
-        top: 80px;
+        top: 85px;
         left: -100%;
         flex-direction: column;
         background: var(--white);
@@ -655,23 +630,24 @@
       }
 
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
-      .hero p {
-        font-size: 1.1rem;
+      .hero .tagline {
+        font-size: 1.2rem;
       }
 
       .section-title h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
+      .philosophy-content,
       .access-content {
         grid-template-columns: 1fr;
       }
 
       .map-container {
-        height: 300px;
+        height: 350px;
       }
 
       .footer-content {
@@ -680,23 +656,22 @@
       }
 
       section {
-        padding: 3rem 1.5rem;
+        padding: 4rem 1.5rem;
       }
     }
 
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
       }
 
       .features-grid,
-      .services-grid,
-      .team-grid {
+      .services-grid {
         grid-template-columns: 1fr;
       }
 
       .contact-content {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 1.8rem;
       }
     }
   </style>
@@ -706,14 +681,11 @@
   <!-- ヘッダー -->
   <header id="header">
     <nav>
-      <a href="#" class="logo">
-        <i class="fas fa-landmark"></i>
-        後藤税理士法人
-      </a>
+      <a href="#" class="logo">ONE TEAM</a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#features">特徴</a></li>
+        <li><a href="#philosophy">理念</a></li>
         <li><a href="#services">サービス</a></li>
-        <li><a href="#team">スタッフ</a></li>
+        <li><a href="#features">特徴</a></li>
         <li><a href="#access">アクセス</a></li>
         <li><a href="#contact" class="cta-btn">お問い合わせ</a></li>
       </ul>
@@ -724,41 +696,27 @@
   <!-- ヒーロー -->
   <section class="hero">
     <div class="hero-content">
-      <h1>鎌倉・大船で信頼される<br>相続税と経営サポートの専門家</h1>
-      <p>地域に根差し、若手税理士が二人三脚であなたの未来を応援します</p>
-      <a href="#contact" class="hero-btn">初回相談無料 <i class="fas fa-arrow-right"></i></a>
+      <h1>ONE TEAM<br>で明るい未来をつくる</h1>
+      <p class="tagline">金沢文庫から、あなたのビジネスと人生を全力でサポート</p>
+      <a href="#contact" class="hero-btn">まずは無料相談 <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
-  <!-- 特徴 -->
-  <section class="features" id="features">
+  <!-- 理念 -->
+  <section class="philosophy" id="philosophy">
     <div class="container">
       <div class="section-title">
-        <h2>選ばれる理由</h2>
-        <p>後藤税理士法人が地域のお客様から選ばれ続ける理由をご紹介します</p>
+        <h2>私たちの理念</h2>
+        <p>ONE TEAMの精神で、お客様と一緒に歩みます</p>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-user-friends"></i>
-          </div>
-          <h3>相続税のプロ集団</h3>
-          <p>相続税法3名保有、相談実績200件以上。専門知識と豊富な経験であなたの大切な相続をサポートします。</p>
+      <div class="philosophy-content">
+        <div class="philosophy-text">
+          <h3>チームとして、共に成長する</h3>
+          <p>坂本博史税理士事務所は、お客様と私たちが「ONE TEAM」となって、明るい未来をつくることを理念としています。</p>
+          <p>税務や会計は、単なる数字の処理ではありません。あなたのビジネスの成長、そして人生の豊かさに直結するものです。</p>
+          <p>私たちは、お客様の夢や目標を深く理解し、それを実現するために全力でサポートします。</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-rocket"></i>
-          </div>
-          <h3>若手税理士の熱意</h3>
-          <p>40代の若手税理士が、最新の税制と柔軟な発想でビジネスとライフプランを全力で応援します。</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <h3>地域密着のサポート</h3>
-          <p>鎌倉・大船を拠点に、地域の起業家や住民の方々が気軽に相談できるアットホームな環境を大切にしています。</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700" alt="チーム" class="philosophy-img">
       </div>
     </div>
   </section>
@@ -768,38 +726,38 @@
     <div class="container">
       <div class="section-title">
         <h2>サービス内容</h2>
-        <p>税務から経営サポートまで、ワンストップで対応いたします</p>
+        <p>個人から法人まで、幅広くサポートいたします</p>
       </div>
       <div class="services-grid">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600" alt="相続税対策" class="service-img">
+          <img src="https://images.unsplash.com/photo-1554224311-beee1113b93d?w=700" alt="法人顧問" class="service-img">
+          <div class="service-content">
+            <h3>法人税務顧問</h3>
+            <p>会社の成長を支える税務・会計のパートナーとして、月次決算から税務申告まで一貫してサポートします。</p>
+            <a href="#contact" class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700" alt="個人確定申告" class="service-img">
+          <div class="service-content">
+            <h3>個人確定申告</h3>
+            <p>フリーランス、個人事業主の方の確定申告をサポート。節税対策もしっかりとご提案します。</p>
+            <a href="#contact" class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=700" alt="相続税対策" class="service-img">
           <div class="service-content">
             <h3>相続税対策</h3>
-            <p>遺言作成、生前贈与、不動産活用など、ご家族の想いに寄り添った最適な相続税対策をご提案します。</p>
+            <p>大切なご家族のために、最適な相続税対策をご提案。生前贈与や遺言作成もサポートします。</p>
             <a href="#contact" class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600" alt="法人設立サポート" class="service-img">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700" alt="会社設立" class="service-img">
           <div class="service-content">
-            <h3>法人設立サポート</h3>
-            <p>電子定款で4万円お得！設立から税務まで、新しいチャレンジをトータルサポートします。</p>
-            <a href="#contact" class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="税務顧問" class="service-img">
-          <div class="service-content">
-            <h3>税務顧問</h3>
-            <p>月次の税務処理から経営アドバイスまで、あなたの事業パートナーとして伴走します。</p>
-            <a href="#contact" class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1554224311-beee1113b93d?w=600" alt="確定申告" class="service-img">
-          <div class="service-content">
-            <h3>確定申告</h3>
-            <p>複雑な個人事業主の確定申告も安心。節税対策も含めてサポートいたします。</p>
+            <h3>会社設立サポート</h3>
+            <p>これから起業される方を全力で応援。設立手続きから開業後の税務まで、ワンストップでサポートします。</p>
             <a href="#contact" class="service-link">詳しく見る <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
@@ -807,57 +765,34 @@
     </div>
   </section>
 
-  <!-- 実績 -->
-  <section class="stats">
+  <!-- 特徴 -->
+  <section class="features" id="features">
     <div class="container">
       <div class="section-title">
-        <h2 style="color: white;">実績と信頼</h2>
-        <p style="color: rgba(255,255,255,0.9);">数字で見る私たちの実績</p>
+        <h2>選ばれる理由</h2>
+        <p>坂本博史税理士事務所が選ばれる3つの理由</p>
       </div>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <span class="stat-number">200+</span>
-          <span class="stat-label">相続税相談実績</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">18</span>
-          <span class="stat-label">科目保有の専門家集団</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">お客様満足度</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">地域密着</span>
-          <span class="stat-label">鎌倉・大船エリア</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- スタッフ -->
-  <section class="team" id="team">
-    <div class="container">
-      <div class="section-title">
-        <h2>スタッフ紹介</h2>
-        <p>地域に根差したアットホームな専門家集団</p>
-      </div>
-      <div class="team-grid">
-        <div class="team-member">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600" alt="後藤和幸" class="team-img">
-          <div class="team-info">
-            <h3>後藤 和幸</h3>
-            <p class="role">代表税理士 / ファイナンシャル・プランナー</p>
-            <p>お客様の経営スタンスを深く理解し、二人三脚でビジネスとライフプランを応援します。</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-handshake"></i>
           </div>
+          <h3>寄り添うサポート</h3>
+          <p>お客様の状況や目標を深く理解し、一人ひとりに最適なアドバイスをご提供します。</p>
         </div>
-        <div class="team-member">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600" alt="後藤ルース比呂" class="team-img">
-          <div class="team-info">
-            <h3>後藤 ルース比呂</h3>
-            <p class="role">税理士</p>
-            <p>相続税専門の知識と経験で、ご家族の想いに寄り添った最適なご提案をいたします。</p>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
           </div>
+          <h3>迅速な対応</h3>
+          <p>お問い合わせやご相談には、迅速かつ丁寧にお応えします。緊急の案件にも柔軟に対応いたします。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>安心の実績</h3>
+          <p>長年の経験と実績を活かし、確かな知識と技術で、お客様の税務をしっかりとサポートします。</p>
         </div>
       </div>
     </div>
@@ -878,7 +813,7 @@
             </div>
             <div class="access-text">
               <h4>所在地</h4>
-              <p>〒247-0056<br>神奈川県鎌倉市大船1-12-10 3F</p>
+              <p>〒236-0021<br>神奈川県横浜市金沢区泥亀1-18-14<br>金沢文庫高野ビル202</p>
             </div>
           </div>
           <div class="access-item">
@@ -887,7 +822,7 @@
             </div>
             <div class="access-text">
               <h4>電話番号</h4>
-              <p>0467-84-7607<br>（受付時間：平日 9:00〜18:00）</p>
+              <p>045-349-4126<br>（営業時間：平日 9:00〜18:00）</p>
             </div>
           </div>
           <div class="access-item">
@@ -896,12 +831,12 @@
             </div>
             <div class="access-text">
               <h4>最寄り駅</h4>
-              <p>JR大船駅より徒歩5分<br>アクセス良好な立地です</p>
+              <p>京急線 金沢文庫駅より徒歩6分<br>駅から近く、アクセス良好です</p>
             </div>
           </div>
         </div>
         <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3252.8676!2d139.53!3d35.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDIxJzAwLjAiTiAxMznCsDMxJzQ4LjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3253.!2d139.626!3d35.337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDIwJzEzLjIiTiAxMznCsDM3JzMzLjYiRQ!5e0!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -912,7 +847,7 @@
     <div class="container">
       <div class="section-title">
         <h2>お問い合わせ</h2>
-        <p>初回相談は無料です。お気軽にお問い合わせください</p>
+        <p>初回相談は無料です。まずはお気軽にお問い合わせください</p>
       </div>
       <div class="contact-content">
         <form>
@@ -942,22 +877,23 @@
   <footer>
     <div class="footer-content">
       <div class="footer-section">
-        <h3>後藤税理士法人</h3>
-        <p>神奈川県鎌倉市大船1-12-10 3F</p>
-        <p>TEL: 0467-84-7607</p>
+        <h3>坂本博史税理士事務所</h3>
+        <p>〒236-0021</p>
+        <p>神奈川県横浜市金沢区泥亀1-18-14<br>金沢文庫高野ビル202</p>
+        <p>TEL: 045-349-4126</p>
         <p>営業時間：平日 9:00〜18:00</p>
       </div>
       <div class="footer-section">
         <h3>サービス</h3>
+        <a href="#services">法人税務顧問</a>
+        <a href="#services">個人確定申告</a>
         <a href="#services">相続税対策</a>
-        <a href="#services">法人設立サポート</a>
-        <a href="#services">税務顧問</a>
-        <a href="#services">確定申告</a>
+        <a href="#services">会社設立サポート</a>
       </div>
       <div class="footer-section">
         <h3>リンク</h3>
+        <a href="#philosophy">私たちの理念</a>
         <a href="#features">選ばれる理由</a>
-        <a href="#team">スタッフ紹介</a>
         <a href="#access">アクセス</a>
         <a href="#contact">お問い合わせ</a>
       </div>
@@ -972,7 +908,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 後藤税理士法人. All Rights Reserved.</p>
+      <p>&copy; 2026 坂本博史税理士事務所. All Rights Reserved.</p>
     </div>
   </footer>
 

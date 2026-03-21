@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>齋藤竜直税理士事務所 - 鎌倉市大船の税理士｜法人・個人・相続税対応</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0f4c81;
+            --secondary-color: #1e88e5;
+            --accent-color: #ff6b35;
+            --text-dark: #263238;
+            --text-light: #607d8b;
+            --bg-light: #f5f7fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 11px 0;
+            font-size: 0.9rem;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .header-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            transition: opacity 0.3s;
+        }
+
+        .header-contact a:hover {
+            opacity: 0.85;
+        }
+
+        .header-main {
+            padding: 22px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.55rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .logo p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 76, 129, 0.94), rgba(30, 136, 229, 0.89)), 
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200') center/cover;
+            color: var(--white);
+            padding: 110px 0 75px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 680px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 22px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.12rem;
+            margin-bottom: 32px;
+            opacity: 0.96;
+            line-height: 1.85;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 15px 38px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 4px 18px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 28px rgba(255, 107, 53, 0.5);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .section-title h2 {
+            font-size: 2.05rem;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.06rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+            gap: 32px;
+            margin-top: 52px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 38px 28px;
+            border-radius: 14px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 22px rgba(0,0,0,0.07);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-9px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.14);
+        }
+
+        .feature-icon {
+            width: 76px;
+            height: 76px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 22px;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            font-size: 1.28rem;
+            margin-bottom: 14px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.75;
+            font-size: 0.96rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(305px, 1fr));
+            gap: 26px;
+            margin-top: 52px;
+        }
+
+        .service-item {
+            background: var(--bg-light);
+            padding: 33px;
+            border-radius: 11px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .service-item:hover {
+            background: var(--white);
+            box-shadow: 0 7px 24px rgba(0,0,0,0.11);
+            border-left-color: var(--accent-color);
+        }
+
+        .service-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .service-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-item li {
+            padding: 8px 0;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 24px;
+            font-size: 0.96rem;
+        }
+
+        .service-item li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 52px;
+            align-items: center;
+            margin-top: 52px;
+        }
+
+        .about-text h3 {
+            font-size: 1.85rem;
+            color: var(--primary-color);
+            margin-bottom: 22px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            line-height: 1.92;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 42px rgba(0,0,0,0.16);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 410px;
+            object-fit: cover;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 62px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+            gap: 42px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3.1rem;
+            margin-bottom: 11px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 1.12rem;
+            opacity: 0.95;
+        }
+
+        /* Office Section */
+        .office {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .office-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 52px;
+            margin-top: 52px;
+        }
+
+        .office-info {
+            background: var(--bg-light);
+            padding: 38px;
+            border-radius: 14px;
+        }
+
+        .office-info h3 {
+            font-size: 1.48rem;
+            color: var(--primary-color);
+            margin-bottom: 26px;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 14px;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 21px;
+            align-items: flex-start;
+        }
+
+        .info-item i {
+            color: var(--primary-color);
+            margin-right: 14px;
+            font-size: 1.18rem;
+            margin-top: 3px;
+        }
+
+        .info-item div {
+            flex: 1;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            font-size: 0.96rem;
+        }
+
+        .map-container {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 22px rgba(0,0,0,0.11);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 460px;
+            border: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .contact-content {
+            max-width: 820px;
+            margin: 52px auto 0;
+            background: var(--white);
+            padding: 48px;
+            border-radius: 14px;
+            box-shadow: 0 5px 32px rgba(0,0,0,0.09);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 38px;
+        }
+
+        .contact-method {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 11px;
+            transition: all 0.3s;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.09);
+        }
+
+        .contact-method i {
+            font-size: 2.45rem;
+            color: var(--primary-color);
+            margin-bottom: 14px;
+        }
+
+        .contact-method h4 {
+            font-size: 1.18rem;
+            margin-bottom: 9px;
+            color: var(--text-dark);
+        }
+
+        .contact-method a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.08rem;
+        }
+
+        .contact-form {
+            margin-top: 38px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.96rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 7px;
+            font-family: inherit;
+            font-size: 0.96rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 115px;
+        }
+
+        .submit-button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px 48px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.08rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 16px rgba(15, 76, 129, 0.32);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 38px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 38px;
+            margin-bottom: 28px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 18px;
+            font-size: 1.15rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 9px;
+            line-height: 1.75;
+            font-size: 0.92rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.62);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(32px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-direction: column;
+                gap: 19px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 13px;
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 1.82rem;
+            }
+
+            .about-content,
+            .office-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <a href="tel:080-9583-5279">
+                        <i class="fas fa-phone"></i>
+                        080-9583-5279
+                    </a>
+                    <a href="#contact">
+                        <i class="fas fa-envelope"></i>
+                        お問い合わせ
+                    </a>
+                </div>
+                <div>鎌倉市大船で税務のパートナー</div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <h1>齋藤竜直税理士事務所</h1>
+                    <p>鎌倉市大船｜法人・個人事業主・相続税対応</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#services">サービス</a></li>
+                        <li><a href="#about">事務所案内</a></li>
+                        <li><a href="#office">アクセス</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h2>鎌倉市大船で、<br>信頼できる税務のパートナーを</h2>
+                <p>齋藤竜直税理士事務所は、地元・鎌倉市大船にて法人・個人事業主・相続など幅広い税務に対応。やさしく丁寧な対応を心がけ、安心してご相談いただける地域密着型の税理士事務所です。</p>
+                <a href="#contact" class="cta-button">初回相談無料 お気軽にご相談ください</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>選ばれる3つの理由</h2>
+                <p>齋藤竜直税理士事務所が地域のお客様に選ばれる理由</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>地域密着のサポート</h3>
+                    <p>鎌倉市大船を拠点に、地域のお客様に密着したサービスを提供。お客様の状況を深く理解し、最適なアドバイスをお届けします。</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>丁寧でわかりやすい説明</h3>
+                    <p>税務の専門知識をわかりやすい言葉でご説明します。お客様が納得してご依頼いただけるよう、丁寧なコミュニケーションを大切にしています。</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>幅広い税務対応</h3>
+                    <p>法人税務から個人事業主の確定申告、相続税まで幅広く対応。お客様のあらゆる税務ニーズにワンストップでお応えします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>サービス内容</h2>
+                <p>法人・個人・相続など、幅広い税務サービスをご提供</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3><i class="fas fa-building"></i> 法人税務</h3>
+                    <ul>
+                        <li>決算・申告業務</li>
+                        <li>税務顧問サービス</li>
+                        <li>月次・年次会計処理</li>
+                        <li>記帳代行</li>
+                        <li>税務調査対応</li>
+                        <li>経営アドバイス</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-user-tie"></i> 個人事業主向け</h3>
+                    <ul>
+                        <li>所得税確定申告</li>
+                        <li>青色申告サポート</li>
+                        <li>開業支援・届出</li>
+                        <li>事業計画策定支援</li>
+                        <li>節税対策アドバイス</li>
+                        <li>帳簿作成指導</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-home"></i> 相続税対応</h3>
+                    <ul>
+                        <li>相続税申告</li>
+                        <li>相続税シミュレーション</li>
+                        <li>生前贈与対策</li>
+                        <li>財産評価</li>
+                        <li>遺産分割アドバイス</li>
+                        <li>相続税還付請求</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-briefcase"></i> 会社設立</h3>
+                    <ul>
+                        <li>法人設立手続き支援</li>
+                        <li>定款作成サポート</li>
+                        <li>資本金設定アドバイス</li>
+                        <li>税務届出書類作成</li>
+                        <li>創業融資サポート</li>
+                        <li>助成金・補助金情報</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-chart-line"></i> 経営支援</h3>
+                    <ul>
+                        <li>経営計画策定支援</li>
+                        <li>資金繰り相談</li>
+                        <li>融資相談サポート</li>
+                        <li>経営改善提案</li>
+                        <li>事業承継プランニング</li>
+                        <li>M&Aアドバイス</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-file-invoice"></i> その他税務</h3>
+                    <ul>
+                        <li>消費税申告</li>
+                        <li>贈与税申告</li>
+                        <li>不動産所得の申告</li>
+                        <li>年末調整業務</li>
+                        <li>給与計算代行</li>
+                        <li>税務書類作成全般</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in-up">
+                    <h3>100%</h3>
+                    <p>お客様満足度</p>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <h3>365</h3>
+                    <p>年間対応件数</p>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <h3>24h</h3>
+                    <p>以内の初回レスポンス</p>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <h3>安心</h3>
+                    <p>地域密着サポート</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>事務所について</h2>
+                <p>鎌倉市大船で地域に根ざした税務サービスを提供</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>地域に信頼される税理士事務所へ</h3>
+                    <p>齋藤竜直税理士事務所は、鎌倉市大船を拠点に、法人・個人事業主・相続など幅広い税務サービスを提供しています。</p>
+                    <p>お客様一人ひとりに寄り添い、やさしく丁寧な対応を心がけています。税務の専門知識をわかりやすく説明し、お客様が安心してご相談いただける環境づくりに努めています。</p>
+                    <p>地域密着型の税理士事務所として、お客様の事業の成長や資産の保全を全力でサポートいたします。お気軽にご相談ください。</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800" alt="事務所の雰囲気">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="office" id="office">
+        <div class="container">
+            <div class="section-title">
+                <h2>事務所案内</h2>
+                <p>JR大船駅から徒歩圏内、アクセス良好</p>
+            </div>
+            <div class="office-grid">
+                <div class="office-info">
+                    <h3>事務所情報</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>所在地</strong>
+                            〒247-0055<br>
+                            神奈川県鎌倉市小袋谷1丁目5-19<br>
+                            ジャパンビル鎌倉 101号
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>電話番号</strong>
+                            080-9583-5279
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>お問い合わせ</strong>
+                            お問い合わせフォームよりご連絡ください
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>営業時間</strong>
+                            平日 9:00〜18:00<br>
+                            （土日祝日は事前予約制）
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-train"></i>
+                        <div>
+                            <strong>アクセス</strong>
+                            JR東海道線・横須賀線・湘南新宿ライン<br>
+                            「大船駅」より徒歩10分
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-car"></i>
+                        <div>
+                            <strong>駐車場</strong>
+                            近隣にコインパーキングあり
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.2!2d139.53!3d35.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDIxJzAwLjAiTiAxMznCsDMxJzQ4LjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>お問い合わせ</h2>
+                <p>初回相談は無料です。まずはお気軽にご連絡ください</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>お電話でのお問い合わせ</h4>
+                        <a href="tel:080-9583-5279">080-9583-5279</a>
+                        <p style="margin-top: 9px; font-size: 0.89rem; color: var(--text-light);">平日 9:00〜18:00</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <h4>メールでのお問い合わせ</h4>
+                        <a href="#form">フォームから送信</a>
+                        <p style="margin-top: 9px; font-size: 0.89rem; color: var(--text-light);">24時間受付</p>
+                    </div>
+                </div>
+                <div class="contact-form" id="form">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">お名前 <span style="color: red;">*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span style="color: red;">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">お問い合わせ種別 <span style="color: red;">*</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="">選択してください</option>
+                                <option value="法人税務">法人税務について</option>
+                                <option value="個人確定申告">個人確定申告について</option>
+                                <option value="相続税">相続税について</option>
+                                <option value="会社設立">会社設立について</option>
+                                <option value="経営支援">経営支援について</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 <span style="color: red;">*</span></label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">送信する</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>齋藤竜直税理士事務所</h3>
+                    <p>〒247-0055<br>
+                    神奈川県鎌倉市小袋谷1丁目5-19<br>
+                    ジャパンビル鎌倉 101号</p>
+                    <p>TEL: 080-9583-5279</p>
+                </div>
+                <div class="footer-section">
+                    <h3>サービス</h3>
+                    <a href="#services">法人税務</a>
+                    <a href="#services">個人事業主向けサービス</a>
+                    <a href="#services">相続税対応</a>
+                    <a href="#services">会社設立サポート</a>
+                    <a href="#services">経営支援</a>
+                </div>
+                <div class="footer-section">
+                    <h3>営業時間</h3>
+                    <p>平日 9:00〜18:00</p>
+                    <p>土日祝日：事前予約制</p>
+                    <br>
+                    <h3>対応エリア</h3>
+                    <p>鎌倉市、横浜市、藤沢市<br>神奈川県全域</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 齋藤竜直税理士事務所. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -85px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .service-item, .stat-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

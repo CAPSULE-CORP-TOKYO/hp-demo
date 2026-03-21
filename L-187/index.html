@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佐々木 健 税理士事務所 - 横浜市港南区上大岡の税理士</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e4d8b;
+            --secondary-color: #2a6bb5;
+            --accent-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 0;
+            font-size: 0.9rem;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .header-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+
+        .header-contact a:hover {
+            opacity: 0.8;
+        }
+
+        .header-main {
+            padding: 20px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(30, 77, 139, 0.95), rgba(42, 107, 181, 0.9)), 
+                        url('https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1200') center/cover;
+            color: var(--white);
+            padding: 120px 0 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .service-item {
+            background: var(--bg-light);
+            padding: 35px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .service-item:hover {
+            background: var(--white);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left-color: var(--accent-color);
+        }
+
+        .service-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-item li {
+            padding: 8px 0;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-item li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            line-height: 1.9;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Office Section */
+        .office {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .office-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .office-info {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .office-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .info-item i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .info-item div {
+            flex: 1;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 50px auto 0;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-method {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-method i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .contact-method h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .contact-method a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            margin-top: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 77, 139, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-content,
+            .office-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <a href="tel:045-842-2674">
+                        <i class="fas fa-phone"></i>
+                        045-842-2674
+                    </a>
+                    <a href="mailto:daihyo@sasaki-zeirishi.com">
+                        <i class="fas fa-envelope"></i>
+                        daihyo@sasaki-zeirishi.com
+                    </a>
+                </div>
+                <div>受付時間：平日 9:00〜17:30</div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <h1>佐々木 健 税理士事務所</h1>
+                    <p>横浜市港南区上大岡の税務・会計パートナー</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#services">サービス</a></li>
+                        <li><a href="#about">事務所案内</a></li>
+                        <li><a href="#office">アクセス</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h2>信頼と実績で<br>皆さまの経営をサポート</h2>
+                <p>上大岡を拠点に、個人事業主から中小企業まで、税務・会計のトータルサポートを提供しています。地域密着型の丁寧な対応で、お客様の成長をお手伝いいたします。</p>
+                <a href="#contact" class="cta-button">初回相談無料 お気軽にご相談ください</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>選ばれる3つの理由</h2>
+                <p>佐々木 健 税理士事務所が多くのお客様に支持される理由</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>地域密着の信頼関係</h3>
+                    <p>横浜・神奈川エリアを中心に、長年にわたり地域のお客様と信頼関係を築いてきました。身近な相談相手として、迅速かつ丁寧に対応いたします。</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>経営視点でのアドバイス</h3>
+                    <p>税務・会計の専門知識だけでなく、経営全般についてのアドバイスを提供。単なる記帳代行に留まらず、お客様の成長パートナーとして伴走します。</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>きめ細やかな対応</h3>
+                    <p>お客様一人ひとりの状況に合わせたオーダーメイドのサービスを提供。複雑な税務問題もわかりやすく説明し、安心してお任せいただけます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>サービス内容</h2>
+                <p>税務・会計に関するあらゆるニーズにお応えします</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3><i class="fas fa-building"></i> 法人向けサービス</h3>
+                    <ul>
+                        <li>決算・申告業務</li>
+                        <li>月次・年次会計処理</li>
+                        <li>記帳代行サービス</li>
+                        <li>給与計算・年末調整</li>
+                        <li>税務調査立会</li>
+                        <li>経営相談・助言</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-user-tie"></i> 個人向けサービス</h3>
+                    <ul>
+                        <li>所得税確定申告</li>
+                        <li>青色申告サポート</li>
+                        <li>事業開業支援</li>
+                        <li>節税対策アドバイス</li>
+                        <li>相続税・贈与税相談</li>
+                        <li>不動産所得の申告</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-briefcase"></i> 会社設立サポート</h3>
+                    <ul>
+                        <li>法人設立手続き支援</li>
+                        <li>定款作成サポート</li>
+                        <li>創業融資相談</li>
+                        <li>助成金・補助金情報提供</li>
+                        <li>税務届出書類作成</li>
+                        <li>事業計画策定支援</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-home"></i> 相続・事業承継</h3>
+                    <ul>
+                        <li>相続税申告</li>
+                        <li>相続税試算・節税対策</li>
+                        <li>贈与税申告</li>
+                        <li>事業承継プランニング</li>
+                        <li>財産評価・相続対策</li>
+                        <li>遺言書作成アドバイス</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in-up">
+                    <h3>35+</h3>
+                    <p>年以上の実績</p>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <h3>200+</h3>
+                    <p>顧問先企業数</p>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <h3>100%</h3>
+                    <p>顧客満足度</p>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <h3>24h</h3>
+                    <p>以内の初回レスポンス</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>事務所について</h2>
+                <p>お客様に寄り添う税務・会計サービスを提供</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>地域に根ざした税理士事務所</h3>
+                    <p>佐々木 健 税理士事務所は、横浜市港南区上大岡を拠点に、長年にわたり地域の皆さまの税務・会計をサポートしてまいりました。</p>
+                    <p>個人事業主から中小企業まで、お客様の規模や業種を問わず、一人ひとりに最適なサービスを提供することをモットーとしています。税務・会計の専門知識はもちろん、経営全般についてのアドバイスも行い、お客様の成長を全力でサポートいたします。</p>
+                    <p>初めての方でも安心してご相談いただけるよう、丁寧でわかりやすい説明を心がけています。お気軽にお問い合わせください。</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800" alt="事務所の雰囲気">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="office" id="office">
+        <div class="container">
+            <div class="section-title">
+                <h2>事務所案内</h2>
+                <p>上大岡駅から徒歩5分、アクセス良好</p>
+            </div>
+            <div class="office-grid">
+                <div class="office-info">
+                    <h3>事務所情報</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>所在地</strong>
+                            〒233-0002<br>
+                            神奈川県横浜市港南区上大岡西2丁目9-20
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>電話番号</strong>
+                            045-842-2674
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-fax"></i>
+                        <div>
+                            <strong>FAX</strong>
+                            045-843-1028
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>メール</strong>
+                            daihyo@sasaki-zeirishi.com
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>営業時間</strong>
+                            平日 9:00〜17:30<br>
+                            （土日祝日は事前予約制）
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-train"></i>
+                        <div>
+                            <strong>アクセス</strong>
+                            京急線・横浜市営地下鉄「上大岡駅」より徒歩5分
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.0!2d139.59!3d35.40!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI0JzAwLjAiTiAxMznCsDM1JzI0LjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>お問い合わせ</h2>
+                <p>お気軽にご相談ください。初回相談は無料です</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>お電話でのお問い合わせ</h4>
+                        <a href="tel:045-842-2674">045-842-2674</a>
+                        <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-light);">平日 9:00〜17:30</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <h4>メールでのお問い合わせ</h4>
+                        <a href="mailto:daihyo@sasaki-zeirishi.com">メールを送る</a>
+                        <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-light);">24時間受付</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">お名前 <span style="color: red;">*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span style="color: red;">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">お問い合わせ種別 <span style="color: red;">*</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="">選択してください</option>
+                                <option value="個人確定申告">個人確定申告について</option>
+                                <option value="法人顧問契約">法人顧問契約について</option>
+                                <option value="会社設立">会社設立について</option>
+                                <option value="相続税">相続税について</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 <span style="color: red;">*</span></label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">送信する</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>佐々木 健 税理士事務所</h3>
+                    <p>〒233-0002<br>
+                    神奈川県横浜市港南区上大岡西2丁目9-20</p>
+                    <p>TEL: 045-842-2674<br>
+                    FAX: 045-843-1028</p>
+                    <p>daihyo@sasaki-zeirishi.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>サービス</h3>
+                    <a href="#services">法人向けサービス</a>
+                    <a href="#services">個人向けサービス</a>
+                    <a href="#services">会社設立サポート</a>
+                    <a href="#services">相続・事業承継</a>
+                </div>
+                <div class="footer-section">
+                    <h3>営業時間</h3>
+                    <p>平日 9:00〜17:30</p>
+                    <p>土日祝日：事前予約制</p>
+                    <br>
+                    <h3>対応エリア</h3>
+                    <p>横浜市、川崎市、神奈川県全域<br>東京都23区など</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 佐々木 健 税理士事務所. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .service-item, .stat-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

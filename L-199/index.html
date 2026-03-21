@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税理士法人 鈴木会計事務所 | 横浜市上大岡の税理士</title>
+    <meta name="description" content="神奈川県横浜市上大岡の税理士法人鈴木会計事務所。税務・会計・経営支援を総合的にサポート。地域密着で横浜市全域・神奈川県全域対応。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B1E3F;
+            --secondary-color: #b8335a;
+            --accent-color: #d4af37;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #faf8f5;
+            --white: #ffffff;
+            --shadow: rgba(139, 30, 63, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1554224311-beee4ece8c35?w=1600&h=900&fit=crop') center/cover;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--accent-color);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 6rem 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            padding: 2rem;
+            border: 2px solid var(--bg-light);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            border-color: var(--primary-color);
+            background: var(--bg-light);
+        }
+
+        .service-item i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            flex: 1;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 15px var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Area Coverage */
+        .area-coverage {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .area-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .area-tag {
+            padding: 0.7rem 1.5rem;
+            background: var(--bg-light);
+            border-radius: 50px;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .area-tag:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--bg-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-top: 0.3rem;
+        }
+
+        .contact-item-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            height: 450px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-about h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            padding: 0.3rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 5px 20px var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-calculator"></i>
+                鈴木会計事務所
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">特徴</a></li>
+                <li><a href="#services">サービス</a></li>
+                <li><a href="#about">事務所案内</a></li>
+                <li><a href="#area">対応エリア</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+            <i class="fas fa-bars menu-toggle" id="menuToggle"></i>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>経営に関わる全てを<br>総合的にサポート</h1>
+                <p class="hero-subtitle">横浜市上大岡を拠点に神奈川県全域の税務・会計・経営支援を行う税理士法人です</p>
+                <a href="#contact" class="cta-button">無料相談のご予約</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">選ばれる3つの理由</h2>
+            <p class="section-subtitle">地域密着で皆様の経営をサポートします</p>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h3>お客様の立場で考える</h3>
+                    <p>常にお客様の立場に立って考え、行動していきます。経営に関する諸問題に真摯に向き合い、最適な解決策をご提案いたします。</p>
+                </div>
+                <div class="feature-card fade-in" style="animation-delay: 0.2s;">
+                    <i class="fas fa-handshake feature-icon"></i>
+                    <h3>総合的な経営支援</h3>
+                    <p>税務・会計・財務だけでなく、経営に関わる全てを総合的にサポート。事業の発展を多角的な視点から支援します。</p>
+                </div>
+                <div class="feature-card fade-in" style="animation-delay: 0.4s;">
+                    <i class="fas fa-map-marked-alt feature-icon"></i>
+                    <h3>神奈川県全域対応</h3>
+                    <p>横浜市上大岡だけでなく、神奈川県全域（横浜市・川崎市・相模原市ほか全市町村）のお客様に対応いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">サービス内容</h2>
+            <p class="section-subtitle">幅広い業務であなたのビジネスをサポート</p>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h4>税務申告・記帳代行</h4>
+                    <p>法人税・所得税・消費税など各種税務申告業務、帳簿作成から決算まで対応</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>経営コンサルティング</h4>
+                    <p>事業計画の策定支援、経営分析、業績改善提案など総合的な経営支援</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-building"></i>
+                    <h4>法人設立支援</h4>
+                    <p>会社設立時の各種手続き、設立後の税務・会計サポート</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-home"></i>
+                    <h4>相続・事業承継</h4>
+                    <p>相続税申告、事業承継計画の策定、資産承継のアドバイス</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>個人事業主支援</h4>
+                    <p>確定申告、青色申告承認申請、帳簿指導など個人事業主の税務サポート</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-calculator"></i>
+                    <h4>給与計算代行</h4>
+                    <p>給与計算、年末調整、社会保険手続きなどのバックオフィス業務支援</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop" alt="事務所イメージ">
+                </div>
+                <div class="about-text">
+                    <h2>税理士法人 鈴木会計事務所</h2>
+                    <p>横浜市港南区で開業し、地域の皆様に信頼される税理士法人として歩んでまいりました。</p>
+                    <p>経営に関する諸問題でお困りの際は、ぜひ一度お問い合わせください。常にお客様の立場に立って考え、行動していくことをお約束いたします。</p>
+                    <p>税務・会計・財務・その他経営に関わる全てを総合的にサポートし、お客様の発展に貢献してまいります。</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="stat-label">上大岡駅<br>徒歩圏内</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number"><i class="fas fa-users"></i></span>
+                            <span class="stat-label">豊富な<br>実績</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="area" class="area-coverage">
+        <div class="container">
+            <h2 class="section-title">対応エリア</h2>
+            <p class="section-subtitle">神奈川県全域のお客様に対応しております</p>
+            <div class="area-tags">
+                <span class="area-tag">横浜市全区</span>
+                <span class="area-tag">川崎市</span>
+                <span class="area-tag">相模原市</span>
+                <span class="area-tag">平塚市</span>
+                <span class="area-tag">藤沢市</span>
+                <span class="area-tag">茅ヶ崎市</span>
+                <span class="area-tag">大和市</span>
+                <span class="area-tag">海老名市</span>
+                <span class="area-tag">座間市</span>
+                <span class="area-tag">綾瀬市</span>
+                <span class="area-tag">横須賀市</span>
+                <span class="area-tag">鎌倉市</span>
+                <span class="area-tag">逗子市</span>
+                <span class="area-tag">三浦市</span>
+                <span class="area-tag">秦野市</span>
+                <span class="area-tag">厚木市</span>
+                <span class="area-tag">伊勢原市</span>
+                <span class="area-tag">南足柄市</span>
+                <span class="area-tag">小田原市</span>
+                <span class="area-tag">その他神奈川県全域</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <p class="section-subtitle">お気軽にご相談ください</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-item-content">
+                            <h4>所在地</h4>
+                            <p>〒233-0002<br>神奈川県横浜市港南区上大岡西2-9-20<br>シャンローゼ上大岡402号室</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-item-content">
+                            <h4>電話番号</h4>
+                            <p><a href="tel:045-844-2371" style="color: var(--primary-color); text-decoration: none; font-weight: 700;">045-844-2371</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-fax"></i>
+                        <div class="contact-item-content">
+                            <h4>FAX</h4>
+                            <p>045-844-2373</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="contact-item-content">
+                            <h4>営業時間</h4>
+                            <p>平日 9:00～17:00<br>（土日祝日は休業）</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=神奈川県横浜市港南区上大岡西2-9-20" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>税理士法人 鈴木会計事務所</h3>
+                    <p>横浜市上大岡を拠点に、神奈川県全域の皆様に税務・会計・経営支援サービスをご提供しております。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>サービス</h4>
+                    <ul>
+                        <li><a href="#services">税務申告</a></li>
+                        <li><a href="#services">経営コンサルティング</a></li>
+                        <li><a href="#services">法人設立支援</a></li>
+                        <li><a href="#services">相続・事業承継</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>会社情報</h4>
+                    <ul>
+                        <li><a href="#about">事務所案内</a></li>
+                        <li><a href="#area">対応エリア</a></li>
+                        <li><a href="#contact">アクセス</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 税理士法人 鈴木会計事務所. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .feature-card, .service-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
