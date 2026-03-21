@@ -1,1077 +1,935 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-7D6G7DTDPP');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>矢口俊幸税理士事務所 - 横浜市磯子区の小規模企業専門税理士</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2c6e49;
-            --secondary-color: #4c956c;
-            --accent-color: #ffc93c;
-            --text-dark: #2d3748;
-            --text-light: #718096;
-            --bg-light: #f7fafc;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-top {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 10px 0;
-            font-size: 0.9rem;
-        }
-
-        .header-top .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .header-contact {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .header-contact a {
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.3s;
-        }
-
-        .header-contact a:hover {
-            opacity: 0.85;
-        }
-
-        .header-main {
-            padding: 20px 0;
-        }
-
-        .header-main .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .logo p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-top: 5px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(44, 110, 73, 0.93), rgba(76, 149, 108, 0.88)), 
-                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200') center/cover;
-            color: var(--white);
-            padding: 100px 0 70px;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 650px;
-        }
-
-        .hero h2 {
-            font-size: 2.4rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            opacity: 0.96;
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--text-dark);
-            padding: 14px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 201, 60, 0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(255, 201, 60, 0.5);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: var(--bg-light);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .section-title p {
-            color: var(--text-light);
-            font-size: 1.05rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 35px 25px;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border-top: 4px solid var(--primary-color);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            border-top-color: var(--accent-color);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.8rem;
-            color: var(--white);
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .feature-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        .service-item {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-color);
-            transition: all 0.3s;
-        }
-
-        .service-item:hover {
-            background: var(--white);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            border-left-color: var(--accent-color);
-        }
-
-        .service-item h3 {
-            font-size: 1.15rem;
-            margin-bottom: 12px;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .service-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .service-item li {
-            padding: 7px 0;
-            color: var(--text-dark);
-            position: relative;
-            padding-left: 22px;
-            font-size: 0.95rem;
-        }
-
-        .service-item li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        /* Strength Section */
-        .strength {
-            padding: 80px 0;
-            background: var(--bg-light);
-        }
-
-        .strength-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .strength-item {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-        }
-
-        .strength-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-        }
-
-        .strength-number {
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 15px;
-        }
-
-        .strength-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .strength-item p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Area Section */
-        .area {
-            padding: 60px 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-        }
-
-        .area-content {
-            text-align: center;
-        }
-
-        .area h2 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-        }
-
-        .area-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px 25px;
-            font-size: 1.05rem;
-        }
-
-        .area-list span {
-            opacity: 0.95;
-        }
-
-        /* Office Section */
-        .office {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .office-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: 50px;
-        }
-
-        .office-info {
-            background: var(--bg-light);
-            padding: 35px;
-            border-radius: 12px;
-        }
-
-        .office-info h3 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            border-bottom: 3px solid var(--accent-color);
-            padding-bottom: 12px;
-        }
-
-        .info-item {
-            display: flex;
-            margin-bottom: 18px;
-            align-items: flex-start;
-        }
-
-        .info-item i {
-            color: var(--primary-color);
-            margin-right: 12px;
-            font-size: 1.1rem;
-            margin-top: 2px;
-        }
-
-        .info-item div {
-            flex: 1;
-        }
-
-        .info-item strong {
-            display: block;
-            color: var(--text-dark);
-            margin-bottom: 4px;
-            font-size: 0.95rem;
-        }
-
-        .map-container {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: var(--bg-light);
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 50px auto 0;
-            background: var(--white);
-            padding: 45px;
-            border-radius: 12px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
-        }
-
-        .contact-methods {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 35px;
-        }
-
-        .contact-method {
-            text-align: center;
-            padding: 28px;
-            background: var(--bg-light);
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .contact-method:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        }
-
-        .contact-method i {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 12px;
-        }
-
-        .contact-method h4 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: var(--text-dark);
-        }
-
-        .contact-method a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-
-        .contact-form {
-            margin-top: 35px;
-        }
-
-        .form-group {
-            margin-bottom: 22px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 7px;
-            font-weight: 500;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 11px 14px;
-            border: 2px solid #e2e8f0;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 110px;
-        }
-
-        .submit-button {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 14px 45px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .submit-button:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(44, 110, 73, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 35px 0 18px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 35px;
-            margin-bottom: 25px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8px;
-            line-height: 1.7;
-            font-size: 0.9rem;
-        }
-
-        .footer-section a:hover {
-            color: var(--accent-color);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-main .container {
-                flex-direction: column;
-                gap: 18px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 12px;
-                text-align: center;
-            }
-
-            .hero h2 {
-                font-size: 1.75rem;
-            }
-
-            .office-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-methods {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title h2 {
-                font-size: 1.6rem;
-            }
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>矢口俊幸税理士事務所 | 横浜市磯子区の小規模企業専門税理士</title>
+  <meta name="description" content="横浜市磯子区の矢口俊幸税理士事務所。小規模企業の税務会計を専門にサポート。会社決算、申告、記帳代行、給料計算など幅広く対応します。">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-7D6G7DTDPP');</script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --bg: #ffffff;
+      --bg-light: #f0fdf4;
+      --bg-gray: #f3f4f6;
+      --border: #e5e7eb;
+    }
     
-        /* Mobile hamburger menu */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-color);
-            padding: 10px;
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .header-main .container {
-            position: relative;
-        }
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            nav ul {
-                display: none;
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-                padding: 20px 0;
-                width: 100%;
-            }
-            nav ul.active { display: flex; }
-            nav { width: 100%; }
-        }
-    </style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+    
+    /* モバイルヘッダー */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      z-index: 1000;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+    
+    .logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    
+    .hamburger {
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .nav-overlay {
+      position: fixed;
+      top: 48px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 999;
+    }
+    
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .nav-menu {
+      position: fixed;
+      top: 48px;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: calc(100vh - 48px);
+      background: var(--bg);
+      box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+      transition: right 0.3s;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    
+    .nav-menu.active {
+      right: 0;
+    }
+    
+    .nav-menu ul {
+      list-style: none;
+      padding: 16px 0;
+    }
+    
+    .nav-menu li {
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-menu a {
+      display: block;
+      padding: 16px 24px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    
+    .nav-menu a:hover {
+      background: var(--bg-gray);
+      color: var(--primary);
+    }
+    
+    main {
+      margin-top: 48px;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 48px 24px;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    
+    .hero p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+    
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+    
+    .btn-primary:hover {
+      background: var(--bg-gray);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+    
+    .section {
+      padding: 48px 24px;
+    }
+    
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    .features {
+      display: grid;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .feature-card {
+      background: var(--bg);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s forwards;
+    }
+    
+    .feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .services-list {
+      display: grid;
+      gap: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .service-item {
+      background: var(--bg-gray);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+    
+    .service-item:nth-child(1) { animation-delay: 0.1s; }
+    .service-item:nth-child(2) { animation-delay: 0.2s; }
+    .service-item:nth-child(3) { animation-delay: 0.3s; }
+    .service-item:nth-child(4) { animation-delay: 0.4s; }
+    .service-item:nth-child(5) { animation-delay: 0.5s; }
+    .service-item:nth-child(6) { animation-delay: 0.6s; }
+    
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    
+    .service-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+    
+    .service-item p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .about {
+      background: var(--bg-light);
+    }
+    
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .about-content p {
+      margin-bottom: 16px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    
+    .coverage {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-top: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .coverage h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    
+    .coverage-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .coverage-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .coverage-item i {
+      color: var(--primary);
+    }
+    
+    .access {
+      background: var(--bg);
+    }
+    
+    .access-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .info-grid {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .info-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+      background: var(--bg-gray);
+      border-radius: 8px;
+    }
+    
+    .info-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .info-text strong {
+      display: block;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+    
+    .info-text span {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .contact-cta {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 48px 24px;
+      text-align: center;
+    }
+    
+    .contact-cta h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .contact-cta p {
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+    
+    .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .footer {
+      background: var(--text);
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    
+    .footer-info {
+      margin-bottom: 24px;
+    }
+    
+    .footer-info h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    
+    .footer-info p {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+    
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    
+    .footer-contact a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    
+    .footer-contact a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .copyright {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    @media (min-width: 768px) {
+      .header {
+        height: 64px;
+        padding: 0 32px;
+      }
+      
+      .logo {
+        font-size: 1.1rem;
+      }
+      
+      .hamburger {
+        display: none;
+      }
+      
+      .nav-overlay {
+        display: none;
+      }
+      
+      .nav-menu {
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+      }
+      
+      .nav-menu ul {
+        display: flex;
+        gap: 8px;
+        padding: 0;
+      }
+      
+      .nav-menu li {
+        border: none;
+      }
+      
+      .nav-menu a {
+        padding: 8px 16px;
+        border-radius: 6px;
+      }
+      
+      main {
+        margin-top: 64px;
+      }
+      
+      .hero {
+        padding: 80px 32px;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+      
+      .section {
+        padding: 80px 32px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .features {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .coverage-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .contact-buttons {
+        flex-direction: row;
+        justify-content: center;
+        max-width: 600px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="header-contact">
-                    <a href="tel:045-840-3225">
-                        <i class="fas fa-phone"></i>
-                        045-840-3225
-                    </a>
-                    <a href="mailto:info@yaguchi-tax.example">
-                        <i class="fas fa-envelope"></i>
-                        お問い合わせ
-                    </a>
-                </div>
-                <div>受付時間：平日 9:30〜17:30</div>
-            </div>
-        </div>
-        <div class="header-main">
-            <div class="container">
-                <div class="logo">
-                    <h1>矢口俊幸税理士事務所</h1>
-                    <p>小規模企業専門の税務会計事務所</p>
-                </div>
-                <button class="menu-toggle" aria-label="メニュー">☰</button>
-                <nav>
-                    <ul>
-                        <li><a href="#services">サービス</a></li>
-                        <li><a href="#strength">強み</a></li>
-                        <li><a href="#office">アクセス</a></li>
-                        <li><a href="#contact">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
+  <header class="header">
+    <a href="#" class="logo">矢口俊幸税理士事務所</a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="#features">当事務所の特長</a></li>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#about">事務所案内</a></li>
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <main>
     <section class="hero">
-        <div class="container">
-            <div class="hero-content fade-in-up">
-                <h2>小規模企業のための<br>頼れる税務パートナー</h2>
-                <p>横浜市磯子区を拠点に、小規模企業・個人事業主に特化した税務会計サービスを提供しています。お客様の発展を総合的に支援し、親身なサポートで事業の成長をお手伝いいたします。</p>
-                <a href="#contact" class="cta-button">初回相談無料 まずはご相談ください</a>
-            </div>
-        </div>
+      <h1>小規模企業専門<br>総合的な経営サポート</h1>
+      <p>横浜市磯子区の矢口俊幸税理士事務所。<br>会社決算から給料計算まで、お客様の発展を総合的に支援します。</p>
+      <div class="cta-buttons">
+        <a href="tel:045-370-9915" class="btn btn-primary">
+          <i class="fas fa-phone"></i>
+          お電話で相談
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-envelope"></i>
+          お問い合わせ
+        </a>
+      </div>
     </section>
-
-    <section class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>選ばれる3つの理由</h2>
-                <p>矢口俊幸税理士事務所が小規模企業に選ばれる理由</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>小規模企業に特化</h3>
-                    <p>小規模企業・個人事業主のお客様に特化したサービスを提供。規模の小ささを理由に断られた経験のある方も、安心してご相談ください。</p>
-                </div>
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>親身な対応</h3>
-                    <p>お客様一人ひとりに寄り添い、わかりやすく丁寧に説明します。難しい税務用語も、わかりやすい言葉でご説明いたします。</p>
-                </div>
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <h3>明瞭な料金体系</h3>
-                    <p>小規模企業でも負担なくご利用いただける明瞭な料金体系。お見積もりも無料で承ります。安心してご相談ください。</p>
-                </div>
-            </div>
+    
+    <section id="features" class="section">
+      <h2 class="section-title">当事務所の特長</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-store"></i>
+          </div>
+          <h3>小規模企業に特化</h3>
+          <p>小規模企業専門の税務会計事務所として、きめ細やかなサポートを提供。大企業にはない柔軟な対応で、お客様のニーズにお応えします。</p>
         </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <h3>経営全般をサポート</h3>
+          <p>税務だけでなく、経営に関わる全てを総合的にサポート。記帳代行、給料計算、年末調整など、幅広い業務に対応します。</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3>広域対応</h3>
+          <p>神奈川県・横浜市を中心に、川崎市、鎌倉市、藤沢市、東京23区、千葉県南部まで幅広く対応。お気軽にご相談ください。</p>
+        </div>
+      </div>
     </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>サービス内容</h2>
-                <p>小規模企業に必要な税務会計サービスを包括的に提供</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-item">
-                    <h3><i class="fas fa-file-alt"></i> 会社決算・申告</h3>
-                    <ul>
-                        <li>法人決算業務</li>
-                        <li>法人税申告書作成</li>
-                        <li>消費税申告</li>
-                        <li>地方税申告</li>
-                        <li>決算報告書作成</li>
-                    </ul>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-calculator"></i> 会計指導</h3>
-                    <ul>
-                        <li>会計ソフト導入支援</li>
-                        <li>帳簿作成指導</li>
-                        <li>経理業務効率化</li>
-                        <li>月次試算表作成</li>
-                        <li>経営分析レポート</li>
-                    </ul>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-book"></i> 記帳代行</h3>
-                    <ul>
-                        <li>仕訳入力代行</li>
-                        <li>現金出納帳作成</li>
-                        <li>経費精算処理</li>
-                        <li>請求書・領収書整理</li>
-                        <li>会計データ管理</li>
-                    </ul>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-money-check"></i> 給料計算</h3>
-                    <ul>
-                        <li>毎月の給与計算</li>
-                        <li>賞与計算</li>
-                        <li>源泉徴収票作成</li>
-                        <li>社会保険手続き支援</li>
-                        <li>給与明細書作成</li>
-                    </ul>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-calendar-check"></i> 年末調整</h3>
-                    <ul>
-                        <li>年末調整計算</li>
-                        <li>源泉徴収票作成</li>
-                        <li>法定調書作成</li>
-                        <li>給与支払報告書作成</li>
-                        <li>税務署提出代行</li>
-                    </ul>
-                </div>
-                <div class="service-item">
-                    <h3><i class="fas fa-user"></i> 個人確定申告</h3>
-                    <ul>
-                        <li>事業所得の確定申告</li>
-                        <li>不動産所得の申告</li>
-                        <li>譲渡所得の申告</li>
-                        <li>医療費控除</li>
-                        <li>住宅ローン控除</li>
-                    </ul>
-                </div>
-            </div>
+    
+    <section id="services" class="section" style="background: var(--bg-light);">
+      <h2 class="section-title">サービス内容</h2>
+      <div class="services-list">
+        <div class="service-item">
+          <h4><i class="fas fa-file-alt"></i> 会社決算・申告</h4>
+          <p>法人の決算業務から税務申告まで、専門知識を活かしてスムーズに対応いたします。</p>
         </div>
+        
+        <div class="service-item">
+          <h4><i class="fas fa-calculator"></i> 会計指導</h4>
+          <p>日々の会計処理から財務分析まで、経営に役立つ会計指導を行います。</p>
+        </div>
+        
+        <div class="service-item">
+          <h4><i class="fas fa-book"></i> 記帳代行</h4>
+          <p>煩雑な記帳業務を代行し、本業に集中できる環境を整えます。</p>
+        </div>
+        
+        <div class="service-item">
+          <h4><i class="fas fa-money-bill-wave"></i> 給料計算</h4>
+          <p>給与計算業務を正確かつ迅速に処理。従業員の給与管理をサポートします。</p>
+        </div>
+        
+        <div class="service-item">
+          <h4><i class="fas fa-calendar-alt"></i> 年末調整</h4>
+          <p>年末調整業務を確実に実施。複雑な手続きもお任せください。</p>
+        </div>
+        
+        <div class="service-item">
+          <h4><i class="fas fa-user"></i> 個人確定申告</h4>
+          <p>個人事業主の確定申告を丁寧にサポート。節税対策もご提案します。</p>
+        </div>
+      </div>
     </section>
-
-    <section class="strength" id="strength">
-        <div class="container">
-            <div class="section-title">
-                <h2>当事務所の強み</h2>
-                <p>小規模企業の皆さまに安心してご依頼いただくために</p>
+    
+    <section id="about" class="section about">
+      <h2 class="section-title">事務所案内</h2>
+      <div class="about-content">
+        <p>矢口俊幸税理士事務所は、小規模企業専門の税務会計事務所です。</p>
+        <p>お客様の発展を総合的に支援することをモットーに、税務・会計だけでなく、経営に関わる幅広い業務に対応しています。どんな小さなことでも、お気軽にご相談ください。</p>
+        
+        <div class="coverage">
+          <h3><i class="fas fa-map"></i> 対応地域</h3>
+          <div class="coverage-list">
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>神奈川県全域</span>
             </div>
-            <div class="strength-grid">
-                <div class="strength-item">
-                    <div class="strength-number">1</div>
-                    <h3>わかりやすい説明</h3>
-                    <p>税務の専門用語を使わず、お客様にわかりやすい言葉でご説明します。</p>
-                </div>
-                <div class="strength-item">
-                    <div class="strength-number">2</div>
-                    <h3>迅速な対応</h3>
-                    <p>お問い合わせには原則24時間以内にご返答。スピーディーに対応いたします。</p>
-                </div>
-                <div class="strength-item">
-                    <div class="strength-number">3</div>
-                    <h3>柔軟なサポート</h3>
-                    <p>お客様のご要望に合わせた柔軟なサービスをご提供いたします。</p>
-                </div>
-                <div class="strength-item">
-                    <div class="strength-number">4</div>
-                    <h3>適正な料金</h3>
-                    <p>小規模企業でも無理なくご利用いただける適正価格を設定しています。</p>
-                </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>横浜市</span>
             </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>川崎市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>鎌倉市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>藤沢市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>横須賀市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>三浦市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>葉山町</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>逗子市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>茅ヶ崎市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>平塚市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>小田原市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>東京23区</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>千葉県</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>富津市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>君津市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>木更津市</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fas fa-check-circle"></i>
+              <span>南房総市</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-
-    <section class="area">
-        <div class="container">
-            <div class="area-content">
-                <h2>対応地域</h2>
-                <div class="area-list">
-                    <span>神奈川県</span>
-                    <span>横浜市</span>
-                    <span>川崎市</span>
-                    <span>鎌倉市</span>
-                    <span>藤沢市</span>
-                    <span>横須賀市</span>
-                    <span>三浦市</span>
-                    <span>葉山町</span>
-                    <span>逗子市</span>
-                    <span>茅ヶ崎市</span>
-                    <span>平塚市</span>
-                    <span>小田原市</span>
-                    <span>東京23区</span>
-                    <span>千葉県</span>
-                    <span>富津市</span>
-                    <span>君津市</span>
-                    <span>木更津市</span>
-                    <span>鋸南町</span>
-                    <span>南房総市</span>
-                    <span>館山市</span>
-                    <span>鴨川市</span>
-                </div>
-                <p style="margin-top: 20px; opacity: 0.9;">その他の地域もご相談ください</p>
+    
+    <section id="access" class="section access">
+      <h2 class="section-title">アクセス</h2>
+      <div class="access-content">
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
             </div>
+            <div class="info-text">
+              <strong>所在地</strong>
+              <span>〒235-0023<br>神奈川県横浜市磯子区森1-5-21</span>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info-text">
+              <strong>電話番号</strong>
+              <span>TEL: 045-370-9915</span>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-text">
+              <strong>受付時間</strong>
+              <span>9:30～17:30<br>（土日祝定休）</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-
-    <section class="office" id="office">
-        <div class="container">
-            <div class="section-title">
-                <h2>事務所案内</h2>
-                <p>お気軽にお越しください</p>
-            </div>
-            <div class="office-grid">
-                <div class="office-info">
-                    <h3>事務所情報</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>所在地</strong>
-                            〒235-0023<br>
-                            神奈川県横浜市磯子区森1丁目5-21<br>
-                            ヴェルドミール磯子 218号室
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>電話番号</strong>
-                            045-840-3225
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>メール</strong>
-                            お問い合わせフォームよりご連絡ください
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>営業時間</strong>
-                            平日 9:30〜17:30<br>
-                            （土日祝日は事前予約制）
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-train"></i>
-                        <div>
-                            <strong>アクセス</strong>
-                            JR根岸線「磯子駅」より徒歩7分<br>
-                            横浜市営バス 森停留所より徒歩3分
-                        </div>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.5!2d139.62!3d35.40!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI0JzAwLjAiTiAxMznCsDM3JzEyLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
+    
+    <section id="contact" class="contact-cta">
+      <h2>お気軽にお問い合わせください</h2>
+      <p>初回相談は無料です。税務・会計に関するお悩みは何でもご相談ください。</p>
+      <div class="contact-buttons">
+        <a href="tel:045-370-9915" class="btn btn-primary">
+          <i class="fas fa-phone"></i>
+          045-370-9915
+        </a>
+        <a href="#" class="btn btn-outline">
+          <i class="fas fa-envelope"></i>
+          メールで相談
+        </a>
+      </div>
     </section>
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>お問い合わせ</h2>
-                <p>まずはお気軽にご相談ください。初回相談は無料です</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <i class="fas fa-phone-alt"></i>
-                        <h4>お電話でのお問い合わせ</h4>
-                        <a href="tel:045-840-3225">045-840-3225</a>
-                        <p style="margin-top: 8px; font-size: 0.88rem; color: var(--text-light);">平日 9:30〜17:30</p>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <h4>メールでのお問い合わせ</h4>
-                        <a href="#form">フォームから送信</a>
-                        <p style="margin-top: 8px; font-size: 0.88rem; color: var(--text-light);">24時間受付</p>
-                    </div>
-                </div>
-                <div class="contact-form" id="form">
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <label for="name">お名前 <span style="color: red;">*</span></label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">メールアドレス <span style="color: red;">*</span></label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">電話番号</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">お問い合わせ内容 <span style="color: red;">*</span></label>
-                            <select id="subject" name="subject" required>
-                                <option value="">選択してください</option>
-                                <option value="決算申告">決算・申告について</option>
-                                <option value="記帳代行">記帳代行について</option>
-                                <option value="給与計算">給与計算について</option>
-                                <option value="確定申告">個人確定申告について</option>
-                                <option value="見積">料金見積について</option>
-                                <option value="その他">その他</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">詳しい内容 <span style="color: red;">*</span></label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">送信する</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>矢口俊幸税理士事務所</h3>
-                    <p>〒235-0023<br>
-                    神奈川県横浜市磯子区森1丁目5-21<br>
-                    ヴェルドミール磯子 218号室</p>
-                    <p>TEL: 045-840-3225</p>
-                </div>
-                <div class="footer-section">
-                    <h3>サービス</h3>
-                    <a href="#services">会社決算・申告</a>
-                    <a href="#services">会計指導</a>
-                    <a href="#services">記帳代行</a>
-                    <a href="#services">給料計算・年末調整</a>
-                    <a href="#services">個人確定申告</a>
-                </div>
-                <div class="footer-section">
-                    <h3>営業時間</h3>
-                    <p>平日 9:30〜17:30</p>
-                    <p>土日祝日：事前予約制</p>
-                    <br>
-                    <h3>対応地域</h3>
-                    <p>神奈川県、横浜市、川崎市<br>東京23区、千葉県南部など</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 矢口俊幸税理士事務所. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -80px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card, .service-item, .strength-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-
-    <script>
-    document.querySelector('.menu-toggle')?.addEventListener('click', function() {
-        document.querySelector('nav ul').classList.toggle('active');
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-info">
+      <h3>矢口俊幸税理士事務所</h3>
+      <p>〒235-0023 神奈川県横浜市磯子区森1-5-21</p>
+      <p>小規模企業専門の税務会計事務所</p>
+    </div>
+    
+    <div class="footer-contact">
+      <a href="tel:045-370-9915">
+        <i class="fas fa-phone"></i>
+        TEL: 045-370-9915
+      </a>
+    </div>
+    
+    <div class="copyright">
+      &copy; 2026 矢口俊幸税理士事務所 All Rights Reserved.
+    </div>
+  </footer>
+  
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('navOverlay');
+    
+    function toggleMenu() {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    hamburger.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+    
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          toggleMenu();
+        }
+      });
     });
-    </script>
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = window.innerWidth < 768 ? 48 : 64;
+          const top = target.offsetTop - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.feature-card, .service-item').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
