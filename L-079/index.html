@@ -1,1544 +1,2429 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>早川行英税理士事務所 | 横浜市港北区菊名の税理士</title>
-<meta name="description" content="横浜市港北区菊名の早川行英税理士事務所。個人事業主・中小企業の確定申告、法人税務顧問、相続税対策まで、地域密着で丁寧にサポートいたします。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-:root {
-  --primary: #1b4d6e;
-  --primary-light: #2a6d9e;
-  --primary-dark: #0f3450;
-  --accent: #c4873b;
-  --accent-light: #d9a05c;
-  --accent-dark: #a56e2a;
-  --bg-light: #f9f8f6;
-  --bg-alt: #f0ece5;
-  --bg-dark: #1a1a1a;
-  --text-dark: #2c2c2c;
-  --text-medium: #555;
-  --text-light: #888;
-  --text-white: #fff;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
-  --radius: 12px;
-  --radius-lg: 16px;
-  --transition: 0.3s ease;
-  --header-height: 72px;
-}
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height);
-}
-
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 400;
-  color: var(--text-dark);
-  background: var(--bg-light);
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* ── Header ── */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: var(--header-height);
-  z-index: 1000;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: box-shadow var(--transition), background var(--transition);
-}
-
-.header.scrolled {
-  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-}
-
-.header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.logo-text .jp {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--primary-dark);
-}
-
-.logo-text .en {
-  font-size: 9px;
-  font-weight: 500;
-  color: var(--text-light);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.nav-desktop {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
-
-.nav-desktop a {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-medium);
-  transition: color var(--transition);
-  position: relative;
-}
-
-.nav-desktop a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: width var(--transition);
-}
-
-.nav-desktop a:hover {
-  color: var(--primary);
-}
-
-.nav-desktop a:hover::after {
-  width: 100%;
-}
-
-.nav-cta {
-  background: var(--primary) !important;
-  color: #fff !important;
-  padding: 8px 20px;
-  border-radius: 6px;
-  font-size: 13px !important;
-  transition: background var(--transition) !important;
-}
-
-.nav-cta:hover {
-  background: var(--primary-light) !important;
-}
-
-.nav-cta::after {
-  display: none !important;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 8px;
-  z-index: 1010;
-}
-
-.hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--text-dark);
-  border-radius: 2px;
-  transition: transform var(--transition), opacity var(--transition);
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-.nav-mobile {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(255,255,255,0.98);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  z-index: 1005;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition);
-}
-
-.nav-mobile.open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.nav-mobile a {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--text-dark);
-  padding: 8px 0;
-  transition: color var(--transition);
-}
-
-.nav-mobile a:hover {
-  color: var(--primary);
-}
-
-/* ── Hero ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 24px;
-  position: relative;
-  background-image: linear-gradient(rgba(15,52,80,0.82), rgba(27,77,110,0.88)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-.hero-content {
-  max-width: 720px;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 100px;
-  padding: 8px 20px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #fff;
-  margin-bottom: 28px;
-}
-
-.hero-badge i {
-  color: var(--accent-light);
-}
-
-.hero-title {
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.4;
-  margin-bottom: 12px;
-}
-
-.hero-title .accent-text {
-  color: var(--accent-light);
-}
-
-.hero-subtitle {
-  font-size: clamp(15px, 2.5vw, 20px);
-  font-weight: 300;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 16px;
-  letter-spacing: 3px;
-}
-
-.hero-description {
-  font-size: 15px;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.8;
-  margin-bottom: 36px;
-  max-width: 540px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-cta {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--transition);
-  border: none;
-  font-family: inherit;
-}
-
-.btn-accent {
-  background: var(--accent);
-  color: #fff;
-}
-
-.btn-accent:hover {
-  background: var(--accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(196,135,59,0.4);
-}
-
-.btn-outline-white {
-  background: transparent;
-  color: #fff;
-  border: 2px solid rgba(255,255,255,0.4);
-}
-
-.btn-outline-white:hover {
-  border-color: #fff;
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-2px);
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,0.5);
-  font-size: 11px;
-  letter-spacing: 2px;
-  animation: scrollBounce 2s ease-in-out infinite;
-}
-
-.scroll-indicator i {
-  font-size: 16px;
-}
-
-@keyframes scrollBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
-}
-
-/* ── Section Commons ── */
-.section {
-  padding: 80px 0;
-}
-
-.section-alt {
-  background: var(--bg-alt);
-}
-
-.section-dark {
-  background: var(--bg-dark);
-  color: #fff;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
-
-.section-label {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--primary);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.section-dark .section-label {
-  color: var(--accent-light);
-}
-
-.section-title {
-  font-size: clamp(24px, 3.5vw, 34px);
-  font-weight: 700;
-  color: var(--text-dark);
-  line-height: 1.4;
-  margin-bottom: 16px;
-}
-
-.section-dark .section-title {
-  color: #fff;
-}
-
-.section-divider {
-  width: 48px;
-  height: 3px;
-  background: var(--primary);
-  margin: 0 auto;
-  border-radius: 2px;
-}
-
-.section-dark .section-divider {
-  background: var(--accent);
-}
-
-/* ── Reasons (Features) ── */
-.reasons-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.reason-card {
-  background: #fff;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.reason-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-}
-
-.reason-card-image {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.reason-card-body {
-  padding: 28px 24px;
-  text-align: center;
-}
-
-.reason-icon {
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: -48px auto 16px;
-  position: relative;
-  color: #fff;
-  font-size: 20px;
-  box-shadow: 0 4px 16px rgba(27,77,110,0.3);
-}
-
-.reason-card h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--text-dark);
-}
-
-.reason-card p {
-  font-size: 14px;
-  color: var(--text-medium);
-  line-height: 1.8;
-}
-
-/* ── Services ── */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.service-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius);
-  padding: 32px 24px;
-  text-align: center;
-  transition: all var(--transition);
-}
-
-.service-card:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: var(--accent);
-  transform: translateY(-4px);
-}
-
-.service-icon {
-  width: 52px;
-  height: 52px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 18px;
-  color: #fff;
-  font-size: 20px;
-}
-
-.service-card h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.service-card p {
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.7;
-}
-
-/* ── Pricing ── */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.pricing-card {
-  background: #fff;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
-  text-align: center;
-}
-
-.pricing-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-}
-
-.pricing-card.featured {
-  border: 2px solid var(--accent);
-  position: relative;
-}
-
-.pricing-card.featured::before {
-  content: '人気';
-  position: absolute;
-  top: 16px;
-  right: -28px;
-  background: var(--accent);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 32px;
-  transform: rotate(45deg);
-}
-
-.pricing-header {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: #fff;
-  padding: 28px 24px;
-}
-
-.pricing-card.featured .pricing-header {
-  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-}
-
-.pricing-header h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.pricing-header .price {
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.pricing-header .price span {
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.pricing-header .price-note {
-  font-size: 12px;
-  opacity: 0.7;
-  margin-top: 4px;
-}
-
-.pricing-body {
-  padding: 28px 24px;
-}
-
-.pricing-body ul {
-  list-style: none;
-  text-align: left;
-}
-
-.pricing-body ul li {
-  font-size: 14px;
-  color: var(--text-medium);
-  padding: 8px 0;
-  border-bottom: 1px solid #f0f0f0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.pricing-body ul li:last-child {
-  border-bottom: none;
-}
-
-.pricing-body ul li i {
-  color: var(--primary);
-  font-size: 12px;
-  flex-shrink: 0;
-}
-
-.pricing-note {
-  text-align: center;
-  margin-top: 32px;
-  font-size: 13px;
-  color: var(--text-light);
-  line-height: 1.8;
-}
-
-/* ── About ── */
-.about-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-.about-image {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-}
-
-.about-image img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-
-.about-profile {
-  background: #fff;
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  box-shadow: var(--shadow-sm);
-}
-
-.about-profile h3 {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--primary-dark);
-  margin-bottom: 4px;
-}
-
-.about-profile .en-name {
-  font-size: 12px;
-  color: var(--text-light);
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-}
-
-.about-profile p {
-  font-size: 14px;
-  color: var(--text-medium);
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-.info-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.info-table tr {
-  border-bottom: 1px solid #eee;
-}
-
-.info-table tr:last-child {
-  border-bottom: none;
-}
-
-.info-table th {
-  text-align: left;
-  padding: 10px 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--primary);
-  width: 100px;
-  vertical-align: top;
-}
-
-.info-table td {
-  padding: 10px 0;
-  font-size: 13px;
-  color: var(--text-medium);
-}
-
-/* ── Access ── */
-.access-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: stretch;
-}
-
-.access-map {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  min-height: 360px;
-}
-
-.access-map iframe {
-  display: block;
-}
-
-.access-info {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.access-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.access-item-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--primary);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.access-item h4 {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 2px;
-}
-
-.access-item p {
-  font-size: 14px;
-  color: var(--text-medium);
-  line-height: 1.6;
-}
-
-.access-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: var(--radius);
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 4px;
-}
-
-/* ── Contact ── */
-.contact-section {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-  color: #fff;
-  text-align: center;
-  padding: 80px 0;
-}
-
-.contact-section .section-label {
-  color: var(--accent-light);
-}
-
-.contact-section .section-title {
-  color: #fff;
-}
-
-.contact-section .section-divider {
-  background: var(--accent);
-}
-
-.contact-description {
-  font-size: 15px;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 40px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contact-cards {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.contact-card {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: var(--radius-lg);
-  padding: 36px 40px;
-  min-width: 280px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all var(--transition);
-}
-
-.contact-card:hover {
-  background: rgba(255,255,255,0.15);
-  transform: translateY(-4px);
-}
-
-.contact-card i {
-  font-size: 28px;
-  color: var(--accent-light);
-  margin-bottom: 12px;
-}
-
-.contact-card h3 {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 8px;
-}
-
-.contact-card .contact-value {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.contact-card .contact-note {
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
-  margin-top: 6px;
-}
-
-/* ── Footer ── */
-.footer {
-  background: #111;
-  color: rgba(255,255,255,0.5);
-  padding: 48px 0 100px;
-  text-align: center;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-
-.footer-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 16px;
-}
-
-.footer-logo-text {
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.footer p {
-  font-size: 13px;
-  line-height: 1.8;
-  margin-bottom: 6px;
-}
-
-.footer-copy {
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  font-size: 12px;
-}
-
-/* ── Mobile CTA ── */
-.mobile-cta {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-  transform: translateY(100%);
-  transition: transform 0.4s ease;
-}
-
-.mobile-cta.visible {
-  transform: translateY(0);
-}
-
-.mobile-cta-inner {
-  display: flex;
-}
-
-.mobile-cta a {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 16px 0;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background var(--transition);
-}
-
-.mobile-cta a:first-child {
-  border-right: 1px solid rgba(255,255,255,0.2);
-}
-
-.mobile-cta a:hover {
-  background: rgba(0,0,0,0.1);
-}
-
-/* ── Animations ── */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
-.animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
-.animate-on-scroll:nth-child(4) { transition-delay: 0.25s; }
-.animate-on-scroll:nth-child(5) { transition-delay: 0.3s; }
-.animate-on-scroll:nth-child(6) { transition-delay: 0.35s; }
-
-/* ── Responsive ── */
-@media (max-width: 900px) {
-  .reasons-grid {
-    grid-template-columns: 1fr;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .pricing-grid {
-    grid-template-columns: 1fr;
-    max-width: 380px;
-    margin: 0 auto;
-  }
-
-  .about-wrapper,
-  .access-wrapper {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --header-height: 64px;
-  }
-
-  .nav-desktop {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-mobile {
-    display: flex;
-  }
-
-  .hero {
-    background-attachment: scroll;
-  }
-
-  .section {
-    padding: 60px 0;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-    max-width: 360px;
-    margin: 0 auto;
-  }
-
-  .contact-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-card {
-    width: 100%;
-    max-width: 340px;
-  }
-
-  .mobile-cta {
-    display: block;
-  }
-
-  .footer {
-    padding-bottom: 80px;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>早川行英税理士事務所 | 横浜市港北区菊名の税理士</title>
+    <meta name="description" content="横浜市港北区菊名の早川行英税理士事務所。地域密着30年以上の実績。個人事業主・中小企業の税務顧問、確定申告、記帳代行、会社設立支援、相続税対策。菊名駅徒歩圏内。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ============================================
+           CSS Custom Properties
+           ============================================ */
+        :root {
+            --color-primary: #1a3a5c;
+            --color-primary-dark: #0f2640;
+            --color-primary-light: #2a5a8c;
+            --color-accent: #c4933f;
+            --color-accent-light: #d4a960;
+            --color-accent-dark: #a67a2e;
+            --color-text: #333333;
+            --color-text-light: #666666;
+            --color-text-muted: #999999;
+            --color-white: #ffffff;
+            --color-bg: #f8f6f3;
+            --color-bg-light: #fdfcfa;
+            --color-bg-section: #f0ede8;
+            --color-border: #e0dbd4;
+            --color-border-light: #ece8e2;
+            --color-overlay: rgba(15, 38, 64, 0.75);
+            --color-shadow: rgba(26, 58, 92, 0.12);
+            --color-shadow-strong: rgba(26, 58, 92, 0.2);
+            --font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --header-height: 70px;
+            --section-padding: 80px;
+            --container-width: 1100px;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* ============================================
+           Reset & Base Styles
+           ============================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================
+           Scroll Animations
+           ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in-right.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Staggered animation delays for card grids */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+
+        /* ============================================
+           Section Title Component
+           ============================================ */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title .en {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+
+        .section-title .line {
+            display: inline-block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            margin-top: 16px;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================
+           Header / Fixed Navigation
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: box-shadow var(--transition-base);
+        }
+
+        .header.scrolled {
+            box-shadow: 0 2px 20px var(--color-shadow);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .header-logo a {
+            display: block;
+        }
+
+        .header-logo .name-jp {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            letter-spacing: 1px;
+        }
+
+        .header-logo .name-en {
+            font-size: 0.55rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header-nav {
+            display: none;
+        }
+
+        .header-nav ul {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .header-nav a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-text);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .header-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width var(--transition-base);
+        }
+
+        .header-nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .header-nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-nav a.active {
+            color: var(--color-primary);
+        }
+
+        .header-nav a.active::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            display: none;
+            align-items: center;
+        }
+
+        .header-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: background var(--transition-base), transform var(--transition-base);
+        }
+
+        .header-cta a:hover {
+            background: var(--color-accent-dark);
+            color: var(--color-white);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           Hamburger Button
+           ============================================ */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-primary);
+            border-radius: 2px;
+            transition: all var(--transition-base);
+        }
+
+        .hamburger span:nth-child(1) {
+            margin-bottom: 6px;
+        }
+
+        .hamburger span:nth-child(2) {
+            margin-bottom: 6px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        /* ============================================
+           Mobile Slide Menu
+           ============================================ */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--color-white);
+            z-index: 1050;
+            transition: right var(--transition-base);
+            padding: calc(var(--header-height) + 20px) 30px 40px;
+            overflow-y: auto;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .mobile-menu.open {
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1040;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-base), visibility var(--transition-base);
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu ul {
+            margin-bottom: 30px;
+        }
+
+        .mobile-menu li {
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 14px 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--color-accent);
+        }
+
+        .mobile-menu-contact {
+            background: var(--color-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .mobile-menu-contact .phone {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+
+        .mobile-menu-contact .phone i {
+            color: var(--color-accent);
+            margin-right: 6px;
+        }
+
+        .mobile-menu-contact .note {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        /* ============================================
+           Hero Section
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 24px;
+            background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1600&q=80') center center / cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(15, 38, 64, 0.82) 0%,
+                rgba(26, 58, 92, 0.72) 50%,
+                rgba(15, 38, 64, 0.88) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(196, 147, 63, 0.2);
+            border: 1px solid rgba(196, 147, 63, 0.4);
+            color: var(--color-accent-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            padding: 6px 20px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-white);
+            line-height: 1.5;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 .accent {
+            color: var(--color-accent-light);
+        }
+
+        .hero-sub {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 15px rgba(196, 147, 63, 0.4);
+            min-width: 220px;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            color: var(--color-white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(196, 147, 63, 0.5);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--color-white);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            min-width: 220px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.7);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll i {
+            display: block;
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        /* ============================================
+           Features / Strengths Section
+           ============================================ */
+        .features {
+            padding: var(--section-padding) 0;
+            background: var(--color-bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--color-shadow);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px var(--color-shadow-strong);
+        }
+
+        .feature-card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .feature-card:hover .feature-card-img img {
+            transform: scale(1.05);
+        }
+
+        .feature-card-number {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            width: 40px;
+            height: 40px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(196, 147, 63, 0.4);
+            z-index: 2;
+        }
+
+        .feature-card-body {
+            padding: 24px;
+        }
+
+        .feature-card-body h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card-body h3 i {
+            color: var(--color-accent);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .feature-card-body p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           Services Section
+           ============================================ */
+        .services {
+            padding: var(--section-padding) 0;
+            background: var(--color-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: 0 3px 15px var(--color-shadow);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+            transform-origin: left;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px var(--color-shadow-strong);
+        }
+
+        .service-card-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            transition: transform var(--transition-base);
+        }
+
+        .service-card:hover .service-card-icon {
+            transform: scale(1.08) rotate(3deg);
+        }
+
+        .service-card-icon i {
+            font-size: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .service-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           Pricing Section
+           ============================================ */
+        .pricing {
+            padding: var(--section-padding) 0;
+            background: var(--color-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(196, 147, 63, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .pricing::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .pricing .section-title .en {
+            color: var(--color-accent-light);
+        }
+
+        .pricing .section-title h2 {
+            color: var(--color-white);
+        }
+
+        .pricing .section-title p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .pricing-table {
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-row {
+            display: flex;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--color-border-light);
+            transition: background var(--transition-base);
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-row:hover {
+            background: var(--color-bg);
+        }
+
+        .pricing-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 16px;
+        }
+
+        .pricing-icon i {
+            color: var(--color-white);
+            font-size: 1rem;
+        }
+
+        .pricing-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .pricing-info .name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .pricing-info .desc {
+            font-size: 0.78rem;
+            color: var(--color-text-muted);
+            margin-top: 2px;
+        }
+
+        .pricing-amount {
+            text-align: right;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .pricing-amount .price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-accent-dark);
+        }
+
+        .pricing-amount .unit {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            display: block;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.82rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-note i {
+            margin-right: 4px;
+            color: var(--color-accent-light);
+        }
+
+        .pricing-cta {
+            text-align: center;
+            margin-top: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           Message / Greeting Section
+           ============================================ */
+        .message {
+            padding: var(--section-padding) 0;
+            background: var(--color-bg-section);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message::before {
+            content: '\201C';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8rem;
+            color: rgba(196, 147, 63, 0.08);
+            font-family: Georgia, serif;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .message-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-content .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .message-content .icon i {
+            font-size: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .message-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .message-content p {
+            font-size: 0.92rem;
+            color: var(--color-text-light);
+            line-height: 2;
+            margin-bottom: 16px;
+        }
+
+        .message-content .signature {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-top: 24px;
+        }
+
+        .message-content .signature span {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+        }
+
+        /* ============================================
+           Office Overview Section
+           ============================================ */
+        .office {
+            padding: var(--section-padding) 0;
+            background: var(--color-bg-light);
+        }
+
+        .office-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .office-image {
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 5px 25px var(--color-shadow);
+            height: 260px;
+            position: relative;
+        }
+
+        .office-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .office-image-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(26, 58, 92, 0.85);
+            color: var(--color-white);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+        }
+
+        .office-info-table {
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 3px 15px var(--color-shadow);
+        }
+
+        .office-info-row {
+            display: flex;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .office-info-row:last-child {
+            border-bottom: none;
+        }
+
+        .office-info-label {
+            width: 110px;
+            flex-shrink: 0;
+            padding: 14px 16px;
+            background: var(--color-bg);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .office-info-label i {
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .office-info-value {
+            flex: 1;
+            padding: 14px 16px;
+            font-size: 0.88rem;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+        }
+
+        .office-info-value a {
+            color: var(--color-primary-light);
+            font-weight: 500;
+        }
+
+        .office-info-value a:hover {
+            color: var(--color-accent);
+        }
+
+        /* ============================================
+           Access / Map Section
+           ============================================ */
+        .access {
+            padding: var(--section-padding) 0;
+            background: var(--color-bg);
+        }
+
+        .access-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .access-map {
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 5px 25px var(--color-shadow);
+            height: 300px;
+        }
+
+        .access-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .access-details {
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            padding: 30px 24px;
+            box-shadow: 0 3px 15px var(--color-shadow);
+        }
+
+        .access-details h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .access-details h3 i {
+            color: var(--color-accent);
+        }
+
+        .access-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .access-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .access-item-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--color-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .access-item-icon i {
+            color: var(--color-primary);
+            font-size: 0.9rem;
+        }
+
+        .access-item-text .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .access-item-text .value {
+            font-size: 0.9rem;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .access-item-text .value a {
+            color: var(--color-primary-light);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           Contact CTA Section
+           ============================================ */
+        .contact-cta {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-cta::before {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(196, 147, 63, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-cta::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-cta-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .contact-cta .lead {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.9rem;
+            margin-bottom: 36px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .contact-cta-cards {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-cta-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius-lg);
+            padding: 20px 32px;
+            transition: background var(--transition-base);
+            width: 100%;
+            max-width: 360px;
+            justify-content: center;
+        }
+
+        .contact-cta-phone:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-cta-phone .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-cta-phone .icon i {
+            color: var(--color-white);
+            font-size: 1.2rem;
+        }
+
+        .contact-cta-phone .info {
+            text-align: left;
+        }
+
+        .contact-cta-phone .info .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-white);
+            letter-spacing: 1px;
+        }
+
+        .contact-cta-phone .info .hours {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .contact-cta-web {
+            display: block;
+        }
+
+        .contact-cta-web a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(196, 147, 63, 0.3);
+            padding-bottom: 2px;
+            transition: border-color var(--transition-base);
+        }
+
+        .contact-cta-web a:hover {
+            color: var(--color-accent-light);
+            border-color: var(--color-accent-light);
+        }
+
+        /* ============================================
+           Footer
+           ============================================ */
+        .footer {
+            background: var(--color-primary-dark);
+            padding: 50px 0 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand .name-jp {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 4px;
+        }
+
+        .footer-brand .name-en {
+            font-size: 0.65rem;
+            color: var(--color-accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .footer-brand p {
+            font-size: 0.82rem;
+            line-height: 1.8;
+        }
+
+        .footer-nav h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 14px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-nav h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: var(--color-accent);
+            border-radius: 1px;
+        }
+
+        .footer-nav ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-nav a {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .footer-nav a::before {
+            content: '\203A';
+            font-size: 1rem;
+            opacity: 0.5;
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-accent-light);
+        }
+
+        .footer-contact-info h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 14px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-contact-info h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: var(--color-accent);
+            border-radius: 1px;
+        }
+
+        .footer-contact-info .item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.82rem;
+        }
+
+        .footer-contact-info .item i {
+            color: var(--color-accent);
+            width: 16px;
+            text-align: center;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-info .item a {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-contact-info .item a:hover {
+            color: var(--color-accent-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ============================================
+           Mobile CTA Bar (Fixed Bottom)
+           ============================================ */
+        .mobile-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--color-white);
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 900;
+            display: flex;
+            padding: 8px 12px;
+            gap: 8px;
+            padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+        }
+
+        .mobile-cta-bar a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 8px;
+            border-radius: var(--border-radius);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .mobile-cta-bar .cta-phone {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .mobile-cta-bar .cta-phone:hover {
+            background: var(--color-primary-dark);
+            color: var(--color-white);
+        }
+
+        .mobile-cta-bar .cta-web {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .mobile-cta-bar .cta-web:hover {
+            background: var(--color-accent-dark);
+            color: var(--color-white);
+        }
+
+        /* ============================================
+           Responsive Breakpoints - Tablet (768px+)
+           ============================================ */
+        @media (min-width: 768px) {
+            :root {
+                --section-padding: 100px;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-sub {
+                font-size: 1.05rem;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .office-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+            }
+
+            .office-image {
+                height: 100%;
+                min-height: 360px;
+            }
+
+            .access-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+            }
+
+            .access-map {
+                height: 100%;
+                min-height: 360px;
+            }
+
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 40px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .contact-cta h2 {
+                font-size: 1.75rem;
+            }
+
+            .contact-cta-cards {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .pricing-row {
+                padding: 22px 30px;
+            }
+
+            .message-content h2 {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* ============================================
+           Responsive Breakpoints - Desktop (1024px+)
+           ============================================ */
+        @media (min-width: 1024px) {
+            .hamburger {
+                display: none;
+            }
+
+            .header-nav {
+                display: block;
+            }
+
+            .header-cta {
+                display: flex;
+            }
+
+            .mobile-cta-bar {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .contact-cta h2 {
+                font-size: 2rem;
+            }
+
+            .contact-cta-phone .info .number {
+                font-size: 1.8rem;
+            }
+
+            .message-content h2 {
+                font-size: 2rem;
+            }
+
+            .feature-card-img {
+                height: 220px;
+            }
+        }
+
+        /* ============================================
+           Safe area for mobile CTA bar
+           ============================================ */
+        @media (max-width: 1023px) {
+            .footer {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* ============================================
+           Utility Classes
+           ============================================ */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
 </head>
 <body>
-
-<!-- Header -->
-<header class="header" id="header">
-  <div class="header-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon"><i class="fas fa-balance-scale"></i></div>
-      <div class="logo-text">
-        <span class="jp">早川行英税理士事務所</span>
-        <span class="en">HAYAKAWA TAX ACCOUNTANT OFFICE</span>
-      </div>
-    </a>
-    <nav class="nav-desktop">
-      <a href="#reasons">選ばれる理由</a>
-      <a href="#services">サービス</a>
-      <a href="#pricing">料金目安</a>
-      <a href="#about">事務所概要</a>
-      <a href="#access">アクセス</a>
-      <a href="#contact" class="nav-cta"><i class="fas fa-envelope"></i> お問い合わせ</a>
-    </nav>
-    <button class="hamburger" id="hamburger" aria-label="メニュー">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
-
-<!-- Mobile Nav -->
-<nav class="nav-mobile" id="navMobile">
-  <a href="#reasons" class="mobile-nav-link">選ばれる理由</a>
-  <a href="#services" class="mobile-nav-link">サービス</a>
-  <a href="#pricing" class="mobile-nav-link">料金目安</a>
-  <a href="#about" class="mobile-nav-link">事務所概要</a>
-  <a href="#access" class="mobile-nav-link">アクセス</a>
-  <a href="#contact" class="mobile-nav-link">お問い合わせ</a>
-</nav>
-
-<!-- Hero -->
-<section class="hero" id="hero">
-  <div class="hero-content">
-    <div class="hero-badge">
-      <i class="fas fa-train"></i>
-      菊名駅より徒歩約5分
-    </div>
-    <h1 class="hero-title">
-      地域に寄り添う<br><span class="accent-text">税務のパートナー</span>
-    </h1>
-    <p class="hero-subtitle">早川行英税理士事務所</p>
-    <p class="hero-description">
-      横浜市港北区菊名で、個人事業主から中小企業まで<br>
-      丁寧で確かな税務サポートを提供しております。<br>
-      お気軽にご相談ください。
-    </p>
-    <div class="hero-cta">
-      <a href="tel:045-431-7992" class="btn btn-accent">
-        <i class="fas fa-phone"></i> 045-431-7992
-      </a>
-      <a href="#contact" class="btn btn-outline-white">
-        <i class="fas fa-envelope"></i> お問い合わせ
-      </a>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <span>SCROLL</span>
-    <i class="fas fa-chevron-down"></i>
-  </div>
-</section>
-
-<!-- Reasons -->
-<section class="section section-alt" id="reasons">
-  <div class="container">
-    <div class="section-header animate-on-scroll">
-      <span class="section-label">Our Strengths</span>
-      <h2 class="section-title">早川行英税理士事務所が選ばれる理由</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="reasons-grid">
-      <div class="reason-card animate-on-scroll">
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80" alt="丁寧なヒアリング" class="reason-card-image" loading="lazy">
-        <div class="reason-card-body">
-          <div class="reason-icon"><i class="fas fa-comments"></i></div>
-          <h3>丁寧なヒアリング</h3>
-          <p>お客さま一人ひとりの事業内容や経営状況をしっかりとお聞きし、最適な税務プランをご提案。「何を相談していいかわからない」という方も安心してお越しください。</p>
+    <!-- ==========================================
+         Header
+         ========================================== -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <div class="header-logo">
+                <a href="#hero">
+                    <span class="name-jp">早川行英税理士事務所</span>
+                    <span class="name-en">HAYAKAWA TAX ACCOUNTANT OFFICE</span>
+                </a>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="#features">選ばれる理由</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#pricing">料金案内</a></li>
+                    <li><a href="#office">事務所概要</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="tel:045-431-7992"><i class="fas fa-phone-alt"></i> 045-431-7992</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-      </div>
-      <div class="reason-card animate-on-scroll">
-        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=400&q=80" alt="地域密着" class="reason-card-image" loading="lazy">
-        <div class="reason-card-body">
-          <div class="reason-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <h3>地域密着30年以上</h3>
-          <p>横浜市港北区を中心に30年以上にわたり地域の皆さまをサポート。地域経済の特性を熟知した的確なアドバイスで、お客さまの事業発展に貢献いたします。</p>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <!-- Mobile Slide Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#features">選ばれる理由</a></li>
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#pricing">料金案内</a></li>
+            <li><a href="#office">事務所概要</a></li>
+            <li><a href="#access">アクセス</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+        <div class="mobile-menu-contact">
+            <a href="tel:045-431-7992" class="phone">
+                <i class="fas fa-phone-alt"></i> 045-431-7992
+            </a>
+            <span class="note">受付時間 9:00〜17:00（土日祝休）</span>
         </div>
-      </div>
-      <div class="reason-card animate-on-scroll">
-        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&q=80" alt="ワンストップ" class="reason-card-image" loading="lazy">
-        <div class="reason-card-body">
-          <div class="reason-icon"><i class="fas fa-handshake"></i></div>
-          <h3>ワンストップ対応</h3>
-          <p>確定申告・法人税務から相続税対策まで、税務に関するあらゆるご相談にワンストップで対応。弁護士・司法書士等の専門家とも連携し、複合的な課題も解決します。</p>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
 
-<!-- Services -->
-<section class="section section-dark" id="services">
-  <div class="container">
-    <div class="section-header animate-on-scroll">
-      <span class="section-label">Services</span>
-      <h2 class="section-title">サービス内容</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="services-grid">
-      <div class="service-card animate-on-scroll">
-        <div class="service-icon"><i class="fas fa-handshake"></i></div>
-        <h3>税務顧問</h3>
-        <p>月次訪問で経営状況を把握し、節税対策や経営改善のアドバイスを継続的にご提供。決算対策もお任せください。</p>
-      </div>
-      <div class="service-card animate-on-scroll">
-        <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-        <h3>確定申告・記帳代行</h3>
-        <p>個人事業主・フリーランスの確定申告を正確かつ迅速に対応。日々の記帳業務もまとめてサポートいたします。</p>
-      </div>
-      <div class="service-card animate-on-scroll">
-        <div class="service-icon"><i class="fas fa-building"></i></div>
-        <h3>法人設立支援</h3>
-        <p>会社設立に伴う届出・手続きから、設立後の税務顧問まで一貫してサポート。最適な法人形態をご提案します。</p>
-      </div>
-      <div class="service-card animate-on-scroll">
-        <div class="service-icon"><i class="fas fa-landmark"></i></div>
-        <h3>相続税・贈与税</h3>
-        <p>生前対策から相続税申告まで、円滑な資産承継をトータルでお手伝い。遺産分割のご相談にも対応いたします。</p>
-      </div>
-      <div class="service-card animate-on-scroll">
-        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>経営コンサルティング</h3>
-        <p>財務分析に基づく経営改善提案や事業計画の策定を支援。金融機関への融資相談もお手伝いいたします。</p>
-      </div>
-      <div class="service-card animate-on-scroll">
-        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-        <h3>クラウド会計導入</h3>
-        <p>freee・弥生会計など各種クラウド会計ソフトの導入から運用サポートまで。業務効率化をお手伝いします。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Pricing -->
-<section class="section" id="pricing">
-  <div class="container">
-    <div class="section-header animate-on-scroll">
-      <span class="section-label">Price</span>
-      <h2 class="section-title">料金目安</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card animate-on-scroll">
-        <div class="pricing-header">
-          <h3>個人事業主</h3>
-          <div class="price">15,000<span>円〜/月</span></div>
-          <p class="price-note">年商500万円未満の場合</p>
+    <!-- ==========================================
+         Hero Section
+         ========================================== -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">菊名駅 地域密着の税務パートナー</div>
+            <h1>
+                個人事業主・中小企業の<br>
+                <span class="accent">力強い税務パートナー</span>
+            </h1>
+            <p class="hero-sub">
+                横浜市港北区菊名で30年以上。<br>
+                地域に根ざした親身な対応で、<br>
+                あなたの事業と暮らしを支えます。
+            </p>
+            <div class="hero-buttons">
+                <a href="tel:045-431-7992" class="btn-primary">
+                    <i class="fas fa-phone-alt"></i> 無料相談はこちら
+                </a>
+                <a href="#services" class="btn-outline">
+                    <i class="fas fa-arrow-down"></i> サービスを見る
+                </a>
+            </div>
         </div>
-        <div class="pricing-body">
-          <ul>
-            <li><i class="fas fa-check"></i> 記帳代行</li>
-            <li><i class="fas fa-check"></i> 確定申告書作成</li>
-            <li><i class="fas fa-check"></i> 税務相談（随時）</li>
-            <li><i class="fas fa-check"></i> 年末調整</li>
-            <li><i class="fas fa-check"></i> 消費税申告</li>
-          </ul>
+        <div class="hero-scroll">
+            SCROLL
+            <i class="fas fa-chevron-down"></i>
         </div>
-      </div>
-      <div class="pricing-card featured animate-on-scroll">
-        <div class="pricing-header">
-          <h3>法人（小規模）</h3>
-          <div class="price">30,000<span>円〜/月</span></div>
-          <p class="price-note">年商3,000万円未満の場合</p>
+    </section>
+
+    <!-- ==========================================
+         Features / Strengths Section
+         ========================================== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title fade-in">
+                <span class="en">Our Strengths</span>
+                <h2>選ばれる3つの理由</h2>
+                <span class="line"></span>
+                <p>早川行英税理士事務所が地域の皆さまから選ばれ続ける理由をご紹介します。</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature Card 1 -->
+                <div class="feature-card fade-in delay-1">
+                    <div class="feature-card-img">
+                        <div class="feature-card-number">01</div>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="地域密着30年以上の実績" loading="lazy">
+                    </div>
+                    <div class="feature-card-body">
+                        <h3><i class="fas fa-building"></i> 地域密着30年以上の実績</h3>
+                        <p>横浜市港北区菊名に事務所を構え、30年以上にわたり地域の個人事業主・中小企業を支援してまいりました。地域の事情を熟知した税務アドバイスが強みです。</p>
+                    </div>
+                </div>
+                <!-- Feature Card 2 -->
+                <div class="feature-card fade-in delay-2">
+                    <div class="feature-card-img">
+                        <div class="feature-card-number">02</div>
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="個人事業主・中小企業に特化" loading="lazy">
+                    </div>
+                    <div class="feature-card-body">
+                        <h3><i class="fas fa-handshake"></i> 個人事業主・中小企業に特化</h3>
+                        <p>個人事業主や中小企業のお客さまに特化したサービスを提供。事業規模に合わせた柔軟な料金体系と、きめ細やかなサポートをお約束します。</p>
+                    </div>
+                </div>
+                <!-- Feature Card 3 -->
+                <div class="feature-card fade-in delay-3">
+                    <div class="feature-card-img">
+                        <div class="feature-card-number">03</div>
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="親身な対応・わかりやすい説明" loading="lazy">
+                    </div>
+                    <div class="feature-card-body">
+                        <h3><i class="fas fa-comments"></i> 親身な対応・わかりやすい説明</h3>
+                        <p>専門用語をかみくだき、わかりやすい言葉で丁寧にご説明します。「気軽に相談できる」と多くのお客さまからご好評をいただいています。</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="pricing-body">
-          <ul>
-            <li><i class="fas fa-check"></i> 月次訪問・巡回監査</li>
-            <li><i class="fas fa-check"></i> 記帳代行・指導</li>
-            <li><i class="fas fa-check"></i> 法人税申告書作成</li>
-            <li><i class="fas fa-check"></i> 決算対策・節税提案</li>
-            <li><i class="fas fa-check"></i> 税務調査対応</li>
-            <li><i class="fas fa-check"></i> 各種届出書作成</li>
-          </ul>
+    </section>
+
+    <!-- ==========================================
+         Services Section
+         ========================================== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <span class="en">Services</span>
+                <h2>サービス内容</h2>
+                <span class="line"></span>
+                <p>税務に関するあらゆるお悩みに、経験豊富なスタッフが対応いたします。</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1: 税務顧問 -->
+                <div class="service-card fade-in delay-1">
+                    <div class="service-card-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>税務顧問</h3>
+                    <p>月次での経営状況の確認から税務相談まで、顧問税理士として事業の成長をサポートします。定期的な面談で経営課題を共有し、最適な税務戦略をご提案します。</p>
+                </div>
+                <!-- Service 2: 確定申告 -->
+                <div class="service-card fade-in delay-2">
+                    <div class="service-card-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>確定申告</h3>
+                    <p>個人事業主の所得税確定申告から法人の決算申告まで、正確かつ迅速に対応いたします。節税ポイントもしっかりアドバイスいたします。</p>
+                </div>
+                <!-- Service 3: 記帳代行 -->
+                <div class="service-card fade-in delay-3">
+                    <div class="service-card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>記帳代行</h3>
+                    <p>日々の記帳業務を代行し、本業に集中できる環境を整えます。領収書の整理から帳簿作成まで、煩雑な経理業務をまるごとお任せいただけます。</p>
+                </div>
+                <!-- Service 4: 会社設立支援 -->
+                <div class="service-card fade-in delay-4">
+                    <div class="service-card-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>会社設立支援</h3>
+                    <p>独立・起業をお考えの方をトータルサポート。会社設立の手続きから設立後の届出、事業計画の策定まで、ワンストップで対応いたします。</p>
+                </div>
+                <!-- Service 5: 相続・贈与税 -->
+                <div class="service-card fade-in delay-5">
+                    <div class="service-card-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>相続・贈与税</h3>
+                    <p>相続税申告、生前贈与の対策、事業承継のご相談など、大切な資産を次世代に引き継ぐための最適なプランをご提案いたします。</p>
+                </div>
+                <!-- Service 6: 経営相談 -->
+                <div class="service-card fade-in delay-6">
+                    <div class="service-card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>経営相談</h3>
+                    <p>資金繰りの改善、事業計画の見直し、融資のご相談など、経営全般のお悩みにお応えします。数字に基づいた的確なアドバイスを行います。</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="pricing-card animate-on-scroll">
-        <div class="pricing-header">
-          <h3>法人（中規模）</h3>
-          <div class="price">50,000<span>円〜/月</span></div>
-          <p class="price-note">年商1億円未満の場合</p>
+    </section>
+
+    <!-- ==========================================
+         Pricing Guide Section
+         ========================================== -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title fade-in">
+                <span class="en">Pricing Guide</span>
+                <h2>料金のご案内</h2>
+                <span class="line"></span>
+                <p>明瞭な料金体系で安心してご依頼いただけます。まずはお気軽にご相談ください。</p>
+            </div>
+            <div class="pricing-table scale-in">
+                <!-- Pricing Row 1 -->
+                <div class="pricing-row">
+                    <div class="pricing-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="pricing-info">
+                        <div class="name">個人事業主 税務顧問</div>
+                        <div class="desc">月次面談・税務相談・確定申告含む</div>
+                    </div>
+                    <div class="pricing-amount">
+                        <span class="price">15,000円〜</span>
+                        <span class="unit">月額（税別）</span>
+                    </div>
+                </div>
+                <!-- Pricing Row 2 -->
+                <div class="pricing-row">
+                    <div class="pricing-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="pricing-info">
+                        <div class="name">法人 税務顧問</div>
+                        <div class="desc">月次面談・税務相談・決算申告含む</div>
+                    </div>
+                    <div class="pricing-amount">
+                        <span class="price">25,000円〜</span>
+                        <span class="unit">月額（税別）</span>
+                    </div>
+                </div>
+                <!-- Pricing Row 3 -->
+                <div class="pricing-row">
+                    <div class="pricing-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="pricing-info">
+                        <div class="name">確定申告</div>
+                        <div class="desc">個人事業主の所得税確定申告</div>
+                    </div>
+                    <div class="pricing-amount">
+                        <span class="price">50,000円〜</span>
+                        <span class="unit">年額（税別）</span>
+                    </div>
+                </div>
+                <!-- Pricing Row 4 -->
+                <div class="pricing-row">
+                    <div class="pricing-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="pricing-info">
+                        <div class="name">記帳代行</div>
+                        <div class="desc">月次の帳簿作成・仕訳入力</div>
+                    </div>
+                    <div class="pricing-amount">
+                        <span class="price">8,000円〜</span>
+                        <span class="unit">月額（税別）</span>
+                    </div>
+                </div>
+            </div>
+            <p class="pricing-note fade-in">
+                <i class="fas fa-info-circle"></i> 上記は目安料金です。事業規模やご依頼内容により異なります。詳しくはお問い合わせください。
+            </p>
+            <div class="pricing-cta fade-in">
+                <a href="tel:045-431-7992" class="btn-primary">
+                    <i class="fas fa-phone-alt"></i> お見積りのご相談
+                </a>
+            </div>
         </div>
-        <div class="pricing-body">
-          <ul>
-            <li><i class="fas fa-check"></i> 月次訪問・巡回監査</li>
-            <li><i class="fas fa-check"></i> 記帳代行・指導</li>
-            <li><i class="fas fa-check"></i> 法人税申告書作成</li>
-            <li><i class="fas fa-check"></i> 経営計画策定支援</li>
-            <li><i class="fas fa-check"></i> 資金繰り・融資相談</li>
-            <li><i class="fas fa-check"></i> 税務調査対応</li>
-          </ul>
+    </section>
+
+    <!-- ==========================================
+         Message / Greeting Section
+         ========================================== -->
+    <section class="message" id="message">
+        <div class="container">
+            <div class="message-content fade-in">
+                <div class="icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <h2>お客さまの事業と暮らしに<br>寄り添うパートナーとして</h2>
+                <p>
+                    早川行英税理士事務所は、横浜市港北区菊名で開業以来、地域の個人事業主・中小企業の皆さまの税務パートナーとして歩んでまいりました。
+                </p>
+                <p>
+                    税務は難しい、とっつきにくいと感じていらっしゃる方も多いかもしれません。私たちは、お客さまの目線に立ち、わかりやすい言葉で丁寧にご説明することを大切にしています。「こんなこと聞いていいのかな」と思うような小さなことでも、どうぞお気軽にご相談ください。
+                </p>
+                <p>
+                    事業の発展、ご家族の暮らしの安心のために、税務の専門家として全力でサポートいたします。
+                </p>
+                <div class="signature">
+                    早川行英税理士事務所<br>
+                    <span>税理士 早川 行英</span>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- ==========================================
+         Office Overview Section
+         ========================================== -->
+    <section class="office" id="office">
+        <div class="container">
+            <div class="section-title fade-in">
+                <span class="en">Office</span>
+                <h2>事務所概要</h2>
+                <span class="line"></span>
+            </div>
+            <div class="office-content">
+                <div class="office-image fade-in-left">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="早川行英税理士事務所 外観" loading="lazy">
+                    <div class="office-image-label"><i class="fas fa-building"></i> 事務所イメージ</div>
+                </div>
+                <div class="office-info-table fade-in-right">
+                    <div class="office-info-row">
+                        <div class="office-info-label"><i class="fas fa-landmark"></i> 事務所名</div>
+                        <div class="office-info-value">早川行英税理士事務所</div>
+                    </div>
+                    <div class="office-info-row">
+                        <div class="office-info-label"><i class="fas fa-globe"></i> 英語名</div>
+                        <div class="office-info-value">HAYAKAWA TAX ACCOUNTANT OFFICE</div>
+                    </div>
+                    <div class="office-info-row">
+                        <div class="office-info-label"><i class="fas fa-user"></i> 代表者</div>
+                        <div class="office-info-value">早川 行英</div>
+                    </div>
+                    <div class="office-info-row">
+                        <div class="office-info-label"><i class="fas fa-map-marker-alt"></i> 所在地</div>
+                        <div class="office-info-value">神奈川県横浜市港北区菊名6-3-22</div>
+                    </div>
+                    <div class="office-info-row">
+                        <div class="office-info-label"><i class="fas fa-phone-alt"></i> 電話番号</div>
+                        <div class="office-info-value"><a href="tel:045-431-7992">045-431-7992</a></div>
+                    </div>
+                    <div class="office-info-row">
+                        <div class="office-info-label"><i class="fas fa-globe"></i> Webサイト</div>
+                        <div class="office-info-value"><a href="http://www.a-hayakawa.com/" target="_blank" rel="noopener noreferrer">www.a-hayakawa.com</a></div>
+                    </div>
+                    <div class="office-info-row">
+                        <div class="office-info-label"><i class="fas fa-clock"></i> 営業時間</div>
+                        <div class="office-info-value">9:00〜17:00</div>
+                    </div>
+                    <div class="office-info-row">
+                        <div class="office-info-label"><i class="fas fa-calendar-times"></i> 定休日</div>
+                        <div class="office-info-value">土曜・日曜・祝日</div>
+                    </div>
+                    <div class="office-info-row">
+                        <div class="office-info-label"><i class="fas fa-train"></i> 最寄駅</div>
+                        <div class="office-info-value">東急東横線・JR横浜線 菊名駅</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         Access / Map Section
+         ========================================== -->
+    <section class="access" id="access">
+        <div class="container">
+            <div class="section-title fade-in">
+                <span class="en">Access</span>
+                <h2>アクセス</h2>
+                <span class="line"></span>
+            </div>
+            <div class="access-content">
+                <div class="access-map fade-in-left">
+                    <iframe
+                        src="https://maps.google.com/maps?q=神奈川県横浜市港北区菊名6-3-22&output=embed&z=16"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="早川行英税理士事務所 地図">
+                    </iframe>
+                </div>
+                <div class="access-details fade-in-right">
+                    <h3><i class="fas fa-route"></i> アクセス情報</h3>
+                    <div class="access-item">
+                        <div class="access-item-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="access-item-text">
+                            <div class="label">住所</div>
+                            <div class="value">〒222-0011<br>神奈川県横浜市港北区菊名6-3-22</div>
+                        </div>
+                    </div>
+                    <div class="access-item">
+                        <div class="access-item-icon">
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <div class="access-item-text">
+                            <div class="label">電車でお越しの方</div>
+                            <div class="value">東急東横線・JR横浜線「菊名駅」より徒歩圏内。渋谷方面・横浜方面からのアクセスも便利です。</div>
+                        </div>
+                    </div>
+                    <div class="access-item">
+                        <div class="access-item-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="access-item-text">
+                            <div class="label">お車でお越しの方</div>
+                            <div class="value">近隣にコインパーキングがございます。お車でのご来所も歓迎いたします。</div>
+                        </div>
+                    </div>
+                    <div class="access-item">
+                        <div class="access-item-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="access-item-text">
+                            <div class="label">お電話</div>
+                            <div class="value"><a href="tel:045-431-7992">045-431-7992</a><br>受付時間 9:00〜17:00（土日祝休）</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         Contact CTA Section
+         ========================================== -->
+    <section class="contact-cta" id="contact">
+        <div class="container">
+            <div class="contact-cta-inner fade-in">
+                <h2>まずはお気軽にご相談ください</h2>
+                <p class="lead">
+                    税務のこと、経営のこと、お一人で悩まずに。<br>
+                    初回のご相談は無料で承っております。
+                </p>
+                <div class="contact-cta-cards">
+                    <a href="tel:045-431-7992" class="contact-cta-phone">
+                        <div class="icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info">
+                            <div class="number">045-431-7992</div>
+                            <div class="hours">受付時間 9:00〜17:00（土日祝休）</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="contact-cta-web">
+                    <a href="http://www.a-hayakawa.com/" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> Webサイトはこちら
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         Footer
+         ========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="name-jp">早川行英税理士事務所</div>
+                    <div class="name-en">HAYAKAWA TAX ACCOUNTANT OFFICE</div>
+                    <p>
+                        横浜市港北区菊名で30年以上の実績。<br>
+                        個人事業主・中小企業の税務を<br>
+                        親身にサポートいたします。
+                    </p>
+                </div>
+                <div class="footer-nav">
+                    <h4>メニュー</h4>
+                    <ul>
+                        <li><a href="#features">選ばれる理由</a></li>
+                        <li><a href="#services">サービス</a></li>
+                        <li><a href="#pricing">料金案内</a></li>
+                        <li><a href="#office">事務所概要</a></li>
+                        <li><a href="#access">アクセス</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-info">
+                    <h4>お問い合わせ</h4>
+                    <div class="item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>神奈川県横浜市港北区<br>菊名6-3-22</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span><a href="tel:045-431-7992">045-431-7992</a></span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-clock"></i>
+                        <span>9:00〜17:00（土日祝休）</span>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-globe"></i>
+                        <span><a href="http://www.a-hayakawa.com/" target="_blank" rel="noopener noreferrer">www.a-hayakawa.com</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 早川行英税理士事務所 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         Mobile CTA Bar (Fixed Bottom)
+         ========================================== -->
+    <div class="mobile-cta-bar" id="mobile-cta-bar">
+        <a href="tel:045-431-7992" class="cta-phone">
+            <i class="fas fa-phone-alt"></i> 電話相談
+        </a>
+        <a href="http://www.a-hayakawa.com/" target="_blank" rel="noopener noreferrer" class="cta-web">
+            <i class="fas fa-globe"></i> Webサイト
+        </a>
     </div>
-    <p class="pricing-note animate-on-scroll">
-      ※上記は目安の料金です。お客さまの事業規模・内容により異なりますので、詳しくはお気軽にお問い合わせください。<br>
-      ※相続税申告は別途お見積りとなります。初回ご相談は無料です。
-    </p>
-  </div>
-</section>
 
-<!-- About -->
-<section class="section section-alt" id="about">
-  <div class="container">
-    <div class="section-header animate-on-scroll">
-      <span class="section-label">About Us</span>
-      <h2 class="section-title">事務所概要</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="about-wrapper">
-      <div class="about-image animate-on-scroll">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="事務所イメージ" loading="lazy">
-      </div>
-      <div class="about-profile animate-on-scroll">
-        <h3>早川行英税理士事務所</h3>
-        <p class="en-name">HAYAKAWA TAX ACCOUNTANT OFFICE</p>
-        <p>
-          横浜市港北区菊名を拠点に、地域の個人事業主・中小企業の皆さまに寄り添った税務サービスを提供しております。
-          「お客さまの事業の成長をともに喜べる税理士」を目指し、
-          確かな知識と丁寧な対応で、税務・会計のあらゆるお悩みにお応えいたします。
-        </p>
-        <table class="info-table">
-          <tr>
-            <th>事務所名</th>
-            <td>早川行英税理士事務所</td>
-          </tr>
-          <tr>
-            <th>代表</th>
-            <td>早川 行英（税理士）</td>
-          </tr>
-          <tr>
-            <th>所在地</th>
-            <td>神奈川県横浜市港北区菊名6-3-22</td>
-          </tr>
-          <tr>
-            <th>電話</th>
-            <td><a href="tel:045-431-7992" style="color:var(--primary);font-weight:500;">045-431-7992</a></td>
-          </tr>
-          <tr>
-            <th>アクセス</th>
-            <td>東急東横線・JR横浜線「菊名駅」より徒歩約5分</td>
-          </tr>
-          <tr>
-            <th>Web</th>
-            <td><a href="http://www.a-hayakawa.com/" target="_blank" rel="noopener" style="color:var(--primary);font-weight:500;">www.a-hayakawa.com</a></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- ==========================================
+         JavaScript - Interactions & Animations
+         ========================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
 
-<!-- Access -->
-<section class="section" id="access">
-  <div class="container">
-    <div class="section-header animate-on-scroll">
-      <span class="section-label">Access</span>
-      <h2 class="section-title">アクセス</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="access-wrapper">
-      <div class="access-map animate-on-scroll">
-        <iframe src="https://maps.google.com/maps?q=神奈川県横浜市港北区菊名6-3-22&output=embed&z=16" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" title="早川行英税理士事務所の地図"></iframe>
-      </div>
-      <div class="access-info animate-on-scroll">
-        <div class="access-item">
-          <div class="access-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div>
-            <h4>所在地</h4>
-            <p>神奈川県横浜市港北区菊名6-3-22</p>
-          </div>
-        </div>
-        <div class="access-item">
-          <div class="access-item-icon"><i class="fas fa-train"></i></div>
-          <div>
-            <h4>最寄り駅</h4>
-            <p>東急東横線・JR横浜線「菊名駅」より徒歩約5分</p>
-          </div>
-        </div>
-        <div class="access-item">
-          <div class="access-item-icon"><i class="fas fa-phone"></i></div>
-          <div>
-            <h4>お電話</h4>
-            <p><a href="tel:045-431-7992" style="color:var(--primary);font-weight:600;">045-431-7992</a></p>
-          </div>
-        </div>
-        <div class="access-item">
-          <div class="access-item-icon"><i class="fas fa-clock"></i></div>
-          <div>
-            <h4>営業時間</h4>
-            <p>平日 9:00〜17:00<br><span style="font-size:12px;color:var(--text-light);">※土日祝は事前予約にて対応可</span></p>
-          </div>
-        </div>
-        <div class="access-item">
-          <div class="access-item-icon"><i class="fas fa-car"></i></div>
-          <div>
-            <h4>駐車場</h4>
-            <p>近隣にコインパーキングあり</p>
-          </div>
-        </div>
-        <div class="access-badge">
-          <i class="fas fa-walking"></i>
-          菊名駅から徒歩約5分 ― 2路線利用可能で便利！
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+            /* ============================================
+               Page Load Animation
+               ============================================ */
+            requestAnimationFrame(function () {
+                document.body.classList.add('loaded');
+            });
 
-<!-- Contact -->
-<section class="contact-section" id="contact">
-  <div class="container">
-    <div class="section-header animate-on-scroll">
-      <span class="section-label">Contact</span>
-      <h2 class="section-title">お問い合わせ</h2>
-      <div class="section-divider"></div>
-    </div>
-    <p class="contact-description animate-on-scroll">
-      まずはお気軽にご相談ください。<br>初回相談は無料で承っております。
-    </p>
-    <div class="contact-cards">
-      <div class="contact-card animate-on-scroll">
-        <i class="fas fa-phone"></i>
-        <h3>お電話でのお問い合わせ</h3>
-        <a href="tel:045-431-7992" class="contact-value">045-431-7992</a>
-        <p class="contact-note">平日 9:00〜17:00</p>
-      </div>
-      <div class="contact-card animate-on-scroll">
-        <i class="fas fa-globe"></i>
-        <h3>Webサイトから</h3>
-        <a href="http://www.a-hayakawa.com/" target="_blank" rel="noopener" class="contact-value" style="font-size:18px;">www.a-hayakawa.com</a>
-        <p class="contact-note">24時間受付・翌営業日返信</p>
-      </div>
-    </div>
-  </div>
-</section>
+            /* ============================================
+               Header Scroll Effect
+               ============================================ */
+            var header = document.getElementById('header');
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-logo">
-      <div class="footer-logo-icon"><i class="fas fa-balance-scale"></i></div>
-      <span class="footer-logo-text">早川行英税理士事務所</span>
-    </div>
-    <p>神奈川県横浜市港北区菊名6-3-22</p>
-    <p>TEL: 045-431-7992</p>
-    <p><a href="http://www.a-hayakawa.com/" target="_blank" rel="noopener" style="color:var(--accent-light);">www.a-hayakawa.com</a></p>
-    <div class="footer-copy">
-      <p>&copy; 早川行英税理士事務所 All Rights Reserved.</p>
-    </div>
-  </div>
-</footer>
+            function handleHeaderScroll() {
+                var scrollY = window.scrollY;
+                if (scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
 
-<!-- Mobile CTA Bar -->
-<div class="mobile-cta" id="mobileCta">
-  <div class="mobile-cta-inner">
-    <a href="tel:045-431-7992"><i class="fas fa-phone"></i> 電話する</a>
-    <a href="#contact"><i class="fas fa-envelope"></i> お問い合わせ</a>
-  </div>
-</div>
+            window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+            handleHeaderScroll();
 
-<script>
-(function() {
-  'use strict';
+            /* ============================================
+               Mobile Hamburger Menu Toggle
+               ============================================ */
+            var hamburger = document.getElementById('hamburger');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
-  // Hamburger menu
-  var hamburger = document.getElementById('hamburger');
-  var navMobile = document.getElementById('navMobile');
-  var mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            function openMobileMenu() {
+                hamburger.classList.add('active');
+                mobileMenu.classList.add('open');
+                mobileMenuOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
 
-  hamburger.addEventListener('click', function() {
-    this.classList.toggle('active');
-    navMobile.classList.toggle('open');
-    document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
-  });
+            function closeMobileMenu() {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('open');
+                mobileMenuOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
 
-  mobileNavLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
-      hamburger.classList.remove('active');
-      navMobile.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
+            function toggleMobileMenu() {
+                if (mobileMenu.classList.contains('open')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            }
 
-  // Header scroll effect
-  var header = document.getElementById('header');
+            hamburger.addEventListener('click', toggleMobileMenu);
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
-  function handleHeaderScroll() {
-    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }
+            // Close menu when a link is clicked
+            var mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(function (link) {
+                link.addEventListener('click', closeMobileMenu);
+            });
 
-  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
-  handleHeaderScroll();
+            // Close menu on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                    closeMobileMenu();
+                }
+            });
 
-  // Mobile CTA bar
-  var mobileCta = document.getElementById('mobileCta');
+            /* ============================================
+               Smooth Scroll for Anchor Links
+               ============================================ */
+            var anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    var targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    var targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        var headerH = header.offsetHeight;
+                        var targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerH;
+                        window.scrollTo({
+                            top: targetPos,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
 
-  function handleMobileCta() {
-    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollY > 400) {
-      mobileCta.classList.add('visible');
-    } else {
-      mobileCta.classList.remove('visible');
-    }
-  }
+            /* ============================================
+               IntersectionObserver - Scroll Animations
+               ============================================ */
+            var animatedEls = document.querySelectorAll(
+                '.fade-in, .fade-in-left, .fade-in-right, .scale-in'
+            );
 
-  window.addEventListener('scroll', handleMobileCta, { passive: true });
+            if ('IntersectionObserver' in window) {
+                var animObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            animObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    root: null,
+                    rootMargin: '0px 0px -60px 0px',
+                    threshold: 0.1
+                });
 
-  // IntersectionObserver for scroll animations
-  var animElements = document.querySelectorAll('.animate-on-scroll');
+                animatedEls.forEach(function (el) {
+                    animObserver.observe(el);
+                });
+            } else {
+                // Fallback: show all immediately
+                animatedEls.forEach(function (el) {
+                    el.classList.add('is-visible');
+                });
+            }
 
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px'
-    });
+            /* ============================================
+               Mobile CTA Bar Visibility Toggle
+               Hide when hero section is in view
+               ============================================ */
+            var mobileCTABar = document.getElementById('mobile-cta-bar');
+            var heroSection = document.getElementById('hero');
 
-    animElements.forEach(function(el) {
-      observer.observe(el);
-    });
-  } else {
-    animElements.forEach(function(el) {
-      el.classList.add('visible');
-    });
-  }
+            if (mobileCTABar && heroSection) {
+                var ctaObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            mobileCTABar.style.transform = 'translateY(100%)';
+                            mobileCTABar.style.transition = 'transform 0.3s ease';
+                        } else {
+                            mobileCTABar.style.transform = 'translateY(0)';
+                            mobileCTABar.style.transition = 'transform 0.3s ease';
+                        }
+                    });
+                }, { root: null, threshold: 0 });
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
-})();
-</script>
+                ctaObserver.observe(heroSection);
+            }
+
+            /* ============================================
+               Active Navigation Link Highlight
+               ============================================ */
+            var sections = document.querySelectorAll('section[id]');
+            var navLinks = document.querySelectorAll('.header-nav a');
+
+            function setActiveNavLink() {
+                var scrollPos = window.scrollY + header.offsetHeight + 100;
+                sections.forEach(function (section) {
+                    var top = section.offsetTop;
+                    var height = section.offsetHeight;
+                    var id = section.getAttribute('id');
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        navLinks.forEach(function (link) {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', setActiveNavLink, { passive: true });
+            setActiveNavLink();
+
+            /* ============================================
+               Subtle Parallax on Hero Background
+               ============================================ */
+            var heroEl = document.querySelector('.hero');
+
+            function handleParallax() {
+                if (window.innerWidth < 768) return;
+                var scrollY = window.scrollY;
+                if (scrollY < window.innerHeight) {
+                    heroEl.style.backgroundPositionY = (scrollY * 0.3) + 'px';
+                }
+            }
+
+            window.addEventListener('scroll', handleParallax, { passive: true });
+
+            /* ============================================
+               Pricing Number Count-Up Animation
+               ============================================ */
+            var pricingAnimated = false;
+            var pricingSection = document.getElementById('pricing');
+
+            if (pricingSection) {
+                var pricingObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting && !pricingAnimated) {
+                            pricingAnimated = true;
+                            animatePricingNumbers();
+                            pricingObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                pricingObserver.observe(pricingSection);
+            }
+
+            function animatePricingNumbers() {
+                var priceEls = document.querySelectorAll('.pricing-amount .price');
+                priceEls.forEach(function (el) {
+                    var text = el.textContent;
+                    var match = text.match(/([0-9,]+)/);
+                    if (match) {
+                        var targetNum = parseInt(match[1].replace(/,/g, ''), 10);
+                        var suffix = text.substring(text.indexOf(match[1]) + match[1].length);
+                        var prefix = text.substring(0, text.indexOf(match[1]));
+                        var duration = 1200;
+                        var startTime = performance.now();
+
+                        function tick(now) {
+                            var elapsed = now - startTime;
+                            var progress = Math.min(elapsed / duration, 1);
+                            var eased = 1 - Math.pow(1 - progress, 3);
+                            var current = Math.round(targetNum * eased);
+                            el.textContent = prefix + current.toLocaleString() + suffix;
+                            if (progress < 1) {
+                                requestAnimationFrame(tick);
+                            }
+                        }
+
+                        requestAnimationFrame(tick);
+                    }
+                });
+            }
+
+            /* ============================================
+               Window Resize - Close Mobile Menu on Desktop
+               ============================================ */
+            var resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    if (window.innerWidth >= 1024) {
+                        closeMobileMenu();
+                    }
+                }, 150);
+            });
+
+        }); // End DOMContentLoaded
+    </script>
 </body>
 </html>
