@@ -642,6 +642,28 @@
                 font-size: 1.6rem;
             }
         }
+    
+        /* Mobile hamburger menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            padding: 10px;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 20px 0;
+            }
+            nav ul.active { display: flex; }
+        }
     </style>
 </head>
 <body>
@@ -667,6 +689,7 @@
                     <h1>矢口俊幸税理士事務所</h1>
                     <p>小規模企業専門の税務会計事務所</p>
                 </div>
+                <button class="menu-toggle" aria-label="メニュー">☰</button>
                 <nav>
                     <ul>
                         <li><a href="#services">サービス</a></li>
@@ -1034,6 +1057,12 @@
                 }
             });
         });
+    </script>
+
+    <script>
+    document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('active');
+    });
     </script>
 </body>
 </html>
