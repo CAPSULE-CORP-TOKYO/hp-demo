@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高橋税理士・社労士事務所 | 横浜市戸塚区 IT化支援・経営計画</title>
+<meta name="description" content="横浜市戸塚区の高橋税理士・社労士事務所。IT化支援、事業計画作成支援、金融機関対応のエキスパート。経営革新等支援機関認定。">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #1e3a5f;
+  --primary-dark: #0f2440;
+  --primary-light: #2d5a8e;
+  --accent: #e8614d;
+  --accent-light: #f07d6c;
+  --accent-dark: #c44b3a;
+  --text: #1a1a2e;
+  --text-light: #555;
+  --bg: #f8f9fc;
+  --bg-alt: #eef1f8;
+  --white: #ffffff;
+  --shadow: 0 4px 24px rgba(30,58,95,0.08);
+  --shadow-lg: 0 16px 48px rgba(30,58,95,0.12);
+  --radius: 16px;
+  --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.8;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  transition: var(--transition);
+}
+.header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.nav a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--white) !important;
+  padding: 10px 24px !important;
+  border-radius: 30px !important;
+}
+.nav-cta:hover { background: var(--accent-dark) !important; transform: translateY(-1px); }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: var(--transition); }
+
+/* ==================== HERO ==================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--primary-dark);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 40%, var(--primary-light) 100%);
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(232,97,77,0.12) 0%, transparent 60%);
+  border-radius: 50%;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 60%);
+  border-radius: 50%;
+}
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-content { color: var(--white); }
+.hero-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(232,97,77,0.15);
+  border: 1px solid rgba(232,97,77,0.3);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--accent-light);
+}
+.hero h1 {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+.hero h1 .highlight {
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-desc {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  margin-bottom: 36px;
+  line-height: 1.9;
+}
+.hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+.btn-accent { background: var(--accent); color: var(--white); }
+.btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,97,77,0.4); }
+.btn-glass {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+}
+.btn-glass:hover { background: rgba(255,255,255,0.2); }
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hero-feature-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: var(--transition);
+}
+.hero-feature-card:hover { background: rgba(255,255,255,0.1); transform: translateX(-4px); }
+.hf-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+.hf-text h4 { color: var(--white); font-size: 1rem; margin-bottom: 4px; }
+.hf-text p { color: rgba(255,255,255,0.7); font-size: 0.85rem; line-height: 1.6; }
+
+/* ==================== SECTION COMMON ==================== */
+.section { padding: 100px 24px; }
+.section-alt { background: var(--bg-alt); }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+.section-header h2 { font-size: 2.2rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 14px; }
+.section-header p { font-size: 1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+/* ==================== STRENGTHS ==================== */
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.strength-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.strength-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition);
+}
+.strength-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.strength-card:hover::after { transform: scaleX(1); }
+.strength-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.strength-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary-dark); }
+.strength-card p { color: var(--text-light); font-size: 0.9rem; }
+
+/* ==================== SERVICES ==================== */
+.services-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.service-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.service-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.service-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.service-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(30,58,95,0.6));
+}
+.service-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--accent);
+  color: var(--white);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 1;
+}
+.service-body { padding: 28px; }
+.service-body h3 { font-size: 1.15rem; color: var(--primary-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.service-body h3 i { color: var(--accent); font-size: 0.9rem; }
+.service-body p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 16px; }
+.service-features { list-style: none; }
+.service-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text);
+  padding: 4px 0;
+}
+.service-features li i { color: var(--accent); font-size: 0.75rem; }
+
+/* ==================== ABOUT ==================== */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+}
+.about-img-main {
+  width: 100%;
+  height: 420px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+}
+.about-badge {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: var(--accent);
+  color: var(--white);
+  padding: 16px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+.about-badge .badge-num { font-size: 2rem; font-weight: 900; display: block; line-height: 1; }
+.about-badge .badge-label { font-size: 0.75rem; margin-top: 4px; }
+.about-text h2 { font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 16px; line-height: 1.4; }
+.about-text > p { color: var(--text-light); margin-bottom: 20px; font-size: 0.98rem; }
+.about-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.ah-item {
+  background: var(--bg-alt);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.ah-item i { color: var(--accent); margin-top: 3px; }
+.ah-item span { font-size: 0.88rem; font-weight: 500; }
+
+/* ==================== EXPERIENCE BANNER ==================== */
+.exp-banner {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  color: var(--white);
+}
+.exp-item { text-align: center; }
+.exp-item i { font-size: 2rem; color: var(--accent-light); margin-bottom: 12px; }
+.exp-item h4 { font-size: 1.1rem; margin-bottom: 6px; }
+.exp-item p { font-size: 0.85rem; opacity: 0.8; }
+
+/* ==================== FLOW ==================== */
+.flow-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.flow-timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
+}
+.flow-item {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 36px;
+  position: relative;
+}
+.flow-item:last-child { margin-bottom: 0; }
+.flow-dot {
+  width: 62px;
+  height: 62px;
+  min-width: 62px;
+  background: var(--white);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--primary);
+  z-index: 1;
+  box-shadow: var(--shadow);
+}
+.flow-content {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  flex: 1;
+  box-shadow: var(--shadow);
+}
+.flow-content h4 { font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 6px; }
+.flow-content p { color: var(--text-light); font-size: 0.9rem; }
+
+/* ==================== OFFICE ==================== */
+.office-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+.office-details {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px;
+  box-shadow: var(--shadow);
+}
+.office-details h3 {
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.office-details h3 i { color: var(--accent); }
+.detail-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+.detail-row:last-child { border-bottom: none; }
+.detail-label { width: 110px; min-width: 110px; font-weight: 600; color: var(--primary-dark); }
+.detail-value { color: var(--text-light); }
+.map-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: 360px;
+}
+.map-wrap iframe { width: 100%; height: 100%; min-height: 360px; border: 0; }
+
+/* ==================== CTA ==================== */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  padding: 80px 24px;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(232,97,77,0.15), transparent 60%);
+  border-radius: 50%;
+}
+.cta-section h2 { font-size: 2rem; margin-bottom: 14px; position: relative; }
+.cta-section p { opacity: 0.9; margin-bottom: 32px; font-size: 1.05rem; position: relative; }
+.cta-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
+.btn-white { background: var(--white); color: var(--primary-dark); }
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+/* ==================== CONTACT ==================== */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+}
+.contact-info-side { padding: 20px 0; }
+.contact-info-side h3 { font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 12px; }
+.contact-info-side > p { color: var(--text-light); margin-bottom: 24px; }
+.ci-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.ci-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1rem;
+}
+.ci-item h4 { font-size: 0.88rem; color: var(--primary-dark); margin-bottom: 2px; }
+.ci-item p { color: var(--text-light); font-size: 0.88rem; margin: 0; }
+.contact-form-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px;
+  box-shadow: var(--shadow);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.88rem; font-weight: 500; color: var(--primary-dark); margin-bottom: 6px; }
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e5e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: var(--transition);
+  background: var(--bg);
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  outline: none;
+  background: var(--white);
+}
+.form-group textarea { resize: vertical; min-height: 110px; }
+.btn-send {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: var(--white);
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+.btn-send:hover { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); transform: translateY(-1px); }
+
+/* ==================== FOOTER ==================== */
+.footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.75);
+  padding: 56px 24px 28px;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-about h3 {
+  color: var(--white);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-about h3 .logo-icon { width: 32px; height: 32px; font-size: 0.9rem; border-radius: 8px; }
+.footer-about p { font-size: 0.88rem; line-height: 1.8; }
+.footer-nav h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 14px; }
+.footer-nav ul { list-style: none; }
+.footer-nav li { margin-bottom: 8px; }
+.footer-nav a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+.footer-nav a:hover { color: var(--accent-light); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 36px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ==================== ANIMATIONS ==================== */
+.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-right { opacity: 0; transform: translateX(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible, .fade-left.visible, .fade-right.visible { opacity: 1; transform: translate(0); }
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 968px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2rem; }
+  .hero-right { display: none; }
+  .strengths-grid { grid-template-columns: 1fr; }
+  .services-showcase { grid-template-columns: 1fr; }
+  .about-layout { grid-template-columns: 1fr; }
+  .exp-banner { grid-template-columns: 1fr; gap: 20px; }
+  .office-layout { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .nav { display: none; }
+  .hamburger { display: flex; }
+  .nav.active {
+    display: flex; flex-direction: column;
+    position: absolute; top: 72px; left: 0; width: 100%;
+    background: var(--white); padding: 24px; box-shadow: var(--shadow); gap: 18px;
+  }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.7rem; }
+  .section { padding: 60px 16px; }
+  .section-header h2 { font-size: 1.5rem; }
+  .about-highlights { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-icon"><i class="fas fa-chart-bar"></i></span>
+      高橋税理士・社労士事務所
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#strengths">強み</a>
+      <a href="#services">サービス</a>
+      <a href="#about">事務所紹介</a>
+      <a href="#flow">ご依頼の流れ</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-content fade-up">
+      <div class="hero-tags">
+        <span class="hero-tag"><i class="fas fa-laptop-code"></i> IT化支援</span>
+        <span class="hero-tag"><i class="fas fa-file-invoice-dollar"></i> 経営計画</span>
+        <span class="hero-tag"><i class="fas fa-award"></i> 認定支援機関</span>
+      </div>
+      <h1>会社を<span class="highlight">強く</span>する。<br>数字と戦略で<br>経営を変える。</h1>
+      <p class="hero-desc">横浜市戸塚区の高橋税理士・社労士事務所は、税務にこだわらず、<br>IT化支援・事業計画作成・金融機関対応で中小企業の経営力を強化します。</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-accent"><i class="fas fa-envelope"></i> 無料相談する</a>
+        <a href="#services" class="btn btn-glass"><i class="fas fa-arrow-down"></i> サービスを見る</a>
+      </div>
+    </div>
+    <div class="hero-right fade-right">
+      <div class="hero-feature-card">
+        <div class="hf-icon"><i class="fas fa-laptop-code"></i></div>
+        <div class="hf-text">
+          <h4>IT化支援</h4>
+          <p>原価管理・顧客管理のIT化で赤字原因を数字で可視化。規模に応じた提案・導入支援。</p>
+        </div>
+      </div>
+      <div class="hero-feature-card">
+        <div class="hf-icon"><i class="fas fa-chart-pie"></i></div>
+        <div class="hf-text">
+          <h4>事業計画作成支援</h4>
+          <p>出店・人員・設備投資計画に裏付けされた実現性の高い事業計画を一緒に作成します。</p>
+        </div>
+      </div>
+      <div class="hero-feature-card">
+        <div class="hf-icon"><i class="fas fa-university"></i></div>
+        <div class="hf-text">
+          <h4>金融機関対応</h4>
+          <p>再生支援協議会での経験を活かした金融機関調整。資金繰り・創業融資のご相談に。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section class="section" id="strengths">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-star"></i> Strengths</div>
+      <h2>私たちの強み</h2>
+      <p>税理士業務の枠を超えた、経営のトータルサポート</p>
+    </div>
+    <div class="strengths-grid">
+      <div class="strength-card fade-up">
+        <div class="strength-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>業務のIT化支援</h3>
+        <p>原価管理・顧客管理・管理会計のIT化を提案。赤字製品や低収益部門を数字で可視化し、経営改善につなげます。</p>
+      </div>
+      <div class="strength-card fade-up">
+        <div class="strength-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+        <h3>事業計画作成支援</h3>
+        <p>出店計画・人員計画・設備投資計画の裏付けに基づいた実現性の高い事業計画を共に策定します。</p>
+      </div>
+      <div class="strength-card fade-up">
+        <div class="strength-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>税務＋社労士の一体化</h3>
+        <p>税理士業務と社会保険労務士業務を一体化。窓口を一本化することで負担軽減と利便性向上を実現します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-briefcase"></i> Services</div>
+      <h2>サービス内容</h2>
+      <p>経営を多角的に支援する専門サービス</p>
+    </div>
+    <div class="services-showcase">
+      <div class="service-item fade-up">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop');">
+          <span class="service-tag">IT化</span>
+        </div>
+        <div class="service-body">
+          <h3><i class="fas fa-check-circle"></i> IT化支援・DX推進</h3>
+          <p>会社の規模・予算に応じた最適なIT化を提案し、導入から運用まで支援します。</p>
+          <ul class="service-features">
+            <li><i class="fas fa-circle"></i> 原価管理システムの導入</li>
+            <li><i class="fas fa-circle"></i> 顧客管理（CRM）の構築</li>
+            <li><i class="fas fa-circle"></i> 管理会計の仕組み化</li>
+            <li><i class="fas fa-circle"></i> クラウド会計の活用提案</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop');">
+          <span class="service-tag">経営計画</span>
+        </div>
+        <div class="service-body">
+          <h3><i class="fas fa-check-circle"></i> 事業計画・経営改善</h3>
+          <p>再生支援協議会2年の実務経験を活かした実践的な経営改善を支援します。</p>
+          <ul class="service-features">
+            <li><i class="fas fa-circle"></i> 事業計画の策定支援</li>
+            <li><i class="fas fa-circle"></i> 経営改善計画（実抜計画）作成</li>
+            <li><i class="fas fa-circle"></i> 財務実態調査・7指標分析</li>
+            <li><i class="fas fa-circle"></i> 経営革新等支援機関の各種支援</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop');">
+          <span class="service-tag">金融</span>
+        </div>
+        <div class="service-body">
+          <h3><i class="fas fa-check-circle"></i> 金融機関対応</h3>
+          <p>資金調達・リスケジュール・創業融資まで、金融機関との交渉を全面サポート。</p>
+          <ul class="service-features">
+            <li><i class="fas fa-circle"></i> 公的保証・政府系金融機関の活用</li>
+            <li><i class="fas fa-circle"></i> 代位弁済からの正常化支援</li>
+            <li><i class="fas fa-circle"></i> 創業融資・開業資金調達</li>
+            <li><i class="fas fa-circle"></i> 金融機関調整の経験を活用</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=400&fit=crop');">
+          <span class="service-tag">税務・社労士</span>
+        </div>
+        <div class="service-body">
+          <h3><i class="fas fa-check-circle"></i> 税務・社労士一体型サポート</h3>
+          <p>税務顧問と社会保険労務士業務を一括で。窓口を一本化してコスト削減。</p>
+          <ul class="service-features">
+            <li><i class="fas fa-circle"></i> 税務相談・税務申告</li>
+            <li><i class="fas fa-circle"></i> 社会保険手続き・給与計算</li>
+            <li><i class="fas fa-circle"></i> 助成金申請サポート</li>
+            <li><i class="fas fa-circle"></i> 一体化による割引制度あり</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-visual fade-left">
+        <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&h=600&fit=crop" alt="事務所イメージ" class="about-img-main">
+        <div class="about-badge">
+          <span class="badge-num">2008</span>
+          <span class="badge-label">年開業</span>
+        </div>
+      </div>
+      <div class="about-text fade-right">
+        <h2>税理士業務にこだわらず、<br>会社を強くする</h2>
+        <p>平成20年に横浜市戸塚区に開業。税務の専門家としてはもちろん、IT化支援・事業計画策定・金融機関対応など、一般的な税理士事務所では対応が難しい領域まで幅広くカバーしています。</p>
+        <p>神奈川県中小企業再生支援協議会にて約2年間、再生担当マネージャーとして企業再生に従事。この現場経験を活かした金融機関対応が当事務所の大きな特徴です。</p>
+        <div class="about-highlights">
+          <div class="ah-item"><i class="fas fa-check-circle"></i><span>経営革新等支援機関 認定</span></div>
+          <div class="ah-item"><i class="fas fa-check-circle"></i><span>再生支援協議会 経験</span></div>
+          <div class="ah-item"><i class="fas fa-check-circle"></i><span>税理士＋社労士 ダブル資格</span></div>
+          <div class="ah-item"><i class="fas fa-check-circle"></i><span>IT導入支援 実績多数</span></div>
+        </div>
+        <a href="#contact" class="btn btn-accent"><i class="fas fa-envelope"></i> 相談してみる</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE BANNER -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="exp-banner fade-up">
+      <div class="exp-item">
+        <i class="fas fa-university"></i>
+        <h4>再生支援協議会</h4>
+        <p>約2年間、再生担当マネージャーとして企業再生に従事した実務経験</p>
+      </div>
+      <div class="exp-item">
+        <i class="fas fa-certificate"></i>
+        <h4>認定支援機関</h4>
+        <p>中小企業庁が認定する経営革新等支援機関として高品質な支援を提供</p>
+      </div>
+      <div class="exp-item">
+        <i class="fas fa-handshake"></i>
+        <h4>税理士 × 社労士</h4>
+        <p>税務と労務を一体化し、ワンストップでコスト削減と利便性を実現</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="section" id="flow">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-route"></i> Flow</div>
+      <h2>ご依頼の流れ</h2>
+      <p>まずはお気軽にお問い合わせください</p>
+    </div>
+    <div class="flow-timeline">
+      <div class="flow-item fade-up">
+        <div class="flow-dot"><i class="fas fa-phone"></i></div>
+        <div class="flow-content">
+          <h4>STEP 1：お問い合わせ</h4>
+          <p>お電話またはフォームよりご連絡ください。まずはお気軽にご相談ください。</p>
+        </div>
+      </div>
+      <div class="flow-item fade-up">
+        <div class="flow-dot"><i class="fas fa-comments"></i></div>
+        <div class="flow-content">
+          <h4>STEP 2：初回ヒアリング</h4>
+          <p>現在の状況・課題・ご要望を詳しくお伺いし、最適なプランを検討します。</p>
+        </div>
+      </div>
+      <div class="flow-item fade-up">
+        <div class="flow-dot"><i class="fas fa-file-contract"></i></div>
+        <div class="flow-content">
+          <h4>STEP 3：ご提案・お見積り</h4>
+          <p>ヒアリング内容をもとに具体的なサービス内容と料金をご提案いたします。</p>
+        </div>
+      </div>
+      <div class="flow-item fade-up">
+        <div class="flow-dot"><i class="fas fa-rocket"></i></div>
+        <div class="flow-content">
+          <h4>STEP 4：サポート開始</h4>
+          <p>ご契約後、早速サポートを開始。月次でのフォローアップで継続的に経営を支援します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICE -->
+<section class="section section-alt" id="access">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-building"></i> Office</div>
+      <h2>事務所情報</h2>
+    </div>
+    <div class="office-layout">
+      <div class="office-details fade-left">
+        <h3><i class="fas fa-info-circle"></i> 基本情報</h3>
+        <div class="detail-row">
+          <div class="detail-label">事務所名</div>
+          <div class="detail-value">高橋税理士・社労士事務所</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">所在地</div>
+          <div class="detail-value">〒244-0801<br>神奈川県横浜市戸塚区品濃町548-2 4F</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">資格</div>
+          <div class="detail-value">税理士・社会保険労務士</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">認定</div>
+          <div class="detail-value">経営革新等支援機関</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">営業時間</div>
+          <div class="detail-value">9:00 〜 17:00（平日）</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">定休日</div>
+          <div class="detail-value">土曜・日曜・祝日</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">アクセス</div>
+          <div class="detail-value">JR東戸塚駅より徒歩圏内</div>
+        </div>
+      </div>
+      <div class="map-wrap fade-right">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3253.5!2d139.542!3d35.413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI0JzQ3LjAiTiAxMznCsDMyJzMxLjAiRQ!5e0!3m2!1sja!2sjp!4v1&q=神奈川県横浜市戸塚区品濃町548-2" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container fade-up">
+    <h2>経営のお悩み、お聞かせください</h2>
+    <p>IT化・資金繰り・事業計画…。一人で抱え込まず、まずはご相談ください。</p>
+    <div class="cta-buttons">
+      <a href="#contact" class="btn btn-white"><i class="fas fa-envelope"></i> 無料相談する</a>
+      <a href="#services" class="btn btn-glass"><i class="fas fa-list"></i> サービス一覧</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label"><i class="fas fa-envelope"></i> Contact</div>
+      <h2>お問い合わせ</h2>
+      <p>ご質問・ご相談はお気軽にどうぞ</p>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-info-side fade-left">
+        <h3>お気軽にご連絡ください</h3>
+        <p>初回のご相談は無料です。IT化、事業計画、金融機関対応など、経営に関するお悩みをなんでもご相談ください。</p>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>受付時間</h4>
+            <p>平日 9:00 〜 17:00</p>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>所在地</h4>
+            <p>横浜市戸塚区品濃町548-2 4F</p>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-globe"></i></div>
+          <div>
+            <h4>Web</h4>
+            <p>hidetax.com</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form-card fade-right" onsubmit="event.preventDefault(); alert('このデモサイトではフォーム送信はできません。');">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">お名前 <span style="color:var(--accent);">*</span></label>
+            <input type="text" id="name" required placeholder="山田 太郎">
+          </div>
+          <div class="form-group">
+            <label for="company">会社名</label>
+            <input type="text" id="company" placeholder="株式会社〇〇">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">メールアドレス <span style="color:var(--accent);">*</span></label>
+            <input type="email" id="email" required placeholder="example@email.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" placeholder="045-XXX-XXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="category">ご相談内容</label>
+          <select id="category">
+            <option value="">選択してください</option>
+            <option>IT化支援について</option>
+            <option>事業計画作成について</option>
+            <option>金融機関対応について</option>
+            <option>税務顧問について</option>
+            <option>社会保険手続きについて</option>
+            <option>会社設立について</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">メッセージ <span style="color:var(--accent);">*</span></label>
+          <textarea id="message" required placeholder="ご相談内容をお書きください"></textarea>
+        </div>
+        <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> 送信する</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-about">
+      <h3><span class="logo-icon"><i class="fas fa-chart-bar"></i></span> 高橋税理士・社労士事務所</h3>
+      <p>横浜市戸塚区に平成20年開業。税理士業務にこだわらず、IT化支援・事業計画策定・金融機関対応で中小企業の経営力を強化します。経営革新等支援機関認定。</p>
+    </div>
+    <div class="footer-nav">
+      <h4>サービス</h4>
+      <ul>
+        <li><a href="#services">IT化支援</a></li>
+        <li><a href="#services">事業計画作成</a></li>
+        <li><a href="#services">金融機関対応</a></li>
+        <li><a href="#services">税務・社労士業務</a></li>
+      </ul>
+    </div>
+    <div class="footer-nav">
+      <h4>事務所情報</h4>
+      <ul>
+        <li><a href="#about">事務所紹介</a></li>
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 高橋税理士・社労士事務所 All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+hamburger.addEventListener('click', () => nav.classList.toggle('active'));
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('active')));
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 92, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

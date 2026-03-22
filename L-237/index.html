@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>齋藤敏治税理士事務所 | 横浜市旭区 巡回監査・月次決算の専門家</title>
+<meta name="description" content="横浜市旭区の齋藤敏治税理士事務所。巡回監査と月次決算で経営の見える化を実現。TKC全国会会員として高品質な税務サービスを提供します。">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --primary: #6B2D5B;
+    --primary-dark: #4A1E3F;
+    --primary-light: #9B4D8B;
+    --accent: #D4A843;
+    --accent-light: #F0D88C;
+    --bg: #FAF9F7;
+    --bg-alt: #F4F0EC;
+    --text: #2D2A26;
+    --text-light: #7A7570;
+    --white: #FFFFFF;
+    --shadow: 0 4px 20px rgba(0,0,0,0.06);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center; height: 68px;
+  }
+
+  .logo {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px; font-weight: 700; color: var(--primary);
+    text-decoration: none; display: flex; align-items: center; gap: 10px;
+  }
+
+  .logo-mark {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-size: 14px;
+  }
+
+  nav { display: flex; gap: 24px; align-items: center; }
+
+  nav a {
+    text-decoration: none; color: var(--text); font-size: 13px;
+    font-weight: 500; transition: color 0.3s;
+  }
+
+  nav a:hover { color: var(--primary); }
+
+  .nav-cta {
+    background: var(--primary) !important; color: var(--white) !important;
+    padding: 10px 22px; border-radius: 8px;
+    transition: all 0.3s !important;
+  }
+
+  .nav-cta:hover { background: var(--primary-dark) !important; }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 8px;
+  }
+
+  .hamburger span { width: 22px; height: 2px; background: var(--text); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 45%, var(--primary-light) 100%);
+    position: relative; padding-top: 68px; overflow: hidden;
+  }
+
+  .hero::before {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 50%; height: 100%;
+    background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=900&fit=crop') center/cover;
+    opacity: 0.12;
+  }
+
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; padding: 80px 24px;
+    position: relative; z-index: 2;
+  }
+
+  .hero-content {
+    max-width: 620px; color: var(--white);
+  }
+
+  .hero-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--accent-light);
+    margin-bottom: 24px;
+    background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.3);
+    padding: 6px 18px; border-radius: 6px;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 42px; font-weight: 700; line-height: 1.4; margin-bottom: 24px;
+  }
+
+  .hero h1 span {
+    display: block; font-family: 'Noto Sans JP', sans-serif;
+    font-size: 17px; font-weight: 300; margin-top: 12px; opacity: 0.85;
+  }
+
+  .hero p {
+    font-size: 15px; line-height: 2; opacity: 0.9; margin-bottom: 40px; font-weight: 300;
+  }
+
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: var(--primary-dark);
+    padding: 16px 36px; border-radius: 10px; text-decoration: none;
+    font-weight: 700; font-size: 15px; transition: all 0.3s;
+    border: none; cursor: pointer;
+  }
+
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212,168,67,0.3); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 2px solid rgba(255,255,255,0.4); color: var(--white);
+    padding: 14px 36px; border-radius: 10px; text-decoration: none;
+    font-weight: 500; font-size: 15px; transition: all 0.3s;
+  }
+
+  .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+  .hero-stats {
+    display: flex; gap: 32px; margin-top: 60px;
+    padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .hero-stat { text-align: center; }
+
+  .hero-stat .num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 36px; font-weight: 700; color: var(--accent);
+    line-height: 1;
+  }
+
+  .hero-stat .label {
+    font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 6px;
+  }
+
+  /* ===== SECTIONS COMMON ===== */
+  section { padding: 100px 24px; }
+
+  .section-head { text-align: center; margin-bottom: 60px; }
+
+  .section-tag {
+    font-size: 12px; font-weight: 600; color: var(--accent);
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;
+  }
+
+  .section-head h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 32px; font-weight: 700; margin-bottom: 16px; line-height: 1.4;
+  }
+
+  .section-head p { font-size: 15px; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+  /* ===== STRENGTHS ===== */
+  .strengths { background: var(--white); }
+
+  .strengths-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+  }
+
+  .str-card {
+    background: var(--bg); border-radius: 16px; padding: 32px 24px;
+    text-align: center; transition: all 0.4s;
+    border-bottom: 3px solid transparent;
+  }
+
+  .str-card:hover {
+    transform: translateY(-4px); box-shadow: var(--shadow);
+    border-bottom-color: var(--accent);
+  }
+
+  .str-icon {
+    width: 56px; height: 56px; margin: 0 auto 16px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-size: 20px;
+  }
+
+  .str-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+
+  .str-card p { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+
+  /* ===== SERVICES ===== */
+  .services { background: var(--bg); }
+
+  .services-inner {
+    max-width: 1000px; margin: 0 auto;
+  }
+
+  .svc-item {
+    display: grid; grid-template-columns: 80px 1fr; gap: 28px;
+    background: var(--white); border-radius: 14px; padding: 36px;
+    margin-bottom: 20px; box-shadow: var(--shadow); transition: all 0.4s;
+    align-items: start;
+  }
+
+  .svc-item:hover { transform: translateX(4px); box-shadow: var(--shadow-lg); }
+
+  .svc-num {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-family: 'Noto Serif JP', serif;
+    font-size: 24px; font-weight: 700;
+  }
+
+  .svc-text h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
+
+  .svc-text p { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+
+  /* ===== ABOUT ===== */
+  .about { background: var(--white); }
+
+  .about-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;
+  }
+
+  .about-img {
+    position: relative;
+  }
+
+  .about-img img {
+    width: 100%; border-radius: 16px; box-shadow: var(--shadow);
+  }
+
+  .about-img-accent {
+    position: absolute; top: -16px; left: -16px;
+    width: 100%; height: 100%;
+    border: 2px solid var(--accent);
+    border-radius: 16px; z-index: -1;
+  }
+
+  .about-text h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 26px; font-weight: 700; margin-bottom: 20px;
+  }
+
+  .about-text p {
+    font-size: 15px; color: var(--text-light); margin-bottom: 16px; line-height: 2;
+  }
+
+  .about-badges {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;
+  }
+
+  .about-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--bg-alt); padding: 8px 16px; border-radius: 8px;
+    font-size: 13px; color: var(--primary); font-weight: 500;
+  }
+
+  .about-badge i { color: var(--accent); }
+
+  /* ===== FLOW ===== */
+  .flow { background: var(--bg-alt); }
+
+  .flow-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 20px;
+  }
+
+  .flow-card {
+    background: var(--white); border-radius: 14px; padding: 32px 24px;
+    text-align: center; box-shadow: var(--shadow); transition: all 0.4s;
+    position: relative;
+  }
+
+  .flow-card:hover { transform: translateY(-3px); }
+
+  .flow-card::after {
+    content: '→'; position: absolute; right: -14px; top: 50%;
+    transform: translateY(-50%); color: var(--accent); font-size: 20px; font-weight: 700;
+  }
+
+  .flow-card:last-child::after { display: none; }
+
+  .flow-step-num {
+    width: 40px; height: 40px; margin: 0 auto 14px;
+    background: var(--primary); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-weight: 700; font-size: 16px;
+  }
+
+  .flow-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+
+  .flow-card p { font-size: 12px; color: var(--text-light); line-height: 1.7; }
+
+  /* ===== TKC ===== */
+  .tkc { background: var(--white); }
+
+  .tkc-inner {
+    max-width: 900px; margin: 0 auto;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    border-radius: 20px; padding: 60px 48px;
+    color: var(--white); display: grid;
+    grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  }
+
+  .tkc-text h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 24px; font-weight: 700; margin-bottom: 16px;
+  }
+
+  .tkc-text p {
+    font-size: 14px; line-height: 1.9; opacity: 0.9; margin-bottom: 12px;
+  }
+
+  .tkc-features { list-style: none; }
+
+  .tkc-features li {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0; font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .tkc-features li i { color: var(--accent); }
+
+  /* ===== OFFICE ===== */
+  .office { background: var(--bg); }
+
+  .office-inner { max-width: 1200px; margin: 0 auto; }
+
+  .office-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+  }
+
+  .office-table {
+    background: var(--white); padding: 36px; border-radius: 14px; box-shadow: var(--shadow);
+  }
+
+  .office-table table { width: 100%; border-collapse: collapse; }
+
+  .office-table th, .office-table td {
+    padding: 13px 0; font-size: 14px; text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .office-table th { width: 110px; font-weight: 700; color: var(--primary); vertical-align: top; }
+
+  .office-map { border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+  .office-map iframe { width: 100%; height: 380px; border: 0; }
+
+  /* ===== CTA ===== */
+  .cta {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    text-align: center; color: var(--white); padding: 80px 24px;
+  }
+
+  .cta h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 30px; font-weight: 700; margin-bottom: 14px;
+  }
+
+  .cta p { font-size: 15px; opacity: 0.9; margin-bottom: 32px; }
+
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .cta .btn-gold { padding: 18px 44px; font-size: 16px; }
+
+  .cta-contact {
+    margin-top: 28px; display: flex; align-items: center;
+    justify-content: center; gap: 24px; flex-wrap: wrap;
+  }
+
+  .cta-contact-item {
+    display: flex; align-items: center; gap: 8px; font-size: 14px; opacity: 0.85;
+  }
+
+  .cta-contact-item a {
+    color: var(--accent-light); text-decoration: none;
+    font-size: 20px; font-weight: 700;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1E1A17; color: rgba(255,255,255,0.6);
+    padding: 56px 24px 28px;
+  }
+
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+  }
+
+  .footer-brand {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 14px;
+  }
+
+  .footer-desc { font-size: 13px; line-height: 1.8; }
+  .footer-heading { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  .footer-bottom {
+    max-width: 1200px; margin: 36px auto 0; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 12px;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hamburger { display: flex; }
+
+    nav.active {
+      display: flex; flex-direction: column; position: fixed;
+      top: 68px; left: 0; right: 0; background: var(--white);
+      padding: 20px; gap: 14px; box-shadow: var(--shadow);
+    }
+
+    .hero h1 { font-size: 28px; }
+    .hero-stats { flex-direction: column; gap: 16px; }
+    .strengths-grid { grid-template-columns: 1fr 1fr; }
+    .svc-item { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; }
+    .flow-grid { grid-template-columns: 1fr 1fr; }
+    .flow-card::after { display: none; }
+    .tkc-inner { grid-template-columns: 1fr; }
+    .office-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .section-head h2 { font-size: 24px; }
+    section { padding: 60px 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .strengths-grid { grid-template-columns: 1fr; }
+    .flow-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark"><i class="fas fa-scale-balanced"></i></div>
+      齋藤敏治税理士事務所
+    </a>
+    <nav id="mainNav">
+      <a href="#strengths">当事務所の強み</a>
+      <a href="#services">サービス</a>
+      <a href="#about">事務所紹介</a>
+      <a href="#tkc">TKCシステム</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" onclick="document.getElementById('mainNav').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-label"><i class="fas fa-shield-halved"></i> TKC全国会会員 / 経営革新等支援機関</div>
+      <h1>経営の「見える化」で<br>関与先の繁栄を支える。
+        <span>巡回監査と月次決算で、正確で迅速な経営情報を提供します</span>
+      </h1>
+      <p>毎月の巡回監査で会計資料の適法性・正確性を確保。<br>スピーディーな月次決算により、最新の経営成績と財政状態を<br>わかりやすくご報告します。</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-gold"><i class="fas fa-envelope"></i> お問い合わせ</a>
+        <a href="#services" class="btn-ghost"><i class="fas fa-arrow-down"></i> サービスを見る</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">毎月</div>
+          <div class="label">巡回監査</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">TKC</div>
+          <div class="label">全国会会員</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">認定</div>
+          <div class="label">経営革新等支援機関</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section class="strengths" id="strengths">
+  <div class="section-head fade-up">
+    <div class="section-tag">Strengths</div>
+    <h2>齋藤敏治税理士事務所の強み</h2>
+    <p>関与先企業の繁栄を「私たちの喜び」とし、<br>質の高い税務サービスを提供します。</p>
+  </div>
+  <div class="strengths-grid">
+    <div class="str-card fade-up">
+      <div class="str-icon"><i class="fas fa-search"></i></div>
+      <h3>毎月の巡回監査</h3>
+      <p>毎月お客様を訪問し、会計資料・記録の適法性と正確性をチェック。問題を早期発見し、経営判断に活かせる信頼性の高いデータを整備します。</p>
+    </div>
+    <div class="str-card fade-up">
+      <div class="str-icon"><i class="fas fa-chart-bar"></i></div>
+      <h3>スピーディーな月次決算</h3>
+      <p>月次決算を迅速に実施し、最新の経営成績と財政状態をわかりやすくご報告。タイムリーな数字で経営判断をサポートします。</p>
+    </div>
+    <div class="str-card fade-up">
+      <div class="str-icon"><i class="fas fa-file-signature"></i></div>
+      <h3>書面添付制度の活用</h3>
+      <p>税務申告書の内容が正しいことを税理士が確認する書類を添付。税務調査の省略・簡素化につながり、お客様の負担を軽減します。</p>
+    </div>
+    <div class="str-card fade-up">
+      <div class="str-icon"><i class="fas fa-hand-holding-usd"></i></div>
+      <h3>融資・資金調達支援</h3>
+      <p>TKCの経営指標を活用した精度の高い決算書で、金融機関からの信頼度を向上。スムーズな融資・資金調達をサポートします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-head fade-up">
+    <div class="section-tag">Services</div>
+    <h2>サービス内容</h2>
+    <p>税務・会計の基本サービスから経営支援まで、<br>幅広くお客様のニーズに対応します。</p>
+  </div>
+  <div class="services-inner">
+    <div class="svc-item fade-up">
+      <div class="svc-num">01</div>
+      <div class="svc-text">
+        <h3>巡回監査・月次決算</h3>
+        <p>毎月のご訪問で会計データの正確性を検証し、月次決算を迅速に実施。最新の経営成績と財政状態を経営者にわかりやすくご報告します。業界の平均値や黒字企業との比較で、経営のヒントも提供します。</p>
+      </div>
+    </div>
+    <div class="svc-item fade-up">
+      <div class="svc-num">02</div>
+      <div class="svc-text">
+        <h3>法人税・所得税申告</h3>
+        <p>法人決算・個人の確定申告を正確に代行。書面添付制度を積極的に活用し、税務申告の信頼性を高めます。税務調査対応もお任せください。</p>
+      </div>
+    </div>
+    <div class="svc-item fade-up">
+      <div class="svc-num">03</div>
+      <div class="svc-text">
+        <h3>経営革新等支援（認定支援機関業務）</h3>
+        <p>国の認定を受けた経営革新等支援機関として、経営改善計画の策定支援、各種補助金申請サポート、事業再構築支援など、中小企業の経営を多角的にバックアップします。</p>
+      </div>
+    </div>
+    <div class="svc-item fade-up">
+      <div class="svc-num">04</div>
+      <div class="svc-text">
+        <h3>相続税・事業承継</h3>
+        <p>相続税の試算・申告から事業承継計画の立案まで対応。TKCの相続税額早見表も活用し、おおよその税額を事前にご確認いただけます。</p>
+      </div>
+    </div>
+    <div class="svc-item fade-up">
+      <div class="svc-num">05</div>
+      <div class="svc-text">
+        <h3>融資・資金調達サポート</h3>
+        <p>TKCモニタリング情報サービスで金融機関への決算書提出を効率化。信頼性の高い財務データにより、融資審査をスムーズに進められます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img fade-up">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&h=400&fit=crop" alt="事務所">
+      <div class="about-img-accent"></div>
+    </div>
+    <div class="about-text fade-up">
+      <div class="section-tag">About</div>
+      <h3>関与先企業の繁栄は<br>私たちの喜びです</h3>
+      <p>齋藤敏治税理士事務所は、横浜市旭区を拠点に、中小企業の経営を支える税理士事務所です。</p>
+      <p>TKC全国会会員として、高品質な税務・会計サービスを提供。毎月の巡回監査とスピーディーな月次決算により、経営の「見える化」を実現し、お客様の繁栄をサポートしてまいります。</p>
+      <div class="about-badges">
+        <span class="about-badge"><i class="fas fa-award"></i> TKC全国会会員</span>
+        <span class="about-badge"><i class="fas fa-certificate"></i> 経営革新等支援機関</span>
+        <span class="about-badge"><i class="fas fa-file-shield"></i> 書面添付制度推進</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow" id="flow">
+  <div class="section-head fade-up">
+    <div class="section-tag">Flow</div>
+    <h2>ご依頼の流れ</h2>
+  </div>
+  <div class="flow-grid">
+    <div class="flow-card fade-up">
+      <div class="flow-step-num">1</div>
+      <h3>お問い合わせ</h3>
+      <p>お電話またはメールでお気軽にご連絡ください。</p>
+    </div>
+    <div class="flow-card fade-up">
+      <div class="flow-step-num">2</div>
+      <h3>初回面談</h3>
+      <p>現状のヒアリングと課題の整理を行います。</p>
+    </div>
+    <div class="flow-card fade-up">
+      <div class="flow-step-num">3</div>
+      <h3>ご提案・契約</h3>
+      <p>最適なサービスプランをご提案いたします。</p>
+    </div>
+    <div class="flow-card fade-up">
+      <div class="flow-step-num">4</div>
+      <h3>サービス開始</h3>
+      <p>毎月の巡回監査と月次決算をスタートします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- TKC -->
+<section class="tkc" id="tkc">
+  <div class="tkc-inner fade-up">
+    <div class="tkc-text">
+      <div class="section-tag" style="color:var(--accent-light);">TKC System</div>
+      <h3>TKCシステムによる<br>高品質な経営支援</h3>
+      <p>TKC全国会会員として、最先端の会計システムを活用。正確で迅速な経営情報を提供し、お客様の意思決定をサポートします。</p>
+    </div>
+    <div>
+      <ul class="tkc-features">
+        <li><i class="fas fa-check-circle"></i> TKC財務会計システム（FXシリーズ）</li>
+        <li><i class="fas fa-check-circle"></i> TKC経営指標（BAST）による業界比較</li>
+        <li><i class="fas fa-check-circle"></i> TKCモニタリング情報サービス</li>
+        <li><i class="fas fa-check-circle"></i> 書面添付制度の積極活用</li>
+        <li><i class="fas fa-check-circle"></i> 継続MAS（経営計画策定支援）</li>
+        <li><i class="fas fa-check-circle"></i> 電子申告の完全対応</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICE -->
+<section class="office" id="access">
+  <div class="section-head fade-up">
+    <div class="section-tag">Office</div>
+    <h2>事務所情報・アクセス</h2>
+  </div>
+  <div class="office-inner">
+    <div class="office-grid">
+      <div class="office-table fade-up">
+        <table>
+          <tr><th>事務所名</th><td>齋藤敏治税理士事務所</td></tr>
+          <tr><th>代表</th><td>齋藤 敏治</td></tr>
+          <tr><th>所在地</th><td>〒241-0005<br>神奈川県横浜市旭区白根5丁目8-16</td></tr>
+          <tr><th>電話番号</th><td><a href="tel:045-953-9273" style="color:var(--primary);text-decoration:none;">045-953-9273</a></td></tr>
+          <tr><th>メール</th><td><a href="mailto:saito31@tkcnf.or.jp" style="color:var(--primary);text-decoration:none;">saito31@tkcnf.or.jp</a></td></tr>
+          <tr><th>対応時間</th><td>平日 9:00〜17:00</td></tr>
+          <tr><th>所属</th><td>TKC全国会会員<br>経営革新等支援機関</td></tr>
+        </table>
+      </div>
+      <div class="office-map fade-up">
+        <iframe src="https://www.google.com/maps?q=神奈川県横浜市旭区白根5丁目8-16&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>巡回監査・月次決算・経営支援のご相談など、<br>何でもお気軽にお問い合わせください。</p>
+  <div class="cta-btns">
+    <a href="mailto:saito31@tkcnf.or.jp" class="btn-gold"><i class="fas fa-envelope"></i> メールで問い合わせ</a>
+  </div>
+  <div class="cta-contact">
+    <div class="cta-contact-item">
+      <i class="fas fa-phone"></i> お電話:
+      <a href="tel:045-953-9273">045-953-9273</a>
+    </div>
+    <div class="cta-contact-item">
+      <i class="fas fa-envelope"></i> メール:
+      <a href="mailto:saito31@tkcnf.or.jp">saito31@tkcnf.or.jp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">齋藤敏治税理士事務所</div>
+      <p class="footer-desc">横浜市旭区の税理士事務所。<br>TKC全国会会員として巡回監査と<br>月次決算で経営を支えます。</p>
+    </div>
+    <div>
+      <div class="footer-heading">サービス</div>
+      <ul class="footer-links">
+        <li><a href="#services">巡回監査・月次決算</a></li>
+        <li><a href="#services">法人税・所得税申告</a></li>
+        <li><a href="#services">経営革新等支援</a></li>
+        <li><a href="#services">相続税・事業承継</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">事務所情報</div>
+      <ul class="footer-links">
+        <li><a href="#about">事務所紹介</a></li>
+        <li><a href="#tkc">TKCシステム</a></li>
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 齋藤敏治税理士事務所 All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('mainNav').classList.remove('active');
+    }
+  });
+});
+</script>
+</body>
+</html>

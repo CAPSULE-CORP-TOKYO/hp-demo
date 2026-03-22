@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>嶋貫綾税理士事務所 | 横浜市旭区 起業・開業サポート</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --primary: #0D9488;
+  --primary-dark: #0A7A70;
+  --primary-light: #CCFBF1;
+  --accent: #F59E0B;
+  --accent-light: #FEF3C7;
+  --dark: #1E293B;
+  --text: #475569;
+  --text-light: #94A3B8;
+  --bg: #F8FAFB;
+  --white: #FFFFFF;
+  --shadow: 0 4px 24px rgba(13,148,136,0.08);
+  --shadow-lg: 0 12px 48px rgba(13,148,136,0.14);
+  --radius: 16px;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family:'Noto Sans JP', sans-serif;
+  color:var(--text); background:var(--bg);
+  line-height:1.8; overflow-x:hidden;
+}
+img { max-width:100%; height:auto; display:block; }
+a { color:var(--primary); text-decoration:none; transition:var(--transition); }
+a:hover { color:var(--primary-dark); }
+.container { max-width:1100px; margin:0 auto; padding:0 24px; }
+/* NAV */
+.nav {
+  position:fixed; top:0; left:0; width:100%; z-index:1000;
+  background:rgba(255,255,255,0.97); backdrop-filter:blur(12px);
+  box-shadow:0 1px 8px rgba(0,0,0,0.04);
+  transition:var(--transition);
+}
+.nav-inner {
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1100px; margin:0 auto; padding:16px 24px;
+}
+.nav-logo {
+  font-weight:700; font-size:1.1rem; color:var(--dark);
+  display:flex; align-items:center; gap:10px;
+}
+.nav-logo i { color:var(--primary); font-size:1.2rem; }
+.nav-links { display:flex; gap:28px; list-style:none; }
+.nav-links a {
+  font-size:0.88rem; font-weight:500; color:var(--text);
+  position:relative; padding-bottom:4px;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:0; left:0; width:0; height:2px;
+  background:var(--primary); transition:var(--transition);
+}
+.nav-links a:hover::after { width:100%; }
+.nav-links a:hover { color:var(--primary); }
+.nav-toggle { display:none; font-size:1.5rem; cursor:pointer; color:var(--dark); background:none; border:none; }
+/* HERO */
+.hero {
+  min-height:100vh; display:flex; align-items:center;
+  background:linear-gradient(135deg, #F0FDFA 0%, var(--bg) 40%, #FFFBEB 100%);
+  position:relative; padding-top:80px;
+}
+.hero::before {
+  content:''; position:absolute; top:60px; right:-100px;
+  width:400px; height:400px; border-radius:50%;
+  background:radial-gradient(circle, rgba(13,148,136,0.06) 0%, transparent 70%);
+}
+.hero::after {
+  content:''; position:absolute; bottom:-50px; left:-80px;
+  width:300px; height:300px; border-radius:50%;
+  background:radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%);
+}
+.hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; z-index:1; }
+.hero-text h1 {
+  font-family:'Poppins', 'Noto Sans JP', sans-serif;
+  font-size:2.6rem; line-height:1.35; color:var(--dark); margin-bottom:20px; font-weight:700;
+}
+.hero-text h1 span { color:var(--primary); }
+.hero-text .sub { font-size:1.1rem; color:var(--primary); font-weight:600; margin-bottom:12px; display:block; }
+.hero-text p { font-size:1.02rem; color:var(--text-light); margin-bottom:32px; max-width:460px; }
+.hero-image { position:relative; }
+.hero-image img { width:100%; height:400px; object-fit:cover; border-radius:var(--radius); box-shadow:var(--shadow-lg); }
+.hero-float {
+  position:absolute; background:var(--white); border-radius:12px; box-shadow:var(--shadow); padding:14px 18px;
+  display:flex; align-items:center; gap:10px;
+}
+.hero-float.f1 { bottom:30px; left:-20px; }
+.hero-float.f2 { top:30px; right:-20px; }
+.hero-float i { font-size:1.4rem; }
+.hero-float .ft { font-size:0.82rem; color:var(--text); }
+.hero-float .ft strong { display:block; font-size:0.95rem; color:var(--dark); }
+/* BTN */
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:14px 32px; border-radius:50px; font-weight:600;
+  font-size:0.95rem; transition:var(--transition); cursor:pointer; border:none;
+}
+.btn-primary { background:var(--primary); color:var(--white); box-shadow:0 4px 16px rgba(13,148,136,0.25); }
+.btn-primary:hover { background:var(--primary-dark); transform:translateY(-2px); box-shadow:0 6px 24px rgba(13,148,136,0.35); color:var(--white); }
+.btn-outline { background:transparent; color:var(--primary); border:2px solid var(--primary); }
+.btn-outline:hover { background:var(--primary); color:var(--white); }
+.btn-line { background:#06C755; color:var(--white); box-shadow:0 4px 16px rgba(6,199,85,0.25); }
+.btn-line:hover { background:#05B34D; transform:translateY(-2px); color:var(--white); }
+.hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+/* SECTION */
+section { padding:100px 0; }
+.section-header { text-align:center; margin-bottom:60px; }
+.section-header .label {
+  display:inline-block; font-size:0.78rem; font-weight:700;
+  color:var(--primary); background:var(--primary-light);
+  padding:6px 16px; border-radius:20px; margin-bottom:12px;
+  letter-spacing:1px; text-transform:uppercase;
+}
+.section-header h2 { font-size:2rem; color:var(--dark); margin-bottom:12px; }
+.section-header p { color:var(--text-light); max-width:540px; margin:0 auto; }
+/* MESSAGE */
+.message { background:var(--white); }
+.message-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.message-image { border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+.message-image img { width:100%; height:360px; object-fit:cover; }
+.message-text h3 { font-size:1.5rem; color:var(--dark); margin-bottom:16px; line-height:1.6; }
+.message-text p { margin-bottom:16px; }
+.message-text .tagline {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--primary-light); color:var(--primary-dark);
+  padding:10px 20px; border-radius:8px; font-weight:600;
+  font-size:0.95rem; margin-top:12px;
+}
+.message-text .tagline i { font-size:1.1rem; }
+/* SERVICES */
+.services { background:var(--bg); }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.service-card {
+  background:var(--white); border-radius:var(--radius); padding:36px 28px;
+  box-shadow:var(--shadow); transition:var(--transition);
+  text-align:center; position:relative; overflow:hidden;
+}
+.service-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.service-card .icon {
+  width:72px; height:72px; border-radius:50%; margin:0 auto 20px;
+  background:linear-gradient(135deg, var(--primary-light), #E0F7F4);
+  display:flex; align-items:center; justify-content:center;
+}
+.service-card .icon i { font-size:1.6rem; color:var(--primary); }
+.service-card h3 { font-size:1.1rem; color:var(--dark); margin-bottom:10px; }
+.service-card p { font-size:0.9rem; color:var(--text-light); }
+.service-card .tag {
+  display:inline-block; margin-top:14px; font-size:0.78rem; font-weight:600;
+  color:var(--accent); background:var(--accent-light); padding:4px 12px; border-radius:12px;
+}
+/* MERIT */
+.merit { background:var(--white); }
+.merit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.merit-card {
+  padding:32px 24px; border-radius:var(--radius);
+  border:2px solid transparent; transition:var(--transition);
+  background:var(--bg);
+}
+.merit-card:hover { border-color:var(--primary); box-shadow:var(--shadow); }
+.merit-card .merit-icon {
+  width:48px; height:48px; border-radius:12px;
+  background:var(--primary); color:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; margin-bottom:16px;
+}
+.merit-card h3 { font-size:1.05rem; color:var(--dark); margin-bottom:10px; }
+.merit-card p { font-size:0.88rem; color:var(--text-light); }
+/* PRICING */
+.pricing { background:var(--bg); }
+.pricing-note {
+  text-align:center; max-width:600px; margin:0 auto;
+  background:var(--white); border-radius:var(--radius);
+  padding:40px 32px; box-shadow:var(--shadow);
+}
+.pricing-note i { font-size:2.4rem; color:var(--accent); margin-bottom:16px; }
+.pricing-note h3 { font-size:1.3rem; color:var(--dark); margin-bottom:12px; }
+.pricing-note p { font-size:0.95rem; margin-bottom:8px; }
+.pricing-note .note { font-size:0.85rem; color:var(--text-light); margin-top:16px; }
+/* FLOW */
+.flow { background:var(--white); }
+.flow-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.flow-step { text-align:center; position:relative; }
+.flow-step::after {
+  content:'→'; position:absolute; right:-16px; top:36px;
+  font-size:1.4rem; color:var(--primary); font-weight:700;
+}
+.flow-step:last-child::after { display:none; }
+.flow-step .step-icon {
+  width:72px; height:72px; border-radius:50%; margin:0 auto 16px;
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color:var(--white); display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; box-shadow:0 4px 16px rgba(13,148,136,0.2);
+}
+.flow-step h4 { font-size:1rem; color:var(--dark); margin-bottom:8px; }
+.flow-step p { font-size:0.85rem; color:var(--text-light); }
+/* INFO */
+.info { background:var(--bg); }
+.info-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+.info-table { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
+.info-table table { width:100%; border-collapse:collapse; }
+.info-table th, .info-table td { padding:16px 24px; text-align:left; font-size:0.95rem; }
+.info-table th { background:var(--primary); color:var(--white); font-weight:600; width:35%; }
+.info-table tr:not(:last-child) { border-bottom:1px solid #E2E8F0; }
+.info-map { border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); min-height:360px; }
+.info-map iframe { width:100%; height:100%; min-height:360px; border:0; }
+/* CTA */
+.cta {
+  background:linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  text-align:center; padding:80px 0; color:var(--white);
+}
+.cta h2 { font-size:2rem; margin-bottom:16px; }
+.cta p { opacity:0.9; margin-bottom:32px; max-width:520px; margin-left:auto; margin-right:auto; }
+.cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.cta .btn-white { background:var(--white); color:var(--primary); box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+.cta .btn-white:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(0,0,0,0.15); }
+.cta .tel-block { margin-top:28px; }
+.cta .tel-num { font-size:1.6rem; font-weight:700; letter-spacing:1px; }
+.cta .tel-note { font-size:0.85rem; opacity:0.8; margin-top:4px; }
+/* FOOTER */
+.footer {
+  background:var(--dark); color:rgba(255,255,255,0.6); padding:48px 0 24px; text-align:center;
+}
+.footer-logo { font-size:1.15rem; font-weight:700; color:var(--white); margin-bottom:8px; }
+.footer-logo i { color:var(--primary); margin-right:8px; }
+.footer p { font-size:0.85rem; margin-bottom:4px; }
+.footer-copy { margin-top:24px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); font-size:0.8rem; }
+/* ANIMATIONS */
+.fade-in { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:var(--white); flex-direction:column; padding:20px 24px; gap:16px; box-shadow:var(--shadow); }
+  .nav-links.active { display:flex; }
+  .nav-toggle { display:block; }
+  .hero-inner { grid-template-columns:1fr; gap:32px; text-align:center; }
+  .hero-text h1 { font-size:2rem; }
+  .hero-text p { margin:0 auto 24px; }
+  .hero-btns { justify-content:center; }
+  .hero-image { max-width:420px; margin:0 auto; }
+  .hero-float { display:none; }
+  .message-grid { grid-template-columns:1fr; }
+  .services-grid { grid-template-columns:1fr; }
+  .merit-grid { grid-template-columns:1fr; }
+  .flow-steps { grid-template-columns:repeat(2,1fr); }
+  .flow-step::after { display:none; }
+  .info-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+  <div class="nav-logo"><i class="fas fa-seedling"></i> 嶋貫綾税理士事務所</div>
+  <button class="nav-toggle" aria-label="メニュー"><i class="fas fa-bars"></i></button>
+  <ul class="nav-links">
+    <li><a href="#message">事務所紹介</a></li>
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#merit">選ばれる理由</a></li>
+    <li><a href="#flow">ご利用の流れ</a></li>
+    <li><a href="#info">事務所情報</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero-inner">
+  <div class="hero-text">
+    <span class="sub"><i class="fas fa-leaf"></i> 起業・開業をトータルサポート</span>
+    <h1>いまを見つめ、<br><span>未来</span>を創る<br>お手伝い</h1>
+    <p>はじめての起業で何をすればいいかわからない方へ。会計・資金・経営のすべてをサポートする、横浜市旭区の税理士事務所です。</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> まずは相談する</a>
+      <a href="https://lin.ee/9OGSfTg" class="btn btn-line" target="_blank"><i class="fab fa-line"></i> LINEで相談</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop" alt="起業サポートイメージ">
+    <div class="hero-float f1">
+      <i class="fas fa-comments" style="color:var(--primary);"></i>
+      <div class="ft"><strong>LINE相談OK</strong>チャットで気軽に</div>
+    </div>
+    <div class="hero-float f2">
+      <i class="fas fa-hand-holding-heart" style="color:var(--accent);"></i>
+      <div class="ft"><strong>初回見積り無料</strong>お気軽にどうぞ</div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- MESSAGE -->
+<section class="message" id="message">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Message</span>
+  <h2>はじめての起業、ひとりで悩まないでください</h2>
+</div>
+<div class="message-grid fade-in">
+  <div class="message-image">
+    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=360&fit=crop" alt="税理士イメージ">
+  </div>
+  <div class="message-text">
+    <h3>お客様との<br>コミュニケーションを大切に</h3>
+    <p>当事務所はお客様とのコミュニケーションを大切に考えております。「何をすればいいかわからない」という段階からでも、丁寧にお話をお伺いし、一歩ずつ一緒に進めていきます。</p>
+    <p>会計書類の整理から会計ソフトの使い方まで、最初からしっかりサポート。記帳代行も承ります。毎月の報告書で経営状態を「見える化」し、将来に向けた事業計画づくりをお手伝いします。</p>
+    <div class="tagline"><i class="fas fa-sparkles"></i> 小さなことでもお気軽にご相談ください</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Services</span>
+  <h2>サービス内容</h2>
+  <p>起業・開業に必要なお金のことをトータルサポート</p>
+</div>
+<div class="services-grid">
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-book-open"></i></div>
+    <h3>会計おまかせ</h3>
+    <p>会計書類整理のポイントや、会計ソフト入力レクチャー等、最初からお手伝い。記帳込みのサポートもOKです。</p>
+    <span class="tag">人気No.1</span>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-chart-bar"></i></div>
+    <h3>資金のアドバイス</h3>
+    <p>毎月の報告書で今の状態を把握。設備投資の時期を見極め、正しい節税対策も行えます。</p>
+    <span class="tag">経営改善</span>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-people-group"></i></div>
+    <h3>起業サポーターの紹介</h3>
+    <p>法律関係、人事関係、登記関係、保険関係など、それぞれの専門家をご紹介します。</p>
+    <span class="tag">ネットワーク</span>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-file-signature"></i></div>
+    <h3>確定申告・税務申告</h3>
+    <p>個人事業主・法人のどちらにも対応。正確な申告で安心。節税アドバイスもお任せください。</p>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-building-columns"></i></div>
+    <h3>法人設立サポート</h3>
+    <p>法人成りのタイミング判断から設立手続き、届出書作成まで。成長フェーズに合わせた支援です。</p>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-comments"></i></div>
+    <h3>経営相談・面談</h3>
+    <p>定期的な面談で経営状況を共有。課題の早期発見と対策で、安定した事業運営をサポートします。</p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- MERIT -->
+<section class="merit" id="merit">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Why Choose Us</span>
+  <h2>選ばれる理由</h2>
+  <p>起業・開業する方に選ばれ続ける3つのポイント</p>
+</div>
+<div class="merit-grid">
+  <div class="merit-card fade-in">
+    <div class="merit-icon"><i class="fas fa-heart"></i></div>
+    <h3>最初からの丁寧なサポート</h3>
+    <p>「何から始めればいいかわからない」方にも寄り添い、会計の基本から一つひとつ丁寧にお伝えします。</p>
+  </div>
+  <div class="merit-card fade-in">
+    <div class="merit-icon"><i class="fas fa-network-wired"></i></div>
+    <h3>専門家ネットワーク</h3>
+    <p>法律・人事・登記・保険など、起業に必要な各分野の専門家をご紹介。ワンストップで解決できます。</p>
+  </div>
+  <div class="merit-card fade-in">
+    <div class="merit-icon"><i class="fab fa-line"></i></div>
+    <h3>LINEで気軽に相談</h3>
+    <p>ちょっとした疑問もLINEチャットで気軽に相談OK。忙しいオーナー様の味方です。</p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Pricing</span>
+  <h2>料金について</h2>
+</div>
+<div class="pricing-note fade-in">
+  <i class="fas fa-info-circle"></i>
+  <h3>初回のご契約相談・お見積りは無料</h3>
+  <p>税務相談は初回から相談料をいただいておりますが、契約に関するご相談やお見積りは初回無料です。</p>
+  <p>税務相談後にご契約の場合には、税務相談料をお値引きさせていただきます。</p>
+  <div class="note">※ 料金の詳細はお見積り時にご案内いたします</div>
+</div>
+</div>
+</section>
+
+<!-- FLOW -->
+<section class="flow" id="flow">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Flow</span>
+  <h2>ご利用の流れ</h2>
+  <p>お問い合わせからサポート開始まで</p>
+</div>
+<div class="flow-steps fade-in">
+  <div class="flow-step">
+    <div class="step-icon"><i class="fas fa-phone"></i></div>
+    <h4>お問い合わせ</h4>
+    <p>電話・LINE・フォームからお気軽に</p>
+  </div>
+  <div class="flow-step">
+    <div class="step-icon"><i class="fas fa-handshake"></i></div>
+    <h4>初回面談</h4>
+    <p>ご要望・状況をお伺いします</p>
+  </div>
+  <div class="flow-step">
+    <div class="step-icon"><i class="fas fa-file-lines"></i></div>
+    <h4>お見積り</h4>
+    <p>最適なプラン・料金をご提案</p>
+  </div>
+  <div class="flow-step">
+    <div class="step-icon"><i class="fas fa-rocket"></i></div>
+    <h4>サポート開始</h4>
+    <p>ご契約後すぐにスタート</p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- INFO -->
+<section class="info" id="info">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Office</span>
+  <h2>事務所情報</h2>
+</div>
+<div class="info-grid fade-in">
+  <div class="info-table">
+    <table>
+      <tr><th>事務所名</th><td>嶋貫綾税理士事務所</td></tr>
+      <tr><th>代表者</th><td>嶋貫 綾</td></tr>
+      <tr><th>所在地</th><td>〒241-0835<br>神奈川県横浜市旭区柏町124-4<br>パークサイドミナマキ 201</td></tr>
+      <tr><th>電話番号</th><td>045-489-9085</td></tr>
+      <tr><th>業務内容</th><td>会計・記帳代行<br>確定申告・税務申告<br>資金計画・経営相談<br>法人設立サポート<br>各種専門家紹介</td></tr>
+      <tr><th>Webサイト</th><td><a href="http://shimanuki-tax.com/" target="_blank">shimanuki-tax.com</a></td></tr>
+    </table>
+  </div>
+  <div class="info-map">
+    <iframe src="https://www.google.com/maps?q=神奈川県横浜市旭区柏町124-4+パークサイドミナマキ&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+<div class="container">
+  <h2 class="fade-in">まずはお気軽にご相談ください</h2>
+  <p class="fade-in">起業のこと、税金のこと、経営のこと。小さなことでもお気軽にお問い合わせください。LINEでのご相談も承っております。</p>
+  <div class="cta-btns fade-in">
+    <a href="https://shimanuki-tax.com/contact/" class="btn btn-white" target="_blank"><i class="fas fa-envelope"></i> お問い合わせフォーム</a>
+    <a href="https://lin.ee/9OGSfTg" class="btn btn-line" target="_blank"><i class="fab fa-line"></i> LINEで相談する</a>
+  </div>
+  <div class="tel-block fade-in">
+    <div class="tel-num"><i class="fas fa-phone"></i> 045-489-9085</div>
+    <div class="tel-note">お電話でもお気軽にどうぞ</div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+  <div class="footer-logo"><i class="fas fa-seedling"></i> 嶋貫綾税理士事務所</div>
+  <p>〒241-0835 神奈川県横浜市旭区柏町124-4 パークサイドミナマキ 201</p>
+  <p>TEL: 045-489-9085</p>
+  <div class="footer-copy">&copy; 2024 嶋貫綾税理士事務所 All Rights Reserved.</div>
+</div>
+</footer>
+
+<script>
+// Mobile nav
+document.querySelector('.nav-toggle').addEventListener('click', function(){
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click', function(){ document.querySelector('.nav-links').classList.remove('active'); });
+});
+// Scroll animation
+const observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+  });
+}, { threshold:0.15 });
+document.querySelectorAll('.fade-in').forEach(function(el){ observer.observe(el); });
+// Nav scroll
+window.addEventListener('scroll', function(){
+  const nav = document.querySelector('.nav');
+  if(window.pageYOffset > 100){ nav.style.boxShadow = '0 2px 16px rgba(0,0,0,0.08)'; }
+  else { nav.style.boxShadow = '0 1px 8px rgba(0,0,0,0.04)'; }
+});
+</script>
+</body>
+</html>

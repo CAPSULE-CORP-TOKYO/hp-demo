@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>長野毅税理士事務所 | 横浜市 税理士・社労士・行政書士ワンストップ</title>
+<meta name="description" content="横浜市の長野毅税理士事務所。税理士・社労士・行政書士の3資格でワンストップサポート。法人から個人まで多角的な経営アドバイス。">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #6b2d3e;
+  --primary-dark: #4a1e2b;
+  --primary-light: #8e4058;
+  --accent: #c97d4f;
+  --accent-light: #dfa06e;
+  --accent-dark: #a86639;
+  --warm-gray: #6b6360;
+  --text: #2d2926;
+  --text-light: #6b6360;
+  --bg: #faf8f6;
+  --bg-alt: #f2eeea;
+  --bg-warm: #f7f0eb;
+  --white: #ffffff;
+  --shadow: 0 4px 20px rgba(74,30,43,0.06);
+  --shadow-lg: 0 12px 40px rgba(74,30,43,0.1);
+  --radius: 14px;
+  --transition: all 0.35s ease;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.85;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(250,248,246,0.97);
+  backdrop-filter: blur(12px);
+  transition: var(--transition);
+}
+.header.scrolled { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+.logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+.nav a:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+.nav a:not(.nav-cta):hover::after { width: 100%; }
+.nav a:hover { color: var(--primary); }
+.nav-cta {
+  background: var(--primary) !important;
+  color: var(--white) !important;
+  padding: 10px 24px !important;
+  border-radius: 30px !important;
+}
+.nav-cta:hover { background: var(--primary-dark) !important; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: var(--transition); }
+
+/* ==================== HERO ==================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(155deg, var(--primary-dark) 0%, var(--primary) 35%, var(--primary-light) 70%, var(--accent) 100%);
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: -100px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(201,125,79,0.12) 0%, transparent 60%);
+  border-radius: 50%;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  right: -150px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 50%);
+  border-radius: 50%;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-content { color: var(--white); }
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,125,79,0.2);
+  border: 1px solid rgba(201,125,79,0.35);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  color: var(--accent-light);
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2.8rem;
+  line-height: 1.35;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent-light);
+}
+.hero-desc {
+  font-size: 1.05rem;
+  opacity: 0.88;
+  margin-bottom: 36px;
+  line-height: 1.9;
+}
+.hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+.btn-warm { background: var(--accent); color: var(--white); }
+.btn-warm:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,125,79,0.4); }
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+.hero-right { display: flex; justify-content: center; }
+.triple-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 36px;
+  width: 100%;
+  max-width: 400px;
+}
+.triple-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.2rem;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 24px;
+}
+.triple-items { display: flex; flex-direction: column; gap: 16px; }
+.triple-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.06);
+  padding: 16px 20px;
+  border-radius: 12px;
+  transition: var(--transition);
+}
+.triple-item:hover { background: rgba(255,255,255,0.12); }
+.ti-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+.ti-text h4 { color: var(--white); font-size: 0.98rem; margin-bottom: 2px; }
+.ti-text p { color: rgba(255,255,255,0.7); font-size: 0.82rem; }
+
+/* ==================== SECTIONS ==================== */
+.section { padding: 100px 24px; }
+.section-alt { background: var(--bg-alt); }
+.section-warm { background: var(--bg-warm); }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+.section-header h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 14px;
+}
+.section-header p { font-size: 1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+/* ==================== ONE-STOP ==================== */
+.onestop-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+.onestop-intro p { color: var(--text-light); font-size: 1.05rem; }
+.onestop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.onestop-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.onestop-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  transition: var(--transition);
+}
+.onestop-card:nth-child(1)::before { background: var(--primary); }
+.onestop-card:nth-child(2)::before { background: var(--accent); }
+.onestop-card:nth-child(3)::before { background: var(--warm-gray); }
+.onestop-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.os-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--white);
+}
+.onestop-card:nth-child(1) .os-icon { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+.onestop-card:nth-child(2) .os-icon { background: linear-gradient(135deg, var(--accent), var(--accent-light)); }
+.onestop-card:nth-child(3) .os-icon { background: linear-gradient(135deg, var(--warm-gray), #8a8380); }
+.onestop-card h3 { font-size: 1.15rem; color: var(--primary-dark); margin-bottom: 10px; }
+.onestop-card p { color: var(--text-light); font-size: 0.9rem; }
+
+/* ==================== MERITS ==================== */
+.merits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.merit-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.merit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.merit-num {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+.merit-card h3 { font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 8px; }
+.merit-card p { color: var(--text-light); font-size: 0.88rem; }
+
+/* ==================== SERVICES ==================== */
+.services-list { display: flex; flex-direction: column; gap: 24px; }
+.service-row {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  align-items: start;
+  transition: var(--transition);
+}
+.service-row:hover { transform: translateX(8px); box-shadow: var(--shadow-lg); }
+.sr-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.4rem;
+}
+.sr-content h3 { font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 6px; }
+.sr-content p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px; }
+.sr-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.sr-tag {
+  background: var(--bg-warm);
+  color: var(--primary);
+  padding: 3px 12px;
+  border-radius: 16px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+/* ==================== ABOUT ==================== */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 50px;
+  align-items: center;
+}
+.about-img-wrap {
+  position: relative;
+}
+.about-img {
+  width: 100%;
+  height: 420px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+}
+.about-overlay {
+  position: absolute;
+  bottom: -12px;
+  left: -12px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 14px 22px;
+  border-radius: var(--radius);
+  font-family: 'Noto Serif JP', serif;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-lg);
+}
+.about-text h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.about-text > p { color: var(--text-light); margin-bottom: 20px; }
+.about-quals {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.aq-item {
+  background: var(--bg-warm);
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+}
+.aq-item i { color: var(--accent); font-size: 1.3rem; margin-bottom: 6px; display: block; }
+.aq-item span { font-size: 0.82rem; font-weight: 600; color: var(--primary-dark); }
+
+/* ==================== FLOW ==================== */
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+.flow-grid::before {
+  content: '';
+  position: absolute;
+  top: 48px;
+  left: 14%;
+  right: 14%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+.flow-card {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.flow-circle {
+  width: 96px;
+  height: 96px;
+  background: var(--white);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: var(--shadow);
+}
+.flow-circle .step-num {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.flow-circle i { font-size: 1.3rem; color: var(--primary); margin-top: 4px; }
+.flow-card h4 { font-size: 0.98rem; color: var(--primary-dark); margin-bottom: 4px; }
+.flow-card p { font-size: 0.82rem; color: var(--text-light); }
+
+/* ==================== OFFICE ==================== */
+.office-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+.office-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px;
+  box-shadow: var(--shadow);
+}
+.office-card h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.2rem;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.office-card h3 i { color: var(--accent); }
+.info-item {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+.info-item:last-child { border-bottom: none; }
+.info-key { width: 110px; min-width: 110px; font-weight: 600; color: var(--primary-dark); }
+.info-val { color: var(--text-light); }
+.info-val a { color: var(--primary); text-decoration: none; }
+.map-box {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: 360px;
+}
+.map-box iframe { width: 100%; height: 100%; min-height: 360px; border: 0; }
+
+/* ==================== CTA ==================== */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--accent));
+  padding: 80px 24px;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.cta-section h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2rem;
+  margin-bottom: 14px;
+  position: relative;
+}
+.cta-section p { opacity: 0.9; margin-bottom: 32px; font-size: 1.05rem; position: relative; }
+.cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
+.btn-white { background: var(--white); color: var(--primary-dark); }
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+/* ==================== CONTACT ==================== */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+}
+.contact-side { padding: 20px 0; }
+.contact-side h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+}
+.contact-side > p { color: var(--text-light); margin-bottom: 24px; }
+.ct-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.ct-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+.ct-item h4 { font-size: 0.88rem; color: var(--primary-dark); margin-bottom: 2px; }
+.ct-item p { color: var(--text-light); font-size: 0.88rem; margin: 0; }
+.contact-form-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px;
+  box-shadow: var(--shadow);
+}
+.form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.fg { margin-bottom: 18px; }
+.fg label { display: block; font-size: 0.88rem; font-weight: 500; color: var(--primary-dark); margin-bottom: 6px; }
+.fg input,
+.fg textarea,
+.fg select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e8e4e0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: var(--transition);
+  background: var(--bg);
+}
+.fg input:focus,
+.fg textarea:focus,
+.fg select:focus {
+  border-color: var(--primary);
+  outline: none;
+  background: var(--white);
+}
+.fg textarea { resize: vertical; min-height: 110px; }
+.btn-form {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--white);
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+.btn-form:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ==================== FOOTER ==================== */
+.footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.75);
+  padding: 56px 24px 28px;
+}
+.footer-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-brand h3 {
+  font-family: 'Noto Serif JP', serif;
+  color: var(--white);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-brand h3 i { color: var(--accent-light); }
+.footer-brand p { font-size: 0.88rem; line-height: 1.8; }
+.footer-links h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 14px; }
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+.footer-links a:hover { color: var(--accent-light); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 36px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ==================== ANIMATIONS ==================== */
+.anim-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.anim-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.anim-right { opacity: 0; transform: translateX(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.anim-up.visible, .anim-left.visible, .anim-right.visible { opacity: 1; transform: translate(0); }
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 968px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero h1 { font-size: 2rem; }
+  .hero-buttons { justify-content: center; }
+  .hero-right { display: none; }
+  .onestop-grid { grid-template-columns: 1fr; }
+  .merits-grid { grid-template-columns: 1fr; }
+  .about-layout { grid-template-columns: 1fr; }
+  .about-quals { grid-template-columns: 1fr 1fr 1fr; }
+  .flow-grid { grid-template-columns: repeat(2, 1fr); }
+  .flow-grid::before { display: none; }
+  .office-section { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .footer-wrap { grid-template-columns: 1fr; }
+  .nav { display: none; }
+  .hamburger { display: flex; }
+  .nav.active {
+    display: flex; flex-direction: column;
+    position: absolute; top: 74px; left: 0; width: 100%;
+    background: var(--bg); padding: 24px; box-shadow: var(--shadow); gap: 18px;
+  }
+  .form-2col { grid-template-columns: 1fr; }
+  .service-row { grid-template-columns: 1fr; text-align: center; }
+  .sr-icon { margin: 0 auto; }
+  .sr-tags { justify-content: center; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.7rem; }
+  .section { padding: 60px 16px; }
+  .section-header h2 { font-size: 1.5rem; }
+  .about-quals { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark"><i class="fas fa-scale-balanced"></i></span>
+      長野毅税理士事務所
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#onestop">ワンストップ</a>
+      <a href="#services">業務内容</a>
+      <a href="#about">事務所紹介</a>
+      <a href="#flow">ご依頼の流れ</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-content anim-up">
+      <div class="hero-label">
+        <i class="fas fa-award"></i>
+        税理士 × 社労士 × 行政書士
+      </div>
+      <h1>知識と経験で<br><em>お悩みを</em><br>ワンストップ解決</h1>
+      <p class="hero-desc">横浜市の長野毅税理士事務所は、税理士・社会保険労務士・行政書士の<br>3つの資格で、法人から個人まで多角的にサポートいたします。</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-warm"><i class="fas fa-envelope"></i> 無料相談する</a>
+        <a href="#onestop" class="btn btn-ghost"><i class="fas fa-arrow-down"></i> 詳しく見る</a>
+      </div>
+    </div>
+    <div class="hero-right anim-right">
+      <div class="triple-card">
+        <div class="triple-title">3つの資格でトータルサポート</div>
+        <div class="triple-items">
+          <div class="triple-item">
+            <div class="ti-icon"><i class="fas fa-calculator"></i></div>
+            <div class="ti-text">
+              <h4>税理士業務</h4>
+              <p>税務・会計・確定申告・法人決算</p>
+            </div>
+          </div>
+          <div class="triple-item">
+            <div class="ti-icon"><i class="fas fa-users"></i></div>
+            <div class="ti-text">
+              <h4>社労士業務</h4>
+              <p>社会保険・労務管理・給与計算</p>
+            </div>
+          </div>
+          <div class="triple-item">
+            <div class="ti-icon"><i class="fas fa-file-signature"></i></div>
+            <div class="ti-text">
+              <h4>行政書士業務</h4>
+              <p>許認可申請・法人設立・各種届出</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE-STOP -->
+<section class="section" id="onestop">
+  <div class="container">
+    <div class="section-header anim-up">
+      <div class="section-label"><i class="fas fa-layer-group"></i> One-Stop</div>
+      <h2>ワンストップサービス</h2>
+      <p>3つの資格を活かした、他にはないトータルサポート</p>
+    </div>
+    <div class="onestop-grid">
+      <div class="onestop-card anim-up">
+        <div class="os-icon"><i class="fas fa-calculator"></i></div>
+        <h3>税理士業務</h3>
+        <p>記帳代行、月次監査、決算・確定申告、税務相談、相続税対策まで。正確な税務処理でお客様の事業を支えます。</p>
+      </div>
+      <div class="onestop-card anim-up">
+        <div class="os-icon"><i class="fas fa-users-cog"></i></div>
+        <h3>社労士業務</h3>
+        <p>社会保険の手続き、労務管理、給与計算、助成金申請。従業員に関するお悩みを一括でサポートします。</p>
+      </div>
+      <div class="onestop-card anim-up">
+        <div class="os-icon"><i class="fas fa-file-signature"></i></div>
+        <h3>行政書士業務</h3>
+        <p>許認可申請、法人設立の手続き、各種届出書の作成。行政手続きの煩雑さから解放します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MERITS -->
+<section class="section section-warm">
+  <div class="container">
+    <div class="section-header anim-up">
+      <div class="section-label"><i class="fas fa-gem"></i> Merits</div>
+      <h2>ワンストップのメリット</h2>
+    </div>
+    <div class="merits-grid">
+      <div class="merit-card anim-up">
+        <div class="merit-num">1</div>
+        <h3>多様な業務に対応</h3>
+        <p>税理士・社労士・行政書士の3つの業務を一つの事務所で対応。複数の専門家を探す手間がなくなります。</p>
+      </div>
+      <div class="merit-card anim-up">
+        <div class="merit-num">2</div>
+        <h3>コスト削減</h3>
+        <p>税務・会計・労務・給与計算を一括で請け負うことで、月額顧問料から一定金額を割引いたします。</p>
+      </div>
+      <div class="merit-card anim-up">
+        <div class="merit-num">3</div>
+        <h3>多角的な提案</h3>
+        <p>税理士・社労士・行政書士の3つの視点から、一面的ではない総合的なサポート案を提示します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header anim-up">
+      <div class="section-label"><i class="fas fa-briefcase"></i> Services</div>
+      <h2>業務内容</h2>
+      <p>豊富な知識と経験を活かした、幅広いサービス</p>
+    </div>
+    <div class="services-list">
+      <div class="service-row anim-up">
+        <div class="sr-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+        <div class="sr-content">
+          <h3>税務顧問・記帳代行</h3>
+          <p>月次巡回監査による正確な記帳指導と、適正な決算書・税務申告書の作成を行います。経営に活かせる数字をお届けします。</p>
+          <div class="sr-tags">
+            <span class="sr-tag">月次監査</span>
+            <span class="sr-tag">記帳代行</span>
+            <span class="sr-tag">決算申告</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-row anim-up">
+        <div class="sr-icon"><i class="fas fa-home"></i></div>
+        <div class="sr-content">
+          <h3>相続税・贈与税</h3>
+          <p>相続税の申告、事前の節税対策、贈与税の計画的な活用まで、大切な財産の移転を丁寧にサポートします。</p>
+          <div class="sr-tags">
+            <span class="sr-tag">相続税申告</span>
+            <span class="sr-tag">事前対策</span>
+            <span class="sr-tag">贈与計画</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-row anim-up">
+        <div class="sr-icon"><i class="fas fa-building"></i></div>
+        <div class="sr-content">
+          <h3>法人設立・開業サポート</h3>
+          <p>行政書士の資格を活かし、法人設立の手続きから許認可申請、設立後の届出まで一貫してサポートします。</p>
+          <div class="sr-tags">
+            <span class="sr-tag">法人設立</span>
+            <span class="sr-tag">許認可申請</span>
+            <span class="sr-tag">開業届出</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-row anim-up">
+        <div class="sr-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="sr-content">
+          <h3>社会保険・労務管理</h3>
+          <p>社会保険の手続き、労務管理の最適化、給与計算の代行。助成金の申請サポートも行います。</p>
+          <div class="sr-tags">
+            <span class="sr-tag">社保手続き</span>
+            <span class="sr-tag">給与計算</span>
+            <span class="sr-tag">助成金</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-row anim-up">
+        <div class="sr-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="sr-content">
+          <h3>経営アドバイス</h3>
+          <p>3つの資格から得た多角的な視点で、税務・労務・法務の観点から総合的な経営アドバイスを提供します。</p>
+          <div class="sr-tags">
+            <span class="sr-tag">経営計画</span>
+            <span class="sr-tag">資金繰り</span>
+            <span class="sr-tag">多角的支援</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-img-wrap anim-left">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="事務所イメージ" class="about-img">
+        <div class="about-overlay"><i class="fas fa-scale-balanced"></i> 3資格のワンストップ事務所</div>
+      </div>
+      <div class="about-text anim-right">
+        <h2>多角的な視点で<br>お悩みをサポート</h2>
+        <p>横浜市にある長野毅税理士事務所では、税理士業務・社会保険労務士業務・行政書士業務の3つをワンストップでサポートしています。</p>
+        <p>各業務の豊富な知識と経験を活かし、一つの視点だけでは見えない課題も多角的に解決策を提示します。法人の方から個人の方まで、お気軽にお問い合わせください。</p>
+        <div class="about-quals">
+          <div class="aq-item">
+            <i class="fas fa-calculator"></i>
+            <span>税理士</span>
+          </div>
+          <div class="aq-item">
+            <i class="fas fa-users"></i>
+            <span>社会保険労務士</span>
+          </div>
+          <div class="aq-item">
+            <i class="fas fa-file-signature"></i>
+            <span>行政書士</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-warm"><i class="fas fa-envelope"></i> まずはご相談ください</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="section" id="flow">
+  <div class="container">
+    <div class="section-header anim-up">
+      <div class="section-label"><i class="fas fa-route"></i> Flow</div>
+      <h2>ご依頼の流れ</h2>
+      <p>初めての方もご安心ください</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-card anim-up">
+        <div class="flow-circle">
+          <span class="step-num">Step 1</span>
+          <i class="fas fa-phone"></i>
+        </div>
+        <h4>お問い合わせ</h4>
+        <p>お電話・フォームでお気軽にご連絡ください</p>
+      </div>
+      <div class="flow-card anim-up">
+        <div class="flow-circle">
+          <span class="step-num">Step 2</span>
+          <i class="fas fa-comments"></i>
+        </div>
+        <h4>無料相談</h4>
+        <p>現在のお悩みやご要望をお伺いします</p>
+      </div>
+      <div class="flow-card anim-up">
+        <div class="flow-circle">
+          <span class="step-num">Step 3</span>
+          <i class="fas fa-file-contract"></i>
+        </div>
+        <h4>ご提案・契約</h4>
+        <p>最適なプランをご提案いたします</p>
+      </div>
+      <div class="flow-card anim-up">
+        <div class="flow-circle">
+          <span class="step-num">Step 4</span>
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h4>サポート開始</h4>
+        <p>3つの資格を活かしたサポートを開始</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICE -->
+<section class="section section-alt" id="access">
+  <div class="container">
+    <div class="section-header anim-up">
+      <div class="section-label"><i class="fas fa-building"></i> Office</div>
+      <h2>事務所情報</h2>
+    </div>
+    <div class="office-section">
+      <div class="office-card anim-left">
+        <h3><i class="fas fa-info-circle"></i> 基本情報</h3>
+        <div class="info-item">
+          <div class="info-key">事務所名</div>
+          <div class="info-val">長野毅税理士事務所</div>
+        </div>
+        <div class="info-item">
+          <div class="info-key">代表者</div>
+          <div class="info-val">長野 毅</div>
+        </div>
+        <div class="info-item">
+          <div class="info-key">所在地</div>
+          <div class="info-val">〒241-0824<br>神奈川県横浜市旭区中希望が丘94-31</div>
+        </div>
+        <div class="info-item">
+          <div class="info-key">電話番号</div>
+          <div class="info-val"><a href="tel:045-442-7162">045-442-7162</a></div>
+        </div>
+        <div class="info-item">
+          <div class="info-key">営業時間</div>
+          <div class="info-val">9:00 〜 17:00（平日）</div>
+        </div>
+        <div class="info-item">
+          <div class="info-key">定休日</div>
+          <div class="info-val">土曜・日曜・祝日</div>
+        </div>
+        <div class="info-item">
+          <div class="info-key">資格</div>
+          <div class="info-val">税理士・社会保険労務士・行政書士</div>
+        </div>
+      </div>
+      <div class="map-box anim-right">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.5!2d139.655!3d35.443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI2JzM1LjAiTiAxMznCsDM5JzE4LjAiRQ!5e0!3m2!1sja!2sjp!4v1&q=神奈川県横浜市旭区中希望が丘94-31" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container anim-up">
+    <h2>お悩みをお聞かせください</h2>
+    <p>税務・労務・許認可…3つの視点から最適な解決策をご提案します。</p>
+    <div class="cta-btns">
+      <a href="tel:045-442-7162" class="btn btn-white"><i class="fas fa-phone"></i> 045-442-7162</a>
+      <a href="#contact" class="btn btn-ghost"><i class="fas fa-envelope"></i> フォームで相談</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header anim-up">
+      <div class="section-label"><i class="fas fa-envelope"></i> Contact</div>
+      <h2>お問い合わせ</h2>
+      <p>ご質問・ご相談はお気軽にどうぞ</p>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-side anim-left">
+        <h3>お気軽にご連絡ください</h3>
+        <p>初回のご相談は無料です。税務・労務・許認可に関するお悩みをなんでもお聞かせください。</p>
+        <div class="ct-item">
+          <div class="ct-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>お電話</h4>
+            <p><a href="tel:045-442-7162" style="color:var(--text-light);text-decoration:none;">045-442-7162</a></p>
+          </div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>受付時間</h4>
+            <p>平日 9:00 〜 17:00</p>
+          </div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>所在地</h4>
+            <p>横浜市旭区中希望が丘94-31</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form-box anim-right" onsubmit="event.preventDefault(); alert('このデモサイトではフォーム送信はできません。');">
+        <div class="form-2col">
+          <div class="fg">
+            <label for="name">お名前 <span style="color:var(--accent);">*</span></label>
+            <input type="text" id="name" required placeholder="山田 太郎">
+          </div>
+          <div class="fg">
+            <label for="company">会社名</label>
+            <input type="text" id="company" placeholder="株式会社〇〇">
+          </div>
+        </div>
+        <div class="form-2col">
+          <div class="fg">
+            <label for="email">メールアドレス <span style="color:var(--accent);">*</span></label>
+            <input type="email" id="email" required placeholder="example@email.com">
+          </div>
+          <div class="fg">
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" placeholder="045-XXX-XXXX">
+          </div>
+        </div>
+        <div class="fg">
+          <label for="category">ご相談内容</label>
+          <select id="category">
+            <option value="">選択してください</option>
+            <option>税務顧問について</option>
+            <option>確定申告・決算について</option>
+            <option>相続・贈与について</option>
+            <option>社会保険手続きについて</option>
+            <option>法人設立について</option>
+            <option>許認可申請について</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="message">メッセージ <span style="color:var(--accent);">*</span></label>
+          <textarea id="message" required placeholder="ご相談内容をお書きください"></textarea>
+        </div>
+        <button type="submit" class="btn-form"><i class="fas fa-paper-plane"></i> 送信する</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-wrap">
+    <div class="footer-brand">
+      <h3><i class="fas fa-scale-balanced"></i> 長野毅税理士事務所</h3>
+      <p>横浜市にて税理士・社会保険労務士・行政書士の3つの資格でワンストップサポート。法人から個人まで、多角的な視点で経営のお悩みを解決します。</p>
+    </div>
+    <div class="footer-links">
+      <h4>業務内容</h4>
+      <ul>
+        <li><a href="#services">税務顧問</a></li>
+        <li><a href="#services">社会保険手続き</a></li>
+        <li><a href="#services">法人設立</a></li>
+        <li><a href="#services">経営アドバイス</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>事務所情報</h4>
+      <ul>
+        <li><a href="#about">事務所紹介</a></li>
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 長野毅税理士事務所 All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+hamburger.addEventListener('click', () => nav.classList.toggle('active'));
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('active')));
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.anim-up,.anim-left,.anim-right').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 94, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

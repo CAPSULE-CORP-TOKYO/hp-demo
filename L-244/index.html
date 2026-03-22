@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>櫛田雅弘税理士事務所 | 横浜市瀬谷区の税理士</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --primary: #1B3A5C;
+  --primary-light: #2D5A8E;
+  --primary-pale: #E8EEF5;
+  --gold: #C5993E;
+  --gold-light: #F5EDDA;
+  --dark: #1A1A2E;
+  --text: #3D3D4E;
+  --text-light: #7A7A8C;
+  --bg: #F8F9FB;
+  --white: #FFFFFF;
+  --shadow: 0 4px 24px rgba(27,58,92,0.08);
+  --shadow-lg: 0 12px 48px rgba(27,58,92,0.14);
+  --radius: 12px;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family:'Noto Sans JP', sans-serif;
+  color:var(--text); background:var(--bg);
+  line-height:1.8; overflow-x:hidden;
+}
+img { max-width:100%; height:auto; display:block; }
+a { color:var(--primary-light); text-decoration:none; transition:var(--transition); }
+a:hover { color:var(--gold); }
+.container { max-width:1100px; margin:0 auto; padding:0 24px; }
+/* NAV */
+.nav {
+  position:fixed; top:0; left:0; width:100%; z-index:1000;
+  background:rgba(255,255,255,0.97); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(27,58,92,0.08);
+  transition:var(--transition);
+}
+.nav-inner {
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1100px; margin:0 auto; padding:16px 24px;
+}
+.nav-logo {
+  font-weight:700; font-size:1.1rem; color:var(--primary);
+  display:flex; align-items:center; gap:10px;
+}
+.nav-logo i { color:var(--gold); font-size:1.2rem; }
+.nav-links { display:flex; gap:28px; list-style:none; }
+.nav-links a {
+  font-size:0.88rem; font-weight:500; color:var(--text);
+  position:relative; padding-bottom:4px;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:0; left:0; width:0; height:2px;
+  background:var(--gold); transition:var(--transition);
+}
+.nav-links a:hover { color:var(--primary); }
+.nav-links a:hover::after { width:100%; }
+.nav-toggle { display:none; font-size:1.5rem; cursor:pointer; color:var(--dark); background:none; border:none; }
+/* HERO */
+.hero {
+  min-height:100vh; display:flex; align-items:center;
+  background:linear-gradient(160deg, var(--primary) 0%, var(--primary-light) 50%, #3A6FA0 100%);
+  position:relative; padding-top:80px; color:var(--white);
+}
+.hero::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
+  background:linear-gradient(to top, var(--bg), transparent);
+}
+.hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; z-index:1; }
+.hero-text h1 {
+  font-family:'Cormorant Garamond', serif;
+  font-size:2.8rem; line-height:1.3; margin-bottom:20px; font-weight:600;
+}
+.hero-text h1 span { color:var(--gold); }
+.hero-text p { font-size:1.05rem; opacity:0.9; margin-bottom:32px; max-width:460px; }
+.hero-image { position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg); }
+.hero-image img { width:100%; height:420px; object-fit:cover; }
+.hero-badge {
+  position:absolute; top:24px; right:24px;
+  background:rgba(255,255,255,0.95); padding:14px 18px; border-radius:10px;
+  box-shadow:var(--shadow); display:flex; align-items:center; gap:10px;
+}
+.hero-badge i { color:var(--gold); font-size:1.4rem; }
+.hero-badge .badge-text { font-size:0.82rem; color:var(--text); }
+.hero-badge .badge-text strong { display:block; font-size:0.95rem; color:var(--dark); }
+/* BTN */
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:14px 32px; border-radius:6px; font-weight:600;
+  font-size:0.95rem; transition:var(--transition); cursor:pointer; border:none;
+}
+.btn-primary { background:var(--gold); color:var(--white); box-shadow:0 4px 16px rgba(197,153,62,0.3); }
+.btn-primary:hover { background:#B8881F; transform:translateY(-2px); box-shadow:0 6px 24px rgba(197,153,62,0.4); color:var(--white); }
+.btn-outline-white { background:transparent; color:var(--white); border:2px solid rgba(255,255,255,0.5); }
+.btn-outline-white:hover { background:var(--white); color:var(--primary); }
+.btn-outline { background:transparent; color:var(--primary); border:2px solid var(--primary); }
+.btn-outline:hover { background:var(--primary); color:var(--white); }
+.hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+/* SECTION */
+section { padding:100px 0; }
+.section-header { text-align:center; margin-bottom:60px; }
+.section-header .label {
+  display:inline-block; font-size:0.78rem; font-weight:700;
+  color:var(--gold); letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:12px;
+}
+.section-header h2 { font-size:2rem; color:var(--dark); margin-bottom:12px; }
+.section-header p { color:var(--text-light); max-width:540px; margin:0 auto; }
+.section-header .divider { width:48px; height:3px; background:var(--gold); margin:16px auto 0; border-radius:2px; }
+/* ABOUT */
+.about { background:var(--white); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.about-image { border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); position:relative; }
+.about-image img { width:100%; height:380px; object-fit:cover; }
+.about-image .overlay {
+  position:absolute; bottom:0; left:0; right:0;
+  background:linear-gradient(to top, rgba(27,58,92,0.8), transparent);
+  padding:24px; color:var(--white);
+}
+.about-image .overlay h4 { font-size:1.1rem; margin-bottom:4px; }
+.about-image .overlay p { font-size:0.85rem; opacity:0.9; }
+.about-text h3 { font-size:1.5rem; color:var(--dark); margin-bottom:16px; }
+.about-text p { margin-bottom:16px; }
+.about-text .highlight {
+  background:var(--gold-light); border-left:4px solid var(--gold);
+  padding:16px 20px; border-radius:0 8px 8px 0; margin-top:20px;
+  font-size:0.95rem;
+}
+/* SERVICES */
+.services { background:var(--bg); }
+.services-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+.service-card {
+  background:var(--white); border-radius:var(--radius); padding:36px 32px;
+  box-shadow:var(--shadow); transition:var(--transition);
+  display:flex; gap:20px; align-items:flex-start;
+  border-left:4px solid transparent;
+}
+.service-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-left-color:var(--gold); }
+.service-card .icon {
+  width:56px; height:56px; min-width:56px; border-radius:50%;
+  background:var(--primary-pale); display:flex; align-items:center;
+  justify-content:center;
+}
+.service-card .icon i { font-size:1.3rem; color:var(--primary); }
+.service-card h3 { font-size:1.05rem; color:var(--dark); margin-bottom:8px; }
+.service-card p { font-size:0.9rem; color:var(--text-light); }
+/* MERIT */
+.merit { background:var(--white); }
+.merit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.merit-card {
+  text-align:center; padding:40px 24px; border-radius:var(--radius);
+  background:var(--bg); border:1px solid rgba(27,58,92,0.06);
+  transition:var(--transition);
+}
+.merit-card:hover { box-shadow:var(--shadow); transform:translateY(-4px); }
+.merit-card .num {
+  font-family:'Cormorant Garamond', serif; font-size:3rem; font-weight:700;
+  color:var(--gold); line-height:1; margin-bottom:12px;
+}
+.merit-card h3 { font-size:1.05rem; color:var(--dark); margin-bottom:10px; }
+.merit-card p { font-size:0.88rem; color:var(--text-light); }
+/* FLOW */
+.flow { background:var(--bg); }
+.flow-list { max-width:700px; margin:0 auto; }
+.flow-item {
+  display:flex; gap:24px; padding:28px 0; position:relative;
+  border-bottom:1px solid rgba(27,58,92,0.08);
+}
+.flow-item:last-child { border-bottom:none; }
+.flow-item .step-circle {
+  width:48px; height:48px; min-width:48px; border-radius:50%;
+  background:var(--primary); color:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:1.1rem;
+}
+.flow-item h4 { font-size:1.05rem; color:var(--dark); margin-bottom:4px; }
+.flow-item p { font-size:0.9rem; color:var(--text-light); }
+/* INFO */
+.info { background:var(--white); }
+.info-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+.info-table { background:var(--bg); border-radius:var(--radius); overflow:hidden; border:1px solid rgba(27,58,92,0.06); }
+.info-table table { width:100%; border-collapse:collapse; }
+.info-table th, .info-table td { padding:16px 24px; text-align:left; font-size:0.95rem; }
+.info-table th { background:var(--primary); color:var(--white); font-weight:600; width:35%; }
+.info-table tr:not(:last-child) { border-bottom:1px solid rgba(27,58,92,0.08); }
+.info-map { border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); min-height:360px; }
+.info-map iframe { width:100%; height:100%; min-height:360px; border:0; }
+/* CTA */
+.cta {
+  background:linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  text-align:center; padding:80px 0; color:var(--white);
+}
+.cta h2 { font-size:2rem; margin-bottom:16px; }
+.cta p { opacity:0.9; margin-bottom:32px; max-width:500px; margin-left:auto; margin-right:auto; }
+.cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.cta .tel-block { margin-top:24px; }
+.cta .tel-block .tel-num { font-size:1.8rem; font-weight:700; letter-spacing:2px; }
+.cta .tel-block .tel-note { font-size:0.85rem; opacity:0.8; margin-top:4px; }
+/* FOOTER */
+.footer {
+  background:var(--dark); color:rgba(255,255,255,0.6); padding:48px 0 24px; text-align:center;
+}
+.footer-logo { font-size:1.15rem; font-weight:700; color:var(--white); margin-bottom:8px; }
+.footer-logo i { color:var(--gold); margin-right:8px; }
+.footer p { font-size:0.85rem; margin-bottom:4px; }
+.footer-copy { margin-top:24px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); font-size:0.8rem; }
+/* ANIMATIONS */
+.fade-in { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:var(--white); flex-direction:column; padding:20px 24px; gap:16px; box-shadow:var(--shadow); }
+  .nav-links.active { display:flex; }
+  .nav-toggle { display:block; }
+  .hero-inner { grid-template-columns:1fr; gap:32px; text-align:center; }
+  .hero-text h1 { font-size:2rem; }
+  .hero-text p { margin:0 auto 24px; }
+  .hero-btns { justify-content:center; }
+  .hero-image { max-width:420px; margin:0 auto; }
+  .about-grid { grid-template-columns:1fr; }
+  .services-grid { grid-template-columns:1fr; }
+  .merit-grid { grid-template-columns:1fr; }
+  .info-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+  <div class="nav-logo"><i class="fas fa-landmark"></i> 櫛田雅弘税理士事務所</div>
+  <button class="nav-toggle" aria-label="メニュー"><i class="fas fa-bars"></i></button>
+  <ul class="nav-links">
+    <li><a href="#about">事務所紹介</a></li>
+    <li><a href="#services">業務内容</a></li>
+    <li><a href="#merit">選ばれる理由</a></li>
+    <li><a href="#flow">ご依頼の流れ</a></li>
+    <li><a href="#info">事務所情報</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero-inner">
+  <div class="hero-text">
+    <h1>確かな<span>信頼</span>と<br>豊富な<span>実績</span>で<br>経営をサポート</h1>
+    <p>独立・開業支援から相続対策まで。横浜市瀬谷区の櫛田雅弘税理士事務所が、経営計画・資金繰りから税務申告まで、幅広くサポートいたします。</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> お問い合わせ</a>
+      <a href="#services" class="btn btn-outline-white"><i class="fas fa-arrow-down"></i> 業務内容を見る</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=420&fit=crop" alt="税理士事務所イメージ">
+    <div class="hero-badge">
+      <i class="fas fa-shield-halved"></i>
+      <div class="badge-text">
+        <strong>東京地方税理士会所属</strong>
+        信頼と安心のサポート
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">About Us</span>
+  <h2>事務所紹介</h2>
+  <div class="divider"></div>
+</div>
+<div class="about-grid fade-in">
+  <div class="about-image">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=380&fit=crop" alt="オフィスイメージ">
+    <div class="overlay">
+      <h4>横浜市瀬谷区で地域密着</h4>
+      <p>お客様との対話を大切に、丁寧なサービスを提供しています</p>
+    </div>
+  </div>
+  <div class="about-text">
+    <h3>お客様の事業の成長を、<br>税務と経営の両面から支える</h3>
+    <p>櫛田雅弘税理士事務所は、横浜市瀬谷区を拠点に、独立開業支援から相続対策まで幅広い税務サービスを提供しています。</p>
+    <p>法人税・所得税・消費税の申告はもちろん、経営計画の策定や資金繰りのアドバイスまで、お客様の事業を多角的にサポートいたします。</p>
+    <div class="highlight">
+      <strong>💡 初回相談無料</strong><br>
+      独立・開業をお考えの方、相続でお悩みの方、お気軽にご相談ください。
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Services</span>
+  <h2>業務内容</h2>
+  <p>税務のプロフェッショナルとして、幅広い業務に対応します</p>
+  <div class="divider"></div>
+</div>
+<div class="services-grid">
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-rocket"></i></div>
+    <div>
+      <h3>独立・開業支援</h3>
+      <p>事業計画書の策定から届出手続き、初年度の会計設計まで、独立・開業に必要なすべてをサポートします。</p>
+    </div>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-file-invoice"></i></div>
+    <div>
+      <h3>法人税・所得税・消費税申告</h3>
+      <p>正確な申告書を作成し、適切な節税対策をご提案。各種届出書の作成も対応いたします。</p>
+    </div>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-house-chimney"></i></div>
+    <div>
+      <h3>相続の事前対策・申告</h3>
+      <p>相続税の事前シミュレーション、遺産分割のアドバイス、相続税申告書の作成を行います。</p>
+    </div>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-chart-pie"></i></div>
+    <div>
+      <h3>経営計画・資金繰り相談</h3>
+      <p>月次決算をベースに経営計画を策定。資金繰り改善や設備投資の判断をサポートします。</p>
+    </div>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-calculator"></i></div>
+    <div>
+      <h3>記帳指導・経理支援</h3>
+      <p>会計ソフトの導入から記帳の方法まで、経理業務の効率化をお手伝いします。</p>
+    </div>
+  </div>
+  <div class="service-card fade-in">
+    <div class="icon"><i class="fas fa-hand-holding-dollar"></i></div>
+    <div>
+      <h3>補助金・融資サポート</h3>
+      <p>各種補助金・助成金の申請サポートや、金融機関への融資相談をお手伝いします。</p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- MERIT -->
+<section class="merit" id="merit">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Why Choose Us</span>
+  <h2>選ばれる理由</h2>
+  <div class="divider"></div>
+</div>
+<div class="merit-grid">
+  <div class="merit-card fade-in">
+    <div class="num">01</div>
+    <h3>地域密着のきめ細かな対応</h3>
+    <p>横浜市瀬谷区を中心に、顔の見える関係を大切にしています。お客様一人ひとりに寄り添った丁寧なサポートを心がけています。</p>
+  </div>
+  <div class="merit-card fade-in">
+    <div class="num">02</div>
+    <h3>開業から成長までワンストップ</h3>
+    <p>事業の立ち上げから拡大期まで、各フェーズに合わせた最適なアドバイスを提供。長くお付き合いできるパートナーです。</p>
+  </div>
+  <div class="merit-card fade-in">
+    <div class="num">03</div>
+    <h3>経営計画で「攻めの経営」を</h3>
+    <p>数字を読み解き、将来を見据えた経営計画を一緒に策定。資金繰りの不安を解消し、積極的な事業展開をサポートします。</p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- FLOW -->
+<section class="flow" id="flow">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Flow</span>
+  <h2>ご依頼の流れ</h2>
+  <p>まずはお電話またはメールでお気軽にご連絡ください</p>
+  <div class="divider"></div>
+</div>
+<div class="flow-list fade-in">
+  <div class="flow-item">
+    <div class="step-circle">1</div>
+    <div>
+      <h4>お問い合わせ</h4>
+      <p>お電話（045-304-3056）またはメールでお気軽にご連絡ください。ご相談内容を簡単にお伺いします。</p>
+    </div>
+  </div>
+  <div class="flow-item">
+    <div class="step-circle">2</div>
+    <div>
+      <h4>初回面談（無料）</h4>
+      <p>事務所またはお客様のもとへ伺い、現状のヒアリングを行います。お困りごとやご要望を詳しくお聞かせください。</p>
+    </div>
+  </div>
+  <div class="flow-item">
+    <div class="step-circle">3</div>
+    <div>
+      <h4>お見積り・ご提案</h4>
+      <p>ヒアリング内容をもとに、最適なサービスプランと料金をご提案いたします。ご納得いただいてからのスタートです。</p>
+    </div>
+  </div>
+  <div class="flow-item">
+    <div class="step-circle">4</div>
+    <div>
+      <h4>契約・サポート開始</h4>
+      <p>ご契約後、税務・経営のトータルサポートを開始します。定期的な面談で状況を共有しながら進めます。</p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- INFO -->
+<section class="info" id="info">
+<div class="container">
+<div class="section-header fade-in">
+  <span class="label">Office</span>
+  <h2>事務所概要</h2>
+  <div class="divider"></div>
+</div>
+<div class="info-grid fade-in">
+  <div class="info-table">
+    <table>
+      <tr><th>事務所名</th><td>櫛田税理士事務所</td></tr>
+      <tr><th>代表者</th><td>櫛田 雅弘</td></tr>
+      <tr><th>所在地</th><td>〒246-0032<br>横浜市瀬谷区中央19-2</td></tr>
+      <tr><th>電話番号</th><td>045-304-3056</td></tr>
+      <tr><th>FAX</th><td>045-304-3058</td></tr>
+      <tr><th>メール</th><td><a href="mailto:kushida-m@nifty.com">kushida-m@nifty.com</a></td></tr>
+      <tr><th>所属</th><td>東京地方税理士会</td></tr>
+      <tr><th>業務内容</th><td>独立・開業支援<br>法人税・所得税・消費税の申告<br>相続の事前対策・申告<br>経営計画・資金繰り相談</td></tr>
+    </table>
+  </div>
+  <div class="info-map">
+    <iframe src="https://www.google.com/maps?q=横浜市瀬谷区中央19-2&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+<div class="container">
+  <h2 class="fade-in">まずはお気軽にご相談ください</h2>
+  <p class="fade-in">税務・経営のお悩み、独立・開業のご相談、相続のご不安。どんなことでもお気軽にお問い合わせください。</p>
+  <div class="cta-btns fade-in">
+    <a href="mailto:kushida-m@nifty.com" class="btn btn-primary"><i class="fas fa-envelope"></i> メールで問い合わせ</a>
+  </div>
+  <div class="tel-block fade-in">
+    <div class="tel-num"><i class="fas fa-phone"></i> 045-304-3056</div>
+    <div class="tel-note">お電話でもお気軽にどうぞ</div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+  <div class="footer-logo"><i class="fas fa-landmark"></i> 櫛田雅弘税理士事務所</div>
+  <p>〒246-0032 横浜市瀬谷区中央19-2</p>
+  <p>TEL: 045-304-3056 / FAX: 045-304-3058</p>
+  <div class="footer-copy">&copy; 2024 櫛田雅弘税理士事務所 All Rights Reserved.</div>
+</div>
+</footer>
+
+<script>
+// Mobile nav
+document.querySelector('.nav-toggle').addEventListener('click', function(){
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click', function(){ document.querySelector('.nav-links').classList.remove('active'); });
+});
+// Scroll animation
+const observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+  });
+}, { threshold:0.15 });
+document.querySelectorAll('.fade-in').forEach(function(el){ observer.observe(el); });
+// Nav scroll
+window.addEventListener('scroll', function(){
+  const nav = document.querySelector('.nav');
+  if(window.pageYOffset > 100){ nav.style.borderBottomColor = 'rgba(27,58,92,0.12)'; }
+  else { nav.style.borderBottomColor = 'rgba(27,58,92,0.08)'; }
+});
+</script>
+</body>
+</html>
