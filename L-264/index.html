@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高崎芳成税理士事務所 | 湘南・葉山の税務パートナー</title>
+  <meta name="description" content="葉山・逗子・湘南エリアの税理士事務所。銀行経験と米国公認会計士資格を活かし、確定申告・相続税・国際税務まで幅広く対応。初回相談無料。英語対応可。">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7D6G7DTDPP');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #2C2C2C;
+      background: #F8F6F0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ===== Typography ===== */
+    .serif { font-family: 'Noto Serif JP', serif; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1B3A5C;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #C9A84C;
+      margin-top: 0.75rem;
+    }
+    .section-title.center::after { margin-left: auto; margin-right: auto; }
+    .section-lead {
+      font-size: 0.95rem;
+      color: #555;
+      max-width: 640px;
+    }
+
+    /* ===== Layout Helpers ===== */
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; }
+    .section-padding { padding: 80px 0; }
+    .text-center { text-align: center; }
+
+    /* ===== Scroll Animation ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Header / Nav ===== */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 1000;
+      background: rgba(27,58,92,0.95);
+      backdrop-filter: blur(8px);
+      transition: box-shadow 0.3s;
+    }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .site-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .site-logo small {
+      display: block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: #C9A84C;
+      letter-spacing: 0.05em;
+    }
+
+    /* Desktop nav */
+    .nav-links { display: none; gap: 1.5rem; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #C9A84C; }
+
+    /* Hamburger */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; width: 100%;
+      background: rgba(27,58,92,0.98);
+      padding: 1.5rem 0;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 0.75rem 2rem;
+      color: #fff;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+    .mobile-menu a:hover { background: rgba(201,168,76,0.15); }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .hamburger { display: none; }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(27,58,92,0.92) 0%, rgba(27,58,92,0.78) 100%),
+                  url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 100px 1rem 60px;
+    }
+    .hero-content { max-width: 720px; }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid #C9A84C;
+      color: #C9A84C;
+      padding: 0.3rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      border-radius: 30px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .hero p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-gold {
+      background: #C9A84C;
+      color: #fff;
+    }
+    .btn-gold:hover { background: #b8943d; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(201,168,76,0.4); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.5);
+      color: #fff;
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: #C9A84C; color: #C9A84C; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll i { font-size: 1.5rem; color: rgba(255,255,255,0.5); }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+    }
+
+    /* ===== About / Features ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(27,58,92,0.12);
+    }
+    .about-image img { width: 100%; height: 320px; object-fit: cover; }
+    .about-text p { margin-bottom: 1rem; font-size: 0.95rem; color: #444; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(27,58,92,0.1); }
+    .feature-icon {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, #1B3A5C, #2a5580);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #C9A84C;
+      font-size: 1.2rem;
+    }
+    .feature-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1B3A5C;
+      margin-bottom: 0.25rem;
+    }
+    .feature-card p { font-size: 0.85rem; color: #666; line-height: 1.7; }
+
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ===== Services ===== */
+    .services-section { background: #1B3A5C; color: #fff; }
+    .services-section .section-label { color: #C9A84C; }
+    .services-section .section-title { color: #fff; }
+    .services-section .section-title::after { background: #C9A84C; }
+    .services-section .section-lead { color: rgba(255,255,255,0.7); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #C9A84C;
+      transform: translateY(-3px);
+    }
+    .service-card .icon {
+      width: 44px; height: 44px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #C9A84C;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .service-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .service-card p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    @media (min-width: 768px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* ===== Q&A ===== */
+    .qa-list { max-width: 760px; margin: 2.5rem auto 0; }
+    .qa-item {
+      border-bottom: 1px solid #e0ddd5;
+      overflow: hidden;
+    }
+    .qa-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem 2.5rem 1.25rem 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1B3A5C;
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
+    }
+    .qa-question::before {
+      content: 'Q.';
+      color: #C9A84C;
+      font-weight: 700;
+      margin-right: 0.75rem;
+    }
+    .qa-question::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
+      color: #999;
+      transition: transform 0.3s;
+    }
+    .qa-item.open .qa-question::after { transform: translateY(-50%) rotate(180deg); }
+    .qa-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 0 0 2rem;
+    }
+    .qa-item.open .qa-answer {
+      max-height: 300px;
+      padding: 0 0 1.25rem 2rem;
+    }
+    .qa-answer p { font-size: 0.9rem; color: #555; line-height: 1.8; }
+
+    /* ===== Office Info ===== */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+    .info-table { width: 100%; }
+    .info-table tr { border-bottom: 1px solid #e0ddd5; }
+    .info-table th {
+      text-align: left;
+      padding: 0.85rem 1rem 0.85rem 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1B3A5C;
+      white-space: nowrap;
+      width: 110px;
+      vertical-align: top;
+    }
+    .info-table td {
+      padding: 0.85rem 0;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .info-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .info-image img { width: 100%; height: 280px; object-fit: cover; }
+    @media (min-width: 768px) {
+      .info-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ===== Access / Map ===== */
+    .access-section { background: #fff; }
+    .map-container {
+      margin-top: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+    .map-container iframe { width: 100%; height: 380px; border: 0; }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, #1B3A5C 0%, #24496e 100%);
+      color: #fff;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #C9A84C;
+      margin-bottom: 0.5rem;
+    }
+    .cta-phone i { font-size: 1.3rem; }
+    .cta-hours {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2rem;
+    }
+    .cta-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: #C9A84C;
+      padding: 0.4rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+    }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      background: #12273d;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.75rem;
+    }
+    .site-footer a { color: rgba(255,255,255,0.5); transition: color 0.3s; }
+    .site-footer a:hover { color: #C9A84C; }
+    .footer-nav {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+    }
+
+    /* ===== Utility ===== */
+    .gold { color: #C9A84C; }
+    .mb-0 { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="#" class="site-logo">
+        高崎芳成税理士事務所
+        <small>Takasaki Yoshinari Tax Accountant Office</small>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">事務所紹介</a>
+        <a href="#services">業務内容</a>
+        <a href="#qa">よくある質問</a>
+        <a href="#info">事務所概要</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+      <div class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">事務所紹介</a>
+      <a href="#services">業務内容</a>
+      <a href="#qa">よくある質問</a>
+      <a href="#info">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="hero-content">
+      <span class="hero-badge">初回相談無料 ／ 英語対応可</span>
+      <h1 class="serif">湘南から世界へ —<br>国際感覚と銀行経験で導く、<br>最適な税務パートナー</h1>
+      <p>長年の銀行業務で培った金融知識と、米国公認会計士（US CPA）の国際的視野。<br>確定申告から相続・国際税務まで、葉山・湘南エリアを拠点に幅広くサポートいたします。</p>
+      <div class="hero-buttons">
+        <a href="tel:046-884-9300" class="btn btn-gold"><i class="fas fa-phone"></i> 電話で相談する</a>
+        <a href="#services" class="btn btn-outline"><i class="fas fa-arrow-right"></i> 業務内容を見る</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><i class="fas fa-chevron-down"></i></div>
+  </section>
+
+  <!-- ===== About / Features ===== -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image fade-up">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="ビジネスミーティングの様子">
+        </div>
+        <div class="about-text fade-up">
+          <span class="section-label">About</span>
+          <h2 class="section-title">銀行マン経験と<br>国際資格で支える税務</h2>
+          <p>高崎芳成税理士事務所は、神奈川県三浦郡葉山町に拠点を構え、湘南エリア（葉山・逗子・三浦）を中心に税務サービスを提供しています。</p>
+          <p>代表の高崎芳成は、長年にわたる銀行業務の経験を持ち、金融・経済の動向に精通しています。さらに米国公認会計士（US CPA）の資格を保有し、英語での対応も可能です。外国人の方の税務サポートや、国際取引・海外展開に関するご相談もお任せください。</p>
+          <p>対面はもちろん、オンラインでのご相談にも対応しております。まずはお気軽にお問い合わせください。</p>
+        </div>
+      </div>
+
+      <div class="features-grid" style="margin-top: 3rem;">
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="fas fa-university"></i></div>
+          <div>
+            <h4>銀行業務の豊富な経験</h4>
+            <p>金融機関での実務経験に基づき、資金計画や金融商品の税務にも的確に対応いたします。</p>
+          </div>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="fas fa-globe"></i></div>
+          <div>
+            <h4>US CPA × 英語対応</h4>
+            <p>米国公認会計士資格を活かし、国際税務や外国人の方の申告を英語でサポートします。</p>
+          </div>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+          <div>
+            <h4>初回相談無料</h4>
+            <p>税に関するお悩みをまずはお聞かせください。初回のご相談は無料で承っております。</p>
+          </div>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>湘南エリア密着</h4>
+            <p>葉山・逗子・三浦を中心に、地域のお客様に寄り添った税務サポートを行っています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section class="services-section section-padding" id="services">
+    <div class="container">
+      <div class="text-center fade-up">
+        <span class="section-label">Services</span>
+        <h2 class="section-title center">業務内容</h2>
+        <p class="section-lead" style="margin: 0 auto;">個人の確定申告から法人の顧問契約、相続・贈与、国際案件まで。<br>お客様の状況に合わせた最適なプランをご提案いたします。</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
+          <h4>確定申告サポート</h4>
+          <p>個人事業主・フリーランスの方の確定申告を、書類準備から提出まで一貫してサポートいたします。</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="icon"><i class="fas fa-home"></i></div>
+          <h4>相続税・贈与税の<br>相談・申告</h4>
+          <p>相続税の試算から申告書の作成、配偶者の税額軽減などの特例適用まで丁寧に対応いたします。</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="icon"><i class="fas fa-building"></i></div>
+          <h4>法人税申告書の<br>作成・提出</h4>
+          <p>法人の決算・申告業務を正確かつ迅速に対応。節税対策のご提案も行います。</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="icon"><i class="fas fa-chart-line"></i></div>
+          <h4>資産運用アドバイス</h4>
+          <p>銀行経験を活かし、金融商品の税務面からの最適な資産運用をアドバイスいたします。</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="icon"><i class="fas fa-plane"></i></div>
+          <h4>国際案件・<br>貿易関連の税務</h4>
+          <p>海外取引や海外展開に伴う税務処理を、US CPA の知見を活かしてサポートします。</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="icon"><i class="fas fa-coins"></i></div>
+          <h4>金融商品に関する<br>アドバイス</h4>
+          <p>株式・投資信託・外貨建て商品など、金融商品にまつわる税務の疑問にお答えします。</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="icon"><i class="fas fa-briefcase"></i></div>
+          <h4>顧問契約（法人）</h4>
+          <p>月次の記帳指導から決算・申告まで、法人のパートナーとして継続的にサポートいたします。</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="icon"><i class="fas fa-comments-dollar"></i></div>
+          <h4>税務コンサルティング</h4>
+          <p>事業承継や組織再編など、経営に関わる税務のご相談に幅広く対応いたします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Q&A ===== -->
+  <section class="section-padding" id="qa">
+    <div class="container">
+      <div class="text-center fade-up">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title center">よくある質問</h2>
+      </div>
+      <div class="qa-list">
+        <div class="qa-item fade-up">
+          <button class="qa-question">初回相談は本当に無料ですか？</button>
+          <div class="qa-answer">
+            <p>はい、初回のご相談は無料です。お電話またはオンラインにて、まずはお気軽にお悩みをお聞かせください。ご状況を伺ったうえで、必要なサービスや費用の目安をご案内いたします。</p>
+          </div>
+        </div>
+        <div class="qa-item fade-up">
+          <button class="qa-question">対面とオンライン、どちらで相談できますか？</button>
+          <div class="qa-answer">
+            <p>どちらでも対応しております。事務所での対面はもちろん、Zoom等を使ったオンライン相談も可能です。遠方の方やお忙しい方もお気軽にご利用ください。また、土日祝のご相談もご都合に合わせて対応可能です。</p>
+          </div>
+        </div>
+        <div class="qa-item fade-up">
+          <button class="qa-question">相続税で配偶者の税額軽減は使えますか？</button>
+          <div class="qa-answer">
+            <p>配偶者の税額軽減は、配偶者が取得した遺産額が法定相続分以下、もしくは1億6,000万円以下であれば相続税がかからない制度です。適用にあたっては申告期限内の申告が必要となりますので、早めのご相談をおすすめします。当事務所では相続税の試算から特例の適用判断まで丁寧にサポートいたします。</p>
+          </div>
+        </div>
+        <div class="qa-item fade-up">
+          <button class="qa-question">確定申告だけでなく、相続や贈与の相談もできますか？</button>
+          <div class="qa-answer">
+            <p>もちろんです。確定申告のほか、相続税・贈与税の相談・申告、資産運用アドバイス、国際税務まで幅広く対応しております。複数の分野にまたがるご相談もワンストップでお受けいたします。</p>
+          </div>
+        </div>
+        <div class="qa-item fade-up">
+          <button class="qa-question">英語での対応は可能ですか？</button>
+          <div class="qa-answer">
+            <p>はい、可能です。代表の高崎は米国公認会計士（US CPA）の資格を保有しており、英語でのご相談・書類作成に対応しています。日本在住の外国人の方の確定申告や、国際取引に関する税務もお任せください。</p>
+          </div>
+        </div>
+        <div class="qa-item fade-up">
+          <button class="qa-question">葉山以外の地域からも依頼できますか？</button>
+          <div class="qa-answer">
+            <p>はい、もちろんです。葉山・逗子・三浦エリアを中心に活動しておりますが、オンライン対応も可能なため、神奈川県内はもちろん全国からのご依頼をお受けしています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Office Info ===== -->
+  <section class="section-padding" id="info" style="background: #fff;">
+    <div class="container">
+      <div class="text-center fade-up">
+        <span class="section-label">Office</span>
+        <h2 class="section-title center">事務所概要</h2>
+      </div>
+      <div class="info-grid">
+        <div class="fade-up">
+          <table class="info-table">
+            <tr><th>事務所名</th><td>高崎芳成税理士事務所</td></tr>
+            <tr><th>代表</th><td>高崎 芳成（たかさき よしなり）</td></tr>
+            <tr><th>所在地</th><td>〒240-0113<br>神奈川県三浦郡葉山町長柄1413-36</td></tr>
+            <tr><th>電話番号</th><td><a href="tel:046-884-9300" style="color: #1B3A5C; font-weight: 600;">046-884-9300</a></td></tr>
+            <tr><th>営業時間</th><td>9:00〜18:00</td></tr>
+            <tr><th>定休日</th><td>土・日・祝<br><small style="color: #888;">※ご都合に合わせて対応可能</small></td></tr>
+            <tr><th>資格</th><td>税理士 ／ 米国公認会計士（US CPA）</td></tr>
+            <tr><th>対応言語</th><td>日本語 ／ 英語</td></tr>
+            <tr><th>対応方法</th><td>対面 ／ オンライン（Zoom等）</td></tr>
+          </table>
+        </div>
+        <div class="info-image fade-up">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="事務所イメージ">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Access / Map ===== -->
+  <section class="access-section section-padding" id="access">
+    <div class="container">
+      <div class="text-center fade-up">
+        <span class="section-label">Access</span>
+        <h2 class="section-title center">アクセス</h2>
+        <p class="section-lead" style="margin: 0 auto;">〒240-0113 神奈川県三浦郡葉山町長柄1413-36</p>
+      </div>
+      <div class="map-container fade-up">
+        <iframe
+          src="https://www.google.com/maps?q=神奈川県三浦郡葉山町長柄1413-36&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="高崎芳成税理士事務所の所在地">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact CTA ===== -->
+  <section class="cta-section section-padding" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2 class="serif">まずはお気軽にご相談ください</h2>
+        <p>税に関するお悩みを、初回無料でお伺いいたします。<br>対面・オンラインどちらでもお気軽にお問い合わせください。</p>
+        <div class="cta-phone">
+          <i class="fas fa-phone"></i>
+          <a href="tel:046-884-9300" style="color: #C9A84C;">046-884-9300</a>
+        </div>
+        <p class="cta-hours">受付時間：9:00〜18:00（土日祝も対応可能）</p>
+        <a href="tel:046-884-9300" class="btn btn-gold" style="font-size: 1rem; padding: 1rem 2.5rem;">
+          <i class="fas fa-phone"></i> 今すぐ電話する
+        </a>
+        <div><span class="cta-badge"><i class="fas fa-gift" style="margin-right: 0.4rem;"></i>初回相談無料</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <nav class="footer-nav">
+      <a href="#about">事務所紹介</a>
+      <a href="#services">業務内容</a>
+      <a href="#qa">よくある質問</a>
+      <a href="#info">事務所概要</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <p>&copy; 2025 高崎芳成税理士事務所 All Rights Reserved.</p>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Scroll animations (IntersectionObserver)
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Q&A accordion
+    document.querySelectorAll('.qa-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        // Close all others
+        document.querySelectorAll('.qa-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 64;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

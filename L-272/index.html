@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>近藤会計事務所 | 横浜・磯子の税理士</title>
+<meta name="description" content="横浜市磯子区の近藤会計事務所。起業支援・税務相談・相続税申告など、経験豊富な税理士が全面サポートいたします。">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --primary: #1B5E3B;
+  --primary-light: #2E7D52;
+  --primary-dark: #0D3F25;
+  --accent: #C8A951;
+  --accent-light: #E8D48B;
+  --bg: #FAFAF7;
+  --bg-warm: #F5F2EB;
+  --text: #2C2C2C;
+  --text-light: #666;
+  --white: #FFFFFF;
+  --shadow: 0 4px 20px rgba(27,94,59,0.08);
+  --shadow-lg: 0 12px 40px rgba(27,94,59,0.12);
+  --radius: 12px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+header.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.1); }
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.logo i { font-size: 1.2rem; color: var(--accent); }
+nav { display: flex; align-items: center; gap: 0; }
+nav a {
+  text-decoration: none; color: var(--text);
+  font-size: 0.9rem; font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+  position: relative;
+}
+nav a::after {
+  content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px;
+  background: var(--primary); transition: var(--transition);
+  transform: translateX(-50%);
+}
+nav a:hover { color: var(--primary); }
+nav a:hover::after { width: 60%; }
+.nav-cta {
+  background: var(--primary) !important; color: var(--white) !important;
+  padding: 0.5rem 1.2rem !important; border-radius: 50px;
+  font-size: 0.85rem !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--primary-light) !important; transform: translateY(-1px); }
+.hamburger {
+  display: none; background: none; border: none; cursor: pointer;
+  font-size: 1.5rem; color: var(--primary);
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  overflow: hidden;
+}
+.hero-bg-pattern {
+  position: absolute; inset: 0; opacity: 0.06;
+  background-image: radial-gradient(circle at 20% 50%, var(--white) 1px, transparent 1px),
+                    radial-gradient(circle at 80% 20%, var(--white) 1px, transparent 1px);
+  background-size: 60px 60px, 80px 80px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center; color: var(--white);
+  padding: 2rem 1.5rem; max-width: 800px;
+}
+.hero-badge {
+  display: inline-block; background: rgba(200,169,81,0.2);
+  border: 1px solid rgba(200,169,81,0.4);
+  color: var(--accent-light); padding: 0.4rem 1.2rem;
+  border-radius: 50px; font-size: 0.85rem; margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+.hero h1 {
+  font-family: 'Playfair Display', 'Noto Sans JP', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700; line-height: 1.3; margin-bottom: 1.2rem;
+}
+.hero h1 span { color: var(--accent-light); }
+.hero p {
+  font-size: 1.1rem; font-weight: 300;
+  opacity: 0.9; margin-bottom: 2rem;
+  max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.9rem 2rem; border-radius: 50px;
+  font-size: 0.95rem; font-weight: 500;
+  text-decoration: none; transition: var(--transition);
+  cursor: pointer; border: none;
+}
+.btn-primary {
+  background: var(--accent); color: var(--primary-dark);
+}
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,169,81,0.3); }
+.btn-outline {
+  background: transparent; color: var(--white);
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+.hero-scroll {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  color: var(--white); opacity: 0.6; animation: bounce 2s infinite;
+  font-size: 1.5rem;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ===== SECTIONS ===== */
+section { padding: 5rem 1.5rem; }
+.section-header {
+  text-align: center; margin-bottom: 3.5rem;
+}
+.section-label {
+  display: inline-block; color: var(--primary);
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.section-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700; color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+.section-header p {
+  color: var(--text-light); font-size: 1rem;
+  max-width: 600px; margin: 0 auto;
+}
+
+/* ===== FEATURES ===== */
+.features { background: var(--white); }
+.features-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+}
+.feature-card {
+  background: var(--bg); padding: 2.5rem 2rem;
+  border-radius: var(--radius); text-align: center;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(27,94,59,0.1);
+}
+.feature-icon {
+  width: 70px; height: 70px; margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: var(--white);
+}
+.feature-card h3 {
+  font-size: 1.15rem; margin-bottom: 0.8rem;
+  color: var(--primary-dark);
+}
+.feature-card p { font-size: 0.9rem; color: var(--text-light); }
+
+/* ===== SERVICES ===== */
+.services { background: var(--bg-warm); }
+.services-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
+}
+.service-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 2rem; display: flex; gap: 1.5rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.service-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 700;
+  color: var(--accent); opacity: 0.5;
+  line-height: 1;
+}
+.service-card h3 {
+  font-size: 1.1rem; margin-bottom: 0.6rem;
+  color: var(--primary-dark);
+}
+.service-card p { font-size: 0.9rem; color: var(--text-light); }
+
+/* ===== ABOUT ===== */
+.about { background: var(--white); }
+.about-content {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  align-items: center;
+}
+.about-image {
+  border-radius: var(--radius); overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.about-image img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.about-text h3 {
+  font-size: 1.5rem; color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+.about-text p { color: var(--text-light); margin-bottom: 1rem; }
+.about-info {
+  margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem;
+}
+.about-info-item {
+  display: flex; align-items: center; gap: 0.8rem;
+  font-size: 0.95rem;
+}
+.about-info-item i { color: var(--primary); width: 20px; }
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  padding: 4rem 1.5rem; text-align: center; color: var(--white);
+}
+.cta-banner h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+.cta-banner p {
+  opacity: 0.85; margin-bottom: 2rem;
+  max-width: 500px; margin-left: auto; margin-right: auto;
+}
+
+/* ===== ACCESS ===== */
+.access { background: var(--bg-warm); }
+.access-content {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  align-items: start;
+}
+.access-map {
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.access-map iframe {
+  width: 100%; height: 350px; border: none;
+}
+.access-details { padding: 1rem 0; }
+.access-details h3 {
+  font-size: 1.3rem; color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+}
+.access-item {
+  display: flex; gap: 1rem; margin-bottom: 1.2rem;
+  align-items: flex-start;
+}
+.access-item i {
+  color: var(--primary); margin-top: 0.3rem;
+  width: 20px; text-align: center;
+}
+.access-item strong {
+  display: block; font-size: 0.85rem;
+  color: var(--primary); margin-bottom: 0.2rem;
+}
+.access-item span { font-size: 0.95rem; }
+
+/* ===== CONTACT ===== */
+.contact { background: var(--white); }
+.contact-content {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+}
+.contact-info-card {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: var(--radius); padding: 2.5rem;
+  color: var(--white);
+}
+.contact-info-card h3 { font-size: 1.3rem; margin-bottom: 1.5rem; }
+.contact-method {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.contact-method-icon {
+  width: 45px; height: 45px; border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+}
+.contact-method a {
+  color: var(--white); text-decoration: none;
+  font-size: 1.1rem; font-weight: 500;
+}
+.contact-method small { display: block; opacity: 0.7; font-size: 0.8rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-group label {
+  display: block; font-size: 0.85rem; font-weight: 500;
+  margin-bottom: 0.3rem; color: var(--primary-dark);
+}
+.form-group input, .form-group textarea {
+  width: 100%; padding: 0.8rem 1rem;
+  border: 1.5px solid #ddd; border-radius: 8px;
+  font-family: inherit; font-size: 0.95rem;
+  transition: var(--transition);
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(27,94,59,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.btn-submit {
+  width: 100%; justify-content: center;
+  background: var(--primary); color: var(--white);
+}
+.btn-submit:hover { background: var(--primary-light); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--primary-dark); color: var(--white);
+  padding: 3rem 1.5rem 1.5rem;
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: start;
+  flex-wrap: wrap; gap: 2rem;
+}
+.footer-brand .logo { color: var(--white); margin-bottom: 0.8rem; }
+.footer-brand p { opacity: 0.7; font-size: 0.85rem; max-width: 300px; }
+.footer-links h4 {
+  font-size: 0.9rem; margin-bottom: 0.8rem;
+  color: var(--accent);
+}
+.footer-links a {
+  display: block; color: rgba(255,255,255,0.7);
+  text-decoration: none; font-size: 0.85rem;
+  padding: 0.2rem 0; transition: var(--transition);
+}
+.footer-links a:hover { color: var(--white); }
+.footer-bottom {
+  text-align: center; margin-top: 2rem;
+  padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.8rem; opacity: 0.6;
+}
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(0,0,0,0.5);
+}
+.mobile-nav.active { display: block; }
+.mobile-nav-content {
+  position: absolute; right: 0; top: 0;
+  width: 280px; height: 100%; background: var(--white);
+  padding: 5rem 2rem 2rem;
+  transform: translateX(100%);
+  transition: var(--transition);
+}
+.mobile-nav.active .mobile-nav-content { transform: translateX(0); }
+.mobile-nav-content a {
+  display: block; padding: 0.8rem 0;
+  color: var(--text); text-decoration: none;
+  font-size: 1rem; border-bottom: 1px solid #eee;
+}
+.mobile-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none; font-size: 1.5rem;
+  cursor: pointer; color: var(--text);
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .hamburger { display: block; }
+  .features-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .about-content { grid-template-columns: 1fr; gap: 2rem; }
+  .access-content { grid-template-columns: 1fr; }
+  .contact-content { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; }
+  .hero { min-height: 90vh; }
+  section { padding: 3.5rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo"><i class="fas fa-landmark"></i> 近藤会計事務所</a>
+    <nav>
+      <a href="#features">強み</a>
+      <a href="#services">サービス</a>
+      <a href="#about">事務所案内</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta"><i class="fas fa-envelope"></i> お問い合わせ</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMobileNav()"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav" onclick="closeMobileNav(event)">
+  <div class="mobile-nav-content">
+    <button class="mobile-close" onclick="toggleMobileNav()"><i class="fas fa-times"></i></button>
+    <a href="#features" onclick="toggleMobileNav()">強み</a>
+    <a href="#services" onclick="toggleMobileNav()">サービス</a>
+    <a href="#about" onclick="toggleMobileNav()">事務所案内</a>
+    <a href="#access" onclick="toggleMobileNav()">アクセス</a>
+    <a href="#contact" onclick="toggleMobileNav()">お問い合わせ</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-shield-halved"></i> 横浜・磯子の税理士事務所</div>
+    <h1>税の悩みに、<span>安心</span>と<span>信頼</span>を。</h1>
+    <p>起業支援から相続税申告まで、経験豊富な税理士が<br>お客様の大切な資産を守り、事業の成長をサポートします。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
+      <a href="tel:045-353-5753" class="btn btn-outline"><i class="fas fa-phone"></i> 045-353-5753</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-header fade-up">
+    <div class="section-label">Our Strengths</div>
+    <h2>近藤会計事務所の強み</h2>
+    <p>お客様一人ひとりに寄り添い、最適なソリューションをご提案します</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card fade-up">
+      <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+      <h3>起業を全面サポート</h3>
+      <p>会社設立の手続きから開業届の提出、初年度の会計処理まで、起業に必要なすべてをワンストップで支援いたします。</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+      <h3>パソコン会計導入支援</h3>
+      <p>会計ソフトの選定・導入から日々の運用サポートまで。ITが苦手な方でも安心してデジタル化を進められます。</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+      <h3>相続・贈与の専門相談</h3>
+      <p>財産評価から納税額のシミュレーション、申告手続きまで。ご家族の大切な資産を守るお手伝いをいたします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header fade-up">
+    <div class="section-label">Services</div>
+    <h2>サービス内容</h2>
+    <p>税務・会計のあらゆるニーズにお応えします</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">01</div>
+      <div>
+        <h3>月次決算・経営分析</h3>
+        <p>月次決算を組み、経営・財務上の問題点を早期に把握。改善策のご提案で、安定した経営をサポートします。</p>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">02</div>
+      <div>
+        <h3>税務申告・決算</h3>
+        <p>法人税・所得税・消費税の確定申告、年末調整など、正確かつ迅速に対応。節税のアドバイスも合わせて行います。</p>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">03</div>
+      <div>
+        <h3>相続税・贈与税対策</h3>
+        <p>財産評価額の算定、概算納税額のシミュレーション、遺産分割のアドバイスなど、相続に関するお悩みをトータルで解決します。</p>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">04</div>
+      <div>
+        <h3>起業・法人設立支援</h3>
+        <p>事業計画書の作成、設立届出書の提出、創業融資のご相談まで。起業の第一歩を安心してスタートできます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-content">
+    <div class="about-image fade-up">
+      <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600&fit=crop" alt="オフィスイメージ">
+    </div>
+    <div class="about-text fade-up">
+      <div class="section-label">About Us</div>
+      <h3>税に対する身近な相談相手として</h3>
+      <p>近藤会計事務所は、経営者様や起業を考えているお客様、相続や贈与で不安を感じているお客様に対して、税務面での業務支援を行っている横浜・磯子の税理士事務所です。</p>
+      <p>「まずはお気軽にご相談ください」を合言葉に、どんな小さなお悩みにも真摯にお応えします。</p>
+      <div class="about-info">
+        <div class="about-info-item">
+          <i class="fas fa-building"></i>
+          <span>近藤会計事務所</span>
+        </div>
+        <div class="about-info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>〒235-0033 横浜市磯子区杉田4-5-14 メゾン新杉田</span>
+        </div>
+        <div class="about-info-item">
+          <i class="fas fa-phone"></i>
+          <span>045-353-5753</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2 class="fade-up">税務のことでお悩みなら、<br>まずはお気軽にご相談ください</h2>
+  <p class="fade-up">新規設立・税務相談・決算申告・相続…<br>経験豊富な税理士がお力になります。</p>
+  <div class="fade-up">
+    <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+  <div class="section-header fade-up">
+    <div class="section-label">Access</div>
+    <h2>アクセス</h2>
+  </div>
+  <div class="access-content">
+    <div class="access-map fade-up">
+      <iframe src="https://maps.google.com/maps?q=%E6%A8%AA%E6%B5%9C%E5%B8%82%E7%A3%AF%E5%AD%90%E5%8C%BA%E6%9D%89%E7%94%B04-5-14+%E3%83%A1%E3%82%BE%E3%83%B3%E6%96%B0%E6%9D%89%E7%94%B0&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="access-details fade-up">
+      <h3>事務所情報</h3>
+      <div class="access-item">
+        <i class="fas fa-building"></i>
+        <div>
+          <strong>事務所名</strong>
+          <span>近藤会計事務所</span>
+        </div>
+      </div>
+      <div class="access-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <strong>所在地</strong>
+          <span>〒235-0033 神奈川県横浜市磯子区杉田4-5-14 メゾン新杉田</span>
+        </div>
+      </div>
+      <div class="access-item">
+        <i class="fas fa-phone"></i>
+        <div>
+          <strong>電話番号</strong>
+          <span><a href="tel:045-353-5753" style="color:var(--primary); text-decoration:none;">045-353-5753</a></span>
+        </div>
+      </div>
+      <div class="access-item">
+        <i class="fas fa-clock"></i>
+        <div>
+          <strong>営業時間</strong>
+          <span>平日 9:00 〜 17:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-header fade-up">
+    <div class="section-label">Contact</div>
+    <h2>お問い合わせ</h2>
+    <p>ご相談・お見積りは無料です。お気軽にお問い合わせください。</p>
+  </div>
+  <div class="contact-content">
+    <div class="contact-info-card fade-up">
+      <h3>お気軽にご連絡ください</h3>
+      <div class="contact-method">
+        <div class="contact-method-icon"><i class="fas fa-phone"></i></div>
+        <div>
+          <a href="tel:045-353-5753">045-353-5753</a>
+          <small>平日 9:00 〜 17:00</small>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <a href="mailto:info@kondo-tax.com">メールで相談する</a>
+          <small>24時間受付</small>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <span style="font-size:0.95rem;">横浜市磯子区杉田4-5-14<br>メゾン新杉田</span>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form fade-up" onsubmit="event.preventDefault(); alert('お問い合わせありがとうございます。');">
+      <div class="form-group">
+        <label for="name">お名前 <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="name" required placeholder="山田 太郎">
+      </div>
+      <div class="form-group">
+        <label for="email">メールアドレス <span style="color:#e74c3c">*</span></label>
+        <input type="email" id="email" required placeholder="example@mail.com">
+      </div>
+      <div class="form-group">
+        <label for="phone_input">電話番号</label>
+        <input type="tel" id="phone_input" placeholder="090-1234-5678">
+      </div>
+      <div class="form-group">
+        <label for="message">ご相談内容 <span style="color:#e74c3c">*</span></label>
+        <textarea id="message" required placeholder="ご相談内容をお書きください"></textarea>
+      </div>
+      <button type="submit" class="btn btn-submit"><i class="fas fa-paper-plane"></i> 送信する</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo"><i class="fas fa-landmark"></i> 近藤会計事務所</a>
+      <p>横浜・磯子で税務相談・起業支援・相続対策なら近藤会計事務所にお任せください。</p>
+    </div>
+    <div class="footer-links">
+      <h4>メニュー</h4>
+      <a href="#features">強み</a>
+      <a href="#services">サービス</a>
+      <a href="#about">事務所案内</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </div>
+    <div class="footer-links">
+      <h4>サービス</h4>
+      <a href="#services">月次決算・経営分析</a>
+      <a href="#services">税務申告・決算</a>
+      <a href="#services">相続税・贈与税対策</a>
+      <a href="#services">起業・法人設立支援</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 近藤会計事務所 All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+// Header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile nav
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('active');
+}
+function closeMobileNav(e) {
+  if (e.target === e.currentTarget) toggleMobileNav();
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = header.offsetHeight + 20;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
