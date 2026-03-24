@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+<title>高宮徹税理士事務所 | 横浜の税理士 経営革新等支援機関</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --primary: #1a3c5e;
+  --primary-light: #2a5f8f;
+  --accent: #c8963e;
+  --accent-light: #e8b85e;
+  --bg: #fafaf8;
+  --bg-dark: #0f1f30;
+  --text: #2c2c2c;
+  --text-light: #6b6b6b;
+  --white: #ffffff;
+  --border: #e0ddd5;
+  --section-alt: #f4f2ed;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body { font-family:'Noto Sans JP',sans-serif; color:var(--text); background:var(--bg); line-height:1.8; overflow-x:hidden; }
+
+/* Utility */
+.container { max-width:1100px; margin:0 auto; padding:0 20px; }
+.section-title { text-align:center; margin-bottom:50px; }
+.section-title h2 { font-size:clamp(1.6rem,3vw,2.2rem); color:var(--primary); font-weight:700; margin-bottom:8px; letter-spacing:0.05em; }
+.section-title .en { font-family:'Playfair Display',serif; font-size:0.85rem; color:var(--accent); letter-spacing:0.15em; text-transform:uppercase; }
+.section-title .line { width:50px; height:3px; background:var(--accent); margin:12px auto 0; }
+
+/* Header */
+header { position:fixed; top:0; left:0; width:100%; z-index:1000; background:rgba(255,255,255,0.97); box-shadow:0 1px 10px rgba(0,0,0,0.06); transition:all 0.3s; }
+header .container { display:flex; align-items:center; justify-content:space-between; height:70px; }
+.logo { font-size:1.15rem; font-weight:700; color:var(--primary); text-decoration:none; line-height:1.3; }
+.logo small { display:block; font-size:0.65rem; color:var(--text-light); font-weight:400; letter-spacing:0.1em; }
+nav { display:flex; gap:24px; align-items:center; }
+nav a { text-decoration:none; color:var(--text); font-size:0.82rem; font-weight:500; transition:color 0.3s; position:relative; }
+nav a:hover { color:var(--accent); }
+nav a.cta-btn { background:var(--accent); color:#fff; padding:8px 20px; border-radius:4px; }
+nav a.cta-btn:hover { background:var(--accent-light); }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; }
+.hamburger span { width:24px; height:2px; background:var(--primary); transition:0.3s; }
+
+/* Hero */
+.hero { position:relative; min-height:92vh; display:flex; align-items:center; background:linear-gradient(135deg, var(--bg-dark) 0%, var(--primary) 100%); overflow:hidden; margin-top:70px; }
+.hero::before { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80') center/cover; opacity:0.15; }
+.hero-content { position:relative; z-index:2; max-width:680px; padding:0 20px; margin-left:8%; }
+.hero-content .tag { display:inline-block; font-size:0.75rem; color:var(--accent); border:1px solid var(--accent); padding:4px 14px; border-radius:20px; margin-bottom:20px; letter-spacing:0.12em; }
+.hero-content h1 { font-size:clamp(2rem,5vw,3.2rem); color:#fff; font-weight:900; line-height:1.4; margin-bottom:20px; }
+.hero-content h1 span { color:var(--accent); }
+.hero-content p { color:rgba(255,255,255,0.8); font-size:1rem; margin-bottom:32px; line-height:2; }
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.hero-btns a { text-decoration:none; padding:14px 32px; border-radius:4px; font-size:0.9rem; font-weight:700; transition:all 0.3s; }
+.hero-btns .btn-gold { background:var(--accent); color:#fff; }
+.hero-btns .btn-gold:hover { background:var(--accent-light); transform:translateY(-2px); }
+.hero-btns .btn-outline { border:1px solid rgba(255,255,255,0.5); color:#fff; }
+.hero-btns .btn-outline:hover { background:rgba(255,255,255,0.1); }
+.hero-stats { position:relative; z-index:2; display:flex; gap:40px; margin-top:50px; padding-left:8%; }
+.hero-stats .stat { text-align:center; }
+.hero-stats .stat-num { font-family:'Playfair Display',serif; font-size:2.2rem; color:var(--accent); font-weight:700; }
+.hero-stats .stat-label { font-size:0.72rem; color:rgba(255,255,255,0.7); margin-top:4px; }
+
+/* Features */
+.features { padding:90px 0; }
+.features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
+.feature-card { background:var(--white); border-radius:8px; padding:36px 28px; border:1px solid var(--border); transition:all 0.4s; position:relative; overflow:hidden; }
+.feature-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:var(--accent); transform:scaleX(0); transition:transform 0.4s; transform-origin:left; }
+.feature-card:hover { transform:translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,0.08); }
+.feature-card:hover::before { transform:scaleX(1); }
+.feature-icon { width:56px; height:56px; background:linear-gradient(135deg,var(--primary),var(--primary-light)); border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.3rem; margin-bottom:18px; }
+.feature-card h3 { font-size:1.1rem; color:var(--primary); margin-bottom:10px; font-weight:700; }
+.feature-card p { font-size:0.88rem; color:var(--text-light); line-height:1.9; }
+
+/* Services */
+.services { padding:90px 0; background:var(--section-alt); }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
+.service-item { background:var(--white); border-radius:8px; padding:32px 24px; text-align:center; border:1px solid var(--border); transition:all 0.3s; }
+.service-item:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.06); }
+.service-item i { font-size:2rem; color:var(--accent); margin-bottom:14px; display:block; }
+.service-item h3 { font-size:0.95rem; color:var(--primary); margin-bottom:8px; font-weight:700; }
+.service-item p { font-size:0.82rem; color:var(--text-light); }
+
+/* About */
+.about { padding:90px 0; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+.about-image { position:relative; border-radius:8px; overflow:hidden; }
+.about-image img { width:100%; height:360px; object-fit:cover; border-radius:8px; }
+.about-image .badge { position:absolute; bottom:20px; right:20px; background:var(--accent); color:#fff; padding:10px 18px; border-radius:4px; font-size:0.8rem; font-weight:700; }
+.about-text h3 { font-size:1.5rem; color:var(--primary); margin-bottom:16px; font-weight:700; }
+.about-text p { font-size:0.9rem; color:var(--text-light); margin-bottom:14px; }
+.about-list { list-style:none; margin-top:20px; }
+.about-list li { padding:8px 0; font-size:0.88rem; display:flex; align-items:center; gap:10px; }
+.about-list li i { color:var(--accent); font-size:0.8rem; }
+
+/* Office */
+.office { padding:90px 0; background:var(--section-alt); }
+.office-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+.office-info { background:var(--white); border-radius:8px; padding:36px; border:1px solid var(--border); }
+.office-info table { width:100%; border-collapse:collapse; }
+.office-info th, .office-info td { padding:14px 0; font-size:0.88rem; border-bottom:1px solid var(--border); text-align:left; vertical-align:top; }
+.office-info th { color:var(--primary); font-weight:700; width:100px; }
+.office-map { border-radius:8px; overflow:hidden; min-height:360px; }
+.office-map iframe { width:100%; height:100%; min-height:360px; border:0; }
+
+/* CTA */
+.cta { padding:80px 0; background:linear-gradient(135deg,var(--primary) 0%,var(--bg-dark) 100%); text-align:center; color:#fff; position:relative; overflow:hidden; }
+.cta::before { content:''; position:absolute; top:-50%; right:-20%; width:600px; height:600px; border-radius:50%; border:1px solid rgba(255,255,255,0.06); }
+.cta h2 { font-size:clamp(1.4rem,3vw,2rem); margin-bottom:14px; position:relative; }
+.cta p { color:rgba(255,255,255,0.8); margin-bottom:30px; font-size:0.95rem; position:relative; }
+.cta .tel { font-family:'Playfair Display',serif; font-size:2.2rem; color:var(--accent); display:block; margin-bottom:8px; text-decoration:none; position:relative; }
+.cta .tel-note { font-size:0.78rem; color:rgba(255,255,255,0.6); position:relative; }
+.cta-form-btn { display:inline-block; margin-top:24px; background:var(--accent); color:#fff; text-decoration:none; padding:14px 40px; border-radius:4px; font-weight:700; font-size:0.95rem; transition:all 0.3s; position:relative; }
+.cta-form-btn:hover { background:var(--accent-light); transform:translateY(-2px); }
+
+/* Footer */
+footer { background:var(--bg-dark); color:rgba(255,255,255,0.7); padding:50px 0 30px; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; margin-bottom:30px; }
+.footer-about .logo-footer { font-size:1.1rem; color:#fff; font-weight:700; margin-bottom:12px; }
+.footer-about p { font-size:0.8rem; line-height:1.9; }
+.footer-links h4, .footer-hours h4 { color:#fff; font-size:0.85rem; margin-bottom:14px; }
+.footer-links a { display:block; color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.8rem; padding:3px 0; transition:color 0.3s; }
+.footer-links a:hover { color:var(--accent); }
+.footer-hours p { font-size:0.8rem; line-height:2; }
+.footer-bottom { border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; text-align:center; font-size:0.72rem; }
+
+/* Flow */
+.flow { padding:90px 0; background:var(--section-alt); }
+.flow-steps { max-width:700px; margin:0 auto; }
+.flow-step { display:flex; gap:24px; margin-bottom:32px; align-items:flex-start; }
+.flow-num { font-family:'Playfair Display',serif; font-size:2rem; color:var(--accent); font-weight:700; min-width:50px; line-height:1; padding-top:4px; }
+.flow-content { flex:1; background:var(--white); border-radius:8px; padding:24px; border:1px solid var(--border); }
+.flow-content h3 { font-size:1rem; color:var(--primary); margin-bottom:8px; font-weight:700; }
+.flow-content h3 i { color:var(--accent); margin-right:6px; }
+.flow-content p { font-size:0.85rem; color:var(--text-light); line-height:1.85; }
+
+/* FAQ */
+.faq { padding:90px 0; }
+.faq-list { max-width:740px; margin:0 auto; }
+.faq-item { margin-bottom:14px; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:var(--white); }
+.faq-q { display:flex; align-items:center; gap:14px; padding:18px 20px; cursor:pointer; transition:background 0.3s; }
+.faq-q:hover { background:var(--section-alt); }
+.faq-q span { background:var(--primary); color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; flex-shrink:0; }
+.faq-q p { flex:1; font-size:0.9rem; font-weight:600; color:var(--text); margin:0; }
+.faq-q i { color:var(--text-light); font-size:0.7rem; transition:transform 0.3s; }
+.faq-item.open .faq-q i { transform:rotate(180deg); }
+.faq-a { display:none; padding:0 20px 18px 62px; }
+.faq-item.open .faq-a { display:flex; gap:14px; }
+.faq-a span { background:var(--accent); color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; flex-shrink:0; }
+.faq-a p { font-size:0.85rem; color:var(--text-light); line-height:1.85; margin:0; }
+
+/* Scroll animations */
+.fade-in { opacity:0; transform:translateY(30px); transition:all 0.7s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+/* Responsive */
+@media(max-width:768px){
+  nav { display:none; position:absolute; top:70px; left:0; width:100%; background:#fff; flex-direction:column; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+  nav.active { display:flex; }
+  .hamburger { display:flex; }
+  .hero { min-height:auto; padding:80px 0 60px; }
+  .hero-content { margin-left:0; }
+  .hero-stats { padding-left:20px; gap:20px; flex-wrap:wrap; }
+  .about-grid, .office-grid, .footer-grid { grid-template-columns:1fr; }
+  .features-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="#" class="logo">高宮徹税理士事務所<small>TAKAMIYA TAX OFFICE</small></a>
+    <button class="hamburger" onclick="document.querySelector('nav').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <a href="#features">選ばれる理由</a>
+      <a href="#services">業務案内</a>
+      <a href="#about">事務所紹介</a>
+      <a href="#office">アクセス</a>
+      <a href="#contact" class="cta-btn">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="tag">経営革新等支援機関認定</span>
+    <h1>企業の<span>黒字経営</span>を<br>力強くサポート</h1>
+    <p>横浜駅徒歩圏内。税務・会計の専門知識と経営コンサルティングで、<br>法人から個人、社会福祉法人まで幅広く支援いたします。</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-gold"><i class="fas fa-envelope"></i>&nbsp; 無料相談はこちら</a>
+      <a href="#services" class="btn-outline">業務案内を見る</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">TKC</div><div class="stat-label">全国会会員</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">つの強み</div></div>
+    <div class="stat"><div class="stat-num">横浜</div><div class="stat-label">駅徒歩圏内</div></div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-title fade-in">
+      <span class="en">Why Choose Us</span>
+      <h2>高宮徹税理士事務所が選ばれる理由</h2>
+      <div class="line"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>黒字化経営のご支援</h3>
+        <p>単なる記帳代行にとどまらず、経営改善計画の立案を通じて、貴社の黒字経営の実現をサポート。TKCシステムによるタイムリーな経営情報で的確な意思決定を支援します。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><i class="fas fa-building"></i></div>
+        <h3>社会福祉法人の専門支援</h3>
+        <p>社会福祉法人の会計・税務アドバイザーとして豊富な実績。社会福祉法人会計データベースを活用し、法改正への対応から経営分析まで的確にお応えします。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+        <h3>経営革新等支援機関</h3>
+        <p>国の認定を受けた経営革新等支援機関として、補助金・助成金の申請支援から経営力強化計画の策定まで、中小企業の成長を多角的にバックアップします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-title fade-in">
+      <span class="en">Services</span>
+      <h2>業務案内</h2>
+      <div class="line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-item fade-in">
+        <i class="fas fa-calculator"></i>
+        <h3>税務・会計顧問</h3>
+        <p>月次巡回監査による適正な会計処理と、タイムリーな経営情報の提供</p>
+      </div>
+      <div class="service-item fade-in">
+        <i class="fas fa-rocket"></i>
+        <h3>会社設立支援</h3>
+        <p>法人設立の手続きから事業計画、資金調達まで一貫してサポート</p>
+      </div>
+      <div class="service-item fade-in">
+        <i class="fas fa-heart"></i>
+        <h3>相続・事業承継</h3>
+        <p>円滑な相続のための事前対策から申告手続きまで、ワンストップで対応</p>
+      </div>
+      <div class="service-item fade-in">
+        <i class="fas fa-balance-scale"></i>
+        <h3>社会福祉法人会計</h3>
+        <p>社会福祉法人特有の会計基準に精通した専門的なアドバイス</p>
+      </div>
+      <div class="service-item fade-in">
+        <i class="fas fa-lightbulb"></i>
+        <h3>経営コンサルティング</h3>
+        <p>経営改善計画の策定から実行支援まで、黒字化に向けた経営指導</p>
+      </div>
+      <div class="service-item fade-in">
+        <i class="fas fa-file-invoice-dollar"></i>
+        <h3>決算・確定申告</h3>
+        <p>法人決算から個人の確定申告まで、正確かつ迅速に対応</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-title fade-in">
+      <span class="en">About</span>
+      <h2>事務所紹介</h2>
+      <div class="line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-image fade-in">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="事務所イメージ">
+        <div class="badge"><i class="fas fa-award"></i>&nbsp; TKC全国会会員</div>
+      </div>
+      <div class="about-text fade-in">
+        <h3>経営者の「最も身近な相談相手」<br>として</h3>
+        <p>高宮徹税理士事務所は、TKC全国会会員として租税正義の実現をめざし、関与先企業の永続的繁栄に奉仕しています。</p>
+        <p>経営改善計画の立案から社会福祉法人の専門会計まで、お客様一人ひとりに寄り添った丁寧なサービスを提供しています。</p>
+        <ul class="about-list">
+          <li><i class="fas fa-check-circle"></i>TKC全国会会員 — 全国屈指の職業会計人集団</li>
+          <li><i class="fas fa-check-circle"></i>経営革新等支援機関認定</li>
+          <li><i class="fas fa-check-circle"></i>社会福祉法人・公益法人の会計税務に精通</li>
+          <li><i class="fas fa-check-circle"></i>FX4クラウドによるリアルタイム経営管理</li>
+          <li><i class="fas fa-check-circle"></i>横浜駅東口エリア、好アクセス</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="office" id="office">
+  <div class="container">
+    <div class="section-title fade-in">
+      <span class="en">Access</span>
+      <h2>事務所概要・アクセス</h2>
+      <div class="line"></div>
+    </div>
+    <div class="office-grid">
+      <div class="office-info fade-in">
+        <table>
+          <tr><th>事務所名</th><td>高宮徹税理士事務所</td></tr>
+          <tr><th>所在地</th><td>〒220-0011<br>神奈川県横浜市西区高島2-11-2<br>スカイメナー横浜703</td></tr>
+          <tr><th>TEL</th><td>045-444-0850</td></tr>
+          <tr><th>FAX</th><td>045-444-0855</td></tr>
+          <tr><th>業務内容</th><td>税務・経理・財務・会計・決算<br>独立・開業支援<br>経営相談・コンサルティング<br>社会福祉法人会計</td></tr>
+          <tr><th>所属</th><td>東京地方税理士会 横浜中央支部<br>TKC全国会</td></tr>
+        </table>
+      </div>
+      <div class="office-map fade-in">
+        <iframe src="https://www.google.com/maps?q=神奈川県横浜市西区高島2-11-2+スカイメナー横浜&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flow Section -->
+<section class="flow" id="flow">
+  <div class="container">
+    <div class="section-title fade-in">
+      <span class="en">Flow</span>
+      <h2>ご相談の流れ</h2>
+      <div class="line"></div>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step fade-in">
+        <div class="flow-num">01</div>
+        <div class="flow-content">
+          <h3><i class="fas fa-phone-alt"></i> お問い合わせ</h3>
+          <p>まずはお電話またはお問い合わせフォームからご連絡ください。ご相談内容を簡単にお伺いし、面談の日程を調整いたします。初回のご相談は無料です。お気軽にお問い合わせください。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">02</div>
+        <div class="flow-content">
+          <h3><i class="fas fa-comments"></i> 初回面談・ヒアリング</h3>
+          <p>事務所またはオンラインにて、お客様の現在の状況やお悩みをじっくりお聞きします。会社の決算状況、経営課題、今後のビジョンなどを共有いただき、最適なサポート内容をご提案いたします。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">03</div>
+        <div class="flow-content">
+          <h3><i class="fas fa-file-contract"></i> ご提案・ご契約</h3>
+          <p>ヒアリング内容に基づき、具体的なサービス内容と料金をご提案します。ご納得いただいた上でご契約となりますので、ご不明点は何でもお気軽にご質問ください。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-num">04</div>
+        <div class="flow-content">
+          <h3><i class="fas fa-chart-bar"></i> 業務開始・定期サポート</h3>
+          <p>ご契約後、速やかに業務を開始します。月次巡回監査やTKCシステムの導入・活用支援を通じて、タイムリーな経営情報をお届けし、黒字経営の実現に向けて継続的にサポートいたします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-title fade-in">
+      <span class="en">FAQ</span>
+      <h2>よくあるご質問</h2>
+      <div class="line"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>Q</span>
+          <p>初回相談は本当に無料ですか？</p>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          <span>A</span>
+          <p>はい、初回のご相談は無料で承っております。お気軽にお電話またはお問い合わせフォームからご連絡ください。面談時に詳しいお話をお聞きした上で、最適なプランをご提案いたします。</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>Q</span>
+          <p>社会福祉法人の会計にも対応できますか？</p>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          <span>A</span>
+          <p>はい、社会福祉法人の会計・税務は当事務所の強みのひとつです。社会福祉法人会計基準に準拠した記帳から決算、監事監査のサポート、社会福祉法人会計データベースの活用まで、専門的にご支援いたします。</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>Q</span>
+          <p>会社の設立を考えていますが、何から始めればいいですか？</p>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          <span>A</span>
+          <p>まずはお気軽にご相談ください。事業計画の作成、法人形態の選択、資金調達の方法など、設立前にやるべきことを丁寧にアドバイスいたします。設立後の税務届出や記帳体制の構築まで、一貫してサポートします。</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>Q</span>
+          <p>経営改善計画の策定も依頼できますか？</p>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          <span>A</span>
+          <p>もちろんです。当事務所は経営革新等支援機関の認定を受けており、経営改善計画の策定支援は得意分野のひとつです。現状分析から目標設定、アクションプランの策定まで、貴社の黒字化に向けたロードマップを一緒に作ります。</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>Q</span>
+          <p>対応エリアはどこまでですか？</p>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          <span>A</span>
+          <p>横浜市を中心に、東京都内、神奈川県内を主な対応エリアとしております。オンライン面談にも対応しておりますので、遠方のお客様もお気軽にご相談ください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>経営のお悩み、税務のご相談、社会福祉法人の会計など<br>どんなことでもお問い合わせください。</p>
+    <a href="tel:045-444-0850" class="tel"><i class="fas fa-phone-alt"></i> 045-444-0850</a>
+    <span class="tel-note">お電話でのお問い合わせも受け付けております</span>
+    <br>
+    <a href="https://www.takamiya-tax.net/form/takamiya-taxnet/inquiry" class="cta-form-btn" target="_blank"><i class="fas fa-envelope"></i>&nbsp; メールでお問い合わせ</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo-footer">高宮徹税理士事務所</div>
+        <p>TKC全国会会員・経営革新等支援機関認定。<br>横浜を拠点に、法人・個人の税務会計から社会福祉法人の専門会計まで、幅広いサービスを提供しています。</p>
+      </div>
+      <div class="footer-links">
+        <h4>メニュー</h4>
+        <a href="#features">選ばれる理由</a>
+        <a href="#services">業務案内</a>
+        <a href="#about">事務所紹介</a>
+        <a href="#office">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+      <div class="footer-hours">
+        <h4>お問い合わせ</h4>
+        <p><i class="fas fa-phone"></i> 045-444-0850</p>
+        <p><i class="fas fa-fax"></i> 045-444-0855</p>
+        <p><i class="fas fa-map-marker-alt"></i> 横浜市西区高島2-11-2</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 高宮徹税理士事務所 All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelector('nav').classList.remove('active');
+    }
+  });
+});
+</script>
+</body>
+</html>
