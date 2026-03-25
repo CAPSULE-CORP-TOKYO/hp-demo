@@ -7,348 +7,215 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
+:root{--purple:#6366f1;--purple-light:#eef0ff;--text:#1a1a1a;--sub:#666;--light:#888;--bg:#fff;--bg-alt:#f8f8fb;--border:#e8e8ec;--radius:10px}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;background:#fff;font-family:'Noto Sans JP',sans-serif}
-.deck{width:100vw;height:100vh;position:relative;overflow:hidden}
-.slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .5s ease}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:'Noto Sans JP',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+
+/* Slide system */
+.deck{width:100vw;height:100vh;position:relative}
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .45s ease}
 .slide.active{opacity:1;pointer-events:auto}
-.slide-inner{width:100vw;height:100vh;background:#fff;position:relative;display:flex;flex-direction:column;justify-content:center;padding:8% 7%;overflow-y:auto;-webkit-overflow-scrolling:touch}
-@media(min-width:900px)and(min-aspect-ratio:1/1){
-html,body{background:#000}
-.slide-inner{width:min(100vw,177.78vh);height:min(100vh,56.25vw);border-radius:8px}
+.si{width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:10vh 8vw;overflow-y:auto;-webkit-overflow-scrolling:touch}
+@media(min-width:960px)and(min-aspect-ratio:1/1){
+html,body{background:#111}
+.si{width:min(96vw,170vh);height:min(92vh,54vw);background:var(--bg);border-radius:12px;padding:6% 7%}
 }
 
-/* Progress */
-.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#a78bfa,#6366f1);transition:width .4s ease;z-index:100}
-.page-num{position:fixed;bottom:12px;right:20px;font-size:13px;color:#bbb;z-index:100;font-weight:300}
-@media(min-width:900px){.page-num{bottom:20px;right:30px;font-size:14px;color:#999}}
+/* Progress + page */
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--purple);transition:width .35s ease;z-index:99}
+#pageNum{position:fixed;bottom:16px;right:24px;font-size:12px;color:var(--light);z-index:99;font-weight:300;letter-spacing:.04em}
 
-/* Typography — larger sizes */
-.s-label{font-size:clamp(12px,1.4vw,16px);font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#6366f1;margin-bottom:1.2em}
-.s-title{font-size:clamp(26px,4vw,54px);font-weight:700;line-height:1.3;color:#111;letter-spacing:-.02em}
-.s-title-sm{font-size:clamp(22px,3.2vw,44px);font-weight:700;line-height:1.35;color:#111;letter-spacing:-.02em}
-.s-body{font-size:clamp(15px,1.6vw,20px);font-weight:300;line-height:1.8;color:#444;margin-top:1.2em}
-.s-sub{font-size:clamp(13px,1.3vw,16px);font-weight:300;color:#888;margin-top:.8em}
+/* Shared typography */
+.label{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--purple);margin-bottom:20px}
+.heading{font-size:clamp(28px,4.2vw,52px);font-weight:700;line-height:1.25;letter-spacing:-.025em}
+.heading-m{font-size:clamp(24px,3.4vw,42px);font-weight:700;line-height:1.3;letter-spacing:-.02em}
+.body{font-size:clamp(15px,1.6vw,19px);font-weight:300;line-height:1.8;color:var(--sub);margin-top:16px}
+.caption{font-size:clamp(12px,1.1vw,14px);font-weight:300;color:var(--light);margin-top:12px}
+
+/* ---- Slide-specific ---- */
 
 /* Cover */
-.cover{background:linear-gradient(135deg,#f8f7ff 0%,#f0ecff 50%,#e8f4ff 100%)}
-.cover .s-title{font-size:clamp(24px,3.5vw,48px)}
-.cover .logo{font-size:clamp(14px,1.3vw,18px);font-weight:600;letter-spacing:.08em;color:#6366f1;margin-top:2em}
+.cover-bg{background:linear-gradient(140deg,#fafaff 0%,var(--purple-light) 100%)}
+.cover-logo{font-size:clamp(13px,1.2vw,16px);font-weight:600;letter-spacing:.1em;color:var(--purple);margin-top:32px}
 
 /* Agenda */
-.agenda-list{margin-top:1.5em;display:flex;flex-direction:column;gap:1em}
-.agenda-item{display:flex;gap:1em;align-items:center}
-.agenda-num{font-size:clamp(13px,1.2vw,16px);font-weight:700;color:#6366f1;min-width:28px}
-.agenda-text{font-size:clamp(16px,1.8vw,22px);font-weight:400;color:#333}
+.ag-list{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.ag-row{display:flex;align-items:baseline;gap:16px}
+.ag-num{font-size:15px;font-weight:700;color:var(--purple);font-variant-numeric:tabular-nums;min-width:24px;text-align:right}
+.ag-text{font-size:clamp(17px,1.9vw,23px);font-weight:400;color:var(--text)}
 
 /* About */
-.about-slide{background:linear-gradient(135deg,#f8f7ff 0%,#eef2ff 100%)}
-.about-tagline{font-size:clamp(14px,1.5vw,19px);font-weight:300;color:#555;margin-top:1em;line-height:1.8}
-.about-features{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.5vw,20px);margin-top:1.5em}
-@media(max-width:899px){.about-features{grid-template-columns:1fr}}
-.about-feat{padding:clamp(10px,1.5vw,18px);background:rgba(255,255,255,.8);border-radius:10px}
-.about-feat-title{font-size:clamp(14px,1.4vw,18px);font-weight:600;color:#111}
-.about-feat-desc{font-size:clamp(12px,1.1vw,15px);font-weight:300;color:#666;margin-top:.2em}
+.about-bg{background:linear-gradient(140deg,#fafaff 0%,var(--purple-light) 100%)}
+.about-tag{font-size:clamp(15px,1.5vw,19px);font-weight:300;color:var(--sub);margin-top:14px;line-height:1.8}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+@media(max-width:959px){.about-grid{grid-template-columns:1fr;gap:10px}}
+.about-card{padding:18px 20px;background:rgba(255,255,255,.85);border-radius:var(--radius);border:1px solid var(--border)}
+.about-card h4{font-size:clamp(14px,1.4vw,17px);font-weight:600;color:var(--text)}
+.about-card p{font-size:clamp(12px,1.1vw,14px);font-weight:300;color:var(--sub);margin-top:4px}
 
 /* Issues */
-.issue-list{margin-top:1.5em;display:flex;flex-direction:column;gap:1.2em}
-.issue-item{display:flex;gap:1em;align-items:flex-start}
-.issue-num{font-size:clamp(12px,1.1vw,14px);font-weight:600;color:#fff;background:#6366f1;border-radius:50%;width:clamp(28px,2.8vw,36px);height:clamp(28px,2.8vw,36px);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.issue-text{flex:1}
-.issue-title{font-size:clamp(16px,1.8vw,22px);font-weight:600;color:#111}
-.issue-desc{font-size:clamp(13px,1.3vw,17px);font-weight:300;color:#666;margin-top:.2em}
+.iss-list{margin-top:28px;display:flex;flex-direction:column;gap:20px}
+.iss-row{display:flex;gap:16px;align-items:flex-start}
+.iss-dot{width:32px;height:32px;border-radius:50%;background:var(--purple);color:#fff;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.iss-body h4{font-size:clamp(17px,1.8vw,22px);font-weight:600}
+.iss-body p{font-size:clamp(13px,1.3vw,16px);font-weight:300;color:var(--sub);margin-top:2px}
 
 /* Demo */
-.demo-slide{background:linear-gradient(135deg,#f8f7ff 0%,#eef2ff 100%)}
-.demo-url{display:inline-block;margin-top:1.2em;padding:.7em 1.6em;background:#6366f1;color:#fff;border-radius:10px;font-size:clamp(14px,1.4vw,18px);font-weight:500;text-decoration:none;letter-spacing:.02em}
-.demo-features{display:flex;gap:clamp(8px,1.5vw,20px);margin-top:1.5em;flex-wrap:wrap}
-.demo-feat{font-size:clamp(13px,1.2vw,16px);font-weight:400;color:#555;padding:.5em 1em;background:#f3f4f6;border-radius:8px}
+.demo-bg{background:linear-gradient(140deg,#fafaff 0%,var(--purple-light) 100%)}
+.demo-btn{display:inline-block;margin-top:20px;padding:12px 28px;background:var(--purple);color:#fff;border-radius:var(--radius);font-size:clamp(14px,1.3vw,17px);font-weight:500;text-decoration:none}
+.demo-tags{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.demo-tag{font-size:clamp(12px,1.1vw,14px);font-weight:400;color:var(--sub);padding:6px 14px;background:var(--bg);border-radius:20px;border:1px solid var(--border)}
 
 /* Pricing */
-.pricing-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:1.2em;align-items:start}
-@media(min-width:900px){.pricing-grid{grid-template-columns:1fr 1fr 1fr;gap:clamp(10px,1.5vw,20px);margin-top:1.5em}}
-.plan{padding:clamp(14px,2vw,24px);border-radius:12px;background:#f9fafb;border:1px solid #e5e7eb}
-.plan.recommended{background:#6366f1;color:#fff;border-color:#6366f1;transform:scale(1.02)}
-.plan-badge{font-size:clamp(10px,.9vw,12px);font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:.2em .6em;border-radius:4px;display:inline-block;margin-bottom:.5em}
-.plan-name{font-size:clamp(15px,1.5vw,20px);font-weight:600}
-.plan-price{font-size:clamp(22px,2.8vw,36px);font-weight:700;margin:.3em 0}
-.plan-price span{font-size:clamp(12px,1.1vw,15px);font-weight:300}
-.plan ul{list-style:none;margin-top:.6em;font-size:clamp(12px,1.1vw,15px);font-weight:300;line-height:1.7}
-.plan ul li::before{content:"✓ ";color:#6366f1;font-weight:600}
-.plan.recommended ul li::before{color:rgba(255,255,255,.7)}
-.plan.recommended .plan-name,.plan.recommended .plan-price{color:#fff}
-.pricing-note{font-size:clamp(12px,1.1vw,14px);color:#888;margin-top:1em;font-weight:300}
+.pr-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px}
+@media(min-width:960px){.pr-grid{grid-template-columns:1fr 1fr 1fr;gap:16px}}
+.pr-card{padding:20px 22px;border-radius:var(--radius);background:var(--bg-alt);border:1px solid var(--border)}
+.pr-card.rec{background:var(--purple);color:#fff;border-color:var(--purple)}
+.pr-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:3px 8px;border-radius:4px;margin-bottom:8px}
+.pr-name{font-size:clamp(15px,1.4vw,18px);font-weight:600}
+.pr-price{font-size:clamp(24px,3vw,38px);font-weight:700;margin:6px 0}
+.pr-price small{font-size:clamp(12px,1vw,14px);font-weight:300}
+.pr-card ul{list-style:none;margin-top:10px;font-size:clamp(12px,1.1vw,14px);font-weight:300;line-height:1.8}
+.pr-card ul li::before{content:"✓  ";font-weight:600;color:var(--purple)}
+.pr-card.rec ul li::before{color:rgba(255,255,255,.6)}
+.pr-card.rec .pr-name,.pr-card.rec .pr-price{color:#fff}
 
 /* Flow */
-.flow-list{margin-top:1.2em;display:flex;flex-direction:column;gap:.6em}
-.flow-item{display:flex;gap:.8em;align-items:flex-start}
-.flow-num{font-size:clamp(12px,1.2vw,15px);font-weight:700;color:#6366f1;min-width:clamp(20px,2.2vw,28px)}
-.flow-content{flex:1}
-.flow-title{font-size:clamp(15px,1.6vw,20px);font-weight:600;color:#111}
-.flow-desc{font-size:clamp(12px,1.2vw,16px);font-weight:300;color:#666;margin-top:.15em}
-.flow-highlight{background:#f0ecff;padding:.3em .7em;border-radius:6px;font-size:clamp(12px,1.1vw,14px);color:#6366f1;font-weight:500;display:inline-block;margin-top:.3em}
-.flow-divider{margin:1em 0;padding:.7em 0;border-top:2px solid #6366f1;border-bottom:none;text-align:center}
-.flow-divider-label{font-size:clamp(14px,1.5vw,19px);font-weight:700;color:#6366f1;letter-spacing:.05em}
+.fl-section{margin-top:24px}
+.fl-group{display:flex;flex-direction:column;gap:12px}
+.fl-row{display:flex;gap:14px;align-items:baseline}
+.fl-num{font-size:14px;font-weight:700;color:var(--purple);min-width:22px;text-align:right;font-variant-numeric:tabular-nums}
+.fl-main h4{font-size:clamp(16px,1.6vw,20px);font-weight:600}
+.fl-main p{font-size:clamp(12px,1.2vw,15px);font-weight:300;color:var(--sub);margin-top:2px}
+.fl-divider{margin:20px 0;text-align:center;position:relative}
+.fl-divider::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--purple)}
+.fl-divider span{position:relative;background:var(--bg);padding:0 20px;font-size:clamp(14px,1.4vw,17px);font-weight:700;color:var(--purple)}
+
+/* Why */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+@media(max-width:959px){.why-grid{grid-template-columns:1fr;gap:10px}}
+.why-card{padding:18px 20px;background:var(--bg-alt);border-radius:var(--radius)}
+.why-card h4{font-size:clamp(15px,1.5vw,18px);font-weight:600}
+.why-card p{font-size:clamp(12px,1.1vw,14px);font-weight:300;color:var(--sub);margin-top:4px}
 
 /* End */
-.end-slide{background:linear-gradient(135deg,#f8f7ff 0%,#f0ecff 50%,#e8f4ff 100%)}
-.end-actions{margin-top:1.5em;display:flex;flex-direction:column;gap:1em}
-.end-action{font-size:clamp(15px,1.6vw,20px);color:#444;font-weight:300}
-.end-action strong{font-weight:600;color:#111}
-.end-footer{margin-top:2em;font-size:clamp(13px,1.2vw,16px);color:#888;font-weight:300;line-height:1.8}
+.end-bg{background:linear-gradient(140deg,#fafaff 0%,var(--purple-light) 100%)}
+.end-actions{margin-top:28px;display:flex;flex-direction:column;gap:16px}
+.end-act{font-size:clamp(16px,1.7vw,21px);color:var(--sub);font-weight:300;line-height:1.6}
+.end-act strong{font-weight:600;color:var(--text)}
+.end-foot{margin-top:36px;font-size:clamp(13px,1.2vw,15px);color:var(--light);font-weight:300;line-height:2}
 </style>
 </head>
 <body>
-<div class="progress" id="progress"></div>
-<div class="page-num" id="pageNum"></div>
 
+<div id="progress"></div>
+<div id="pageNum"></div>
 <div class="deck" id="deck">
 
-<!-- 1. Cover -->
-<div class="slide active">
-<div class="slide-inner cover">
-<div class="s-label">Proposal</div>
-<div class="s-title">新田英明税理士事務所 様<br>ホームページリニューアルのご提案</div>
-<div class="logo">CAPSULE Inc.</div>
-</div>
-</div>
+<!-- 1 Cover -->
+<div class="slide active"><div class="si cover-bg">
+<div class="label">Proposal</div>
+<div class="heading">新田英明税理士事務所 様<br>ホームページリニューアルのご提案</div>
+<div class="cover-logo">CAPSULE Inc.</div>
+</div></div>
 
-<!-- 2. Agenda -->
-<div class="slide">
-<div class="slide-inner">
-<div class="s-label">Agenda</div>
-<div class="s-title-sm">本日のアジェンダ</div>
-<div class="agenda-list">
-<div class="agenda-item"><div class="agenda-num">01</div><div class="agenda-text">CAPSULE のご紹介</div></div>
-<div class="agenda-item"><div class="agenda-num">02</div><div class="agenda-text">現在のサイトの課題</div></div>
-<div class="agenda-item"><div class="agenda-num">03</div><div class="agenda-text">リニューアルデモのご紹介</div></div>
-<div class="agenda-item"><div class="agenda-num">04</div><div class="agenda-text">料金プラン</div></div>
-<div class="agenda-item"><div class="agenda-num">05</div><div class="agenda-text">サポートの流れ</div></div>
-<div class="agenda-item"><div class="agenda-num">06</div><div class="agenda-text">次のステップ</div></div>
+<!-- 2 Agenda -->
+<div class="slide"><div class="si">
+<div class="label">Agenda</div>
+<div class="heading-m">本日のアジェンダ</div>
+<div class="ag-list">
+<div class="ag-row"><span class="ag-num">01</span><span class="ag-text">CAPSULE のご紹介</span></div>
+<div class="ag-row"><span class="ag-num">02</span><span class="ag-text">現在のサイトの課題</span></div>
+<div class="ag-row"><span class="ag-num">03</span><span class="ag-text">リニューアルデモのご紹介</span></div>
+<div class="ag-row"><span class="ag-num">04</span><span class="ag-text">料金プラン</span></div>
+<div class="ag-row"><span class="ag-num">05</span><span class="ag-text">ご契約から公開までの流れ</span></div>
+<div class="ag-row"><span class="ag-num">06</span><span class="ag-text">次のステップ</span></div>
 </div>
-</div>
-</div>
+</div></div>
 
-<!-- 3. About CAPSULE -->
-<div class="slide">
-<div class="slide-inner about-slide">
-<div class="s-label">About Us</div>
-<div class="s-title-sm">CAPSULE Inc.</div>
-<div class="about-tagline">テクノロジーとデザインの交差点で、<br>本当に必要なものだけを、美しく届けるデジタルスタジオです。</div>
-<div class="about-features">
-<div class="about-feat">
-<div class="about-feat-title">AI-native な制作プロセス</div>
-<div class="about-feat-desc">AIを活用し、高品質なサイトをスピーディにお届けします</div>
+<!-- 3 About -->
+<div class="slide"><div class="si about-bg">
+<div class="label">About Us</div>
+<div class="heading-m">CAPSULE Inc.</div>
+<div class="about-tag">テクノロジーとデザインの交差点で、<br>本当に必要なものだけを、美しく届けるデジタルスタジオです。</div>
+<div class="about-grid">
+<div class="about-card"><h4>AI-native な制作プロセス</h4><p>AIを活用し、高品質なサイトをスピーディにお届けします</p></div>
+<div class="about-card"><h4>制作から運用まで一括</h4><p>デザイン・SSL・SEO・保守管理、すべて月額に含まれます</p></div>
+<div class="about-card"><h4>初期費用 0円</h4><p>制作費は一切いただきません。月額料金のみでスタート</p></div>
+<div class="about-card"><h4>解約後もデータはお客様のもの</h4><p>ソースコードをお渡し。ロックインはありません</p></div>
 </div>
-<div class="about-feat">
-<div class="about-feat-title">制作から運用まで一括</div>
-<div class="about-feat-desc">デザイン・SSL・SEO・保守管理、すべて月額に含まれます</div>
-</div>
-<div class="about-feat">
-<div class="about-feat-title">初期費用 0円</div>
-<div class="about-feat-desc">制作費は一切いただきません。月額料金のみでスタート</div>
-</div>
-<div class="about-feat">
-<div class="about-feat-title">解約後もデータはお客様のもの</div>
-<div class="about-feat-desc">ソースコードをお渡し。ロックインはありません</div>
-</div>
-</div>
-</div>
-</div>
+</div></div>
 
-<!-- 4. Issues -->
-<div class="slide">
-<div class="slide-inner">
-<div class="s-label">Current Issues</div>
-<div class="s-title-sm">現在のサイトで起きていること</div>
-<div class="issue-list">
-<div class="issue-item">
-<div class="issue-num">1</div>
-<div class="issue-text">
-<div class="issue-title">SSL未対応</div>
-<div class="issue-desc">ブラウザに「保護されていない通信」と表示され、訪問者に不安を与えています</div>
+<!-- 4 Issues -->
+<div class="slide"><div class="si">
+<div class="label">Current Issues</div>
+<div class="heading-m">現在のサイトで起きていること</div>
+<div class="iss-list">
+<div class="iss-row"><div class="iss-dot">1</div><div class="iss-body"><h4>SSL未対応</h4><p>ブラウザに「保護されていない通信」と表示され、訪問者に不安を与えています</p></div></div>
+<div class="iss-row"><div class="iss-dot">2</div><div class="iss-body"><h4>スマートフォン非対応</h4><p>モバイルユーザーの約70%が3秒以内に離脱するというデータがあります</p></div></div>
+<div class="iss-row"><div class="iss-dot">3</div><div class="iss-body"><h4>2013年のデザインのまま</h4><p>テーブルレイアウト・画像ナビゲーションは、現在のWeb標準から大きく乖離しています</p></div></div>
 </div>
-</div>
-<div class="issue-item">
-<div class="issue-num">2</div>
-<div class="issue-text">
-<div class="issue-title">スマートフォン非対応</div>
-<div class="issue-desc">モバイルユーザーの約70%が3秒以内に離脱するというデータがあります</div>
-</div>
-</div>
-<div class="issue-item">
-<div class="issue-num">3</div>
-<div class="issue-text">
-<div class="issue-title">2013年のデザインのまま</div>
-<div class="issue-desc">テーブルレイアウト・画像ナビゲーションは、現在の Web 標準から大きく乖離しています</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div></div>
 
-<!-- 5. Demo -->
-<div class="slide">
-<div class="slide-inner demo-slide">
-<div class="s-label">Demo</div>
-<div class="s-title-sm">新田様専用のデモサイトを<br>作成しました</div>
-<div><a class="demo-url" href="https://capsule-corp-tokyo.github.io/hp-demo/L-321/" target="_blank">デモサイトを見る →</a></div>
-<div class="demo-features">
-<span class="demo-feat">スマホ完全対応</span>
-<span class="demo-feat">モダンデザイン</span>
-<span class="demo-feat">SSL対応</span>
-<span class="demo-feat">SEO最適化</span>
+<!-- 5 Demo -->
+<div class="slide"><div class="si demo-bg">
+<div class="label">Demo</div>
+<div class="heading-m">新田様専用のデモサイトを<br>作成しました</div>
+<div><a class="demo-btn" href="https://capsule-corp-tokyo.github.io/hp-demo/L-321/" target="_blank">デモサイトを見る →</a></div>
+<div class="demo-tags">
+<span class="demo-tag">スマホ完全対応</span>
+<span class="demo-tag">モダンデザイン</span>
+<span class="demo-tag">SSL対応</span>
+<span class="demo-tag">SEO最適化</span>
 </div>
-</div>
-</div>
+</div></div>
 
-<!-- 6. Pricing -->
-<div class="slide">
-<div class="slide-inner">
-<div class="s-label">Pricing</div>
-<div class="s-title-sm">料金プラン</div>
-<div class="pricing-grid">
-<div class="plan recommended">
-<div class="plan-badge">おすすめ</div>
-<div class="plan-name">Light</div>
-<div class="plan-price">¥20,000<span>/月（税別）</span></div>
-<ul>
-<li>5ページまで</li>
-<li>レスポンシブ対応</li>
-<li>SSL &amp; ホスティング</li>
-<li>メールサポート</li>
-</ul>
+<!-- 6 Pricing -->
+<div class="slide"><div class="si">
+<div class="label">Pricing</div>
+<div class="heading-m">料金プラン</div>
+<div class="pr-grid">
+<div class="pr-card rec"><div class="pr-badge">おすすめ</div><div class="pr-name">Light</div><div class="pr-price">¥20,000<small>/月（税別）</small></div><ul><li>5ページまで</li><li>レスポンシブ対応</li><li>SSL &amp; ホスティング</li><li>メールサポート</li></ul></div>
+<div class="pr-card"><div class="pr-name">Standard</div><div class="pr-price">¥50,000<small>/月（税別）</small></div><ul><li>10ページまで</li><li>SEO基本設定</li><li>アクセス解析レポート</li><li>チャット&amp;メールサポート</li></ul></div>
+<div class="pr-card"><div class="pr-name">Premium</div><div class="pr-price">¥100,000<small>/月（税別）</small></div><ul><li>ページ数無制限</li><li>SEO改善提案</li><li>月次レポート</li><li>優先サポート</li></ul></div>
 </div>
-<div class="plan">
-<div class="plan-name">Standard</div>
-<div class="plan-price">¥50,000<span>/月（税別）</span></div>
-<ul>
-<li>10ページまで</li>
-<li>SEO基本設定</li>
-<li>アクセス解析レポート</li>
-<li>チャット&amp;メールサポート</li>
-</ul>
-</div>
-<div class="plan">
-<div class="plan-name">Premium</div>
-<div class="plan-price">¥100,000<span>/月（税別）</span></div>
-<ul>
-<li>ページ数無制限</li>
-<li>SEO改善提案</li>
-<li>月次レポート</li>
-<li>優先サポート</li>
-</ul>
-</div>
-</div>
-<div class="pricing-note">全プラン制作費 ¥0 ／ 最低契約期間 12ヶ月 ／ 解約後はソースコードをお渡しします</div>
-</div>
-</div>
+<div class="caption">全プラン制作費 ¥0 ／ 最低契約期間 12ヶ月 ／ 解約後はソースコードをお渡しします</div>
+</div></div>
 
-<!-- 7. Flow -->
-<div class="slide">
-<div class="slide-inner">
-<div class="s-label">Flow</div>
-<div class="s-title-sm">ご契約から公開までの流れ</div>
-<div class="flow-list">
-<div class="flow-item">
-<div class="flow-num">01</div>
-<div class="flow-content">
-<div class="flow-title">ヒアリング &amp; ご要望確認</div>
-<div class="flow-desc">修正点やご要望をお伺いします</div>
+<!-- 7 Flow -->
+<div class="slide"><div class="si">
+<div class="label">Flow</div>
+<div class="heading-m">ご契約から公開までの流れ</div>
+<div class="fl-section">
+<div class="fl-group">
+<div class="fl-row"><span class="fl-num">01</span><div class="fl-main"><h4>初回打ち合わせ</h4><p>修正点やご要望をお伺いします</p></div></div>
+<div class="fl-row"><span class="fl-num">02</span><div class="fl-main"><h4>ご契約判断</h4><p>ご納得いただけたらお申し込みへ ／ ご検討の場合は次回日程を決めます</p></div></div>
+<div class="fl-row"><span class="fl-num">03</span><div class="fl-main"><h4>お支払い手続き</h4><p>カード決済（Stripe）or 口座振込 ※利用規約への同意を含みます</p></div></div>
+</div>
+<div class="fl-divider"><span>サポート開始</span></div>
+<div class="fl-group">
+<div class="fl-row"><span class="fl-num">04</span><div class="fl-main"><h4>HP 準備</h4><p>ドメイン設定（既存移管 or 新規取得）＋ 修正開発（1〜2週間）</p></div></div>
+<div class="fl-row"><span class="fl-num">05</span><div class="fl-main"><h4>本番公開</h4><p>SSL・SEO設定を含めてリリース</p></div></div>
+<div class="fl-row"><span class="fl-num">06</span><div class="fl-main"><h4>継続サポート</h4><p>保守管理 ／ コンテンツ更新 ／ アクセス状況に基づく改善提案</p></div></div>
 </div>
 </div>
-<div class="flow-item">
-<div class="flow-num">02</div>
-<div class="flow-content">
-<div class="flow-title">ご契約判断</div>
-<div class="flow-desc">ご納得いただけたらお申し込みへ ／ ご検討の場合は次回日程を決めます</div>
-</div>
-</div>
-<div class="flow-item">
-<div class="flow-num">03</div>
-<div class="flow-content">
-<div class="flow-title">お支払い手続き</div>
-<div class="flow-desc">カード決済（Stripe）or 口座振込 ※利用規約への同意を含みます</div>
-</div>
-</div>
-</div>
+</div></div>
 
-<div class="flow-divider"><span class="flow-divider-label">▼ サポート開始</span></div>
-
-<div class="flow-list">
-<div class="flow-item">
-<div class="flow-num">04</div>
-<div class="flow-content">
-<div class="flow-title">HP 準備</div>
-<div class="flow-desc">ドメイン設定（既存移管 or 新規取得）＋ 修正開発（1〜2週間）</div>
-</div>
-</div>
-<div class="flow-item">
-<div class="flow-num">05</div>
-<div class="flow-content">
-<div class="flow-title">本番公開</div>
-<div class="flow-desc">SSL・SEO設定を含めてリリース</div>
-</div>
-</div>
-<div class="flow-item">
-<div class="flow-num">06</div>
-<div class="flow-content">
-<div class="flow-title">継続サポート</div>
-<div class="flow-desc">保守管理 ／ コンテンツ更新 ／ アクセス状況に基づく改善提案</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- 8. Next Step -->
-<div class="slide">
-<div class="slide-inner end-slide">
-<div class="s-label">Next Step</div>
-<div class="s-title-sm">次のステップ</div>
+<!-- 8 Next Step -->
+<div class="slide"><div class="si end-bg">
+<div class="label">Next Step</div>
+<div class="heading-m">次のステップ</div>
 <div class="end-actions">
-<div class="end-action"><strong>ご興味をお持ちいただけたら</strong><br>→ このまま契約手続きに進みます</div>
-<div class="end-action"><strong>ご検討されたい場合</strong><br>→ 次回のお打ち合わせ日を決めさせてください</div>
+<div class="end-act"><strong>ご興味をお持ちいただけたら</strong><br>→ このまま契約手続きに進みます</div>
+<div class="end-act"><strong>ご検討されたい場合</strong><br>→ 次回のお打ち合わせ日を決めさせてください</div>
 </div>
-<div class="end-footer">
-CAPSULE Inc.<br>
-https://its-capsule.com/<br>
-taichi.yano@its-capsule.com
-</div>
-</div>
-</div>
+<div class="end-foot">CAPSULE Inc.<br>https://its-capsule.com/<br>taichi.yano@its-capsule.com</div>
+</div></div>
 
 </div>
 
 <script>
-(function(){
-var slides=document.querySelectorAll('.slide'),cur=0,total=slides.length;
-var prog=document.getElementById('progress'),pn=document.getElementById('pageNum');
-function go(n){
-if(n<0||n>=total)return;
-slides[cur].classList.remove('active');
-cur=n;
-slides[cur].classList.add('active');
-prog.style.width=((cur+1)/total*100)+'%';
-pn.textContent=(cur+1)+' / '+total;
-}
-go(0);
-document.addEventListener('keydown',function(e){
-if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ')go(cur+1);
-if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(cur-1);
-});
-var sx=0,sy=0;
-document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY});
-document.addEventListener('touchend',function(e){
-var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
-if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){dx<0?go(cur+1):go(cur-1)}
-});
-document.addEventListener('click',function(e){
-if(e.target.tagName==='A')return;
-var x=e.clientX/window.innerWidth;
-x>0.5?go(cur+1):go(cur-1);
-});
-})();
+!function(){var s=document.querySelectorAll('.slide'),c=0,t=s.length,p=document.getElementById('progress'),n=document.getElementById('pageNum');function g(i){if(i<0||i>=t)return;s[c].classList.remove('active');c=i;s[c].classList.add('active');p.style.width=(c+1)/t*100+'%';n.textContent=(c+1)+' / '+t}g(0);document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ')g(c+1);if(e.key==='ArrowLeft'||e.key==='ArrowUp')g(c-1)});var sx,sy;document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY});document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){dx<0?g(c+1):g(c-1)}});document.addEventListener('click',function(e){if(e.target.closest('a'))return;e.clientX/window.innerWidth>.5?g(c+1):g(c-1)})}()
 </script>
 </body>
 </html>
