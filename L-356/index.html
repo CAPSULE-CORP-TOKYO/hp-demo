@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>横浜トライ会計事務所 | 期待に応える あなたの大切なものを守る</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #1a5632;
+  --primary-light: #2a7a4a;
+  --primary-dark: #0e3a20;
+  --accent: #c8a84e;
+  --accent-light: #e8d08e;
+  --bg: #fafaf7;
+  --bg-warm: #f5f3ee;
+  --text: #2c2c2c;
+  --text-light: #6b6b6b;
+  --white: #ffffff;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--bg); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Header */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s; }
+header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; max-width: 1100px; margin: 0 auto; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--primary-dark); }
+.logo img { height: 40px; width: auto; }
+.logo-text { font-size: 0.85rem; font-weight: 700; line-height: 1.3; }
+.logo-sub { font-size: 0.65rem; color: var(--text-light); font-weight: 400; }
+nav { display: none; }
+.hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span { width: 24px; height: 2px; background: var(--text); transition: 0.3s; border-radius: 2px; }
+.mobile-nav { position: fixed; top: 0; right: -100%; width: 80%; max-width: 360px; height: 100vh; background: var(--white); z-index: 2000; padding: 80px 32px 32px; transition: right 0.4s cubic-bezier(0.25,0.8,0.25,1); box-shadow: -4px 0 30px rgba(0,0,0,0.15); }
+.mobile-nav.open { right: 0; }
+.mobile-nav a { display: block; padding: 16px 0; font-size: 1rem; color: var(--text); text-decoration: none; border-bottom: 1px solid #eee; font-weight: 500; }
+.mobile-nav a:hover { color: var(--primary); }
+.mobile-nav-close { position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--text-light); }
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1500; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.overlay.show { opacity: 1; pointer-events: all; }
+
+/* Hero */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; margin-top: 0; padding-top: 64px; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,86,50,0.85) 0%, rgba(14,58,32,0.7) 50%, rgba(0,0,0,0.3) 100%); z-index: 1; }
+.hero-content { position: relative; z-index: 2; color: var(--white); padding: 40px 20px; }
+.hero-badge { display: inline-block; background: var(--accent); color: var(--primary-dark); font-size: 0.75rem; font-weight: 700; padding: 6px 16px; border-radius: 50px; margin-bottom: 24px; letter-spacing: 0.05em; }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.4; margin-bottom: 20px; }
+.hero h1 span { display: block; color: var(--accent-light); font-size: 0.5em; font-weight: 300; margin-top: 8px; font-family: 'Outfit', sans-serif; letter-spacing: 0.1em; }
+.hero p { font-size: 1rem; opacity: 0.9; max-width: 520px; margin-bottom: 32px; line-height: 1.9; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; }
+.btn-primary { background: var(--accent); color: var(--primary-dark); }
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(200,168,78,0.4); }
+.btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+/* Section */
+.section { padding: 80px 0; }
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-label { font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--primary-dark); margin-bottom: 16px; }
+.section-desc { color: var(--text-light); max-width: 600px; margin: 0 auto; font-size: 0.95rem; }
+
+/* Features */
+.features-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.feature-card { background: var(--white); border-radius: var(--radius-lg); padding: 32px 24px; box-shadow: var(--shadow); transition: all 0.3s; border: 1px solid rgba(0,0,0,0.04); }
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.feature-icon { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; }
+.feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--primary-dark); }
+.feature-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+
+/* About */
+.about-section { background: var(--bg-warm); }
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+.about-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.about-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.about-content h3 { font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 16px; line-height: 1.5; }
+.about-content p { color: var(--text-light); margin-bottom: 16px; font-size: 0.95rem; }
+.about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+.stat { text-align: center; padding: 16px 8px; background: var(--white); border-radius: var(--radius); }
+.stat-num { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+.stat-label { font-size: 0.75rem; color: var(--text-light); margin-top: 4px; }
+
+/* Services */
+.services-list { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.service-item { display: flex; align-items: center; gap: 20px; background: var(--white); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); transition: all 0.3s; border-left: 4px solid var(--primary); }
+.service-item:hover { transform: translateX(4px); }
+.service-item img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+.service-item h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; color: var(--primary-dark); }
+.service-item p { font-size: 0.85rem; color: var(--text-light); }
+
+/* CTA Section */
+.cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: var(--white); text-align: center; padding: 64px 20px; }
+.cta-section h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 16px; }
+.cta-section p { opacity: 0.85; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+/* Info */
+.info-section { background: var(--bg-warm); }
+.info-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+.info-box { background: var(--white); border-radius: var(--radius-lg); padding: 32px 24px; box-shadow: var(--shadow); }
+.info-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); }
+.info-row { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+.info-row:last-child { border-bottom: none; }
+.info-label { font-weight: 600; min-width: 80px; color: var(--primary-dark); flex-shrink: 0; }
+.info-value { color: var(--text-light); }
+.map-container { border-radius: var(--radius); overflow: hidden; margin-top: 16px; }
+.map-container iframe { width: 100%; height: 250px; border: none; }
+
+/* Footer */
+footer { background: var(--primary-dark); color: rgba(255,255,255,0.7); padding: 48px 20px 24px; }
+.footer-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+.footer-brand .logo-text { color: var(--white); font-size: 1rem; }
+.footer-brand p { margin-top: 8px; font-size: 0.85rem; opacity: 0.7; }
+.footer-links h4 { color: var(--white); font-size: 0.9rem; margin-bottom: 12px; }
+.footer-links a { display: block; padding: 4px 0; font-size: 0.85rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--accent); }
+.footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; }
+
+/* Scroll animation */
+.fade-up { opacity: 1; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.25,0.8,0.25,1); }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* Desktop */
+@media (min-width: 768px) {
+  .hamburger { display: none; }
+  nav { display: flex; gap: 28px; }
+  nav a { text-decoration: none; color: var(--text); font-size: 0.85rem; font-weight: 500; position: relative; padding: 4px 0; }
+  nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s; }
+  nav a:hover::after { width: 100%; }
+  .features-grid { grid-template-columns: repeat(3, 1fr); }
+  .about-grid { grid-template-columns: 1fr 1fr; }
+  .services-list { grid-template-columns: repeat(2, 1fr); }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+  .hero-content { padding: 60px 40px; }
+}
+@media (min-width: 1024px) {
+  .hero-content { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+}
+</style>
+
+<style>
+/* QA Fix: Make all animated elements visible by default */
+.fade-up, .fade-in, .fade-down, .fade-left, .fade-right,
+.animate, .reveal, [class*="fade"] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="https://y-try.com/yokohama/wp-content/uploads/2022/10/image22.png" alt="横浜トライ会計事務所">
+      <div>
+        <div class="logo-text">横浜トライ会計事務所</div>
+        <div class="logo-sub">鈴木正宏税理士事務所</div>
+      </div>
+    </a>
+    <nav>
+      <a href="#about">事務所紹介</a>
+      <a href="#services">サービス</a>
+      <a href="#features">選ばれる理由</a>
+      <a href="#info">アクセス</a>
+      <a href="#contact" class="btn btn-primary" style="padding:8px 20px;font-size:0.8rem;">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" onclick="toggleNav()" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="overlay" id="overlay" onclick="toggleNav()"></div>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleNav()">&times;</button>
+  <a href="#about" onclick="toggleNav()">事務所紹介</a>
+  <a href="#services" onclick="toggleNav()">サービス</a>
+  <a href="#features" onclick="toggleNav()">選ばれる理由</a>
+  <a href="#info" onclick="toggleNav()">アクセス</a>
+  <a href="#contact" onclick="toggleNav()">お問い合わせ</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://y-try.com/yokohama/wp-content/themes/yokohama/assets/img/hero3.jpg" alt="横浜トライ会計事務所">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">経営革新等認定支援機関</div>
+    <h1>期待に応える。<br>あなたの大切なものを守る。<span>YOKOHAMA TRY ACCOUNTING OFFICE</span></h1>
+    <p>中小企業の経営者が悩み事を打ち明けられる、必要不可欠な存在を目指して。「分からない」を「分かる」へ導きます。</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">無料相談はこちら →</a>
+      <a href="#services" class="btn btn-outline">サービス一覧</a>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">横浜トライが選ばれる3つの理由</h2>
+      <p class="section-desc">経営者の皆様に寄り添い、共に成長するパートナーとして</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🤝</div>
+        <h3>経営者に寄り添う伴走支援</h3>
+        <p>毎月の訪問で経営状況を丁寧にヒアリング。数字の裏にある課題を一緒に見つけ、解決策をご提案します。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">📊</div>
+        <h3>月次決算で経営を可視化</h3>
+        <p>クラウド会計を活用したリアルタイムの経営数値管理。タイムリーな意思決定をサポートします。</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🚀</div>
+        <h3>創業から成長まで一貫支援</h3>
+        <p>会社設立・融資サポートから経営コンサルティングまで、ビジネスのあらゆるステージをカバーします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image fade-up">
+        <img src="https://y-try.com/yokohama/wp-content/themes/yokohama/assets/img/topstimg.jpg" alt="代表 鈴木正宏">
+      </div>
+      <div class="about-content fade-up">
+        <div class="section-label">About Us</div>
+        <h3>中小企業の「困った」に<br>全力で応える会計事務所</h3>
+        <p>横浜トライ会計事務所は、横浜市南区・弘明寺を拠点に、中小企業の経営者様を全力でサポートしています。</p>
+        <p>代表の鈴木正宏は「分からないを分かるへ」をモットーに、難解な税務・会計の世界を分かりやすくお伝えします。</p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-num">100+</div>
+            <div class="stat-label">顧問先企業</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">9:1</div>
+            <div class="stat-label">顧問継続率</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">24h</div>
+            <div class="stat-label">お問い合わせ受付</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">サービス内容</h2>
+      <p class="section-desc">創業期から成長期まで、あらゆるフェーズの経営課題に対応</p>
+    </div>
+    <div class="services-list">
+      <div class="service-item fade-up">
+        <img src="https://y-try.com/yokohama/wp-content/themes/yokohama/assets/img/founded.png" alt="創業支援">
+        <div>
+          <h4>創業支援</h4>
+          <p>事業計画の作成から創業融資の申請まで、開業をトータルサポート</p>
+        </div>
+      </div>
+      <div class="service-item fade-up">
+        <img src="https://y-try.com/yokohama/wp-content/themes/yokohama/assets/img/bank.png" alt="融資サポート">
+        <div>
+          <h4>融資サポート</h4>
+          <p>金融機関との折衝経験を活かし、資金調達を強力にバックアップ</p>
+        </div>
+      </div>
+      <div class="service-item fade-up">
+        <img src="https://y-try.com/yokohama/wp-content/themes/yokohama/assets/img/management.png" alt="経営サポート">
+        <div>
+          <h4>経営サポート</h4>
+          <p>月次決算に基づいた経営分析と、具体的な改善提案を実施</p>
+        </div>
+      </div>
+      <div class="service-item fade-up">
+        <img src="https://y-try.com/yokohama/wp-content/themes/yokohama/assets/img/1.jpg" alt="会社設立">
+        <div>
+          <h4>会社設立サポート</h4>
+          <p>法人設立の手続きから届出書類の作成まで、ワンストップ対応</p>
+        </div>
+      </div>
+      <div class="service-item fade-up">
+        <img src="https://y-try.com/yokohama/wp-content/themes/yokohama/assets/img/2.jpg" alt="クラウド会計">
+        <div>
+          <h4>クラウド会計導入支援</h4>
+          <p>freee・マネーフォワード等のクラウド会計導入と運用をサポート</p>
+        </div>
+      </div>
+      <div class="service-item fade-up">
+        <img src="https://y-try.com/yokohama/wp-content/themes/yokohama/assets/img/3.jpg" alt="業種別財務診断">
+        <div>
+          <h4>業種別財務診断</h4>
+          <p>業種特有の経営指標を活用した、的確な財務診断を提供</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container fade-up">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>初回無料相談を実施中。24時間お問い合わせフォームから受付しております。</p>
+    <div class="cta-buttons">
+      <a href="https://y-try.com/yokohama/contact/" class="btn btn-primary">📩 無料相談フォーム</a>
+      <a href="https://y-try.com/yokohama/" class="btn btn-outline">LINE で相談</a>
+    </div>
+  </div>
+</section>
+
+<!-- Info -->
+<section class="section info-section" id="info">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Access</div>
+      <h2 class="section-title">事務所概要・アクセス</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-box fade-up">
+        <h3>事務所概要</h3>
+        <div class="info-row"><span class="info-label">事務所名</span><span class="info-value">横浜トライ会計事務所（鈴木正宏税理士事務所）</span></div>
+        <div class="info-row"><span class="info-label">代表者</span><span class="info-value">鈴木 正宏</span></div>
+        <div class="info-row"><span class="info-label">所在地</span><span class="info-value">〒232-0067<br>神奈川県横浜市南区弘明寺町157</span></div>
+        <div class="info-row"><span class="info-label">営業時間</span><span class="info-value">9:00〜18:00（土日祝定休）</span></div>
+        <div class="info-row"><span class="info-label">認定</span><span class="info-value">経営革新等認定支援機関</span></div>
+      </div>
+      <div class="info-box fade-up">
+        <h3>アクセスマップ</h3>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3252.1!2d139.596!3d35.424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5qiq5rWc5biC5Y2X5Yy65byY5piO5a-6!5e0!3m2!1sja!2sjp!4v1" loading="lazy"></iframe>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text-light);margin-top:12px;">京急本線「弘明寺駅」より徒歩圏内</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">横浜トライ会計事務所</div>
+        <p>中小企業の経営者が悩み事を打ち明けられる<br>必要不可欠な存在になる</p>
+      </div>
+      <div class="footer-links">
+        <h4>サービス</h4>
+        <a href="#">創業支援</a>
+        <a href="#">融資サポート</a>
+        <a href="#">経営サポート</a>
+        <a href="#">会社設立</a>
+        <a href="#">クラウド会計導入</a>
+      </div>
+      <div class="footer-links">
+        <h4>インフォメーション</h4>
+        <a href="#about">事務所概要</a>
+        <a href="#info">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 横浜トライ会計事務所 All Rights Reserved.　<span style="opacity:0.5;">※これはリニューアル提案用のデモサイトです</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+  document.body.style.overflow = document.getElementById('mobileNav').classList.contains('open') ? 'hidden' : '';
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

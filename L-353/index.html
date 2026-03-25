@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>髙橋拓税理士事務所 | 横浜の税務・経営パートナー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0f1a2e;--navy-light:#1a2d4a;--navy-mid:#243b5e;
+  --coral:#ff6b5a;--coral-dark:#e55a4a;--coral-light:#ff8a7d;
+  --white:#ffffff;--gray-50:#f8f9fb;--gray-100:#eef1f5;
+  --gray-200:#dde2ea;--gray-400:#9aa5b4;--gray-600:#5a6577;
+  --text:#1a1a2e;--text-light:#4a5568;
+  --font-ja:'Noto Sans JP',sans-serif;--font-en:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-ja);color:var(--text);line-height:1.8;overflow-x:hidden;background:var(--white)}
+
+/* Header */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,26,46,.95);backdrop-filter:blur(12px);transition:all .3s ease}
+.header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--white)}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--coral),var(--coral-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:var(--white);font-family:var(--font-en)}
+.logo-text{font-size:14px;font-weight:700;letter-spacing:.02em;line-height:1.3}
+.logo-text span{display:block;font-size:10px;font-weight:400;color:var(--gray-400);letter-spacing:.08em;font-family:var(--font-en)}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{color:var(--gray-200);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.04em;transition:color .3s;position:relative}
+.nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--coral);transition:width .3s}
+.nav a:hover{color:var(--white)}
+.nav a:hover::after{width:100%}
+.nav-cta{background:var(--coral)!important;color:var(--white)!important;padding:10px 24px;border-radius:6px;font-weight:600;font-size:13px}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--coral-dark)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001}
+.hamburger span{width:24px;height:2px;background:var(--white);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Hero */
+.hero{min-height:100vh;background:var(--navy);position:relative;display:flex;align-items:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 50%,var(--navy-mid) 100%)}
+.hero-pattern{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(circle at 1px 1px,var(--white) 1px,transparent 0);background-size:40px 40px}
+.hero-glow{position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,90,.15) 0%,transparent 70%);border-radius:50%}
+.hero-glow2{position:absolute;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(36,59,94,.8) 0%,transparent 70%);border-radius:50%}
+.hero-inner{max-width:1200px;margin:0 auto;padding:120px 24px 80px;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,90,.15);border:1px solid rgba(255,107,90,.3);color:var(--coral-light);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:500;margin-bottom:24px;letter-spacing:.06em}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--coral);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(28px,4vw,48px);font-weight:900;color:var(--white);line-height:1.3;margin-bottom:20px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--coral);position:relative}
+.hero-sub{font-size:16px;color:var(--gray-400);line-height:1.9;margin-bottom:36px;max-width:500px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:var(--white);padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;transition:all .3s;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--coral-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,90,.4)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;border:1.5px solid var(--gray-400);transition:all .3s}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
+.hero-visual{position:relative}
+.hero-card{background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:40px;position:relative}
+.hero-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.stat-box{background:rgba(255,255,255,.05);border-radius:12px;padding:24px;text-align:center;border:1px solid rgba(255,255,255,.08)}
+.stat-box .num{font-family:var(--font-en);font-size:36px;font-weight:700;color:var(--coral);display:block}
+.stat-box .label{font-size:12px;color:var(--gray-400);margin-top:4px;display:block}
+
+/* Section common */
+.section{padding:100px 24px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-family:var(--font-en);font-size:12px;font-weight:600;color:var(--coral);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px}
+.section-title{font-size:clamp(24px,3vw,36px);font-weight:900;margin-bottom:16px;line-height:1.4}
+.section-desc{font-size:15px;color:var(--text-light);max-width:600px;margin-bottom:48px;line-height:1.9}
+
+/* About */
+.about{background:var(--gray-50)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-image{background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:16px;height:360px;position:relative;overflow:hidden}
+.about-image::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(transparent,rgba(15,26,46,.8))}
+.about-image-text{position:absolute;bottom:24px;left:24px;z-index:1;color:var(--white);font-size:14px;font-weight:500}
+.about-content h3{font-size:22px;font-weight:700;margin-bottom:16px;line-height:1.5}
+.about-content p{color:var(--text-light);font-size:15px;line-height:2;margin-bottom:20px}
+.about-highlights{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.highlight-item{display:flex;align-items:flex-start;gap:16px}
+.highlight-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--coral),var(--coral-light));border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--white);font-size:18px}
+.highlight-text h4{font-size:15px;font-weight:700;margin-bottom:2px}
+.highlight-text p{font-size:13px;color:var(--text-light);line-height:1.6}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--white);border:1px solid var(--gray-100);border-radius:16px;padding:36px 28px;transition:all .4s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--coral),var(--coral-light));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.08);border-color:transparent}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:56px;height:56px;background:linear-gradient(135deg,rgba(255,107,90,.1),rgba(255,107,90,.05));border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px}
+.service-card h3{font-size:18px;font-weight:700;margin-bottom:10px}
+.service-card p{font-size:14px;color:var(--text-light);line-height:1.8}
+.service-tag{display:inline-block;margin-top:16px;font-size:12px;color:var(--coral);font-weight:600;letter-spacing:.04em}
+
+/* Strengths */
+.strengths{background:var(--navy);color:var(--white)}
+.strengths .section-title{color:var(--white)}
+.strengths .section-desc{color:var(--gray-400)}
+.strengths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.strength-item{text-align:center;padding:40px 24px}
+.strength-num{font-family:var(--font-en);font-size:64px;font-weight:700;color:var(--coral);line-height:1;margin-bottom:8px;display:block}
+.strength-unit{font-size:14px;color:var(--gray-400);display:block;margin-bottom:16px}
+.strength-title{font-size:18px;font-weight:700;margin-bottom:10px}
+.strength-desc{font-size:13px;color:var(--gray-400);line-height:1.8}
+
+/* Flow */
+.flow-steps{display:flex;flex-direction:column;gap:0;position:relative}
+.flow-steps::before{content:'';position:absolute;left:28px;top:28px;bottom:28px;width:2px;background:linear-gradient(var(--coral),var(--coral-light))}
+.flow-step{display:flex;align-items:flex-start;gap:24px;padding:28px 0;position:relative}
+.flow-step-num{width:56px;height:56px;background:var(--navy);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-en);font-weight:700;font-size:18px;flex-shrink:0;z-index:1;border:3px solid var(--coral)}
+.flow-step-content h4{font-size:17px;font-weight:700;margin-bottom:6px}
+.flow-step-content p{font-size:14px;color:var(--text-light);line-height:1.8}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--navy),var(--navy-mid));padding:80px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.03) 1px,transparent 0);background-size:32px 32px}
+.cta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.cta-inner h2{font-size:clamp(22px,3vw,32px);color:var(--white);font-weight:900;margin-bottom:16px;line-height:1.4}
+.cta-inner p{color:var(--gray-400);font-size:15px;margin-bottom:36px;line-height:1.8}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-phone{font-family:var(--font-en);font-size:28px;font-weight:700;color:var(--white);margin-bottom:8px;display:block;text-decoration:none}
+.cta-phone-note{font-size:12px;color:var(--gray-400);margin-bottom:32px}
+
+/* Contact */
+.contact{background:var(--gray-50)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.contact-item-icon{width:44px;height:44px;background:var(--navy);color:var(--white);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.contact-item-text h4{font-size:14px;font-weight:700;margin-bottom:2px}
+.contact-item-text p{font-size:14px;color:var(--text-light);line-height:1.6}
+.contact-map{background:var(--gray-200);border-radius:16px;min-height:300px;display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:14px;position:relative;overflow:hidden}
+.contact-map::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gray-100),var(--gray-200));opacity:.5}
+
+/* Footer */
+.footer{background:var(--navy);color:var(--gray-400);padding:48px 24px 24px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:24px;flex-wrap:wrap;gap:24px}
+.footer-logo{color:var(--white);font-size:16px;font-weight:700}
+.footer-logo span{display:block;font-size:11px;color:var(--gray-400);font-weight:400;margin-top:4px}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{color:var(--gray-400);text-decoration:none;font-size:13px;transition:color .3s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{text-align:center;font-size:11px;color:var(--gray-600);font-family:var(--font-en)}
+
+/* Animations */
+.fade-up{opacity:1;transform: translateY(0);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up.d1{transition-delay:.1s}.fade-up.d2{transition-delay:.2s}.fade-up.d3{transition-delay:.3s}
+.fade-up.d4{transition-delay:.4s}.fade-up.d5{transition-delay:.5s}
+
+/* Mobile */
+@media(max-width:900px){
+  .nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,26,46,.98);flex-direction:column;justify-content:center;align-items:center;gap:28px;padding:24px}
+  .nav.open{display:flex}
+  .nav a{font-size:18px;color:var(--white)}
+  .hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr;padding-top:100px;gap:40px}
+  .hero-visual{order:-1}
+  .hero-card{padding:24px}
+  .stat-box .num{font-size:28px}
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .about-image{height:240px}
+  .services-grid{grid-template-columns:1fr}
+  .strengths-grid{grid-template-columns:1fr;gap:16px}
+  .strength-item{padding:24px;text-align:left;display:grid;grid-template-columns:auto 1fr;gap:0 20px}
+  .strength-num{font-size:40px;grid-row:span 3}
+  .strength-unit{margin-bottom:4px}
+  .contact-grid{grid-template-columns:1fr}
+  .section{padding:64px 24px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:26px}
+  .hero-buttons{flex-direction:column}
+  .hero-card-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .btn-primary,.btn-outline{justify-content:center;width:100%}
+  .cta-buttons{flex-direction:column;align-items:center}
+  .flow-steps::before{left:24px}
+  .flow-step-num{width:48px;height:48px;font-size:16px}
+}
+</style>
+
+<style>
+/* QA Fix: Make all animated elements visible by default */
+.fade-up, .fade-in, .fade-down, .fade-left, .fade-right,
+.animate, .reveal, [class*="fade"] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">T</div>
+      <div class="logo-text">髙橋拓税理士事務所<span>TAKAHASHI TAX OFFICE</span></div>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#about">事務所紹介</a>
+      <a href="#services">サービス</a>
+      <a href="#strengths">選ばれる理由</a>
+      <a href="#flow">ご依頼の流れ</a>
+      <a href="#contact">アクセス</a>
+      <a href="#cta" class="nav-cta">無料相談</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">初回相談無料</div>
+      <h1>経営の<em>未来</em>を共に描く、<br>税務のプロフェッショナル</h1>
+      <p class="hero-sub">法人・個人の税務申告から経営コンサルティングまで。<br>横浜を拠点に、お客様一人ひとりに最適な税務戦略をご提案します。</p>
+      <div class="hero-buttons">
+        <a href="#cta" class="btn-primary">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          無料相談を予約
+        </a>
+        <a href="#services" class="btn-outline">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          サービスを見る
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-grid">
+          <div class="stat-box fade-up d1"><span class="num">500+</span><span class="label">累計相談件数</span></div>
+          <div class="stat-box fade-up d2"><span class="num">98%</span><span class="label">顧客満足度</span></div>
+          <div class="stat-box fade-up d3"><span class="num">15+</span><span class="label">年の実績</span></div>
+          <div class="stat-box fade-up d4"><span class="num">24h</span><span class="label">以内にご回答</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image fade-up">
+        <div class="about-image-text">横浜の企業経営を支えるパートナー</div>
+      </div>
+      <div class="about-content fade-up d1">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">代表挨拶</h2>
+        <h3>お客様の事業成長に寄り添い、<br>最適な税務ソリューションを</h3>
+        <p>髙橋拓税理士事務所は、横浜を拠点に法人・個人のお客様に対して、税務申告、会計業務、経営コンサルティングなど幅広いサービスを提供しています。</p>
+        <p>「税理士は数字の専門家であると同時に、経営者の良きパートナーでなければならない」という信念のもと、お客様一人ひとりの状況に合わせた丁寧なサポートを心がけています。</p>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="highlight-text">
+              <h4>信頼と実績</h4>
+              <p>多数の法人・個人のお客様をサポートしてきた豊富な実績</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="highlight-text">
+              <h4>ワンストップ対応</h4>
+              <p>税務・会計・経営相談をまとめてお任せいただけます</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-label fade-up">Services</div>
+    <h2 class="section-title fade-up">サービス内容</h2>
+    <p class="section-desc fade-up">お客様のビジネスステージに合わせた、最適な税務・会計サービスをご提供します。</p>
+    <div class="services-grid">
+      <div class="service-card fade-up d1">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="var(--coral)" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>法人税務顧問</h3>
+        <p>月次訪問による会計チェック、決算対策、税務申告まで一貫サポート。節税提案も積極的に行います。</p>
+        <span class="service-tag">法人のお客様</span>
+      </div>
+      <div class="service-card fade-up d2">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="var(--coral)" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <h3>確定申告・記帳代行</h3>
+        <p>個人事業主・フリーランスの方の確定申告を代行。日々の記帳業務もお任せください。</p>
+        <span class="service-tag">個人のお客様</span>
+      </div>
+      <div class="service-card fade-up d3">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="var(--coral)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>会社設立・創業支援</h3>
+        <p>会社設立手続きから創業融資、事業計画書の作成まで。創業期をトータルでバックアップします。</p>
+        <span class="service-tag">これから起業する方</span>
+      </div>
+      <div class="service-card fade-up d1">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="var(--coral)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>相続税・事業承継</h3>
+        <p>相続税の申告、生前対策、事業承継プランの策定。大切な資産を次世代にスムーズに引き継ぎます。</p>
+        <span class="service-tag">相続・承継をお考えの方</span>
+      </div>
+      <div class="service-card fade-up d2">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="var(--coral)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>経営コンサルティング</h3>
+        <p>資金繰り改善、経営分析、補助金・助成金の活用提案。数字に基づいた経営判断をサポートします。</p>
+        <span class="service-tag">経営改善をお考えの方</span>
+      </div>
+      <div class="service-card fade-up d3">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="var(--coral)" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><path d="M1 10h22"/></svg>
+        </div>
+        <h3>給与計算・年末調整</h3>
+        <p>毎月の給与計算から年末調整まで正確に処理。社会保険手続きもご相談いただけます。</p>
+        <span class="service-tag">人事労務でお困りの方</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section class="section strengths" id="strengths">
+  <div class="section-inner">
+    <div class="section-label fade-up">Why Choose Us</div>
+    <h2 class="section-title fade-up">選ばれる理由</h2>
+    <p class="section-desc fade-up">多くのお客様に長年ご支持いただいている理由をご紹介します。</p>
+    <div class="strengths-grid">
+      <div class="strength-item fade-up d1">
+        <span class="strength-num">01</span>
+        <span class="strength-unit">Point</span>
+        <h3 class="strength-title">迅速なレスポンス</h3>
+        <p class="strength-desc">お問い合わせには原則24時間以内にご回答。急な税務相談にも迅速に対応いたします。</p>
+      </div>
+      <div class="strength-item fade-up d2">
+        <span class="strength-num">02</span>
+        <span class="strength-unit">Point</span>
+        <h3 class="strength-title">わかりやすい説明</h3>
+        <p class="strength-desc">専門用語を避け、図表やグラフを活用してわかりやすくご説明。経営判断に役立つ情報をお届けします。</p>
+      </div>
+      <div class="strength-item fade-up d3">
+        <span class="strength-num">03</span>
+        <span class="strength-unit">Point</span>
+        <h3 class="strength-title">積極的な節税提案</h3>
+        <p class="strength-desc">申告だけでなく、将来を見据えた節税対策を積極的にご提案。お客様の利益を最大化します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flow -->
+<section class="section" id="flow">
+  <div class="section-inner">
+    <div class="section-label fade-up">Flow</div>
+    <h2 class="section-title fade-up">ご依頼の流れ</h2>
+    <p class="section-desc fade-up">初回のご相談から契約まで、安心のステップでご案内いたします。</p>
+    <div class="flow-steps">
+      <div class="flow-step fade-up d1">
+        <div class="flow-step-num">1</div>
+        <div class="flow-step-content">
+          <h4>お問い合わせ</h4>
+          <p>お電話またはメールでお気軽にご連絡ください。ご相談内容を簡単にお伺いします。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-up d2">
+        <div class="flow-step-num">2</div>
+        <div class="flow-step-content">
+          <h4>初回無料相談</h4>
+          <p>ご来所またはオンラインにて、現状の課題やご要望を詳しくヒアリングいたします。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-up d3">
+        <div class="flow-step-num">3</div>
+        <div class="flow-step-content">
+          <h4>ご提案・お見積り</h4>
+          <p>最適なサービスプランと明確な料金をご提示。ご納得いただいてから契約となります。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-up d4">
+        <div class="flow-step-num">4</div>
+        <div class="flow-step-content">
+          <h4>サービス開始</h4>
+          <p>ご契約後、担当者がスムーズに業務を引き継ぎ。継続的なサポートがスタートします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner">
+    <h2 class="fade-up">まずはお気軽に<br>ご相談ください</h2>
+    <p class="fade-up d1">初回相談は無料です。税務のお悩み、経営の課題、<br>どんなことでもお気軽にお問い合わせください。</p>
+    <a href="tel:0120-000-000" class="cta-phone fade-up d2">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      お電話でのお問い合わせ
+    </a>
+    <p class="cta-phone-note fade-up d3">受付時間：平日 9:00〜18:00</p>
+    <div class="cta-buttons fade-up d4">
+      <a href="mailto:info@office-takura.com" class="btn-primary">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        メールで相談する
+      </a>
+      <a href="#contact" class="btn-outline" style="border-color:rgba(255,255,255,.3);color:#fff">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        事務所へのアクセス
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="section-label fade-up">Access</div>
+    <h2 class="section-title fade-up">事務所案内</h2>
+    <p class="section-desc fade-up">お気軽にお越しください。事前にご予約いただくとスムーズです。</p>
+    <div class="contact-grid">
+      <div class="contact-info fade-up d1">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>所在地</h4>
+            <p>神奈川県横浜市<br>（詳細はお問い合わせください）</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>営業時間</h4>
+            <p>平日 9:00〜18:00<br>（土日祝は事前予約制）</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>メール</h4>
+            <p>info@office-takura.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-map fade-up d2">
+        <span style="position:relative;z-index:1">Google Map（実装時に埋め込み）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">髙橋拓税理士事務所<span>Takahashi Tax Accounting Office</span></div>
+      <div class="footer-links">
+        <a href="#about">事務所紹介</a>
+        <a href="#services">サービス</a>
+        <a href="#strengths">選ばれる理由</a>
+        <a href="#flow">ご依頼の流れ</a>
+        <a href="#contact">アクセス</a>
+        <a href="#cta">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Takahashi Tax Accounting Office. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Hamburger menu
+const hamburger=document.getElementById('hamburger');
+const nav=document.getElementById('nav');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');nav.classList.toggle('open')});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('active');nav.classList.remove('open')}));
+
+// Header scroll
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>50)});
+
+// Scroll animations
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

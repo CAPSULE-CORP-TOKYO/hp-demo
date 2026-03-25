@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>横浜南税理士法人 | お客様に寄り添う税理士法人</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #1b4f8a;
+  --primary-light: #2d6ab8;
+  --primary-dark: #0f2d52;
+  --accent: #d4a853;
+  --accent-light: #f0d48a;
+  --bg: #f8f9fb;
+  --bg-alt: #eef2f7;
+  --text: #2a2a2a;
+  --text-light: #6a7182;
+  --white: #ffffff;
+  --shadow: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--bg); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Header */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); transition: box-shadow 0.3s; }
+header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; max-width: 1100px; margin: 0 auto; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--primary-dark); }
+.logo img { height: 36px; width: auto; }
+.logo-text { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.02em; }
+.logo-sub { font-size: 0.65rem; color: var(--text-light); font-weight: 400; }
+nav { display: none; }
+.hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+.mobile-nav { position: fixed; top: 0; right: -100%; width: 80%; max-width: 360px; height: 100vh; background: var(--white); z-index: 2000; padding: 80px 32px 32px; transition: right 0.4s cubic-bezier(0.25,0.8,0.25,1); box-shadow: -4px 0 30px rgba(0,0,0,0.15); }
+.mobile-nav.open { right: 0; }
+.mobile-nav a { display: block; padding: 16px 0; font-size: 1rem; color: var(--text); text-decoration: none; border-bottom: 1px solid #eee; font-weight: 500; }
+.mobile-nav-close { position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--text-light); }
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1500; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.overlay.show { opacity: 1; pointer-events: all; }
+
+/* Hero */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding-top: 64px; }
+.hero-slider { position: absolute; inset: 0; z-index: 0; }
+.hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out; }
+.hero-slide.active { opacity: 1; }
+.hero-slide img { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,45,82,0.75) 0%, rgba(27,79,138,0.6) 60%, rgba(0,0,0,0.4) 100%); z-index: 1; }
+.hero-content { position: relative; z-index: 2; color: var(--white); padding: 40px 20px; }
+.hero-eyebrow { font-family: 'Outfit', sans-serif; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 16px; }
+.hero h1 { font-size: clamp(1.7rem, 5vw, 3rem); font-weight: 700; line-height: 1.45; margin-bottom: 20px; }
+.hero h1 em { font-style: normal; color: var(--accent-light); }
+.hero p { font-size: 1rem; opacity: 0.9; max-width: 520px; margin-bottom: 32px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; }
+.btn-accent { background: var(--accent); color: var(--primary-dark); }
+.btn-accent:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(212,168,83,0.4); }
+.btn-white { background: var(--white); color: var(--primary); }
+.btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-outline-w { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.4); }
+.btn-outline-w:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+/* Section */
+.section { padding: 80px 0; }
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-label { font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--primary-light); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--primary-dark); margin-bottom: 12px; }
+.section-title::after { content: ''; display: block; width: 48px; height: 3px; background: var(--accent); margin: 16px auto 0; border-radius: 2px; }
+.section-desc { color: var(--text-light); max-width: 560px; margin: 16px auto 0; font-size: 0.95rem; }
+
+/* Message */
+.message-section { background: var(--bg-alt); }
+.message-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+.message-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.message-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.message-content { }
+.message-content h3 { font-size: 1.3rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 16px; line-height: 1.6; }
+.message-content p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 14px; }
+.message-name { margin-top: 20px; font-weight: 600; color: var(--primary); }
+
+/* Services Grid */
+.services-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.service-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: all 0.3s; }
+.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.service-card-icon { height: 8px; background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
+.service-card-body { padding: 28px 24px; }
+.service-card-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.service-card-body h3 .icon { width: 40px; height: 40px; border-radius: 10px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.service-card-body p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+
+/* Trust bar */
+.trust-section { background: var(--primary-dark); color: var(--white); padding: 48px 20px; }
+.trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+.trust-item h3 { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; color: var(--accent); }
+.trust-item p { font-size: 0.8rem; opacity: 0.7; margin-top: 4px; }
+
+/* Strengths */
+.strengths-list { max-width: 700px; margin: 0 auto; }
+.strength-item { display: flex; gap: 20px; padding: 28px 0; border-bottom: 1px solid #eee; }
+.strength-item:last-child { border-bottom: none; }
+.strength-num { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; color: var(--primary-light); opacity: 0.3; line-height: 1; flex-shrink: 0; }
+.strength-item h4 { font-size: 1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+.strength-item p { font-size: 0.88rem; color: var(--text-light); }
+
+/* CTA */
+.cta-section { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); text-align: center; padding: 64px 20px; }
+.cta-section h2 { font-size: clamp(1.3rem, 3vw, 1.8rem); margin-bottom: 12px; }
+.cta-section p { opacity: 0.85; margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.cta-tel { font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+.cta-tel-note { font-size: 0.8rem; opacity: 0.7; margin-bottom: 20px; }
+
+/* Info */
+.info-section { background: var(--bg-alt); }
+.info-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+.info-box { background: var(--white); border-radius: var(--radius-lg); padding: 32px 24px; box-shadow: var(--shadow); }
+.info-box h3 { font-size: 1.05rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); }
+.info-row { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+.info-row:last-child { border-bottom: none; }
+.info-label { font-weight: 600; min-width: 80px; color: var(--primary-dark); flex-shrink: 0; }
+.info-value { color: var(--text-light); }
+.map-container { border-radius: var(--radius); overflow: hidden; margin-top: 16px; }
+.map-container iframe { width: 100%; height: 260px; border: none; }
+
+/* Footer */
+footer { background: #0a1e38; color: rgba(255,255,255,0.65); padding: 48px 20px 24px; }
+.footer-grid { display: grid; grid-template-columns: 1fr; gap: 28px; margin-bottom: 28px; }
+.footer-brand .logo-text { color: var(--white); font-size: 1rem; }
+.footer-brand p { font-size: 0.85rem; margin-top: 8px; opacity: 0.6; }
+.footer-links h4 { color: var(--white); font-size: 0.85rem; margin-bottom: 10px; }
+.footer-links a { display: block; padding: 3px 0; font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; }
+.footer-links a:hover { color: var(--accent); }
+.footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.78rem; }
+
+/* Animations */
+.fade-up { opacity: 1; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.25,0.8,0.25,1); }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (min-width: 768px) {
+  .hamburger { display: none; }
+  nav { display: flex; align-items: center; gap: 24px; }
+  nav a { text-decoration: none; color: var(--text); font-size: 0.85rem; font-weight: 500; position: relative; padding: 4px 0; }
+  nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s; }
+  nav a:hover::after { width: 100%; }
+  .message-grid { grid-template-columns: 5fr 6fr; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .trust-grid { grid-template-columns: repeat(4, 1fr); }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+}
+@media (min-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-content { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+}
+</style>
+
+<style>
+/* QA Fix: Make all animated elements visible by default */
+.fade-up, .fade-in, .fade-down, .fade-left, .fade-right,
+.animate, .reveal, [class*="fade"] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="https://www.ym-tax.jp/library/5b6bd81cf59c81b9380a88c9/5b95ef9a96a4472c0a0904f5.png" alt="横浜南税理士法人">
+      <div>
+        <div class="logo-text">横浜南税理士法人</div>
+      </div>
+    </a>
+    <nav>
+      <a href="#message">ごあいさつ</a>
+      <a href="#services">業務案内</a>
+      <a href="#strengths">強み</a>
+      <a href="#info">事務所案内</a>
+      <a href="#contact" class="btn btn-accent" style="padding:8px 20px;font-size:0.8rem;border-radius:6px;">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" onclick="toggleNav()" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay" onclick="toggleNav()"></div>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleNav()">&times;</button>
+  <a href="#message" onclick="toggleNav()">ごあいさつ</a>
+  <a href="#services" onclick="toggleNav()">業務案内</a>
+  <a href="#strengths" onclick="toggleNav()">強み</a>
+  <a href="#info" onclick="toggleNav()">事務所案内</a>
+  <a href="#contact" onclick="toggleNav()">お問い合わせ</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-slider">
+    <div class="hero-slide active"><img src="https://www.ym-tax.jp/library/5b6bd81cf59c81b9380a88c9/67207cd32f02ac3e10983639.jpg" alt="横浜南税理士法人"></div>
+    <div class="hero-slide"><img src="https://www.ym-tax.jp/library/5b6bd81cf59c81b9380a88c9/67207cd33bebfb9543c86800.jpg" alt="横浜南税理士法人"></div>
+    <div class="hero-slide"><img src="https://www.ym-tax.jp/library/5b6bd81cf59c81b9380a88c9/67207cd38c714f4d43085fdb.jpg" alt="横浜南税理士法人"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Yokohama Minami Tax Corporation</div>
+    <h1>常にお客様との<br><em>コミュニケーション</em>を<br>第一に。</h1>
+    <p>相続・贈与から法人顧問まで、お客様に寄り添い、最適な税務ソリューションをご提供いたします。</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-accent">無料相談のご予約 →</a>
+      <a href="#services" class="btn btn-outline-w">業務案内を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<section class="trust-section">
+  <div class="trust-grid fade-up">
+    <div class="trust-item">
+      <h3>30+</h3>
+      <p>年の実績</p>
+    </div>
+    <div class="trust-item">
+      <h3>500+</h3>
+      <p>相続案件実績</p>
+    </div>
+    <div class="trust-item">
+      <h3>横浜</h3>
+      <p>地域密着</p>
+    </div>
+    <div class="trust-item">
+      <h3>認定</h3>
+      <p>経営革新等支援機関</p>
+    </div>
+  </div>
+</section>
+
+<!-- Message -->
+<section class="section message-section" id="message">
+  <div class="container">
+    <div class="message-grid">
+      <div class="message-image fade-up">
+        <img src="https://www.ym-tax.jp/library/5b6bd81cf59c81b9380a88c9/5fceda9195617d552a5b1a61.jpg" alt="スタッフ">
+      </div>
+      <div class="message-content fade-up">
+        <div class="section-label">Message</div>
+        <h3>お客様に寄り添い、<br>信頼で結ばれる関係を</h3>
+        <p>横浜南税理士法人は、横浜市南区を拠点に、個人・法人のお客様の税務・会計をサポートしてまいりました。</p>
+        <p>私たちが最も大切にしているのは「コミュニケーション」です。お客様のお話にじっくり耳を傾け、本当に必要なサービスをご提案いたします。</p>
+        <p>相続・贈与の複雑な問題から、日常の記帳・申告まで、どんな小さなことでもお気軽にご相談ください。</p>
+        <div class="message-name">横浜南税理士法人　スタッフ一同</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">業務案内</h2>
+      <p class="section-desc">幅広い税務・会計サービスで、お客様の課題を解決します</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-card-icon"></div>
+        <div class="service-card-body">
+          <h3><span class="icon">📋</span>相続税・贈与税</h3>
+          <p>相続税の申告・対策から生前贈与のプランニングまで、ご家族の資産を守るためのトータルサポートを行います。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-icon"></div>
+        <div class="service-card-body">
+          <h3><span class="icon">🏢</span>法人税務顧問</h3>
+          <p>月次の記帳指導から決算・申告まで、法人経営に必要な税務をワンストップでサポートいたします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-icon"></div>
+        <div class="service-card-body">
+          <h3><span class="icon">👤</span>個人事業主支援</h3>
+          <p>確定申告、青色申告、消費税申告など、個人事業主の皆様の税務をトータルサポートします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-icon"></div>
+        <div class="service-card-body">
+          <h3><span class="icon">🌱</span>新規開業支援</h3>
+          <p>開業届の提出から経理体制の構築、資金計画まで、スムーズなスタートを支援します。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-icon"></div>
+        <div class="service-card-body">
+          <h3><span class="icon">🔄</span>事業承継・自社株</h3>
+          <p>自社株の評価から承継プランの策定まで、次世代への円滑な引き継ぎをサポートします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-icon"></div>
+        <div class="service-card-body">
+          <h3><span class="icon">📊</span>経営革新等支援</h3>
+          <p>認定支援機関として、経営改善計画の策定や補助金申請などをサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section class="section" id="strengths" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Strengths</div>
+      <h2 class="section-title">横浜南税理士法人の強み</h2>
+    </div>
+    <div class="strengths-list">
+      <div class="strength-item fade-up">
+        <div class="strength-num">01</div>
+        <div>
+          <h4>相続に強い豊富な実績</h4>
+          <p>長年にわたる相続税申告の実績を持ち、複雑なケースにも対応。ご家族の想いに寄り添った円満な相続を実現します。</p>
+        </div>
+      </div>
+      <div class="strength-item fade-up">
+        <div class="strength-num">02</div>
+        <div>
+          <h4>横浜エリアに根ざした地域密着型</h4>
+          <p>横浜市南区を中心に、地元の経営者・個人のお客様との長いお付き合い。地域の特性を熟知したアドバイスが可能です。</p>
+        </div>
+      </div>
+      <div class="strength-item fade-up">
+        <div class="strength-num">03</div>
+        <div>
+          <h4>コミュニケーション重視の丁寧な対応</h4>
+          <p>お客様とのコミュニケーションを最も大切にし、専門用語を避けたわかりやすい説明を心がけています。</p>
+        </div>
+      </div>
+      <div class="strength-item fade-up">
+        <div class="strength-num">04</div>
+        <div>
+          <h4>ワンストップのトータルサポート</h4>
+          <p>税務だけでなく、経営相談・事業承継・補助金申請まで、幅広いニーズにお応えいたします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container fade-up">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>初回のご相談は無料です。相続のこと、税務のこと、どんな小さなことでもお気軽にお問い合わせください。</p>
+    <div class="cta-tel">FAX: 045-334-8174</div>
+    <div class="cta-tel-note">お問い合わせはお電話・FAX・メールにて</div>
+    <div class="cta-buttons">
+      <a href="https://www.ym-tax.jp/" class="btn btn-accent">📩 お問い合わせフォーム</a>
+      <a href="#info" class="btn btn-outline-w">事務所案内を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- Info -->
+<section class="section info-section" id="info">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Office</div>
+      <h2 class="section-title">事務所案内</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-box fade-up">
+        <h3>事務所概要</h3>
+        <div class="info-row"><span class="info-label">名称</span><span class="info-value">横浜南税理士法人</span></div>
+        <div class="info-row"><span class="info-label">所在地</span><span class="info-value">〒232-0000<br>神奈川県横浜市南区高根町3-17-12<br>KSビル4階</span></div>
+        <div class="info-row"><span class="info-label">FAX</span><span class="info-value">045-334-8174</span></div>
+        <div class="info-row"><span class="info-label">所属</span><span class="info-value">東京地方税理士会</span></div>
+        <div class="info-row"><span class="info-label">認定</span><span class="info-value">経営革新等支援機関</span></div>
+      </div>
+      <div class="info-box fade-up">
+        <h3>アクセスマップ</h3>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3252.5!2d139.62!3d35.44!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5qiq5rWc5biC5Y2X5Yy66auY5qC555S6!5e0!3m2!1sja!2sjp!4v1" loading="lazy"></iframe>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text-light);margin-top:12px;">横浜市営地下鉄「阪東橋駅」より徒歩圏内<br>京急本線「黄金町駅」より徒歩圏内</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">横浜南税理士法人</div>
+        <p>常にお客様とのコミュニケーションを第一に。<br>横浜の皆様に寄り添う税理士法人です。</p>
+      </div>
+      <div class="footer-links">
+        <h4>業務案内</h4>
+        <a href="#">相続税・贈与税</a>
+        <a href="#">法人税務顧問</a>
+        <a href="#">個人事業主支援</a>
+        <a href="#">新規開業支援</a>
+        <a href="#">事業承継</a>
+      </div>
+      <div class="footer-links">
+        <h4>インフォメーション</h4>
+        <a href="#message">ごあいさつ</a>
+        <a href="#info">事務所案内</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 横浜南税理士法人 All Rights Reserved.　<span style="opacity:0.5;">※これはリニューアル提案用のデモサイトです</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+  document.body.style.overflow = document.getElementById('mobileNav').classList.contains('open') ? 'hidden' : '';
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+});
+// Hero slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+setInterval(() => {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+}, 5000);
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

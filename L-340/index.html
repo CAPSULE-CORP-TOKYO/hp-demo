@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佐藤千春税理士事務所 | 経営の"町医者"として、あなたのビジネスに寄り添います</title>
+<meta name="description" content="神奈川県横浜市保土ケ谷区の税理士事務所。創業支援、税務・会計・決算、相続対策など、経営の町医者として中小企業の皆さまをサポートします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #3a3a3a;
+  background: #faf8f5;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; transition: color .3s; }
+ul { list-style: none; }
+
+/* ===== Variables ===== */
+:root {
+  --primary: #7c3a28;
+  --primary-light: #a15640;
+  --primary-dark: #5c2a1c;
+  --accent: #3d8b8b;
+  --accent-light: #5aadad;
+  --bg: #faf8f5;
+  --bg-warm: #f5f0ea;
+  --bg-card: #ffffff;
+  --text: #3a3a3a;
+  --text-light: #6b6b6b;
+  --text-white: #ffffff;
+  --border: #e8e0d8;
+  --shadow: 0 4px 24px rgba(0,0,0,.06);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,.1);
+  --radius: 12px;
+  --transition: .3s ease;
+  --max-width: 1100px;
+}
+
+/* ===== Utility ===== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+.section-padding { padding: 80px 0; }
+@media (max-width: 768px) { .section-padding { padding: 56px 0; } }
+
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-header .en-label {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.section-header h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.4;
+}
+.section-header .subtitle {
+  margin-top: 12px;
+  font-size: .95rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-divider {
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+/* fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-delay-1 { transition-delay: .1s; }
+.fade-in-delay-2 { transition-delay: .2s; }
+.fade-in-delay-3 { transition-delay: .3s; }
+.fade-in-delay-4 { transition-delay: .4s; }
+
+/* ===== Header ===== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(250,248,245,.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s, box-shadow .3s;
+}
+.header.scrolled {
+  border-bottom-color: var(--border);
+  box-shadow: 0 2px 16px rgba(0,0,0,.04);
+}
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.logo span { display: block; line-height: 1.3; }
+.logo .logo-sub { font-size: .65rem; font-weight: 400; color: var(--text-light); }
+
+/* Desktop Nav */
+.nav-desktop { display: flex; gap: 24px; align-items: center; }
+.nav-desktop a {
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text);
+  position: relative;
+  padding: 4px 0;
+}
+.nav-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent);
+  transition: width .3s;
+}
+.nav-desktop a:hover::after { width: 100%; }
+.nav-desktop a:hover { color: var(--primary); }
+
+.nav-cta {
+  background: var(--primary) !important;
+  color: #fff !important;
+  padding: 8px 18px !important;
+  border-radius: 6px;
+  font-size: .8rem !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--primary-light) !important; }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1010;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  transition: var(--transition);
+  border-radius: 1px;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile Nav */
+.nav-mobile {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: var(--bg);
+  z-index: 1005;
+  padding: 88px 32px 40px;
+  transition: right .35s ease;
+  box-shadow: -8px 0 32px rgba(0,0,0,.08);
+}
+.nav-mobile.open { right: 0; }
+.nav-mobile a {
+  display: block;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+.nav-mobile a:last-child { border: none; }
+.nav-mobile a:hover { color: var(--primary); }
+.nav-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,.3);
+  z-index: 1002;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.nav-overlay.active { opacity: 1; pointer-events: all; }
+
+@media (max-width: 900px) {
+  .nav-desktop { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(165deg, #7c3a28 0%, #5c2a1c 50%, #3a1a10 100%);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(61,139,139,.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.05) 0%, transparent 50%);
+}
+.hero-pattern {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: .04;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(255,255,255,.5) 50px, rgba(255,255,255,.5) 51px),
+    repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255,255,255,.5) 50px, rgba(255,255,255,.5) 51px);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 120px 20px 80px;
+  color: var(--text-white);
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: .75rem;
+  font-weight: 500;
+  margin-bottom: 28px;
+  backdrop-filter: blur(8px);
+}
+.hero-badge i { color: var(--accent-light); }
+.hero h1 {
+  font-size: clamp(1.7rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  letter-spacing: .02em;
+}
+.hero h1 .highlight {
+  color: #f0c87a;
+  position: relative;
+}
+.hero-sub {
+  font-size: clamp(.9rem, 2vw, 1.1rem);
+  line-height: 1.9;
+  opacity: .85;
+  max-width: 580px;
+  font-weight: 300;
+  margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  transition: all var(--transition);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(61,139,139,.3); }
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.35);
+}
+.btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.hero-stat-item .stat-num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f0c87a;
+}
+.hero-stat-item .stat-num span { font-size: .9rem; font-weight: 400; }
+.hero-stat-item .stat-label {
+  font-size: .75rem;
+  opacity: .6;
+  margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+}
+
+/* ===== Strengths ===== */
+.strengths { background: var(--bg); }
+.strengths-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 48px;
+  font-size: .95rem;
+  color: var(--text-light);
+  line-height: 2;
+}
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) { .strengths-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+.strength-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .3s, box-shadow .3s;
+}
+.strength-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.strength-num {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--primary);
+  opacity: .08;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  line-height: 1;
+}
+.strength-card .card-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+.strength-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.strength-card p {
+  font-size: .88rem;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* Extra strengths list */
+.strengths-extra {
+  margin-top: 40px;
+  background: var(--bg-warm);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+.strengths-extra h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.strengths-extra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+.strengths-extra-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .88rem;
+  color: var(--text);
+}
+.strengths-extra-item i {
+  color: var(--accent);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* ===== Services ===== */
+.services { background: var(--bg-warm); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.service-item {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.03);
+  transition: transform .3s, box-shadow .3s;
+}
+.service-item:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.service-item .s-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(124,58,40,.08), rgba(124,58,40,.15));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+.service-item h3 {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+}
+.service-item p {
+  font-size: .78rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* ===== Process Flow ===== */
+.process { background: var(--bg); }
+.process-timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+@media (min-width: 769px) {
+  .process-timeline::before { left: 50%; transform: translateX(-1px); }
+}
+
+.process-step {
+  position: relative;
+  padding: 0 0 40px 64px;
+}
+.process-step:last-child { padding-bottom: 0; }
+
+.step-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(124,58,40,.25);
+}
+.step-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.step-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.step-content p {
+  font-size: .88rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+@media (min-width: 769px) {
+  .process-step { padding: 0 0 48px; width: 50%; }
+  .process-step:nth-child(odd) { padding-right: 40px; text-align: right; margin-left: 0; }
+  .process-step:nth-child(even) { padding-left: 40px; margin-left: 50%; }
+  .process-step:nth-child(odd) .step-number { right: -25px; left: auto; }
+  .process-step:nth-child(even) .step-number { left: -25px; }
+  .process-step:nth-child(odd) .step-content { text-align: left; }
+}
+
+/* ===== About ===== */
+.about { background: var(--bg-warm); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+.about-philosophy {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+.about-philosophy h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.about-philosophy h3 i { color: var(--accent); }
+.about-philosophy p {
+  font-size: .92rem;
+  color: var(--text-light);
+  line-height: 2;
+  margin-bottom: 12px;
+}
+.about-philosophy p:last-child { margin-bottom: 0; }
+
+.about-info {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+.about-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.info-row {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .9rem;
+}
+.info-row:last-child { border: none; }
+.info-label {
+  font-weight: 600;
+  color: var(--primary-dark);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+.info-value { color: var(--text-light); }
+.info-badges {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.info-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-warm);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+.info-badge i { color: var(--accent); }
+
+/* ===== Team ===== */
+.team { background: var(--bg); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.team-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform .3s;
+}
+.team-card:hover { transform: translateY(-4px); }
+.team-avatar {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, var(--bg-warm), #e8d8cc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-avatar i { font-size: 4rem; color: var(--primary); opacity: .2; }
+.team-card-body { padding: 20px; }
+.team-card-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--primary-dark); }
+.team-card-body .role { font-size: .8rem; color: var(--accent); font-weight: 500; margin-top: 2px; }
+.team-card-body p { font-size: .82rem; color: var(--text-light); margin-top: 10px; line-height: 1.7; }
+
+/* ===== Contact ===== */
+.contact { background: var(--bg-warm); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+
+.contact-form-wrap {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+.contact-form-wrap h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.form-group label .required {
+  color: #d44;
+  font-size: .7rem;
+  margin-left: 4px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: .9rem;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color .3s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accent);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.form-submit:hover { background: var(--primary-light); }
+
+.contact-map-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact-map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  flex: 1;
+  min-height: 280px;
+}
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border: none;
+}
+.contact-quick {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.contact-quick-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+}
+.contact-quick-item:not(:last-child) { border-bottom: 1px solid var(--border); }
+.contact-quick-item .cq-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(61,139,139,.08), rgba(61,139,139,.15));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+.contact-quick-item .cq-text .cq-label {
+  font-size: .72rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+.contact-quick-item .cq-text .cq-value {
+  font-size: .9rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #2a1a12;
+  color: rgba(255,255,255,.7);
+  padding: 48px 0 24px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+.footer-brand .footer-logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.footer-brand p { font-size: .82rem; line-height: 1.9; }
+.footer-links h4, .footer-contact h4 {
+  color: #fff;
+  font-size: .85rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.footer-links a {
+  display: block;
+  padding: 4px 0;
+  font-size: .82rem;
+  transition: color .3s;
+}
+.footer-links a:hover { color: var(--accent-light); }
+.footer-contact p {
+  font-size: .82rem;
+  line-height: 1.8;
+}
+.footer-contact .footer-phone {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f0c87a;
+  margin: 8px 0;
+}
+.footer-tkc {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.08);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: .75rem;
+  color: rgba(255,255,255,.6);
+  margin-top: 16px;
+}
+.footer-tkc i { color: var(--accent-light); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 20px;
+  text-align: center;
+  font-size: .75rem;
+}
+
+/* ===== Floating CTA ===== */
+.floating-cta {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
+  background: var(--accent);
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 20px rgba(61,139,139,.4);
+  transition: transform .3s, background .3s;
+  border: none;
+  cursor: pointer;
+}
+.floating-cta:hover { background: var(--accent-light); transform: scale(1.1); }
+@media (max-width: 768px) { .floating-cta { display: flex; } }
+
+/* ===== Back to top ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 900;
+  background: var(--primary);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .9rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s, transform .3s;
+  border: none;
+  cursor: pointer;
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { transform: translateY(-2px); }
+@media (max-width: 768px) { .back-to-top { bottom: 84px; left: auto; right: 20px; width: 40px; height: 40px; font-size: .8rem; } }
+</style>
+
+<style>
+/* QA Fix: Make all animated elements visible by default */
+.fade-up, .fade-in, .fade-down, .fade-left, .fade-right,
+.animate, .reveal, [class*="fade"] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#hero" class="logo">
+      <div class="logo-icon"><i class="fas fa-landmark"></i></div>
+      <span>佐藤千春税理士事務所<span class="logo-sub">SATO TAX ACCOUNTING OFFICE</span></span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#strengths">私たちの強み</a>
+      <a href="#services">業務内容</a>
+      <a href="#process">ご依頼の流れ</a>
+      <a href="#about">事務所紹介</a>
+      <a href="#team">スタッフ</a>
+      <a href="#contact" class="nav-cta"><i class="fas fa-envelope"></i> お問い合わせ</a>
+    </nav>
+    <div class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+<nav class="nav-mobile" id="navMobile">
+  <a href="#hero">ホーム</a>
+  <a href="#strengths">私たちの強み</a>
+  <a href="#services">業務内容</a>
+  <a href="#process">ご依頼の流れ</a>
+  <a href="#about">事務所紹介</a>
+  <a href="#team">スタッフ紹介</a>
+  <a href="#contact">お問い合わせ</a>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge fade-in">
+      <i class="fas fa-shield-halved"></i>
+      TKC全国会会員 ・ 東京地方税理士会所属
+    </div>
+    <h1 class="fade-in fade-in-delay-1">
+      経営の<span class="highlight">"町医者"</span>として、<br>あなたのビジネスに寄り添います
+    </h1>
+    <p class="hero-sub fade-in fade-in-delay-2">
+      大病院のような画一的な対応ではなく、一人ひとりの経営者の声に耳を傾け、<br class="pc-only">
+      身近な相談相手として共に歩む。それが私たちのスタイルです。
+    </p>
+    <div class="hero-actions fade-in fade-in-delay-3">
+      <a href="#contact" class="btn btn-primary"><i class="fas fa-comments"></i> 無料相談のご予約</a>
+      <a href="#services" class="btn btn-outline"><i class="fas fa-arrow-right"></i> 業務内容を見る</a>
+    </div>
+    <div class="hero-stats fade-in fade-in-delay-4">
+      <div class="hero-stat-item">
+        <div class="stat-num">30<span>年以上</span></div>
+        <div class="stat-label">税務サポートの実績</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="stat-num">毎月<span>巡回</span></div>
+        <div class="stat-label">月次監査で経営を見守る</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="stat-num">One<span>Stop</span></div>
+        <div class="stat-label">士業連携のワンストップ対応</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section class="strengths section-padding" id="strengths">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">Our Strengths</span>
+      <h2>私たちの3つの強み</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="strengths-intro fade-in">
+      佐藤千春税理士事務所は、「町医者に徹する」をモットーに、<br>
+      お客様にとって最も身近で頼れる存在であり続けます。
+    </p>
+    <div class="strengths-grid">
+      <div class="strength-card fade-in fade-in-delay-1">
+        <span class="strength-num">01</span>
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>毎月の巡回監査で<br>正確な経営データを提供</h3>
+        <p>毎月お伺いして帳簿を確認し、月次損益を正確に把握。経営者様の意思決定に役立つタイムリーなデータをご提供します。訪問頻度は年1〜2回のプランもご用意しています。</p>
+      </div>
+      <div class="strength-card fade-in fade-in-delay-2">
+        <span class="strength-num">02</span>
+        <div class="card-icon"><i class="fas fa-handshake"></i></div>
+        <h3>"町医者"としての<br>総合的なアプローチ</h3>
+        <p>税務だけでなく、経営全般の相談窓口として機能。大きな問題は専門家に橋渡しし、日常的な経営のお悩みには親身に対応。国の共済制度活用のアドバイスも行います。</p>
+      </div>
+      <div class="strength-card fade-in fade-in-delay-3">
+        <span class="strength-num">03</span>
+        <div class="card-icon"><i class="fas fa-users"></i></div>
+        <h3>士業連携による<br>ワンストップサービス</h3>
+        <p>弁護士・司法書士・社会保険労務士など、各分野の専門家と連携。一つの窓口で複数の課題を解決できるワンストップ体制を整えています。</p>
+      </div>
+    </div>
+    <div class="strengths-extra fade-in">
+      <h3><i class="fas fa-plus-circle"></i> さらに充実のサポート</h3>
+      <div class="strengths-extra-grid">
+        <div class="strengths-extra-item"><i class="fas fa-check-circle"></i>経営計画の策定支援で将来のビジョンを明確に</div>
+        <div class="strengths-extra-item"><i class="fas fa-check-circle"></i>TKCシステムによる正確・迅速な税務申告</div>
+        <div class="strengths-extra-item"><i class="fas fa-check-circle"></i>税務申告書への書面添付で信頼性を担保</div>
+        <div class="strengths-extra-item"><i class="fas fa-check-circle"></i>税務調査にも安心の立会いサポート</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services section-padding" id="services">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">Services</span>
+      <h2>業務内容</h2>
+      <div class="section-divider"></div>
+      <p class="subtitle">個人・法人を問わず、幅広い税務・経営サポートを提供いたします</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-rocket"></i></div>
+        <div>
+          <h3>創業・独立支援</h3>
+          <p>事業計画の策定から届出まで、創業をトータルサポート</p>
+        </div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-calculator"></i></div>
+        <div>
+          <h3>税務・会計・決算業務</h3>
+          <p>正確な記帳と適正な申告で経営の基盤を支えます</p>
+        </div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-file-signature"></i></div>
+        <div>
+          <h3>税務申告書への書面添付</h3>
+          <p>申告書の信頼性を高め、税務調査リスクを軽減</p>
+        </div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-laptop-code"></i></div>
+        <div>
+          <h3>自計化システム導入支援</h3>
+          <p>TKCシステムの導入で経理業務を効率化</p>
+        </div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-bullseye"></i></div>
+        <div>
+          <h3>経営計画策定支援</h3>
+          <p>数字に基づいた経営計画で将来の目標を明確に</p>
+        </div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-house-chimney"></i></div>
+        <div>
+          <h3>資産譲渡・贈与・相続対策</h3>
+          <p>大切な資産を次世代へ。最適な対策と申告書作成</p>
+        </div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-building"></i></div>
+        <div>
+          <h3>事業承継対策</h3>
+          <p>円滑な事業承継のための計画立案と実行支援</p>
+        </div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-user-shield"></i></div>
+        <div>
+          <h3>税務調査立会い</h3>
+          <p>税務調査に適切に対応し、経営者様の負担を軽減</p>
+        </div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-umbrella"></i></div>
+        <div>
+          <h3>保険指導・経営相談</h3>
+          <p>リスク管理から経営戦略まで幅広くアドバイス</p>
+        </div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="s-icon"><i class="fas fa-pen-nib"></i></div>
+        <div>
+          <h3>記帳代行</h3>
+          <p>日々の経理業務を代行し、経営に集中できる環境を</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Flow -->
+<section class="process section-padding" id="process">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">Process</span>
+      <h2>ご依頼の流れ</h2>
+      <div class="section-divider"></div>
+      <p class="subtitle">初回のご相談から顧問契約まで、安心のステップをご案内します</p>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step fade-in">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3><i class="fas fa-phone-volume"></i> お問い合わせ</h3>
+          <p>お電話またはお問い合わせフォームよりご連絡ください。ご相談内容を簡単にお伺いし、面談日程を調整いたします。</p>
+        </div>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3><i class="fas fa-comments"></i> 初回無料相談</h3>
+          <p>事務所またはご訪問にて、現在のお悩みや事業状況をじっくりお聞きします。初回相談は無料ですので、お気軽にどうぞ。</p>
+        </div>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3><i class="fas fa-file-alt"></i> ご提案・お見積り</h3>
+          <p>お客様の状況に合わせた最適なサービスプランと料金をご提案。ご不明点があれば何でもお尋ねください。</p>
+        </div>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3><i class="fas fa-handshake"></i> 顧問契約・業務開始</h3>
+          <p>ご納得いただけましたら契約を締結し、業務を開始します。担当者が責任を持ってサポートいたします。</p>
+        </div>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3><i class="fas fa-sync-alt"></i> 継続的なサポート</h3>
+          <p>毎月の巡回監査を通じて、経営状況を継続的にモニタリング。季節ごとの税務イベントにも万全の体制で対応します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about section-padding" id="about">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">About Us</span>
+      <h2>事務所紹介</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-philosophy fade-in">
+        <h3><i class="fas fa-heart-pulse"></i> 事務所の理念</h3>
+        <p>
+          私たちは、経営の"町医者"として、中小企業の経営者様に寄り添い続けることを大切にしています。
+        </p>
+        <p>
+          大きな病院（大手事務所）のような画一的なサービスではなく、患者さん（経営者様）一人ひとりの状態を見ながら、最適なアドバイスを提供する——。それが私たちの考える理想の税理士像です。
+        </p>
+        <p>
+          日常的な税務・会計のご相談はもちろん、事業の将来、資産の承継、経営上のお悩みなど、何でもお気軽にご相談ください。必要に応じて専門医（各士業の専門家）への橋渡しも行います。
+        </p>
+        <p>
+          <strong>「困ったときにまず相談できる存在」</strong>——それが佐藤千春税理士事務所です。
+        </p>
+      </div>
+      <div class="about-info fade-in">
+        <h3>事務所概要</h3>
+        <div class="info-row">
+          <span class="info-label">事務所名</span>
+          <span class="info-value">佐藤千春税理士事務所</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">代表</span>
+          <span class="info-value">佐藤 千春（さとう ちはる）</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">所在地</span>
+          <span class="info-value">〒240-0004<br>神奈川県横浜市保土ケ谷区岩間町2-109</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">電話番号</span>
+          <span class="info-value"><a href="tel:045-335-3311" style="color:var(--accent);font-weight:600;">045-335-3311</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">所属</span>
+          <span class="info-value">東京地方税理士会</span>
+        </div>
+        <div class="info-badges">
+          <span class="info-badge"><i class="fas fa-certificate"></i> TKC全国会会員</span>
+          <span class="info-badge"><i class="fas fa-building-columns"></i> 東京地方税理士会所属</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="team section-padding" id="team">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">Team</span>
+      <h2>スタッフ紹介</h2>
+      <div class="section-divider"></div>
+      <p class="subtitle">お客様を支えるスタッフをご紹介します</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-in">
+        <div class="team-avatar"><i class="fas fa-user"></i></div>
+        <div class="team-card-body">
+          <h3>佐藤 千春</h3>
+          <div class="role">代表税理士</div>
+          <p>経営者様の身近な相談相手として、「町医者」のような存在であることを心がけています。どんな小さなお悩みでもお気軽にご相談ください。</p>
+        </div>
+      </div>
+      <div class="team-card fade-in fade-in-delay-1">
+        <div class="team-avatar"><i class="fas fa-user"></i></div>
+        <div class="team-card-body">
+          <h3>スタッフ</h3>
+          <div class="role">税務スタッフ</div>
+          <p>日々の会計処理から申告業務まで、丁寧かつ正確な業務で経営者様をサポートいたします。</p>
+        </div>
+      </div>
+      <div class="team-card fade-in fade-in-delay-2">
+        <div class="team-avatar"><i class="fas fa-user"></i></div>
+        <div class="team-card-body">
+          <h3>スタッフ</h3>
+          <div class="role">事務スタッフ</div>
+          <p>お客様とのコミュニケーションを大切にし、事務所の窓口として笑顔でお迎えいたします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact section-padding" id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">Contact</span>
+      <h2>お問い合わせ</h2>
+      <div class="section-divider"></div>
+      <p class="subtitle">まずはお気軽にご相談ください。初回相談は無料です。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-form-wrap fade-in">
+        <h3><i class="fas fa-envelope"></i> お問い合わせフォーム</h3>
+        <form id="contactForm" onsubmit="return handleSubmit(event)">
+          <div class="form-group">
+            <label>お名前<span class="required">必須</span></label>
+            <input type="text" name="name" required placeholder="例：山田 太郎">
+          </div>
+          <div class="form-group">
+            <label>会社名</label>
+            <input type="text" name="company" placeholder="例：株式会社○○">
+          </div>
+          <div class="form-group">
+            <label>メールアドレス<span class="required">必須</span></label>
+            <input type="email" name="email" required placeholder="例：info@example.com">
+          </div>
+          <div class="form-group">
+            <label>電話番号</label>
+            <input type="tel" name="phone" placeholder="例：045-000-0000">
+          </div>
+          <div class="form-group">
+            <label>ご相談内容<span class="required">必須</span></label>
+            <select name="category" required>
+              <option value="">選択してください</option>
+              <option value="startup">創業・独立について</option>
+              <option value="tax">税務・会計・決算について</option>
+              <option value="inheritance">相続・贈与について</option>
+              <option value="succession">事業承継について</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>お問い合わせ内容<span class="required">必須</span></label>
+            <textarea name="message" required placeholder="ご相談内容をご記入ください"></textarea>
+          </div>
+          <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> 送信する</button>
+        </form>
+      </div>
+      <div class="contact-map-wrap fade-in">
+        <div class="contact-quick">
+          <div class="contact-quick-item">
+            <div class="cq-icon"><i class="fas fa-phone"></i></div>
+            <div class="cq-text">
+              <div class="cq-label">お電話でのお問い合わせ</div>
+              <div class="cq-value"><a href="tel:045-335-3311">045-335-3311</a></div>
+            </div>
+          </div>
+          <div class="contact-quick-item">
+            <div class="cq-icon"><i class="fas fa-clock"></i></div>
+            <div class="cq-text">
+              <div class="cq-label">受付時間</div>
+              <div class="cq-value">平日 9:00〜17:00</div>
+            </div>
+          </div>
+          <div class="contact-quick-item">
+            <div class="cq-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="cq-text">
+              <div class="cq-label">所在地</div>
+              <div class="cq-value">横浜市保土ケ谷区岩間町2-109</div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.6!2d139.596!3d35.454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI3JzE0LjQiTiAxMznCsDM1JzQ1LjYiRQ!5e0!3m2!1sja!2sjp!4v1700000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="佐藤千春税理士事務所の地図"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">佐藤千春税理士事務所</div>
+        <p>
+          経営の"町医者"として、中小企業の経営者様に寄り添い、<br>
+          税務・会計を通じてビジネスの成長をサポートします。
+        </p>
+        <div class="footer-tkc">
+          <i class="fas fa-award"></i> TKC全国会会員 ・ 東京地方税理士会所属
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>サイトマップ</h4>
+        <a href="#hero">ホーム</a>
+        <a href="#strengths">私たちの強み</a>
+        <a href="#services">業務内容</a>
+        <a href="#process">ご依頼の流れ</a>
+        <a href="#about">事務所紹介</a>
+        <a href="#team">スタッフ紹介</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+      <div class="footer-contact">
+        <h4>お問い合わせ</h4>
+        <p>
+          〒240-0004<br>
+          神奈川県横浜市保土ケ谷区<br>
+          岩間町2-109
+        </p>
+        <div class="footer-phone"><i class="fas fa-phone"></i> 045-335-3311</div>
+        <p>平日 9:00〜17:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 佐藤千春税理士事務所 All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Floating CTA -->
+<a href="tel:045-335-3311" class="floating-cta" aria-label="電話で問い合わせ">
+  <i class="fas fa-phone"></i>
+</a>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="ページトップへ">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+(function() {
+  'use strict';
+
+  // --- Header scroll ---
+  const header = document.getElementById('header');
+  const backToTop = document.getElementById('backToTop');
+  let ticking = false;
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        const y = window.scrollY;
+        header.classList.toggle('scrolled', y > 40);
+        backToTop.classList.toggle('visible', y > 600);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // --- Back to top ---
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // --- Mobile nav ---
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('navMobile');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function toggleNav() {
+    const isOpen = navMobile.classList.toggle('open');
+    hamburger.classList.toggle('active', isOpen);
+    navOverlay.classList.toggle('active', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  hamburger.addEventListener('click', toggleNav);
+  navOverlay.addEventListener('click', toggleNav);
+  navMobile.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (navMobile.classList.contains('open')) toggleNav();
+    });
+  });
+
+  // --- Fade-in on scroll ---
+  var fadeEls = document.querySelectorAll('.fade-in');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  fadeEls.forEach(function(el) { observer.observe(el); });
+
+  // --- Smooth scroll for anchor links ---
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+})();
+
+// --- Contact form handler (demo) ---
+function handleSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contactForm');
+  var btn = form.querySelector('.form-submit');
+  btn.innerHTML = '<i class="fas fa-check"></i> 送信しました（デモ）';
+  btn.style.background = 'var(--accent)';
+  btn.disabled = true;
+  setTimeout(function() {
+    btn.innerHTML = '<i class="fas fa-paper-plane"></i> 送信する';
+    btn.style.background = '';
+    btn.disabled = false;
+    form.reset();
+  }, 3000);
+  return false;
+}
+</script>
+
+</body>
+</html>

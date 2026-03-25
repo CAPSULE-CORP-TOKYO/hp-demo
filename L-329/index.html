@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>錦輝哉税理士事務所｜横浜・関内の税理士</title>
+<meta name="description" content="横浜・関内エリアの税理士事務所。法人税務顧問、確定申告、会社設立、相続税対策など、中小企業・個人事業主を親身にサポートします。初回相談無料。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   CSS Reset & Base
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #2d8a6e;
+  --primary-dark: #1e6b54;
+  --primary-light: #3da882;
+  --primary-pale: #e8f5f0;
+  --accent: #c8956c;
+  --accent-light: #f5ebe3;
+  --text: #2c3e3a;
+  --text-light: #5a6e69;
+  --text-muted: #8a9e99;
+  --bg: #fafcfb;
+  --bg-warm: #f7f5f2;
+  --white: #ffffff;
+  --border: #d4e0dc;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --font-sans: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Noto Serif JP', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.8;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   Utility
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-pale);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+  max-width: 640px;
+  line-height: 1.9;
+}
+
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+.fade-in-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================
+   Header / Navigation
+   ============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.header.scrolled {
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-desktop a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-light);
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width var(--transition);
+}
+
+.nav-desktop a:hover {
+  color: var(--primary);
+}
+
+.nav-desktop a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  color: var(--white) !important;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.nav-cta::after { display: none !important; }
+
+.nav-cta:hover {
+  background: var(--primary-dark);
+  color: var(--white) !important;
+  transform: translateY(-1px);
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 320px;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--white);
+  z-index: 999;
+  padding: 80px 32px 40px;
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu a {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu a:hover {
+  color: var(--primary);
+}
+
+.mobile-menu-cta {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.mobile-menu-cta a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary);
+  color: var(--white) !important;
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  border: none;
+  text-align: center;
+}
+
+.mobile-menu-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: var(--text-light) !important;
+  font-size: 0.9rem;
+  border: none !important;
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #f0f7f4 0%, #e8f0ed 30%, #f7f5f2 70%, #faf8f5 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 70vw;
+  height: 70vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(45,138,110,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: radial-gradient(circle, rgba(200,149,108,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 120px 0 80px;
+  width: 100%;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 5.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.hero-title .accent {
+  color: var(--primary);
+}
+
+.hero-description {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 36px;
+  max-width: 560px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(45,138,110,0.25);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(45,138,110,0.3);
+}
+
+.btn-outline {
+  background: var(--white);
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  max-width: 480px;
+}
+
+.hero-stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.hero-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ============================================
+   About / Message
+   ============================================ */
+.about {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.about-grid {
+  display: grid;
+  gap: 48px;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+}
+
+.about-card {
+  background: linear-gradient(145deg, #f0f7f4, #e8f0ed);
+  border-radius: var(--radius-lg);
+  padding: 48px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.about-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.2rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(45,138,110,0.2);
+}
+
+.about-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.about-card-ruby {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.about-card-title {
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.about-content .section-subtitle {
+  margin-bottom: 20px;
+}
+
+.about-message {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 2;
+  margin-bottom: 24px;
+}
+
+.about-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-pale);
+  color: var(--primary-dark);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ============================================
+   Services
+   ============================================ */
+.services {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: all var(--transition);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.service-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: var(--primary-pale);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: background var(--transition);
+}
+
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+}
+
+.service-card:hover .service-icon svg {
+  stroke: white;
+}
+
+.service-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke var(--transition);
+}
+
+.service-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.service-desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ============================================
+   Why Choose Us
+   ============================================ */
+.reasons {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.reasons-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.reason-card {
+  text-align: center;
+  padding: 36px 24px;
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition);
+}
+
+.reason-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.reason-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+  border-radius: 50%;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(45,138,110,0.2);
+}
+
+.reason-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.reason-text {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ============================================
+   Flow
+   ============================================ */
+.flow {
+  padding: 80px 0;
+  background: linear-gradient(160deg, #f0f7f4, #f7f5f2);
+}
+
+.flow-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.flow-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.flow-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.flow-step-num {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.flow-step-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.flow-step-desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ============================================
+   Office / Access
+   ============================================ */
+.office {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.office-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.office-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.office-map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 300px;
+  background: var(--bg);
+  box-shadow: var(--shadow-md);
+}
+
+.office-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.office-info-cards {
+  display: grid;
+  gap: 16px;
+}
+
+.office-info-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  background: var(--bg);
+  border-radius: var(--radius);
+}
+
+.office-info-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: var(--primary-pale);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.office-info-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.office-info-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.office-info-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ============================================
+   CTA
+   ============================================ */
+.cta {
+  padding: 80px 0;
+  background: linear-gradient(160deg, var(--primary-dark), var(--primary), var(--primary-light));
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.cta .section-label {
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.9);
+}
+
+.cta .section-title {
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.cta-text {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+
+.cta-free {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-white {
+  background: var(--white);
+  color: var(--primary-dark);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.btn-white:hover {
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.2);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+  background: #1a2e28;
+  color: rgba(255,255,255,0.6);
+  padding: 48px 0 24px;
+}
+
+.footer-top {
+  display: grid;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .logo {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.footer-brand .logo-icon {
+  background: rgba(255,255,255,0.12);
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  max-width: 360px;
+}
+
+.footer-links-heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.footer-links a {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  padding: 4px 0;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: rgba(255,255,255,0.9);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+}
+
+.footer-demo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.06);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ============================================
+   Responsive: Tablet (768px+)
+   ============================================ */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .header-inner {
+    height: 72px;
+  }
+
+  .nav-desktop {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .hero-inner {
+    padding: 140px 0 100px;
+  }
+
+  .hero-stats {
+    max-width: 520px;
+  }
+
+  .about {
+    padding: 100px 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 300px 1fr;
+    gap: 56px;
+  }
+
+  .services {
+    padding: 100px 0;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .reasons {
+    padding: 100px 0;
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .flow {
+    padding: 100px 0;
+  }
+
+  .office {
+    padding: 100px 0;
+  }
+
+  .office-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .office-map {
+    height: 100%;
+    min-height: 360px;
+  }
+
+  .cta {
+    padding: 100px 0;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr auto auto;
+    gap: 56px;
+  }
+}
+
+/* ============================================
+   Responsive: Desktop (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+  .hero-title {
+    max-width: 640px;
+  }
+
+  .about-grid {
+    grid-template-columns: 340px 1fr;
+    gap: 72px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .service-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 20px;
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .flow-steps {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+}
+</style>
+
+<style>
+/* QA Fix: Make all animated elements visible by default */
+.fade-up, .fade-in, .fade-down, .fade-left, .fade-right,
+.animate, .reveal, [class*="fade"] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">錦</div>
+      <span>錦輝哉税理士事務所</span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#about">ごあいさつ</a>
+      <a href="#services">サービス</a>
+      <a href="#reasons">選ばれる理由</a>
+      <a href="#office">事務所案内</a>
+      <a href="#contact" class="nav-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        無料相談
+      </a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">ごあいさつ</a>
+  <a href="#services">サービス</a>
+  <a href="#reasons">選ばれる理由</a>
+  <a href="#flow">ご相談の流れ</a>
+  <a href="#office">事務所案内</a>
+  <div class="mobile-menu-cta">
+    <a href="#contact">無料相談のお問い合わせ</a>
+    <a href="tel:045-222-0528" class="mobile-menu-phone">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      045-222-0528
+    </a>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="container hero-inner">
+    <div class="fade-in">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        横浜・関内エリアの税理士事務所
+      </div>
+      <h1 class="hero-title">
+        あなたの事業の<br>
+        <span class="accent">「もっと」</span>を、<br>
+        税務から支える。
+      </h1>
+      <p class="hero-description">
+        中小企業・個人事業主の皆さまに寄り添い、
+        税務・会計を通じて事業の成長をサポートします。<br>
+        まずはお気軽にご相談ください。
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          初回無料相談はこちら
+        </a>
+        <a href="tel:045-222-0528" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          045-222-0528
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-number">初回</div>
+          <div class="hero-stat-label">相談無料</div>
+        </div>
+        <div>
+          <div class="hero-stat-number">関内</div>
+          <div class="hero-stat-label">駅徒歩圏内</div>
+        </div>
+        <div>
+          <div class="hero-stat-number">土曜</div>
+          <div class="hero-stat-label">相談対応可</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="about-card">
+          <div class="about-avatar">錦</div>
+          <div class="about-card-name">錦 輝哉</div>
+          <div class="about-card-ruby">にしき てるや</div>
+          <div class="about-card-title">税理士・代表</div>
+        </div>
+      </div>
+      <div class="about-content fade-in fade-in-delay-1">
+        <span class="section-label">Message</span>
+        <h2 class="section-title">お客様の事業に<br>真剣に向き合います</h2>
+        <p class="about-message">
+          錦輝哉税理士事務所のウェブサイトをご覧いただき、ありがとうございます。
+        </p>
+        <p class="about-message">
+          当事務所は、横浜・関内エリアを中心に、中小企業や個人事業主の皆さまの税務・会計をサポートしております。「難しい税金の話をわかりやすく」をモットーに、お客様一人ひとりの状況に合わせた丁寧なコミュニケーションを大切にしています。
+        </p>
+        <p class="about-message">
+          税務申告だけでなく、経営の相談相手として、事業の成長を一緒に考えていきます。まずはお気軽にお声がけください。
+        </p>
+        <div class="about-features">
+          <span class="about-feature-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            横浜エリア密着
+          </span>
+          <span class="about-feature-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            丁寧な対応
+          </span>
+          <span class="about-feature-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            初回相談無料
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header fade-in">
+      <span class="section-label">Services</span>
+      <h2 class="section-title">サービス内容</h2>
+      <p class="section-subtitle mx-auto">
+        法人・個人を問わず、税務に関するあらゆるニーズにお応えします。
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in fade-in-delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <div>
+          <div class="service-name">法人税務顧問</div>
+          <div class="service-desc">月次訪問・決算申告・節税対策まで、法人経営を税務面からトータルサポートいたします。</div>
+        </div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div>
+          <div class="service-name">個人確定申告</div>
+          <div class="service-desc">個人事業主・フリーランスの確定申告を正確・迅速に対応。青色申告のサポートもお任せください。</div>
+        </div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="service-name">会社設立支援</div>
+          <div class="service-desc">法人設立の手続きから届出書類の作成、設立後の税務顧問まで一貫してサポートします。</div>
+        </div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-4">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <div class="service-name">相続税・贈与税対策</div>
+          <div class="service-desc">相続税の試算・申告から、生前贈与を活用した節税プランのご提案まで対応いたします。</div>
+        </div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div class="service-name">記帳代行・経理支援</div>
+          <div class="service-desc">日々の記帳業務を代行し、経理業務の効率化をサポート。クラウド会計にも対応しています。</div>
+        </div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="service-name">税務調査対応</div>
+          <div class="service-desc">税務調査の事前準備から立ち会い、交渉まで、経験豊富な税理士がしっかりサポートします。</div>
+        </div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        </div>
+        <div>
+          <div class="service-name">経営コンサルティング</div>
+          <div class="service-desc">財務分析をベースに、経営改善・事業計画の策定など、経営全般のアドバイスを行います。</div>
+        </div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-4">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <div>
+          <div class="service-name">資金調達支援</div>
+          <div class="service-desc">融資申請に必要な事業計画書の作成支援や、補助金・助成金の活用もご提案します。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reasons -->
+<section class="reasons" id="reasons">
+  <div class="container">
+    <div class="reasons-header fade-in">
+      <span class="section-label">Why Choose Us</span>
+      <h2 class="section-title">選ばれる理由</h2>
+      <p class="section-subtitle mx-auto">
+        多くのお客様に継続してお選びいただいている理由があります。
+      </p>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card fade-in fade-in-delay-1">
+        <div class="reason-number">1</div>
+        <h3 class="reason-title">横浜・関内エリア密着</h3>
+        <p class="reason-text">地域に根ざした事務所として、横浜エリアの中小企業・個人事業主を数多くサポートしてきた実績があります。</p>
+      </div>
+      <div class="reason-card fade-in fade-in-delay-2">
+        <div class="reason-number">2</div>
+        <h3 class="reason-title">親身で丁寧な対応</h3>
+        <p class="reason-text">難しい税務用語はわかりやすくご説明します。お客様の不安や疑問に一つひとつ丁寧にお答えします。</p>
+      </div>
+      <div class="reason-card fade-in fade-in-delay-3">
+        <div class="reason-number">3</div>
+        <h3 class="reason-title">ワンストップ対応</h3>
+        <p class="reason-text">税務申告から経営相談、資金調達まで、事業に関わるお悩みをひとつの窓口で解決いたします。</p>
+      </div>
+      <div class="reason-card fade-in fade-in-delay-4">
+        <div class="reason-number">4</div>
+        <h3 class="reason-title">初回相談無料</h3>
+        <p class="reason-text">まずはお気軽にお話をお聞かせください。初回のご相談は無料で承っております。お見積りも無料です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flow -->
+<section class="flow" id="flow">
+  <div class="container">
+    <div class="flow-header fade-in">
+      <span class="section-label">Flow</span>
+      <h2 class="section-title">ご相談の流れ</h2>
+      <p class="section-subtitle mx-auto">
+        初めての方でも安心。簡単なステップでご相談いただけます。
+      </p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step fade-in fade-in-delay-1">
+        <div class="flow-step-num">1</div>
+        <div>
+          <div class="flow-step-title">お問い合わせ</div>
+          <div class="flow-step-desc">お電話またはメールフォームからお気軽にご連絡ください。ご相談内容を簡単にお伺いします。</div>
+        </div>
+      </div>
+      <div class="flow-step fade-in fade-in-delay-2">
+        <div class="flow-step-num">2</div>
+        <div>
+          <div class="flow-step-title">初回無料相談</div>
+          <div class="flow-step-desc">事務所またはオンラインにて、現在の状況やお困りごとを詳しくヒアリングいたします。</div>
+        </div>
+      </div>
+      <div class="flow-step fade-in fade-in-delay-3">
+        <div class="flow-step-num">3</div>
+        <div>
+          <div class="flow-step-title">お見積り・ご提案</div>
+          <div class="flow-step-desc">ヒアリング内容をもとに、最適なサービスプランとお見積りをご提示いたします。</div>
+        </div>
+      </div>
+      <div class="flow-step fade-in fade-in-delay-4">
+        <div class="flow-step-num">4</div>
+        <div>
+          <div class="flow-step-title">サービス開始</div>
+          <div class="flow-step-desc">ご契約後、担当税理士が責任を持ってサポートを開始いたします。いつでもご相談いただけます。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Office -->
+<section class="office" id="office">
+  <div class="container">
+    <div class="office-header fade-in">
+      <span class="section-label">Office</span>
+      <h2 class="section-title">事務所案内</h2>
+    </div>
+    <div class="office-grid">
+      <div class="office-map fade-in">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.5!2d139.636!3d35.447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI2JzQ5LjAiTiAxMznCsDM4JzEwLjAiRQ!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp&q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%A8%AA%E6%B5%9C%E5%B8%82%E4%B8%AD%E5%8C%BA%E5%8D%97%E4%BB%B2%E9%80%9A4-39-2"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="office-info-cards fade-in fade-in-delay-1">
+        <div class="office-info-card">
+          <div class="office-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="office-info-label">事務所名</div>
+            <div class="office-info-value">錦輝哉税理士事務所</div>
+          </div>
+        </div>
+        <div class="office-info-card">
+          <div class="office-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <div class="office-info-label">代表者</div>
+            <div class="office-info-value">錦 輝哉（にしき てるや）</div>
+          </div>
+        </div>
+        <div class="office-info-card">
+          <div class="office-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="office-info-label">所在地</div>
+            <div class="office-info-value">〒231-0006<br>神奈川県横浜市中区南仲通4-39-2<br>箕田関内ビル</div>
+          </div>
+        </div>
+        <div class="office-info-card">
+          <div class="office-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="office-info-label">電話番号</div>
+            <div class="office-info-value"><a href="tel:045-222-0528">045-222-0528</a></div>
+          </div>
+        </div>
+        <div class="office-info-card">
+          <div class="office-info-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="office-info-label">アクセス</div>
+            <div class="office-info-value">JR関内駅より徒歩約5分<br>みなとみらい線 馬車道駅より徒歩約3分</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="container cta-inner">
+    <div class="fade-in">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">まずはお気軽に<br>ご相談ください</h2>
+      <p class="cta-text">
+        税務に関するお悩み、経営のご相談など、<br>
+        どんな小さなことでもお気軽にお問い合わせください。
+      </p>
+      <div class="cta-free">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        初回相談・お見積り無料
+      </div>
+      <div class="cta-actions">
+        <a href="tel:045-222-0528" class="btn btn-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          045-222-0528
+        </a>
+        <a href="mailto:info@nishiki-to.jp" class="btn btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          メールでお問い合わせ
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon">錦</div>
+          <span>錦輝哉税理士事務所</span>
+        </a>
+        <p>横浜・関内エリアを中心に、中小企業・個人事業主の税務・会計をサポートする税理士事務所です。</p>
+      </div>
+      <div>
+        <div class="footer-links-heading">サービス</div>
+        <div class="footer-links">
+          <a href="#services">法人税務顧問</a>
+          <a href="#services">個人確定申告</a>
+          <a href="#services">会社設立支援</a>
+          <a href="#services">相続税・贈与税対策</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-links-heading">事務所情報</div>
+        <div class="footer-links">
+          <a href="#about">ごあいさつ</a>
+          <a href="#reasons">選ばれる理由</a>
+          <a href="#office">事務所案内</a>
+          <a href="#contact">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 錦輝哉税理士事務所 All Rights Reserved.</div>
+      <div class="footer-demo-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        DEMO - リニューアルご提案用デザイン
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================
+// Header scroll effect
+// ============================================
+const header = document.getElementById('header');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > 10) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+  lastScroll = currentScroll;
+}, { passive: true });
+
+// ============================================
+// Mobile menu
+// ============================================
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function toggleMenu() {
+  const isOpen = mobileMenu.classList.contains('open');
+  mobileMenu.classList.toggle('open');
+  mobileOverlay.classList.toggle('open');
+  hamburger.classList.toggle('active');
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  mobileOverlay.classList.remove('open');
+  hamburger.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', toggleMenu);
+mobileOverlay.addEventListener('click', closeMenu);
+
+// Close menu on link click
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// ============================================
+// Smooth scroll for anchor links
+// ============================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const headerHeight = header.offsetHeight;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// ============================================
+// Fade-in on scroll (Intersection Observer)
+// ============================================
+const fadeElements = document.querySelectorAll('.fade-in');
+
+const observerOptions = {
+  root: null,
+  rootMargin: '0px 0px -60px 0px',
+  threshold: 0.1
+};
+
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+fadeElements.forEach(el => fadeObserver.observe(el));
+</script>
+
+</body>
+</html>

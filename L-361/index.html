@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小野澤寿一税理士事務所 | わかりやすい会計、安心経営のお手伝い</title>
+<meta name="description" content="横浜市南区の税理士事務所。節税対策、決算支援、確定申告、お金の勉強会など、経営者の夢を支えるパートナーです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #2E7D32;
+  --primary-light: #4CAF50;
+  --primary-lighter: #81C784;
+  --primary-bg: #E8F5E9;
+  --accent: #795548;
+  --accent-light: #A1887F;
+  --cream: #FFF8E7;
+  --cream-dark: #F5EDDA;
+  --text: #3E2723;
+  --text-light: #5D4037;
+  --white: #FFFFFF;
+  --shadow: 0 2px 20px rgba(0,0,0,0.08);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: box-shadow var(--transition);
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.logo-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.logo-text span {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-light);
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all var(--transition);
+}
+
+.nav-desktop a:hover {
+  color: var(--primary);
+  background: var(--primary-bg);
+}
+
+.hamburger {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--white);
+  z-index: 999;
+  padding: 90px 30px 40px;
+  transition: right var(--transition);
+  box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: 1px solid var(--cream-dark);
+  transition: color var(--transition);
+}
+
+.mobile-nav a:hover {
+  color: var(--primary);
+}
+
+.mobile-nav .nav-cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  border-radius: 30px;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a472a 0%, #2E7D32 40%, #4CAF50 100%);
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(46,125,50,0.7) 0%, rgba(30,80,33,0.85) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 100px 20px 60px;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 20px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  backdrop-filter: blur(5px);
+}
+
+.hero h1 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.hero h1 .highlight {
+  color: #FFD54F;
+  position: relative;
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 12px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.hero-catch {
+  font-size: 18px;
+  color: #FFD54F;
+  font-weight: 700;
+  margin-bottom: 36px;
+  letter-spacing: 2px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #FFD54F, #FFB300);
+  color: var(--text);
+  box-shadow: 0 4px 15px rgba(255,179,0,0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,179,0,0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: white;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+}
+
+.hero-scroll i {
+  display: block;
+  font-size: 20px;
+  margin-top: 4px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 60px 20px;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.section-title .green {
+  color: var(--primary);
+}
+
+.section-desc {
+  font-size: 14px;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.section-divider {
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  margin: 16px auto;
+  border-radius: 3px;
+}
+
+/* ===== CONCEPT ===== */
+.concept {
+  background: var(--white);
+}
+
+.concept-grid {
+  display: grid;
+  gap: 30px;
+}
+
+.concept-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.concept-image img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.concept-text h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.concept-text p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 2;
+}
+
+.concept-values {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.concept-value {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--cream);
+  border-radius: var(--radius);
+}
+
+.concept-value i {
+  color: var(--primary);
+  font-size: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.concept-value h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.concept-value p {
+  font-size: 12px;
+  color: var(--text-light);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ===== SERVICES ===== */
+.services {
+  background: var(--cream);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary), var(--primary-light));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--primary-bg), #C8E6C9);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.service-icon i {
+  font-size: 22px;
+  color: var(--primary);
+}
+
+.service-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.service-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  background: var(--cream);
+  border-radius: 20px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ===== STUDY SESSION ===== */
+.study {
+  background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.study::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 50%;
+}
+
+.study .section-label {
+  color: #FFD54F;
+}
+
+.study .section-title {
+  color: white;
+}
+
+.study .section-desc {
+  color: rgba(255,255,255,0.85);
+}
+
+.study .section-divider {
+  background: linear-gradient(90deg, #FFD54F, #FFB300);
+}
+
+.study-content {
+  display: grid;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.study-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.study-image img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.study-features {
+  display: grid;
+  gap: 16px;
+}
+
+.study-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+}
+
+.study-feature-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,213,79,0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.study-feature-icon i {
+  color: #FFD54F;
+  font-size: 18px;
+}
+
+.study-feature h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.study-feature p {
+  font-size: 13px;
+  opacity: 0.85;
+  line-height: 1.7;
+}
+
+.study-cta {
+  text-align: center;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials {
+  background: var(--white);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.testimonial-card {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 24px;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  font-size: 50px;
+  color: var(--primary-lighter);
+  font-family: Georgia, serif;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.testimonial-stars {
+  color: #FFB300;
+  font-size: 13px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 2px;
+}
+
+.testimonial-text {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-lighter);
+}
+
+.testimonial-info h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.testimonial-info p {
+  font-size: 11px;
+  color: var(--accent);
+}
+
+/* ===== OFFICE ===== */
+.office {
+  background: var(--cream);
+}
+
+.office-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.office-map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  aspect-ratio: 16/10;
+}
+
+.office-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.office-info {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+}
+
+.office-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary-bg);
+}
+
+.office-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.office-detail:last-child {
+  margin-bottom: 0;
+}
+
+.office-detail-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--primary-bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.office-detail-icon i {
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.office-detail-content h4 {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.office-detail-content p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.office-detail-content a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  background: var(--white);
+}
+
+.contact-cards {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-card {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.contact-card-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-card-icon i {
+  color: white;
+  font-size: 24px;
+}
+
+.contact-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.contact-card p {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.contact-card .phone-number {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+.contact-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-note {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: linear-gradient(135deg, var(--accent), #5D4037);
+  padding: 50px 20px;
+  text-align: center;
+  color: white;
+}
+
+.cta-banner h2 {
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.cta-banner p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #2C2218;
+  color: rgba(255,255,255,0.7);
+  padding: 40px 20px 20px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.footer p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary-light);
+}
+
+.footer-links a i {
+  margin-right: 8px;
+  font-size: 11px;
+  color: var(--primary-light);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-up {
+  opacity: 1;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== NUMBER STATS ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.stat {
+  text-align: center;
+  padding: 20px 12px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 900;
+  color: #FFD54F;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-number span {
+  font-size: 16px;
+}
+
+.stat-label {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 480px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 80px 30px;
+  }
+  .section-title {
+    font-size: 30px;
+  }
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .hamburger {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 38px;
+  }
+  .hero-sub {
+    font-size: 16px;
+  }
+  .hero-catch {
+    font-size: 22px;
+  }
+  .concept-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .concept-image img {
+    height: 360px;
+  }
+  .concept-values {
+    grid-template-columns: 1fr 1fr;
+  }
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .study-content {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .study-image img {
+    height: 320px;
+  }
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .office-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cta-banner h2 {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 100px 40px;
+  }
+  .section-title {
+    font-size: 34px;
+  }
+  .hero h1 {
+    font-size: 44px;
+  }
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .concept-image img {
+    height: 420px;
+  }
+}
+
+/* ===== FLOATING CONTACT ===== */
+.float-contact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.float-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.float-btn:hover {
+  transform: scale(1.1);
+}
+
+.float-btn.phone {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+}
+
+.float-btn.top {
+  background: var(--accent);
+  font-size: 18px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+}
+
+.float-btn.top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .float-contact {
+    bottom: 30px;
+    right: 30px;
+  }
+}
+</style>
+
+<style>
+/* QA Fix: Make all animated elements visible by default */
+.fade-up, .fade-in, .fade-down, .fade-left, .fade-right,
+.animate, .reveal, [class*="fade"] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+</style>
+
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">小</div>
+      <div class="logo-text">
+        小野澤寿一税理士事務所
+        <span>Catch the dream</span>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#concept">コンセプト</a>
+      <a href="#services">サービス</a>
+      <a href="#study">お金の勉強会</a>
+      <a href="#testimonials">お客様の声</a>
+      <a href="#office">事務所概要</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#concept">コンセプト</a>
+  <a href="#services">サービス</a>
+  <a href="#study">お金の勉強会</a>
+  <a href="#testimonials">お客様の声</a>
+  <a href="#office">事務所概要</a>
+  <a href="#contact">お問い合わせ</a>
+  <a href="tel:045-315-6921" class="nav-cta"><i class="fas fa-phone"></i> お電話でのお問い合わせ</a>
+</nav>
+<div class="overlay" id="overlay"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="https://www.onozawajuichi.com/wp-content/themes/onozawajuichi_theme/images/toppage_eye_catch_image.png" alt="小野澤寿一税理士事務所">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-leaf"></i> 横浜市南区の税理士事務所</div>
+    <h1>
+      共に<span class="highlight">元気</span>で<br>
+      在り続けるために。
+    </h1>
+    <p class="hero-sub">わかりやすい会計で、安心経営のお手伝い。<br>会社にお金を残すための経営サポートをいたします。</p>
+    <p class="hero-catch">＝ Catch the dream ＝</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
+      <a href="#services" class="btn btn-outline"><i class="fas fa-arrow-right"></i> サービスを見る</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ===== CONCEPT ===== -->
+<section class="section concept" id="concept">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="section-label">Concept</span>
+      <h2 class="section-title">元に、<span class="green">元気で在り続ける</span>ために</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">経営者の皆さまが安心して事業に集中できるよう、<br>税務のプロフェッショナルとして寄り添います。</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-image fade-up">
+        <img src="https://www.onozawajuichi.com/wp-content/themes/onozawajuichi_theme/images/toppage_about_eye_catch-2.jpg" alt="小野澤寿一税理士">
+      </div>
+      <div class="concept-text fade-up">
+        <h3>経営者の夢を、<br>税務の力で支える。</h3>
+        <p>小野澤寿一税理士事務所は、単なる数字の処理ではなく、経営者の皆さまの「想い」に寄り添うことを大切にしています。</p>
+        <p>お金の流れを「見える化」し、経営判断をサポート。会社にお金を残すための戦略的な税務サービスをご提供します。</p>
+        <div class="concept-values">
+          <div class="concept-value">
+            <i class="fas fa-heart"></i>
+            <div>
+              <h4>寄り添う姿勢</h4>
+              <p>お客様一人ひとりの状況を理解し、最適なアドバイスを行います。</p>
+            </div>
+          </div>
+          <div class="concept-value">
+            <i class="fas fa-chart-line"></i>
+            <div>
+              <h4>わかりやすさ</h4>
+              <p>難しい税務をわかりやすく説明し、経営に活かせる情報をお届けします。</p>
+            </div>
+          </div>
+          <div class="concept-value">
+            <i class="fas fa-shield-halved"></i>
+            <div>
+              <h4>安心のサポート</h4>
+              <p>決算・申告から日常の相談まで、いつでも頼れるパートナーです。</p>
+            </div>
+          </div>
+          <div class="concept-value">
+            <i class="fas fa-lightbulb"></i>
+            <div>
+              <h4>戦略的な提案</h4>
+              <p>節税だけでなく、将来を見据えた経営戦略をご提案します。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="section-label">Services</span>
+      <h2 class="section-title">あなたの経営を支える<span class="green">サービス</span></h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">法人・個人を問わず、幅広い税務サービスで<br>皆さまの事業をサポートいたします。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-piggy-bank"></i></div>
+        <h3>節税対策</h3>
+        <p>合法的かつ効果的な節税戦略で、会社にお金を残すお手伝いをします。将来を見据えた長期的な視点でアドバイスいたします。</p>
+        <div class="service-tags">
+          <span class="service-tag">法人税</span>
+          <span class="service-tag">所得税</span>
+          <span class="service-tag">相続税</span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-calculator"></i></div>
+        <h3>決算支援</h3>
+        <p>月次決算から年次決算まで、正確でスピーディな決算業務をサポート。経営状況をタイムリーに把握できます。</p>
+        <div class="service-tags">
+          <span class="service-tag">月次決算</span>
+          <span class="service-tag">年次決算</span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+        <h3>確定申告</h3>
+        <p>個人事業主の確定申告から、独立開業・会社設立時の届出まで、幅広く対応いたします。</p>
+        <div class="service-tags">
+          <span class="service-tag">独立開業</span>
+          <span class="service-tag">会社設立</span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-building"></i></div>
+        <h3>法人向けサービス</h3>
+        <p>法人税申告、消費税対応、経営計画策定など、法人経営に必要な税務サービスをワンストップでご提供します。</p>
+        <div class="service-tags">
+          <span class="service-tag">法人税申告</span>
+          <span class="service-tag">消費税</span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-user"></i></div>
+        <h3>個人向けサービス</h3>
+        <p>個人の確定申告、不動産所得、資産管理など、個人のお客様の税務全般をサポートいたします。</p>
+        <div class="service-tags">
+          <span class="service-tag">確定申告</span>
+          <span class="service-tag">資産管理</span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-comments"></i></div>
+        <h3>税務相談・サポート</h3>
+        <p>日々の経理処理から税務に関する疑問まで、いつでもお気軽にご相談いただけます。丁寧にお答えします。</p>
+        <div class="service-tags">
+          <span class="service-tag">経理相談</span>
+          <span class="service-tag">税務相談</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STUDY SESSION ===== -->
+<section class="section study" id="study">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="section-label">Money Study</span>
+      <h2 class="section-title">お金の勉強会</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">お金の流れや儲けの仕組みを学ぶ、<br>経営者のための実践的な講座です。</p>
+    </div>
+    <div class="study-content">
+      <div class="study-image fade-up">
+        <img src="https://www.onozawajuichi.com/wp-content/themes/onozawajuichi_theme/images/money.png" alt="お金の勉強会">
+      </div>
+      <div class="study-features fade-up">
+        <div class="study-feature">
+          <div class="study-feature-icon"><i class="fas fa-coins"></i></div>
+          <div>
+            <h4>お金の流れを理解する</h4>
+            <p>売上からどのようにお金が流れ、手元にいくら残るのか。経営に不可欠な資金の流れを学びます。</p>
+          </div>
+        </div>
+        <div class="study-feature">
+          <div class="study-feature-icon"><i class="fas fa-chart-pie"></i></div>
+          <div>
+            <h4>儲けの仕組みを知る</h4>
+            <p>利益が出る仕組み、コスト構造の最適化など、経営を強くするための知識を身につけます。</p>
+          </div>
+        </div>
+        <div class="study-feature">
+          <div class="study-feature-icon"><i class="fas fa-handshake"></i></div>
+          <div>
+            <h4>経営者同士の交流</h4>
+            <p>勉強会を通じて経営者同士がつながり、互いに刺激し合える場を提供しています。</p>
+          </div>
+        </div>
+        <div class="study-feature">
+          <div class="study-feature-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div>
+            <h4>わかりやすい解説</h4>
+            <p>専門用語を使わず、図解やケーススタディを用いてどなたにもわかりやすく解説します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stats fade-up">
+      <div class="stat">
+        <div class="stat-number">20<span>年+</span></div>
+        <div class="stat-label">実務経験</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">300<span>社+</span></div>
+        <div class="stat-label">サポート実績</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">98<span>%</span></div>
+        <div class="stat-label">顧客満足度</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">50<span>回+</span></div>
+        <div class="stat-label">勉強会開催</div>
+      </div>
+    </div>
+    <div class="study-cta fade-up">
+      <a href="#contact" class="btn btn-primary"><i class="fas fa-calendar-check"></i> 勉強会に参加する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section testimonials" id="testimonials">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="section-label">Voice</span>
+      <h2 class="section-title"><span class="green">お客様</span>の声</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">実際にサービスをご利用いただいた<br>お客様からの声をご紹介します。</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">独立開業の際に小野澤先生にお世話になりました。会社設立から税務届出まで丁寧にサポートしていただき、安心してスタートを切ることができました。今でも月次の相談で頼りにしています。</p>
+        <div class="testimonial-author">
+          <img src="https://picsum.photos/seed/tax1/100/100" alt="" class="testimonial-avatar">
+          <div class="testimonial-info">
+            <h4>T.K. 様</h4>
+            <p>IT企業 代表取締役</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">お金の勉強会に参加してから、経営に対する考え方が変わりました。お金の流れが「見える」ようになり、自信を持って経営判断ができるようになりました。もっと早く出会いたかったです。</p>
+        <div class="testimonial-author">
+          <img src="https://picsum.photos/seed/tax2/100/100" alt="" class="testimonial-avatar">
+          <div class="testimonial-info">
+            <h4>M.S. 様</h4>
+            <p>飲食店経営</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">難しい税務の話もわかりやすく説明してくれるので、とても助かっています。節税対策のおかげで毎年の税負担が軽減され、その分を事業投資に回すことができています。</p>
+        <div class="testimonial-author">
+          <img src="https://picsum.photos/seed/tax3/100/100" alt="" class="testimonial-avatar">
+          <div class="testimonial-info">
+            <h4>Y.N. 様</h4>
+            <p>建設業 個人事業主</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">確定申告の時期になるといつも不安でしたが、小野澤先生にお願いしてからはストレスがなくなりました。事前にしっかり準備を進めてくれるので、安心して本業に集中できます。</p>
+        <div class="testimonial-author">
+          <img src="https://picsum.photos/seed/tax4/100/100" alt="" class="testimonial-avatar">
+          <div class="testimonial-info">
+            <h4>A.H. 様</h4>
+            <p>フリーランスデザイナー</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">法人化のタイミングや届出について相談したところ、メリット・デメリットを丁寧に教えていただきました。おかげさまでベストなタイミングで法人化でき、節税効果も実感しています。</p>
+        <div class="testimonial-author">
+          <img src="https://picsum.photos/seed/tax5/100/100" alt="" class="testimonial-avatar">
+          <div class="testimonial-info">
+            <h4>R.O. 様</h4>
+            <p>美容サロン経営</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">決算の内容をグラフや図で説明してくれるので、経営の全体像が把握しやすいです。「数字が苦手」という意識が変わりました。小野澤先生の勉強会は本当におすすめです。</p>
+        <div class="testimonial-author">
+          <img src="https://picsum.photos/seed/tax6/100/100" alt="" class="testimonial-avatar">
+          <div class="testimonial-info">
+            <h4>K.M. 様</h4>
+            <p>小売業 代表</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFICE ===== -->
+<section class="section office" id="office">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="section-label">Office</span>
+      <h2 class="section-title"><span class="green">事務所</span>概要</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="office-grid fade-up">
+      <div class="office-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.8!2d139.617!3d35.441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z56We5aWI5bed55yM5qiq5rWc5biC5Y2X5Yy66Iul5a6u55S6MS0z!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="事務所の地図"></iframe>
+      </div>
+      <div class="office-info">
+        <h3><i class="fas fa-building-columns" style="margin-right:8px;"></i>事務所情報</h3>
+        <div class="office-detail">
+          <div class="office-detail-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="office-detail-content">
+            <h4>事務所名</h4>
+            <p>小野澤寿一税理士事務所</p>
+          </div>
+        </div>
+        <div class="office-detail">
+          <div class="office-detail-icon"><i class="fas fa-user-tie"></i></div>
+          <div class="office-detail-content">
+            <h4>代表</h4>
+            <p>小野澤 寿一（おのざわ じゅいち）</p>
+          </div>
+        </div>
+        <div class="office-detail">
+          <div class="office-detail-icon"><i class="fas fa-location-dot"></i></div>
+          <div class="office-detail-content">
+            <h4>所在地</h4>
+            <p>〒232-0055<br>神奈川県横浜市南区若宮町1-3<br>タートルハウス202</p>
+          </div>
+        </div>
+        <div class="office-detail">
+          <div class="office-detail-icon"><i class="fas fa-phone"></i></div>
+          <div class="office-detail-content">
+            <h4>電話番号</h4>
+            <p><a href="tel:045-315-6921">045-315-6921</a></p>
+          </div>
+        </div>
+        <div class="office-detail">
+          <div class="office-detail-icon"><i class="fas fa-globe"></i></div>
+          <div class="office-detail-content">
+            <h4>ウェブサイト</h4>
+            <p><a href="https://www.onozawajuichi.com/" target="_blank" rel="noopener">www.onozawajuichi.com</a></p>
+          </div>
+        </div>
+        <div class="office-detail">
+          <div class="office-detail-icon"><i class="fas fa-train"></i></div>
+          <div class="office-detail-content">
+            <h4>アクセス</h4>
+            <p>京急本線「黄金町駅」より徒歩約3分<br>横浜市営地下鉄「阪東橋駅」より徒歩約5分</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">お気軽に<span class="green">ご相談</span>ください</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">初回のご相談は無料です。<br>まずはお気軽にお問い合わせください。</p>
+    </div>
+    <div class="contact-cards fade-up">
+      <div class="contact-card">
+        <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+        <h3>お電話でのお問い合わせ</h3>
+        <p>平日 9:00〜18:00<br>お気軽にお電話ください</p>
+        <a href="tel:045-315-6921" class="phone-number">045-315-6921</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+        <h3>メールでのお問い合わせ</h3>
+        <p>24時間受付中<br>2営業日以内にご返信いたします</p>
+        <a href="mailto:info@onozawajuichi.com" class="btn btn-primary" style="margin-top:4px;"><i class="fas fa-paper-plane"></i> メールを送る</a>
+      </div>
+    </div>
+    <p class="contact-note fade-up">
+      <i class="fas fa-info-circle" style="color:var(--primary);margin-right:4px;"></i>
+      ご相談内容に応じて、対面・オンライン（Zoom等）での面談も承っております。<br>
+      お気軽にお申し付けください。
+    </p>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+  <div class="section-inner fade-up">
+    <h2>共に元気で在り続けるために。<br>まずは、お話を聞かせてください。</h2>
+    <p>あなたの経営の夢を、税務のプロフェッショナルが全力でサポートします。</p>
+    <a href="tel:045-315-6921" class="btn btn-primary"><i class="fas fa-phone"></i> 045-315-6921</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h4>小野澤寿一税理士事務所</h4>
+        <p>〒232-0055<br>神奈川県横浜市南区若宮町1-3<br>タートルハウス202</p>
+        <p style="margin-top:10px;">TEL: <a href="tel:045-315-6921" style="color:var(--primary-light);">045-315-6921</a></p>
+      </div>
+      <div>
+        <h4>サービス</h4>
+        <ul class="footer-links">
+          <li><a href="#services"><i class="fas fa-chevron-right"></i>節税対策</a></li>
+          <li><a href="#services"><i class="fas fa-chevron-right"></i>決算支援</a></li>
+          <li><a href="#services"><i class="fas fa-chevron-right"></i>確定申告</a></li>
+          <li><a href="#services"><i class="fas fa-chevron-right"></i>法人向けサービス</a></li>
+          <li><a href="#services"><i class="fas fa-chevron-right"></i>個人向けサービス</a></li>
+          <li><a href="#study"><i class="fas fa-chevron-right"></i>お金の勉強会</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ページ</h4>
+        <ul class="footer-links">
+          <li><a href="#concept"><i class="fas fa-chevron-right"></i>コンセプト</a></li>
+          <li><a href="#testimonials"><i class="fas fa-chevron-right"></i>お客様の声</a></li>
+          <li><a href="#office"><i class="fas fa-chevron-right"></i>事務所概要</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i>お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 小野澤寿一税理士事務所 All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING BUTTONS ===== -->
+<div class="float-contact">
+  <button class="float-btn top" id="backToTop" aria-label="ページトップへ戻る"><i class="fas fa-chevron-up"></i></button>
+  <a href="tel:045-315-6921" class="float-btn phone" aria-label="電話する"><i class="fas fa-phone"></i></a>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  'use strict';
+
+  // Header scroll effect
+  const header = document.getElementById('header');
+  const backToTop = document.getElementById('backToTop');
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+    header.classList.toggle('scrolled', scrollY > 50);
+    backToTop.classList.toggle('show', scrollY > 500);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Back to top
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const overlay = document.getElementById('overlay');
+
+  function toggleNav() {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('open');
+    overlay.classList.toggle('show');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  }
+
+  hamburger.addEventListener('click', toggleNav);
+  overlay.addEventListener('click', toggleNav);
+
+  // Close mobile nav on link click
+  mobileNav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (mobileNav.classList.contains('open')) {
+        toggleNav();
+      }
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        var offset = header.offsetHeight + 10;
+        var targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Scroll animations
+  var fadeElements = document.querySelectorAll('.fade-up');
+
+  function checkFade() {
+    var windowHeight = window.innerHeight;
+    fadeElements.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < windowHeight * 0.88) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkFade, { passive: true });
+  window.addEventListener('load', checkFade);
+  checkFade();
+})();
+</script>
+</body>
+</html>

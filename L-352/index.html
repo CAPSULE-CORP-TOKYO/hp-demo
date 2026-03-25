@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五十嵐一郎税理士事務所 | 横浜市中区の税理士 - 無料相談受付中</title>
+<meta name="description" content="横浜市中区の五十嵐一郎税理士事務所。相続税対策、確定申告、税務顧問など幅広くサポート。初回無料相談実施中。お気軽にご相談ください。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #0066CC;
+  --primary-dark: #004488;
+  --primary-light: #e8f2ff;
+  --accent: #FF8C00;
+  --accent-hover: #e67e00;
+  --text: #333333;
+  --text-light: #666666;
+  --bg-white: #ffffff;
+  --bg-light: #f7f9fc;
+  --bg-gray: #eef2f7;
+  --shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  line-height: 1.8;
+  background: var(--bg-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  transition: box-shadow var(--transition);
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 36px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  line-height: 1.3;
+}
+
+.logo-text small {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-phone {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.header-phone i {
+  color: var(--accent);
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.header-cta:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--primary-dark);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Nav */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--bg-white);
+  z-index: 999;
+  transition: right 0.4s ease;
+  padding: 80px 30px 40px;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+  overflow-y: auto;
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: 1px solid var(--bg-gray);
+}
+
+.mobile-nav a:hover {
+  color: var(--primary);
+}
+
+.mobile-nav .nav-cta {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+  background: var(--accent);
+  color: #fff;
+  padding: 14px;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+/* Desktop Nav */
+.desktop-nav {
+  display: none;
+}
+
+.desktop-nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all var(--transition);
+}
+
+.desktop-nav a:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #0077dd 100%);
+  overflow: hidden;
+  padding: 100px 20px 60px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://picsum.photos/1600/900?grayscale&blur=2') center/cover no-repeat;
+  opacity: 0.1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, var(--bg-white), transparent);
+}
+
+.hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.03) 0%, transparent 50%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  max-width: 700px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 140, 0, 0.9);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  animation: fadeInDown 0.8s ease;
+}
+
+.hero-badge i {
+  font-size: 0.75rem;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  animation: fadeInUp 1.2s ease;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(255, 140, 0, 0.4);
+}
+
+.btn-accent:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 140, 0, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+  animation: fadeInUp 1.4s ease;
+}
+
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.hero-trust-item i {
+  color: var(--accent);
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 70px 0;
+}
+
+.section-alt {
+  background: var(--bg-light);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.section-header .en-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.section-header p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== REASONS (選ばれる理由) ===== */
+.reasons-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.reason-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.reason-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.reason-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.reason-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: var(--primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary);
+  transition: all var(--transition);
+}
+
+.reason-card:hover .reason-icon {
+  background: var(--primary);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.reason-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+
+.reason-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ===== SERVICES ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.service-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  border-left: 4px solid var(--primary);
+}
+
+.service-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-lg);
+  border-left-color: var(--accent);
+}
+
+.service-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--primary-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.service-card:hover .service-icon {
+  background: var(--primary);
+  color: #fff;
+}
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+}
+
+.service-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ===== PRICING ===== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.pricing-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.pricing-card.featured {
+  border-color: var(--accent);
+}
+
+.pricing-card.featured::after {
+  content: '人気No.1';
+  position: absolute;
+  top: -1px;
+  right: 20px;
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pricing-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.pricing-card .price {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.pricing-card .price small {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.pricing-card .price-note {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.pricing-card ul {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.pricing-card ul li {
+  padding: 8px 0;
+  font-size: 0.88rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--bg-gray);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pricing-card ul li i {
+  color: var(--primary);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.pricing-card .btn {
+  width: 100%;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  padding: 60px 0;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+
+.cta-section h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.cta-section p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.cta-phone {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.cta-phone a {
+  color: #fff;
+}
+
+.cta-phone i {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.cta-hours {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+/* ===== OFFICE INFO ===== */
+.office-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.office-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  aspect-ratio: 16 / 10;
+}
+
+.office-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.office-table {
+  width: 100%;
+}
+
+.office-table tr {
+  border-bottom: 1px solid var(--bg-gray);
+}
+
+.office-table th,
+.office-table td {
+  padding: 14px 8px;
+  text-align: left;
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+
+.office-table th {
+  font-weight: 700;
+  color: var(--primary-dark);
+  white-space: nowrap;
+  width: 100px;
+}
+
+.office-table td {
+  color: var(--text);
+}
+
+/* ===== ACCESS ===== */
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
+
+.access-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.access-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg-white);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.access-item i {
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.access-item h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 2px;
+}
+
+.access-item p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.8);
+  padding: 48px 0 24px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.footer-brand img {
+  height: 40px;
+  margin-bottom: 12px;
+  filter: brightness(1.5);
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.footer h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  display: block;
+  padding: 5px 0;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-contact p {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.footer-contact i {
+  color: var(--accent);
+  margin-right: 8px;
+  width: 16px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8rem;
+}
+
+.footer-bottom .ssl-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+}
+
+.footer-bottom .ssl-badge i {
+  color: #4caf50;
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* ===== FLOATING PHONE BUTTON (MOBILE) ===== */
+.floating-phone {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
+  width: 56px;
+  height: 56px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 20px rgba(255, 140, 0, 0.4);
+  transition: all var(--transition);
+}
+
+.floating-phone:hover {
+  transform: scale(1.1);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(255, 140, 0, 0.5);
+}
+
+/* ===== RESPONSIVE: TABLET ===== */
+@media (min-width: 640px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .access-info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== RESPONSIVE: DESKTOP ===== */
+@media (min-width: 960px) {
+  .section {
+    padding: 100px 0;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .header-phone {
+    display: flex;
+  }
+
+  .header-inner {
+    padding: 14px 20px;
+  }
+
+  .logo img {
+    height: 42px;
+  }
+
+  .logo-text {
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    min-height: 100vh;
+    padding: 120px 20px 80px;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .office-content {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .map-container iframe {
+    height: 400px;
+  }
+
+  .floating-phone {
+    display: none;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .cta-phone {
+    font-size: 2rem;
+  }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .header, .floating-phone, .cta-section { display: none; }
+  .hero { min-height: auto; padding: 40px 20px; }
+  .section { padding: 30px 0; }
+}
+</style>
+
+<style>
+/* QA Fix: Make all animated elements visible by default */
+.fade-up, .fade-in, .fade-down, .fade-left, .fade-right,
+.animate, .reveal, [class*="fade"] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+</style>
+
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="http://www.best-tax-navi.com/common_img/logo.png" alt="五十嵐一郎税理士事務所" onerror="this.style.display='none'">
+      <div class="logo-text">五十嵐一郎税理士事務所<small>横浜市中区の税理士</small></div>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#reasons">選ばれる理由</a>
+      <a href="#services">サービス</a>
+      <a href="#pricing">料金</a>
+      <a href="#office">事務所案内</a>
+      <a href="#access">アクセス</a>
+    </nav>
+    <div class="header-right">
+      <div class="header-phone">
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:045-264-9106" style="color: inherit;">045-264-9106</a>
+      </div>
+      <a href="#contact" class="header-cta">
+        <i class="fas fa-envelope"></i>無料相談
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav-overlay" id="navOverlay"></div>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#reasons">選ばれる理由</a>
+  <a href="#services">サービス一覧</a>
+  <a href="#pricing">料金プラン</a>
+  <a href="#office">事務所概要</a>
+  <a href="#access">アクセス</a>
+  <a href="#contact" class="nav-cta"><i class="fas fa-envelope"></i> 無料相談はこちら</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-comments"></i>無料相談実施中</div>
+    <h1>税務のお悩み、<br><span>真心</span>で解決します</h1>
+    <p class="hero-sub">横浜市中区で30年以上の実績。<br>初めての方も安心してご相談ください。<br>お客様一人ひとりに最適なプランをご提案いたします。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-accent pulse"><i class="fas fa-envelope"></i>無料相談を予約する</a>
+      <a href="tel:045-264-9106" class="btn btn-outline"><i class="fas fa-phone-alt"></i>045-264-9106</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><i class="fas fa-check-circle"></i>初回相談無料</div>
+      <div class="hero-trust-item"><i class="fas fa-check-circle"></i>スピード対応</div>
+      <div class="hero-trust-item"><i class="fas fa-check-circle"></i>明確な料金体系</div>
+      <div class="hero-trust-item"><i class="fas fa-check-circle"></i>法人・個人対応</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 選ばれる理由 ===== -->
+<section class="section" id="reasons">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">Why Choose Us</span>
+      <h2>五十嵐税理士事務所が<br>選ばれる3つの理由</h2>
+      <p>お客様に寄り添い、税務を真心で取り扱う。それが私たちのモットーです。</p>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card fade-in">
+        <div class="reason-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <h3>真心のサポート</h3>
+        <p>お客様一人ひとりの状況に合わせた丁寧なカウンセリング。税務が初めての方にも分かりやすくご説明いたします。</p>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-icon"><i class="fas fa-bolt"></i></div>
+        <h3>スピード対応</h3>
+        <p>迅速な対応でお客様の大切な時間を無駄にしません。急ぎの案件にも柔軟に対応いたします。</p>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-icon"><i class="fas fa-coins"></i></div>
+        <h3>明確な料金体系</h3>
+        <p>月額40,000円〜の分かりやすい料金設定。隠れた費用は一切ございません。コストパフォーマンスに自信があります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== サービス一覧 ===== -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">Services</span>
+      <h2>サービス一覧</h2>
+      <p>法人・個人を問わず、幅広い税務サービスをご提供しています。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in-left">
+        <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+        <div>
+          <h3>税務顧問サービス</h3>
+          <p>月次の記帳指導から決算・申告まで、企業の税務を包括的にサポートします。経営判断に役立つアドバイスも。</p>
+        </div>
+      </div>
+      <div class="service-card fade-in-right">
+        <div class="service-icon"><i class="fas fa-landmark"></i></div>
+        <div>
+          <h3>相続税対策</h3>
+          <p>相続税の試算から節税対策、遺産分割協議のサポートまで。大切な財産を次世代にしっかり引き継ぐお手伝いをします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-in-left">
+        <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+        <div>
+          <h3>確定申告サポート</h3>
+          <p>個人事業主・フリーランスの確定申告を徹底サポート。青色申告の届出から書類作成、提出まで安心してお任せください。</p>
+        </div>
+      </div>
+      <div class="service-card fade-in-right">
+        <div class="service-icon"><i class="fas fa-comments-dollar"></i></div>
+        <div>
+          <h3>初めての税務相談</h3>
+          <p>起業したばかり、税務が初めてという方も大歓迎。基礎から丁寧にご説明し、最適な税務体制の構築をお手伝いします。</p>
+        </div>
+      </div>
+      <div class="service-card fade-in-left">
+        <div class="service-icon"><i class="fas fa-building"></i></div>
+        <div>
+          <h3>法人税務</h3>
+          <p>法人設立から決算、税務申告、節税対策まで。会社の成長ステージに合わせた最適な税務戦略をご提案します。</p>
+        </div>
+      </div>
+      <div class="service-card fade-in-right">
+        <div class="service-icon"><i class="fas fa-user-check"></i></div>
+        <div>
+          <h3>個人の税務</h3>
+          <p>所得税、住民税、不動産関連の税務など、個人のお客様の様々な税務ニーズにお応えします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 料金プラン ===== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">Pricing</span>
+      <h2>料金プラン</h2>
+      <p>明確な料金体系で安心してご利用いただけます。まずはお気軽にご相談ください。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-in">
+        <h3>ライトプラン</h3>
+        <div class="price">40,000<small>円/月〜</small></div>
+        <p class="price-note">個人事業主・小規模法人向け</p>
+        <ul>
+          <li><i class="fas fa-check"></i>月次記帳チェック</li>
+          <li><i class="fas fa-check"></i>確定申告・決算</li>
+          <li><i class="fas fa-check"></i>税務相談（月2回）</li>
+          <li><i class="fas fa-check"></i>メール・電話サポート</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">無料相談する</a>
+      </div>
+      <div class="pricing-card featured fade-in">
+        <h3>スタンダードプラン</h3>
+        <div class="price">70,000<small>円/月〜</small></div>
+        <p class="price-note">中小企業向け</p>
+        <ul>
+          <li><i class="fas fa-check"></i>月次記帳代行</li>
+          <li><i class="fas fa-check"></i>決算・法人税申告</li>
+          <li><i class="fas fa-check"></i>税務相談（無制限）</li>
+          <li><i class="fas fa-check"></i>節税アドバイス</li>
+          <li><i class="fas fa-check"></i>経営数値レポート</li>
+        </ul>
+        <a href="#contact" class="btn btn-accent">無料相談する</a>
+      </div>
+      <div class="pricing-card fade-in">
+        <h3>プレミアムプラン</h3>
+        <div class="price">120,000<small>円/月〜</small></div>
+        <p class="price-note">成長企業・複数事業向け</p>
+        <ul>
+          <li><i class="fas fa-check"></i>スタンダード全機能</li>
+          <li><i class="fas fa-check"></i>経営コンサルティング</li>
+          <li><i class="fas fa-check"></i>資金調達サポート</li>
+          <li><i class="fas fa-check"></i>相続・事業承継対策</li>
+          <li><i class="fas fa-check"></i>優先対応</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">無料相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 無料相談 CTA ===== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2 class="fade-in">税務のことでお悩みですか？<br>まずはお気軽にご相談ください</h2>
+    <p class="fade-in">初回のご相談は無料です。お電話またはお問い合わせフォームよりご連絡ください。</p>
+    <div class="cta-phone fade-in">
+      <a href="tel:045-264-9106"><i class="fas fa-phone-alt"></i>045-264-9106</a>
+    </div>
+    <p class="cta-hours fade-in">受付時間：平日 9:00〜18:00（土日祝日休み）</p>
+    <a href="mailto:info@best-tax-navi.com" class="btn btn-accent fade-in" style="position: relative;">
+      <i class="fas fa-envelope"></i>メールで無料相談する
+    </a>
+  </div>
+</section>
+
+<!-- ===== 事務所概要 ===== -->
+<section class="section section-alt" id="office">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">About Us</span>
+      <h2>事務所概要</h2>
+    </div>
+    <div class="office-content">
+      <div class="office-image fade-in-left">
+        <img src="https://picsum.photos/600/400?random=1" alt="五十嵐一郎税理士事務所の外観" loading="lazy">
+      </div>
+      <div class="fade-in-right">
+        <table class="office-table">
+          <tr>
+            <th>事務所名</th>
+            <td>五十嵐一郎税理士事務所</td>
+          </tr>
+          <tr>
+            <th>代表者</th>
+            <td>五十嵐 一郎（税理士）</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>〒231-0005<br>神奈川県横浜市中区本町3-24<br>本庁中央ビル202</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><a href="tel:045-264-9106">045-264-9106</a></td>
+          </tr>
+          <tr>
+            <th>営業時間</th>
+            <td>平日 9:00〜18:00</td>
+          </tr>
+          <tr>
+            <th>定休日</th>
+            <td>土曜・日曜・祝日</td>
+          </tr>
+          <tr>
+            <th>業務内容</th>
+            <td>税務顧問、相続税対策、確定申告、法人・個人の税務相談、記帳代行、経営コンサルティング</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== アクセス ===== -->
+<section class="section" id="access">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="en-label">Access</span>
+      <h2>アクセス</h2>
+      <p>横浜市中区本町、みなとみらい線「馬車道駅」より徒歩すぐ。</p>
+    </div>
+    <div class="map-container fade-in">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.0!2d139.636!3d35.447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185cf0e99!2z5pys55S677yT5LiB55uu!5e0!3m2!1sja!2sjp!4v1"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="五十嵐一郎税理士事務所の地図">
+      </iframe>
+    </div>
+    <div class="access-info">
+      <div class="access-item fade-in">
+        <i class="fas fa-train"></i>
+        <div>
+          <h4>電車でお越しの方</h4>
+          <p>みなとみらい線「馬車道駅」5番出口より徒歩3分。JR「関内駅」北口より徒歩5分。</p>
+        </div>
+      </div>
+      <div class="access-item fade-in">
+        <i class="fas fa-car"></i>
+        <div>
+          <h4>お車でお越しの方</h4>
+          <p>近隣にコインパーキングがございます。お車でお越しの際はお気軽にお問い合わせください。</p>
+        </div>
+      </div>
+      <div class="access-item fade-in">
+        <i class="fas fa-building"></i>
+        <div>
+          <h4>ビルについて</h4>
+          <p>本庁中央ビル202号室。1階エントランスよりエレベーターで2階へお上がりください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="http://www.best-tax-navi.com/common_img/f_logo.jpg" alt="五十嵐一郎税理士事務所" onerror="this.style.display='none'">
+        <p>横浜市中区の税理士事務所。法人・個人を問わず、税務のことなら何でもご相談ください。真心を込めたサポートをお約束します。</p>
+      </div>
+      <div class="footer-links">
+        <h4>サービス</h4>
+        <a href="#services">税務顧問サービス</a>
+        <a href="#services">相続税対策</a>
+        <a href="#services">確定申告サポート</a>
+        <a href="#services">法人・個人の税務</a>
+        <a href="#pricing">料金プラン</a>
+      </div>
+      <div class="footer-contact">
+        <h4>お問い合わせ</h4>
+        <p><i class="fas fa-phone-alt"></i><a href="tel:045-264-9106" style="color: inherit;">045-264-9106</a></p>
+        <p><i class="fas fa-clock"></i>平日 9:00〜18:00</p>
+        <p><i class="fas fa-map-marker-alt"></i>横浜市中区本町3-24<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本庁中央ビル202</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="ssl-badge"><i class="fas fa-lock"></i>SSL暗号化通信対応</div>
+      <p>&copy; 2026 五十嵐一郎税理士事務所. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Phone Button (Mobile) -->
+<a href="tel:045-264-9106" class="floating-phone" aria-label="電話する">
+  <i class="fas fa-phone-alt"></i>
+</a>
+
+<script>
+// ===== MOBILE NAV =====
+(function() {
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const overlay = document.getElementById('navOverlay');
+
+  function toggleNav() {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('open');
+    overlay.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  }
+
+  function closeNav() {
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', toggleNav);
+  overlay.addEventListener('click', closeNav);
+  mobileNav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeNav);
+  });
+})();
+
+// ===== STICKY HEADER SHADOW =====
+(function() {
+  var header = document.getElementById('header');
+  var lastScroll = 0;
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    lastScroll = scrollY;
+  }, { passive: true });
+})();
+
+// ===== SCROLL FADE-IN ANIMATIONS =====
+(function() {
+  var elements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+
+  function checkVisibility() {
+    var windowHeight = window.innerHeight;
+    elements.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < windowHeight - 60) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  // Stagger animations for cards in same row
+  function staggerAnimations() {
+    var grids = document.querySelectorAll('.reasons-grid, .pricing-grid');
+    grids.forEach(function(grid) {
+      var cards = grid.querySelectorAll('.fade-in');
+      cards.forEach(function(card, index) {
+        card.style.transitionDelay = (index * 0.15) + 's';
+      });
+    });
+  }
+
+  staggerAnimations();
+  checkVisibility();
+  window.addEventListener('scroll', checkVisibility, { passive: true });
+  window.addEventListener('resize', checkVisibility, { passive: true });
+})();
+
+// ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+(function() {
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        var headerHeight = document.getElementById('header').offsetHeight;
+        var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
