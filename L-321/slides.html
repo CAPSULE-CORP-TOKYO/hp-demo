@@ -20,71 +20,80 @@ html,body{background:#000}
 
 /* Progress */
 .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#a78bfa,#6366f1);transition:width .4s ease;z-index:100}
-.page-num{position:fixed;bottom:12px;right:20px;font-size:12px;color:#bbb;z-index:100;font-weight:300}
-@media(min-width:900px){.page-num{bottom:20px;right:30px;font-size:13px;color:#999}}
+.page-num{position:fixed;bottom:12px;right:20px;font-size:13px;color:#bbb;z-index:100;font-weight:300}
+@media(min-width:900px){.page-num{bottom:20px;right:30px;font-size:14px;color:#999}}
 
-/* Typography */
-.s-label{font-size:clamp(11px,1.2vw,14px);font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#6366f1;margin-bottom:1.5em}
-.s-title{font-size:clamp(22px,3.5vw,48px);font-weight:700;line-height:1.3;color:#111;letter-spacing:-.02em}
-.s-title-sm{font-size:clamp(18px,2.8vw,38px);font-weight:700;line-height:1.35;color:#111;letter-spacing:-.02em}
-.s-body{font-size:clamp(13px,1.4vw,18px);font-weight:300;line-height:1.8;color:#444;margin-top:1.2em}
-.s-sub{font-size:clamp(12px,1.2vw,15px);font-weight:300;color:#888;margin-top:.8em}
+/* Typography — larger sizes */
+.s-label{font-size:clamp(12px,1.4vw,16px);font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#6366f1;margin-bottom:1.2em}
+.s-title{font-size:clamp(26px,4vw,54px);font-weight:700;line-height:1.3;color:#111;letter-spacing:-.02em}
+.s-title-sm{font-size:clamp(22px,3.2vw,44px);font-weight:700;line-height:1.35;color:#111;letter-spacing:-.02em}
+.s-body{font-size:clamp(15px,1.6vw,20px);font-weight:300;line-height:1.8;color:#444;margin-top:1.2em}
+.s-sub{font-size:clamp(13px,1.3vw,16px);font-weight:300;color:#888;margin-top:.8em}
 
 /* Cover */
 .cover{background:linear-gradient(135deg,#f8f7ff 0%,#f0ecff 50%,#e8f4ff 100%)}
-.cover .s-title{font-size:clamp(20px,3vw,42px)}
-.cover .logo{font-size:clamp(13px,1.2vw,16px);font-weight:600;letter-spacing:.08em;color:#6366f1;margin-top:2em}
+.cover .s-title{font-size:clamp(24px,3.5vw,48px)}
+.cover .logo{font-size:clamp(14px,1.3vw,18px);font-weight:600;letter-spacing:.08em;color:#6366f1;margin-top:2em}
+
+/* Agenda */
+.agenda-list{margin-top:1.5em;display:flex;flex-direction:column;gap:1em}
+.agenda-item{display:flex;gap:1em;align-items:center}
+.agenda-num{font-size:clamp(13px,1.2vw,16px);font-weight:700;color:#6366f1;min-width:28px}
+.agenda-text{font-size:clamp(16px,1.8vw,22px);font-weight:400;color:#333}
+
+/* About */
+.about-slide{background:linear-gradient(135deg,#f8f7ff 0%,#eef2ff 100%)}
+.about-tagline{font-size:clamp(14px,1.5vw,19px);font-weight:300;color:#555;margin-top:1em;line-height:1.8}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.5vw,20px);margin-top:1.5em}
+@media(max-width:899px){.about-features{grid-template-columns:1fr}}
+.about-feat{padding:clamp(10px,1.5vw,18px);background:rgba(255,255,255,.8);border-radius:10px}
+.about-feat-title{font-size:clamp(14px,1.4vw,18px);font-weight:600;color:#111}
+.about-feat-desc{font-size:clamp(12px,1.1vw,15px);font-weight:300;color:#666;margin-top:.2em}
 
 /* Issues */
 .issue-list{margin-top:1.5em;display:flex;flex-direction:column;gap:1.2em}
 .issue-item{display:flex;gap:1em;align-items:flex-start}
-.issue-num{font-size:clamp(11px,1vw,13px);font-weight:600;color:#fff;background:#6366f1;border-radius:50%;width:clamp(24px,2.5vw,32px);height:clamp(24px,2.5vw,32px);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.issue-num{font-size:clamp(12px,1.1vw,14px);font-weight:600;color:#fff;background:#6366f1;border-radius:50%;width:clamp(28px,2.8vw,36px);height:clamp(28px,2.8vw,36px);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .issue-text{flex:1}
-.issue-title{font-size:clamp(14px,1.6vw,20px);font-weight:600;color:#111}
-.issue-desc{font-size:clamp(12px,1.2vw,15px);font-weight:300;color:#666;margin-top:.2em}
+.issue-title{font-size:clamp(16px,1.8vw,22px);font-weight:600;color:#111}
+.issue-desc{font-size:clamp(13px,1.3vw,17px);font-weight:300;color:#666;margin-top:.2em}
 
 /* Demo */
 .demo-slide{background:linear-gradient(135deg,#f8f7ff 0%,#eef2ff 100%)}
-.demo-url{display:inline-block;margin-top:1.2em;padding:.6em 1.2em;background:#6366f1;color:#fff;border-radius:8px;font-size:clamp(13px,1.4vw,18px);font-weight:500;text-decoration:none;letter-spacing:.02em}
-.demo-features{display:flex;gap:clamp(12px,2vw,32px);margin-top:1.5em;flex-wrap:wrap}
-.demo-feat{font-size:clamp(12px,1.2vw,15px);font-weight:400;color:#555;padding:.4em .8em;background:#f3f4f6;border-radius:6px}
+.demo-url{display:inline-block;margin-top:1.2em;padding:.7em 1.6em;background:#6366f1;color:#fff;border-radius:10px;font-size:clamp(14px,1.4vw,18px);font-weight:500;text-decoration:none;letter-spacing:.02em}
+.demo-features{display:flex;gap:clamp(8px,1.5vw,20px);margin-top:1.5em;flex-wrap:wrap}
+.demo-feat{font-size:clamp(13px,1.2vw,16px);font-weight:400;color:#555;padding:.5em 1em;background:#f3f4f6;border-radius:8px}
 
 /* Pricing */
-.pricing-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:1em;align-items:start}
-@media(min-width:900px){.pricing-grid{grid-template-columns:1fr 1fr 1fr;gap:clamp(8px,1.5vw,20px);margin-top:1.5em}}
-.plan{padding:clamp(12px,2vw,24px);border-radius:12px;background:#f9fafb;border:1px solid #e5e7eb}
+.pricing-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:1.2em;align-items:start}
+@media(min-width:900px){.pricing-grid{grid-template-columns:1fr 1fr 1fr;gap:clamp(10px,1.5vw,20px);margin-top:1.5em}}
+.plan{padding:clamp(14px,2vw,24px);border-radius:12px;background:#f9fafb;border:1px solid #e5e7eb}
 .plan.recommended{background:#6366f1;color:#fff;border-color:#6366f1;transform:scale(1.02)}
-.plan-badge{font-size:clamp(9px,.8vw,11px);font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:.2em .6em;border-radius:4px;display:inline-block;margin-bottom:.5em}
-.plan-name{font-size:clamp(13px,1.4vw,18px);font-weight:600}
-.plan-price{font-size:clamp(18px,2.5vw,32px);font-weight:700;margin:.3em 0}
-.plan-price span{font-size:clamp(11px,1vw,14px);font-weight:300}
-.plan ul{list-style:none;margin-top:.8em;font-size:clamp(10px,1vw,13px);font-weight:300;line-height:1.7}
+.plan-badge{font-size:clamp(10px,.9vw,12px);font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:.2em .6em;border-radius:4px;display:inline-block;margin-bottom:.5em}
+.plan-name{font-size:clamp(15px,1.5vw,20px);font-weight:600}
+.plan-price{font-size:clamp(22px,2.8vw,36px);font-weight:700;margin:.3em 0}
+.plan-price span{font-size:clamp(12px,1.1vw,15px);font-weight:300}
+.plan ul{list-style:none;margin-top:.6em;font-size:clamp(12px,1.1vw,15px);font-weight:300;line-height:1.7}
 .plan ul li::before{content:"✓ ";color:#6366f1;font-weight:600}
 .plan.recommended ul li::before{color:rgba(255,255,255,.7)}
 .plan.recommended .plan-name,.plan.recommended .plan-price{color:#fff}
-.pricing-note{font-size:clamp(11px,1vw,13px);color:#888;margin-top:1em;font-weight:300}
+.pricing-note{font-size:clamp(12px,1.1vw,14px);color:#888;margin-top:1em;font-weight:300}
 
 /* Flow */
-.flow-list{margin-top:1.2em;display:flex;flex-direction:column;gap:.8em}
-.flow-item{display:flex;gap:.8em;align-items:flex-start}
-.flow-num{font-size:clamp(11px,1vw,14px);font-weight:700;color:#6366f1;min-width:clamp(18px,2vw,24px)}
-.flow-content{flex:1}
-.flow-title{font-size:clamp(13px,1.4vw,17px);font-weight:600;color:#111}
-.flow-desc{font-size:clamp(11px,1vw,14px);font-weight:300;color:#666;margin-top:.1em}
-.flow-highlight{background:#f0ecff;padding:.3em .6em;border-radius:4px;font-size:clamp(11px,1vw,13px);color:#6366f1;font-weight:500;display:inline-block;margin-top:.3em}
-
-/* Why */
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.5vw,20px);margin-top:1.5em}
-.why-item{padding:clamp(12px,2vw,24px);background:#f9fafb;border-radius:10px}
-.why-title{font-size:clamp(13px,1.4vw,17px);font-weight:600;color:#111}
-.why-desc{font-size:clamp(11px,1vw,14px);font-weight:300;color:#666;margin-top:.3em}
+.flow-section{margin-top:1.2em}
+.flow-phase{margin-bottom:1em}
+.flow-phase-title{font-size:clamp(13px,1.3vw,17px);font-weight:600;color:#6366f1;margin-bottom:.5em;display:flex;align-items:center;gap:.5em}
+.flow-phase-title .phase-line{flex:1;height:1px;background:#e5e7eb}
+.flow-steps{display:flex;flex-direction:column;gap:.4em;padding-left:1em;border-left:2px solid #e5e7eb}
+.flow-step{font-size:clamp(13px,1.3vw,17px);font-weight:300;color:#444;padding:.2em 0}
+.flow-step strong{font-weight:600;color:#111}
 
 /* End */
 .end-slide{background:linear-gradient(135deg,#f8f7ff 0%,#f0ecff 50%,#e8f4ff 100%)}
-.end-actions{margin-top:1.5em;display:flex;flex-direction:column;gap:.8em}
-.end-action{font-size:clamp(13px,1.4vw,17px);color:#444;font-weight:300}
+.end-actions{margin-top:1.5em;display:flex;flex-direction:column;gap:1em}
+.end-action{font-size:clamp(15px,1.6vw,20px);color:#444;font-weight:300}
 .end-action strong{font-weight:600;color:#111}
-.end-footer{margin-top:2em;font-size:clamp(11px,1vw,14px);color:#888;font-weight:300;line-height:1.8}
+.end-footer{margin-top:2em;font-size:clamp(13px,1.2vw,16px);color:#888;font-weight:300;line-height:1.8}
 </style>
 </head>
 <body>
@@ -102,7 +111,50 @@ html,body{background:#000}
 </div>
 </div>
 
-<!-- 2. Issues -->
+<!-- 2. Agenda -->
+<div class="slide">
+<div class="slide-inner">
+<div class="s-label">Agenda</div>
+<div class="s-title-sm">本日のアジェンダ</div>
+<div class="agenda-list">
+<div class="agenda-item"><div class="agenda-num">01</div><div class="agenda-text">CAPSULE のご紹介</div></div>
+<div class="agenda-item"><div class="agenda-num">02</div><div class="agenda-text">現在のサイトの課題</div></div>
+<div class="agenda-item"><div class="agenda-num">03</div><div class="agenda-text">リニューアルデモのご紹介</div></div>
+<div class="agenda-item"><div class="agenda-num">04</div><div class="agenda-text">料金プラン</div></div>
+<div class="agenda-item"><div class="agenda-num">05</div><div class="agenda-text">サポートの流れ</div></div>
+<div class="agenda-item"><div class="agenda-num">06</div><div class="agenda-text">次のステップ</div></div>
+</div>
+</div>
+</div>
+
+<!-- 3. About CAPSULE -->
+<div class="slide">
+<div class="slide-inner about-slide">
+<div class="s-label">About Us</div>
+<div class="s-title-sm">CAPSULE Inc.</div>
+<div class="about-tagline">テクノロジーとデザインの交差点で、<br>本当に必要なものだけを、美しく届けるデジタルスタジオです。</div>
+<div class="about-features">
+<div class="about-feat">
+<div class="about-feat-title">AI-native な制作プロセス</div>
+<div class="about-feat-desc">AIを活用し、高品質なサイトをスピーディにお届けします</div>
+</div>
+<div class="about-feat">
+<div class="about-feat-title">制作から運用まで一括</div>
+<div class="about-feat-desc">デザイン・SSL・SEO・保守管理、すべて月額に含まれます</div>
+</div>
+<div class="about-feat">
+<div class="about-feat-title">初期費用 0円</div>
+<div class="about-feat-desc">制作費は一切いただきません。月額料金のみでスタート</div>
+</div>
+<div class="about-feat">
+<div class="about-feat-title">解約後もデータはお客様のもの</div>
+<div class="about-feat-desc">ソースコードをお渡し。ロックインはありません</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 4. Issues -->
 <div class="slide">
 <div class="slide-inner">
 <div class="s-label">Current Issues</div>
@@ -133,7 +185,7 @@ html,body{background:#000}
 </div>
 </div>
 
-<!-- 3. Demo -->
+<!-- 5. Demo -->
 <div class="slide">
 <div class="slide-inner demo-slide">
 <div class="s-label">Demo</div>
@@ -148,13 +200,14 @@ html,body{background:#000}
 </div>
 </div>
 
-<!-- 4. Pricing -->
+<!-- 6. Pricing -->
 <div class="slide">
 <div class="slide-inner">
 <div class="s-label">Pricing</div>
 <div class="s-title-sm">料金プラン</div>
 <div class="pricing-grid">
-<div class="plan">
+<div class="plan recommended">
+<div class="plan-badge">おすすめ</div>
 <div class="plan-name">Light</div>
 <div class="plan-price">¥20,000<span>/月（税別）</span></div>
 <ul>
@@ -164,8 +217,7 @@ html,body{background:#000}
 <li>メールサポート</li>
 </ul>
 </div>
-<div class="plan recommended">
-<div class="plan-badge">おすすめ</div>
+<div class="plan">
 <div class="plan-name">Standard</div>
 <div class="plan-price">¥50,000<span>/月（税別）</span></div>
 <ul>
@@ -190,78 +242,50 @@ html,body{background:#000}
 </div>
 </div>
 
-<!-- 5. Flow -->
+<!-- 7. Flow — Cloud CTO サポートの流れ -->
 <div class="slide">
 <div class="slide-inner">
-<div class="s-label">Flow</div>
-<div class="s-title-sm">ご契約から公開まで</div>
-<div class="flow-list">
-<div class="flow-item">
-<div class="flow-num">01</div>
-<div class="flow-content">
-<div class="flow-title">ヒアリング &amp; ご要望確認</div>
-<div class="flow-desc">本日のお打ち合わせで、修正点やご要望をお伺いします</div>
+<div class="s-label">Cloud CTO — Support Flow</div>
+<div class="s-title-sm">サポートの全体像</div>
+<div class="flow-section">
+
+<div class="flow-phase">
+<div class="flow-phase-title">ご契約 <span class="phase-line"></span></div>
+<div class="flow-steps">
+<div class="flow-step"><strong>お支払い手続き</strong> — カード決済（Stripe）or 口座振込</div>
+<div class="flow-step">※ お支払い完了で利用規約への同意・サポート開始となります</div>
 </div>
 </div>
-<div class="flow-item">
-<div class="flow-num">02</div>
-<div class="flow-content">
-<div class="flow-title">ご契約判断</div>
-<div class="flow-highlight">ご納得いただけたらお申し込みへ ／ ご検討の場合は次回日程を決めます</div>
+
+<div class="flow-phase">
+<div class="flow-phase-title">HP 準備 <span class="phase-line"></span></div>
+<div class="flow-steps">
+<div class="flow-step"><strong>ドメイン設定</strong> — 既存ドメインの移管 or 新規取得</div>
+<div class="flow-step"><strong>修正 &amp; 開発</strong> — ヒアリング内容を反映（1〜2週間）</div>
 </div>
 </div>
-<div class="flow-item">
-<div class="flow-num">03</div>
-<div class="flow-content">
-<div class="flow-title">お支払い手続き</div>
-<div class="flow-desc">カード決済（Stripe）or 口座振込 ※利用規約への同意を含みます</div>
+
+<div class="flow-phase">
+<div class="flow-phase-title">公開 <span class="phase-line"></span></div>
+<div class="flow-steps">
+<div class="flow-step"><strong>本番公開</strong> — SSL・SEO設定を含めてリリース</div>
 </div>
 </div>
-<div class="flow-item">
-<div class="flow-num">04</div>
-<div class="flow-content">
-<div class="flow-title">ドメイン情報のご連絡</div>
-<div class="flow-desc">既存ドメイン → 移管情報をお知らせください ／ 新規 → 弊社で取得</div>
+
+<div class="flow-phase">
+<div class="flow-phase-title">継続サポート <span class="phase-line"></span></div>
+<div class="flow-steps">
+<div class="flow-step"><strong>保守管理</strong> — セキュリティ更新・サーバー監視</div>
+<div class="flow-step"><strong>コンテンツ更新</strong> — テキスト修正・写真差替え</div>
+<div class="flow-step"><strong>改善提案</strong> — アクセス状況に基づくサイト改善</div>
 </div>
 </div>
-<div class="flow-item">
-<div class="flow-num">05</div>
-<div class="flow-content">
-<div class="flow-title">修正 &amp; 開発 → 本番公開</div>
-<div class="flow-desc">ヒアリング内容を反映し、1〜2週間で公開します</div>
-</div>
-</div>
+
 </div>
 </div>
 </div>
 
-<!-- 6. Why -->
-<div class="slide">
-<div class="slide-inner">
-<div class="s-label">Why CAPSULE</div>
-<div class="s-title-sm">選ばれる理由</div>
-<div class="why-grid">
-<div class="why-item">
-<div class="why-title">初期費用 0円</div>
-<div class="why-desc">リスクゼロで始められます。制作会社の相場は初期30〜50万円です</div>
-</div>
-<div class="why-item">
-<div class="why-title">制作から運用まで一括</div>
-<div class="why-desc">デザイン・SSL・SEO・保守管理、すべて月額に含まれています</div>
-</div>
-<div class="why-item">
-<div class="why-title">AI活用で高速納品</div>
-<div class="why-desc">最短2週間で本番公開。従来の制作期間を大幅に短縮します</div>
-</div>
-<div class="why-item">
-<div class="why-title">解約後もデータはお客様のもの</div>
-<div class="why-desc">解約時にソースコードをお渡しします。ロックインはありません</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- 7. Next Step -->
+<!-- 8. Next Step -->
 <div class="slide">
 <div class="slide-inner end-slide">
 <div class="s-label">Next Step</div>
