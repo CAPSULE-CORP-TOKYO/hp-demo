@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新田英明税理士事務所 様 - ホームページリニューアルのご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy: #1a2744;
+  --navy-light: #2a3f6a;
+  --navy-dark: #0f1a2e;
+  --white: #ffffff;
+  --gray-light: #f0f2f5;
+  --gray: #8892a4;
+  --accent: #4a90d9;
+  --accent-light: #6ba8ed;
+  --green: #34c759;
+  --red: #e74c3c;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--navy-dark);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Progress Bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent-light);
+  transition: width 0.4s ease;
+  z-index: 100;
+}
+
+/* Slide Number */
+#slide-number {
+  position: fixed;
+  bottom: 20px;
+  right: 28px;
+  font-size: 14px;
+  color: var(--gray);
+  font-weight: 300;
+  z-index: 100;
+  letter-spacing: 0.05em;
+}
+
+/* Slide Container */
+#slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateX(40px);
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.slide.prev {
+  transform: translateX(-40px);
+}
+
+.slide-inner {
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 36px;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent-light);
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* Cover Slide */
+.slide-cover {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+}
+
+.slide-cover .client-name {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accent-light);
+  margin-bottom: 16px;
+  letter-spacing: 0.08em;
+}
+
+.slide-cover h1 {
+  font-size: 2.6rem;
+  margin-bottom: 48px;
+  line-height: 1.4;
+}
+
+.slide-cover .presenter {
+  font-size: 0.95rem;
+  color: var(--gray);
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+.slide-cover .divider {
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 24px;
+}
+
+/* Content Slides */
+.slide-content {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%);
+}
+
+/* Issue List */
+.issue-list {
+  list-style: none;
+  margin-bottom: 28px;
+}
+
+.issue-list li {
+  font-size: 1.15rem;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.issue-list li:last-child {
+  border-bottom: none;
+}
+
+.issue-list .icon {
+  margin-right: 12px;
+  font-size: 1.1rem;
+}
+
+.issue-list .arrow {
+  color: var(--gray);
+  margin: 0 8px;
+  font-size: 0.9rem;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-top: 16px;
+  padding-left: 4px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* Feature List */
+.feature-list {
+  list-style: none;
+}
+
+.feature-list li {
+  font-size: 1.1rem;
+  padding: 12px 0;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.feature-list .check {
+  color: var(--green);
+  margin-right: 10px;
+}
+
+/* Demo Link */
+.demo-link {
+  display: inline-block;
+  margin: 20px 0 28px;
+  padding: 14px 28px;
+  background: rgba(74, 144, 217, 0.12);
+  border: 1px solid rgba(74, 144, 217, 0.3);
+  border-radius: 8px;
+  color: var(--accent-light);
+  font-size: 0.95rem;
+  text-decoration: none;
+  font-weight: 400;
+  word-break: break-all;
+  transition: background 0.2s;
+}
+
+.demo-link:hover {
+  background: rgba(74, 144, 217, 0.2);
+}
+
+/* Before/After */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.comparison-col {
+  padding: 28px;
+  border-radius: 12px;
+}
+
+.comparison-col.before {
+  background: rgba(231, 76, 60, 0.08);
+  border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.comparison-col.after {
+  background: rgba(52, 199, 89, 0.08);
+  border: 1px solid rgba(52, 199, 89, 0.2);
+}
+
+.comparison-col h3 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.comparison-col.before h3 {
+  color: var(--red);
+}
+
+.comparison-col.after h3 {
+  color: var(--green);
+}
+
+.comparison-col ul {
+  list-style: none;
+}
+
+.comparison-col ul li {
+  font-size: 0.95rem;
+  padding: 8px 0;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Pricing */
+.pricing-box {
+  background: rgba(74, 144, 217, 0.08);
+  border: 1px solid rgba(74, 144, 217, 0.2);
+  border-radius: 12px;
+  padding: 36px;
+  margin-bottom: 28px;
+}
+
+.pricing-main {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.pricing-item {
+  text-align: center;
+}
+
+.pricing-item .label {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.pricing-item .value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+
+.pricing-item .unit {
+  font-size: 0.85rem;
+  color: var(--gray);
+  font-weight: 300;
+}
+
+.pricing-includes {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+}
+
+.pricing-includes li {
+  font-size: 0.95rem;
+  font-weight: 300;
+  padding: 4px 0;
+}
+
+.pricing-note {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+/* Steps */
+.steps {
+  list-style: none;
+  position: relative;
+}
+
+.steps::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: rgba(74, 144, 217, 0.2);
+}
+
+.steps li {
+  display: flex;
+  align-items: flex-start;
+  padding: 18px 0;
+  position: relative;
+}
+
+.step-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-right: 20px;
+  z-index: 1;
+}
+
+.step-text {
+  padding-top: 7px;
+}
+
+.step-text .main {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.step-text .sub {
+  font-size: 0.85rem;
+  color: var(--gray);
+  font-weight: 300;
+  margin-top: 4px;
+}
+
+/* Strengths */
+.strengths {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.strength-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.strength-card .icon {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.strength-card .title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.strength-card .desc {
+  font-size: 0.85rem;
+  color: var(--gray);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* CTA / Next Step */
+.cta-options {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.cta-options li {
+  font-size: 1.15rem;
+  padding: 16px 0;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.cta-options .icon {
+  margin-right: 10px;
+}
+
+.contact-info {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+}
+
+.contact-info p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 2;
+  font-weight: 300;
+}
+
+.contact-info a {
+  color: var(--accent-light);
+  text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .slide {
+    padding: 40px 24px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .slide-cover h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+  }
+
+  .comparison {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pricing-main {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .pricing-item {
+    text-align: left;
+  }
+
+  .pricing-includes {
+    grid-template-columns: 1fr;
+  }
+
+  .strengths {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .issue-list li,
+  .feature-list li,
+  .cta-options li {
+    font-size: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<div id="slide-number"></div>
+
+<div id="slides">
+
+  <!-- Slide 1: Cover -->
+  <div class="slide slide-cover active" data-index="0">
+    <div class="slide-inner">
+      <p class="client-name">新田英明税理士事務所 様</p>
+      <h1>ホームページ<br>リニューアルのご提案</h1>
+      <div class="divider"></div>
+      <div class="presenter">
+        <p>株式会社CAPSULE<br>矢野太一</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Issues -->
+  <div class="slide slide-content" data-index="1">
+    <div class="slide-inner">
+      <h2>現在のホームページの課題</h2>
+      <ul class="issue-list">
+        <li>
+          <span class="icon">❌</span>SSL未対応<span class="arrow">→</span>ブラウザで「安全でない」表示
+        </li>
+        <li>
+          <span class="icon">❌</span>スマホ非対応<span class="arrow">→</span>モバイルユーザーが離脱
+        </li>
+        <li>
+          <span class="icon">❌</span>デザインが2013年のまま<span class="arrow">→</span>第一印象で損をしている
+        </li>
+      </ul>
+      <p class="note">※ せっかくの実績・信頼が、サイトで損なわれています</p>
+    </div>
+  </div>
+
+  <!-- Slide 3: Solution -->
+  <div class="slide slide-content" data-index="2">
+    <div class="slide-inner">
+      <h2>リニューアル案をご用意しました</h2>
+      <h3>▼ デモサイト</h3>
+      <a class="demo-link" href="https://capsule-corp-tokyo.github.io/hp-demo/L-321/" target="_blank" rel="noopener">
+        https://capsule-corp-tokyo.github.io/hp-demo/L-321/
+      </a>
+      <ul class="feature-list">
+        <li><span class="check">✅</span>スマホ完全対応</li>
+        <li><span class="check">✅</span>モダンなデザイン</li>
+        <li><span class="check">✅</span>SSL対応 + SEO対策</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Slide 4: Before / After -->
+  <div class="slide slide-content" data-index="3">
+    <div class="slide-inner">
+      <h2>Before → After</h2>
+      <div class="comparison">
+        <div class="comparison-col before">
+          <h3>Before（現在）</h3>
+          <ul>
+            <li>❌ SSL非対応で警告表示</li>
+            <li>❌ スマホで読みにくい</li>
+            <li>❌ 2013年のデザイン</li>
+            <li>❌ SEO対策なし</li>
+            <li>❌ 問い合わせ導線が弱い</li>
+          </ul>
+        </div>
+        <div class="comparison-col after">
+          <h3>After（リニューアル）</h3>
+          <ul>
+            <li>✅ SSL対応で安心表示</li>
+            <li>✅ スマホファースト設計</li>
+            <li>✅ 清潔感のあるモダンデザイン</li>
+            <li>✅ SEO対策済み</li>
+            <li>✅ 明確なCTAで問い合わせ増</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: Pricing -->
+  <div class="slide slide-content" data-index="4">
+    <div class="slide-inner">
+      <h2>料金プラン</h2>
+      <div class="pricing-box">
+        <div class="pricing-main">
+          <div class="pricing-item">
+            <div class="label">初期費用</div>
+            <div class="value">0<span class="unit">円</span></div>
+          </div>
+          <div class="pricing-item">
+            <div class="label">月額</div>
+            <div class="value">20,000<span class="unit">円（税別）</span></div>
+          </div>
+        </div>
+        <ul class="pricing-includes">
+          <li><span class="check" style="color: var(--green);">✅</span> デザイン制作</li>
+          <li><span class="check" style="color: var(--green);">✅</span> SSL対応</li>
+          <li><span class="check" style="color: var(--green);">✅</span> スマホ対応</li>
+          <li><span class="check" style="color: var(--green);">✅</span> SEO対策</li>
+          <li><span class="check" style="color: var(--green);">✅</span> 保守管理</li>
+        </ul>
+      </div>
+      <p class="pricing-note">最低契約期間: 6ヶ月</p>
+    </div>
+  </div>
+
+  <!-- Slide 6: Steps -->
+  <div class="slide slide-content" data-index="5">
+    <div class="slide-inner">
+      <h2>導入ステップ</h2>
+      <ul class="steps">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <div class="main">本日のヒアリング</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <div class="main">デモ修正（ご要望反映）</div>
+            <div class="sub">約1週間</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <div class="main">本番公開</div>
+            <div class="sub">約2週間</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-text">
+            <div class="main">運用開始</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Slide 7: Why CAPSULE -->
+  <div class="slide slide-content" data-index="6">
+    <div class="slide-inner">
+      <h2>私たちの強み</h2>
+      <ul class="strengths">
+        <li class="strength-card">
+          <div class="icon">🎯</div>
+          <div class="title">初期費用0円でリスクゼロ</div>
+          <div class="desc">導入時のコスト負担なし</div>
+        </li>
+        <li class="strength-card">
+          <div class="icon">🔧</div>
+          <div class="title">制作から運用まで全部込み</div>
+          <div class="desc">面倒な管理はすべてお任せ</div>
+        </li>
+        <li class="strength-card">
+          <div class="icon">📱</div>
+          <div class="title">最新のモバイルファースト設計</div>
+          <div class="desc">スマホでも快適な閲覧体験</div>
+        </li>
+        <li class="strength-card">
+          <div class="icon">🤝</div>
+          <div class="title">藤沢の地域密着サポート</div>
+          <div class="desc">お近くだからこそ安心の対応</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Slide 8: Next Step -->
+  <div class="slide slide-content" data-index="7">
+    <div class="slide-inner">
+      <h2>次のステップ</h2>
+      <ul class="cta-options">
+        <li>
+          <span class="icon">✅</span>ご興味があれば → このまま進めます
+        </li>
+        <li>
+          <span class="icon">🤔</span>ご検討であれば → 次回のお打ち合わせ日を決めましょう
+        </li>
+      </ul>
+      <p style="font-size: 1rem; margin-bottom: 32px; font-weight: 300; color: var(--gray-light);">ご質問があればお気軽にどうぞ</p>
+      <div class="contact-info">
+        <p>
+          矢野太一<br>
+          <a href="mailto:taichi.yano@its-capsule.com">taichi.yano@its-capsule.com</a><br>
+          株式会社CAPSULE<br>
+          <a href="https://its-capsule.com/" target="_blank" rel="noopener">https://its-capsule.com/</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  const progressBar = document.getElementById('progress-bar');
+  const slideNumber = document.getElementById('slide-number');
+  let current = 0;
+
+  function update() {
+    slides.forEach(function(s, i) {
+      s.classList.remove('active', 'prev');
+      if (i === current) {
+        s.classList.add('active');
+      } else if (i < current) {
+        s.classList.add('prev');
+      }
+    });
+    progressBar.style.width = ((current + 1) / totalSlides * 100) + '%';
+    slideNumber.textContent = (current + 1) + ' / ' + totalSlides;
+  }
+
+  function next() {
+    if (current < totalSlides - 1) {
+      current++;
+      update();
+    }
+  }
+
+  function prev() {
+    if (current > 0) {
+      current--;
+      update();
+    }
+  }
+
+  // Keyboard
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault();
+      next();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      prev();
+    }
+  });
+
+  // Click
+  document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') return;
+    var x = e.clientX;
+    if (x > window.innerWidth * 0.3) {
+      next();
+    } else {
+      prev();
+    }
+  });
+
+  // Touch / Swipe
+  var touchStartX = 0;
+  var touchStartY = 0;
+
+  document.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].screenX - touchStartX;
+    var dy = e.changedTouches[0].screenY - touchStartY;
+    if (Math.abs(dx) < 40 || Math.abs(dy) > Math.abs(dx)) return;
+    if (dx < 0) {
+      next();
+    } else {
+      prev();
+    }
+  }, { passive: true });
+
+  update();
+})();
+</script>
+</body>
+</html>
