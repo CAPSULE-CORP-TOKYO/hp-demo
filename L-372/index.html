@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>押山税理士事務所 | TaxHouse 川崎南幸町店</title>
+<meta name="description" content="川崎市幸区の税理士事務所。確定申告、記帳代行、法人税務、相続税相談、創業支援など幅広くサポートいたします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== Reset & Base ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1a365d;
+    --navy-light: #234e82;
+    --navy-dark: #0f2340;
+    --gold: #c9a74e;
+    --gold-light: #ddc071;
+    --gold-dark: #a8893d;
+    --cream: #faf8f3;
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+    --shadow-xl: 0 16px 48px rgba(0,0,0,0.15);
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ===== Utility ===== */
+  .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    max-width: 600px;
+    line-height: 1.8;
+  }
+
+  /* ===== Header ===== */
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: box-shadow 0.3s ease;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .logo-text {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .logo-sub {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 0.6rem;
+    color: var(--gray-500);
+    letter-spacing: 0.05em;
+  }
+  .header-phone {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--navy);
+  }
+  .header-phone svg { color: var(--gold); }
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* Mobile menu button */
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .menu-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 1px;
+    transition: all 0.3s ease;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 999;
+    padding: 32px 24px;
+  }
+  .mobile-nav.active { display: block; }
+  .mobile-nav a {
+    display: block;
+    padding: 16px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .mobile-nav-phone {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    padding: 120px 0 80px;
+    background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 40%, var(--navy-light) 100%);
+    overflow: hidden;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -30%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(201,167,78,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--white), transparent);
+    pointer-events: none;
+  }
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(201,167,78,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.03) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                       linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(201,167,78,0.3);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 28px;
+  }
+  .hero-badge-dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+  .hero h1 .highlight {
+    color: var(--gold-light);
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.9;
+  }
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    min-width: 200px;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(201,167,78,0.35);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(201,167,78,0.45);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.3);
+  }
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.5);
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+  .hero-stat-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+  }
+
+  /* ===== Trust Bar ===== */
+  .trust-bar {
+    background: var(--cream);
+    padding: 24px 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .trust-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 32px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gray-600);
+  }
+  .trust-icon {
+    width: 32px; height: 32px;
+    background: var(--white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .trust-icon svg { width: 16px; height: 16px; color: var(--navy); }
+
+  /* ===== Services ===== */
+  .services {
+    padding: 72px 0;
+    background: var(--white);
+  }
+  .services-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .services-header .section-subtitle {
+    margin: 0 auto;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .service-card {
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  .service-card:hover {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--gold-dark));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+  }
+  .service-icon-1 { background: linear-gradient(135deg, #ebf4ff, #dbeafe); }
+  .service-icon-2 { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+  .service-icon-3 { background: linear-gradient(135deg, #e0e7ff, #c7d2fe); }
+  .service-icon-4 { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+  .service-icon-5 { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+  .service-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+  }
+  .service-tag {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--gold-dark);
+    background: rgba(201,167,78,0.08);
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  /* ===== About / Strengths ===== */
+  .about {
+    padding: 72px 0;
+    background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+  }
+  .about-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .about-header .section-subtitle { margin: 0 auto; }
+  .about-image {
+    width: 100%;
+    height: 240px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--gold) 100%);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 70%, rgba(201,167,78,0.2) 0%, transparent 50%),
+      radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1) 0%, transparent 40%);
+  }
+  .about-image-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    color: var(--white);
+    font-family: 'Noto Serif JP', serif;
+  }
+  .about-image-text span:first-child {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .about-image-text span:last-child {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.15em;
+  }
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .strength-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .strength-num {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: var(--gold-light);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+  .strength-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .strength-text {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  /* ===== Office Info ===== */
+  .office {
+    padding: 72px 0;
+    background: var(--white);
+  }
+  .office-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .office-header .section-subtitle { margin: 0 auto; }
+  .office-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .office-card {
+    background: var(--cream);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    border: 1px solid var(--gray-200);
+  }
+  .office-card-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+  .office-row {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    align-items: flex-start;
+  }
+  .office-row:last-child { border-bottom: none; }
+  .office-row-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+  .office-row-icon svg { width: 16px; height: 16px; color: var(--navy); }
+  .office-row-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gray-500);
+    margin-bottom: 2px;
+  }
+  .office-row-value {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--gray-800);
+  }
+  .office-row-value a {
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  /* Map */
+  .map-wrapper {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+  }
+  .map-wrapper iframe {
+    width: 100%;
+    height: 280px;
+    border: 0;
+    display: block;
+  }
+
+  /* ===== CTA ===== */
+  .cta {
+    padding: 72px 0;
+    background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-light) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(201,167,78,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+  }
+  .cta-content .section-title {
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .cta-desc {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 500px;
+    margin: 0 auto 32px;
+    line-height: 1.8;
+  }
+  .cta-phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 24px;
+  }
+  .cta-phone-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+  }
+  .cta-phone-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .cta-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 24px auto;
+  }
+  .cta-hours {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ===== Footer ===== */
+  .footer {
+    background: var(--navy-dark);
+    padding: 48px 0 24px;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 24px;
+  }
+  .footer-brand .logo-icon {
+    background: rgba(255,255,255,0.1);
+  }
+  .footer-brand .logo-text {
+    color: rgba(255,255,255,0.9);
+  }
+  .footer-brand .logo-sub {
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-desc {
+    font-size: 0.8rem;
+    line-height: 1.7;
+    margin-top: 12px;
+    max-width: 360px;
+  }
+  .footer-nav-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .footer-nav a {
+    display: block;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    padding: 6px 0;
+    transition: color 0.2s;
+  }
+  .footer-nav a:hover { color: var(--gold-light); }
+  .footer-copy {
+    font-size: 0.72rem;
+    text-align: center;
+  }
+
+  /* ===== Responsive: Tablet+ ===== */
+  @media (min-width: 640px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .strengths-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .hero h1 { font-size: 2.4rem; }
+    .hero-actions {
+      flex-direction: row;
+      justify-content: center;
+    }
+    .office-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .map-wrapper iframe { height: 320px; }
+  }
+
+  /* ===== Responsive: Desktop ===== */
+  @media (min-width: 1024px) {
+    .header-inner { height: 72px; }
+    .menu-btn { display: none; }
+    .nav-links { display: flex; }
+    .header-phone { display: flex; }
+    .hero { padding: 140px 0 100px; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero-desc { font-size: 1rem; }
+    .hero-stat-num { font-size: 1.8rem; }
+    .services { padding: 96px 0; }
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .about { padding: 96px 0; }
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-image {
+      height: 360px;
+      margin-bottom: 0;
+    }
+    .section-title { font-size: 1.9rem; }
+    .office { padding: 96px 0; }
+    .office-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .cta { padding: 96px 0; }
+    .cta-phone-num { font-size: 2.4rem; }
+    .footer-top {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  /* ===== Mobile Phone Link ===== */
+  .phone-link { white-space: nowrap; }
+  @media (min-width: 1024px) {
+    .phone-link { pointer-events: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo">
+      <div class="logo-icon">押</div>
+      <div>
+        <div class="logo-text">押山税理士事務所</div>
+        <div class="logo-sub">TaxHouse 川崎南幸町店</div>
+      </div>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#about">当事務所の強み</a></li>
+        <li><a href="#office">事務所案内</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <a href="tel:044-555-6300" class="header-phone phone-link">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.908.339 1.85.574 2.81.7A2 2 0 0122 16.92z"/></svg>
+      044-555-6300
+    </a>
+    <button class="menu-btn" onclick="document.querySelector('.mobile-nav').classList.toggle('active')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav">
+  <a href="#services" onclick="document.querySelector('.mobile-nav').classList.remove('active')">サービス</a>
+  <a href="#about" onclick="document.querySelector('.mobile-nav').classList.remove('active')">当事務所の強み</a>
+  <a href="#office" onclick="document.querySelector('.mobile-nav').classList.remove('active')">事務所案内</a>
+  <a href="#contact" onclick="document.querySelector('.mobile-nav').classList.remove('active')">お問い合わせ</a>
+  <div class="mobile-nav-phone">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.908.339 1.85.574 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <a href="tel:044-555-6300">044-555-6300</a>
+  </div>
+</div>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        TaxHouse フランチャイズ加盟店
+      </div>
+      <h1>川崎で頼れる<br><span class="highlight">税務のパートナー</span></h1>
+      <p class="hero-desc">
+        個人の確定申告から法人の税務顧問まで。<br>
+        お客様一人ひとりに寄り添い、<br>
+        安心の税務サポートをお届けします。
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.908.339 1.85.574 2.81.7A2 2 0 0122 16.92z"/></svg>
+          無料相談はこちら
+        </a>
+        <a href="#services" class="btn btn-outline">サービスを見る</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">15<span style="font-size:0.6em">年+</span></div>
+          <div class="hero-stat-label">業務実績</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">500<span style="font-size:0.6em">件+</span></div>
+          <div class="hero-stat-label">申告対応実績</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">98<span style="font-size:0.6em">%</span></div>
+          <div class="hero-stat-label">顧客満足度</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Trust Bar ===== -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        税理士資格保有
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        TaxHouse加盟店
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        川崎駅 徒歩圏内
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        初回相談無料
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">サービス内容</h2>
+      <p class="section-subtitle">個人から法人まで、税に関するあらゆるご相談に対応いたします。お気軽にお問い合わせください。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon service-icon-1">&#128203;</div>
+        <div class="service-name">確定申告</div>
+        <p class="service-desc">個人事業主・フリーランスの方の確定申告をサポート。複雑な控除計算もお任せください。正確な申告で安心をお届けします。</p>
+        <span class="service-tag">個人向け</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon service-icon-2">&#128209;</div>
+        <div class="service-name">記帳代行</div>
+        <p class="service-desc">日々の経理業務をまるごとお任せいただけます。会計ソフトへの入力から月次報告まで、正確・迅速に対応いたします。</p>
+        <span class="service-tag">個人・法人</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon service-icon-3">&#127970;</div>
+        <div class="service-name">法人税務</div>
+        <p class="service-desc">法人設立から決算・申告、節税対策まで幅広くサポート。経営に寄り添う税務顧問として、的確なアドバイスを提供します。</p>
+        <span class="service-tag">法人向け</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon service-icon-4">&#127793;</div>
+        <div class="service-name">相続税相談</div>
+        <p class="service-desc">相続税の申告・対策、生前贈与のご相談など、ご家族の大切な資産を守るお手伝い。分かりやすくご説明いたします。</p>
+        <span class="service-tag">個人向け</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon service-icon-5">&#128640;</div>
+        <div class="service-name">創業支援</div>
+        <p class="service-desc">開業届の提出から事業計画の策定、資金調達のアドバイスまで。新しいビジネスのスタートを力強くサポートいたします。</p>
+        <span class="service-tag">創業者向け</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About / Strengths ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-header">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">当事務所が選ばれる理由</h2>
+      <p class="section-subtitle">TaxHouseフランチャイズの信頼性と、地域密着のきめ細やかなサービスをお届けします。</p>
+    </div>
+    <div class="about-layout">
+      <div class="about-image">
+        <div class="about-image-text">
+          <span>信 頼</span>
+          <span>TRUST &amp; QUALITY</span>
+        </div>
+      </div>
+      <div class="strengths-grid">
+        <div class="strength-item">
+          <div class="strength-num">01</div>
+          <div>
+            <div class="strength-title">TaxHouseの安心ブランド</div>
+            <p class="strength-text">全国展開のTaxHouseフランチャイズ加盟店として、統一された高品質なサービスをご提供いたします。</p>
+          </div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">02</div>
+          <div>
+            <div class="strength-title">親身な対応</div>
+            <p class="strength-text">税務の専門用語もわかりやすくご説明。お客様の不安をひとつずつ解消し、納得いただけるまで丁寧にサポートいたします。</p>
+          </div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">03</div>
+          <div>
+            <div class="strength-title">ワンストップ対応</div>
+            <p class="strength-text">確定申告から法人設立、相続まで幅広い税務に一カ所で対応。複数の事務所に相談する手間が省けます。</p>
+          </div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">04</div>
+          <div>
+            <div class="strength-title">川崎エリアに密着</div>
+            <p class="strength-text">川崎市幸区を中心に、地元のお客様に愛される事務所を目指しています。お気軽にお立ち寄りください。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Office Info ===== -->
+<section class="office" id="office">
+  <div class="container">
+    <div class="office-header">
+      <div class="section-label">Office</div>
+      <h2 class="section-title">事務所案内</h2>
+      <p class="section-subtitle">川崎駅からのアクセスも良好。お気軽にお越しください。</p>
+    </div>
+    <div class="office-main">
+      <div class="office-card">
+        <div class="office-card-title">アクセス・基本情報</div>
+        <div class="office-row">
+          <div class="office-row-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div>
+            <div class="office-row-label">事務所名</div>
+            <div class="office-row-value">押山税理士事務所<br><span style="font-size:0.8rem;color:var(--gray-500);">（TaxHouse 川崎南幸町店）</span></div>
+          </div>
+        </div>
+        <div class="office-row">
+          <div class="office-row-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="office-row-label">所在地</div>
+            <div class="office-row-value">神奈川県川崎市幸区南幸町３丁目１１</div>
+          </div>
+        </div>
+        <div class="office-row">
+          <div class="office-row-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.908.339 1.85.574 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="office-row-label">電話番号</div>
+            <div class="office-row-value"><a href="tel:044-555-6300" class="phone-link">044-555-6300</a></div>
+          </div>
+        </div>
+        <div class="office-row">
+          <div class="office-row-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="office-row-label">営業時間</div>
+            <div class="office-row-value">平日 9:00 - 17:00<br><span style="font-size:0.8rem;color:var(--gray-500);">土日祝日は休業（事前予約で対応可）</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="map-wrapper">
+          <iframe src="https://maps.google.com/maps?q=神奈川県川崎市幸区南幸町３丁目１１&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="押山税理士事務所の所在地"></iframe>
+        </div>
+        <div style="margin-top:16px;padding:16px 20px;background:var(--cream);border-radius:var(--radius);border:1px solid var(--gray-200);">
+          <div style="font-size:0.82rem;color:var(--gray-600);display:flex;align-items:center;gap:8px;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            JR川崎駅西口より徒歩圏内。お車でお越しの場合は近隣のコインパーキングをご利用ください。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="cta-content">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">まずはお気軽にご相談ください</h2>
+      <p class="cta-desc">初回のご相談は無料です。確定申告のこと、会社設立のこと、相続のこと。どんな小さなことでもお気軽にお電話ください。</p>
+      <div class="cta-phone">
+        <a href="tel:044-555-6300" class="cta-phone-num phone-link" style="color:var(--gold-light);text-decoration:none;">044-555-6300</a>
+        <div class="cta-phone-note">お電話でのお問い合わせ</div>
+      </div>
+      <a href="tel:044-555-6300" class="btn btn-primary phone-link" style="margin-bottom:16px;">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.908.339 1.85.574 2.81.7A2 2 0 0122 16.92z"/></svg>
+        電話で相談する
+      </a>
+      <div class="cta-divider"></div>
+      <div class="cta-hours">受付時間：平日 9:00 - 17:00</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">押</div>
+          <div>
+            <div class="logo-text">押山税理士事務所</div>
+            <div class="logo-sub">TaxHouse 川崎南幸町店</div>
+          </div>
+        </div>
+        <p class="footer-desc">神奈川県川崎市幸区にある税理士事務所です。個人の確定申告から法人の税務顧問まで、幅広くサポートいたします。</p>
+      </div>
+      <div>
+        <div class="footer-nav-title">サービス</div>
+        <nav class="footer-nav">
+          <a href="#services">確定申告</a>
+          <a href="#services">記帳代行</a>
+          <a href="#services">法人税務</a>
+          <a href="#services">相続税相談</a>
+          <a href="#services">創業支援</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-nav-title">事務所情報</div>
+        <nav class="footer-nav">
+          <a href="#about">当事務所について</a>
+          <a href="#office">アクセス</a>
+          <a href="#contact">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 押山税理士事務所（TaxHouse 川崎南幸町店）. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

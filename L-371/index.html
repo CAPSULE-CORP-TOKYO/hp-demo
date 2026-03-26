@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士法人ABCJ｜多言語対応・多国間税務コンサルティング</title>
+<meta name="description" content="税理士法人ABCJは中国公認会計師在籍、多言語対応（日中英韓）で多国間税務コンサルティングを提供する川崎の税理士法人です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  line-height: 1.8;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---- Header / Nav ---- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  backdrop-filter: blur(8px);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-link img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+  padding: 6px 14px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-desktop a:hover {
+  color: #03419c;
+  background: #f0f4fa;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #03419c;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3,65,156,0.95);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.mobile-nav.open {
+  display: flex;
+}
+
+.mobile-nav a {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ---- Hero ---- */
+.hero {
+  margin-top: 64px;
+  position: relative;
+  background: linear-gradient(135deg, #03419c 0%, #0260d4 50%, #0088cc 100%);
+  overflow: hidden;
+  padding: 60px 20px 56px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -30%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 20px;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  opacity: 0.92;
+  margin-bottom: 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #fff;
+  color: #03419c;
+  font-weight: 700;
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.2);
+}
+
+.btn-outline {
+  display: inline-block;
+  border: 2px solid rgba(255,255,255,0.6);
+  color: #fff;
+  font-weight: 500;
+  padding: 12px 36px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+}
+
+/* ---- Section Common ---- */
+.section {
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title .label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0088cc;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.section-title h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #03419c;
+  line-height: 1.4;
+}
+
+.section-title p {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #666;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Strengths ---- */
+.strengths {
+  background: #f7f9fc;
+}
+
+.strengths-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.strength-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(3,65,156,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.strength-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(3,65,156,0.12);
+}
+
+.strength-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.strength-card-body {
+  padding: 24px;
+}
+
+.strength-card-body .num {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0088cc;
+  background: #e8f4fc;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.strength-card-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #03419c;
+  margin-bottom: 10px;
+}
+
+.strength-card-body p {
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* ---- Services ---- */
+.services-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 14px;
+  background: #f7f9fc;
+  transition: background 0.2s;
+}
+
+.service-item:hover {
+  background: #edf2fa;
+}
+
+.service-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #03419c, #0088cc);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+}
+
+.service-item h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #03419c;
+  margin-bottom: 6px;
+}
+
+.service-item p {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ---- Office Info ---- */
+.office {
+  background: #f7f9fc;
+}
+
+.office-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.office-details {
+  order: 2;
+}
+
+.office-map {
+  order: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(3,65,156,0.06);
+  min-height: 280px;
+}
+
+.office-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border: 0;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table tr {
+  border-bottom: 1px solid #e8ecf2;
+}
+
+.info-table th {
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #03419c;
+  padding: 14px 12px 14px 0;
+  white-space: nowrap;
+  vertical-align: top;
+  width: 100px;
+}
+
+.info-table td {
+  font-size: 0.88rem;
+  padding: 14px 0;
+  color: #444;
+}
+
+.info-table a {
+  color: #0088cc;
+  font-weight: 500;
+}
+
+.info-table a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Languages ---- */
+.languages-bar {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.lang-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #e0e8f3;
+  padding: 14px 24px;
+  border-radius: 60px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #03419c;
+  box-shadow: 0 2px 8px rgba(3,65,156,0.04);
+}
+
+.lang-chip .flag {
+  font-size: 1.4rem;
+}
+
+/* ---- CTA ---- */
+.cta {
+  background: linear-gradient(135deg, #03419c 0%, #0088cc 100%);
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.cta h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.cta p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 28px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.cta .btn-primary {
+  font-size: 1rem;
+  padding: 16px 48px;
+}
+
+.cta-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.cta-phone svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
+
+.cta-phone-note {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+/* ---- Footer ---- */
+.footer {
+  background: #0a1e3d;
+  color: rgba(255,255,255,0.7);
+  padding: 40px 20px 28px;
+  text-align: center;
+}
+
+.footer-logo {
+  height: 36px;
+  margin: 0 auto 16px;
+  filter: brightness(10);
+}
+
+.footer p {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+
+.footer-copy {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+/* ======== Tablet ======== */
+@media (min-width: 600px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .strengths-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-actions {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* ======== Desktop ======== */
+@media (min-width: 900px) {
+  .header-inner {
+    padding: 14px 40px;
+  }
+
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .hero {
+    padding: 100px 40px 90px;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+  }
+
+  .section {
+    padding: 80px 40px;
+  }
+
+  .strengths-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .strength-card img {
+    height: 180px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .office-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .office-details {
+    order: 1;
+  }
+
+  .office-map {
+    order: 2;
+    min-height: 380px;
+  }
+
+  .office-map iframe {
+    min-height: 380px;
+  }
+
+  .cta {
+    padding: 80px 40px;
+  }
+
+  .cta h2 {
+    font-size: 1.8rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo-link">
+      <img src="https://www.abcj.co.jp/library/5c04c8e4c90fef915a61466b/62f2f7eb62f396f705a7bd26.png" alt="税理士法人ABCJ" loading="eager">
+    </a>
+    <nav class="nav-desktop">
+      <a href="#strengths">当法人の強み</a>
+      <a href="#services">サービス</a>
+      <a href="#office">事務所案内</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav">
+  <button class="mobile-nav-close" onclick="this.parentElement.classList.remove('open')" aria-label="閉じる">&times;</button>
+  <a href="#strengths" onclick="this.parentElement.classList.remove('open')">当法人の強み</a>
+  <a href="#services" onclick="this.parentElement.classList.remove('open')">サービス</a>
+  <a href="#office" onclick="this.parentElement.classList.remove('open')">事務所案内</a>
+  <a href="#contact" onclick="this.parentElement.classList.remove('open')">お問い合わせ</a>
+</div>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">多言語対応｜日・中・英・韓</span>
+    <h1>国境を越えるビジネスを、<br>税務の力で支える。</h1>
+    <p>中国公認会計師在籍。日本語・中国語・英語・韓国語の4言語に対応し、<br>多国間ビジネスの税務・会計を包括的にサポートいたします。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">無料相談のお申し込み</a>
+      <a href="#services" class="btn-outline">サービス一覧</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Strengths ===== -->
+<section class="section strengths" id="strengths">
+  <div class="section-title">
+    <span class="label">Our Strengths</span>
+    <h2>選ばれる4つの理由</h2>
+    <p>ABCJは国際的な専門知識と多言語対応力で、お客様のビジネスを力強くサポートします。</p>
+  </div>
+  <div class="strengths-grid">
+    <div class="strength-card">
+      <img src="https://www.abcj.co.jp/library/5c04c8e4c90fef915a61466b/62d5ef2b866a2250018a2e90.jpg" alt="専門スタッフ" loading="lazy">
+      <div class="strength-card-body">
+        <span class="num">01</span>
+        <h3>中国公認会計師在籍</h3>
+        <p>中国の会計・税務制度に精通した公認会計師が在籍。日中間の税務・会計課題を的確に解決します。</p>
+      </div>
+    </div>
+    <div class="strength-card">
+      <img src="https://www.abcj.co.jp/library/5c04c8e4c90fef915a61466b/62d5ef2ec78e1ff105816c6f.jpg" alt="多言語対応" loading="lazy">
+      <div class="strength-card-body">
+        <span class="num">02</span>
+        <h3>4言語対応</h3>
+        <p>日本語・中国語・英語・韓国語に対応。言葉の壁を越え、スムーズなコミュニケーションを実現します。</p>
+      </div>
+    </div>
+    <div class="strength-card">
+      <img src="https://www.abcj.co.jp/library/5c04c8e4c90fef915a61466b/63353159451df30b4f234745.jpg" alt="研修・教育" loading="lazy">
+      <div class="strength-card-body">
+        <span class="num">03</span>
+        <h3>多国間税務の専門知識</h3>
+        <p>国際税務のノウハウを蓄積し、常に最新の制度改正に対応。クロスボーダー取引も安心です。</p>
+      </div>
+    </div>
+    <div class="strength-card">
+      <img src="https://www.abcj.co.jp/library/5c04c8e4c90fef915a61466b/62d5ef38a1fc56ef05462225.jpg" alt="迅速対応" loading="lazy">
+      <div class="strength-card-body">
+        <span class="num">04</span>
+        <h3>迅速・丁寧な対応</h3>
+        <p>お客様のご相談に迅速にお応えし、きめ細やかなサポートで長期的な信頼関係を築きます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section class="section" id="services">
+  <div class="section-title">
+    <span class="label">Services</span>
+    <h2>サービス内容</h2>
+    <p>法人設立から税務顧問、多国間ビジネスまで幅広くサポートいたします。</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+      </div>
+      <div>
+        <h3>会計コンサル業務</h3>
+        <p>記帳代行から経営分析まで、企業の成長を支える会計コンサルティングを提供。正確な財務情報に基づく経営判断をサポートします。</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+      </div>
+      <div>
+        <h3>設立支援</h3>
+        <p>会社設立に必要な手続きを一括サポート。外国人の方の法人設立にも対応し、ビジネスのスタートを全力で支援します。</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/><path d="M8 12h8v1.5H8zm0 3h8v1.5H8z"/></svg>
+      </div>
+      <div>
+        <h3>税務顧問</h3>
+        <p>月次決算・申告書作成・税務相談など、日常の税務業務を継続的にサポート。節税対策や税務リスクの管理もお任せください。</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 00-1.38-3.56A8.03 8.03 0 0118.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 015.08 16zm2.95-8H5.08a7.987 7.987 0 014.33-3.56A15.65 15.65 0 008.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 01-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+      </div>
+      <div>
+        <h3>多国間ビジネス税務コンサル</h3>
+        <p>移転価格税制・租税条約・外国税額控除など、国際税務の複雑な課題に対応。グローバル展開を税務面からバックアップします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Languages ===== -->
+<section class="section" style="background:#f7f9fc; padding-top:48px; padding-bottom:48px;">
+  <div class="section-title" style="margin-bottom:28px;">
+    <span class="label">Multilingual</span>
+    <h2>対応言語</h2>
+  </div>
+  <div class="languages-bar">
+    <div class="lang-chip"><span class="flag">&#127471;&#127477;</span> 日本語</div>
+    <div class="lang-chip"><span class="flag">&#127464;&#127475;</span> 中国語</div>
+    <div class="lang-chip"><span class="flag">&#127482;&#127480;</span> 英語</div>
+    <div class="lang-chip"><span class="flag">&#127472;&#127479;</span> 韓国語</div>
+  </div>
+</section>
+
+<!-- ===== Office ===== -->
+<section class="section office" id="office">
+  <div class="section-title">
+    <span class="label">Office</span>
+    <h2>事務所案内</h2>
+  </div>
+  <div class="office-inner">
+    <div class="office-details">
+      <table class="info-table">
+        <tr>
+          <th>事務所名</th>
+          <td>税理士法人ABCJ</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>〒210-0006<br>神奈川県川崎市川崎区砂子２丁目１０−７<br>ルリエ川崎駅前 406</td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><a href="tel:044-210-1208">044-210-1208</a></td>
+        </tr>
+        <tr>
+          <th>営業時間</th>
+          <td>平日 9:00〜18:00</td>
+        </tr>
+        <tr>
+          <th>アクセス</th>
+          <td>JR川崎駅より徒歩3分</td>
+        </tr>
+        <tr>
+          <th>対応言語</th>
+          <td>日本語・中国語・英語・韓国語</td>
+        </tr>
+      </table>
+    </div>
+    <div class="office-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.7!2d139.6977!3d35.5308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601860f97a10d34d%3A0x5e1944f8cae5a2d5!2z44Or44Oq44Ko5bed5bSO6aeF5YmN!5e0!3m2!1sja!2sjp!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="contact">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>多言語対応スタッフが、お客様のご相談に丁寧にお応えいたします。初回相談は無料です。</p>
+  <div class="cta-actions">
+    <a href="mailto:info@abcj.co.jp" class="btn-primary">メールで相談する</a>
+    <div>
+      <a href="tel:044-210-1208" class="cta-phone">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        044-210-1208
+      </a>
+      <p class="cta-phone-note">平日 9:00〜18:00</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <img src="https://www.abcj.co.jp/library/5c04c8e4c90fef915a61466b/62f2f7eb62f396f705a7bd26.png" alt="税理士法人ABCJ" class="footer-logo">
+  <p>神奈川県川崎市川崎区砂子２丁目１０−７ ルリエ川崎駅前 406</p>
+  <p>TEL: <a href="tel:044-210-1208" style="color:rgba(255,255,255,0.85);">044-210-1208</a>　｜　平日 9:00〜18:00</p>
+  <div class="footer-copy">&copy; 2026 税理士法人ABCJ All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

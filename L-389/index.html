@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士法人心 川崎税理士事務所 | 初回相談無料</title>
+<meta name="description" content="税理士法人心 川崎税理士事務所。大手グループの安心感と初回相談無料。確定申告・相続税・法人税務顧問など幅広くサポート。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --purple-deep: #4c1d95;
+    --purple-mid: #5b21b6;
+    --purple-accent: #7c3aed;
+    --purple-light: #ede9fe;
+    --purple-pale: #f5f3ff;
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gold: #d97706;
+    --gold-light: #fef3c7;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-lg: 0 4px 6px rgba(0,0,0,0.07), 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--gray-800);
+    line-height: 1.8;
+    font-size: 16px;
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── Header ── */
+  .header {
+    background: var(--white);
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .header-logo img {
+    height: 36px;
+    width: auto;
+  }
+  .header-tel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--purple-deep);
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .header-tel svg { flex-shrink: 0; }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-mid) 50%, var(--purple-accent) 100%);
+    color: var(--white);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://www.kawasaki.kokoro.tax/wp/wp-content/themes/zeirishi_parent/img/pic_catch.jpg') center/cover no-repeat;
+    opacity: 0.12;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 20px 48px;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .hero-free {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--purple-deep);
+    font-size: 22px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 100px;
+    margin: 20px 0 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .hero-free-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .hero-sub {
+    font-size: 15px;
+    opacity: 0.85;
+    line-height: 1.7;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .hero-cta {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 36px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+    min-width: 260px;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-gold {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: var(--white);
+  }
+  .btn-white {
+    background: var(--white);
+    color: var(--purple-deep);
+    border: 2px solid rgba(255,255,255,0.5);
+  }
+  .btn-purple {
+    background: var(--purple-deep);
+    color: var(--white);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--purple-deep);
+    border: 2px solid var(--purple-deep);
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding: 56px 20px;
+  }
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-label {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--purple-accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .section-desc {
+    text-align: center;
+    color: var(--gray-600);
+    font-size: 15px;
+    max-width: 560px;
+    margin: 0 auto 40px;
+  }
+
+  /* ── Features ── */
+  .features { background: var(--purple-pale); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .feature-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--purple-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--purple-accent);
+  }
+  .feature-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--gray-800);
+  }
+  .feature-card p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  /* ── Services ── */
+  .services-block { margin-bottom: 40px; }
+  .services-block:last-child { margin-bottom: 0; }
+  .services-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--purple-light);
+  }
+  .services-heading-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--purple-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .services-heading-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+  }
+  .services-heading h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--purple-deep);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .service-item {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .service-item:hover {
+    border-color: var(--purple-accent);
+    box-shadow: var(--shadow);
+  }
+  .service-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--purple-accent);
+    flex-shrink: 0;
+  }
+  .service-item span {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--gray-800);
+  }
+
+  /* ── Image Section ── */
+  .image-section {
+    background: var(--gray-50);
+  }
+  .image-section img {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ── Office ── */
+  .office { background: var(--gray-50); }
+  .office-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .office-map {
+    width: 100%;
+    height: 260px;
+    border: none;
+  }
+  .office-info {
+    padding: 28px 24px;
+  }
+  .office-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--purple-deep);
+    margin-bottom: 16px;
+  }
+  .office-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .office-table th,
+  .office-table td {
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .office-table th {
+    width: 80px;
+    color: var(--gray-600);
+    font-weight: 500;
+    white-space: nowrap;
+    padding-right: 16px;
+  }
+  .office-table td {
+    color: var(--gray-800);
+  }
+
+  /* ── Contact CTA ── */
+  .contact-cta {
+    background: linear-gradient(135deg, var(--purple-deep), var(--purple-mid));
+    color: var(--white);
+    text-align: center;
+  }
+  .contact-cta .section-label { color: rgba(255,255,255,0.7); }
+  .contact-cta .section-title { color: var(--white); }
+  .contact-cta .section-desc { color: rgba(255,255,255,0.8); }
+  .contact-tel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .contact-tel-label {
+    font-size: 13px;
+    background: rgba(255,255,255,0.15);
+    padding: 4px 16px;
+    border-radius: 100px;
+  }
+  .contact-tel-number {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+  }
+  .contact-tel-number a { color: var(--white); }
+  .contact-hours {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 28px;
+  }
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--gray-800);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 13px;
+  }
+  .footer-name {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  /* ── Desktop ── */
+  @media (min-width: 640px) {
+    .hero h1 { font-size: 32px; }
+    .hero-free { font-size: 26px; padding: 16px 40px; }
+    .hero-cta { flex-direction: row; justify-content: center; }
+    .features-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .section { padding: 72px 32px; }
+    .section-title { font-size: 28px; }
+    .contact-tel-number { font-size: 44px; }
+    .contact-buttons { flex-direction: row; justify-content: center; }
+  }
+
+  @media (min-width: 900px) {
+    .hero-inner { padding: 80px 40px 72px; }
+    .hero h1 { font-size: 38px; }
+    .services-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .office-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .office-map { height: 100%; min-height: 340px; }
+    .header-inner { padding: 14px 32px; }
+    .header-logo img { height: 42px; }
+    .header-tel { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="header-logo">
+      <img src="https://www.kawasaki.kokoro.tax/wp/wp-content/themes/zeirishi_kawasaki/img/ttl_header.png" alt="税理士法人心 川崎税理士事務所">
+    </a>
+    <a href="tel:0120812403" class="header-tel">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      0120-812-403
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">大手グループの税理士法人</div>
+    <h1>川崎で税務のお悩みは<br>税理士法人心へ</h1>
+    <div class="hero-free">
+      <span class="hero-free-dot"></span>
+      初回相談無料
+    </div>
+    <p class="hero-sub">確定申告・相続税・法人税務まで、経験豊富な税理士が<br>お客様一人ひとりに寄り添い、丁寧にサポートいたします。</p>
+    <div class="hero-cta">
+      <a href="tel:0120812403" class="btn btn-gold">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0120-812-403 に電話する
+      </a>
+      <a href="#services" class="btn btn-white">サービス一覧を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section features">
+  <div class="section-inner">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">選ばれる3つの理由</h2>
+    <p class="section-desc">税理士法人心は、大手グループならではの総合力で、<br>お客様の税務課題を解決します。</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h3>大手グループの安心感</h3>
+          <p>全国に拠点を持つ大手グループの一員として、豊富な実績と専門知識でお客様をサポートします。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8l-8 8M8 8l8 8"/></svg>
+        </div>
+        <div>
+          <h3>初回相談無料</h3>
+          <p>まずはお気軽にご相談ください。初回のご相談は無料で承っております。費用面のご不安を解消します。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <h3>幅広い対応力</h3>
+          <p>個人の確定申告から法人の税務顧問、相続・事業承継まで、あらゆる税務ニーズにワンストップで対応します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <p class="section-label">Services</p>
+    <h2 class="section-title">サービス一覧</h2>
+    <p class="section-desc">個人のお客様から法人のお客様まで、<br>幅広いサービスをご提供しています。</p>
+
+    <!-- 個人向け -->
+    <div class="services-block">
+      <div class="services-heading">
+        <div class="services-heading-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>個人向けサービス</h3>
+      </div>
+      <div class="services-grid">
+        <div class="service-item">
+          <span class="service-dot"></span>
+          <span>確定申告</span>
+        </div>
+        <div class="service-item">
+          <span class="service-dot"></span>
+          <span>贈与税</span>
+        </div>
+        <div class="service-item">
+          <span class="service-dot"></span>
+          <span>相続税対策</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 法人向け -->
+    <div class="services-block">
+      <div class="services-heading">
+        <div class="services-heading-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>法人向けサービス</h3>
+      </div>
+      <div class="services-grid">
+        <div class="service-item">
+          <span class="service-dot"></span>
+          <span>税務顧問</span>
+        </div>
+        <div class="service-item">
+          <span class="service-dot"></span>
+          <span>創業支援</span>
+        </div>
+        <div class="service-item">
+          <span class="service-dot"></span>
+          <span>会社設立</span>
+        </div>
+        <div class="service-item">
+          <span class="service-dot"></span>
+          <span>資金調達</span>
+        </div>
+        <div class="service-item">
+          <span class="service-dot"></span>
+          <span>事業承継</span>
+        </div>
+        <div class="service-item">
+          <span class="service-dot"></span>
+          <span>株式評価</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image -->
+<section class="section image-section">
+  <div class="section-inner" style="text-align:center;">
+    <img src="https://www.kawasaki.kokoro.tax/wp/wp-content/themes/zeirishi_parent/img/pic_catch.jpg" alt="税理士法人心 川崎税理士事務所のイメージ">
+  </div>
+</section>
+
+<!-- Office -->
+<section class="section office" id="office">
+  <div class="section-inner">
+    <p class="section-label">Office</p>
+    <h2 class="section-title">事務所案内</h2>
+    <p class="section-desc">川崎駅からのアクセスも便利です。<br>お気軽にお立ち寄りください。</p>
+    <div class="office-card">
+      <iframe class="office-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.5!2d139.6988!3d35.5311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z56We5aWI5bed55yM5bed5bSO5biC5bed5bSO5Yy656Cy5a2Q77yR5LiB55uu77yX4oiS77yU!5e0!3m2!1sja!2sjp!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="事務所の地図"></iframe>
+      <div class="office-info">
+        <h3 class="office-name">税理士法人心<br>川崎税理士事務所</h3>
+        <table class="office-table">
+          <tr>
+            <th>所在地</th>
+            <td>〒210-0006<br>神奈川県川崎市川崎区砂子１丁目7−４<br>砂子平沼ビル 5F</td>
+          </tr>
+          <tr>
+            <th>電話</th>
+            <td><a href="tel:0120812403" style="color:var(--purple-accent);font-weight:600;">0120-812-403</a><br><small style="color:var(--gray-600);">フリーダイヤル</small></td>
+          </tr>
+          <tr>
+            <th>営業時間</th>
+            <td>平日 9:00〜18:00<br><small style="color:var(--gray-600);">土日祝も相談可</small></td>
+          </tr>
+          <tr>
+            <th>アクセス</th>
+            <td>JR川崎駅より徒歩圏内</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="section contact-cta" id="contact">
+  <div class="section-inner">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">まずはお気軽にご相談ください</h2>
+    <p class="section-desc">初回のご相談は無料です。税務に関するお悩みやご質問など、<br>どんなことでもお気軽にお問い合わせください。</p>
+    <div class="contact-tel">
+      <span class="contact-tel-label">フリーダイヤル（通話無料）</span>
+      <div class="contact-tel-number">
+        <a href="tel:0120812403">0120-812-403</a>
+      </div>
+    </div>
+    <p class="contact-hours">平日 9:00〜18:00（土日祝も相談可）</p>
+    <div class="contact-buttons">
+      <a href="tel:0120812403" class="btn btn-gold">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        今すぐ電話する
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p class="footer-name">税理士法人心 川崎税理士事務所</p>
+  <p>神奈川県川崎市川崎区砂子１丁目7−４ 砂子平沼ビル 5F</p>
+  <p style="margin-top:12px;">&copy; 税理士法人心 All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大高会計事務所 | 神奈川県川崎市 - 昭和46年開業・50年以上の実績</title>
+<meta name="description" content="大高会計事務所は昭和46年開業、50年以上の実績を持つ川崎市の会計事務所です。税務顧問、確定申告、法人決算、相続税など幅広くサポートいたします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --navy: #0c2340;
+    --navy-light: #163a5f;
+    --gold: #c9a227;
+    --gold-light: #d4b44a;
+    --gray-warm: #6b7280;
+    --gray-light: #f3f4f6;
+    --gray-border: #e5e7eb;
+    --white: #ffffff;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.8;
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ── Header ── */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid var(--gray-border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-brand {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.08em;
+  }
+
+  .header-sub {
+    font-size: 0.65rem;
+    color: var(--gray-warm);
+    letter-spacing: 0.05em;
+    margin-top: -2px;
+  }
+
+  .header-contact {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--navy);
+  }
+
+  .header-tel {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .header-hours {
+    font-size: 0.7rem;
+    color: var(--gray-warm);
+  }
+
+  /* ── Navigation ── */
+  .nav {
+    background: var(--navy);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav.is-open {
+    transform: translateX(0);
+  }
+
+  .nav a {
+    color: var(--white);
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s;
+  }
+
+  .nav a:hover {
+    color: var(--gold);
+  }
+
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 300;
+    position: relative;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .nav-toggle span::before,
+  .nav-toggle span::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    left: 0;
+    transition: transform 0.3s, top 0.3s;
+  }
+
+  .nav-toggle span::before { top: -7px; }
+  .nav-toggle span::after  { top: 7px; }
+
+  .nav-toggle.is-active span { background: transparent; }
+  .nav-toggle.is-active span::before {
+    top: 0;
+    transform: rotate(45deg);
+    background: var(--white);
+  }
+  .nav-toggle.is-active span::after {
+    top: 0;
+    transform: rotate(-45deg);
+    background: var(--white);
+  }
+
+  .nav-desktop {
+    display: none;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-light) 50%, #1e4976 100%);
+    padding: 4rem 1.25rem 3.5rem;
+    text-align: center;
+    color: var(--white);
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(201,162,39,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(201,162,39,0.15);
+    border: 1px solid rgba(201,162,39,0.3);
+    color: var(--gold-light);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.9;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat-number {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.2;
+  }
+
+  .hero-stat-number span {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .hero-stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 0.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .hero-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .hero-cta svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ── Section common ── */
+  .section {
+    padding: 4rem 1.25rem;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+  }
+
+  .section-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    margin: 1rem auto 0;
+  }
+
+  .section-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 1rem auto 0;
+    line-height: 1.9;
+  }
+
+  /* ── Services ── */
+  .services {
+    background: var(--gray-light);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-border);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .service-card:hover {
+    box-shadow: 0 4px 20px rgba(12,35,64,0.08);
+    transform: translateY(-2px);
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .service-icon--blue {
+    background: linear-gradient(135deg, #e8edf4, #d5dce8);
+    color: var(--navy);
+  }
+
+  .service-icon--gold {
+    background: linear-gradient(135deg, #faf3dc, #f0e4b8);
+    color: #8b7318;
+  }
+
+  .service-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .service-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  /* ── About / History ── */
+  .about {
+    background: var(--white);
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 6px;
+    background: linear-gradient(145deg, #d5dce8 0%, #b8c4d4 40%, #9aacbf 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-image::after {
+    content: '事務所外観';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(12,35,64,0.25);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+
+  .about-text h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .about-text p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.9;
+  }
+
+  .about-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .about-highlight {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .about-highlight::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Office info ── */
+  .office {
+    background: var(--gray-light);
+  }
+
+  .office-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .office-map {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .office-map iframe {
+    display: block;
+  }
+
+  .office-details {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-border);
+  }
+
+  .office-details h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--gray-border);
+  }
+
+  .office-row {
+    display: flex;
+    padding: 0.65rem 0;
+    font-size: 0.88rem;
+    border-bottom: 1px solid rgba(229,231,235,0.6);
+  }
+
+  .office-row:last-child {
+    border-bottom: none;
+  }
+
+  .office-row dt {
+    width: 100px;
+    flex-shrink: 0;
+    color: var(--gray-warm);
+    font-weight: 500;
+    font-size: 0.82rem;
+  }
+
+  .office-row dd {
+    color: var(--text-primary);
+    line-height: 1.7;
+  }
+
+  .office-tel {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 4rem 1.25rem;
+    position: relative;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(201,162,39,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  .cta p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-tel-block {
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-tel-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+  }
+
+  .cta-tel {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+  }
+
+  .cta-hours {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.25rem;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--white);
+    color: var(--navy);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .cta-btn:hover {
+    background: var(--gray-light);
+    transform: translateY(-1px);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: #080e18;
+    color: rgba(255,255,255,0.5);
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-size: 0.78rem;
+  }
+
+  .footer-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-address {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* ── Desktop: 768px+ ── */
+  @media (min-width: 768px) {
+    .header-inner {
+      padding: 0.85rem 2rem;
+    }
+
+    .header-name {
+      font-size: 1.3rem;
+    }
+
+    .header-contact {
+      display: flex;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .nav {
+      position: static;
+      transform: none;
+      background: transparent;
+      flex-direction: row;
+      gap: 0;
+      display: none;
+    }
+
+    .nav-desktop {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .nav-desktop a {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .nav-desktop a:hover {
+      color: var(--navy);
+      border-bottom-color: var(--gold);
+    }
+
+    .hero {
+      margin-top: 65px;
+      padding: 5rem 2rem 4.5rem;
+      min-height: 70vh;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+    }
+
+    .hero-stat-number {
+      font-size: 2.8rem;
+    }
+
+    .section {
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .about-content {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .office-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+  }
+
+  /* ── Large desktop: 1024px+ ── */
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: 2.6rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .service-card {
+      padding: 2rem;
+    }
+
+    .cta h2 {
+      font-size: 1.7rem;
+    }
+
+    .cta-tel {
+      font-size: 2.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════ Header ════ -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="header-name">大高会計事務所</div>
+      <div class="header-sub">Otaka Accounting Office</div>
+    </div>
+
+    <nav class="nav-desktop">
+      <a href="#services">業務案内</a>
+      <a href="#about">事務所案内</a>
+      <a href="#office">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+
+    <div class="header-contact">
+      <div>
+        <div class="header-tel">044-222-1901</div>
+        <div class="header-hours">平日 9:00-17:00</div>
+      </div>
+    </div>
+
+    <button class="nav-toggle" aria-label="メニュー" onclick="toggleNav()">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="nav" id="mobileNav">
+  <a href="#services" onclick="closeNav()">業務案内</a>
+  <a href="#about" onclick="closeNav()">事務所案内</a>
+  <a href="#office" onclick="closeNav()">アクセス</a>
+  <a href="#contact" onclick="closeNav()">お問い合わせ</a>
+</nav>
+
+<!-- ════ Hero ════ -->
+<section class="hero">
+  <div class="hero-badge">昭和46年開業</div>
+  <h1 class="hero-title">
+    地域の皆さまと共に<br>
+    <em>50年以上の実績</em>と信頼
+  </h1>
+  <p class="hero-subtitle">
+    川崎市で半世紀以上にわたり、個人・法人のお客さまの<br class="sp-hide">
+    税務・会計を誠実にサポートしてまいりました。
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-number">50<span>年以上</span></div>
+      <div class="hero-stat-label">業務実績</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">1971<span>年〜</span></div>
+      <div class="hero-stat-label">昭和46年開業</div>
+    </div>
+  </div>
+  <a href="#contact" class="hero-cta">
+    お気軽にご相談ください
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 8h10M9 4l4 4-4 4"/>
+    </svg>
+  </a>
+</section>
+
+<!-- ════ Services ════ -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">業務案内</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">
+        長年の経験と実績に基づき、幅広い税務・会計サービスで<br class="sp-hide">
+        お客さまの事業と暮らしをサポートいたします。
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon service-icon--blue">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-3-3v6M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>税務顧問</h3>
+        <p>月次・年次の税務相談、節税対策、税務調査対応など、顧問契約によるきめ細やかなサポートを提供いたします。</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon service-icon--gold">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 5h6m-6 9l2 2 4-4"/></svg>
+        </div>
+        <h3>確定申告</h3>
+        <p>個人事業主・フリーランスの方の所得税確定申告を正確かつ迅速に対応。各種控除の適用もご提案します。</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon service-icon--blue">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-16 0H3m5-10h4m-4 4h4"/></svg>
+        </div>
+        <h3>法人決算</h3>
+        <p>法人税・消費税の申告、決算書作成、事業計画のご相談まで、法人経営を総合的に支援いたします。</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon service-icon--gold">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zm10 0l2 2 4-4"/></svg>
+        </div>
+        <h3>相続税・贈与税</h3>
+        <p>相続税申告、生前贈与の計画、遺産分割のアドバイスなど、大切な資産の承継をお手伝いいたします。</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon service-icon--blue">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>記帳指導・代行</h3>
+        <p>日々の帳簿付けの指導や記帳代行サービスを行い、正確な経理処理をサポートいたします。</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon service-icon--gold">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <h3>経営相談</h3>
+        <p>資金繰り、事業計画、経営改善など、半世紀以上の経験を活かしたアドバイスをご提供します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ About ════ -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">About</div>
+      <h2 class="section-title">事務所案内</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="about-content">
+      <div class="about-image"></div>
+      <div class="about-text">
+        <h3>昭和46年の開業以来、<br>地域と共に歩んでまいりました</h3>
+        <p>
+          大高会計事務所は1971年（昭和46年）に川崎市で開業いたしました。以来50年以上にわたり、個人事業主から法人まで、幅広いお客さまの税務・会計のパートナーとして信頼をいただいております。
+        </p>
+        <p>
+          経験豊富なスタッフが、お客さま一人ひとりの状況に寄り添い、丁寧で分かりやすいサービスを心がけております。税務に関することはお気軽にご相談ください。
+        </p>
+        <div class="about-highlights">
+          <div class="about-highlight">50年以上の実績</div>
+          <div class="about-highlight">地域密着型</div>
+          <div class="about-highlight">丁寧な対応</div>
+          <div class="about-highlight">幅広い業務範囲</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ Office info ════ -->
+<section class="section office" id="office">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Access</div>
+      <h2 class="section-title">アクセス</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="office-grid">
+      <div class="office-map">
+        <iframe src="https://maps.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E5%B7%9D%E5%B4%8E%E5%B8%82%E5%B7%9D%E5%B4%8E%E5%8C%BA%E5%AE%AE%E5%89%8D%E7%94%BA%EF%BC%91%E2%88%92%EF%BC%91%E2%88%92%EF%BC%93%EF%BC%90%EF%BC%92&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="office-details">
+        <h3>事務所概要</h3>
+        <dl>
+          <div class="office-row">
+            <dt>事務所名</dt>
+            <dd>大高会計事務所</dd>
+          </div>
+          <div class="office-row">
+            <dt>所在地</dt>
+            <dd>〒210-0006<br>神奈川県川崎市川崎区宮前町１−１−３０２</dd>
+          </div>
+          <div class="office-row">
+            <dt>電話番号</dt>
+            <dd><span class="office-tel">044-222-1901</span></dd>
+          </div>
+          <div class="office-row">
+            <dt>営業時間</dt>
+            <dd>平日 9:00〜17:00</dd>
+          </div>
+          <div class="office-row">
+            <dt>定休日</dt>
+            <dd>土曜・日曜・祝日</dd>
+          </div>
+          <div class="office-row">
+            <dt>アクセス</dt>
+            <dd>JR川崎駅より徒歩圏内</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════ -->
+<section class="cta" id="contact">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>
+    税務・会計に関するお悩みやご質問がございましたら、<br class="sp-hide">
+    お電話にてお問い合わせください。
+  </p>
+  <div class="cta-tel-block">
+    <div class="cta-tel-label">お電話でのお問い合わせ</div>
+    <a href="tel:044-222-1901" class="cta-tel">044-222-1901</a>
+    <div class="cta-hours">受付時間：平日 9:00〜17:00</div>
+  </div>
+  <a href="tel:044-222-1901" class="cta-btn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    電話をかける
+  </a>
+</section>
+
+<!-- ════ Footer ════ -->
+<footer class="footer">
+  <div class="footer-name">大高会計事務所</div>
+  <div class="footer-address">
+    〒210-0006 神奈川県川崎市川崎区宮前町１−１−３０２<br>
+    TEL: 044-222-1901
+  </div>
+  <div class="footer-copy">&copy; 大高会計事務所 All Rights Reserved.</div>
+</footer>
+
+<script>
+  function toggleNav() {
+    document.getElementById('mobileNav').classList.toggle('is-open');
+    document.querySelector('.nav-toggle').classList.toggle('is-active');
+  }
+  function closeNav() {
+    document.getElementById('mobileNav').classList.remove('is-open');
+    document.querySelector('.nav-toggle').classList.remove('is-active');
+  }
+</script>
+
+</body>
+</html>

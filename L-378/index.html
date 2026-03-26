@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>原川みどり税理士事務所｜川崎市の女性税理士</title>
+<meta name="description" content="川崎市幸区の女性税理士事務所。決算診断サービス、相続税対策、月次記帳代行など、親身にサポートいたします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --pink-50: #fdf2f8;
+    --pink-100: #fce7f3;
+    --pink-200: #fbcfe8;
+    --pink-300: #f9a8d4;
+    --pink-500: #ec4899;
+    --pink-600: #db2777;
+    --pink-700: #be185d;
+    --pink-800: #9d174d;
+    --navy-800: #1e293b;
+    --navy-700: #334155;
+    --navy-600: #475569;
+    --navy-500: #64748b;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--navy-800);
+    background: var(--white);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ── Header ── */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    transition: box-shadow 0.3s;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-logo img {
+    height: 36px;
+    width: auto;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .header-tel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--pink-700);
+  }
+
+  .header-tel svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--pink-700);
+  }
+
+  @media (min-width: 768px) {
+    .header-inner {
+      padding: 14px 40px;
+    }
+
+    .header-logo img {
+      height: 42px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .header-nav a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--navy-700);
+      transition: color 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .header-nav a:hover {
+      color: var(--pink-700);
+    }
+
+    .header-tel {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* ── Hero ── */
+  .hero {
+    margin-top: 60px;
+    position: relative;
+    background: linear-gradient(135deg, var(--pink-50) 0%, var(--white) 50%, var(--pink-100) 100%);
+    overflow: hidden;
+    padding: 48px 20px 40px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(190,24,93,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--pink-700);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 100px;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--navy-800);
+    margin-bottom: 16px;
+  }
+
+  .hero-title span {
+    color: var(--pink-700);
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    color: var(--navy-600);
+    line-height: 1.9;
+    margin-bottom: 28px;
+    max-width: 520px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--pink-700);
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  .btn-primary:hover {
+    background: var(--pink-800);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--white);
+    color: var(--pink-700);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 2px solid var(--pink-700);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  .btn-outline:hover {
+    background: var(--pink-50);
+    transform: translateY(-1px);
+  }
+
+  .hero-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(190,24,93,0.1);
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      margin-top: 70px;
+      padding: 72px 40px 64px;
+    }
+
+    .hero-inner {
+      flex-direction: row;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+    }
+
+    .hero-cta-group {
+      flex-direction: row;
+    }
+
+    .hero-image {
+      flex: 0 0 400px;
+    }
+
+    .hero-image img {
+      height: 440px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: 2.6rem;
+    }
+
+    .hero-image {
+      flex: 0 0 460px;
+    }
+
+    .hero-image img {
+      height: 500px;
+    }
+  }
+
+  /* ── Section Common ── */
+  .section {
+    padding: 56px 20px;
+  }
+
+  .section-pink {
+    background: var(--pink-50);
+  }
+
+  .section-white {
+    background: var(--white);
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--pink-700);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--navy-800);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .section-desc {
+    font-size: 0.92rem;
+    color: var(--navy-600);
+    line-height: 1.85;
+    max-width: 600px;
+    margin-bottom: 36px;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding: 80px 40px;
+    }
+
+    .section-heading {
+      font-size: 2rem;
+    }
+  }
+
+  /* ── Services ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px 24px;
+    border: 1px solid var(--gray-200);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(190,24,93,0.08);
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--pink-50), var(--pink-100));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .service-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--pink-700);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .service-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--navy-800);
+  }
+
+  .service-card p {
+    font-size: 0.85rem;
+    color: var(--navy-600);
+    line-height: 1.75;
+  }
+
+  @media (min-width: 640px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* ── About ── */
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .about-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .about-text h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy-800);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .about-text p {
+    font-size: 0.92rem;
+    color: var(--navy-600);
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+
+  .about-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .about-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--navy-700);
+  }
+
+  .about-features li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--pink-100);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23be185d' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 11px;
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      flex-direction: row;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .about-image {
+      flex: 0 0 380px;
+    }
+
+    .about-image img {
+      height: 460px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h3 {
+      font-size: 1.45rem;
+    }
+  }
+
+  /* ── Gallery / Highlights ── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.03);
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(30,41,59,0.7));
+    color: var(--white);
+  }
+
+  .gallery-overlay h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .gallery-overlay p {
+    font-size: 0.78rem;
+    opacity: 0.85;
+  }
+
+  @media (min-width: 640px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* ── Sakura (Dog) ── */
+  .sakura-section {
+    background: linear-gradient(135deg, var(--pink-100) 0%, var(--pink-50) 100%);
+  }
+
+  .sakura-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sakura-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--white);
+    box-shadow: 0 12px 36px rgba(190,24,93,0.12);
+    flex-shrink: 0;
+  }
+
+  .sakura-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sakura-text h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy-800);
+    margin-bottom: 10px;
+  }
+
+  .sakura-text p {
+    font-size: 0.9rem;
+    color: var(--navy-600);
+    line-height: 1.85;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .sakura-inner {
+      flex-direction: row;
+      text-align: left;
+      gap: 40px;
+    }
+
+    .sakura-text p {
+      margin: 0;
+    }
+  }
+
+  /* ── Office Info ── */
+  .office-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .office-details {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 24px;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+  }
+
+  .office-details h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy-800);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--pink-200);
+  }
+
+  .office-table {
+    width: 100%;
+  }
+
+  .office-row {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-100);
+    gap: 4px;
+  }
+
+  .office-row:last-child {
+    border-bottom: none;
+  }
+
+  .office-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--pink-700);
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+
+  .office-value {
+    font-size: 0.92rem;
+    color: var(--navy-700);
+    line-height: 1.7;
+  }
+
+  .office-value a {
+    color: var(--pink-700);
+    font-weight: 600;
+  }
+
+  .office-map {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    min-height: 280px;
+  }
+
+  .office-map iframe {
+    width: 100%;
+    height: 280px;
+    border: 0;
+  }
+
+  @media (min-width: 640px) {
+    .office-row {
+      flex-direction: row;
+      gap: 0;
+    }
+
+    .office-label {
+      width: 120px;
+      padding-top: 2px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .office-grid {
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    .office-details {
+      flex: 1;
+    }
+
+    .office-map {
+      flex: 1;
+      min-height: 360px;
+    }
+
+    .office-map iframe {
+      height: 100%;
+    }
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--pink-700) 0%, var(--pink-800) 100%);
+    text-align: center;
+  }
+
+  .cta-section .section-label {
+    color: var(--pink-200);
+  }
+
+  .cta-section .section-heading {
+    color: var(--white);
+  }
+
+  .cta-section .section-desc {
+    color: rgba(255,255,255,0.85);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-tel {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .cta-tel svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--white);
+  }
+
+  .cta-hours {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 28px;
+  }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 40px;
+    background: var(--white);
+    color: var(--pink-700);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+    letter-spacing: 0.04em;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
+  @media (min-width: 768px) {
+    .cta-tel {
+      font-size: 2.4rem;
+    }
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--navy-800);
+    color: rgba(255,255,255,0.6);
+    padding: 48px 20px 24px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-brand img {
+    height: 32px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    margin-bottom: 12px;
+  }
+
+  .footer-brand p {
+    font-size: 0.82rem;
+    line-height: 1.8;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 28px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--white);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  @media (min-width: 768px) {
+    .footer {
+      padding: 56px 40px 28px;
+    }
+
+    .footer-top {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  /* ── Utilities ── */
+  .text-center {
+    text-align: center;
+  }
+
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- ────── Header ────── -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="header-logo">
+      <img src="https://www.harakawa-midori.com/images/common/site-logo.png" alt="原川みどり税理士事務所" loading="eager">
+    </a>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#about">事務所紹介</a></li>
+        <li><a href="#office">アクセス</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <a href="tel:044-276-8817" class="header-tel">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      044-276-8817
+    </a>
+  </div>
+</header>
+
+<!-- ────── Hero ────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="hero-badge">川崎市幸区の女性税理士</span>
+      <h1 class="hero-title">
+        あなたの事業を<br><span>親身に支える</span><br>税務のパートナー
+      </h1>
+      <p class="hero-subtitle">
+        原川みどり税理士事務所は、丁寧なヒアリングときめ細やかなサポートで、<br class="sp-hide">個人事業主から法人まで幅広くお手伝いいたします。<br>決算診断サービスで経営の「見える化」を実現します。
+      </p>
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          無料相談のお問い合わせ
+        </a>
+        <a href="tel:044-276-8817" class="btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          044-276-8817
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://www.harakawa-midori.com/media/1/2/12_1280x1707.jpg" alt="原川みどり税理士事務所" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ────── Services ────── -->
+<section id="services" class="section section-white">
+  <div class="section-inner">
+    <div class="text-center">
+      <span class="section-label">Services</span>
+      <h2 class="section-heading">サービス内容</h2>
+      <p class="section-desc mx-auto">
+        税務・会計のプロフェッショナルとして、お客様のあらゆるニーズにお応えいたします。
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>税額計算・申告</h3>
+        <p>法人税・所得税・消費税の確定申告を正確かつ迅速に対応。節税対策もご提案いたします。</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>月次記帳代行</h3>
+        <p>毎月の帳簿作成を代行し、経営状況をタイムリーに把握できるようサポートいたします。</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>相続税診断・対策</h3>
+        <p>将来の相続に向けた税額シミュレーションと、最適な節税対策をご提案いたします。</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3>決算診断サービス</h3>
+        <p>決算書を多角的に分析し、経営の強み・弱みを「見える化」。改善ポイントを分かりやすくお伝えします。</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>経営アドバイス</h3>
+        <p>数字に基づいた的確なアドバイスで、経営判断をサポート。資金繰りや事業計画もお任せください。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ────── Gallery / Highlights ────── -->
+<section class="section section-pink">
+  <div class="section-inner">
+    <div class="text-center" style="margin-bottom:36px">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-heading">業務のご紹介</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://www.harakawa-midori.com/images/top/img-gyoumu.png" alt="業務案内" loading="lazy">
+        <div class="gallery-overlay">
+          <h4>税務・会計業務</h4>
+          <p>確実な税務申告をサポート</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://www.harakawa-midori.com/images/top/img-souzoku.png" alt="相続対策" loading="lazy">
+        <div class="gallery-overlay">
+          <h4>相続税対策</h4>
+          <p>将来を見据えた資産設計</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://www.harakawa-midori.com/media/7/7_1194x834.png" alt="決算診断" loading="lazy">
+        <div class="gallery-overlay">
+          <h4>決算診断サービス</h4>
+          <p>経営の見える化を実現</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── About ────── -->
+<section id="about" class="section section-white">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://www.harakawa-midori.com/media/4/4_1280x853.jpg" alt="原川みどり税理士事務所について" loading="lazy">
+      </div>
+      <div class="about-text">
+        <span class="section-label">About Us</span>
+        <h3>女性税理士ならではの<br>きめ細やかなサポート</h3>
+        <p>
+          原川みどり税理士事務所は、川崎市幸区を拠点に、個人事業主から中小企業まで幅広いお客様の税務・会計をサポートしています。
+        </p>
+        <p>
+          女性税理士ならではの丁寧なヒアリングと、分かりやすい説明を心がけ、お客様に寄り添った対応を大切にしています。決算診断サービスでは、経営状態を多角的に分析し、改善のヒントをお伝えしています。
+        </p>
+        <ul class="about-features">
+          <li>女性税理士による親身な対応</li>
+          <li>決算診断で経営を見える化</li>
+          <li>相続税の事前診断・対策に強い</li>
+          <li>丁寧なヒアリングと分かりやすい説明</li>
+          <li>個人事業主から法人まで幅広く対応</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── Sakura (Office Dog) ────── -->
+<section class="section sakura-section">
+  <div class="section-inner">
+    <div class="sakura-inner">
+      <div class="sakura-image">
+        <img src="https://www.harakawa-midori.com/media/3/3_1280x853.jpg" alt="事務所犬さくら" loading="lazy">
+      </div>
+      <div class="sakura-text">
+        <span class="section-label">Office Dog</span>
+        <h3>事務所犬「さくら」がお出迎え</h3>
+        <p>
+          当事務所には看板犬の「さくら」がいます。お客様をあたたかくお出迎えし、リラックスした雰囲気の中でご相談いただけます。税理士事務所は堅いイメージがありますが、さくらがいることで自然と会話が弾み、和やかな雰囲気でお話しいただけると好評です。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── Office Info ────── -->
+<section id="office" class="section section-white">
+  <div class="section-inner">
+    <div class="text-center" style="margin-bottom:36px">
+      <span class="section-label">Office</span>
+      <h2 class="section-heading">事務所案内</h2>
+    </div>
+    <div class="office-grid">
+      <div class="office-details">
+        <h3>事務所概要</h3>
+        <div class="office-table">
+          <div class="office-row">
+            <div class="office-label">事務所名</div>
+            <div class="office-value">原川みどり税理士事務所</div>
+          </div>
+          <div class="office-row">
+            <div class="office-label">代表</div>
+            <div class="office-value">原川 みどり（税理士）</div>
+          </div>
+          <div class="office-row">
+            <div class="office-label">所在地</div>
+            <div class="office-value">〒212-0054<br>神奈川県川崎市幸区下平間４８−１００</div>
+          </div>
+          <div class="office-row">
+            <div class="office-label">電話番号</div>
+            <div class="office-value"><a href="tel:044-276-8817">044-276-8817</a></div>
+          </div>
+          <div class="office-row">
+            <div class="office-label">営業時間</div>
+            <div class="office-value">平日 9:00〜17:00</div>
+          </div>
+          <div class="office-row">
+            <div class="office-label">定休日</div>
+            <div class="office-value">土曜・日曜・祝日</div>
+          </div>
+        </div>
+      </div>
+      <div class="office-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.123!2d139.6686!3d35.5367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5bed5bSO5biC5bm45Yy65LiL5bmz6ZaT!5e0!3m2!1sja!2sjp!4v1700000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="事務所所在地マップ"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── Contact CTA ────── -->
+<section id="contact" class="section cta-section">
+  <div class="section-inner">
+    <span class="section-label">Contact</span>
+    <h2 class="section-heading">まずはお気軽にご相談ください</h2>
+    <p class="section-desc">
+      初回のご相談は無料です。税務・会計に関するお悩みや疑問、<br class="sp-hide">何でもお気軽にお問い合わせください。
+    </p>
+    <div class="cta-tel">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <a href="tel:044-276-8817" style="color:inherit">044-276-8817</a>
+    </div>
+    <p class="cta-hours">受付時間：平日 9:00〜17:00</p>
+    <a href="mailto:info@harakawa-midori.com" class="btn-white">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      メールでのお問い合わせ
+    </a>
+  </div>
+</section>
+
+<!-- ────── Footer ────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://www.harakawa-midori.com/images/common/f_logo.png" alt="原川みどり税理士事務所">
+        <p>神奈川県川崎市幸区下平間４８−１００<br>TEL: 044-276-8817</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#about">事務所紹介</a></li>
+        <li><a href="#office">アクセス</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 原川みどり税理士事務所 All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
