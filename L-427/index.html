@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加藤会計事務所 | NKプロフェッショナルグループ</title>
+<meta name="description" content="加藤会計事務所（川崎市高津区溝口）- 経営コンサルティング・税務会計・相続対策のプロフェッショナル。企業の持続的成長を支援します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0a1628;
+  --navy-light: #152240;
+  --blue: #1a3a6b;
+  --blue-accent: #2563eb;
+  --blue-light: #3b82f6;
+  --gold: #c5a55a;
+  --gold-light: #dcc07a;
+  --cream: #faf8f2;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 6px rgba(0,0,0,0.07), 0 12px 28px rgba(0,0,0,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========== HEADER ========== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gray-200);
+  transition: box-shadow 0.3s;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+}
+
+.logo-sub {
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-tel {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--gray-600);
+}
+
+.header-tel-number {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--blue-accent);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.header-cta:hover { background: var(--blue); }
+
+/* Mobile menu */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--navy);
+  transition: 0.3s;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--white);
+  z-index: 999;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.nav-mobile.active { display: block; }
+
+.nav-mobile a {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.nav-mobile a:last-child { border-bottom: none; }
+
+.nav-mobile .nav-cta-mobile {
+  display: block;
+  text-align: center;
+  background: var(--blue-accent);
+  color: var(--white);
+  padding: 14px;
+  border-radius: 8px;
+  margin-top: 16px;
+  font-weight: 500;
+  border-bottom: none;
+}
+
+/* ========== HERO ========== */
+.hero {
+  margin-top: 70px;
+  position: relative;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--blue) 100%);
+  overflow: hidden;
+  padding: 60px 0 50px;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197,165,90,0.1) 0%, transparent 70%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-label {
+  display: inline-block;
+  border: 1px solid rgba(197,165,90,0.5);
+  color: var(--gold-light);
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+.hero h1 span {
+  display: block;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-desc {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+  line-height: 2;
+  margin-bottom: 30px;
+  max-width: 540px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+/* ========== SECTION COMMON ========== */
+.section { padding: 60px 0; }
+.section-gray { background: var(--gray-50); }
+.section-dark { background: var(--navy); color: var(--white); }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header .en-label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.section-header h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.section-dark .section-header h2 { color: var(--white); }
+
+.section-header p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+.section-dark .section-header p { color: rgba(255,255,255,0.65); }
+
+.section-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 16px auto;
+}
+
+/* ========== STRENGTHS (management consulting highlight) ========== */
+.strengths-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.strength-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-100);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.strength-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.strength-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+.icon-consulting { background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: var(--blue-accent); }
+.icon-tax { background: linear-gradient(135deg, #fef3c7, #fde68a); color: #b45309; }
+.icon-succession { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: #047857; }
+.icon-inheritance { background: linear-gradient(135deg, #ede9fe, #ddd6fe); color: #7c3aed; }
+
+.strength-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--navy);
+}
+
+.strength-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ========== CONSULTING FEATURE ========== */
+.consulting-feature {
+  padding: 60px 0;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+  overflow: hidden;
+}
+
+.consulting-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.consulting-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.consulting-image img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.consulting-text .en-label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 8px;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+.consulting-text h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.consulting-text p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 2;
+  margin-bottom: 16px;
+  overflow-wrap: break-word;
+}
+
+.consulting-list {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.consulting-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 0.88rem;
+  color: var(--gray-700);
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+.consulting-list li::before {
+  content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--blue-accent);
+  color: var(--white);
+  font-size: 0.65rem;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ========== SERVICES ========== */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  border: 1px solid var(--gray-200);
+  transition: border-color 0.2s;
+}
+
+.service-item:hover { border-color: var(--blue-accent); }
+
+.service-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.service-item h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.service-item p {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ========== ABOUT / PROFILE ========== */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.about-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.about-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.about-text h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.about-text p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 2;
+  margin-bottom: 16px;
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cream);
+  border: 1px solid var(--gold);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+/* ========== OFFICE INFO ========== */
+.office-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.office-details {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+}
+
+.office-details h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gold);
+}
+
+.info-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 0.88rem;
+}
+
+.info-row:last-child { border-bottom: none; }
+
+.info-label {
+  width: 80px;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.82rem;
+}
+
+.info-value {
+  color: var(--gray-700);
+  line-height: 1.7;
+}
+
+.info-value a {
+  color: var(--blue-accent);
+  font-weight: 500;
+}
+
+.office-map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 300px;
+}
+
+.office-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ========== CTA ========== */
+.cta-section {
+  padding: 60px 0;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197,165,90,0.08) 0%, transparent 70%);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-content h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.cta-content p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.88rem;
+  margin-bottom: 24px;
+  line-height: 1.9;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.cta-tel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--white);
+}
+
+.cta-tel-number {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.cta-tel-note {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 16px 36px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+/* ========== FOOTER ========== */
+.footer {
+  background: var(--navy);
+  padding: 40px 0 20px;
+  color: rgba(255,255,255,0.6);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-brand .footer-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.footer-brand p {
+  font-size: 0.78rem;
+  line-height: 1.8;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (min-width: 640px) {
+  .strengths-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .cta-buttons { flex-direction: row; justify-content: center; }
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 32px; }
+  .section { padding: 80px 0; }
+
+  .header-tel { display: flex; }
+
+  .hero {
+    padding: 80px 0 70px;
+    min-height: 540px;
+  }
+
+  .hero h1 { font-size: 2.2rem; }
+
+  .section-header h2 { font-size: 1.8rem; }
+
+  .consulting-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .consulting-image img { height: 360px; }
+
+  .about-content { grid-template-columns: 1fr 1.2fr; gap: 40px; }
+  .about-image img { height: 320px; }
+
+  .office-grid { grid-template-columns: 1fr 1fr; }
+  .office-map { height: 100%; min-height: 300px; }
+
+  .footer-inner { flex-direction: row; justify-content: space-between; }
+}
+
+@media (min-width: 1024px) {
+  .menu-toggle { display: none; }
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-desktop a {
+    font-size: 0.82rem;
+    color: var(--gray-600);
+    font-weight: 400;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-desktop a:hover { color: var(--blue-accent); }
+
+  .hero { padding: 100px 0 80px; min-height: 580px; }
+  .hero h1 { font-size: 2.6rem; }
+
+  .strengths-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .consulting-feature { padding: 80px 0; }
+  .consulting-text h2 { font-size: 1.7rem; }
+
+  .cta-section { padding: 80px 0; }
+  .cta-content h2 { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-main">加藤会計事務所</span>
+        <span class="logo-sub">NK Professional Group</span>
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="#services">サービス</a>
+        <a href="#consulting">経営コンサルティング</a>
+        <a href="#about">事務所案内</a>
+        <a href="#access">アクセス</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="header-tel">
+          <span class="header-tel-number">044-811-2321</span>
+        </div>
+        <a href="#contact" class="header-cta">お問い合わせ</a>
+        <button class="menu-toggle" onclick="document.getElementById('mobileNav').classList.toggle('active')" aria-label="メニュー">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav id="mobileNav" class="nav-mobile">
+  <a href="#services" onclick="document.getElementById('mobileNav').classList.remove('active')">サービス一覧</a>
+  <a href="#consulting" onclick="document.getElementById('mobileNav').classList.remove('active')">経営コンサルティング</a>
+  <a href="#about" onclick="document.getElementById('mobileNav').classList.remove('active')">事務所案内</a>
+  <a href="#access" onclick="document.getElementById('mobileNav').classList.remove('active')">アクセス</a>
+  <a href="tel:044-811-2321" onclick="document.getElementById('mobileNav').classList.remove('active')">TEL: 044-811-2321</a>
+  <a href="#contact" class="nav-cta-mobile" onclick="document.getElementById('mobileNav').classList.remove('active')">お問い合わせ</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-label">NKプロフェッショナルグループ</span>
+      <h1>
+        経営の未来を、<br>
+        <span>共に描く。</span>
+      </h1>
+      <p class="hero-desc">
+        川崎市溝の口で40年以上の実績。税務会計にとどまらず、<br>
+        経営コンサルティング・相続対策・事業承継まで、<br>
+        企業と経営者の持続的な成長をトータルに支援します。
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">無料相談のご予約 →</a>
+        <a href="#consulting" class="btn-outline">経営コンサルティング</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STRENGTHS ========== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="en-label">Our Strengths</span>
+      <h2>4つの強み</h2>
+      <div class="section-divider"></div>
+      <p>税務のプロフェッショナルとして、お客様の「決断」と「実行」を全力で支援します</p>
+    </div>
+
+    <div class="strengths-grid">
+      <div class="strength-card">
+        <div class="strength-icon icon-consulting">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <h3>経営コンサルティング</h3>
+        <p>経営計画の策定から実行支援まで。企業の成長戦略を税務・財務の視点から総合的にサポートします。</p>
+      </div>
+
+      <div class="strength-card">
+        <div class="strength-icon icon-tax">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 7h6m-6 4h6m-6 4h4M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/></svg>
+        </div>
+        <h3>税務会計業務</h3>
+        <p>法人税・消費税・確定申告など、正確で迅速な税務会計処理。TKC優良会員としての品質を保証します。</p>
+      </div>
+
+      <div class="strength-card">
+        <div class="strength-icon icon-succession">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>事業承継支援</h3>
+        <p>スムーズな世代交代を実現。組織再編・M&Aを含む最適な承継プランをご提案します。</p>
+      </div>
+
+      <div class="strength-card">
+        <div class="strength-icon icon-inheritance">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <h3>相続・資産税対策</h3>
+        <p>人生100年時代の資産運用と相続対策。円滑で円満な資産承継をコンサルティングします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONSULTING FEATURE ========== -->
+<section class="consulting-feature" id="consulting">
+  <div class="container">
+    <div class="consulting-inner">
+      <div class="consulting-image">
+        <img src="https://www.nkpro.jp/library/574be109ea6118cd4cc35224/5bf39417e30e20bd5e3dfd08.jpg" alt="経営コンサルティング">
+      </div>
+      <div class="consulting-text">
+        <span class="en-label">Management Consulting</span>
+        <h2>経営課題を解決し、<br>持続的な成長を実現</h2>
+        <p>
+          単なる数字の処理ではなく、経営者の右腕として企業の成長を支えます。
+          財務データに基づく経営分析と、実行可能な改善提案で、
+          お客様の事業をより強く、より大きくするお手伝いをします。
+        </p>
+
+        <ul class="consulting-list">
+          <li>経営計画の策定・実行支援（中期・短期）</li>
+          <li>月次決算による経営状況の「見える化」</li>
+          <li>キャッシュフロー改善・資金繰り支援</li>
+          <li>組織再編・M&Aに関するコンサルティング</li>
+          <li>経営革新等支援機関として各種支援制度の活用</li>
+          <li>事業承継・後継者育成プランの策定</li>
+        </ul>
+
+        <a href="#contact" class="btn-primary">経営相談のご予約 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICE MENU ========== -->
+<section class="section section-gray">
+  <div class="container">
+    <div class="section-header">
+      <span class="en-label">Service Menu</span>
+      <h2>サービスメニュー</h2>
+      <div class="section-divider"></div>
+      <p>個人・法人を問わず、幅広いニーズにお応えします</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-item">
+        <span class="service-num">01</span>
+        <div>
+          <h3>法人税務顧問</h3>
+          <p>月次訪問による経営状況の確認と適切な税務アドバイス。法人税・消費税の申告代行。</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">02</span>
+        <div>
+          <h3>確定申告</h3>
+          <p>個人事業主・フリーランスの青色申告・白色申告。不動産所得・譲渡所得の申告もお任せください。</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">03</span>
+        <div>
+          <h3>相続税・贈与税</h3>
+          <p>相続税の申告・試算、生前贈与の計画策定。円満な資産承継を実現するためのトータルサポート。</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">04</span>
+        <div>
+          <h3>経理代行</h3>
+          <p>記帳代行・給与計算・年末調整まで。バックオフィス業務をアウトソーシングして経営に集中できます。</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">05</span>
+        <div>
+          <h3>創業・開業支援</h3>
+          <p>法人設立から事業計画の策定、融資のサポートまで。創業の夢をワンストップでお手伝いします。</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">06</span>
+        <div>
+          <h3>事業承継・M&A</h3>
+          <p>後継者問題の解決と企業価値の最大化。税務面から最適な承継スキームをご提案します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="en-label">About Us</span>
+      <h2>事務所紹介</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://www.nkpro.jp/library/574be109ea6118cd4cc35224/5d6e086dfdac084d4608883a.jpg" alt="加藤会計事務所">
+      </div>
+      <div class="about-text">
+        <h3>お客様の「決断」と「実行」を促すコンサルティング</h3>
+        <p>
+          NKプロフェッショナルグループ・加藤会計事務所は、
+          川崎市高津区溝口を拠点に、税務会計のみならず経営コンサルティングまで
+          幅広いサービスを提供しています。
+        </p>
+        <p>
+          相続や贈与など資産の悩みやトラブルをいかに円滑に円満に解決するか。
+          事業承継や組織再編など、企業の経営者にとって悩ましい課題に対して、
+          資産税を中心とした観点からも適切に丁寧にコンサルティングいたします。
+        </p>
+        <div class="about-badge">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          TKC全国会 優良会員 ｜ 経営革新等支援機関
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OFFICE INFO & MAP ========== -->
+<section class="section section-gray" id="access">
+  <div class="container">
+    <div class="section-header">
+      <span class="en-label">Office Information</span>
+      <h2>事務所概要・アクセス</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="office-grid">
+      <div class="office-details">
+        <h3>加藤会計事務所</h3>
+        <div class="info-row">
+          <span class="info-label">事務所名</span>
+          <span class="info-value">加藤会計事務所（NKプロフェッショナルグループ）</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">所在地</span>
+          <span class="info-value">〒213-0001<br>神奈川県川崎市高津区溝口３丁目１−５６ 協友ビル</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">電話</span>
+          <span class="info-value"><a href="tel:044-811-2321">044-811-2321</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">アクセス</span>
+          <span class="info-value">東急田園都市線・大井町線「溝の口」駅 徒歩約5分<br>JR南武線「武蔵溝ノ口」駅 徒歩約5分</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">営業時間</span>
+          <span class="info-value">平日 9:00〜17:00（土日祝休み）</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">所属</span>
+          <span class="info-value">東京地方税理士会</span>
+        </div>
+      </div>
+
+      <div class="office-map">
+        <iframe src="https://maps.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E5%B7%9D%E5%B4%8E%E5%B8%82%E9%AB%98%E6%B4%A5%E5%8C%BA%E6%BA%9D%E5%8F%A3%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%91%E2%88%92%EF%BC%95%EF%BC%96&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-content">
+      <h2>まずはお気軽にご相談ください</h2>
+      <p>経営のこと、税務のこと、相続のこと。<br>どんな些細なことでも、プロフェッショナルが丁寧にお答えします。</p>
+
+      <div class="cta-buttons">
+        <a href="https://www.nkpro.jp/form/knet2/page3" target="_blank" class="btn-gold">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          メールで相談する
+        </a>
+        <div class="cta-tel">
+          <a href="tel:044-811-2321" class="cta-tel-number">044-811-2321</a>
+          <span class="cta-tel-note">平日 9:00〜17:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">加藤会計事務所</div>
+        <p>NKプロフェッショナルグループ<br>神奈川県川崎市高津区溝口３丁目１−５６ 協友ビル<br>TEL: 044-811-2321</p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">サービス</a>
+        <a href="#consulting">経営コンサルティング</a>
+        <a href="#about">事務所案内</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="https://www.nkpro.jp/" target="_blank">公式サイト</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 加藤会計事務所 All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

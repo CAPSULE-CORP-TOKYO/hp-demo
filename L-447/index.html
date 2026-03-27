@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士法人三浦会計 | 川崎市中原区の税理士事務所</title>
+<meta name="description" content="税理士法人三浦会計は川崎市中原区新丸子にある税理士事務所です。税務申告、記帳代行、経営相談、相続対策など幅広くサポートいたします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0d1b2a;
+  --navy-mid: #1b2d45;
+  --navy-light: #243b55;
+  --silver: #a8b2c1;
+  --silver-light: #cdd5e0;
+  --gold: #b8941f;
+  --gold-light: #d4af37;
+  --white: #ffffff;
+  --off-white: #f4f5f7;
+  --text: #2c3e50;
+  --text-light: #5a6a7a;
+  --border: #dde1e7;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  line-height: 1.8;
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-main {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+}
+
+.logo-sub {
+  font-size: 10px;
+  color: var(--silver);
+  letter-spacing: 0.15em;
+  font-weight: 300;
+}
+
+.header-tel {
+  text-align: right;
+}
+
+.header-tel a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-tel-icon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-tel-label {
+  font-size: 10px;
+  color: var(--silver);
+  font-weight: 300;
+}
+
+/* Navigation */
+.nav {
+  background: var(--navy-mid);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav a {
+  color: var(--silver-light);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 12px 18px;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  transition: color 0.25s, background 0.25s;
+  position: relative;
+}
+
+.nav a:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 40%, var(--navy-light) 100%);
+  color: var(--white);
+  padding: 60px 20px 70px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,148,31,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-label {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-size: 11px;
+  padding: 4px 16px;
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  letter-spacing: 0.06em;
+}
+
+.hero-lead {
+  font-size: 14px;
+  color: var(--silver-light);
+  line-height: 2;
+  max-width: 600px;
+  margin: 0 auto 36px;
+  font-weight: 300;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  text-decoration: none;
+  padding: 14px 40px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: background 0.3s;
+}
+
+.hero-cta:hover {
+  background: var(--gold-light);
+}
+
+/* ===== SHARED SECTION STYLES ===== */
+.section {
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.section-title h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.section-title .en {
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.section-title-bar {
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 14px auto 0;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  background: var(--off-white);
+}
+
+.about-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-text {
+  font-size: 15px;
+  line-height: 2.1;
+  color: var(--text);
+  text-align: center;
+}
+
+.about-text strong {
+  color: var(--navy);
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.about-feature {
+  background: var(--white);
+  padding: 24px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.about-feature-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  font-family: 'Noto Serif JP', serif;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.about-feature-label {
+  font-size: 13px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* ===== SERVICES ===== */
+.services-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 32px 24px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.service-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border-color: var(--silver);
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 24px;
+  color: var(--gold-light);
+}
+
+.service-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* ===== FLOW ===== */
+.flow {
+  background: var(--off-white);
+}
+
+.flow-list {
+  max-width: 700px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.flow-item {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.flow-item:last-child {
+  border-bottom: none;
+}
+
+.flow-num {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--navy);
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Noto Serif JP', serif;
+}
+
+.flow-content h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.flow-content p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ===== OFFICE INFO ===== */
+.office-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.office-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.office-photo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--silver);
+  font-size: 14px;
+  position: relative;
+}
+
+.office-photo::after {
+  content: '事務所外観イメージ';
+  position: absolute;
+  font-size: 13px;
+  color: var(--silver);
+  letter-spacing: 0.1em;
+}
+
+.office-photo svg {
+  opacity: 0.2;
+  width: 80px;
+  height: 80px;
+}
+
+.office-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.office-table tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.office-table th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 14px 12px;
+  white-space: nowrap;
+  vertical-align: top;
+  width: 100px;
+  background: var(--off-white);
+}
+
+.office-table td {
+  font-size: 14px;
+  color: var(--text);
+  padding: 14px 12px;
+  line-height: 1.7;
+}
+
+.office-table td a {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ===== MAP ===== */
+.map-section {
+  background: var(--off-white);
+}
+
+.map-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.map-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+}
+
+.map-address {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* ===== CONTACT CTA ===== */
+.contact-cta {
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  color: var(--white);
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+}
+
+.contact-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.contact-cta h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 0.06em;
+}
+
+.contact-cta p {
+  font-size: 14px;
+  color: var(--silver-light);
+  line-height: 2;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.cta-tel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 18px 36px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: var(--white);
+  transition: background 0.3s;
+}
+
+.cta-tel:hover {
+  background: rgba(255,255,255,0.14);
+}
+
+.cta-tel-number {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.cta-tel-icon {
+  font-size: 22px;
+  color: var(--gold-light);
+}
+
+.cta-hours {
+  font-size: 12px;
+  color: var(--silver);
+  margin-top: 8px;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 14px 44px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: background 0.3s, color 0.3s;
+  min-width: 260px;
+  text-align: center;
+}
+
+.cta-btn-primary {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.cta-btn-primary:hover {
+  background: var(--gold-light);
+}
+
+.cta-btn-secondary {
+  background: transparent;
+  color: var(--silver-light);
+  border: 1px solid var(--silver);
+}
+
+.cta-btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--navy);
+  color: var(--silver);
+  padding: 40px 20px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.footer-info {
+  font-size: 12px;
+  line-height: 2;
+  color: var(--silver);
+  margin-bottom: 24px;
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: rgba(168,178,193,0.6);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 600px) {
+  .hero h1 { font-size: 32px; }
+  .hero { padding: 80px 30px 90px; }
+  .section { padding: 70px 30px; }
+
+  .about-features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero h1 { font-size: 36px; }
+  .hero { padding: 100px 40px 110px; }
+  .section { padding: 80px 40px; }
+
+  .section-title h2 { font-size: 28px; }
+
+  .logo-main { font-size: 22px; }
+  .header-tel a { font-size: 22px; }
+
+  .office-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .service-card {
+    padding: 36px 30px;
+  }
+
+  .contact-cta { padding: 80px 40px; }
+  .contact-cta h2 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-main">税理士法人三浦会計</span>
+      <span class="logo-sub">MIURA ACCOUNTING</span>
+    </a>
+    <div class="header-tel">
+      <span class="header-tel-label">お電話でのお問い合わせ</span>
+      <a href="tel:044-455-1500">
+        <span class="header-tel-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </span>
+        044-455-1500
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#about">事務所案内</a>
+    <a href="#services">サービス</a>
+    <a href="#flow">ご依頼の流れ</a>
+    <a href="#office">アクセス</a>
+    <a href="#contact">お問い合わせ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">税理士法人三浦会計</div>
+  <h1>信頼と実績で<br>お客様の経営を支える</h1>
+  <p class="hero-lead">
+    川崎市中原区を拠点に、個人事業主から法人まで<br>
+    税務・会計のあらゆるご相談を承ります。<br>
+    お客様一人ひとりに寄り添った丁寧な対応で、<br>
+    安心の経営をサポートいたします。
+  </p>
+  <a href="#contact" class="hero-cta">無料相談のご予約</a>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="section-title">
+    <span class="en">ABOUT US</span>
+    <h2>事務所案内</h2>
+    <div class="section-title-bar"></div>
+  </div>
+  <div class="about-inner">
+    <p class="about-text">
+      <strong>税理士法人三浦会計</strong>は、川崎市中原区新丸子にて<br>
+      地域の皆様の税務・会計を幅広くサポートしております。<br>
+      法人・個人を問わず、お客様の事業規模やご要望に合わせた<br>
+      きめ細やかなサービスをご提供いたします。<br>
+      「身近な税理士」として、お気軽にご相談ください。
+    </p>
+    <div class="about-features">
+      <div class="about-feature">
+        <div class="about-feature-num">丁寧</div>
+        <div class="about-feature-label">一人ひとりに寄り添う対応</div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-num">迅速</div>
+        <div class="about-feature-label">スピーディーな対応力</div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-num">安心</div>
+        <div class="about-feature-label">明朗な料金体系</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-title">
+    <span class="en">SERVICES</span>
+    <h2>サービス内容</h2>
+    <div class="section-title-bar"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+      </div>
+      <h3>税務申告</h3>
+      <p>法人税・所得税・消費税などの各種税務申告を正確かつ迅速に対応いたします。節税対策もご提案し、お客様の税負担を最適化します。</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3>記帳代行</h3>
+      <p>日々の経理業務をまるごとお任せいただけます。会計ソフトの導入支援から月次記帳、試算表の作成まで一貫してサポートいたします。</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h3>経営相談</h3>
+      <p>資金繰り改善、事業計画の策定、経営分析など、税務の枠を超えた経営全般のご相談に対応。お客様の成長をともに目指します。</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      </div>
+      <h3>相続・贈与対策</h3>
+      <p>相続税申告はもちろん、生前からの相続対策、贈与税の活用、不動産評価など、ご家族の将来を見据えた最適なプランをご提案します。</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>会社設立支援</h3>
+      <p>法人設立の手続きから届出書類の作成、設立後の会計・税務体制構築まで、起業をトータルでサポートいたします。</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3>税務調査対応</h3>
+      <p>税務調査の事前準備から立会い、調査後の対応まで一貫してサポートいたします。経験豊富な税理士が安心の対応をお約束します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="section flow" id="flow">
+  <div class="section-title">
+    <span class="en">FLOW</span>
+    <h2>ご依頼の流れ</h2>
+    <div class="section-title-bar"></div>
+  </div>
+  <ul class="flow-list">
+    <li class="flow-item">
+      <div class="flow-num">01</div>
+      <div class="flow-content">
+        <h4>お問い合わせ</h4>
+        <p>お電話またはメールフォームよりお気軽にご連絡ください。ご相談内容をお伺いし、面談の日程を調整いたします。</p>
+      </div>
+    </li>
+    <li class="flow-item">
+      <div class="flow-num">02</div>
+      <div class="flow-content">
+        <h4>無料相談・ヒアリング</h4>
+        <p>事務所またはオンラインにて、現在の状況やご要望を詳しくお聞きいたします。初回相談は無料です。</p>
+      </div>
+    </li>
+    <li class="flow-item">
+      <div class="flow-num">03</div>
+      <div class="flow-content">
+        <h4>お見積り・ご提案</h4>
+        <p>ヒアリング内容をもとに、最適なサービス内容と明確な料金をご提示いたします。</p>
+      </div>
+    </li>
+    <li class="flow-item">
+      <div class="flow-num">04</div>
+      <div class="flow-content">
+        <h4>ご契約・業務開始</h4>
+        <p>ご納得いただけましたらご契約となります。担当者が責任をもって業務を遂行いたします。</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- OFFICE -->
+<section class="section" id="office">
+  <div class="section-title">
+    <span class="en">ACCESS</span>
+    <h2>事務所情報</h2>
+    <div class="section-title-bar"></div>
+  </div>
+  <div class="office-inner">
+    <div class="office-grid">
+      <div class="office-photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      </div>
+      <div>
+        <table class="office-table">
+          <tr>
+            <th>事務所名</th>
+            <td>税理士法人三浦会計</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>〒211-0004<br>神奈川県川崎市中原区新丸子東２丁目９０８−３</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><a href="tel:044-455-1500">044-455-1500</a></td>
+          </tr>
+          <tr>
+            <th>営業時間</th>
+            <td>平日 9:00〜18:00</td>
+          </tr>
+          <tr>
+            <th>定休日</th>
+            <td>土曜・日曜・祝日</td>
+          </tr>
+          <tr>
+            <th>アクセス</th>
+            <td>東急東横線 新丸子駅より徒歩約3分</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section map-section">
+  <div class="map-wrap">
+    <iframe class="map-frame" src="https://maps.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E5%B7%9D%E5%B4%8E%E5%B8%82%E4%B8%AD%E5%8E%9F%E5%8C%BA%E6%96%B0%E4%B8%B8%E5%AD%90%E6%9D%B1%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%99%EF%BC%90%EF%BC%98%E2%88%92%EF%BC%93&output=embed" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p class="map-address">神奈川県川崎市中原区新丸子東２丁目９０８−３ ／ 東急東横線 新丸子駅より徒歩約3分</p>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="contact-cta" id="contact">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>
+    税務・会計に関するお悩み、何でもお聞かせください。<br>
+    初回のご相談は無料で承っております。
+  </p>
+  <a href="tel:044-455-1500" class="cta-tel">
+    <span class="cta-tel-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </span>
+    <span class="cta-tel-number">044-455-1500</span>
+  </a>
+  <div class="cta-hours">受付時間：平日 9:00〜18:00</div>
+  <div class="cta-buttons">
+    <a href="#contact" class="cta-btn cta-btn-primary">無料相談のお申し込み</a>
+    <a href="#contact" class="cta-btn cta-btn-secondary">メールでのお問い合わせ</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-name">税理士法人三浦会計</div>
+    <div class="footer-info">
+      〒211-0004 神奈川県川崎市中原区新丸子東２丁目９０８−３<br>
+      TEL：<a href="tel:044-455-1500" style="color:inherit;text-decoration:none;">044-455-1500</a>　／　平日 9:00〜18:00
+    </div>
+    <div class="footer-copy">&copy; 税理士法人三浦会計 All Rights Reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
