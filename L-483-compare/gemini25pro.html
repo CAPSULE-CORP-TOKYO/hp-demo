@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大樂公認会計士・税理士事務所 株式会社 大樂総合会計</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Basic Styles */
+        :root {
+            --dark-blue: #1A294B;
+            --primary-blue: #3B71CA;
+            --light-gray-bg: #F7F8FA;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --border-color: #E0E0E0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-dark);
+            background-color: #FFFFFF;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            padding: 15px 0;
+        }
+
+        .header .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo h1 {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.4;
+            margin: 0;
+        }
+        .header-logo span {
+            font-size: 14px;
+        }
+
+        .header-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .header-tel {
+            font-size: 20px;
+            font-weight: 700;
+            transition: opacity 0.3s;
+        }
+        .header-tel:hover {
+            opacity: 0.8;
+        }
+
+        .header-nav {
+            display: none; /* Mobile first: hidden */
+        }
+
+        .header-nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            padding: 5px 0;
+            position: relative;
+            transition: opacity 0.3s;
+        }
+        .header-nav a:hover {
+            opacity: 0.8;
+        }
+        .header-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--text-light);
+            transition: width 0.3s;
+        }
+        .header-nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta-button {
+            background-color: var(--text-light);
+            color: var(--dark-blue);
+            padding: 10px 20px;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .header-cta-button:hover {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://i.imgur.com/q26Y26f.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h2 {
+            font-size: 24px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Main Content Area */
+        .main-section {
+            padding: 60px 0;
+        }
+
+        .main-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .sidebar {
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        .main-content {
+            flex-grow: 1;
+        }
+
+        /* Sidebar */
+        .sidebar-nav ul {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-nav li a {
+            display: block;
+            padding: 15px 20px;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .sidebar-nav li:last-child a {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .sidebar-nav li a:hover {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+        }
+
+        /* Content Sections */
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--dark-blue);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-blue);
+        }
+
+        .service-section, .features-section {
+            margin-bottom: 60px;
+        }
+
+        .service-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .service-text {
+            flex: 1;
+        }
+        .service-text p {
+            margin-bottom: 15px;
+        }
+
+        .service-image {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            font-size: 17px;
+        }
+
+        .features-list .icon {
+            color: var(--primary-blue);
+            margin-right: 10px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        /* Banners */
+        .banners-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .banner-item {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        .banner-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .banner-image {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+        .banner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-text {
+            padding: 20px;
+            flex-grow: 1;
+            background-color: #fff;
+        }
+        .banner-text h3 {
+            font-size: 20px;
+            color: var(--dark-blue);
+        }
+
+        /* News Section */
+        .news-section {
+            background-color: var(--light-gray-bg);
+            padding: 60px 0;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .news-item {
+            background-color: #fff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .news-item time {
+            display: block;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .news-item p {
+            font-size: 15px;
+            line-height: 1.8;
+            white-space: pre-wrap; /* To respect newlines from original text */
+        }
+        
+        .news-item a {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+        .news-item a:hover {
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-blue);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 60px 0 0;
+            font-size: 14px;
+        }
+
+        .footer-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-sitemap-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+        }
+
+        .footer-sitemap-grid a {
+            display: block;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        .footer-sitemap-grid a:hover {
+            color: var(--text-light);
+        }
+
+        .footer-info h3 {
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-info p {
+            margin-bottom: 10px;
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+        }
+
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            .header .container {
+                flex-wrap: nowrap;
+            }
+            .header-contact {
+                flex-direction: row;
+                align-items: center;
+            }
+            .header-nav {
+                display: block;
+            }
+            .hero {
+                padding: 100px 0;
+            }
+            .hero-content h2 {
+                font-size: 32px;
+            }
+            .main-layout {
+                flex-direction: row;
+                gap: 50px;
+            }
+            .sidebar {
+                width: 280px;
+            }
+            .service-content {
+                flex-direction: row;
+            }
+            .banners-grid {
+                flex-direction: row;
+            }
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-layout {
+                grid-template-columns: 1fr 1.5fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .header-logo h1 {
+                font-size: 22px;
+            }
+            .header-logo span {
+                font-size: 16px;
+            }
+            .header-tel {
+                font-size: 24px;
+            }
+            .header-nav ul {
+                gap: 30px;
+            }
+            .news-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .footer-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-sitemap-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-logo">
+                <h1>大樂公認会計士・税理士事務所<br><span>株式会社 大樂総合会計</span></h1>
+            </div>
+            <div class="header-contact">
+                <nav class="header-nav">
+                    <ul>
+                        <li><a href="#">ホーム</a></li>
+                        <li><a href="#">事務所概要</a></li>
+                        <li><a href="#">サービス内容</a></li>
+                    </ul>
+                </nav>
+                <a href="tel:03-5797-9487" class="header-tel">TEL: 03-5797-9487</a>
+                <a href="#" class="header-cta-button">お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <h2>メール等で受け取った電子請求書等（電子取引）を、印刷して保存することが認められなくなります。</h2>
+                    <p>電子帳簿保存法は、電子データで受け取った請求書等を、電子データのまま保存することを義務付けるものです。また、令和5年10月1日からインボイス制度が開始されます。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-section">
+            <div class="container main-layout">
+                <aside class="sidebar">
+                    <nav class="sidebar-nav">
+                        <ul>
+                            <li><a href="#">事務所概要</a></li>
+                            <li><a href="#">業務内容</a></li>
+                            <li><a href="#">報酬規定</a></li>
+                            <li><a href="#">採用情報</a></li>
+                            <li><a href="#">お問い合わせ</a></li>
+                            <li><a href="#">個人情報保護方針</a></li>
+                            <li><a href="#">アクセス</a></li>
+                            <li><a href="#">ブログ</a></li>
+                            <li><a href="#">リンク集</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+                <div class="main-content">
+                    <section class="service-section fade-in">
+                        <h2 class="section-title">当事務所のサービス</h2>
+                        <div class="service-content">
+                            <div class="service-text">
+                                <p>当事務所は、お客様の永続的な繁栄を願い、経営計画を策定し、目標達成を支援します。決算書や申告書を作成する事は、当然の業務です。</p>
+                                <p>ご相談を頂ければ専門家として、的確なアドバイスをさせて頂きます。私達は、お客様の永続的な繁栄をサポートし、安心と信頼を提供します。</p>
+                                <p>この仲間は、税理士のチェックのもと、貴社の永続的な繁栄のため貢献できることを願っています。</p>
+                            </div>
+                            <div class="service-image">
+                                <img src="https://i.imgur.com/393220p.png" alt="事務所のスタッフ">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="features-section fade-in">
+                        <h2 class="section-title">当事務所の特長</h2>
+                        <ul class="features-list">
+                            <li><span class="icon">✔</span>信頼・代行・効率経営！皆様の要望を登録。</li>
+                            <li><span class="icon">✔</span>創業・会社設立から経営計画・資金繰りまで。</li>
+                            <li><span class="icon">✔</span>相続税申告や贈与税・相続税・助成金・融資等の相談まで。</li>
+                            <li><span class="icon">✔</span>税務調査の事前準備・税理士が面談を同席する。</li>
+                            <li><span class="icon">✔</span>今後の公会計会計・税理士などをめざしています。</li>
+                        </ul>
+                    </section>
+
+                    <div class="banners-grid fade-in">
+                        <a href="#" class="banner-item">
+                            <div class="banner-image">
+                                <img src="https://i.imgur.com/g055y3a.png" alt="補助金・助成金・融資情報">
+                            </div>
+                            <div class="banner-text">
+                                <h3>補助金・助成金・融資情報</h3>
+                            </div>
+                        </a>
+                        <a href="#" class="banner-item">
+                            <div class="banner-image">
+                                <img src="https://i.imgur.com/z0z542b.png" alt="相続税額の早見表">
+                            </div>
+                            <div class="banner-text">
+                                <h3>相続税額の早見表</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-section">
+            <div class="container">
+                <h2 class="section-title">お知らせ</h2>
+                <div class="news-grid">
+                    <div class="news-item fade-in">
+                        <time>2023.1.19</time>
+                        <p>関与先様へのお知らせ
+国税庁のインボイス制度特設サイトに「お問い合わせの多いご質問」のページが新設されましたので、お知らせいたします。
+インボイス制度へのご理解をより一層深めていただくための一助としてご活用ください。
+また、当事務所ではインボイス制度に関するご質問やご相談も承っておりますので、ご不明な点がございましたら、お気軽にお問い合わせください。
+
+対象サイト：<a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice_faq.htm" target="_blank" rel="noopener">https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice_faq.htm</a></p>
+                    </div>
+                    <div class="news-item fade-in">
+                        <time>2022.12.22</time>
+                        <p>年末年始休業のお知らせ
+誠に勝手ながら、下記の期間を年末年始休業とさせていただきます。
+ご不便をお掛け致しますが、何卒ご了承くださいますようお願い申し上げます。
+
+休業期間：2022年12月29日（木）～2023年1月4日（水）
+※2023年1月5日（木）より、通常通り営業いたします。</p>
+                    </div>
+                    <div class="news-item fade-in">
+                        <time>2022.9.22</time>
+                        <p>インボイス制度に関するお知らせ
+令和5年10月1日から、消費税の仕入税額控除の方式としてインボイス制度が開始されます。
+適格請求書（インボイス）を発行できるのは、「適格請求書発行事業者」に限られます。
+この「適格請求書発行事業者」になるためには、登録申請書を提出し、登録を受ける必要があります。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-layout">
+                <div class="footer-sitemap">
+                    <div class="footer-sitemap-grid">
+                        <a href="#">ホーム</a>
+                        <a href="#">事務所概要</a>
+                        <a href="#">業務内容</a>
+                        <a href="#">報酬規定</a>
+                        <a href="#">採用情報</a>
+                        <a href="#">お問い合わせ</a>
+                        <a href="#">個人情報保護方針</a>
+                        <a href="#">アクセス</a>
+                        <a href="#">ブログ</a>
+                        <a href="#">リンク集</a>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <h3>大樂公認会計士・税理士事務所 / ㈱大樂総合会計</h3>
+                    <p>〒158-0097 東京都世田谷区用賀4-5-21 第一小林ビル403号</p>
+                    <div class="footer-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.162211839215!2d139.6300183152579!3d35.64859698020198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f47055555555%3A0x23b8a5392386a32!2z44CSMTU4LTAwOTcg5p2x5Lqs6YO95LiW55Sw6LC35Yy655So6LOA77yU5LiB55uu77yV4oiS77yS77yR!5e0!3m2!1sja!2sjp!4v1683870000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright (C) 2022 大樂公認会計士・税理士事務所 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
