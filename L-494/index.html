@@ -1,94 +1,530 @@
 <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税理士法人 いさやま会計</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2b70b5;
+            --primary-hover: #1e5287;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f9f9f9;
+            --border-color: #dddddd;
+            --footer-bg: #222222;
+            --container-width: 1000px;
+        }
 
-<html class="scroll-smooth" lang="ja"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>税理士法人 いさやま会計 | 川崎市新百合ヶ丘の税理士事務所</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "secondary-fixed": "#7efba4",
-              "surface-container-highest": "#e2e2e2",
-              "inverse-surface": "#2f3131",
-              "tertiary-fixed": "#ffddb7",
-              "on-secondary-fixed": "#00210c",
-              "tertiary": "#362308",
-              "on-error-container": "#93000a",
-              "surface-bright": "#f9f9f9",
-              "secondary": "#006d37",
-              "on-surface": "#1a1c1c",
-              "on-surface-variant": "#43474c",
-              "inverse-on-surface": "#f0f1f1",
-              "on-background": "#1a1c1c",
-              "on-tertiary-fixed-variant": "#5a4225",
-              "on-secondary-fixed-variant": "#005228",
-              "secondary-container": "#7bf8a1",
-              "on-primary-container": "#96a9be",
-              "background": "#f9f9f9",
-              "on-primary-fixed": "#091d2e",
-              "on-error": "#ffffff",
-              "outline": "#74777d",
-              "on-tertiary-fixed": "#291802",
-              "error": "#ba1a1a",
-              "on-tertiary": "#ffffff",
-              "primary": "#162839",
-              "surface": "#f9f9f9",
-              "inverse-primary": "#b5c8df",
-              "primary-container": "#2c3e50",
-              "on-primary": "#ffffff",
-              "tertiary-fixed-dim": "#e3c19b",
-              "primary-fixed-dim": "#b5c8df",
-              "secondary-fixed-dim": "#61de8a",
-              "on-secondary-container": "#007239",
-              "tertiary-container": "#4e381c",
-              "outline-variant": "#c4c6cd",
-              "on-primary-fixed-variant": "#36485b",
-              "error-container": "#ffdad6",
-              "surface-variant": "#e2e2e2",
-              "surface-container-high": "#e8e8e8",
-              "on-tertiary-container": "#c1a17d",
-              "surface-dim": "#dadada",
-              "primary-fixed": "#d1e4fb",
-              "surface-tint": "#4e6073",
-              "on-secondary": "#ffffff",
-              "surface-container-lowest": "#ffffff",
-              "surface-container": "#eeeeee",
-              "surface-container-low": "#f3f3f4"
-            },
-            fontFamily: {
-              "headline": ["Manrope", "Noto Sans JP"],
-              "body": ["Noto Sans JP", "Inter"],
-              "label": ["Inter", "Noto Sans JP"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
-        },
-      }
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        vertical-align: middle;
-      }
-      body {
-        font-family: 'Noto Sans JP', sans-serif;
-        background-color: #f9f9f9;
-        color: #1a1c1c;
-      }
-      .perspective-hero-frame {
-        border-top-right-radius: 4rem;
-        overflow: hidden;
-      }
-      .ghost-border {
-        border: 1px solid rgba(196, 198, 205, 0.2);
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Header */
+        .header-top {
+            background-color: #f0f0f0;
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 5px 0;
+        }
+
+        .header-main {
+            padding: 20px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 1px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-info {
+            text-align: right;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-bottom: -5px;
+        }
+
+        .contact-tel {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .contact-tel a {
+            color: inherit;
+        }
+
+        .contact-tel a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-hours {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: -5px;
+        }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-contact::before {
+            content: "✉";
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--primary-hover);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        /* Navigation */
+        .global-nav {
+            background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 12px 0;
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #e9e9e9;
+            color: var(--text-main);
+        }
+
+        .nav-item.active .nav-link {
+            background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+            color: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            display: block;
+            transition: transform 5s ease;
+        }
+
+        .hero:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Features (3 Columns) */
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            flex: 1;
+        }
+
+        .feature-title {
+            font-size: 16px;
+            font-weight: 700;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-img {
+            border: 1px solid var(--border-color);
+            padding: 3px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        .feature-img img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover .feature-img img {
+            transform: scale(1.05);
+        }
+
+        .feature-desc {
+            font-size: 12px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            min-height: 54px;
+        }
+
+        .btn-small {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 2px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-small::before {
+            content: "▶";
+            font-size: 8px;
+            margin-right: 5px;
+        }
+
+        .btn-small:hover {
+            background-color: var(--primary-hover);
+            color: #fff;
+        }
+
+        /* Main Content & Sidebar Layout */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 100%;
+        }
+
+        /* Section Title */
+        .section-title {
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 15px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        /* Article List */
+        .article-list {
+            list-style: none;
+        }
+
+        .article-item {
+            border-bottom: 1px dotted var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .article-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 5px;
+        }
+
+        .tag {
+            background-color: #f5f5f5;
+            border: 1px solid var(--border-color);
+            padding: 1px 6px;
+            border-radius: 2px;
+            color: var(--text-light);
+        }
+
+        .article-excerpt {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        /* Sidebar Widgets */
+        .widget {
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Search Form */
+        .search-form {
+            display: flex;
+            gap: 5px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            font-size: 13px;
+        }
+
+        .search-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Sidebar Lists */
+        .widget-list {
+            list-style: none;
+        }
+
+        .widget-list li {
+            border-bottom: 1px dotted var(--border-color);
+            padding: 10px 0;
+            font-size: 13px;
+        }
+
+        .widget-list li:last-child {
+            border-bottom: none;
+        }
+
+        .widget-list a {
+            display: flex;
+            align-items: flex-start;
+            color: var(--text-main);
+        }
+
+        .widget-list a::before {
+            content: "+";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #999;
+            color: #999;
+            font-size: 10px;
+            line-height: 1;
+            margin-right: 8px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .widget-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .widget-list a:hover::before {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--footer-bg);
+            color: #cccccc;
+            padding: 40px 0 20px;
+            font-size: 12px;
+        }
+
+        .footer-info {
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .footer-address {
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            color: #888;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 5px;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .header-inner {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .nav-list {
+                flex-direction: row;
+            }
+
+            .nav-item {
+                border-bottom: none;
+                border-right: 1px solid var(--border-color);
+            }
+
+            .nav-item:last-child {
+                border-right: none;
+            }
+
+            .features {
+                flex-direction: row;
+            }
+
+            .content-wrapper {
+                flex-direction: row;
+            }
+
+            .main-content {
+                width: 68%;
+                flex: none;
+            }
+
+            .sidebar {
+                width: 28%;
+                flex: none;
+                margin-left: auto;
+            }
+        }
     </style>
 <meta name="robots" content="noindex, nofollow">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
@@ -99,272 +535,186 @@
   if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
 </script>
 </head>
-<body class="bg-surface selection:bg-secondary-container selection:text-on-secondary-container">
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
-<div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
-<div class="text-xl font-bold text-slate-900 dark:text-slate-50 tracking-tighter font-['Manrope']">
-                税理士法人 いさやま会計
-            </div>
-<div class="hidden md:flex items-center space-gap-8 gap-x-8">
-<a class="font-['Manrope'] font-bold tracking-tight text-sm text-emerald-700 border-b-2 border-emerald-600 cursor-pointer transition-transform active:scale-95" href="#strengths">当事務所の強み</a>
-<a class="font-['Manrope'] font-bold tracking-tight text-sm text-slate-600 hover:text-slate-900 transition-colors cursor-pointer transition-transform active:scale-95" href="#services">サービス</a>
-<a class="font-['Manrope'] font-bold tracking-tight text-sm text-slate-600 hover:text-slate-900 transition-colors cursor-pointer transition-transform active:scale-95" href="#greeting">代表挨拶</a>
-<a class="font-['Manrope'] font-bold tracking-tight text-sm text-slate-600 hover:text-slate-900 transition-colors cursor-pointer transition-transform active:scale-95" href="#outline">事務所概要</a>
-<a class="font-['Manrope'] font-bold tracking-tight text-sm text-slate-600 hover:text-slate-900 transition-colors cursor-pointer transition-transform active:scale-95" href="#access">アクセス</a>
-</div>
-<a class="bg-primary text-on-primary px-6 py-2 rounded-md font-bold text-sm transition-all duration-300 hover:bg-slate-800 active:scale-95" href="#contact">
-                お問い合わせ
-            </a>
-</div>
-</nav>
-<!-- Hero Section: Perspective Hero -->
-<header class="relative pt-32 pb-20 md:pt-48 md:pb-40 overflow-hidden bg-surface">
-<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-<div class="lg:col-span-7 z-10">
-<div class="inline-block px-3 py-1 mb-6 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase font-label">
-                    Established for 30 Years
+<body>
+
+    <div class="header-top">
+        <div class="container">
+            isasystems
+        </div>
+    </div>
+
+    <header class="header-main">
+        <div class="container header-inner">
+            <div class="logo">税理士法人　いさやま会計</div>
+            <div class="header-contact">
+                <div class="contact-info">
+                    <div class="contact-label">お問合せ</div>
+                    <div class="contact-tel"><a href="tel:0449532386">TEL 044-953-2386</a></div>
+                    <div class="contact-hours">平日9時〜17時30分</div>
                 </div>
-<h1 class="text-4xl md:text-6xl font-headline font-extrabold text-primary leading-tight mb-6 tracking-tight">
-                    経営者の未来を、<br/>税務・会計の面から<br/>サポートします
-                </h1>
-<p class="text-lg md:text-xl text-on-surface-variant leading-relaxed mb-10 max-w-2xl font-body">
-                    川崎市麻生区で30年以上の実績。法人・個人問わず、<br class="hidden md:block"/>きめ細やかなサービスを提供しています。
-                </p>
-<div class="flex flex-col sm:flex-row gap-4">
-<a class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white font-bold rounded-lg transition-all duration-300 hover:opacity-90 shadow-lg shadow-secondary/20" href="#contact">
-                        お問い合わせはこちら
-                        <span class="material-symbols-outlined ml-2">arrow_forward</span>
-</a>
-<a class="inline-flex items-center justify-center px-8 py-4 bg-surface-container-low text-primary font-bold rounded-lg transition-all duration-300 hover:bg-surface-container-high" href="#services">
-                        サービスを見る
-                    </a>
-</div>
-</div>
-<div class="lg:col-span-5 relative">
-<div class="perspective-hero-frame aspect-[4/5] bg-surface-container-low relative">
-<img alt="Professional Office View" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] opacity-90" data-alt="Modern high-end office interior with clean glass walls, professional atmosphere, bright natural light, and sophisticated architectural lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACLaaYp3HQZprCMo1rulAN9QtCjCJxTvVe2YExmUe3s463h7F-QhVQfftfi_LR6QKn_XyBUw-MKFlTW8xPeZhw84NTLzQbCVSKT_WjAaWoEoB-4Iny97DzwZglY55FmxtRh1Z25gr8UWkE2ZagvtfRlOGTZhh9jx-bgJeNm7B-ApBDWHtDhST5wMV4We9nY3CSLFB7pYt2XmpfzQr5tfRBLoc-TPWOF1DITaUQ2cXr2w64LANXqA0K70nuzkFR_v_tTWuz5sM89E4"/>
-<div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary/20 to-transparent h-1/2"></div>
-</div>
-<!-- Decorative element -->
-<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
-</div>
-</div>
-</header>
-<!-- Strengths Section: Bento-ish Grid -->
-<section class="py-24 bg-surface-container-low" id="strengths">
-<div class="max-w-7xl mx-auto px-8">
-<div class="mb-16">
-<span class="text-secondary font-bold tracking-[0.2em] text-xs uppercase mb-2 block font-label">Our Strengths</span>
-<h2 class="text-3xl md:text-4xl font-headline font-bold text-primary tracking-tight">当事務所の強み</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Card 1 -->
-<div class="bg-surface-container-lowest p-10 rounded-xl ghost-border transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 group">
-<div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
-<span class="material-symbols-outlined">update</span>
-</div>
-<h3 class="text-xl font-bold text-primary mb-4">最新の税制改正に対応</h3>
-<p class="text-on-surface-variant leading-relaxed text-sm">毎年の税制改正を的確にキャッチアップし、お客様に最適な税務アドバイスを提供します。</p>
-</div>
-<!-- Card 2 -->
-<div class="bg-surface-container-lowest p-10 rounded-xl ghost-border transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 group">
-<div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
-<span class="material-symbols-outlined">location_on</span>
-</div>
-<h3 class="text-xl font-bold text-primary mb-4">地域密着型サービス</h3>
-<p class="text-on-surface-variant leading-relaxed text-sm">川崎市麻生区を中心に、30年以上にわたり地域の事業者様をサポートしています。</p>
-</div>
-<!-- Card 3 -->
-<div class="bg-surface-container-lowest p-10 rounded-xl ghost-border transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 group">
-<div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
-<span class="material-symbols-outlined">account_balance</span>
-</div>
-<h3 class="text-xl font-bold text-primary mb-4">トータルサポート</h3>
-<p class="text-on-surface-variant leading-relaxed text-sm">法人の決算申告から個人の確定申告、相続対策まで幅広く対応します。</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Services Section: Tonal Grid -->
-<section class="py-24 bg-surface" id="services">
-<div class="max-w-7xl mx-auto px-8">
-<div class="text-center mb-20">
-<span class="text-secondary font-bold tracking-[0.2em] text-xs uppercase mb-2 block font-label">Service Menu</span>
-<h2 class="text-3xl md:text-4xl font-headline font-bold text-primary tracking-tight">サービス一覧</h2>
-<div class="w-16 h-1 bg-secondary mx-auto mt-6 rounded-full"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-12">
-<!-- Service 1 -->
-<div class="flex gap-6">
-<div class="flex-shrink-0 text-secondary">
-<span class="material-symbols-outlined text-4xl" data-weight="fill">business_center</span>
-</div>
-<div>
-<h4 class="text-lg font-bold text-primary mb-2">法人税務顧問</h4>
-<p class="text-on-surface-variant text-sm leading-relaxed">月次記帳指導、決算申告、税務調査対応など、企業の健全な財務を支えます。</p>
-</div>
-</div>
-<!-- Service 2 -->
-<div class="flex gap-6">
-<div class="flex-shrink-0 text-secondary">
-<span class="material-symbols-outlined text-4xl" data-weight="fill">person</span>
-</div>
-<div>
-<h4 class="text-lg font-bold text-primary mb-2">個人確定申告</h4>
-<p class="text-on-surface-variant text-sm leading-relaxed">所得税、消費税、各種控除の最適化を行い、スムーズな申告を支援します。</p>
-</div>
-</div>
-<!-- Service 3 -->
-<div class="flex gap-6">
-<div class="flex-shrink-0 text-secondary">
-<span class="material-symbols-outlined text-4xl" data-weight="fill">family_restroom</span>
-</div>
-<div>
-<h4 class="text-lg font-bold text-primary mb-2">相続・贈与</h4>
-<p class="text-on-surface-variant text-sm leading-relaxed">事前対策から相続税申告、円満な遺産分割のアドバイスまで寄り添います。</p>
-</div>
-</div>
-<!-- Service 4 -->
-<div class="flex gap-6">
-<div class="flex-shrink-0 text-secondary">
-<span class="material-symbols-outlined text-4xl" data-weight="fill">rocket_launch</span>
-</div>
-<div>
-<h4 class="text-lg font-bold text-primary mb-2">創業支援</h4>
-<p class="text-on-surface-variant text-sm leading-relaxed">会社設立の事務手続きから事業計画作成、融資相談までトータルでバックアップ。</p>
-</div>
-</div>
-<!-- Service 5 -->
-<div class="flex gap-6">
-<div class="flex-shrink-0 text-secondary">
-<span class="material-symbols-outlined text-4xl" data-weight="fill">article</span>
-</div>
-<div>
-<h4 class="text-lg font-bold text-primary mb-2">税制改正情報</h4>
-<p class="text-on-surface-variant text-sm leading-relaxed">複雑化する最新の税制改正を、専門家の視点から分かりやすく解説・提案します。</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Representative Greeting: Editorial Style -->
-<section class="py-24 bg-surface-container-low" id="greeting">
-<div class="max-w-7xl mx-auto px-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-<div class="order-2 lg:order-1">
-<span class="text-secondary font-bold tracking-[0.2em] text-xs uppercase mb-2 block font-label">Representative Message</span>
-<h2 class="text-3xl md:text-4xl font-headline font-bold text-primary mb-8 tracking-tight">代表挨拶</h2>
-<div class="space-y-6">
-<p class="text-lg text-primary font-medium leading-relaxed italic">
-                            「お客様一人ひとりに寄り添い、経営の発展と安定をサポートしています。」
-                        </p>
-<p class="text-on-surface-variant leading-relaxed">
-                            税理士法人いさやま会計は、開業以来、お客様との信頼関係を第一に歩んできました。めまぐるしく変わる経済環境の中で、税務・会計の専門家として的確な羅針盤となることが私たちの使命です。
-                        </p>
-<p class="text-on-surface-variant leading-relaxed">
-                            税務・会計のことなら、どんな小さなことでもお気軽にご相談ください。皆様のビジネス、そして人生のパートナーとして、最適な解決策を共に見つけ出しましょう。
-                        </p>
-<div class="pt-6">
-<p class="text-primary font-bold text-lg">代表社員 税理士　諌山 典男</p>
-</div>
-</div>
-</div>
-<div class="order-1 lg:order-2">
-<div class="relative">
-<img alt="Representative Photo" class="rounded-xl shadow-2xl grayscale-[10%] object-cover w-full h-[500px]" data-alt="Professional mature Japanese businessman in a sharp navy suit smiling warmly in a bright, modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZqAmsRvYcj6GGqEUUdKlha5oS7jTTxjpZILpQhu1wvr2DwMZreoqA2HwaM40XYshQ8O7MX7muvp4VxxcYhaq5dPyADSCqSUsE9CBJ8BhpVpERbTH-ErLAMIvic5w9U05Bkx3OhfNPpjfR-BRPVs0JcqLpNfU_6FD4MZsUp2UZbHDp9yePf3R-ezrNI3ph7wWp8JTG0gc0tlm00goSpMmMx8dDx--MxK7UXTNhjh_jkRFve97GSuqoOI7ztntiSKGyAFqkTOa2VXI"/>
-<div class="absolute -top-4 -right-4 w-24 h-24 bg-secondary-container -z-10 rounded-lg"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Office Outline & Access: Combined Section -->
-<section class="py-24 bg-surface" id="outline">
-<div class="max-w-7xl mx-auto px-8">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-<!-- Info Column -->
-<div class="lg:col-span-5">
-<div class="mb-12">
-<span class="text-secondary font-bold tracking-[0.2em] text-xs uppercase mb-2 block font-label">Office Outline</span>
-<h2 class="text-3xl font-headline font-bold text-primary tracking-tight">事務所概要</h2>
-</div>
-<dl class="space-y-8">
-<div class="pb-6 border-b border-surface-container-high">
-<dt class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2 font-label">事務所名</dt>
-<dd class="text-lg font-bold text-primary">税理士法人 いさやま会計</dd>
-</div>
-<div class="pb-6 border-b border-surface-container-high">
-<dt class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2 font-label">所在地</dt>
-<dd class="text-on-surface leading-relaxed">〒215-0004<br/>神奈川県川崎市麻生区万福寺1-8-7</dd>
-</div>
-<div class="pb-6 border-b border-surface-container-high">
-<dt class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2 font-label">電話番号</dt>
-<dd class="text-2xl font-bold text-secondary font-headline tracking-tighter"><a href="tel:044-953-2386">044-953-2386</a></dd>
-</div>
-<div>
-<dt class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2 font-label">最寄り駅</dt>
-<dd class="text-on-surface flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary">train</span>
-                                小田急線 新百合ヶ丘駅
-                            </dd>
-</div>
-</dl>
-</div>
-<!-- Map Column -->
-<div class="lg:col-span-7 h-full min-h-[400px]" id="access">
-<div class="w-full h-full rounded-2xl overflow-hidden shadow-lg shadow-primary/5 ghost-border">
-<iframe allowfullscreen="" data-location="Kawasaki, Kanagawa, Japan" height="100%" loading="lazy" src="https://www.google.com/maps?q=神奈川県川崎市麻生区万福寺1-8-7&amp;output=embed" style="border:0; min-height: 450px;" width="100%">
-</iframe>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Contact CTA: High Contrast Section -->
-<section class="py-24 bg-primary text-on-primary" id="contact">
-<div class="max-w-4xl mx-auto px-8 text-center">
-<span class="text-secondary-fixed-dim font-bold tracking-[0.3em] text-xs uppercase mb-4 block font-label">Contact Us</span>
-<h2 class="text-4xl md:text-5xl font-headline font-bold mb-8">お気軽にご相談ください</h2>
-<p class="text-on-primary-container text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-                初回のご相談は無料で承っております。法人設立から個人の節税対策まで、まずはお電話にてお問い合わせください。
-            </p>
-<div class="flex flex-col items-center gap-8">
-<a class="flex items-center gap-4 text-4xl md:text-6xl font-headline font-extrabold text-white hover:text-secondary-fixed-dim transition-colors duration-300" href="tel:044-953-2386">
-<span class="material-symbols-outlined text-4xl md:text-5xl">call</span>
-                    044-953-2386
-                </a>
-<div class="w-24 h-1 bg-secondary-fixed-dim rounded-full"></div>
-<p class="text-on-primary-container font-label uppercase tracking-widest text-sm">Mon - Fri | 9:00 - 18:00</p>
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer class="bg-slate-900 dark:bg-black text-white dark:text-slate-300 w-full pt-16 pb-8 border-t border-slate-800">
-<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-<div>
-<span class="text-lg font-bold text-white mb-4 block">税理士法人 いさやま会計</span>
-<p class="text-sm leading-relaxed text-slate-400 max-w-xs">
-                    私たちは、地域に根ざした税務のプロフェッショナルとして、お客様の成長と財産の保全に全力で貢献します。
-                </p>
-</div>
-<div>
-<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest font-label">Contact Info</h4>
-<ul class="space-y-4">
-<li class="text-slate-400 hover:text-white transition-colors text-sm">〒215-0004 神奈川県川崎市麻生区万福寺1-8-7</li>
-<li class="text-slate-400 hover:text-white transition-colors text-sm">TEL: <a href="tel:044-953-2386">044-953-2386</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest font-label">Links</h4>
-<ul class="space-y-4">
-<li><a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-emerald-500 underline-offset-4 text-sm" href="#">プライバシーポリシー</a></li>
-<li><a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-emerald-500 underline-offset-4 text-sm" href="#services">提供サービス一覧</a></li>
-</ul>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-slate-800 text-center">
-<p class="text-slate-500 text-xs font-['Noto_Sans_JP']">© 税理士法人 いさやま会計 All Rights Reserved.</p>
-</div>
-</footer>
-</body></html>
+                <a href="#" class="btn-contact">お問合せ</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="global-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-item active"><a href="#" class="nav-link">ホーム</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">会社概要</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">業務案内</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">トピックス</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">お問合せ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="hero fade-in">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="いさやま会計 スタッフ集合写真">
+            </div>
+
+            <div class="features fade-in" style="animation-delay: 0.2s;">
+                <div class="feature-item">
+                    <h2 class="feature-title">会社概要</h2>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" alt="会社概要">
+                    </div>
+                    <p class="feature-desc">会社概要、アクセス</p>
+                    <a href="#" class="btn-small">詳しくはこちら</a>
+                </div>
+                <div class="feature-item">
+                    <h2 class="feature-title">業務案内</h2>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="業務案内">
+                    </div>
+                    <p class="feature-desc">いさやま会計では、税務経理業務、相談業務、遺産整理委任業務など、総合的にサポートいたします。</p>
+                    <a href="#" class="btn-small">詳しくはこちら</a>
+                </div>
+                <div class="feature-item">
+                    <h2 class="feature-title">トピックス</h2>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=400&q=80" alt="トピックス">
+                    </div>
+                    <p class="feature-desc">税制改正などのポイントをご紹介いたします。</p>
+                    <a href="#" class="btn-small">詳しくはこちら</a>
+                </div>
+            </div>
+
+            <div class="content-wrapper fade-in" style="animation-delay: 0.4s;">
+                <div class="main-content">
+                    <h2 class="section-title">Topics & Information</h2>
+                    <ul class="article-list">
+                        <li class="article-item">
+                            <h3 class="article-title"><a href="#">令和7年税制改正について</a></h3>
+                            <div class="article-meta">
+                                <span class="date">2025年9月9日</span>
+                                <div class="article-tags">
+                                    <span class="tag">いさやま会計からのお知らせ</span>
+                                    <span class="tag">トピックス</span>
+                                </div>
+                            </div>
+                            <p class="article-excerpt">令和7年度の主な税制改正についてまとめました。 → 令和7年度税制改正について</p>
+                            <a href="#" class="btn-small">続きを読む</a>
+                        </li>
+                        <li class="article-item">
+                            <h3 class="article-title"><a href="#">令和6年度の主な税制改正について</a></h3>
+                            <div class="article-meta">
+                                <span class="date">2024年7月5日</span>
+                                <div class="article-tags">
+                                    <span class="tag">いさやま会計からのお知らせ</span>
+                                    <span class="tag">トピックス</span>
+                                </div>
+                            </div>
+                            <p class="article-excerpt">令和6年度の主な税制改正についてまとめました。 → 令和6年度税制改正について</p>
+                            <a href="#" class="btn-small">続きを読む</a>
+                        </li>
+                        <li class="article-item">
+                            <h3 class="article-title"><a href="#">令和4年度の主な税制改正について</a></h3>
+                            <div class="article-meta">
+                                <span class="date">2022年5月30日</span>
+                                <div class="article-tags">
+                                    <span class="tag">いさやま会計からのお知らせ</span>
+                                    <span class="tag">トピックス</span>
+                                </div>
+                            </div>
+                            <p class="article-excerpt">令和4年度の主な税制改正についてまとめました。 → 令和4年度税制改正について</p>
+                            <a href="#" class="btn-small">続きを読む</a>
+                        </li>
+                        <li class="article-item">
+                            <h3 class="article-title"><a href="#">令和3年度税制改正について</a></h3>
+                            <div class="article-meta">
+                                <span class="date">2021年5月13日</span>
+                                <div class="article-tags">
+                                    <span class="tag">いさやま会計からのお知らせ</span>
+                                    <span class="tag">トピックス</span>
+                                </div>
+                            </div>
+                            <p class="article-excerpt">令和3年度の主な税制改正についてまとめました。 →令和3年度税制改正について</p>
+                            <a href="#" class="btn-small">続きを読む</a>
+                        </li>
+                        <li class="article-item">
+                            <h3 class="article-title"><a href="#">コロナ対策支援制度について</a></h3>
+                            <div class="article-meta">
+                                <span class="date">2020年6月30日</span>
+                                <div class="article-tags">
+                                    <span class="tag">いさやま会計からのお知らせ</span>
+                                    <span class="tag">トピックス</span>
+                                </div>
+                            </div>
+                            <p class="article-excerpt">主なコロナ対策支援制度についてまとめました →コロナ対策支援制度について</p>
+                            <a href="#" class="btn-small">続きを読む</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="widget">
+                        <form class="search-form">
+                            <input type="text" class="search-input" placeholder="">
+                            <button type="submit" class="search-btn">検索</button>
+                        </form>
+                    </div>
+
+                    <div class="widget">
+                        <h3 class="widget-title">最近の投稿</h3>
+                        <ul class="widget-list">
+                            <li><a href="#">令和7年税制改正について</a></li>
+                            <li><a href="#">令和6年度の主な税制改正について</a></li>
+                            <li><a href="#">令和4年度の主な税制改正について</a></li>
+                            <li><a href="#">令和3年度税制改正について</a></li>
+                            <li><a href="#">コロナ対策支援制度について</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <h3 class="widget-title">カテゴリー</h3>
+                        <ul class="widget-list">
+                            <li><a href="#">いさやま会計からのお知らせ</a></li>
+                            <li><a href="#">トピックス</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <div class="footer-logo">税理士法人　いさやま会計</div>
+                <div class="footer-address">
+                    〒215-0004<br>
+                    神奈川県川崎市麻生区万福寺1-1-1 新百合ヶ丘シティビルディング6F
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy; 税理士法人　いさやま会計 All Rights Reserved.</p>
+                <p>Powered by WordPress & BizVektor Theme by Vektor,Inc. technology.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
