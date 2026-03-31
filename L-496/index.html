@@ -1,382 +1,877 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="ja"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>荒井税理士事務所 | 川崎市麻生区・柿生駅前</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Public+Sans:wght@300;400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "secondary-fixed-dim": "#e0c29f",
-                        "outline-variant": "#dbc1b7",
-                        "tertiary-fixed": "#ffddb6",
-                        "surface-container-low": "#fef2e6",
-                        "primary-container": "#6b2800",
-                        "inverse-primary": "#ffb694",
-                        "surface-bright": "#fff8f4",
-                        "on-tertiary-container": "#c2a37e",
-                        "secondary-container": "#fdddb9",
-                        "surface-container-lowest": "#ffffff",
-                        "tertiary-container": "#4f391c",
-                        "primary-fixed-dim": "#ffb694",
-                        "on-background": "#201b14",
-                        "on-secondary-fixed-variant": "#584329",
-                        "surface-dim": "#e4d8cd",
-                        "secondary-fixed": "#fdddb9",
-                        "surface-container-highest": "#ece1d6",
-                        "secondary": "#715a3e",
-                        "on-primary-fixed-variant": "#783108",
-                        "error": "#ba1a1a",
-                        "surface-tint": "#96481f",
-                        "inverse-surface": "#362f28",
-                        "tertiary": "#372409",
-                        "on-tertiary-fixed": "#291801",
-                        "on-error-container": "#93000a",
-                        "on-error": "#ffffff",
-                        "primary-fixed": "#ffdbcc",
-                        "on-surface": "#201b14",
-                        "surface-container": "#f8ece1",
-                        "on-secondary": "#ffffff",
-                        "on-primary-container": "#f08f5f",
-                        "surface": "#fff8f4",
-                        "error-container": "#ffdad6",
-                        "on-primary-fixed": "#351000",
-                        "on-secondary-container": "#786044",
-                        "surface-container-high": "#f2e6db",
-                        "on-secondary-fixed": "#281803",
-                        "tertiary-fixed-dim": "#e2c19b",
-                        "background": "#fff8f4",
-                        "outline": "#88736a",
-                        "on-primary": "#ffffff",
-                        "on-surface-variant": "#55433b",
-                        "on-tertiary": "#ffffff",
-                        "on-tertiary-fixed-variant": "#594325",
-                        "primary": "#481800",
-                        "inverse-on-surface": "#fbefe4",
-                        "surface-variant": "#ece1d6"
-                    },
-                    fontFamily: {
-                        "headline": ["Noto Serif JP", "serif"],
-                        "body": ["Noto Sans JP", "sans-serif"],
-                        "label": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                },
-            },
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>荒井税理士事務所 | Arai Certified Accountant Office</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #3A2F29; /* Deep Espresso Brown */
+            --color-bg-white: #FFFFFF;
+            --color-bg-beige: #F9F6F0; /* Soft Warm Beige */
+            --color-accent: #B8975E; /* Muted Gold/Bronze */
+            --color-accent-hover: #9A7B48;
+            --font-sans: 'Noto Sans JP', sans-serif;
+            --font-serif: 'Noto Serif JP', serif;
+            --spacing-unit: 8px;
+            --transition: all 0.3s ease;
         }
-    </script>
-<style>
-        .washi-overlay {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-primary);
+            background-color: var(--color-bg-white);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utility */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        @media (min-width: 1024px) {
+            .section-padding {
+                padding: 120px 0;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-bg-white);
+            border: 1px solid var(--color-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-hover);
+            border-color: var(--color-accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-bg-white);
+            border: 1px solid var(--color-bg-white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-bg-white);
+            color: var(--color-primary);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding: 0 24px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 24px;
+            height: 24px;
+            background-color: var(--color-accent);
+            transform: rotate(45deg);
+            display: inline-block;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+        }
+
+        .logo-sub {
+            font-size: 0.6rem;
+            letter-spacing: 0.05em;
+            color: #666;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .header-cta {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                gap: 32px;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                font-weight: 500;
+                position: relative;
+            }
+
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--color-accent);
+                transition: var(--transition);
+            }
+
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+
+            .header-cta {
+                display: block;
+            }
+            
+            .header-cta .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mobile Menu Button (Visual only for no-JS) */
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--color-primary);
+            margin-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn span:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px; /* Offset for header */
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(58, 47, 41, 0.5), rgba(58, 47, 41, 0.8));
+            z-index: -1;
+        }
+
+        .hero-content {
+            color: var(--color-bg-white);
+            max-width: 800px;
+            padding: 0 24px;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 1.75rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            letter-spacing: 0.05em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-buttons {
+                flex-direction: row;
+                gap: 24px;
+            }
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title p {
+            font-size: 0.9rem;
+            color: #666;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Targeted Services */
+        .services {
+            background-color: var(--color-bg-beige);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .service-card {
+            background-color: var(--color-bg-white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--color-bg-beige);
+            text-align: center;
+        }
+
+        .service-list {
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .service-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .service-list li::before {
+            content: '・';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+        }
+
+        .service-link {
+            color: var(--color-accent);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .service-link:hover {
+            color: var(--color-accent-hover);
+            gap: 12px;
+        }
+
+        /* Philosophy */
+        .philosophy {
+            background-color: var(--color-bg-white);
+            text-align: center;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .philosophy-text {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            line-height: 2.2;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .philosophy-text {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* News / Column */
+        .news {
+            background-color: var(--color-bg-white);
+            border-top: 1px solid var(--color-bg-beige);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .news-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .news-card {
+            display: block;
+            background-color: var(--color-bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .news-img-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .news-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 24px;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .news-title {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+
+        .news-excerpt {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-readmore {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Contact Banner */
+        .contact-banner {
+            background-color: var(--color-bg-beige);
+        }
+
+        .contact-banner-inner {
+            background-color: var(--color-bg-white);
+            padding: 60px 24px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+        }
+
+        @media (min-width: 1024px) {
+            .contact-banner-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 60px 80px;
+                text-align: left;
+            }
+        }
+
+        .contact-info {
+            margin-bottom: 32px;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-info {
+                margin-bottom: 0;
+            }
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-tel {
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-family: var(--font-sans);
+            letter-spacing: 0.05em;
+        }
+
+        .contact-tel:hover {
+            color: var(--color-accent);
+        }
+
+        /* Access */
+        .access {
+            background-color: var(--color-bg-white);
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .access-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+            }
+        }
+
+        .access-info p {
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .access-map {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-color: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .access-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-primary);
+            color: var(--color-bg-white);
+            padding: 80px 0 24px;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .footer .logo-mark {
+            background-color: var(--color-bg-white);
+        }
+
+        .footer .logo-sub {
+            color: #aaa;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .footer-nav a {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-bg-white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: #888;
         }
     </style>
 <meta name="robots" content="noindex, nofollow">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
 </script>
 </head>
-<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
-<div class="fixed inset-0 washi-overlay z-[100]"></div>
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-[#fff8f4]/80 backdrop-blur-xl backdrop-saturate-150 shadow-[0_4px_30px_rgba(72,24,0,0.04)]">
-<div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto font-['Noto_Serif_JP'] tracking-[0.05em] antialiased">
-<div class="text-xl font-bold text-[#481800] tracking-widest">
-                荒井税理士事務所
-            </div>
-<div class="hidden lg:flex items-center gap-8">
-<a class="text-[#6b2800] border-b border-[#6b2800] pb-1 active:scale-95 transition-transform" href="#home">HOME</a>
-<a class="text-[#201b14]/70 hover:text-[#481800] transition-colors hover:bg-[#f8ece1] active:scale-95 px-2 py-1" href="#greeting">ごあいさつ</a>
-<a class="text-[#201b14]/70 hover:text-[#481800] transition-colors hover:bg-[#f8ece1] active:scale-95 px-2 py-1" href="#services">サービス内容</a>
-<a class="text-[#201b14]/70 hover:text-[#481800] transition-colors hover:bg-[#f8ece1] active:scale-95 px-2 py-1" href="#office">事務所案内</a>
-<a class="text-[#201b14]/70 hover:text-[#481800] transition-colors hover:bg-[#f8ece1] active:scale-95 px-2 py-1" href="#access">アクセス</a>
-<a class="text-[#201b14]/70 hover:text-[#481800] transition-colors hover:bg-[#f8ece1] active:scale-95 px-2 py-1" href="#contact">お問い合わせ</a>
-</div>
-<div class="flex items-center gap-3 text-[#481800] font-semibold">
-<span class="material-symbols-outlined text-lg">phone</span>
-<a href="tel:044-328-5890" class="text-lg hover:underline">044-328-5890</a>
-</div>
-</div>
-</nav>
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover" alt="穏やかな朝焼けの風景" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjyw_LomoyZ3nTlmHSa3ilwWy_hB5wUQh2JI9_vZ-hWD3qITRjvuKjxCm9ol-GmlQXHEjzPi6fzmlJZD-JbqXAmtgRKEG6mB2B11sS8HLPvhXX7sB-7XryYvbOnWWPydAJ93YPqc_4qpgNpzTaPJEouvqy6Fu_-_dGei3yFa43h4F_nTNqn9iH69SCCZ0p3JbFEBfYwKlN3zizu0jMtsowk2R6yKt2sQ34aA77TuWULP-2f3J_EKq7H-u4Fv8gxj_GhmqRM1FlkpI"/>
-<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
-</div>
-<div class="relative z-10 container mx-auto px-8 lg:px-24">
-<div class="max-w-3xl space-y-8">
-<div class="space-y-4">
-<p class="text-primary font-headline tracking-widest text-lg lg:text-xl border-l-4 border-primary pl-6">
-                        川崎市麻生区・柿生駅前の荒井税理士事務所
-                    </p>
-<h1 class="text-4xl lg:text-6xl font-headline font-bold text-on-surface leading-tight tracking-normal">
-                        顧問先の皆さまの<br/>
-                        よりよい未来を<br/>
-<span class="text-primary">税務・会計の面から</span><br/>
-                        サポートします。
-                    </h1>
-</div>
-<div class="flex flex-col sm:flex-row gap-4 pt-6">
-<a class="px-10 py-5 bg-primary text-on-primary font-headline tracking-wider hover:bg-primary-container transition-all shadow-xl flex items-center justify-center group" href="#contact">
-                        無料相談はこちら
-                        <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Greetings Section -->
-<section class="py-24 bg-surface-container relative overflow-hidden" id="greeting">
-<div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
-<img class="w-full h-full object-cover grayscale" alt="和紙のテクスチャ" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkIeeYuCQ57CbPz18ZZ86gETdZUlSV3-Z7YqciZg91te46_S8n7cuyk4m-nSculoN7eiETYzM8pDJbqlO1U8nI1hUhwiH23XX19wCjjGlnJoem4Mn-_a98WnCzG9nhdALQa539q4cmFOrD1WCAryVCnw40jKjr1PQRHi_YmMb8NwDE8h8DtRp0DyRBVW1pdnLBqixVhG_DDi7jO21ofeU5Zlufb2AX6el-qzDt4Ep1nM8CmXfZjk57FuDwSVkhBFKhr4wlyAEQ_gU"/>
-</div>
-<div class="container mx-auto px-8 lg:px-32 relative">
-<div class="flex flex-col lg:flex-row gap-16 items-center">
-<div class="w-full lg:w-1/2">
-<div class="aspect-[4/5] relative overflow-hidden shadow-2xl">
-<img class="w-full h-full object-cover" alt="静かな日本庭園" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkYhIPBAARFYZdWzgepsdpEKV5Jo8Dz8JRnnwhJnaM1pGz6-WXsdIdq86BTOVAkjprpKxGh-kyFMZYwn-p2y9OuUwWwql4tbygFSMt_f5GfmT0VbYp4WXKC94vGQQDXfrfKfv38i8M32MVz65YGbUesIUYIk9bW0rfY9Jrl2X8Wz0Nk1XMD0oDNvFkE8sT_Xb0I-GIDx0r8UiN_spPFVv-vG-c12Eka--JwAs9C2gN6GfY1s74z0SWle8-ORLwTGk0H9Zlsf80m7M"/>
-</div>
-</div>
-<div class="w-full lg:w-1/2 space-y-10">
-<div class="inline-block border-b-2 border-primary-container pb-2">
-<h2 class="text-3xl font-headline font-bold tracking-widest">ごあいさつ</h2>
-</div>
-<div class="space-y-6 text-on-surface-variant leading-relaxed text-lg">
-<p>この度は、荒井税理士事務所のホームページをご訪問いただき、誠にありがとうございます。</p>
-<p>当事務所は、中小企業及び個人事業主の皆さまの未来（1年後、３年後、５年後、１０年後）の発展を願っております。</p>
-<p>そして、経営者の皆さまと将来のヴィジョンを共有し、税務・会計の面からアドバイスを行っていきたいと考えております。</p>
-<p>現在の社会は、情報が溢れ、情報の取捨選択が必須となっております。特に、お金にまつわることについては、その選択を誤ると取り返しがつかないことになるでしょう。</p>
-<p>その際、気軽に相談できる相手として、当事務所を選んでいただけたら幸いです。</p>
-<p>まずは、ご連絡をお待ちしております。</p>
-<div class="pt-8 text-right">
-<p class="font-headline text-2xl tracking-widest text-primary italic">税理士 荒井 彰一</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Services Section -->
-<section class="py-32 bg-surface" id="services">
-<div class="container mx-auto px-8">
-<div class="text-center mb-24">
-<h2 class="text-4xl font-headline font-bold tracking-[0.2em] mb-4">サービス内容</h2>
-<div class="w-16 h-1 bg-primary mx-auto"></div>
-</div>
-<div class="grid lg:grid-cols-1 gap-24">
-<!-- 法人のお客様 -->
-<div class="space-y-12" id="corporate">
-<div class="flex items-center gap-6">
-<span class="text-5xl font-headline font-bold text-primary/10">01</span>
-<h3 class="text-2xl font-headline font-bold border-l-4 border-primary pl-4">法人のお客様</h3>
-</div>
-<p class="text-on-surface-variant leading-relaxed max-w-3xl">私が対応させていただくのは、中小企業の皆さまです。経営者の皆様のご判断の一助になれればと考えております。各法人のそれぞれに合った適切なアドバイスを行っていきます。</p>
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-<div class="p-6 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-3xl opacity-60 group-hover:opacity-100">description</span>
-<p class="text-sm font-bold tracking-tighter whitespace-nowrap">申告書作成</p>
-</div>
-<div class="p-6 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-3xl opacity-60 group-hover:opacity-100">menu_book</span>
-<p class="text-sm font-bold tracking-tighter whitespace-nowrap">記帳代行</p>
-</div>
-<div class="p-6 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-3xl opacity-60 group-hover:opacity-100">payments</span>
-<p class="text-sm font-bold tracking-tighter whitespace-nowrap">給与計算及び年末調整</p>
-</div>
-<div class="p-6 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-3xl opacity-60 group-hover:opacity-100">trending_down</span>
-<p class="text-sm font-bold tracking-tighter whitespace-nowrap">節税策検討支援</p>
-</div>
-<div class="p-6 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-3xl opacity-60 group-hover:opacity-100">verified_user</span>
-<p class="text-sm font-bold tracking-tighter whitespace-nowrap">税務調査対応</p>
-</div>
-<div class="p-6 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-3xl opacity-60 group-hover:opacity-100">calendar_month</span>
-<p class="text-sm font-bold tracking-tighter whitespace-nowrap">月次決算及び決算早期化</p>
-</div>
-<div class="p-6 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-3xl opacity-60 group-hover:opacity-100">account_balance</span>
-<p class="text-sm font-bold tracking-tighter whitespace-nowrap">資金繰り相談</p>
-</div>
-</div>
-</div>
-<!-- 個人のお客様 -->
-<div class="space-y-12" id="individual">
-<div class="flex items-center gap-6">
-<span class="text-5xl font-headline font-bold text-primary/10">02</span>
-<h3 class="text-2xl font-headline font-bold border-l-4 border-primary pl-4">個人のお客様</h3>
-</div>
-<p class="text-on-surface-variant leading-relaxed max-w-3xl">フリーランスの方が仕事を行う上で避けて通れないのが所得税の確定申告です。青色申告制度を有効に活用するなどして節税を図りながら、適正に確定申告を行いたいというニーズにお応えします。</p>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-<div class="p-8 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-4xl opacity-60 group-hover:opacity-100">person</span>
-<p class="font-bold tracking-widest">所得税の確定申告</p>
-</div>
-<div class="p-8 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-4xl opacity-60 group-hover:opacity-100">work</span>
-<p class="font-bold tracking-widest">個人事業の確定申告</p>
-</div>
-<div class="p-8 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-4xl opacity-60 group-hover:opacity-100">home_work</span>
-<p class="font-bold tracking-widest">不動産所有の申告</p>
-</div>
-<div class="p-8 bg-surface-container-lowest shadow-sm hover:shadow-md transition-all text-center group border-t-2 border-transparent hover:border-primary">
-<span class="material-symbols-outlined text-primary mb-4 block text-4xl opacity-60 group-hover:opacity-100">family_history</span>
-<p class="font-bold tracking-widest">相続税申告書</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Office Info Section -->
-<section class="py-32 bg-surface-container-low" id="office">
-<div class="container mx-auto px-8 lg:px-32">
-<div class="grid lg:grid-cols-3 gap-16">
-<div>
-<h2 class="text-3xl font-headline font-bold tracking-widest mb-8">事務所案内</h2>
-<div class="space-y-2">
-<p class="text-primary font-bold text-xl">税理士 荒井 彰一</p>
-<p class="text-sm text-on-surface-variant opacity-70 leading-relaxed mt-4">
-                            生年月日　昭和44年4月21日<br/>
-                            居住地　川崎市麻生区（地元です。）<br/>
-                            趣味　ゴルフ・テニス
-                        </p>
-</div>
-</div>
-<div class="lg:col-span-2">
-<div class="space-y-0 border-l border-outline-variant pl-12 relative">
-<div class="absolute left-0 top-0 w-1 h-8 bg-primary -ml-[2px]"></div>
-<div class="py-6 flex flex-col md:flex-row md:items-start gap-4 group">
-<span class="text-primary font-bold min-w-[120px]">大学卒業</span>
-<span class="text-on-surface-variant group-hover:text-on-surface transition-colors">武蔵工業大学を卒業</span>
-</div>
-<div class="py-6 flex flex-col md:flex-row md:items-start gap-4 group">
-<span class="text-primary font-bold min-w-[120px]">会社員時代</span>
-<span class="text-on-surface-variant group-hover:text-on-surface transition-colors">プラント建設会社で設計・施工の仕事に従事。30歳前に税理士を目指す</span>
-</div>
-<div class="py-6 flex flex-col md:flex-row md:items-start gap-4 group">
-<span class="text-primary font-bold min-w-[120px]">会計事務所勤務</span>
-<span class="text-on-surface-variant group-hover:text-on-surface transition-colors">中目黒の会計事務所に10年間勤務</span>
-</div>
-<div class="py-6 flex flex-col md:flex-row md:items-start gap-4 group">
-<span class="text-primary font-bold min-w-[120px]">平成29年3月</span>
-<span class="text-on-surface-variant group-hover:text-on-surface transition-colors">産業能率大学大学院総合マネジメント研究科修了、修士（経営管理）取得</span>
-</div>
-<div class="py-6 flex flex-col md:flex-row md:items-start gap-4 group">
-<span class="text-primary font-bold min-w-[120px]">平成30年1月</span>
-<span class="text-on-surface-variant group-hover:text-on-surface transition-colors">税理士として独立開業。荒井税理士事務所を開設</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Access Section -->
-<section class="py-32 bg-surface" id="access">
-<div class="container mx-auto px-8">
-<div class="flex flex-col lg:flex-row gap-12">
-<div class="w-full lg:w-1/3 space-y-8">
-<h2 class="text-3xl font-headline font-bold tracking-widest">交通アクセス</h2>
-<div class="space-y-6 text-on-surface-variant">
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-primary">location_on</span>
-<p>〒215-0021<br/>神奈川県川崎市麻生区上麻生5-40-5</p>
-</div>
-<div class="flex gap-4 items-center">
-<span class="material-symbols-outlined text-primary">train</span>
-<p>小田急線「柿生駅」北口より徒歩15秒</p>
-</div>
-<div class="pt-6 grid grid-cols-2 gap-4 text-sm">
-<div class="space-y-1">
-<p class="font-bold text-on-surface">TEL</p>
-<p><a href="tel:044-328-5890" class="hover:underline">044-328-5890</a></p>
-</div>
-<div class="space-y-1">
-<p class="font-bold text-on-surface">FAX</p>
-<p>044-281-5120</p>
-</div>
-</div>
-<div class="pt-2 text-sm">
-<div class="space-y-1">
-<p class="font-bold text-on-surface">MAIL</p>
-<p><a href="mailto:info@arai-ao.jp" class="hover:underline text-primary">info@arai-ao.jp</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="w-full lg:w-2/3 shadow-xl overflow-hidden grayscale contrast-[0.9] hover:grayscale-0 transition-all duration-700">
-<iframe allowfullscreen="" height="450" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.5474571932436!2d139.49502835131304!3d35.5895600425035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018fa3083e9e9ed%3A0x6e25c5a523f76301!2z44CSMjE1LTAwMjEg56We5aWI5bed55yM5bed5bSO5biC6bq755Sf5Yy65LiK6bq755Sf77yV5LiB55uu77yU77yQ4oiS77yV!5e0!3m2!1sja!2sjp!4v1524890325274" style="border:0" width="100%"></iframe>
-</div>
-</div>
-</div>
-</section>
-<!-- Contact CTA Section -->
-<section class="relative py-24 bg-primary text-on-primary overflow-hidden" id="contact">
-<div class="absolute inset-0 opacity-20">
-<img class="w-full h-full object-cover" alt="木漏れ日の風景" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf0ksNdDk-IdRLz_ojxYxO32O2cfrXPULT8w-iH7dZh1BO8AowIHAqPX-gmxK4xcQeqRX3eHmm2xXzKaARVMUqhdoYZVt7vWGyeVkZ3nHhGyvYLNrh8wMjlWKA4YIKvky2Bl8LeA6cdgkIqxj4g1JWxGW1grrsNFd5UAXGbZZPiXOJoiJGkn9Wb8n1BaWe27JMwZqhjDwvdgJz1iW8RH8uY1lgPJAC3uCo__Pz4GGwBTHFNPjH9QdccK-IDKibXuxuqipJOLk0rxw"/>
-</div>
-<div class="relative z-10 container mx-auto px-8 text-center max-w-4xl">
-<h2 class="text-3xl lg:text-4xl font-headline font-bold tracking-[0.15em] mb-12">お気軽にお問い合わせください</h2>
-<div class="grid md:grid-cols-2 gap-12 mb-12">
-<div class="space-y-2">
-<p class="text-sm opacity-80 font-label uppercase tracking-widest">Phone</p>
-<p class="text-4xl font-headline font-bold"><a href="tel:044-328-5890" class="hover:underline">044-328-5890</a></p>
-<p class="text-xs opacity-60">平日 9:00 - 18:00</p>
-</div>
-<div class="space-y-2">
-<p class="text-sm opacity-80 font-label uppercase tracking-widest">Email</p>
-<p class="text-3xl font-headline font-bold"><a href="mailto:info@arai-ao.jp" class="underline decoration-1 underline-offset-8 hover:opacity-80">info@arai-ao.jp</a></p>
-<p class="text-xs opacity-60">24時間受付中</p>
-</div>
-</div>
-<a class="inline-block px-12 py-5 bg-white text-primary font-headline font-bold tracking-widest hover:bg-surface-container-lowest transition-all shadow-2xl" href="mailto:info@arai-ao.jp">
-                お問い合わせはこちら
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span class="logo-mark"></span>
+                <div class="logo-text">
+                    <span class="logo-title">荒井税理士事務所</span>
+                    <span class="logo-sub">Arai Certified Accountant Office</span>
+                </div>
             </a>
-</div>
-</section>
-<!-- Footer -->
-<footer class="bg-[#f8ece1] w-full border-t border-[#6b2800]/10 font-['Noto_Sans_JP'] text-sm leading-relaxed tracking-wider">
-<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-7xl mx-auto gap-8">
-<div class="space-y-4 text-center md:text-left">
-<p class="font-['Noto_Serif_JP'] text-lg font-semibold text-[#481800]">荒井税理士事務所</p>
-<p class="text-[#201b14]/60">〒215-0021 神奈川県川崎市麻生区上麻生5-40-5</p>
-</div>
-<div class="flex flex-col md:flex-row gap-8 items-center">
-<div class="flex flex-wrap gap-6 justify-center">
-<a class="text-[#201b14]/60 hover:text-[#481800] underline-offset-4 hover:underline transition-opacity duration-200" href="#home">HOME</a>
-<a class="text-[#201b14]/60 hover:text-[#481800] underline-offset-4 hover:underline transition-opacity duration-200" href="#greeting">ごあいさつ</a>
-<a class="text-[#201b14]/60 hover:text-[#481800] underline-offset-4 hover:underline transition-opacity duration-200" href="#services">サービス内容</a>
-<a class="text-[#201b14]/60 hover:text-[#481800] underline-offset-4 hover:underline transition-opacity duration-200" href="#office">事務所案内</a>
-<a class="text-[#201b14]/60 hover:text-[#481800] underline-offset-4 hover:underline transition-opacity duration-200" href="#access">アクセス</a>
-<a class="text-[#201b14]/60 hover:text-[#481800] underline-offset-4 hover:underline transition-opacity duration-200" href="#contact">お問い合わせ</a>
-</div>
-</div>
-</div>
-<div class="text-center pb-8">
-<p class="text-[#201b14]/60 text-xs">
-                    © Arai Certified Accountant Office All Rights Reserved.
-                </p>
-</div>
-</footer>
-</body></html>
+            
+            <nav class="nav-links">
+                <a href="#about">事務所案内</a>
+                <a href="#corporate">法人のお客様</a>
+                <a href="#individual">個人のお客様</a>
+                <a href="#price">料金について</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="#contact" class="btn btn-primary">お問い合わせ</a>
+            </div>
+
+            <button class="mobile-menu-btn" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">顧問先の皆さまのよりよい未来を、<br>税務・会計の面からサポートします。</h1>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">無料相談を予約する</a>
+                    <a href="#about" class="btn btn-outline">当事務所について</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Targeted Services Section -->
+        <section class="services section-padding" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Targeted Services</h2>
+                    <p>サービス案内</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Corporate -->
+                    <div class="service-card" id="corporate">
+                        <h3>法人のお客様</h3>
+                        <ul class="service-list">
+                            <li>法人の税務顧問サービス</li>
+                            <li>法人の決算申告サービス</li>
+                            <li>記帳代行・経理サポート</li>
+                            <li>資金調達・会社設立の支援</li>
+                        </ul>
+                        <a href="#" class="service-link">Learn More &rarr;</a>
+                    </div>
+                    <!-- Individual -->
+                    <div class="service-card" id="individual">
+                        <h3>個人のお客様</h3>
+                        <ul class="service-list">
+                            <li>個人の税務顧問サービス</li>
+                            <li>確定申告書の作成サービス</li>
+                            <li>相続税・贈与税の申告</li>
+                            <li>事業承継対策サービス</li>
+                        </ul>
+                        <a href="#" class="service-link">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="philosophy section-padding" id="about">
+            <div class="container">
+                <div class="philosophy-content">
+                    <p class="philosophy-text">
+                        中小企業及び個人事業主の皆さまの未来の発展を願っております。<br>
+                        経営者の皆さまと将来のヴィジョンを共有し、<br>
+                        税務・会計の面からアドバイスを行っていきたいと考えております。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- News / Column Section -->
+        <section class="news section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>税理士コラム</h2>
+                    <p>COLUMN</p>
+                </div>
+                <div class="news-grid">
+                    <!-- Post 1 -->
+                    <a href="#" class="news-card">
+                        <div class="news-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="コラム画像">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">2021.16.09</span>
+                            <h3 class="news-title">新年明けましておめでとうございます。</h3>
+                            <p class="news-excerpt">前回の投稿より一年が過ぎてしまいました。ちょっと反省していま...</p>
+                            <span class="news-readmore">続きを読む &rarr;</span>
+                        </div>
+                    </a>
+                    <!-- Post 2 -->
+                    <a href="#" class="news-card">
+                        <div class="news-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="コラム画像">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">2021.16.09</span>
+                            <h3 class="news-title">明けましておめでとうございます。</h3>
+                            <p class="news-excerpt">新年、明けましておめでとうございます。（少し遅くなりましたが...</p>
+                            <span class="news-readmore">続きを読む &rarr;</span>
+                        </div>
+                    </a>
+                    <!-- Post 3 -->
+                    <a href="#" class="news-card">
+                        <div class="news-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="コラム画像">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">2021.16.09</span>
+                            <h3 class="news-title">第2回無料相談会を開催します。</h3>
+                            <p class="news-excerpt">こんにちは。税理士の荒井です。 先月に引き続き、今月も無料相...</p>
+                            <span class="news-readmore">続きを読む &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Banner Section -->
+        <section class="contact-banner section-padding" id="contact">
+            <div class="container">
+                <div class="contact-banner-inner">
+                    <div class="contact-info">
+                        <h3>お気軽にご相談ください</h3>
+                        <p>TEL <a href="tel:044-328-5890" class="contact-tel">044-328-5890</a></p>
+                    </div>
+                    <div class="contact-action">
+                        <a href="#" class="btn btn-primary">お問い合わせフォーム</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access Section -->
+        <section class="access section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>交通アクセス</h2>
+                    <p>ACCESS</p>
+                </div>
+                <div class="access-grid">
+                    <div class="access-info">
+                        <p>〒215-0021<br>神奈川県川崎市麻生区上麻生5-40-5<br>（柿生駅北口徒歩15分）</p>
+                        <p>TEL. 044-328-5890<br>FAX. 044-281-5120</p>
+                        <p>MAIL. info@arai-ao.jp</p>
+                    </div>
+                    <div class="access-map">
+                        <!-- Placeholder for Map -->
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="地図プレースホルダー">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="#" class="logo">
+                    <span class="logo-mark"></span>
+                    <div class="logo-text">
+                        <span class="logo-title">荒井税理士事務所</span>
+                        <span class="logo-sub">Arai Certified Accountant Office</span>
+                    </div>
+                </a>
+                <nav class="footer-nav">
+                    <a href="#">HOME</a>
+                    <a href="#about">事務所案内</a>
+                    <a href="#corporate">法人のお客様</a>
+                    <a href="#individual">個人のお客様</a>
+                    <a href="#price">料金について</a>
+                    <a href="#contact">お問い合わせ</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy; Arai certified Accountant Office All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -3,20 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>税理士法人 いさやま会計</title>
+    <title>税理士法人 いさやま会計 | Your Trusted Partner</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        /* ==========================================
+           CSS Variables & Reset
+           ========================================== */
         :root {
-            --primary-color: #2b70b5;
-            --primary-hover: #1e5287;
+            --primary: #1A2B4C;
+            --primary-light: #2a406d;
+            --accent: #C5A880;
+            --accent-hover: #b09570;
+            --bg-color: #FAFAFA;
+            --white: #FFFFFF;
             --text-main: #333333;
             --text-light: #666666;
-            --bg-light: #f9f9f9;
-            --border-color: #dddddd;
-            --footer-bg: #222222;
-            --container-width: 1000px;
+            --border-color: #E5E5E5;
+            
+            --font-sans: 'Noto Sans JP', sans-serif;
+            --font-serif: 'Noto Serif JP', serif;
+            
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 20px rgba(0,0,0,0.08);
+            
+            --container-width: 1200px;
+            --section-padding-y: 80px;
         }
 
         * {
@@ -26,69 +46,142 @@
         }
 
         body {
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: var(--font-sans);
             color: var(--text-main);
+            background-color: var(--bg-color);
             line-height: 1.6;
-            background-color: #ffffff;
+            font-size: 16px;
             -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: color 0.3s ease, opacity 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--primary-hover);
         }
 
         img {
             max-width: 100%;
             height: auto;
-            vertical-align: middle;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            line-height: 1.3;
         }
 
         .container {
+            width: 100%;
             max-width: var(--container-width);
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ==========================================
+           Animations
+           ========================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease forwards;
         }
 
-        /* Header */
-        .header-top {
-            background-color: #f0f0f0;
-            font-size: 12px;
-            color: var(--text-light);
-            padding: 5px 0;
-        }
-
-        .header-main {
-            padding: 20px 0;
-        }
-
-        .header-inner {
-            display: flex;
-            flex-direction: column;
+        /* ==========================================
+           Buttons
+           ========================================== */
+        .btn {
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-sans);
+            border: none;
+            text-align: center;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .btn-white:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* ==========================================
+           Header
+           ========================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-top {
+            padding: 15px 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 15px;
         }
 
         .logo {
+            font-family: var(--font-serif);
             font-size: 24px;
             font-weight: 700;
-            color: #000;
-            letter-spacing: 1px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .header-contact {
@@ -97,432 +190,419 @@
             gap: 20px;
         }
 
-        .contact-info {
-            text-align: right;
-        }
-
-        .contact-label {
-            font-size: 11px;
-            color: var(--text-light);
-            margin-bottom: -5px;
-        }
-
-        .contact-tel {
-            font-size: 24px;
+        .header-phone {
+            font-size: 18px;
             font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .contact-tel a {
-            color: inherit;
-        }
-
-        .contact-tel a:hover {
-            opacity: 0.8;
-        }
-
-        .contact-hours {
-            font-size: 11px;
-            color: var(--text-light);
-            margin-top: -5px;
-        }
-
-        .btn-contact {
-            display: inline-flex;
+            color: var(--primary);
+            display: flex;
             align-items: center;
+            gap: 8px;
+        }
+
+        .header-phone i {
+            color: var(--accent);
+        }
+
+        .header-nav-wrapper {
+            background-color: var(--primary);
+        }
+
+        .main-nav {
+            display: none; /* Hidden on mobile by default */
+        }
+
+        .main-nav ul {
+            display: flex;
             justify-content: center;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 500;
-            font-size: 14px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
         }
 
-        .btn-contact::before {
-            content: "✉";
-            margin-right: 8px;
-            font-size: 16px;
-        }
-
-        .btn-contact:hover {
-            background-color: var(--primary-hover);
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-
-        /* Navigation */
-        .global-nav {
-            background: linear-gradient(to bottom, #ffffff, #f5f5f5);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .nav-item {
-            flex: 1;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-item:last-child {
-            border-bottom: none;
-        }
-
-        .nav-link {
+        .main-nav a {
             display: block;
-            padding: 12px 0;
-            color: var(--text-main);
-            font-size: 14px;
+            padding: 15px 30px;
+            color: var(--white);
+            font-size: 15px;
             font-weight: 500;
-            transition: background-color 0.3s;
         }
 
-        .nav-link:hover {
-            background-color: #e9e9e9;
-            color: var(--text-main);
+        .main-nav a:hover {
+            background-color: var(--primary-light);
+            color: var(--accent);
         }
 
-        .nav-item.active .nav-link {
-            background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
-            color: #fff;
-        }
-
-        /* Hero */
+        /* ==========================================
+           Hero Section
+           ========================================== */
         .hero {
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-
-        .hero img {
-            width: 100%;
-            display: block;
-            transition: transform 5s ease;
-        }
-
-        .hero:hover img {
-            transform: scale(1.02);
-        }
-
-        /* Features (3 Columns) */
-        .features {
+            position: relative;
+            height: 600px;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .feature-item {
-            flex: 1;
-        }
-
-        .feature-title {
-            font-size: 16px;
-            font-weight: 700;
-            border-left: 4px solid var(--primary-color);
-            padding-left: 10px;
-            margin-bottom: 15px;
-            color: var(--text-main);
-        }
-
-        .feature-img {
-            border: 1px solid var(--border-color);
-            padding: 3px;
-            margin-bottom: 10px;
-            background-color: #fff;
-            overflow: hidden;
-        }
-
-        .feature-img img {
-            width: 100%;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover .feature-img img {
-            transform: scale(1.05);
-        }
-
-        .feature-desc {
-            font-size: 12px;
-            color: var(--text-main);
-            margin-bottom: 10px;
-            min-height: 54px;
-        }
-
-        .btn-small {
-            display: inline-flex;
             align-items: center;
-            background-color: var(--primary-color);
-            color: #fff;
-            font-size: 11px;
-            padding: 4px 12px;
-            border-radius: 2px;
-            transition: background-color 0.3s;
+            background-image: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
-        .btn-small::before {
-            content: "▶";
-            font-size: 8px;
-            margin-right: 5px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(26, 43, 76, 0.95) 0%, rgba(26, 43, 76, 0.4) 100%);
         }
 
-        .btn-small:hover {
-            background-color: var(--primary-hover);
-            color: #fff;
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            color: var(--white);
         }
 
-        /* Main Content & Sidebar Layout */
-        .content-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* ==========================================
+           Section Titles
+           ========================================== */
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--primary);
             margin-bottom: 50px;
         }
 
-        .main-content {
-            flex: 1;
+        /* ==========================================
+           Values Section
+           ========================================== */
+        .values {
+            padding: var(--section-padding-y) 0;
+            background-color: var(--bg-color);
         }
 
-        .sidebar {
-            width: 100%;
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
         }
 
-        /* Section Title */
-        .section-title {
-            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 10px 15px;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-main);
+        .value-item {
+            text-align: center;
+            padding: 20px;
         }
 
-        /* Article List */
-        .article-list {
-            list-style: none;
-        }
-
-        .article-item {
-            border-bottom: 1px dotted var(--border-color);
-            padding-bottom: 20px;
+        .value-icon {
+            font-size: 40px;
+            color: var(--primary);
             margin-bottom: 20px;
         }
 
-        .article-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .article-title {
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .article-meta {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 12px;
-            color: var(--text-light);
-            margin-bottom: 10px;
-        }
-
-        .article-tags {
-            display: flex;
-            gap: 5px;
-        }
-
-        .tag {
-            background-color: #f5f5f5;
-            border: 1px solid var(--border-color);
-            padding: 1px 6px;
-            border-radius: 2px;
-            color: var(--text-light);
-        }
-
-        .article-excerpt {
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
-
-        /* Sidebar Widgets */
-        .widget {
-            margin-bottom: 30px;
-        }
-
-        .widget-title {
-            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 8px 15px;
-            font-size: 14px;
-            font-weight: 700;
+        .value-item h3 {
+            font-size: 20px;
             margin-bottom: 15px;
+            color: var(--primary);
         }
 
-        /* Search Form */
-        .search-form {
-            display: flex;
-            gap: 5px;
-            padding: 15px;
-            background-color: #f5f5f5;
+        .value-item p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* ==========================================
+           Services Section
+           ========================================== */
+        .services {
+            padding: var(--section-padding-y) 0;
+            background-color: var(--bg-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
             border: 1px solid var(--border-color);
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 6px 10px;
-            border: 1px solid #ccc;
-            border-radius: 2px;
-            font-size: 13px;
-        }
-
-        .search-btn {
-            background-color: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 6px 15px;
-            border-radius: 2px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: background-color 0.3s;
-        }
-
-        .search-btn:hover {
-            background-color: var(--primary-hover);
-        }
-
-        /* Sidebar Lists */
-        .widget-list {
-            list-style: none;
-        }
-
-        .widget-list li {
-            border-bottom: 1px dotted var(--border-color);
-            padding: 10px 0;
-            font-size: 13px;
-        }
-
-        .widget-list li:last-child {
-            border-bottom: none;
-        }
-
-        .widget-list a {
             display: flex;
-            align-items: flex-start;
-            color: var(--text-main);
+            flex-direction: column;
+            height: 100%;
         }
 
-        .widget-list a::before {
-            content: "+";
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 15px;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            width: 12px;
-            height: 12px;
-            border: 1px solid #999;
-            color: #999;
-            font-size: 10px;
-            line-height: 1;
-            margin-right: 8px;
-            margin-top: 3px;
-            flex-shrink: 0;
+            gap: 5px;
         }
 
-        .widget-list a:hover {
-            color: var(--primary-color);
-        }
-
-        .widget-list a:hover::before {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--footer-bg);
-            color: #cccccc;
-            padding: 40px 0 20px;
+        .service-link i {
             font-size: 12px;
+            transition: transform 0.3s ease;
         }
 
-        .footer-info {
-            margin-bottom: 30px;
+        .service-card:hover .service-link i {
+            transform: translateX(5px);
+            color: var(--accent);
         }
 
-        .footer-logo {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ffffff;
+        /* ==========================================
+           Insights Section
+           ========================================== */
+        .insights {
+            padding: var(--section-padding-y) 0;
+            background-color: var(--bg-color);
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .insight-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .insight-date {
+            font-size: 13px;
+            color: var(--text-light);
             margin-bottom: 10px;
+            display: block;
         }
 
-        .footer-address {
-            line-height: 1.8;
+        .insight-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+
+        .insight-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .insight-link {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ==========================================
+           Global CTA Section
+           ========================================== */
+        .global-cta {
+            background-color: var(--primary);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .global-cta h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: var(--white);
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cta-buttons .btn {
+            width: 100%;
+            max-width: 300px;
+            font-size: 18px;
+            padding: 15px 30px;
+        }
+
+        /* ==========================================
+           Footer
+           ========================================== */
+        .site-footer {
+            background-color: #111d36; /* Darker navy */
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+            font-family: var(--font-sans);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul a {
+            color: #a0aec0;
+            font-size: 15px;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--accent);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #a0aec0;
+            font-size: 15px;
+        }
+
+        .footer-contact-item i {
+            color: var(--accent);
+            width: 20px;
         }
 
         .footer-bottom {
             text-align: center;
-            border-top: 1px solid #444;
-            padding-top: 20px;
-            color: #888;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #718096;
+            font-size: 13px;
         }
 
-        .footer-bottom p {
-            margin-bottom: 5px;
-        }
-
-        /* Media Queries */
+        /* ==========================================
+           Media Queries
+           ========================================== */
+        
+        /* Tablet (768px and up) */
         @media (min-width: 768px) {
-            .header-inner {
+            :root {
+                --section-padding-y: 100px;
+            }
+
+            .header-top .container {
+                flex-wrap: nowrap;
+            }
+
+            .main-nav {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 20px;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .insights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-buttons {
                 flex-direction: row;
-                justify-content: space-between;
             }
 
-            .nav-list {
-                flex-direction: row;
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop (1024px and up) */
+        @media (min-width: 1024px) {
+            :root {
+                --section-padding-y: 120px;
             }
 
-            .nav-item {
-                border-bottom: none;
-                border-right: 1px solid var(--border-color);
+            .hero {
+                height: 700px;
             }
 
-            .nav-item:last-child {
-                border-right: none;
+            .hero h1 {
+                font-size: 56px;
             }
 
-            .features {
-                flex-direction: row;
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
-            .content-wrapper {
-                flex-direction: row;
+            .insights-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
-            .main-content {
-                width: 68%;
-                flex: none;
-            }
-
-            .sidebar {
-                width: 28%;
-                flex: none;
-                margin-left: auto;
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
@@ -537,181 +617,197 @@
 </head>
 <body>
 
-    <div class="header-top">
-        <div class="container">
-            isasystems
-        </div>
-    </div>
-
-    <header class="header-main">
-        <div class="container header-inner">
-            <div class="logo">税理士法人　いさやま会計</div>
-            <div class="header-contact">
-                <div class="contact-info">
-                    <div class="contact-label">お問合せ</div>
-                    <div class="contact-tel"><a href="tel:0449532386">TEL 044-953-2386</a></div>
-                    <div class="contact-hours">平日9時〜17時30分</div>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-top">
+            <div class="container">
+                <a href="#" class="logo">
+                    税理士法人 いさやま会計
+                </a>
+                <div class="header-contact">
+                    <a href="tel:044-953-2386" class="header-phone">
+                        <i class="fa-solid fa-phone"></i> TEL 044-953-2386
+                    </a>
+                    <a href="#contact" class="btn btn-accent">Contact Us</a>
                 </div>
-                <a href="#" class="btn-contact">お問合せ</a>
+            </div>
+        </div>
+        <div class="header-nav-wrapper">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">ホーム</a></li>
+                        <li><a href="#">会社概要</a></li>
+                        <li><a href="#">業務案内</a></li>
+                        <li><a href="#">トピックス</a></li>
+                        <li><a href="#">お問合せ</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
-    <nav class="global-nav">
-        <div class="container">
-            <ul class="nav-list">
-                <li class="nav-item active"><a href="#" class="nav-link">ホーム</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">会社概要</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">業務案内</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">トピックス</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">お問合せ</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <main>
-        <div class="container">
-            <div class="hero fade-in">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="いさやま会計 スタッフ集合写真">
-            </div>
-
-            <div class="features fade-in" style="animation-delay: 0.2s;">
-                <div class="feature-item">
-                    <h2 class="feature-title">会社概要</h2>
-                    <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" alt="会社概要">
-                    </div>
-                    <p class="feature-desc">会社概要、アクセス</p>
-                    <a href="#" class="btn-small">詳しくはこちら</a>
-                </div>
-                <div class="feature-item">
-                    <h2 class="feature-title">業務案内</h2>
-                    <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="業務案内">
-                    </div>
-                    <p class="feature-desc">いさやま会計では、税務経理業務、相談業務、遺産整理委任業務など、総合的にサポートいたします。</p>
-                    <a href="#" class="btn-small">詳しくはこちら</a>
-                </div>
-                <div class="feature-item">
-                    <h2 class="feature-title">トピックス</h2>
-                    <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=400&q=80" alt="トピックス">
-                    </div>
-                    <p class="feature-desc">税制改正などのポイントをご紹介いたします。</p>
-                    <a href="#" class="btn-small">詳しくはこちら</a>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content animate-fade-in">
+                    <h1>Your Trusted Partner<br>for the Future of Your<br>Business and Family</h1>
+                    <p>Providing expert tax and accounting solutions since 1970.</p>
+                    <a href="#contact" class="btn btn-accent">Schedule a Free Consultation</a>
                 </div>
             </div>
+        </section>
 
-            <div class="content-wrapper fade-in" style="animation-delay: 0.4s;">
-                <div class="main-content">
-                    <h2 class="section-title">Topics & Information</h2>
-                    <ul class="article-list">
-                        <li class="article-item">
-                            <h3 class="article-title"><a href="#">令和7年税制改正について</a></h3>
-                            <div class="article-meta">
-                                <span class="date">2025年9月9日</span>
-                                <div class="article-tags">
-                                    <span class="tag">いさやま会計からのお知らせ</span>
-                                    <span class="tag">トピックス</span>
-                                </div>
-                            </div>
-                            <p class="article-excerpt">令和7年度の主な税制改正についてまとめました。 → 令和7年度税制改正について</p>
-                            <a href="#" class="btn-small">続きを読む</a>
-                        </li>
-                        <li class="article-item">
-                            <h3 class="article-title"><a href="#">令和6年度の主な税制改正について</a></h3>
-                            <div class="article-meta">
-                                <span class="date">2024年7月5日</span>
-                                <div class="article-tags">
-                                    <span class="tag">いさやま会計からのお知らせ</span>
-                                    <span class="tag">トピックス</span>
-                                </div>
-                            </div>
-                            <p class="article-excerpt">令和6年度の主な税制改正についてまとめました。 → 令和6年度税制改正について</p>
-                            <a href="#" class="btn-small">続きを読む</a>
-                        </li>
-                        <li class="article-item">
-                            <h3 class="article-title"><a href="#">令和4年度の主な税制改正について</a></h3>
-                            <div class="article-meta">
-                                <span class="date">2022年5月30日</span>
-                                <div class="article-tags">
-                                    <span class="tag">いさやま会計からのお知らせ</span>
-                                    <span class="tag">トピックス</span>
-                                </div>
-                            </div>
-                            <p class="article-excerpt">令和4年度の主な税制改正についてまとめました。 → 令和4年度税制改正について</p>
-                            <a href="#" class="btn-small">続きを読む</a>
-                        </li>
-                        <li class="article-item">
-                            <h3 class="article-title"><a href="#">令和3年度税制改正について</a></h3>
-                            <div class="article-meta">
-                                <span class="date">2021年5月13日</span>
-                                <div class="article-tags">
-                                    <span class="tag">いさやま会計からのお知らせ</span>
-                                    <span class="tag">トピックス</span>
-                                </div>
-                            </div>
-                            <p class="article-excerpt">令和3年度の主な税制改正についてまとめました。 →令和3年度税制改正について</p>
-                            <a href="#" class="btn-small">続きを読む</a>
-                        </li>
-                        <li class="article-item">
-                            <h3 class="article-title"><a href="#">コロナ対策支援制度について</a></h3>
-                            <div class="article-meta">
-                                <span class="date">2020年6月30日</span>
-                                <div class="article-tags">
-                                    <span class="tag">いさやま会計からのお知らせ</span>
-                                    <span class="tag">トピックス</span>
-                                </div>
-                            </div>
-                            <p class="article-excerpt">主なコロナ対策支援制度についてまとめました →コロナ対策支援制度について</p>
-                            <a href="#" class="btn-small">続きを読む</a>
-                        </li>
-                    </ul>
+        <!-- Values Section -->
+        <section class="values">
+            <div class="container">
+                <h2 class="section-title">Why Choose Isayama</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                        <h3>Decades of Experience</h3>
+                        <p>Leveraging over 50 years of established practice to provide reliable, time-tested financial strategies for your business.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon"><i class="fa-regular fa-comments"></i></div>
+                        <h3>Comprehensive Support</h3>
+                        <p>From daily accounting to complex tax planning, we offer end-to-end support tailored to your unique corporate needs.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                        <h3>Approachable & Reliable</h3>
+                        <p>We pride ourselves on clear communication and a human-centric approach, ensuring you always feel confident and understood.</p>
+                    </div>
                 </div>
-
-                <aside class="sidebar">
-                    <div class="widget">
-                        <form class="search-form">
-                            <input type="text" class="search-input" placeholder="">
-                            <button type="submit" class="search-btn">検索</button>
-                        </form>
-                    </div>
-
-                    <div class="widget">
-                        <h3 class="widget-title">最近の投稿</h3>
-                        <ul class="widget-list">
-                            <li><a href="#">令和7年税制改正について</a></li>
-                            <li><a href="#">令和6年度の主な税制改正について</a></li>
-                            <li><a href="#">令和4年度の主な税制改正について</a></li>
-                            <li><a href="#">令和3年度税制改正について</a></li>
-                            <li><a href="#">コロナ対策支援制度について</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="widget">
-                        <h3 class="widget-title">カテゴリー</h3>
-                        <ul class="widget-list">
-                            <li><a href="#">いさやま会計からのお知らせ</a></li>
-                            <li><a href="#">トピックス</a></li>
-                        </ul>
-                    </div>
-                </aside>
             </div>
-        </div>
+        </section>
+
+        <!-- Core Services Section -->
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">Core Services</h2>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                        <h3>Corporate Tax & Accounting</h3>
+                        <p>Comprehensive tax filing, bookkeeping, and strategic financial planning to optimize your corporate tax position and ensure compliance.</p>
+                        <a href="#" class="service-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+                    <!-- Service 2 -->
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-house-chimney-user"></i></div>
+                        <h3>Inheritance & Estate Planning</h3>
+                        <p>Expert guidance on inheritance tax, business succession, and estate planning to protect your family's assets for future generations.</p>
+                        <a href="#" class="service-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+                    <!-- Service 3 -->
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <h3>Business Consulting</h3>
+                        <p>Strategic advice for business growth, restructuring, and financial management to help you navigate complex market challenges.</p>
+                        <a href="#" class="service-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Insights Section -->
+        <section class="insights">
+            <div class="container">
+                <h2 class="section-title">Latest Insights</h2>
+                <div class="insights-grid">
+                    <!-- Insight 1 -->
+                    <article class="insight-card">
+                        <span class="insight-date">2025年9月9日</span>
+                        <h3>令和7年税制改正について</h3>
+                        <p>令和7年度の主な税制改正についてまとめました。 → 令和7年度税制改正について</p>
+                        <a href="#" class="insight-link">Read More <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+                    <!-- Insight 2 -->
+                    <article class="insight-card">
+                        <span class="insight-date">2024年7月5日</span>
+                        <h3>令和6年度の主な税制改正について</h3>
+                        <p>令和6年度の主な税制改正についてまとめました。 → 令和6年度税制改正について</p>
+                        <a href="#" class="insight-link">Read More <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+                    <!-- Insight 3 -->
+                    <article class="insight-card">
+                        <span class="insight-date">2022年5月30日</span>
+                        <h3>令和4年度の主な税制改正について</h3>
+                        <p>令和4年度の主な税制改正についてまとめました。 → 令和4年度税制改正について</p>
+                        <a href="#" class="insight-link">Read More <i class="fa-solid fa-chevron-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global CTA Section -->
+        <section class="global-cta" id="contact">
+            <div class="container">
+                <h2>Ready to secure your financial future?</h2>
+                <div class="cta-buttons">
+                    <a href="tel:044-953-2386" class="btn btn-white">Call: 044-953-2386</a>
+                    <a href="#" class="btn btn-outline" style="color: white; border-color: white;">Web Inquiry Form</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="site-footer">
         <div class="container">
-            <div class="footer-info">
-                <div class="footer-logo">税理士法人　いさやま会計</div>
-                <div class="footer-address">
-                    〒215-0004<br>
-                    神奈川県川崎市麻生区万福寺1-1-1 新百合ヶ丘シティビルディング6F
+            <div class="footer-grid">
+                <!-- Col 1 -->
+                <div class="footer-col">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#">ホーム</a></li>
+                        <li><a href="#">会社概要</a></li>
+                        <li><a href="#">業務案内</a></li>
+                        <li><a href="#">トピックス</a></li>
+                        <li><a href="#">お問合せ</a></li>
+                    </ul>
+                </div>
+                <!-- Col 2 -->
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Corporate Tax & Accounting</a></li>
+                        <li><a href="#">Inheritance & Estate Planning</a></li>
+                        <li><a href="#">Business Consulting</a></li>
+                        <li><a href="#">Tax Advisory</a></li>
+                    </ul>
+                </div>
+                <!-- Col 3 -->
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:044-953-2386">TEL 044-953-2386</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>〒215-0004<br>神奈川県川崎市麻生区万福寺1-1-1<br>新百合ヶ丘シティビルディング6F</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="#">Web Inquiry Form</a>
+                    </div>
+                </div>
+                <!-- Col 4 -->
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>Copyright &copy; 税理士法人　いさやま会計 All Rights Reserved.</p>
-                <p>Powered by WordPress & BizVektor Theme by Vektor,Inc. technology.</p>
+                <p>Copyright &copy; 税理士法人 いさやま会計 All Rights Reserved.</p>
             </div>
         </div>
     </footer>
