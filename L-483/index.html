@@ -1,475 +1,841 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>大樂公認会計士・税理士事務所｜株式会社 大樂総合会計</title>
-<meta name="description" content="貴社を毎月訪問し、自計化システムの活用と経営改善計画策定により黒字決算を支援します。東京都世田谷区用賀の公認会計士・税理士事務所。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大樂公認会計士・税理士事務所 株式会社 大樂総合会計</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           Reset & Base Styles
+           ========================================== */
+        :root {
+            --primary: #1a365d; /* Navy */
+            --primary-hover: #2c5282;
+            --accent: #ed8936; /* Orange */
+            --accent-hover: #dd6b20;
+            --text-main: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul, ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 16px auto 0;
+        }
+
+        /* ==========================================
+           Header
+           ========================================== */
+        .header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            padding: 15px 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+        }
+
+        .header-tel {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-nav {
+            background-color: var(--primary);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-list li a {
+            display: block;
+            padding: 16px 32px;
+            color: var(--bg-white);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .nav-list li a:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* ==========================================
+           Hero Section
+           ========================================== */
+        .hero {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 140px 0;
+            text-align: center;
+            color: var(--bg-white);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 54, 93, 0.85);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin: 0;
+            letter-spacing: 0.05em;
+        }
+
+        /* ==========================================
+           電子帳簿保存法 Section
+           ========================================== */
+        .law-section {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 60px 0;
+        }
+
+        .law-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .law-text {
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: left;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        /* ==========================================
+           当事務所の特長 Section
+           ========================================== */
+        .features {
+            background-color: var(--bg-white);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--primary);
+        }
+
+        .feature-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-main);
+        }
+
+        /* ==========================================
+           当事務所のサービス Section
+           ========================================== */
+        .services {
+            background-color: var(--bg-light);
+        }
+
+        .service-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background-color: var(--bg-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .service-image {
+            flex: 1;
+            min-height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            flex: 1;
+            padding: 50px 50px 50px 0;
+        }
+
+        .service-text {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* ==========================================
+           事務所概要 & 信頼情報 Section
+           ========================================== */
+        .info-section {
+            background-color: var(--bg-white);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table th, .info-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 15px;
+        }
+
+        .info-table th {
+            width: 30%;
+            text-align: left;
+            font-weight: 500;
+            color: var(--primary);
+            background-color: var(--bg-light);
+        }
+
+        .info-table ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        .info-table ul li {
+            margin-bottom: 4px;
+        }
+
+        .trust-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .trust-card {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .trust-card p {
+            margin: 0 0 10px 0;
+            font-size: 15px;
+        }
+
+        .trust-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .trust-card strong {
+            display: block;
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        /* ==========================================
+           お知らせ Section
+           ========================================== */
+        .news {
+            background-color: var(--bg-light);
+        }
+
+        .news-list {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center;
+            padding: 24px 30px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .news-date {
+            width: 120px;
+            flex-shrink: 0;
+            color: var(--text-light);
+            font-family: monospace;
+            font-size: 15px;
+        }
+
+        .news-title {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* ==========================================
+           CTA Section
+           ========================================== */
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: var(--bg-white);
+            padding: 20px 60px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(237, 137, 54, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(237, 137, 54, 0.5);
+        }
+
+        /* ==========================================
+           Footer
+           ========================================== */
+        .footer {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--bg-white);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+        }
+
+        /* ==========================================
+           Mobile CTA Bar
+           ========================================== */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0;
+            color: var(--bg-white);
+            font-weight: 700;
+            font-size: 13px;
+            gap: 4px;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--primary);
+        }
+
+        .mobile-cta-contact {
+            background-color: var(--accent);
+        }
+
+        /* ==========================================
+           Media Queries
+           ========================================== */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            .service-wrapper {
+                flex-direction: column;
+                gap: 0;
+            }
+            .service-image {
+                width: 100%;
+                min-height: 300px;
+            }
+            .service-content {
+                padding: 40px;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 60px; /* Space for mobile CTA */
+            }
+            .header-contact {
+                display: none;
+            }
+            .nav-list {
+                flex-wrap: wrap;
+            }
+            .nav-list li {
+                width: 50%;
+                text-align: center;
+            }
+            .nav-list li a {
+                padding: 12px;
+                font-size: 13px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                border-right: 1px solid rgba(255,255,255,0.1);
+            }
+            .nav-list li:nth-child(even) a {
+                border-right: none;
+            }
+            .hero {
+                padding: 100px 0;
+            }
+            .hero h1 {
+                font-size: 24px;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .news-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                padding: 20px;
+            }
+            .news-date {
+                width: auto;
+            }
+            .mobile-cta {
+                display: flex;
+            }
+            .section-padding {
+                padding: 60px 0;
+            }
+            .info-table th, .info-table td {
+                display: block;
+                width: 100%;
+            }
+            .info-table th {
+                border-bottom: none;
+                padding-bottom: 10px;
+            }
+            .info-table td {
+                padding-top: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 <meta name="robots" content="noindex, nofollow">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}</script>
 </head>
 <body>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
---navy:#1B3A5C;--navy-dark:#142d48;--orange:#E86A2E;--orange-hover:#d45a1e;
---white:#FFFFFF;--bg-light:#F8F9FA;--text:#2D3436;--text-sub:#636E72;
---radius:12px;--shadow:0 2px 12px rgba(27,58,92,.08);--shadow-hover:0 4px 24px rgba(27,58,92,.14);
---transition:all .25s ease;
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Noto Sans JP',sans-serif;color:var(--text);line-height:1.7;background:var(--white);-webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration:none;transition:var(--transition)}
-ul,ol{list-style:none}
-.container{max-width:1120px;margin:0 auto;padding:0 24px}
 
-/* ===== HEADER ===== */
-.header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-.header-logo{display:flex;flex-direction:column;gap:0}
-.header-logo-main{font-size:15px;font-weight:700;color:var(--navy);line-height:1.3}
-.header-logo-sub{font-size:11px;color:var(--text-sub);line-height:1.3}
-.header-nav{display:flex;align-items:center;gap:32px}
-.header-nav a{font-size:14px;font-weight:500;color:var(--text);position:relative}
-.header-nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--orange);transition:var(--transition)}
-.header-nav a:hover::after{width:100%}
-.header-right{display:flex;align-items:center;gap:16px}
-.header-tel{font-size:18px;font-weight:700;color:var(--navy);white-space:nowrap}
-.header-tel-icon{margin-right:4px}
-.btn-cta{display:inline-flex;align-items:center;justify-content:center;padding:12px 28px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;border-radius:var(--radius);border:none;cursor:pointer;transition:var(--transition);white-space:nowrap}
-.btn-cta:hover{background:var(--orange-hover);transform:translateY(-1px);box-shadow:0 4px 16px rgba(232,106,46,.3)}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
-.hamburger span{display:block;width:24px;height:2px;background:var(--navy);transition:var(--transition)}
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">
+                    大樂公認会計士・税理士事務所
+                    <span>株式会社 大樂総合会計</span>
+                </div>
+                <div class="header-contact">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <a href="tel:03-5797-9487" class="header-tel">TEL: 03-5797-9487</a>
+                </div>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#">事務所紹介</a></li>
+                    <li><a href="#">サービス一覧</a></li>
+                    <li><a href="#">料金について</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-/* ===== HERO ===== */
-.hero{position:relative;background:var(--navy);min-height:520px;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1400&q=80') center/cover no-repeat}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,58,92,.92) 0%,rgba(27,58,92,.75) 100%)}
-.hero-content{position:relative;z-index:2;max-width:720px;padding:100px 0 80px}
-.hero-catch{font-size:36px;font-weight:700;color:var(--white);line-height:1.5;margin-bottom:32px}
-.hero-sub{font-size:16px;color:rgba(255,255,255,.85);margin-bottom:40px;line-height:1.7}
-.hero-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
-.btn-cta-large{display:inline-flex;align-items:center;justify-content:center;padding:18px 40px;background:var(--orange);color:var(--white);font-size:17px;font-weight:700;border-radius:var(--radius);border:none;cursor:pointer;transition:var(--transition)}
-.btn-cta-large:hover{background:var(--orange-hover);transform:translateY(-2px);box-shadow:0 6px 24px rgba(232,106,46,.35)}
-.hero-tel{font-size:18px;color:var(--white);font-weight:500}
-.hero-tel a{color:var(--white)}
-.hero-tel a:hover{opacity:.85}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>貴社を毎月訪問し、自計化システムの活用と<br>経営改善計画策定により黒字決算を支援します</h1>
+        </div>
+    </section>
 
-/* ===== SECTIONS ===== */
-.section{padding:96px 0}
-.section-light{background:var(--bg-light)}
-.section-title{font-size:32px;font-weight:700;color:var(--navy);text-align:center;margin-bottom:16px}
-.section-subtitle{font-size:15px;color:var(--text-sub);text-align:center;margin-bottom:56px;max-width:640px;margin-left:auto;margin-right:auto}
-.section-label{display:inline-block;font-size:13px;font-weight:700;color:var(--orange);letter-spacing:.08em;margin-bottom:8px;text-align:center;width:100%}
+    <!-- 電子帳簿保存法 Section -->
+    <section class="law-section">
+        <div class="container">
+            <div class="law-content">
+                <div class="law-text">
+                    電子帳簿保存法の改正に伴い、電子取引データの電子保存が義務付けられましたが、令和6年１月１日からは、電子取引データの電子保存の宥恕規定（適用延期）の適用がなくなりました。メール等で受け取った請求書・領収書等（電子取引データ）を「印刷して保存」する方法が原則として認められなくなり、「電子保存」する必要があります。これは、電子帳簿保存の承認申請の有無にかかわらず、電子取引を行っているすべての事業者に、会計年度に関係なく適用されます。ＴＫＣの会計ソフト「ＦＸシリーズ」は「証憑保存機能」を標準搭載しており、電子取引データの電子保存に対応しています。詳細については、当事務所にお問合せください。
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* ===== SERVICE OVERVIEW ===== */
-.service-desc{font-size:15px;line-height:1.8;color:var(--text);max-width:800px;margin:0 auto 64px;text-align:center}
-.service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.service-card{background:var(--white);border-radius:var(--radius);padding:32px 24px;box-shadow:var(--shadow);transition:var(--transition);text-align:center}
-.service-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px)}
-.service-icon{width:56px;height:56px;background:rgba(27,58,92,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px}
-.service-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
-.service-card p{font-size:14px;color:var(--text-sub);line-height:1.6}
+    <!-- 当事務所の特長 Section -->
+    <section class="features section-padding">
+        <div class="container">
+            <h2 class="section-title">当事務所の特長</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <p class="feature-text">1. 巡回監査時の当事務所の支援により、経営者は自社の正確な月次損益を把握できるようになります。経営者の意思決定に役立つ情報、黒字決算につながる情報が入手できます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <p class="feature-text">2. 『ＴＫＣ戦略財務情報システム（ＦＸシリーズ）』（ｅ21まいスター等を含む）による自計化を支援します。また、継続ＭＡＳシステムを使用した経営計画策定をご支援します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                    </div>
+                    <p class="feature-text">3. 自計化と経営計画策定に基づく業績管理体制（ＰＤＣＡ）の構築を当事務所が支援します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* ===== TOPIC BANNER (電子帳簿保存法) ===== */
-.topic-banner{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);border-radius:var(--radius);padding:48px 40px;color:var(--white);position:relative;overflow:hidden}
-.topic-banner::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(255,255,255,.04);border-radius:50%}
-.topic-badge{display:inline-block;background:var(--orange);color:var(--white);font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:16px}
-.topic-banner h3{font-size:22px;font-weight:700;margin-bottom:16px}
-.topic-banner p{font-size:14px;line-height:1.8;opacity:.92}
+    <!-- 当事務所のサービス Section -->
+    <section class="services section-padding">
+        <div class="container">
+            <h2 class="section-title">当事務所のサービス</h2>
+            <div class="service-wrapper">
+                <div class="service-image"></div>
+                <div class="service-content">
+                    <p class="service-text">
+                        当事務所は、巡回監査の実施により、お客様と毎月面談し、会計資料並びに会計記録の適法性、正確性及び適時性を確認します。これにより、経営者の意思決定に役立つデータを提供し、会計、税務や経営面のアドバイスを行います。この際、経営面のアドバイスでは、毎月の面談等を通して得られるお客様からの情報や『ＴＫＣ経営指標』の同業他社比較等によって、お客様の強みや経営課題等を分析・報告します。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* ===== FEATURES ===== */
-.feature-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.feature-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
-.feature-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px)}
-.feature-card-img{height:200px;overflow:hidden}
-.feature-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-.feature-card:hover .feature-card-img img{transform:scale(1.05)}
-.feature-card-body{padding:28px 24px}
-.feature-card-num{font-size:13px;font-weight:700;color:var(--orange);margin-bottom:8px}
-.feature-card-body p{font-size:14px;line-height:1.7;color:var(--text)}
+    <!-- 事務所概要 & 信頼情報 Section -->
+    <section class="info-section section-padding">
+        <div class="container">
+            <div class="info-grid">
+                <!-- 事務所概要 -->
+                <div>
+                    <h2 class="section-title" style="text-align: left;">事務所概要</h2>
+                    <table class="info-table">
+                        <tbody>
+                            <tr>
+                                <th>事務所名</th>
+                                <td>大樂公認会計士・税理士事務所/㈱大樂総合会計</td>
+                            </tr>
+                            <tr>
+                                <th>所長名</th>
+                                <td>大樂　弘幸 (だいらく ひろゆき)</td>
+                            </tr>
+                            <tr>
+                                <th>所在地</th>
+                                <td>〒158-0097<br>東京都世田谷区用賀4-5-21 第一小林ビル403号</td>
+                            </tr>
+                            <tr>
+                                <th>電話番号</th>
+                                <td>03-5797-9487</td>
+                            </tr>
+                            <tr>
+                                <th>税理士登録番号</th>
+                                <td>146854</td>
+                            </tr>
+                            <tr>
+                                <th>適格請求書登録番号</th>
+                                <td>T2810637284657</td>
+                            </tr>
+                            <tr>
+                                <th>業務内容</th>
+                                <td>
+                                    <ul>
+                                        <li>・創業・開業支援（計画作成/資金調達/資金繰り対策含む）</li>
+                                        <li>・税務・会計・決算に関する業務（書面添付、税務調査立会い含む）</li>
+                                        <li>・M&A支援（財務デューデリジェンス）</li>
+                                        <li>・会計プロセス自動化支援</li>
+                                        <li>・資金繰り対策</li>
+                                        <li>・補助金申請</li>
+                                        <li>・相続・事業承継の事前対策と申告書作成</li>
+                                        <li>・上場準備支援</li>
+                                        <li>・会計監査</li>
+                                        <li>・経営相談等</li>
+                                        <li>・保険指導</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-/* ===== CTA MID ===== */
-.cta-mid{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);padding:80px 0;text-align:center}
-.cta-mid-title{font-size:28px;font-weight:700;color:var(--white);margin-bottom:8px}
-.cta-mid-sub{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:32px}
-.cta-mid-actions{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap}
-.cta-mid-tel{font-size:22px;font-weight:700;color:var(--white)}
-.cta-mid-tel a{color:var(--white)}
+                <!-- 信頼情報 -->
+                <div>
+                    <h2 class="section-title" style="text-align: left;">信頼と実績</h2>
+                    <div class="trust-content">
+                        <div class="trust-card">
+                            <strong>大樂公認会計士・税理士事務所はＴＫＣ全国会会員です</strong>
+                            <p>ＴＫＣ全国会は、租税正義の実現をめざし関与先企業の永続的繁栄に奉仕するわが国最大級の職業会計人集団です。</p>
+                        </div>
+                        <div class="trust-card">
+                            <strong>東京税理士会</strong>
+                        </div>
+                        <div class="trust-card">
+                            <strong>経営革新等支援機関</strong>
+                            <p>（認定支援機関ID107313012903/認定号73号）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* ===== ABOUT ===== */
-.about-table{max-width:720px;margin:0 auto}
-.about-table dl{display:grid;grid-template-columns:160px 1fr;gap:0;border-top:1px solid #e0e0e0}
-.about-table dt,.about-table dd{padding:16px 0;border-bottom:1px solid #e0e0e0;font-size:15px}
-.about-table dt{font-weight:700;color:var(--navy)}
-.about-table dd{color:var(--text)}
+    <!-- お知らせ Section -->
+    <section class="news section-padding">
+        <div class="container">
+            <h2 class="section-title">News</h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <div class="news-date">2026.2.10</div>
+                    <div class="news-title">イベントのご案内 — 所長の大樂がBill Oneイベントで講演</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">2026.1.19</div>
+                    <div class="news-title">Webセミナーのご案内 — 新リース会計基準の解説動画</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">2025.12.22</div>
+                    <div class="news-title">年末年始の営業予定のご案内</div>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-/* ===== NEWS ===== */
-.news-list{max-width:800px;margin:0 auto}
-.news-item{padding:24px 0;border-bottom:1px solid #e8e8e8}
-.news-item:first-child{border-top:1px solid #e8e8e8}
-.news-meta{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-.news-date{font-size:13px;color:var(--text-sub);font-weight:500}
-.news-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--white);background:var(--navy);padding:2px 10px;border-radius:4px}
-.news-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.news-body{font-size:14px;color:var(--text-sub);line-height:1.7}
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <a href="#" class="btn-primary">まずは無料で相談してみる</a>
+        </div>
+    </section>
 
-/* ===== TRUST ===== */
-.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
-.trust-card{background:var(--white);border-radius:var(--radius);padding:32px 24px;box-shadow:var(--shadow)}
-.trust-icon{font-size:36px;margin-bottom:12px}
-.trust-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}
-.trust-card p{font-size:13px;color:var(--text-sub);line-height:1.6}
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <a href="#">ブログ_一粒万倍</a>
+                    <a href="#">創業の夢をお手伝いします</a>
+                    <a href="#">病医院の開業と経営改善</a>
+                </div>
+                <div class="footer-links">
+                    <a href="#">TKC経営指標（速報版）</a>
+                    <a href="#">経営者オススメ情報</a>
+                    <a href="#">最新保健・医療・福祉政策情報</a>
+                </div>
+                <div class="footer-links">
+                    <a href="#">税務カレンダー</a>
+                    <a href="#">リンク集</a>
+                    <a href="#">交通案内</a>
+                </div>
+                <div class="footer-links">
+                    <a href="#">国の共済制度活用コーナー</a>
+                    <a href="#">個人情報保護方針</a>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright (c) 2026 大樂公認会計士・税理士事務所 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
 
-/* ===== ACCESS ===== */
-.access-content{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.access-info p{font-size:15px;line-height:1.8;color:var(--text)}
-.access-map{background:var(--bg-light);border-radius:var(--radius);height:320px;display:flex;align-items:center;justify-content:center;color:var(--text-sub);font-size:14px;border:1px solid #e0e0e0}
-
-/* ===== FOOTER ===== */
-.footer{background:var(--navy);color:rgba(255,255,255,.85);padding:56px 0 0}
-.footer-links{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:center;margin-bottom:40px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.7);transition:var(--transition)}
-.footer-links a:hover{color:var(--white)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding:20px 0;text-align:center}
-.footer-copy{font-size:12px;color:rgba(255,255,255,.5)}
-
-/* ===== MOBILE CTA BAR ===== */
-.mobile-cta-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:99;background:var(--white);box-shadow:0 -2px 12px rgba(0,0,0,.1);padding:12px 16px;gap:8px}
-.mobile-cta-bar .btn-cta{flex:1;text-align:center}
-.mobile-cta-bar .btn-tel{flex:1;text-align:center;padding:12px 16px;background:var(--navy);color:var(--white);font-size:14px;font-weight:700;border-radius:var(--radius)}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:1024px){
-.header-nav{display:none}
-.hamburger{display:flex}
-.service-cards{grid-template-columns:repeat(2,1fr)}
-.feature-cards{grid-template-columns:repeat(2,1fr)}
-.trust-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:768px){
-.header-inner{height:60px}
-.header-tel{display:none}
-.header .btn-cta{display:none}
-.hero{min-height:auto}
-.hero-content{padding:64px 0 56px}
-.hero-catch{font-size:26px}
-.section{padding:64px 0}
-.section-title{font-size:26px}
-.service-cards{grid-template-columns:1fr}
-.feature-cards{grid-template-columns:1fr}
-.trust-grid{grid-template-columns:1fr}
-.access-content{grid-template-columns:1fr}
-.about-table dl{grid-template-columns:120px 1fr}
-.cta-mid-title{font-size:22px}
-.topic-banner{padding:32px 24px}
-.mobile-cta-bar{display:flex}
-body{padding-bottom:72px}
-}
-@media(max-width:375px){
-.hero-catch{font-size:22px}
-.container{padding:0 16px}
-}
-</style>
-
-<!-- ===== HEADER ===== -->
-<header class="header">
-<div class="container header-inner">
-<div class="header-logo">
-<span class="header-logo-main">大樂公認会計士・税理士事務所</span>
-<span class="header-logo-sub">株式会社 大樂総合会計</span>
-</div>
-<nav class="header-nav" role="navigation" aria-label="メインナビゲーション">
-<a href="#home">ホーム</a>
-<a href="#about">事務所紹介</a>
-<a href="#services">サービス一覧</a>
-<a href="#pricing">料金について</a>
-<a href="#contact">お問い合わせ</a>
-</nav>
-<div class="header-right">
-<a href="tel:03-5797-9487" class="header-tel" aria-label="電話でのお問い合わせ"><span class="header-tel-icon">☎</span>03-5797-9487</a>
-<a href="#contact" class="btn-cta">無料相談</a>
-</div>
-<button class="hamburger" aria-label="メニューを開く" onclick="document.querySelector('.header-nav').style.display=document.querySelector('.header-nav').style.display==='flex'?'none':'flex'">
-<span></span><span></span><span></span>
-</button>
-</div>
-</header>
-
-<!-- ===== HERO ===== -->
-<section class="hero" id="home">
-<div class="hero-bg" role="img" aria-label="ビジネスミーティングの様子"></div>
-<div class="hero-overlay"></div>
-<div class="container hero-content">
-<p class="hero-catch">貴社を毎月訪問し、自計化システムの活用と経営改善計画策定により黒字決算を支援します</p>
-<div class="hero-actions">
-<a href="#contact" class="btn-cta-large">まずは無料で相談してみる</a>
-<p class="hero-tel"><a href="tel:03-5797-9487">☎ 03-5797-9487</a></p>
-</div>
-</div>
-</section>
-
-<!-- ===== SERVICE OVERVIEW ===== -->
-<section class="section section-light" id="services">
-<div class="container">
-<p class="section-label">SERVICE</p>
-<h2 class="section-title">当事務所のサービス</h2>
-<p class="service-desc">当事務所は、巡回監査の実施により、お客様と毎月面談し、会計資料並びに会計記録の適法性、正確性及び適時性を確認します。これにより、経営者の意思決定に役立つデータを提供し、会計、税務や経営面のアドバイスを行います。この際、経営面のアドバイスでは、毎月の面談等を通して得られるお客様からの情報や『ＴＫＣ経営指標』の同業他社比較等によって、お客様の強みや経営課題等を分析・報告します。</p>
-
-<div class="service-cards">
-<div class="service-card">
-<div class="service-icon">🚀</div>
-<h3>創業・開業支援</h3>
-<p>創業・開業支援（計画作成/資金調達/資金繰り対策含む）</p>
-</div>
-<div class="service-card">
-<div class="service-icon">📊</div>
-<h3>税務・会計・決算</h3>
-<p>税務・会計・決算に関する業務（書面添付、税務調査立会い含む）</p>
-</div>
-<div class="service-card">
-<div class="service-icon">🤝</div>
-<h3>M&amp;A支援</h3>
-<p>M&amp;A支援（財務デューデリジェンス）</p>
-</div>
-<div class="service-card">
-<div class="service-icon">⚙️</div>
-<h3>会計プロセス自動化支援</h3>
-<p>会計プロセス自動化支援</p>
-</div>
-<div class="service-card">
-<div class="service-icon">💰</div>
-<h3>資金繰り対策</h3>
-<p>資金繰り対策</p>
-</div>
-<div class="service-card">
-<div class="service-icon">📋</div>
-<h3>補助金申請</h3>
-<p>補助金申請</p>
-</div>
-<div class="service-card">
-<div class="service-icon">🏠</div>
-<h3>相続・事業承継</h3>
-<p>相続・事業承継の事前対策と申告書作成</p>
-</div>
-<div class="service-card">
-<div class="service-icon">📈</div>
-<h3>上場準備支援</h3>
-<p>上場準備支援</p>
-</div>
-<div class="service-card">
-<div class="service-icon">🔍</div>
-<h3>会計監査</h3>
-<p>会計監査</p>
-</div>
-<div class="service-card">
-<div class="service-icon">💬</div>
-<h3>経営相談等</h3>
-<p>経営相談等</p>
-</div>
-<div class="service-card">
-<div class="service-icon">🛡️</div>
-<h3>保険指導</h3>
-<p>保険指導</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ===== 電子帳簿保存法トピック ===== -->
-<section class="section">
-<div class="container">
-<div class="topic-banner">
-<span class="topic-badge">重要トピック</span>
-<h3>電子帳簿保存法への対応</h3>
-<p>電子帳簿保存法の改正に伴い、電子取引データの電子保存が義務付けられましたが、令和6年１月１日からは、電子取引データの電子保存の宥恕規定（適用延期）の適用がなくなりました。メール等で受け取った請求書・領収書等（電子取引データ）を「印刷して保存」する方法が原則として認められなくなり、「電子保存」する必要があります。これは、電子帳簿保存の承認申請の有無にかかわらず、電子取引を行っているすべての事業者に、会計年度に関係なく適用されます。ＴＫＣの会計ソフト「ＦＸシリーズ」は「証憑保存機能」を標準搭載しており、電子取引データの電子保存に対応しています。詳細については、当事務所にお問合せください。</p>
-</div>
-</div>
-</section>
-
-<!-- ===== FEATURES ===== -->
-<section class="section section-light">
-<div class="container">
-<p class="section-label">FEATURES</p>
-<h2 class="section-title">当事務所の特長</h2>
-<p class="section-subtitle">選ばれる理由</p>
-<div class="feature-cards">
-<div class="feature-card">
-<div class="feature-card-img">
-<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="経営データの分析" loading="lazy">
-</div>
-<div class="feature-card-body">
-<p class="feature-card-num">FEATURE 01</p>
-<p>巡回監査時の当事務所の支援により、経営者は自社の正確な月次損益を把握できるようになります。経営者の意思決定に役立つ情報、黒字決算につながる情報が入手できます。</p>
-</div>
-</div>
-<div class="feature-card">
-<div class="feature-card-img">
-<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="自計化システムの活用" loading="lazy">
-</div>
-<div class="feature-card-body">
-<p class="feature-card-num">FEATURE 02</p>
-<p>『ＴＫＣ戦略財務情報システム（ＦＸシリーズ）』（ｅ21まいスター等を含む）による自計化を支援します。また、継続ＭＡＳシステムを使用した経営計画策定をご支援します。</p>
-</div>
-</div>
-<div class="feature-card">
-<div class="feature-card-img">
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="業績管理体制の構築" loading="lazy">
-</div>
-<div class="feature-card-body">
-<p class="feature-card-num">FEATURE 03</p>
-<p>自計化と経営計画策定に基づく業績管理体制（ＰＤＣＡ）の構築を当事務所が支援します。</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ===== CTA MID ===== -->
-<section class="cta-mid" id="contact">
-<div class="container">
-<p class="cta-mid-title">まずはお気軽にご相談ください</p>
-<p class="cta-mid-sub">初回のご相談は無料です</p>
-<div class="cta-mid-actions">
-<a href="#contact" class="btn-cta-large">まずは無料で相談してみる</a>
-<p class="cta-mid-tel"><a href="tel:03-5797-9487">☎ 03-5797-9487</a></p>
-</div>
-</div>
-</section>
-
-<!-- ===== ABOUT ===== -->
-<section class="section" id="about">
-<div class="container">
-<p class="section-label">ABOUT</p>
-<h2 class="section-title">事務所概要</h2>
-<div class="about-table">
-<dl>
-<dt>事務所名</dt>
-<dd>大樂公認会計士・税理士事務所/㈱大樂総合会計</dd>
-<dt>所長名</dt>
-<dd>大樂　弘幸 (だいらく ひろゆき)</dd>
-<dt>所在地</dt>
-<dd>〒158-0097 東京都世田谷区用賀4-5-21 第一小林ビル403号</dd>
-<dt>電話番号</dt>
-<dd><a href="tel:03-5797-9487">03-5797-9487</a></dd>
-<dt>税理士登録番号</dt>
-<dd>146854</dd>
-<dt>適格請求書登録番号</dt>
-<dd>T2810637284657</dd>
-<dt>認定支援機関</dt>
-<dd>経営革新等支援機関（認定支援機関ID107313012903/認定号73号）</dd>
-</dl>
-</div>
-</div>
-</section>
-
-<!-- ===== NEWS ===== -->
-<section class="section section-light">
-<div class="container">
-<p class="section-label">NEWS</p>
-<h2 class="section-title">お知らせ</h2>
-<div class="news-list">
-<div class="news-item">
-<div class="news-meta">
-<span class="news-date">2026.2.10</span>
-<span class="news-tag">イベントのご案内</span>
-</div>
-<p class="news-body">Sansan株式会社が提供する経理AXサービス「Bill One」が、ビジネスイベント「経理・財務の日～広がる実務の視野とキャリアの選択肢、これからの働き方をアップデートする2日間～」を、2026年2月17日（火）・18日（水）にオンラインにて開催いたします。その中で、2月17日（火）15:10～15：50 に「親会社も子会社も知っておきたい！新リース会計の現状と課題」というテーマで所長の大樂が講演をさせていただきます。</p>
-</div>
-<div class="news-item">
-<div class="news-meta">
-<span class="news-date">2026.1.19</span>
-<span class="news-tag">Webセミナーのご案内</span>
-</div>
-<p class="news-body">税務研究会様のwebサイトにおきまして、新リース会計基準の解説動画をアップさせていただきましたのでご案内いたします。「上場会社の子会社のための新リース会計基準の導入（全6本）」として、解説動画を無料でご覧いただけます。</p>
-</div>
-<div class="news-item">
-<div class="news-meta">
-<span class="news-date">2025.12.22</span>
-<span class="news-tag">年末年始の営業予定のご案内</span>
-</div>
-<p class="news-body">今年も格別のご愛顧にあずかり、ありがとうございました。当事務所の年末年始の営業予定をご案内いたします。</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ===== TRUST ===== -->
-<section class="section">
-<div class="container">
-<p class="section-label">TRUST</p>
-<h2 class="section-title">信頼情報</h2>
-<div class="trust-grid">
-<div class="trust-card">
-<div class="trust-icon">🏛️</div>
-<h3>ＴＫＣ全国会会員</h3>
-<p>大樂公認会計士・税理士事務所はＴＫＣ全国会会員です</p>
-<p style="margin-top:8px;font-size:12px;color:var(--text-sub)">ＴＫＣ全国会は、租税正義の実現をめざし関与先企業の永続的繁栄に奉仕するわが国最大級の職業会計人集団です。</p>
-</div>
-<div class="trust-card">
-<div class="trust-icon">⚖️</div>
-<h3>東京税理士会</h3>
-<p>東京税理士会所属</p>
-</div>
-<div class="trust-card">
-<div class="trust-icon">✅</div>
-<h3>認定支援機関</h3>
-<p>経営革新等支援機関（認定支援機関ID107313012903/認定号73号）</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ===== ACCESS ===== -->
-<section class="section section-light" id="access">
-<div class="container">
-<p class="section-label">ACCESS</p>
-<h2 class="section-title">アクセス</h2>
-<div class="access-content">
-<div class="access-info">
-<p style="font-weight:700;color:var(--navy);margin-bottom:8px">大樂公認会計士・税理士事務所</p>
-<p>〒158-0097 東京都世田谷区用賀4-5-21 第一小林ビル403号</p>
-<p style="margin-top:8px"><a href="tel:03-5797-9487" style="color:var(--navy);font-weight:700">☎ 03-5797-9487</a></p>
-</div>
-<div class="access-map" aria-label="地図（準備中）">
-<p>Google Map（準備中）</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-<div class="container">
-<div class="footer-links">
-<a href="#">ブログ_一粒万倍</a>
-<a href="#">創業の夢をお手伝いします</a>
-<a href="#">病医院の開業と経営改善</a>
-<a href="#">TKC経営指標（速報版）</a>
-<a href="#">経営者オススメ情報</a>
-<a href="#">最新保健・医療・福祉政策情報</a>
-<a href="#">税務カレンダー</a>
-<a href="#">リンク集</a>
-<a href="#">交通案内</a>
-<a href="#">国の共済制度活用コーナー</a>
-<a href="#">個人情報保護方針</a>
-</div>
-<div class="footer-bottom">
-<p class="footer-copy">Copyright (c) 2026 大樂公認会計士・税理士事務所 All Rights Reserved.</p>
-</div>
-</div>
-</footer>
-
-<!-- ===== MOBILE CTA BAR ===== -->
-<div class="mobile-cta-bar">
-<a href="tel:03-5797-9487" class="btn-tel">☎ 電話する</a>
-<a href="#contact" class="btn-cta">無料相談</a>
-</div>
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta">
+        <a href="tel:03-5797-9487" class="mobile-cta-tel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            電話する
+        </a>
+        <a href="#" class="mobile-cta-contact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            お問い合わせ
+        </a>
+    </div>
 
 </body>
 </html>
