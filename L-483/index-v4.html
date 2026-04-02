@@ -1,582 +1,762 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>大樂公認会計士・税理士事務所 株式会社 大樂総合会計</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --primary-color: #09589d;
-    --secondary-color: #5a8ebf;
-    --bg-light: #eef4f9;
-    --text-main: #333333;
-    --text-light: #666666;
-    --border-color: #cccccc;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    color: var(--text-main);
-    line-height: 1.6;
-    background-color: #ffffff;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  /* Header */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: #ffffff;
-  }
-
-  .header-logo {
-    font-size: 1.1rem;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .header-tel {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text-main);
-  }
-
-  .header-btn {
-    background-color: var(--secondary-color);
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: opacity 0.3s;
-  }
-
-  .header-btn:hover {
-    opacity: 0.8;
-  }
-
-  /* Navigation */
-  .nav {
-    background-color: var(--primary-color);
-    position: relative;
-  }
-
-  .nav-list {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-  }
-
-  .nav-item {
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .nav-item:first-child {
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .nav-link {
-    display: block;
-    color: #ffffff;
-    padding: 15px 30px;
-    font-weight: 500;
-    transition: background-color 0.3s;
-  }
-
-  .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 30px;
-    height: 20px;
-    position: relative;
-    margin-left: 15px;
-  }
-
-  .hamburger span {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
-    left: 0;
-    transition: 0.3s;
-  }
-
-  .hamburger span:nth-child(1) { top: 0; }
-  .hamburger span:nth-child(2) { top: 9px; }
-  .hamburger span:nth-child(3) { top: 18px; }
-
-  /* Hero / Electronic Book Maintenance Act */
-  .hero {
-    position: relative;
-    padding: 60px 20px;
-    text-align: center;
-    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1440&q=80');
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(238, 244, 249, 0.92);
-    z-index: -1;
-  }
-
-  .hero-text {
-    font-weight: 700;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    font-size: 1rem;
-  }
-
-  .hero-btn {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 12px 30px;
-    border-radius: 4px;
-    font-weight: 700;
-    margin-top: 20px;
-    transition: opacity 0.3s;
-  }
-
-  .hero-btn:hover {
-    opacity: 0.8;
-  }
-
-  /* Section Common */
-  .section {
-    padding: 80px 0;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 40px;
-    border-bottom: 2px solid var(--text-main);
-    padding-bottom: 15px;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  /* Service Section */
-  .service-content {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-  }
-
-  .service-img {
-    width: 40%;
-    border-radius: 4px;
-    object-fit: cover;
-  }
-
-  .service-text-list {
-    width: 60%;
-    list-style: none;
-  }
-
-  .service-text-list li {
-    position: relative;
-    padding-left: 1.5em;
-    margin-bottom: 15px;
-    font-weight: 500;
-  }
-
-  .service-text-list li::before {
-    content: '・';
-    position: absolute;
-    left: 0;
-  }
-
-  /* Feature Section */
-  .feature-container {
-    display: flex;
-    gap: 30px;
-    align-items: stretch;
-  }
-
-  .feature-items {
-    display: flex;
-    gap: 20px;
-    flex: 3;
-  }
-
-  .feature-item {
-    flex: 1;
-    text-align: center;
-  }
-
-  .feature-icon {
-    width: 60px;
-    height: 60px;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 15px;
-  }
-
-  .feature-item-title {
-    font-weight: 700;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-  }
-
-  .feature-item-text {
-    font-size: 0.85rem;
-    text-align: left;
-    line-height: 1.6;
-  }
-
-  .feature-img-wrapper {
-    flex: 1;
-  }
-
-  .feature-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-
-  /* CTA Section */
-  .cta-section {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    text-align: center;
-    padding: 60px 20px;
-  }
-
-  .cta-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.6;
-    margin-bottom: 30px;
-  }
-
-  .cta-button {
-    display: inline-block;
-    background-color: #ffffff;
-    color: var(--primary-color);
-    padding: 15px 40px;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: opacity 0.3s;
-  }
-
-  .cta-button:hover {
-    opacity: 0.9;
-  }
-
-  /* Info & News Section */
-  .info-news-container {
-    display: flex;
-    gap: 40px;
-  }
-
-  .info-col, .news-col {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .info-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .info-table th, .info-table td {
-    border: 1px solid #ffffff;
-    padding: 15px;
-    font-size: 0.9rem;
-  }
-
-  .info-table th {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    width: 30%;
-    text-align: left;
-    font-weight: 500;
-  }
-
-  .info-table td {
-    background-color: var(--bg-light);
-  }
-
-  .news-list {
-    max-height: 550px;
-    overflow-y: auto;
-    padding-right: 10px;
-  }
-
-  .news-list::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .news-list::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 3px;
-  }
-
-  .news-item {
-    background-color: var(--bg-light);
-    padding: 15px;
-    margin-bottom: 10px;
-  }
-
-  .news-date {
-    color: var(--primary-color);
-    font-weight: 700;
-    font-size: 0.9rem;
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  .news-title {
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-  }
-
-  .news-body {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    line-height: 1.6;
-  }
-
-  .news-item.past {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    padding: 12px 15px;
-  }
-
-  .news-item.past .news-date {
-    margin-bottom: 0;
-    min-width: 80px;
-  }
-
-  .news-item.past .news-title {
-    margin-bottom: 0;
-    font-weight: 500;
-  }
-
-  /* Footer */
-  .footer {
-    padding: 60px 20px 0;
-    background-color: #ffffff;
-  }
-
-  .footer-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-
-  .tkc-logo {
-    height: 50px;
-  }
-
-  .shomei-banner {
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--border-color);
-    padding: 10px 20px;
-    border-radius: 4px;
-  }
-
-  .shomei-icon {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    font-weight: 700;
-    margin-right: 15px;
-    line-height: 1;
-  }
-
-  .shomei-text-wrap {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .shomei-title {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--primary-color);
-  }
-
-  .shomei-sub {
-    font-size: 0.75rem;
-    color: var(--text-light);
-  }
-
-  .tkc-info {
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    margin-bottom: 30px;
-    line-height: 1.8;
-  }
-
-  .copyright {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    text-align: center;
-    padding: 15px;
-    font-size: 0.8rem;
-  }
-
-  /* Mobile CTA */
-  .mobile-cta {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  }
-
-  .cta-tel, .cta-btn-mobile {
-    flex: 1;
-    text-align: center;
-    padding: 15px 0;
-    font-weight: 700;
-    color: #ffffff;
-    font-size: 1rem;
-  }
-
-  .cta-tel {
-    background-color: var(--primary-color);
-  }
-
-  .cta-btn-mobile {
-    background-color: var(--secondary-color);
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .feature-container {
-      flex-direction: column;
-    }
-    .feature-img-wrapper {
-      height: 300px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .header-right .header-tel,
-    .header-right .header-btn {
-      display: none;
-    }
-
-    .hamburger {
-      display: block;
-    }
-
-    .nav-list {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: var(--primary-color);
-      z-index: 999;
-    }
-
-    .nav-list.active {
-      display: flex;
-    }
-
-    .nav-item {
-      border-right: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-item:first-child {
-      border-left: none;
-    }
-
-    .service-content {
-      flex-direction: column;
-    }
-
-    .service-img, .service-text-list {
-      width: 100%;
-    }
-
-    .feature-items {
-      flex-direction: column;
-    }
-
-    .info-news-container {
-      flex-direction: column;
-    }
-
-    .mobile-cta {
-      display: flex;
-    }
-
-    body {
-      padding-bottom: 54px;
-    }
-    
-    .news-item.past {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大樂公認会計士・税理士事務所 株式会社 大樂総合会計</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #09589d;
+            --secondary-color: #548dd4;
+            --accent-color: #cda036; /* リデザイン画像のゴールド系ボタン色 */
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --bg-gray: #eef2f6;
+            --border-color: #e0e0e0;
+            --container-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            display: block;
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        .btn-accent:hover {
+            background-color: #b58c2f;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #07467d;
+        }
+
+        /* Header */
+        .header-top {
+            padding: 15px 0;
+            background-color: #ffffff;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-top: 4px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .header-tel span {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-right: 5px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background-color: var(--primary-color);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-list li {
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-list li:last-child {
+            border-right: none;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 15px 20px;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-list a:hover {
+            background-color: var(--secondary-color);
+            opacity: 1;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(9, 88, 157, 0.9) 0%, rgba(84, 141, 212, 0.8) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-top: 4px solid var(--primary-color);
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .service-text {
+            font-weight: 500;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .feature-number {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .feature-text {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* News Section */
+        .news {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .notice-important {
+            background-color: #ffffff;
+            border-left: 5px solid var(--accent-color);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .notice-important p {
+            margin-bottom: 1rem;
+        }
+        .notice-important p:last-child {
+            margin-bottom: 0;
+        }
+
+        .news-list {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .news-item {
+            display: flex;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            width: 120px;
+            flex-shrink: 0;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .news-content {
+            flex-grow: 1;
+        }
+
+        .news-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .news-body {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .news-body a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        .news-item.hidden {
+            display: none;
+        }
+
+        .btn-more {
+            display: block;
+            width: 200px;
+            margin: 2rem auto 0;
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-more:hover {
+            background: var(--primary-color);
+            color: #ffffff;
+        }
+
+        /* Office Info Section */
+        .office-info {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .office-container {
+            display: flex;
+            gap: 40px;
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 8px;
+        }
+
+        .office-table-wrap {
+            flex: 1;
+        }
+
+        .office-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .office-table th, .office-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .office-table th {
+            width: 30%;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .office-map {
+            flex: 1;
+            min-height: 300px;
+        }
+
+        .office-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 4px;
+        }
+
+        /* TKC & Banners Section */
+        .tkc-banners {
+            padding: 40px 0 80px;
+            background-color: #ffffff;
+        }
+
+        .tkc-content {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-gray);
+            border-radius: 8px;
+        }
+
+        .tkc-logo {
+            margin: 0 auto 1.5rem;
+            max-width: 200px;
+        }
+
+        .tkc-text {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .banner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .banner-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            font-weight: 700;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .banner-link:hover {
+            transform: translateY(-3px);
+            opacity: 1;
+            background-color: var(--secondary-color);
+        }
+
+        /* KFS Section */
+        .kfs {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-slide {
+            min-width: 100%;
+        }
+
+        .slider-slide img {
+            width: 100%;
+            display: block;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            pointer-events: none;
+        }
+
+        .slider-btn {
+            background: rgba(255,255,255,0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 20px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .footer-contact {
+            text-align: right;
+        }
+
+        .footer-tel {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #a0c4e8;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .mobile-cta-tel {
+            color: var(--primary-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .mobile-cta-btn {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .office-container {
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-contact {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-contact {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                z-index: 100;
+            }
+            .main-nav.active {
+                display: block;
+            }
+            .nav-list {
+                flex-direction: column;
+            }
+            .nav-list li {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .hero {
+                height: 400px;
+            }
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .news-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .mobile-cta {
+                display: flex;
+            }
+            body {
+                padding-bottom: 60px; /* Mobile CTA space */
+            }
+            .header-top {
+                position: relative;
+            }
+        }
+    </style>
 <meta name="robots" content="noindex, nofollow">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
 <script>
@@ -588,296 +768,603 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-logo">
-      大樂公認会計士・税理士事務所<br>
-      株式会社 大樂総合会計
-    </div>
-    <div class="header-right">
-      <div class="header-tel"><a href="tel:0357979487" style="color: inherit;">TEL: 03-5797-9487</a></div>
-      <a href="#contact" class="header-btn">無料相談予約</a>
-      <button class="hamburger" id="hamburger" aria-label="メニュー">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Navigation -->
-  <nav class="nav">
-    <ul class="nav-list" id="nav-list">
-      <li class="nav-item"><a href="#" class="nav-link">ホーム</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">事務所紹介</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">サービス一覧</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">料金について</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">お問い合わせ</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero (電子帳簿保存法) -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-text">
-        <p>電子帳簿保存法の改正に伴い、電子取引データの電子保存が義務付けられましたが、<br>
-        令和6年１月１日からは、電子取引データの電子保存の宥恕規定（適用延期）の適用がなくなりました。</p>
-        <br>
-        <p>メール等で受け取った請求書・領収書等（電子取引データ）を「印刷して保存」する方法が原則として認められなくなり、「電子保存」する必要があります。<br>
-        これは、電子帳簿保存の承認申請の有無にかかわらず、電子取引を行っているすべての事業者に、会計年度に関係なく適用されます。</p>
-        <br>
-        <p>ＴＫＣの会計ソフト「ＦＸシリーズ」は「証憑保存機能」を標準搭載しており、電子取引データの電子保存に対応しています。<br>
-        詳細については、当事務所にお問合せください。</p>
-      </div>
-      <a href="#" class="hero-btn">インボイス制度対策情報</a>
-    </div>
-  </section>
-
-  <!-- Service Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">当事務所のサービス</h2>
-      </div>
-      <div class="service-content">
-        <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?auto=format&fit=crop&w=600&q=80" alt="当事務所のサービス" class="service-img">
-        <ul class="service-text-list">
-          <li>当事務所は、巡回監査の実施により、お客様と毎月面談し、会計資料並びに会計記録の適法性、正確性及び適時性を確認します。</li>
-          <li>これにより、経営者の意思決定に役立つデータを提供し、会計、税務や経営面のアドバイスを行います。</li>
-          <li>この際、経営面のアドバイスでは、毎月の面談等を通して得られるお客様からの情報や『ＴＫＣ経営指標』の同業他社比較等によって、お客様の強みや経営課題等を分析・報告します。</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Feature Section -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">当事務所の特長</h2>
-      </div>
-      <div class="feature-container">
-        <div class="feature-items">
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <a href="#" class="logo">
+                    大樂公認会計士・税理士事務所
+                    <span>株式会社 大樂総合会計</span>
+                </a>
+                <div class="header-contact">
+                    <a href="tel:03-5797-9487" class="header-tel"><span>TEL:</span>03-5797-9487</a>
+                    <a href="#contact" class="btn btn-accent">無料相談はこちら</a>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <div class="feature-item-title">巡回監査</div>
-            <div class="feature-item-text">巡回監査時の当事務所の支援により、経営者は自社の正確な月次損益を把握できるようになります。経営者の意思決定に役立つ情報、黒字決算につながる情報が入手できます。</div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-            </div>
-            <div class="feature-item-title">TKCシステム</div>
-            <div class="feature-item-text">「ＴＫＣ戦略財務情報システム（ＦＸシリーズ）｣（ｅ21まいスター等を含む）による自計化を支援します。また、継続ＭＡＳシステムを使用した経営計画策定をご支援します。</div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-            </div>
-            <div class="feature-item-title">経営改善の計画</div>
-            <div class="feature-item-text">自計化と経営計画策定に基づく業績管理体制（ＰＤＣＡ）の構築を当事務所が支援します。</div>
-          </div>
         </div>
-        <div class="feature-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="当事務所の特長">
+        <nav class="main-nav" id="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#about">事務所紹介</a></li>
+                    <li><a href="#services">サービス一覧</a></li>
+                    <li><a href="#price">料金について</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">貴社を毎月訪問し、自計化システムの活用と経営改善計画策定により黒字決算を支援します</h1>
+            <p class="hero-subtitle">東京都世田谷区用賀の公認会計士・税理士事務所</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-accent">サービスを見る</a>
+                <a href="#contact" class="btn btn-primary" style="border: 1px solid #fff;">お問い合わせ</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <h2 class="cta-title">貴社を毎月訪問し、自計化システムの活用と<br>経営改善計画策定により黒字決算を支援します</h2>
-      <a href="#contact" class="cta-button">お問い合わせ・無料相談はこちら</a>
-    </div>
-  </section>
-
-  <!-- Info & News Section -->
-  <section class="section">
-    <div class="container">
-      <div class="info-news-container">
-        
-        <!-- 事務所概要 -->
-        <div class="info-col">
-          <div class="section-header">
-            <h2 class="section-title">事務所概要</h2>
-          </div>
-          <table class="info-table">
-            <tr>
-              <th>事務所名</th>
-              <td>大樂公認会計士・税理士事務所/㈱大樂総合会計</td>
-            </tr>
-            <tr>
-              <th>所長名</th>
-              <td>大樂　弘幸 (だいらく ひろゆき)</td>
-            </tr>
-            <tr>
-              <th>所在地</th>
-              <td>〒158-0097<br>東京都世田谷区用賀4-5-21<br>第一小林ビル403号</td>
-            </tr>
-            <tr>
-              <th>電話番号</th>
-              <td>03-5797-9487</td>
-            </tr>
-            <tr>
-              <th>税理士登録番号</th>
-              <td>146854</td>
-            </tr>
-            <tr>
-              <th>適格請求書登録番号</th>
-              <td>T2810637284657</td>
-            </tr>
-            <tr>
-              <th>業務内容</th>
-              <td>
-                ・創業・開業支援（計画作成/資金調達/資金繰り対策含む）<br>
-                ・税務・会計・決算に関する業務（書面添付、税務調査立会い含む）<br>
-                ・M&A支援（財務デューデリジェンス）<br>
-                ・会計プロセス自動化支援<br>
-                ・資金繰り対策<br>
-                ・補助金申請<br>
-                ・相続・事業承継の事前対策と申告書作成<br>
-                ・上場準備支援<br>
-                ・会計監査<br>
-                ・経営相談等<br>
-                ・保険指導
-              </td>
-            </tr>
-          </table>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">Services</span>
+                <h2 class="section-title">当事務所のサービス</h2>
+            </div>
+            <div class="services-intro">
+                <p>当事務所は、巡回監査の実施により、お客様と毎月面談し、会計資料並びに会計記録の適法性、正確性及び適時性を確認します。</p>
+                <p>これにより、経営者の意思決定に役立つデータを提供し、会計、税務や経営面のアドバイスを行います。</p>
+                <p>この際、経営面のアドバイスでは、毎月の面談等を通して得られるお客様からの情報や『ＴＫＣ経営指標』の同業他社比較等によって、お客様の強みや経営課題等を分析・報告します。</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">1</div>
+                    <div class="service-text">創業・開業支援（計画作成/資金調達/資金繰り対策含む）</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">2</div>
+                    <div class="service-text">税務・会計・決算に関する業務（書面添付、税務調査立会い含む）</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">3</div>
+                    <div class="service-text">M&A支援（財務デューデリジェンス）</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">4</div>
+                    <div class="service-text">会計プロセス自動化支援</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">5</div>
+                    <div class="service-text">資金繰り対策</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">6</div>
+                    <div class="service-text">補助金申請</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">7</div>
+                    <div class="service-text">相続・事業承継の事前対策と申告書作成</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">8</div>
+                    <div class="service-text">上場準備支援</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">9</div>
+                    <div class="service-text">会計監査</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">10</div>
+                    <div class="service-text">経営相談等</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">11</div>
+                    <div class="service-text">保険指導</div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- お知らせ -->
-        <div class="news-col">
-          <div class="section-header">
-            <h2 class="section-title">お知らせ</h2>
-          </div>
-          <div class="news-list">
-            <!-- 最新5件 -->
-            <div class="news-item">
-              <span class="news-date">2026.2.10</span>
-              <div class="news-title">イベントのご案内</div>
-              <div class="news-body">Sansan株式会社が提供する経理AXサービス「Bill One」が、ビジネスイベント「経理・財務の日～広がる実務の視野とキャリアの選択肢、これからの働き方をアップデートする2日間～」を、2026年2月17日（火）・18日（水）にオンラインにて開催いたします。<br>その中で、2月17日（火）15:10～15：50 に「親会社も子会社も知っておきたい！新リース会計の現状と課題」というテーマで所長の大樂が講演をさせていただきます。<br>無料で参加申込みできますので、ご興味ありましたら、下記サイトからお申込みください。<br>・イベント特設サイト：https://bill-one.com/event/keirizaimu/vol6/</div>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">Strengths</span>
+                <h2 class="section-title">当事務所の特長</h2>
             </div>
-            <div class="news-item">
-              <span class="news-date">2026.1.19</span>
-              <div class="news-title">税務研究会様のサイトでのWebセミナーのご案内</div>
-              <div class="news-body">税務研究会様のwebサイトにおきまして、新リース会計基準の解説動画をアップさせていただきましたのでご案内いたします。<br>「上場会社の子会社のための新リース会計基準の導入（全6本）」として、解説動画を無料でご覧いただけます。<br>・研修サイト：https://www.zeiken.co.jp/lp/lease/<br>・Youtube：https://www.youtube.com/watch?v=YfZ2eQCX0GM&list=PLaQjtGsScVkI2kfiwAVnQ_odurknySRno</div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">1</div>
+                    <p class="feature-text">巡回監査時の当事務所の支援により、経営者は自社の正確な月次損益を把握できるようになります。経営者の意思決定に役立つ情報、黒字決算につながる情報が入手できます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">2</div>
+                    <p class="feature-text">「ＴＫＣ戦略財務情報システム（ＦＸシリーズ）｣（ｅ21まいスター等を含む）による自計化を支援します。また、継続ＭＡＳシステムを使用した経営計画策定をご支援します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">3</div>
+                    <p class="feature-text">自計化と経営計画策定に基づく業績管理体制（ＰＤＣＡ）の構築を当事務所が支援します。</p>
+                </div>
             </div>
-            <div class="news-item">
-              <span class="news-date">2025.12.22</span>
-              <div class="news-title">年末年始の営業予定のご案内</div>
-              <div class="news-body">今年も格別のご愛顧にあずかり、ありがとうございました。<br>当事務所の年末年始の営業予定をご案内いたします。<br>＜年末年始の営業予定＞<br>最終営業日：令和７年１２月２６日（金）　午前９時～午後６時<br>休業期間　：令和７年１２月２９日（月）～令和８年１月４日（日）<br>営業開始日：令和８年　１月５日（月）　午前９時～午後６時<br>来年も変わらぬご愛顧のほど、よろしくお願いいたします。</div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">News</span>
+                <h2 class="section-title">お知らせ</h2>
             </div>
-            <div class="news-item">
-              <span class="news-date">2025.9.22</span>
-              <div class="news-title">カスタマーハラスメント基本方針</div>
-              <div class="news-body">東京都では、令和６年10月に「東京都カスタマー・ハラスメント防止条例」が成立し、都内で事業を行う事業者に対して、カスタマーハラスメントの防止に向けた措置が求められています。<br>当事務所においてもカスタマーハラスメント防止の観点から、「カスタマーハラスメン対策に関するマニュアル」を整備し、「カスタマーハラスメント基本方針」を作成しましたので、「カスタマーハラスメント基本方針」をホームページにおいて公表いたします。</div>
+
+            <div class="notice-important">
+                <p>電子帳簿保存法の改正に伴い、電子取引データの電子保存が義務付けられましたが、令和6年１月１日からは、電子取引データの電子保存の宥恕規定（適用延期）の適用がなくなりました。</p>
+                <p>メール等で受け取った請求書・領収書等（電子取引データ）を「印刷して保存」する方法が原則として認められなくなり、「電子保存」する必要があります。</p>
+                <p>これは、電子帳簿保存の承認申請の有無にかかわらず、電子取引を行っているすべての事業者に、会計年度に関係なく適用されます。</p>
+                <p>ＴＫＣの会計ソフト「ＦＸシリーズ」は「証憑保存機能」を標準搭載しており、電子取引データの電子保存に対応しています。</p>
+                <p>詳細については、当事務所にお問合せください。</p>
             </div>
-            <div class="news-item">
-              <span class="news-date">2025.7.15</span>
-              <div class="news-title">夏季休暇のお知らせ</div>
-              <div class="news-body">平素より弊社のホームページをご利用いただき、誠にありがとうございます。<br>弊社では、以下の期間を夏季休暇とさせていただきます。<br>休業期間：令和７年７月22日（火）～令和７年７月25日（金）<br>この期間中は、通常業務を停止いたします。休暇期間中にいただいたお問い合わせやご依頼につきましては、休暇明けの７月２８日（月）より順次対応させていただきます。<br>皆様にはご不便をおかけいたしますが、何卒ご理解とご協力を賜りますようお願い申し上げます。</div>
+
+            <div class="news-list" id="news-list">
+                <!-- Item 1 -->
+                <div class="news-item">
+                    <div class="news-date">2026.2.10</div>
+                    <div class="news-content">
+                        <span class="news-title">イベントのご案内</span>
+                        <div class="news-body">
+                            Sansan株式会社が提供する経理AXサービス「Bill One」が、ビジネスイベント「経理・財務の日～広がる実務の視野とキャリアの選択肢、これからの働き方をアップデートする2日間～」を、2026年2月17日（火）・18日（水）にオンラインにて開催いたします。<br>
+                            その中で、2月17日（火）15:10～15：50 に「親会社も子会社も知っておきたい！新リース会計の現状と課題」というテーマで所長の大樂が講演をさせていただきます。<br>
+                            無料で参加申込みできますので、ご興味ありましたら、下記サイトからお申込みください。<br>
+                            ・イベント特設サイト：<a href="https://bill-one.com/event/keirizaimu/vol6/" target="_blank">https://bill-one.com/event/keirizaimu/vol6/</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="news-item">
+                    <div class="news-date">2026.1.19</div>
+                    <div class="news-content">
+                        <span class="news-title">税務研究会様のサイトでのWebセミナーのご案内</span>
+                        <div class="news-body">
+                            税務研究会様のwebサイトにおきまして、新リース会計基準の解説動画をアップさせていただきましたのでご案内いたします。<br>
+                            「上場会社の子会社のための新リース会計基準の導入（全6本）」として、解説動画を無料でご覧いただけます。上場企業の子会社様向けに新リース会計基準の導入に向けてのステップを解説していますので、ご興味ある方は下記のリンクよりご覧ください。<br>
+                            ・研修サイト：<a href="https://www.zeiken.co.jp/lp/lease/" target="_blank">https://www.zeiken.co.jp/lp/lease/</a><br>
+                            ・Youtube：<a href="https://www.youtube.com/watch?v=YfZ2eQCX0GM&list=PLaQjtGsScVkI2kfiwAVnQ_odurknySRno" target="_blank">https://www.youtube.com/watch?v=YfZ2eQCX0GM&list=PLaQjtGsScVkI2kfiwAVnQ_odurknySRno</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="news-item">
+                    <div class="news-date">2025.12.22</div>
+                    <div class="news-content">
+                        <span class="news-title">年末年始の営業予定のご案内</span>
+                        <div class="news-body">
+                            今年も格別のご愛顧にあずかり、ありがとうございました。<br>
+                            当事務所の年末年始の営業予定をご案内いたします。<br>
+                            ＜年末年始の営業予定＞<br>
+                            最終営業日：令和７年１２月２６日（金）　午前９時～午後６時<br>
+                            休業期間　：令和７年１２月２９日（月）～令和８年１月４日（日）<br>
+                            営業開始日：令和８年　１月５日（月）　午前９時～午後６時<br>
+                            来年も変わらぬご愛顧のほど、よろしくお願いいたします。
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hidden Items -->
+                <div class="news-item hidden">
+                    <div class="news-date">2025.9.22</div>
+                    <div class="news-content">
+                        <div class="news-body">
+                            東京都では、令和６年10月に「東京都カスタマー・ハラスメント防止条例」が成立し、都内で事業を行う事業者に対して、カスタマーハラスメントの防止に向けた措置が求められています。当事務所においてもカスタマーハラスメント防止の観点から、「カスタマーハラスメン対策に関するマニュアル」を整備し、「カスタマーハラスメント基本方針」を作成しましたので、「カスタマーハラスメント基本方針」をホームページにおいて公表いたします。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2025.7.15</div>
+                    <div class="news-content">
+                        <span class="news-title">夏季休暇のお知らせ</span>
+                        <div class="news-body">
+                            平素より弊社のホームページをご利用いただき、誠にありがとうございます。<br>
+                            弊社では、以下の期間を夏季休暇とさせていただきます。<br>
+                            休業期間　：令和７年７月22日（火）～令和７年７月25日（金）<br>
+                            この期間中は、通常業務を停止いたします。休暇期間中にいただいたお問い合わせやご依頼につきましては、休暇明けの７月２８日（月）より順次対応させていただきます。<br>
+                            皆様にはご不便をおかけいたしますが、何卒ご理解とご協力を賜りますようお願い申し上げます。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2023.12.28</div>
+                    <div class="news-content">
+                        <span class="news-title">年末年始の営業予定のご案内</span>
+                        <div class="news-body">
+                            今年も格別のご愛顧にあずかり、ありがとうございました。<br>
+                            当事務所の年末年始の営業予定をご案内いたします。<br>
+                            ＜年末年始の営業予定＞<br>
+                            最終営業日：令和５年１２月２８日(木)　午前９時～午後６時<br>
+                            休業期間　：令和５年１２月２９日(金)～令和６年１月４日(木)<br>
+                            営業開始日：令和５年　１月５日(金)　午前９時～午後６時<br>
+                            来年も変わらぬご愛顧のほど、よろしくお願いいたします。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2023.8.17</div>
+                    <div class="news-content">
+                        <span class="news-title">夏季休業のご案内</span>
+                        <div class="news-body">
+                            いつも格別のご愛顧にあずかり、ありがとうございます。<br>
+                            当事務所の夏季休業をご案内いたします。<br>
+                            ＜夏季休業＞<br>
+                            休業期間　：令和５年８月２３日(水)～令和５年８月２５日(金)<br>
+                            ご不便をおかけしますが何卒よろしくお願いいたします。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2023.7.19</div>
+                    <div class="news-content">
+                        <span class="news-title">無料相続相談会開催のご案内</span>
+                        <div class="news-body">
+                            このたび、司法書士と行政書士の先生と共同で、７月29日（土）及び7月30日（日）に弊事務所で無料相談会（1組あたり50分）を開催いたします。<br>
+                            事前予約制となりますので、リンク（ここをクリック）を参照の上、下記の予約ダイヤルで事前予約の程をよろしくお願いいたします。<br>
+                            ご予約ダイヤル ：　044-863-7487（現在は使用できません）
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2023.7.17</div>
+                    <div class="news-content">
+                        <span class="news-title">移転のご案内</span>
+                        <div class="news-body">
+                            このたび　弊社は７月１8日より下記へ移転し業務を行うことになりました。<br>
+                            場所は用賀の駅前から駅前への移転（100ｍほど）となります。<br>
+                            これを機にさらに専心努力いたし、ご期待にお応えする決意でございます。<br>
+                            今後とも皆様のご支援ご指導を賜りますようお願い申し上げます。<br>
+                            新住所：　158－0097　東京都世田谷区用賀４－５－２１　第一小林ビル403号<br>
+                            大樂公認会計士・税理士事務所<br>
+                            所長　大樂　弘幸
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2023.1.4</div>
+                    <div class="news-content">
+                        <span class="news-title">年始のご挨拶</span>
+                        <div class="news-body">
+                            あけましておめでとうございます。<br>
+                            旧年中は格別のご厚情を賜り、誠にありがとうございました。<br>
+                            本年も、自利利他の精神で邁進してまいります。<br>
+                            末筆ながら皆さまのご健康とご多幸を心よりお祈りし、新年のご挨拶とさせていただきます。<br>
+                            大樂公認会計士・税理士事務所<br>
+                            所長　大樂　弘幸
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2022.12.2</div>
+                    <div class="news-content">
+                        <span class="news-title">年末年始の営業予定のご案内</span>
+                        <div class="news-body">
+                            今年も格別のご愛顧にあずかり、ありがとうございました。<br>
+                            当事務所の年末年始の営業予定をご案内いたします。<br>
+                            ＜年末年始の営業予定＞<br>
+                            最終営業日：令和４年１２月２9日(木)　午前９時～午後６時<br>
+                            休業期間　：令和４年１２月３０日(金)～令和５年１月４日(水)<br>
+                            営業開始日：令和５年　１月５日(木)　午前９時～午後６時<br>
+                            来年も変わらぬご愛顧のほど、よろしくお願いいたします。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2022.7.27</div>
+                    <div class="news-content">
+                        <div class="news-body">
+                            当事務所は、以下の期間を休業させていただきます。<br>
+                            ＜お盆休業期間＞<br>
+                            令和４年８月１１日(木)～１7日(水)<br>
+                            何卒ご了承いただきますようお願い申し上げます。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2022.4.22</div>
+                    <div class="news-content">
+                        <div class="news-body">
+                            経営革新等支援機関（認定支援機関ID107313012903/認定号73号）として認定されました。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2022.2.4</div>
+                    <div class="news-content">
+                        <div class="news-body">
+                            事業復活支援金の登録確認機関となりました。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2022.2.3</div>
+                    <div class="news-content">
+                        <div class="news-body">
+                            損害保険の代理店登録が完了しました。損害保険のご提案を開始させていただきます。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2021.12.27</div>
+                    <div class="news-content">
+                        <span class="news-title">年末年始休業のお知らせ</span>
+                        <div class="news-body">
+                            [年内営業終了]　2021年12月28日(火)<br>
+                            [年始営業開始]　2022年 1月 5日(水)<br>
+                            [休業日]　2021年12月29日(水)～2022年 1月 4日(火)
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2021.12.2</div>
+                    <div class="news-content">
+                        <div class="news-body">
+                            生命保険募集人の登録が完了しました。生命保険のご提案を開始させていただきます。
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2021.11.17</div>
+                    <div class="news-content">
+                        <div class="news-body">
+                            弊事務所について取材を受けました。（リンク: <a href="https://www.business-plus.net/interview/2111/k6614.html" target="_blank">https://www.business-plus.net/interview/2111/k6614.html</a>）
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item hidden">
+                    <div class="news-date">2021.10.01</div>
+                    <div class="news-content">
+                        <div class="news-body">
+                            営業の開始及びホームページを公開しました。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-more" id="btn-more-news">もっと見る</button>
+        </div>
+    </section>
+
+    <!-- Office Info Section -->
+    <section id="about" class="office-info">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">Office Info</span>
+                <h2 class="section-title">事務所概要</h2>
+            </div>
+            <div class="office-container">
+                <div class="office-table-wrap">
+                    <table class="office-table">
+                        <tbody>
+                            <tr>
+                                <th>事務所名</th>
+                                <td>大樂公認会計士・税理士事務所/㈱大樂総合会計</td>
+                            </tr>
+                            <tr>
+                                <th>所長名</th>
+                                <td>大樂　弘幸(だいらく ひろゆき)</td>
+                            </tr>
+                            <tr>
+                                <th>所在地</th>
+                                <td>〒158-0097 東京都世田谷区用賀4-5-21 第一小林ビル403号</td>
+                            </tr>
+                            <tr>
+                                <th>電話番号</th>
+                                <td>03-5797-9487</td>
+                            </tr>
+                            <tr>
+                                <th>税理士登録番号</th>
+                                <td>146854</td>
+                            </tr>
+                            <tr>
+                                <th>適格請求書登録番号</th>
+                                <td>T2810637284657</td>
+                            </tr>
+                            <tr>
+                                <th>業務内容</th>
+                                <td>
+                                    ・創業・開業支援（計画作成/資金調達/資金繰り対策含む）<br>
+                                    ・税務・会計・決算に関する業務（書面添付、税務調査立会い含む）<br>
+                                    ・M&A支援（財務デューデリジェンス）<br>
+                                    ・会計プロセス自動化支援<br>
+                                    ・資金繰り対策<br>
+                                    ・補助金申請<br>
+                                    ・相続・事業承継の事前対策と申告書作成<br>
+                                    ・上場準備支援<br>
+                                    ・会計監査<br>
+                                    ・経営相談等<br>
+                                    ・保険指導
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="office-map">
+                    <iframe src="https://www.google.com/maps/embed/v1/place?language=ja&q=東京都世田谷区用賀4-5-21&zoom=17&key=AIzaSyBELgItfVodS3ThPdrIsX4vbOE4Hb3MVUE" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TKC & Banners Section -->
+    <section class="tkc-banners">
+        <div class="container">
+            <div class="tkc-content">
+                <img src="https://www.dairaku-accfirm.com/material/lib02/tkc_logo1.gif" alt="TKC全国会" class="tkc-logo">
+                <p class="tkc-text">大樂公認会計士・税理士事務所はＴＫＣ全国会会員です</p>
+                <p>ＴＫＣ全国会は、租税正義の実現をめざし関与先企業の永続的繁栄に奉仕するわが国最大級の職業会計人集団です。</p>
+                <p style="margin-top: 10px;"><a href="https://www.tkc.jp" target="_blank" style="color: var(--primary-color); text-decoration: underline;">https://www.tkc.jp</a></p>
+                <p style="margin-top: 10px; font-weight: bold;">東京税理士会</p>
             </div>
             
-            <!-- 過去分 -->
-            <div class="news-item past">
-              <span class="news-date">2023.12.28</span>
-              <div class="news-title">年末年始の営業予定のご案内</div>
+            <div class="banner-grid">
+                <a href="https://www.dairaku-accfirm.com/tkc-hozyokin" class="banner-link">補助金・助成金・融資情報</a>
+                <a href="https://www.dairaku-accfirm.com/tkc-inheritance-simulation" class="banner-link">相続税の試算</a>
             </div>
-            <div class="news-item past">
-              <span class="news-date">2023.8.17</span>
-              <div class="news-title">夏季休業のご案内</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2023.7.19</span>
-              <div class="news-title">無料相続相談会開催のご案内</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2023.7.17</span>
-              <div class="news-title">移転のご案内</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2023.1.4</span>
-              <div class="news-title">年始のご挨拶</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2022.12.2</span>
-              <div class="news-title">年末年始の営業予定のご案内</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2022.7.27</span>
-              <div class="news-title">お盆休業のお知らせ</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2022.4.22</span>
-              <div class="news-title">経営革新等支援機関（認定支援機関ID107313012903/認定号73号）として認定されました。</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2022.2.4</span>
-              <div class="news-title">事業復活支援金の登録確認機関となりました。</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2022.2.3</span>
-              <div class="news-title">損害保険の代理店登録が完了しました。損害保険のご提案を開始させていただきます。</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2021.12.27</span>
-              <div class="news-title">年末年始休業のお知らせ</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2021.12.2</span>
-              <div class="news-title">生命保険募集人の登録が完了しました。生命保険のご提案を開始させていただきます。</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2021.11.17</span>
-              <div class="news-title">弊事務所について取材を受けました。</div>
-            </div>
-            <div class="news-item past">
-              <span class="news-date">2021.10.01</span>
-              <div class="news-title">営業の開始及びホームページを公開しました。</div>
-            </div>
-          </div>
         </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="tkc-info">
-        <p>大樂公認会計士・税理士事務所はＴＫＣ全国会会員です</p>
-        <p>ＴＫＣ全国会は、租税正義の実現をめざし関与先企業の永続的繁栄に奉仕するわが国最大級の職業会計人集団です。</p>
-        <p>東京税理士会</p>
-      </div>
-      <div class="footer-logos">
-        <img src="https://www.dairaku-accfirm.com/material/lib02/tkc_logo1.gif" alt="TKC全国会" class="tkc-logo">
-        <div class="shomei-banner">
-          <div class="shomei-icon">S</div>
-          <div class="shomei-text-wrap">
-            <div class="shomei-title">証明力</div>
-            <div class="shomei-sub">金融機関等からの信頼性が高まる<br>決算書の作成を支援します。</div>
-          </div>
+    <!-- KFS Section -->
+    <section class="kfs">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">KFS Section</span>
+                <h2 class="section-title">経営支援フレームワーク</h2>
+            </div>
+            <div class="slider-container">
+                <div class="slider-track" id="slider-track">
+                    <div class="slider-slide"><img src="https://www.dairaku-accfirm.com/material/lib02/KFS_01.png" alt="KFS 1"></div>
+                    <div class="slider-slide"><img src="https://www.dairaku-accfirm.com/material/lib02/KFS_02.png" alt="KFS 2"></div>
+                    <div class="slider-slide"><img src="https://www.dairaku-accfirm.com/material/lib02/KFS_03.png" alt="KFS 3"></div>
+                    <div class="slider-slide"><img src="https://www.dairaku-accfirm.com/material/lib02/KFS_04.png" alt="KFS 4"></div>
+                    <div class="slider-slide"><img src="https://www.dairaku-accfirm.com/material/lib02/KFS_05.png" alt="KFS 5"></div>
+                </div>
+                <div class="slider-nav">
+                    <button class="slider-btn" id="prev-btn">&#10094;</button>
+                    <button class="slider-btn" id="next-btn">&#10095;</button>
+                </div>
+            </div>
+            <div class="slider-dots" id="slider-dots">
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+                <div class="dot" data-index="4"></div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="copyright">
-      Copyright (c) 2026 大樂公認会計士・税理士事務所 All Rights Reserved.
-    </div>
-  </footer>
+    </section>
 
-  <!-- Mobile CTA -->
-  <div class="mobile-cta">
-    <a href="tel:0357979487" class="cta-tel">TEL: 03-5797-9487</a>
-    <a href="#contact" class="cta-btn-mobile">無料相談予約</a>
-  </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">大樂公認会計士・税理士事務所</div>
+                    <p style="font-size: 0.9rem; color: #e0e0e0;">〒158-0097<br>東京都世田谷区用賀4-5-21<br>第一小林ビル403号</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">ホーム</a>
+                    <a href="#">ブログ_一粒万倍</a>
+                    <a href="#about">事務所紹介</a>
+                    <a href="#">創業の夢をお手伝いします</a>
+                    <a href="#services">サービス一覧</a>
+                    <a href="#">病医院の開業と経営改善</a>
+                    <a href="#price">料金について</a>
+                    <a href="#">TKC経営指標（速報版）</a>
+                    <a href="#contact">お問い合わせ</a>
+                    <a href="#">経営者オススメ情報</a>
+                    <a href="#">最新保健・医療・福祉政策情報</a>
+                    <a href="#">税務カレンダー</a>
+                    <a href="#">リンク集</a>
+                    <a href="#">交通案内</a>
+                    <a href="#">国の共済制度活用コーナー</a>
+                    <a href="#">個人情報保護方針</a>
+                </div>
+                <div class="footer-contact">
+                    <a href="tel:03-5797-9487" class="footer-tel">TEL: 03-5797-9487</a>
+                    <a href="#contact" class="btn btn-accent" style="width: 100%;">無料相談はこちら</a>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright (c) 2026 大樂公認会計士・税理士事務所 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
 
-  <script>
-    document.getElementById('hamburger').addEventListener('click', function() {
-      document.getElementById('nav-list').classList.toggle('active');
-    });
-  </script>
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:03-5797-9487" class="mobile-cta-tel">TEL: 03-5797-9487</a>
+        <a href="#contact" class="mobile-cta-btn">無料相談はこちら</a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('main-nav');
+
+        hamburger.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // News Accordion
+        const btnMoreNews = document.getElementById('btn-more-news');
+        const hiddenNewsItems = document.querySelectorAll('.news-item.hidden');
+
+        btnMoreNews.addEventListener('click', () => {
+            hiddenNewsItems.forEach(item => {
+                item.classList.remove('hidden');
+            });
+            btnMoreNews.style.display = 'none';
+        });
+
+        // KFS Slider
+        const track = document.getElementById('slider-track');
+        const slides = document.querySelectorAll('.slider-slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const dots = document.querySelectorAll('.dot');
+        
+        let currentIndex = 0;
+        const slideCount = slides.length;
+        let slideInterval;
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+            updateSlider();
+        }
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                currentIndex = parseInt(e.target.getAttribute('data-index'));
+                updateSlider();
+                resetInterval();
+            });
+        });
+
+        function startInterval() {
+            slideInterval = setInterval(nextSlide, 4000);
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+
+        startInterval();
+    </script>
 </body>
 </html>
