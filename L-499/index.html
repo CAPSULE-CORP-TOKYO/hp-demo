@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甲田税理士事務所</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #dd9933;
+            --primary-hover: #c8882b;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #fcfbf9;
+            --bg-section: #f5f0e6;
+            --footer-bg: #2c2c2c;
+            --border-radius: 16px;
+            --box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --box-shadow-hover: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-contact {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .header-contact {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+            .header-tel {
+                font-weight: 700;
+                font-size: 20px;
+                color: var(--text-main);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .header-btn {
+                background: var(--primary-color);
+                color: #fff;
+                padding: 12px 32px;
+                border-radius: 30px;
+                font-weight: 700;
+                transition: background 0.3s, transform 0.3s;
+            }
+            .header-btn:hover {
+                background: var(--primary-hover);
+                transform: translateY(-2px);
+            }
+        }
+
+        /* Navigation */
+        .header-nav {
+            display: none;
+            background: var(--bg-light);
+            border-top: 1px solid #eee;
+        }
+
+        @media (min-width: 1024px) {
+            .header-nav {
+                display: block;
+            }
+            .nav-list {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .nav-list li a {
+                display: block;
+                padding: 16px 32px;
+                font-weight: 500;
+                font-size: 15px;
+            }
+            .nav-list li a:hover {
+                color: var(--primary-color);
+            }
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        @media (min-width: 1024px) {
+            .hamburger {
+                display: none;
+            }
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-main);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger.is-active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .hamburger.is-active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.is-active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 72px);
+            background: #fff;
+            padding: 20px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li a {
+            display: block;
+            padding: 16px 0;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 140px 20px 80px;
+            background-image: url('https://www.kotax.jp/wp-content/uploads/2016/07/cropped-top_header09.png');
+            background-size: cover;
+            background-position: center right;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (min-width: 768px) {
+            .hero::before {
+                background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                margin: 0;
+                margin-left: 10%;
+            }
+        }
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 40px;
+            }
+        }
+
+        .hero-title span {
+            color: var(--primary-color);
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            color: var(--text-light);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 16px 48px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(221, 153, 51, 0.4);
+            transition: all 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(221, 153, 51, 0.5);
+            color: #fff;
+        }
+
+        /* Section Common */
+        .section {
+            padding: 80px 20px;
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                padding: 100px 20px;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Services & Strengths Cards */
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 32px;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .card-highlight {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: var(--text-light);
+            flex-grow: 1;
+        }
+
+        /* Greeting Section */
+        .greeting {
+            background-color: var(--bg-section);
+        }
+
+        .greeting-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            align-items: center;
+            background: #fff;
+            padding: 48px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        @media (min-width: 768px) {
+            .greeting-wrapper {
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 64px;
+            }
+        }
+
+        .greeting-img {
+            flex: 1;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .greeting-img img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .greeting-content {
+            flex: 2;
+        }
+
+        .greeting-content h3 {
+            font-size: 24px;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+        }
+
+        .greeting-content p {
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        .greeting-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* News & Blog Section */
+        .news-blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        @media (min-width: 768px) {
+            .news-blog-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        @media (min-width: 768px) {
+            .news-item {
+                flex-direction: row;
+                align-items: baseline;
+                gap: 24px;
+            }
+        }
+
+        .news-date {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 14px;
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+
+        .news-title {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .news-title:hover {
+            color: var(--primary-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .cta-tel {
+            display: block;
+            font-size: 40px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 32px;
+            text-decoration: none;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary-color);
+            padding: 16px 48px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--footer-bg);
+            color: #fff;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+        }
+
+        .footer-info {
+            flex: 1;
+        }
+
+        .footer-logo {
+            margin-bottom: 24px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-info p {
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .footer-nav {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-nav {
+                justify-content: flex-end;
+            }
+        }
+
+        .footer-nav a {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .mobile-cta {
+                display: none;
+            }
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            text-align: center;
+            padding: 16px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-cta-tel {
+            background: var(--primary-color);
+        }
+
+        .mobile-cta-contact {
+            background: #333;
+        }
+
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <a href="#" class="header-logo">
+                <img src="https://www.kotax.jp/wp-content/uploads/2018/05/logo_top3-1-1.png" alt="甲田税理士事務所">
+            </a>
+            <div class="header-contact">
+                <a href="tel:045-242-6686" class="header-tel">045-242-6686</a>
+                <a href="#" class="header-btn">お問い合わせ</a>
+            </div>
+            <button class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="header-nav">
+            <ul class="nav-list">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">事務所概要</a></li>
+                <li><a href="#">サービス案内</a></li>
+                <li><a href="#">創業融資・資金調達</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">事務所概要</a></li>
+            <li><a href="#">サービス案内</a></li>
+            <li><a href="#">創業融資・資金調達</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">横浜市西区のはまっこ税理士。<br>創業・開業時の資金調達は、横浜市西区の甲田税理士事務所にお任せください。</h1>
+                <p class="hero-subtitle">相鉄線西横浜駅より徒歩4分。地域密着型の税理士事務所です。</p>
+                <a href="#" class="hero-btn">無料相談はこちら</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">主要サービス</h2>
+                <div class="card-grid">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <img src="https://www.kotax.jp/wp-content/uploads/2018/05/013.jpg" alt="日本政策金融公庫の新創業融資制度" class="card-img">
+                        <h3 class="card-title">日本政策金融公庫の新創業融資制度</h3>
+                        <p class="card-highlight">無担保、無保証人で最大１，５００万円まで借りられる！</p>
+                        <p class="card-text">この言葉を聞いて、耳を疑った起業家や経営者の方は多いことでしょう。みなさんは「 日本政策金融公庫 」をご存じでしょうか？日本政策金融公庫は、政府の１００％出資で設立されている中小企業向けの金融機関です。この日本政策金融公庫には「 新創業融資制度 」というものがあり、無担保、無保証人で最大１,５００万円まで創業資金の融資を受けることができます。</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <img src="https://www.kotax.jp/wp-content/uploads/2018/05/005.jpg" alt="キャッシュフロー経営のすすめ" class="card-img">
+                        <h3 class="card-title">キャッシュフロー経営のすすめ</h3>
+                        <p class="card-highlight">企業にとって、日々の営業活動に不可欠な「 キャッシュ 」。</p>
+                        <p class="card-text">このキャッシュが不足し、資金繰りが悪化すれば、もちろん最終的には会社の存続が不可能になってしまいます。もちろん銀行などからの借り入れに頼ることもできますが、最近の社会情勢等もあり、簡単には融資を受けられませんし、その場しのぎの方法では、根本的な解決には至りません。そこで、資金繰りを良くし、会社にお金を残す経営、甲田税理士事務所の経営理念でもある「 キャッシュフロー経営 」の実践法について、詳しくお話し致します。</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <img src="https://www.kotax.jp/wp-content/uploads/2018/05/084.jpg" alt="わかりやすい決算書" class="card-img">
+                        <h3 class="card-title">わかりやすい決算書</h3>
+                        <p class="card-highlight">ご自身の会社の決算書の見方がわかりますか？</p>
+                        <p class="card-text">「 決算についての中小企業の社長の意識 」に関するアンケートによると、税理士から決算書の説明を受けて「 わかった 」または「 少しはわかった 」と答えた社長は４割半程度しかいませんでした。半数を超える社長が決算書を理解できない、つまり「 わからない 」のです。なぜ理解してもらえないのでしょうか？</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Greeting Section -->
+        <section class="section greeting">
+            <div class="container">
+                <h2 class="section-title">代表より、みなさまへご挨拶</h2>
+                <div class="greeting-wrapper">
+                    <div class="greeting-img">
+                        <img src="https://www.kotax.jp/wp-content/uploads/2018/05/daihyou.png" alt="代表 甲田勝久">
+                    </div>
+                    <div class="greeting-content">
+                        <p>はじめまして！横浜市西区にある甲田税理士事務所の甲田勝久です。</p>
+                        <p>父（現会長）が所長を務める甲田税理士事務所に入所して早15年。生まれも育ちも横浜の「 はまっこ税理士 」として、地元・横浜で活躍する中小企業の社長さんをサポートしています。</p>
+                        <p>税理士というと、「 決算書類をつくる人 」というイメージがあるかもしれませんね。でも、私の考えは違います。</p>
+                        <p>書類をつくるだけなら、今の時代、コンピューターソフトを使えば、誰にでもカンタンにつくれます。入力にしたって、それほど難しいことではありません。</p>
+                        <p>「 それじゃあ、税理士なんて要らないじゃないか！ 」</p>
+                        <p>そうです。それだけなら、税理士に高い顧問料を払うなんてもったいない！このメッセージを読んでくださったあなたは、せっかくお金を使うのですから、本当に価値のある税理士の使い方をしてください。</p>
+                        <p><strong>本当に価値ある税理士の使い方？</strong></p>
+                        <p>そう、税理士には、本当の意味で、あなたの力になってもらってください、ということです。具体的に言うと・・・</p>
+                        <p>会社を末長く成長させていくにはどうしたら良いのか、社長さんの相談相手として、何でも腹を割って話し合いながら、具体的な提案をしてもらってください、ということです。</p>
+                        <p>心から信頼を寄せることができ、会社の内情を包み隠さずオープンにした上で、的確なアドバイスをしてもらってください、ということです。</p>
+                        <p>そして、私が目指しているのはまさに、そんな、経営者のパートナーになれる税理士です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strengths Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">社長のための税務の知識</h2>
+                <div class="card-grid">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <img src="https://www.kotax.jp/wp-content/uploads/2018/05/132.jpg" alt="税理士の変更" class="card-img">
+                        <h3 class="card-title">税理士の変更</h3>
+                        <p class="card-text">弊所には、税理士さんの変更をお考えの方からのお問い合わせを多数いただいております。本来なら、特定の税理士事務所と長くお付き合い…</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <img src="https://www.kotax.jp/wp-content/uploads/2018/05/113.jpg" alt="黒字倒産はなぜ起こる？" class="card-img">
+                        <h3 class="card-title">黒字倒産はなぜ起こる？</h3>
+                        <p class="card-text">「勘定あって銭足らず」という言葉があります。売上も増加し、利益もそこそこ出ているのになぜか資金が足りない、という経験…</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <img src="https://www.kotax.jp/wp-content/uploads/2018/05/126.jpg" alt="消費税の還付" class="card-img">
+                        <h3 class="card-title">消費税の還付</h3>
+                        <p class="card-text">税金は支払うだけのものと思い込んでいませんか？経営者のみなさんも年末調整や医療費控除で源泉所得税が戻ってくることは…</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News & Blog Section -->
+        <section class="section">
+            <div class="container">
+                <div class="news-blog-grid">
+                    <!-- News -->
+                    <div>
+                        <h2 class="section-title" style="font-size: 24px; margin-bottom: 40px;">甲田税理士事務所からのお知らせ</h2>
+                        <ul class="news-list">
+                            <li class="news-item">
+                                <span class="news-date">2018年4月27日</span>
+                                <a href="#" class="news-title">【平成３０年度】ゴールデンウィーク休業のお知らせ</a>
+                            </li>
+                            <li class="news-item">
+                                <span class="news-date">2017年12月21日</span>
+                                <a href="#" class="news-title">【平成２９年度】冬季休業のお知らせ</a>
+                            </li>
+                            <li class="news-item">
+                                <span class="news-date">2017年7月26日</span>
+                                <a href="#" class="news-title">【平成２９年度】夏季休業のお知らせ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Blog -->
+                    <div>
+                        <h2 class="section-title" style="font-size: 24px; margin-bottom: 40px;">ＫＯＴＡＸブログ</h2>
+                        <ul class="news-list">
+                            <li class="news-item">
+                                <span class="news-date">2016年5月17日</span>
+                                <a href="#" class="news-title">中小・零細企業における棚卸資産による節税対策</a>
+                            </li>
+                            <li class="news-item">
+                                <span class="news-date">2016年5月17日</span>
+                                <a href="#" class="news-title">中小・零細企業における固定資産による節税対策</a>
+                            </li>
+                            <li class="news-item">
+                                <span class="news-date">2016年5月13日</span>
+                                <a href="#" class="news-title">中小規模の会社における前払費用の損金計上</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">まずはお気軽にご相談ください</h2>
+                <a href="tel:045-242-6686" class="cta-tel">045-242-6686</a>
+                <a href="#" class="cta-btn">メールでお問い合わせ</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <img src="https://www.kotax.jp/wp-content/uploads/2018/05/logo_top3-1-1.png" alt="甲田税理士事務所">
+                </div>
+                <p>〒220-0055 横浜市西区浜松町 11-32-5F</p>
+                <p>TEL: 045-242-6686</p>
+            </div>
+            <div class="footer-nav">
+                <a href="#">HOME</a>
+                <a href="#">事務所概要</a>
+                <a href="#">サービス案内</a>
+                <a href="#">創業融資・資金調達</a>
+                <a href="#">お問い合わせ</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright &copy; 甲田税理士事務所 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta">
+        <a href="tel:045-242-6686" class="mobile-cta-tel">
+            <span>お電話</span>
+            <span>045-242-6686</span>
+        </a>
+        <a href="#" class="mobile-cta-contact">
+            <span>メールで</span>
+            <span>お問い合わせ</span>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('is-active');
+                mobileMenu.classList.toggle('active');
+                
+                if (mobileMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
