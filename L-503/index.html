@@ -7,43 +7,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #4bacc6;
-            --accent-color: #e06a76;
-            --text-color: #333333;
-            --text-light: #666666;
-            --bg-color: #ffffff;
-            --bg-light: #f8f9fa;
-            --gradient-hero: linear-gradient(to right, rgba(224, 106, 118, 0.95) 0%, rgba(243, 161, 131, 0.8) 50%, rgba(255,255,255,0) 100%);
-            --gradient-card: linear-gradient(135deg, #f3a183 0%, #e06a76 100%);
-            --header-height: 80px;
-        }
-
-        * {
+        /* General Styles & Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            color: var(--text-color);
-            background-color: var(--bg-color);
             line-height: 1.6;
+            color: #333;
+            background-color: #f8fcfd; /* Very light background, close to redesign's light blue */
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
         }
 
         img {
             max-width: 100%;
             height: auto;
-            display: block;
+            vertical-align: middle;
         }
 
         .container {
@@ -52,471 +46,665 @@
             padding: 0 20px;
         }
 
-        .section-title {
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
             text-align: center;
-            font-size: 2rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .button-primary {
+            background-color: #4bacc6; /* Main Teal */
+            color: #fff;
+        }
+
+        .button-primary:hover {
+            background-color: #3a8e9f; /* Darker Teal */
+        }
+
+        .button-accent {
+            background-color: #ff8c42; /* Accent Orange */
+            color: #fff;
+        }
+
+        .button-accent:hover {
+            background-color: #e67a36; /* Darker Orange */
+        }
+
+        .section-title {
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50; /* Dark text color from redesign */
             position: relative;
-            padding-bottom: 1rem;
+            padding-bottom: 10px;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: 0;
             left: 50%;
+            bottom: 0;
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background-color: var(--accent-color);
+            background-color: #4bacc6; /* Main Teal */
+            border-radius: 2px;
         }
 
         /* Header */
-        header {
+        .header {
+            background-color: #fff; /* White header background */
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo img {
+            height: 40px; /* Adjust as needed */
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.9rem;
+        }
+
+        .header-info .tel {
+            font-weight: 700;
+            color: #4bacc6; /* Main Teal */
+            font-size: 1.1rem;
+        }
+
+        .header-nav {
+            display: none; /* Hidden by default on mobile */
+        }
+
+        .header-nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        .header-nav a {
+            font-weight: 500;
+            color: #555;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .header-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #4bacc6; /* Main Teal */
+            transition: width 0.3s ease;
+        }
+
+        .header-nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-contact-button {
+            display: none; /* Hidden by default on mobile */
+        }
+
+        .hamburger-menu {
+            display: flex; /* Show on mobile */
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Mobile Navigation Overlay */
+        .mobile-nav-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: var(--header-height);
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-        }
-
-        .header-inner {
-            width: 100%;
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        .nav-desktop {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-desktop a {
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .nav-desktop a:hover {
-            color: var(--accent-color);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .header-tel {
-            font-weight: 700;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-contact {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
-        }
-
-        .btn-contact:hover {
-            background-color: #d05a66;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            border: none;
-            background: none;
-            padding: 10px;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background-color: var(--text-color);
-            margin: 5px 0;
-            transition: 0.3s;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 300px;
-            height: 100vh;
-            background-color: white;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 999;
-            padding: 100px 20px 20px;
-            transition: right 0.3s ease;
-            display: flex;
+            display: none;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
-            gap: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .mobile-menu.active {
-            right: 0;
+        .mobile-nav-overlay.active {
+            display: flex;
+            opacity: 1;
         }
 
-        .mobile-menu a {
-            font-size: 1.1rem;
+        .mobile-nav-overlay ul {
+            text-align: center;
+        }
+
+        .mobile-nav-overlay li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-nav-overlay a {
+            color: #fff;
+            font-size: 1.5rem;
             font-weight: 500;
+            padding: 10px 20px;
             display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-overlay a:hover {
+            color: #4bacc6; /* Main Teal */
         }
 
         /* Hero Section */
         .hero {
-            margin-top: var(--header-height);
             position: relative;
-            min-height: 600px;
+            height: 600px; /* Adjust height as needed */
             display: flex;
             align-items: center;
-            background: var(--gradient-hero), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            justify-content: flex-end; /* Align content to the right as in redesign */
+            text-align: left;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Unsplash image for hero */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6); /* Darken background for text readability */
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            color: white;
-            max-width: 650px;
+            max-width: 500px; /* Adjust width to match redesign's text block */
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent light background for text */
+            border-radius: 10px;
+            margin-right: 5%; /* Position to the right */
+            color: #333; /* Dark text for light background */
         }
 
         .hero-catch {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            margin-bottom: 15px;
             line-height: 1.4;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .hero-sub {
+        .hero-subcatch {
             font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .hero .button {
+            font-size: 1.1rem;
+            padding: 15px 30px;
         }
 
         /* Features Section */
         .features {
-            padding: 6rem 0;
-            background-color: var(--bg-light);
+            padding: 80px 0;
+            background-color: #f8fcfd; /* Light background */
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
         .feature-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 30px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
-        .feature-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
+        .feature-card img {
+            width: 80px;
+            height: 80px;
             object-fit: cover;
-            margin: 0 auto 1.5rem;
-            border: 4px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 50%; /* Make images circular */
+            margin-bottom: 20px;
+            border: 3px solid #4bacc6; /* Teal border */
         }
 
-        .feature-title {
-            font-size: 1.25rem;
+        .feature-card h3 {
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+            margin-bottom: 15px;
+            color: #2c3e50;
         }
 
-        .feature-desc {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            text-align: left;
+        .feature-card p {
+            font-size: 1rem;
+            color: #555;
         }
 
         /* Services Section */
         .services {
-            padding: 6rem 0;
+            padding: 80px 0;
+            background-color: #fff;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
 
         .service-card {
-            background: var(--gradient-card);
-            color: white;
-            padding: 2rem 1.5rem;
-            border-radius: 20px;
-            text-align: center;
+            background-color: #f9f9f9; /* Light grey background for service cards */
+            border-radius: 10px;
+            padding: 25px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 160px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 20px rgba(224, 106, 118, 0.2);
+            gap: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(224, 106, 118, 0.3);
-            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+        }
+
+        .service-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px; /* Slightly rounded corners for service images */
+            flex-shrink: 0;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
         }
 
         /* News Section */
         .news {
-            padding: 6rem 0;
-            background-color: var(--bg-light);
+            padding: 80px 0;
+            background-color: #f8fcfd;
         }
 
-        .news-list {
-            max-width: 800px;
-            margin: 0 auto;
-            list-style: none;
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
 
         .news-item {
-            display: flex;
-            gap: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #e0e0e0;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .news-item:first-child {
-            border-top: 1px solid #e0e0e0;
+        .news-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
         }
 
-        .news-date {
-            font-weight: 700;
-            color: var(--primary-color);
-            white-space: nowrap;
+        .news-item .date {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .news-title {
-            color: var(--text-color);
+        .news-item .title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2c3e50;
+            line-height: 1.4;
         }
 
-        /* Banners Section */
-        .banners {
-            padding: 6rem 0;
+        /* Office Info Section */
+        .office-info {
+            padding: 80px 0;
+            background-color: #fff;
         }
 
-        .banners-grid {
+        .office-info-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 40px;
         }
 
-        .banner-card {
-            position: relative;
-            height: 140px;
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
-            font-size: 1.3rem;
+        .office-map iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .office-details {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .office-details h3 {
+            font-size: 1.5rem;
             font-weight: 700;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            color: #2c3e50;
+            margin-bottom: 20px;
         }
 
-        .banner-card:hover {
-            transform: scale(1.02);
-            color: white;
+        .office-details p {
+            margin-bottom: 10px;
+            color: #555;
         }
 
-        .banner-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .office-details p strong {
+            color: #2c3e50;
+        }
+
+        .staff-photos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center; /* Center staff photos on mobile */
+        }
+
+        .staff-photos img {
+            width: 80px;
+            height: 80px;
             object-fit: cover;
-            z-index: 1;
-        }
-
-        .banner-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: 2;
-            transition: background-color 0.3s ease;
-        }
-
-        .banner-card:hover .banner-overlay {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .banner-text {
-            position: relative;
-            z-index: 3;
-            letter-spacing: 1px;
+            border-radius: 50%;
+            border: 2px solid #4bacc6; /* Teal border */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         /* Footer */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 4rem 0 2rem;
+        .footer {
+            background-color: #2c3e50; /* Dark background for footer */
+            color: #eee;
+            padding: 60px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo-col img {
+            height: 50px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1); /* Make logo white */
+        }
+
+        .footer-logo-col p {
+            margin-bottom: 10px;
+        }
+
+        .footer-nav h4, .footer-contact h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #4bacc6; /* Teal for footer headings */
+        }
+
+        .footer-nav ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-nav a {
+            color: #eee;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #4bacc6; /* Teal hover */
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact a {
+            color: #eee;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: #4bacc6; /* Teal hover */
+        }
+
+        .footer-bottom {
             text-align: center;
-        }
-
-        .footer-info {
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: #ecf0f1;
-        }
-
-        .footer-logo {
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            background: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-        }
-
-        .footer-logo img {
-            height: 40px;
-        }
-
-        .copyright {
-            font-size: 0.85rem;
-            color: #bdc3c7;
+            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            margin-top: 2rem;
         }
 
-        /* Mobile CTA */
-        .mobile-cta {
-            display: none;
+        .footer-bottom a {
+            color: #eee;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #4bacc6; /* Teal hover */
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            background: white;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            padding: 10px;
-        }
-
-        .mobile-cta-inner {
+            background-color: #ff8c42; /* Accent Orange */
             display: flex;
-            gap: 10px;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 990;
+            display: none; /* Hidden by default, shown via media query */
         }
 
-        .mobile-cta-btn {
-            flex: 1;
-            text-align: center;
-            padding: 12px 0;
-            border-radius: 8px;
-            font-weight: 700;
+        .mobile-cta-bar a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
             font-size: 0.9rem;
+            font-weight: 500;
+            gap: 5px;
         }
 
-        .mobile-cta-tel {
-            background-color: var(--primary-color);
-            color: white;
+        .mobile-cta-bar a i {
+            font-size: 1.5rem;
         }
 
-        .mobile-cta-mail {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .nav-desktop {
-                display: none;
+        /* Media Queries */
+        /* Tablet (768px) */
+        @media (min-width: 768px) {
+            .header .container {
+                flex-wrap: nowrap;
             }
-            .header-right {
-                display: none;
+
+            .header-left {
+                flex-grow: 1;
             }
-            .hamburger {
+
+            .header-nav {
                 display: block;
             }
-            .hero {
-                background: var(--gradient-hero), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') right/cover no-repeat;
+
+            .header-contact-button {
+                display: inline-block;
+                margin-left: 20px;
+            }
+
+            .hamburger-menu {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 50px;
+                margin-right: 10%;
+            }
+
+            .hero-catch {
+                font-size: 2.5rem;
+            }
+
+            .hero-subcatch {
+                font-size: 1.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .office-info-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .staff-photos {
+                justify-content: flex-start; /* Align staff photos to left on desktop */
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mobile-cta-bar {
+                display: none; /* Hide mobile CTA bar on tablet and desktop */
             }
         }
 
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 500px;
-                padding: 4rem 0;
-                background: linear-gradient(to bottom, rgba(224, 106, 118, 0.9) 0%, rgba(243, 161, 131, 0.8) 100%), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        /* Desktop (1024px) */
+        @media (min-width: 1024px) {
+            .header-logo img {
+                height: 50px;
             }
-            .hero-content {
-                text-align: center;
-            }
-            .hero-catch {
-                font-size: 1.8rem;
-            }
-            .hero-sub {
+
+            .header-info {
                 font-size: 1rem;
             }
-            .news-item {
-                flex-direction: column;
-                gap: 0.5rem;
+
+            .header-info .tel {
+                font-size: 1.3rem;
             }
-            .mobile-cta {
-                display: block;
+
+            .hero {
+                height: 700px;
             }
-            body {
-                padding-bottom: 70px; /* For mobile CTA */
+
+            .hero-content {
+                max-width: 600px;
+                padding: 60px;
+                margin-right: 15%;
+            }
+
+            .hero-catch {
+                font-size: 3rem;
+            }
+
+            .hero-subcatch {
+                font-size: 1.3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .news-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .office-map iframe {
+                height: 400px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr; /* Adjust footer columns */
             }
         }
     </style>
@@ -530,69 +718,74 @@
 </script>
 </head>
 <body>
-
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://itokaikei.tkcnf.com/library/57173b51d63cbbafb4b82a54/615f9e264abfb36b71c28b06.png" alt="伊藤正孝税理士事務所">
-            </a>
-            <nav class="nav-desktop">
-                <a href="/">トップ</a>
-                <a href="#features">事務所の特長</a>
-                <a href="/about">事務所案内</a>
-                <a href="/ourservice">サービス案内</a>
-                <a href="/tkc-joboffer">採用情報</a>
-            </nav>
-            <div class="header-right">
-                <a href="tel:045-412-2110" class="header-tel">TEL: 045-412-2110</a>
-                <a href="/contact" class="btn-contact">お問い合わせフォーム</a>
+    <header class="header">
+        <div class="container">
+            <div class="header-left">
+                <a href="#" class="header-logo">
+                    <img src="https://itokaikei.tkcnf.com/library/57173b51d63cbbafb4b82a54/615f9e264abfb36b71c28b06.png" alt="伊藤正孝税理士事務所ロゴ">
+                </a>
+                <div class="header-info">
+                    <span class="company-name">伊藤正孝税理士事務所</span>
+                    <a href="tel:045-412-2110" class="tel">TEL: 045-412-2110</a>
+                </div>
             </div>
-            <button class="hamburger" id="hamburger">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="#">トップ</a></li>
+                    <li><a href="#">事務所の特長</a></li>
+                    <li><a href="#">事務所案内</a></li>
+                    <li><a href="#">サービス案内</a></li>
+                    <li><a href="#">採用情報</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="button button-accent header-contact-button">無料相談予約</a>
+            <div class="hamburger-menu" id="hamburgerMenu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
+            </div>
         </div>
     </header>
 
-    <nav class="mobile-menu" id="mobile-menu">
-        <a href="/">トップ</a>
-        <a href="#features">事務所の特長</a>
-        <a href="/about">事務所案内</a>
-        <a href="/ourservice">サービス案内</a>
-        <a href="/tkc-joboffer">採用情報</a>
-        <a href="/contact" style="color: var(--accent-color); font-weight: 700;">お問い合わせフォーム</a>
-    </nav>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <ul>
+            <li><a href="#">トップ</a></li>
+            <li><a href="#">事務所の特長</a></li>
+            <li><a href="#">事務所案内</a></li>
+            <li><a href="#">サービス案内</a></li>
+            <li><a href="#">採用情報</a></li>
+            <li><a href="#" class="button button-accent">無料相談予約</a></li>
+        </ul>
+    </div>
 
     <main>
         <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-catch">毎月の担当者の訪問や、ズームをはじめとしたWeb会議における細やかな相談対応など、状況を把握した上で、各種ご提案させて頂きます。</h1>
-                    <p class="hero-sub">また、京セラ創業者の稲盛和夫氏主催の勉強会で学んだ経営手法を基に、売上や利益などの目標を達成するお手伝いを致します。</p>
-                    <a href="/contact" class="btn-contact" style="font-size: 1.1rem; padding: 1rem 2rem;">お問い合わせフォーム</a>
-                </div>
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-catch">毎月の担当者の訪問や、ズームをはじめとしたWeb会議における細やかな相談対応など、状況を把握した上で、各種ご提案させて頂きます。</h1>
+                <p class="hero-subcatch">また、京セラ創業者の稲盛和夫氏主催の勉強会で学んだ経営手法を基に、売上や利益などの目標を達成するお手伝いを致します。</p>
+                <a href="#" class="button button-accent">まずはお気軽にご相談ください</a>
             </div>
         </section>
 
-        <section id="features" class="features">
+        <section class="features">
             <div class="container">
-                <h2 class="section-title">事務所の特長</h2>
+                <h2 class="section-title">Features</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="増収増益" class="feature-img">
-                        <h3 class="feature-title">特長01 増収増益</h3>
-                        <p class="feature-desc">コロナ前では、黒字のお客様が94％以上、コロナ後でも、82％以上のお客様が黒字になっています。</p>
+                        <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="増収増益">
+                        <h3>増収増益</h3>
+                        <p>コロナ前では、黒字のお客様が94％以上、コロナ後でも、82％以上のお客様が黒字になっています。</p>
                     </div>
                     <div class="feature-card">
-                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="資金調達" class="feature-img">
-                        <h3 class="feature-title">特長02 資金調達</h3>
-                        <p class="feature-desc">借入し易いように決算書の体質改善をアドバイスします。借入の際、金融機関に決算書の補足を説明して、サポートします。</p>
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="資金調達">
+                        <h3>資金調達</h3>
+                        <p>借入し易いように決算書の体質改善をアドバイスします。借入の際、金融機関に決算書の補足を説明して、サポートします。</p>
                     </div>
                     <div class="feature-card">
-                        <img src="https://itokaikei.tkcnf.com/library/57173b51d63cbbafb4b82a54/6178afa4a5f192d3052a1c53.png" alt="人材育成" class="feature-img">
-                        <h3 class="feature-title">特長03 人材育成</h3>
-                        <p class="feature-desc">私達の事務所で実践している考え方をお伝えします。この効果の凄さは、体験して初めて実感します。</p>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="人材育成">
+                        <h3>人材育成</h3>
+                        <p>私達の事務所で実践している考え方をお伝えします。この効果の凄さは、体験して初めて実感します。</p>
                     </div>
                 </div>
             </div>
@@ -600,125 +793,172 @@
 
         <section class="services">
             <div class="container">
-                <h2 class="section-title">業務案内</h2>
+                <h2 class="section-title">Services</h2>
                 <div class="services-grid">
-                    <a href="/ourservice" class="service-card">コンサルティング</a>
-                    <a href="/ourservice" class="service-card">税務・会計</a>
-                    <a href="/taxaccount" class="service-card">税理士をお探しの方</a>
-                    <a href="/voice" class="service-card">お客様の声</a>
-                    <a href="/review" class="service-card">問題解決事例</a>
-                    <a href="/tkc-nintei-shienkikan001" class="service-card">経営革新等支援機関とは</a>
-                    <a href="/tkc-service002" class="service-card">金融機関の皆様へ</a>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="コンサルティング">
+                        <h3>コンサルティング</h3>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="税務・会計">
+                        <h3>税務・会計</h3>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="税理士をお探しの方">
+                        <h3>税理士をお探しの方</h3>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="お客様の声">
+                        <h3>お客様の声</h3>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="問題解決事例">
+                        <h3>問題解決事例</h3>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="経営革新等支援機関とは">
+                        <h3>経営革新等支援機関とは</h3>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="news">
             <div class="container">
-                <h2 class="section-title">お知らせ</h2>
-                <ul class="news-list">
-                    <li class="news-item">
-                        <div class="news-date">2025.12</div>
-                        <div class="news-title">２０２５年末　年始　営業日のおしらせ</div>
-                    </li>
-                    <li class="news-item">
-                        <div class="news-date">2025.11.05</div>
-                        <div class="news-title">2025年　経営支援セミナー開催決定！</div>
-                    </li>
-                    <li class="news-item">
-                        <div class="news-date">2025.9.12</div>
-                        <div class="news-title">研修のため、事務所をお休みさせていただきます。</div>
-                    </li>
-                    <li class="news-item">
-                        <div class="news-date">2024.07.09</div>
-                        <div class="news-title">事務所移転のお知らせ</div>
-                    </li>
-                </ul>
+                <h2 class="section-title">News</h2>
+                <div class="news-grid">
+                    <div class="news-item">
+                        <span class="date">2025.12</span>
+                        <p class="title">２０２５年末 年始 営業日のおしらせ</p>
+                    </div>
+                    <div class="news-item">
+                        <span class="date">2025.11.05</span>
+                        <p class="title">2025年 経営支援セミナー開催決定！</p>
+                    </div>
+                    <div class="news-item">
+                        <span class="date">2025.9.12</span>
+                        <p class="title">研修のため、事務所をお休みさせていただきます。</p>
+                    </div>
+                    <div class="news-item">
+                        <span class="date">2024.12</span>
+                        <p class="title">２０２４年末 年始 営業日のおしらせ</p>
+                    </div>
+                    <div class="news-item">
+                        <span class="date">2024.10</span>
+                        <p class="title">2024年１１月２１日木曜日 セミナー開催について</p>
+                    </div>
+                    <div class="news-item">
+                        <span class="date">2024.07.09</span>
+                        <p class="title">事務所移転のお知らせ</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="banners">
+        <section class="office-info">
             <div class="container">
-                <div class="banners-grid">
-                    <a href="/about" class="banner-card">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="事務所案内" class="banner-bg">
-                        <div class="banner-overlay"></div>
-                        <span class="banner-text">事務所案内</span>
-                    </a>
-                    <a href="/map" class="banner-card">
-                        <img src="https://images.unsplash.com/photo-1542640244-7e672d6cb466?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="交通案内" class="banner-bg">
-                        <div class="banner-overlay"></div>
-                        <span class="banner-text">交通案内</span>
-                    </a>
-                    <a href="/seminars" class="banner-card">
-                        <img src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="セミナー案内" class="banner-bg">
-                        <div class="banner-overlay"></div>
-                        <span class="banner-text">セミナー案内</span>
-                    </a>
-                    <a href="/media" class="banner-card">
-                        <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="メディア情報" class="banner-bg">
-                        <div class="banner-overlay"></div>
-                        <span class="banner-text">メディア情報</span>
-                    </a>
-                    <a href="/faq" class="banner-card">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="よくある質問" class="banner-bg">
-                        <div class="banner-overlay"></div>
-                        <span class="banner-text">よくある質問</span>
-                    </a>
-                    <a href="/tkc-joboffer" class="banner-card">
-                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="採用情報" class="banner-bg">
-                        <div class="banner-overlay"></div>
-                        <span class="banner-text">採用情報</span>
-                    </a>
+                <h2 class="section-title">Office Info</h2>
+                <div class="office-info-content">
+                    <div class="office-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.9774000000003!2d139.61000000000002!3d35.460000000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDI3JzM2LjAiTiAxMznCsDM2JzQyLjAiRQ!5e0!3m2!1sen!2sjp!4v1678912345678!5m2!1sen!2sjp" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="office-details">
+                        <h3>事務所情報</h3>
+                        <p><strong>経営革新等支援機関認定</strong></p>
+                        <p><strong>東京地方税理士会所属</strong></p>
+                        <p>〒220-0072 神奈川県横浜市西区浅間町1-13-5 元宮ビル401号</p>
+                        <p>電話番号: <a href="tel:045-412-2110">045-412-2110</a></p>
+                        <p>FAX番号: 045-312-6699</p>
+                        <div class="staff-photos">
+                            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="スタッフ1">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="スタッフ2">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="スタッフ3">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="スタッフ4">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-logo">
-                <img src="https://itokaikei.tkcnf.com/library/57173b51d63cbbafb4b82a54/615f9e264abfb36b71c28b06.png" alt="伊藤正孝税理士事務所">
+            <div class="footer-grid">
+                <div class="footer-logo-col">
+                    <img src="https://itokaikei.tkcnf.com/library/57173b51d63cbbafb4b82a54/615f9e264abfb36b71c28b06.png" alt="伊藤正孝税理士事務所ロゴ">
+                    <p>経営革新等支援機関認定</p>
+                    <p>東京地方税理士会所属</p>
+                    <p>〒220-0072 神奈川県横浜市西区浅間町1-13-5 元宮ビル401号</p>
+                    <p>電話番号: <a href="tel:045-412-2110">045-412-2110</a></p>
+                    <p>FAX番号: 045-312-6699</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">事務所案内</a></li>
+                        <li><a href="#">交通案内</a></li>
+                        <li><a href="#">セミナー案内</a></li>
+                        <li><a href="#">メディア情報</a></li>
+                        <li><a href="#">よくある質問</a></li>
+                        <li><a href="#">採用情報</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>TEL: <a href="tel:045-412-2110">045-412-2110</a></p>
+                    <p>Email: <a href="mailto:info@itokaikei.com">info@itokaikei.com</a></p>
+                    <div class="staff-photos">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="スタッフ1">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="スタッフ2">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="スタッフ3">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="スタッフ4">
+                    </div>
+                </div>
             </div>
-            <div class="footer-info">
-                経営革新等支援機関認定<br>
-                東京地方税理士会所属<br><br>
-                〒220-0072 神奈川県横浜市西区浅間町1-13-5 元宮ビル401号<br>
-                電話番号 045-412-2110<br>
-                FAX番号 045-312-6699
-            </div>
-            <div class="copyright">
-                Copyright (c) 2026 伊藤正孝税理士事務所 All Rights Reserved.
+            <div class="footer-bottom">
+                <p>&copy; Copyright (c) 2026 伊藤正孝税理士事務所 All Rights Reserved. <a href="#">プライバシーポリシー</a></p>
             </div>
         </div>
     </footer>
 
-    <div class="mobile-cta">
-        <div class="mobile-cta-inner">
-            <a href="tel:045-412-2110" class="mobile-cta-btn mobile-cta-tel">電話をかける</a>
-            <a href="/contact" class="mobile-cta-btn mobile-cta-mail">お問い合わせ</a>
-        </div>
+    <div class="mobile-cta-bar">
+        <a href="tel:045-412-2110">
+            <i class="fas fa-phone-alt"></i>
+            <span>TEL</span>
+        </a>
+        <a href="#">
+            <i class="fas fa-envelope"></i>
+            <span>お問い合わせ</span>
+        </a>
     </div>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            
-            // Hamburger animation
-            const spans = hamburger.querySelectorAll('span');
-            if (mobileMenu.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
+        hamburgerMenu.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('active');
+            mobileNavOverlay.classList.toggle('active');
+            document.body.classList.toggle('no-scroll'); // Optional: prevent scrolling when menu is open
         });
+
+        // Close mobile nav when a link is clicked
+        mobileNavOverlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerMenu.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+
+        // Optional: Add no-scroll class to body style
+        const style = document.createElement('style');
+        style.textContent = `
+            .no-scroll {
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
