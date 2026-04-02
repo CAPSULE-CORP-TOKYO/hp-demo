@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+    </script>
+    <title>ランドマーク税理士法人</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088f1;
+            --secondary-navy: #003567;
+            --accent-orange: #ff6b00;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f5f7fa;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --radius: 2px;
+            --section-padding: 96px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: var(--section-padding) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .bg-gray {
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--secondary-navy);
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+            padding-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-blue);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background-color: var(--accent-orange);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: var(--radius);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(255, 107, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #e65c00;
+            color: #ffffff;
+        }
+
+        /* Header */
+        .header-top {
+            background-color: var(--bg-light);
+            padding: 8px 0;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-tel {
+            font-weight: 700;
+            color: var(--secondary-navy);
+            font-size: 1rem;
+        }
+
+        .header-main {
+            background-color: #ffffff;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--secondary-navy);
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--secondary-navy);
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1542051812-099058c1470c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 53, 103, 0.75);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+            max-width: 900px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            margin-bottom: 24px;
+            line-height: 1.4;
+            color: #ffffff;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Services */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            background-color: #ffffff;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .service-card-header {
+            background-color: var(--secondary-navy);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-bottom: 4px solid var(--primary-blue);
+        }
+
+        .service-list {
+            padding: 16px 24px;
+        }
+
+        .service-list li {
+            padding: 16px 0;
+            border-bottom: 1px dashed var(--border-color);
+            position: relative;
+            padding-left: 24px;
+            font-weight: 500;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-blue);
+        }
+
+        /* Banners */
+        .banner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .banner-item {
+            display: block;
+            overflow: hidden;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            background-color: #ffffff;
+        }
+
+        .banner-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .banner-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Media & About */
+        .text-block {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .text-block p {
+            margin-bottom: 24px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .media-box {
+            margin-top: 40px;
+            background: #ffffff;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            border-top: 4px solid var(--secondary-navy);
+        }
+
+        .media-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: var(--secondary-navy);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .media-box h3::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background-color: var(--primary-blue);
+        }
+
+        .media-box p {
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .media-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* News */
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+        }
+
+        .news-item {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: background-color 0.3s;
+        }
+
+        .news-item:hover {
+            background-color: var(--bg-light);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-badge {
+            background-color: var(--secondary-navy);
+            color: #ffffff;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: var(--radius);
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .news-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Office Info */
+        .office-info {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+            padding: 48px;
+            border-radius: var(--radius);
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .office-name {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--secondary-navy);
+            font-weight: 700;
+        }
+
+        .office-details {
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .office-details span {
+            display: inline-block;
+            margin: 0 12px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--secondary-navy);
+            color: #ffffff;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-tel {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: block;
+            color: #ffffff;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #001a33;
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #888888;
+        }
+
+        /* Mobile Sticky CTA */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-sticky-cta a {
+            flex: 1;
+            text-align: center;
+            padding: 16px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sticky-tel {
+            background-color: var(--secondary-navy);
+            color: #ffffff;
+        }
+
+        .sticky-btn {
+            background-color: var(--accent-orange);
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .header-top {
+                display: none;
+            }
+            
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                border-top: 1px solid var(--border-color);
+            }
+            
+            .nav-list.active {
+                display: flex;
+            }
+            
+            .nav-list li {
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .nav-link {
+                display: block;
+                padding: 16px 20px;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+
+            .banner-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 64px;
+            }
+
+            .hero {
+                height: auto;
+                padding: 100px 0;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-text {
+                font-size: 1rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .office-info {
+                padding: 32px 20px;
+            }
+
+            .office-details span {
+                display: block;
+                margin: 8px 0;
+            }
+
+            .cta-tel {
+                font-size: 2.5rem;
+            }
+
+            .mobile-sticky-cta {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <span>営業時間: （平日）9時00分～18時00分　（土曜）9時00分～18時00分（日・祝）10時00分～17時00分　※一部例外日あり</span>
+                <a href="tel:0120-48-7271" class="header-tel">0120-48-7271</a>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="https://www.landmark-tax.com/wp-content/themes/ocean-temp_v002/images/logo.png?250819" alt="ランドマーク税理士法人">
+                </a>
+                <nav>
+                    <ul class="nav-list" id="navList">
+                        <li><a href="#services" class="nav-link">サービス一覧</a></li>
+                        <li><a href="#features" class="nav-link">9つの強み</a></li>
+                        <li><a href="#contact" class="nav-link">無料相談</a></li>
+                        <li><a href="#office" class="nav-link">事務所概要</a></li>
+                        <li><a href="#media" class="nav-link">メディア</a></li>
+                        <li><a href="#contact" class="nav-link">お問合せ</a></li>
+                    </ul>
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">相続税申告10,000件超、相続対策、法人・個人の税務顧問で信頼の実績</h1>
+                    <p class="hero-text">ランドマーク税理士法人は、創業以来、一貫して都市農家・地主・経営者の皆様の資産管理・経営支援・存続支援に取り組んで参りました。</p>
+                    <a href="#contact" class="btn">無料相談のご予約はこちらから</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section bg-gray">
+            <div class="container">
+                <h2 class="section-title">ランドマーク税理士法人の税務サポート</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">相続税関連サービス</div>
+                        <ul class="service-list">
+                            <li>生前対策をお考えの方</li>
+                            <li>相続が発生された方</li>
+                            <li>相続税申告が終わった方</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-header">個人向けサービス</div>
+                        <ul class="service-list">
+                            <li>贈与税</li>
+                            <li>譲渡所得税</li>
+                            <li>個人向けコンサル</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-header">法人向けサービス</div>
+                        <ul class="service-list">
+                            <li>会計顧問</li>
+                            <li>事業承継</li>
+                            <li>その他</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <div class="container">
+                <div class="banner-grid">
+                    <a href="#" class="banner-item">
+                        <img src="https://www.landmark-tax.com/wp-content/themes/ocean-temp_v002/images/bnr_top_01.jpg" alt="サービス一覧">
+                    </a>
+                    <a href="#" class="banner-item">
+                        <img src="https://www.landmark-tax.com/wp-content/themes/ocean-temp_v002/images/bnr_top_02.png" alt="9つの強み">
+                    </a>
+                    <a href="#contact" class="banner-item">
+                        <img src="https://www.landmark-tax.com/wp-content/themes/ocean-temp_v002/images/bnr_top_03.png" alt="無料相談">
+                    </a>
+                    <a href="#office" class="banner-item">
+                        <img src="https://www.landmark-tax.com/wp-content/themes/ocean-temp_v002/images/bnr_top_05.jpg" alt="事務所概要">
+                    </a>
+                    <a href="#" class="banner-item">
+                        <img src="https://www.landmark-tax.com/wp-content/themes/ocean-temp_v002/images/bnr_top_06.png" alt="代表あいさつ">
+                    </a>
+                    <a href="#" class="banner-item">
+                        <img src="https://www.landmark-tax.com/wp-content/themes/ocean-temp_v002/images/bnr_top_07.jpg" alt="社員紹介">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="media" class="section bg-gray">
+            <div class="container">
+                <h2 class="section-title">メディア掲載実績</h2>
+                <div class="text-block">
+                    <p>【相続税申告10,000件超の実績　ランドマーク税理士法人】<br>相続の事でお悩みの方。アパート経営や農家の皆様。ランドマーク税理士法人が力になります！！ 土地評価の方法によって大きく変わる相続税額。特例を活用することで、あなたの相続税額が減額されるかも！？ 相続税申告10,000件超の実績を有するランドマーク税理士法人へご相談ください。</p>
+                    
+                    <div class="media-box">
+                        <h3>CM放送</h3>
+                        <p>テレビ東京系列、フジテレビ、TBS系列、テレビ朝日、千葉テレビ</p>
+                        
+                        <h3 style="margin-top: 24px;">ラジオ</h3>
+                        <p>Fm yokohama（FMヨコハマ）84.7、NACK5</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">ランドマーク税理士法人のご紹介</h2>
+                <div class="text-block">
+                    <p>ランドマーク税理士法人は、創業以来、一貫して都市農家・地主・経営者の皆様の資産管理・経営支援・存続支援に取り組んで参りました。結果として累計の相続税申告10,000件超となる実績を有しております。私どもはこれからも、これまで培ってきました相続コンサルティングと不動産税務サポートをもとに、お客様の相続対策や資産管理支援を全力でお手伝いさせていただきます。相続税申告や不動産税務、所得税対策など各種税務についてご相談がありましたら、どうぞお気軽にお声がけください。誠実にお手伝いさせていただきます。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-gray">
+            <div class="container">
+                <h2 class="section-title">～お知らせ～</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <span class="news-badge">お知らせ</span>
+                        <span class="news-text">速報！令和8年度税制改正大綱</span>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-badge">お知らせ</span>
+                        <span class="news-text">QuizKnockが弊社公式アンバサダーに就任しました。</span>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-badge">お知らせ</span>
+                        <span class="news-text">【朝日新聞】2026年3月18日号に掲載されました</span>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-badge">お知らせ</span>
+                        <span class="news-text">【読売新聞】2026年3月18日号に掲載されました</span>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-badge">お知らせ</span>
+                        <span class="news-text">【日本経済新聞】2026年3月18日号に掲載されました</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="office" class="section">
+            <div class="container">
+                <div class="office-info">
+                    <h3 class="office-name">タワー事務所</h3>
+                    <p class="office-details">
+                        〒220-8137 横浜市西区みなとみらい2丁目2番1号 横浜ランドマークタワー37階<br>
+                        <span>TEL: 045-263-9730</span>
+                        <span>FAX: 045-263-9731</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <aside id="contact" class="cta-section">
+        <div class="container">
+            <p class="cta-text">無料相談のご予約はこちらから</p>
+            <a href="tel:0120-48-7271" class="cta-tel">0120-48-7271</a>
+            <a href="#" class="btn" style="background-color: #ffffff; color: var(--secondary-navy);">WEBからのご予約</a>
+        </div>
+    </aside>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">ランドマーク税理士法人</div>
+            <p class="copyright">Copyright c Landmark Licensed Tax Accountant's Co. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="mobile-sticky-cta">
+        <a href="tel:0120-48-7271" class="sticky-tel">TEL</a>
+        <a href="#contact" class="sticky-btn">無料相談</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navList = document.getElementById('navList');
+
+            hamburger.addEventListener('click', function() {
+                navList.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
