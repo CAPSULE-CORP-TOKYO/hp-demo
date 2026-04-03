@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神奈川県川崎市の髙山会計事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ef7410;
+            --text-color: #333333;
+            --bg-color: #fdfbf8;
+            --section-bg: #f4efe9;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-tel {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .header-tel svg {
+            width: 20px;
+            height: 20px;
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+            text-align: center;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            opacity: 1;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 4rem 5%;
+            background-color: var(--section-bg);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .hero-content {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            padding-right: 3rem;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 1;
+            width: 400px;
+            height: 400px;
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Services Section */
+        .services {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--section-bg);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-color);
+            padding: 0.5rem 2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-color);
+            color: var(--white);
+            opacity: 1;
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 5%;
+        }
+
+        .about-top {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .about-table th, .about-table td {
+            border: 1px solid var(--border-color);
+            padding: 1.2rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .about-table th {
+            background-color: var(--section-bg);
+            width: 30%;
+            font-weight: 700;
+        }
+
+        .photo-desc {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-bottom {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .photo-item {
+            text-align: center;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .photo-item p {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta {
+            max-width: 1000px;
+            margin: 6rem auto;
+            padding: 4rem 2rem;
+            background-color: var(--primary-color);
+            border-radius: 20px;
+            text-align: center;
+            color: var(--white);
+            box-shadow: 0 20px 40px rgba(239, 116, 16, 0.2);
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .cta-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .cta-tel {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .cta-tel svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 1.2rem 3rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--section-bg);
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .tkc-info {
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .tkc-info p:first-child {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #0056b3; /* TKC Blue */
+        }
+
+        .contact-info {
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 2rem;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .mobile-cta-tel {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .mobile-cta-tel svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .mobile-cta-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: 700;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 3rem 2rem;
+            }
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+            .about-top {
+                flex-direction: column;
+            }
+            .cta-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 60px;
+            }
+            .nav-links, .header-right {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .nav-active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 2rem;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-image {
+                width: 300px;
+                height: 300px;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-bottom {
+                grid-template-columns: 1fr;
+            }
+            .cta {
+                padding: 3rem 1.5rem;
+            }
+            .cta-tel {
+                font-size: 1.8rem;
+            }
+            .mobile-cta-bar {
+                display: flex;
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <img src="https://www.takayama-kaikei.com/library/575526a52b05f0095aac2e86/57567d8b860b29695c001eab.gif" alt="髙山会計事務所">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">トップページ</a></li>
+            <li><a href="#">お知らせ</a></li>
+            <li><a href="#">事務所紹介</a></li>
+            <li><a href="#">経営理念</a></li>
+            <li><a href="#">交通案内</a></li>
+            <li><a href="#">お問合せ</a></li>
+        </ul>
+        <div class="header-right">
+            <a href="tel:044-922-7608" class="header-tel">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+                </svg>
+                044-922-7608
+            </a>
+            <a href="#" class="btn-primary">お問合せ</a>
+        </div>
+        <button class="hamburger" aria-label="メニューを開く">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title"><span class="highlight">節税の「プロ中のプロ」</span><br>をお探しの方！</h1>
+            <p class="hero-subtitle">全力でお手伝いさせていただきます！</p>
+            <p class="hero-text">
+                なぜ税理士が必要なのでしょうか？税務申告をしなければならないからでしょうか？<br>
+                確かに税務申告書は税理士が作成します。<br>
+                しかし納税額は決算に携わる税理士の腕によってによって変わります！<br>
+                正しい税金計算はどの税理士でもできますが、<br>
+                節税テクニックが税理士の良し悪しの決め手です！
+            </p>
+            <a href="#" class="btn-primary">詳しく見る</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://www.takayama-kaikei.com/library/575526a52b05f0095aac2e86/57567d93860b29695c001eb0.jpg" alt="所長">
+        </div>
+    </section>
+
+    <section class="services">
+        <h2 class="section-title">サービス案内</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=200&q=80" alt="節税対策" class="service-icon">
+                <h3>節税対策</h3>
+                <p>なぜ税理士が必要なのでしょうか？税務申告をしなければならないからでしょうか？確かに税務申告書は税理士が作成します。</p>
+                <a href="#" class="btn-outline">詳細</a>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=200&q=80" alt="確定申告" class="service-icon">
+                <h3>確定申告</h3>
+                <p>しかし納税額は決算に携わる税理士の腕によってによって変わります！正しい税金計算はどの税理士でもできますが、</p>
+                <a href="#" class="btn-outline">詳細</a>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=200&q=80" alt="資金調達" class="service-icon">
+                <h3>資金調達</h3>
+                <p>節税テクニックが税理士の良し悪しの決め手です！全力でお手伝いさせていただきます！</p>
+                <a href="#" class="btn-outline">詳細</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <h2 class="section-title">事務所概要</h2>
+        <div class="about-top">
+            <div class="about-image">
+                <img src="https://www.takayama-kaikei.com/library/575526a52b05f0095aac2e86/5a0b93e621e325382d383410.jpg" alt="事務所外観">
+            </div>
+            <div class="about-info">
+                <table class="about-table">
+                    <tbody>
+                        <tr>
+                            <th>事務所名</th>
+                            <td>髙山会計事務所</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>神奈川県川崎市多摩区登戸1889　第2井出ビル4F</td>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td>044-922-7608</td>
+                        </tr>
+                        <tr>
+                            <th>FAX番号</th>
+                            <td>044-922-7618</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="photo-desc">
+                    <p>写真中央　第2井出ビルの4階です（多摩区役所側から撮影）</p>
+                    <p>駅からお越しの場合、左のパン屋さんが目印です。</p>
+                    <p>「交通案内」に地図もご用意していますので併せてご覧ください。</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-bottom">
+            <div class="photo-item">
+                <img src="https://www.takayama-kaikei.com/library/575526a52b05f0095aac2e86/5a0b9398a552ada535a6eb11.jpg" alt="1階入口右側案内">
+                <p>1階入口右側案内</p>
+            </div>
+            <div class="photo-item">
+                <img src="https://www.takayama-kaikei.com/library/575526a52b05f0095aac2e86/5a0b935da552ada535a6eb06.jpg" alt="事務所入口風景">
+                <p>事務所入口風景</p>
+            </div>
+            <div class="photo-item">
+                <img src="https://www.takayama-kaikei.com/library/575526a52b05f0095aac2e86/5a0b937e21e325382d3833d6.jpg" alt="お客様専用駐車場（3番）">
+                <p>お客様専用駐車場（3番）</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>お気軽にお問合せください</h2>
+        <div class="cta-content">
+            <div class="cta-tel">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+                </svg>
+                044-922-7608
+            </div>
+            <a href="#" class="btn-white">お問合せフォーム</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="tkc-info">
+            <p>髙山会計事務所はＴＫＣ全国会会員です</p>
+            <p>ＴＫＣ全国会は、租税正義の実現をめざし関与先企業の永続的繁栄に奉仕するわが国最大級の職業会計人集団です。</p>
+            <p>東京地方税理士会川崎西支部所属</p>
+        </div>
+        <div class="contact-info">
+            <p>お気軽にお問合せください。</p>
+            <p>髙山会計事務所</p>
+            <p>TEL：044-922-7608</p>
+            <p>nobuo_takayama@yahoo.co.jp</p>
+        </div>
+        <p class="copyright">Copyright (c) 2021 - 2026 Takayama Nobuo All Rights Reserved.</p>
+    </footer>
+
+    <div class="mobile-cta-bar">
+        <a href="tel:044-922-7608" class="mobile-cta-tel">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+            </svg>
+            044-922-7608
+        </a>
+        <a href="#" class="mobile-cta-btn">お問合せ</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('nav-active');
+            });
+        });
+    </script>
+</body>
+</html>
