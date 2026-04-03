@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高橋剛税理士事務所</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1B2A5E;
+  --accent: #D9774A;
+  --text: #333333;
+  --text-light: #666666;
+  --bg: #FDFBF7;
+  --white: #FFFFFF;
+  --border: #EAEAEA;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 40px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 24px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(217, 119, 74, 0.3);
+}
+
+.btn-accent:hover {
+  background-color: #c4663b;
+  transform: translateY(-2px);
+}
+
+/* Header */
+.header {
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+.header-contact {
+  display: none;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-tel {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-tel::before {
+  content: '📞';
+  font-size: 16px;
+}
+
+/* Navigation */
+.nav {
+  background-color: var(--primary);
+  display: none;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+}
+
+.nav li {
+  flex: 1;
+  text-align: center;
+}
+
+.nav a {
+  display: block;
+  padding: 15px 10px;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Hamburger */
+.hamburger {
+  display: block;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 11px; }
+.hamburger span:nth-child(3) { top: 22px; }
+
+.hamburger.active span:nth-child(1) {
+  top: 11px;
+  transform: rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  top: 11px;
+  transform: rotate(-45deg);
+}
+
+/* Mobile Nav Active */
+.nav.active {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary);
+}
+
+.nav.active ul {
+  flex-direction: column;
+}
+
+.nav.active a {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #f5f0e6 0%, #e8f0f8 100%);
+  padding: 40px 0 0 0;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.hero-content {
+  padding: 20px;
+}
+
+.hero-catch {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.hero-desc {
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.hero-image {
+  width: 100%;
+  margin-bottom: -10px;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  box-shadow: var(--shadow);
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.service-img {
+  height: 200px;
+  overflow: hidden;
+}
+
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-img img {
+  transform: scale(1.05);
+}
+
+.service-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.service-text {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Features */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #f0f4f8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--accent);
+  font-size: 24px;
+}
+
+.feature-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.feature-text {
+  font-size: 13px;
+  color: var(--text-light);
+  text-align: left;
+}
+
+.feature-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Concerns (Quotes style) */
+.concerns {
+  background-color: #f9f9f9;
+}
+
+.concerns-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.concern-card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.concern-card::before {
+  content: '“';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 30px;
+  color: var(--border);
+  line-height: 1;
+  font-family: serif;
+}
+
+.concern-card p {
+  position: relative;
+  z-index: 1;
+  padding-left: 15px;
+}
+
+/* About */
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.about-map {
+  height: 300px;
+  background-color: #eee;
+}
+
+.about-info {
+  padding: 30px;
+}
+
+.about-info h3 {
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.about-dl {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 15px 10px;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.about-dl dt {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #f5f7fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* CTA Section */
+.cta-section {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cta-tel-large {
+  font-size: 36px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cta-time {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Footer */
+.footer {
+  background-color: #111b3d;
+  color: var(--white);
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  padding-bottom: 80px; /* For mobile CTA */
+}
+
+/* Mobile CTA Bar */
+.mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.mobile-cta a {
+  flex: 1;
+  text-align: center;
+  padding: 15px 0;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.mobile-cta .btn-tel {
+  background-color: var(--primary);
+}
+
+.mobile-cta .btn-mail {
+  background-color: var(--accent);
+}
+
+/* Desktop Media Queries */
+@media (min-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 50px;
+  }
+
+  .header-top {
+    padding: 20px 40px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .header-contact {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav {
+    display: block;
+  }
+
+  .hero {
+    padding: 60px 0 0 0;
+  }
+
+  .hero-inner {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero-content {
+    flex: 1;
+    padding: 40px 0 80px 0;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-image {
+    flex: 1;
+    margin-bottom: 0;
+    align-self: flex-end;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .concerns-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-map {
+    height: 100%;
+  }
+
+  .footer {
+    padding-bottom: 20px;
+  }
+
+  .mobile-cta {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-top container">
+    <div class="logo">高橋剛税理士事務所</div>
+    <div class="header-contact">
+      <a href="tel:03-6909-1505" class="header-tel">03-6909-1505</a>
+      <a href="#contact" class="btn btn-accent">お気軽にご相談ください</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav" id="nav">
+    <ul class="container">
+      <li><a href="#">トップページ</a></li>
+      <li><a href="#">会社設立･起業支援</a></li>
+      <li><a href="#">サービス案内</a></li>
+      <li><a href="#">事務所紹介</a></li>
+      <li><a href="#">お問合せ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <p class="hero-catch">調布市・狛江市・府中市・三鷹市・世田谷区・川崎市の「起業支援」に強い税理士事務所/会計事務所なら</p>
+      <h1 class="hero-title">高橋剛税理士事務所</h1>
+      <p class="hero-desc">税理士はあなたの身近なパートナーです。高橋剛税理士事務所は経営者のパートナーとして、税に関する唯一の専門家として、ご期待にお応えいたします！</p>
+      <a href="#contact" class="btn btn-accent">お問合せ・ご相談はこちら</a>
+    </div>
+    <div class="hero-image">
+      <img src="images/photo1.jpg" alt="高橋剛税理士事務所 代表とスタッフ">
+    </div>
+  </div>
+</section>
+
+<section class="services section">
+  <div class="container">
+    <h2 class="section-title">サービス案内</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="起業支援">
+        </div>
+        <div class="service-content">
+          <h3 class="service-title">起業をお考えの方<br>独立・起業支援</h3>
+          <p class="service-text">あなたがお持ちになっている悩みや疑問をひとつずつ解決して、不安なく新規事業がおこなえるよう、あなたの身近なパートナーとしてサポートします。</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/photo2.jpg" alt="顧問税理士">
+        </div>
+        <div class="service-content">
+          <h3 class="service-title">顧問税理士をお探しの方</h3>
+          <p class="service-text">決算申告時期は毎年頭が痛い。開業したばかりで経理のことが分からない。節税のアドバイスをしてくれる税理士を探しているなど、お悩みをご相談ください。</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="税務調査">
+        </div>
+        <div class="service-content">
+          <h3 class="service-title">税務調査の対策をお考えの方</h3>
+          <p class="service-text">納税者がプロの税務調査官と対等に渡り合うのは難しいことです。税務調査において納税者の見方になってくれる信頼できる税理士のサポートを受け、事前対策を充分に実施することが重要です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features section bg-light">
+  <div class="container">
+    <h2 class="section-title">強み</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3 class="feature-title">安心して相談できる税理士事務所を目指しています！</h3>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3 class="feature-title">中小企業の方が利用しやすいリーズナブルな料金</h3>
+        <p class="feature-text">明確な料金体系がなかったり、申告書の提出後に報酬が提示されたり、追加料金が請求されるケースが多数見受けられるなか、当事務所では標準報酬表を基準とした明瞭な税理士報酬､リーズナブルな料金にて対応しています。</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="会計ソフト" class="feature-img">
+        <h3 class="feature-title">弥生会計などの会計ソフトの導入をサポートいたします</h3>
+        <p class="feature-text">帳簿の記帳方法や領収書の整理の仕方などの指導はもちろん、パソコン会計を検討されている方には、会計ソフトの導入時、その後の運用についても親切にサポートいたします。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3 class="feature-title">お客様のニーズに対応いたします</h3>
+        <p class="feature-text">業種の違い、規模の違い、経営方針の違いなどによりお客様の必要とされるサービスは違っています。税理士はサービス業であるとの自覚を持ち、お客様のニーズに最大限お応えします。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <h3 class="feature-title">起業家を支援いたします！</h3>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h3 class="feature-title">営業マンの経験を生かし親切な対応をモットーとしています</h3>
+        <p class="feature-text">商社での営業経験、中小企業の会社役員の経験を生かし、お客様の視点に立った親切な対応を心掛け、安心して何でも相談できる税理士事務所を目指しています！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="concerns section">
+  <div class="container">
+    <h2 class="section-title">顧問税理士の変更をお考えの方</h2>
+    <p class="text-center mb-4">今の税理士事務所にご不満はありませんか？</p>
+    <div class="concerns-grid">
+      <div class="concern-card"><p>今の税理士から、別の税理士に変更したい。</p></div>
+      <div class="concern-card"><p>顧問料を払っているのに訪問してくれない。</p></div>
+      <div class="concern-card"><p>早めに必要納税額を教えてほしい！</p></div>
+      <div class="concern-card"><p>税制の改正に対応できないので困っている。</p></div>
+      <div class="concern-card"><p>税務調査でミスが多くさんざんだった。</p></div>
+      <div class="concern-card"><p>金融機関の信用が勝ちとれない決算書で困っている。</p></div>
+      <div class="concern-card"><p>今の先生が高齢なので心配だ。</p></div>
+      <div class="concern-card"><p>記帳や申告書作成だけでなく気軽に相談できる税理士を探している。</p></div>
+      <div class="concern-card"><p>経営者の気持ちになって話を聞いてくれる税理士を探している。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about section bg-light">
+  <div class="container">
+    <h2 class="section-title">事務所概要</h2>
+    <div class="about-inner">
+      <div class="about-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.747583858348!2d139.5721113152582!3d35.65858048020019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f0a7a5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2z44CSMTgyLTAwMDYg5p2x5Lqs6YO96Kq_5biD5biC6KW_44Gk44Gk44GY44GM5LiY77yU5LiB55uu77yV77yS4oiS77yS77yR!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="about-info">
+        <h3>高橋剛税理士事務所</h3>
+        <dl class="about-dl">
+          <dt>住所</dt><dd>〒182-0006 東京都調布市西つつじが丘４-52-21-103</dd>
+          <dt>アクセス</dt><dd>京王線「つつじヶ丘駅」より徒歩15分</dd>
+          <dt>営業時間</dt><dd>9:00～18:00</dd>
+          <dt>定休日</dt><dd>土・日曜、祝祭日</dd>
+          <dt>対応エリア</dt><dd>調布市、府中市、狛江市、三鷹市、世田谷区、川崎市　他</dd>
+        </dl>
+        <div class="profile">
+          <img src="images/caricature.jpg" alt="代表似顔絵" class="profile-img">
+          <p>親切・丁寧な対応をモットーとしておりますのでお気軽にご相談ください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">お問合せ・ご相談はこちら</h2>
+    <a href="tel:03-6909-1505" class="cta-tel-large">03-6909-1505</a>
+    <p class="cta-time">受付時間：9:30～17:30 / 定休日：土・日曜、祝祭日</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 高橋剛税理士事務所</p>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="tel:03-6909-1505" class="btn-tel">電話する</a>
+  <a href="#contact" class="btn-mail">お問合せ</a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+});
+</script>
+
+</body>
+</html>
