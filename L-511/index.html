@@ -1,0 +1,843 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士法人 内山会計</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --main-color: #ED9A35;
+    --main-gradient: linear-gradient(135deg, #f3a150, #e68a20);
+    --bg-color: #fff8ea;
+    --text-color: #333333;
+    --white: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-color);
+    background-color: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+  }
+
+  a:hover {
+    opacity: 0.7;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Header */
+  .header {
+    background-color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .header-contact {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .tel-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .tel-link svg {
+    color: var(--main-color);
+  }
+
+  .contact-btn {
+    background: var(--main-gradient);
+    color: var(--white);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(237, 154, 53, 0.3);
+  }
+
+  .header-nav {
+    border-top: 1px solid #eee;
+  }
+
+  .header-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header-nav li a {
+    display: block;
+    padding: 15px 30px;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 101;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger span:nth-child(1) { top: 0; }
+  .hamburger span:nth-child(2) { top: 9px; }
+  .hamburger span:nth-child(3) { bottom: 0; }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--main-gradient);
+    padding: 80px 20px 160px;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .hero-image-container {
+    max-width: 1000px;
+    margin: -100px auto 0;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+  }
+
+  .hero-image-container img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  }
+
+  /* Worries */
+  .worries {
+    padding: 80px 0;
+    background-color: var(--white);
+    text-align: center;
+  }
+
+  .worries h2 {
+    font-size: 1.8rem;
+    color: var(--main-color);
+    margin-bottom: 10px;
+  }
+
+  .worries h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .worries p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555;
+  }
+
+  /* Services */
+  .services {
+    background-color: var(--bg-color);
+    padding: 80px 0;
+  }
+
+  .service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    width: calc(50% - 15px);
+    max-width: 400px;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .service-card h3 {
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  /* CTA Bar */
+  .cta-bar {
+    background: var(--main-gradient);
+    border-radius: 50px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    margin: 60px auto 0;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(237, 154, 53, 0.3);
+  }
+
+  .cta-text p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .cta-tel {
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cta-bar .contact-btn {
+    background: var(--white);
+    color: var(--main-color);
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    box-shadow: none;
+  }
+
+  /* Strengths */
+  .strengths {
+    padding: 80px 0;
+    background-color: var(--white);
+  }
+
+  .feature-block {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .feature-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .feature-text {
+    flex: 1;
+    background: var(--main-gradient);
+    color: var(--white);
+    padding: 50px;
+    border-radius: 40px 10px 10px 40px;
+  }
+
+  .feature-num {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    opacity: 0.9;
+  }
+
+  .feature-text h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .feature-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+  }
+
+  .feature-block.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .feature-block.reverse .feature-text {
+    border-radius: 10px 40px 40px 10px;
+  }
+
+  /* Office Info */
+  .office-info {
+    background-color: var(--bg-color);
+    padding: 80px 0;
+  }
+
+  .info-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .info-table-wrapper {
+    flex: 1;
+  }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  }
+
+  .info-table th, .info-table td {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .info-table tr:last-child th, .info-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .info-table th {
+    background: #fdf6eb;
+    width: 35%;
+    font-weight: 500;
+    color: #555;
+  }
+
+  .info-map {
+    flex: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    height: 100%;
+    min-height: 400px;
+  }
+
+  .info-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border: 0;
+  }
+
+  /* Footer */
+  .footer {
+    background-color: #f5ebd9;
+    padding-top: 60px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-info {
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .footer-logo {
+    height: 40px;
+    margin-bottom: 20px;
+  }
+
+  .footer-info p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #555;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 60px;
+  }
+
+  .footer-links-col h4 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: var(--main-color);
+  }
+
+  .footer-links-col ul {
+    list-style: none;
+  }
+
+  .footer-links-col li {
+    margin-bottom: 10px;
+  }
+
+  .footer-links-col a {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .footer-bottom {
+    background: var(--main-gradient);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+  }
+
+  .footer-bottom a {
+    display: inline-block;
+    margin-bottom: 10px;
+    text-decoration: underline;
+  }
+
+  /* Mobile CTA */
+  .mobile-cta {
+    display: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .header-nav li a {
+      padding: 15px 15px;
+    }
+    .cta-bar {
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+      padding: 30px;
+    }
+    .info-content {
+      flex-direction: column;
+    }
+    .info-map {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-contact {
+      display: none;
+    }
+    .hamburger {
+      display: block;
+    }
+    .header-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .header-nav.active {
+      display: block;
+    }
+    .header-nav ul {
+      flex-direction: column;
+    }
+    .header-nav li a {
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .hero {
+      padding: 60px 20px 100px;
+    }
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+    .hero-image-container {
+      margin-top: -60px;
+    }
+    .service-card {
+      width: 100%;
+    }
+    .feature-block, .feature-block.reverse {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .feature-text, .feature-block.reverse .feature-text {
+      border-radius: 20px;
+      padding: 30px 20px;
+    }
+    .footer-top {
+      flex-direction: column;
+    }
+    .footer-links {
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    /* Mobile CTA */
+    body {
+      padding-bottom: 60px;
+    }
+    .mobile-cta {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+    .mobile-cta a {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 15px;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .m-cta-tel {
+      background: var(--main-color);
+    }
+    .m-cta-mail {
+      background: #333333;
+    }
+  }
+</style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-top">
+      <a href="#" class="logo">
+        <img src="https://office-uchiyama.tkcnf.com/library/575526a3384c3b5545911843/68d37062fe933128e94bf8eb.png" alt="税理士法人 内山会計">
+      </a>
+      <div class="header-contact">
+        <a href="tel:042-489-5775" class="tel-link">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          042-489-5775
+        </a>
+        <a href="#contact" class="contact-btn">CONTACT</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="header-nav" id="nav">
+      <ul>
+        <li><a href="#">ホーム</a></li>
+        <li><a href="#">事務所案内</a></li>
+        <li><a href="#">サービス案内</a></li>
+        <li><a href="#">相続・事業承継</a></li>
+        <li><a href="#">採用情報</a></li>
+        <li><a href="#contact">お問合せ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>経営にも、人生にも。<br>頼れるパートナーに。</h1>
+    <p>お気軽にご相談ください</p>
+  </section>
+  <div class="hero-image-container">
+    <img src="https://office-uchiyama.tkcnf.com/library/575526a3384c3b5545911843/68cd29d0b0c14928f04b79a2.png" alt="税理士法人 内山会計 スタッフとオフィス">
+  </div>
+
+  <!-- Worries -->
+  <section class="worries">
+    <div class="container">
+      <h2>こんなことで悩んでいませんか？</h2>
+      <h3>『経営や相続について相談する相手がいない』</h3>
+      <p>毎月、お客様の所へお伺いいたします。会計データを基に黒字化をサポートします。事業承継や相続について一緒に考えます。</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">SERVICES</h2>
+      <div class="service-cards">
+        <a href="#" class="service-card">
+          <img src="https://office-uchiyama.tkcnf.com/library/575526a3384c3b5545911843/68d371c489459a272ba97ff1.png" alt="サービス一覧">
+          <h3>サービス一覧</h3>
+        </a>
+        <a href="#" class="service-card">
+          <img src="https://office-uchiyama.tkcnf.com/library/575526a3384c3b5545911843/68cd2cf2fa258b241b06779a.png" alt="相続・事業承継">
+          <h3>相続・事業承継</h3>
+        </a>
+      </div>
+      
+      <div class="cta-bar">
+        <div class="cta-text">
+          <p>お気軽にご相談ください</p>
+          <a href="tel:042-489-5775" class="cta-tel">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            042-489-5775
+          </a>
+        </div>
+        <a href="#contact" class="contact-btn">CONTACT</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strengths -->
+  <section class="strengths">
+    <div class="container">
+      <h2 class="section-title">STRENGTHS</h2>
+      
+      <div class="feature-block">
+        <div class="feature-text">
+          <span class="feature-num">Feature 01</span>
+          <h3>毎月の訪問でしっかりサポート</h3>
+          <p>ベテランスタッフが毎月訪問し、監査とタイムリーな業績報告を実施。月次決算データを活用し、決算対策や経営計画策定を支援します。黒字化に向けて全力でサポートします。</p>
+        </div>
+        <div class="feature-image">
+          <img src="https://office-uchiyama.tkcnf.com/library/575526a3384c3b5545911843/689d77db7833cc5595867047.png" alt="毎月の訪問でしっかりサポート">
+        </div>
+      </div>
+
+      <div class="feature-block reverse">
+        <div class="feature-text">
+          <span class="feature-num">Feature 02</span>
+          <h3>経理事務をスピーディに</h3>
+          <p>お客様ご自身による日々の正しい仕訳入力が税務・会計の基本です。TKC会計システムなら、スマートフォンで撮影した領収書やインターネットバンキングのデータを仕訳にできるので、経理が苦手な方でも安心。当事務所が親切・丁寧にサポートいたします。</p>
+        </div>
+        <div class="feature-image">
+          <img src="https://office-uchiyama.tkcnf.com/library/575526a3384c3b5545911843/68cd2c5e9fd07424133f424f.png" alt="経理事務をスピーディに">
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <div class="feature-text">
+          <span class="feature-num">Feature 03</span>
+          <h3>企業も、経営者個人も支える</h3>
+          <p>中小企業が末永く発展するためには、事業承継や相続対策についても考えなければなりません。法人税務だけでなく、経営者の相続・資産対策についても対応いたします。お客様の人生に寄り添い、総合的に支えるパートナーを目指します。</p>
+        </div>
+        <div class="feature-image">
+          <img src="https://office-uchiyama.tkcnf.com/library/575526a3384c3b5545911843/689d77dc28f9a654abb72981.png" alt="企業も、経営者個人も支える">
+        </div>
+      </div>
+
+      <div class="feature-block reverse">
+        <div class="feature-text">
+          <span class="feature-num">Feature 04</span>
+          <h3>チーム全体で支える体制</h3>
+          <p>担当者だけに任せるのではなく、事務所全体でお客様をサポートする体制を整えています。また、税務以外のことも気軽に話せる、アットホームな雰囲気が当事務所の魅力。税金や経営についてはじめての方でも、安心してご相談いただけます。</p>
+        </div>
+        <div class="feature-image">
+          <img src="https://office-uchiyama.tkcnf.com/library/575526a3384c3b5545911843/689d77db7ee82f2125cca90b.png" alt="チーム全体で支える体制">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Office Info -->
+  <section class="office-info">
+    <div class="container">
+      <h2 class="section-title">OFFICE INFO</h2>
+      <div class="info-content">
+        <div class="info-table-wrapper">
+          <table class="info-table">
+            <tbody>
+              <tr>
+                <th>事務所名</th>
+                <td>税理士法人内山会計</td>
+              </tr>
+              <tr>
+                <th>代表社員</th>
+                <td>税理士 内山 治彦（登録番号第77289号）<br>税理士 清信 武志（登録番号第142936号）</td>
+              </tr>
+              <tr>
+                <th>所在地</th>
+                <td>本店：〒182-0024 東京都調布市布田1－32－5 マートルコート調布2F<br>支店：〒182-0024 東京都調布市布田１－３−１ ダイヤビル203</td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td>本店：042-489-5775<br>支店：042-452-8220</td>
+              </tr>
+              <tr>
+                <th>営業時間</th>
+                <td>9:00～17:30</td>
+              </tr>
+              <tr>
+                <th>税理士法人番号</th>
+                <td>5509</td>
+              </tr>
+              <tr>
+                <th>適格請求書発行事業者登録番号</th>
+                <td>T7012405004758</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-map">
+          <iframe src="https://maps.google.com/maps?q=35.6532778,139.5447778&z=17&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-info">
+          <img src="https://office-uchiyama.tkcnf.com/library/575526a3384c3b5545911843/68d37062fe933128e94bf8eb.png" alt="税理士法人 内山会計" class="footer-logo">
+          <p>〒182-0024 東京都調布市布田1－32－5 マ－トルコ－ト調布2F</p>
+          <p>本店Tel.042-489-5775／支店Tel.042-452-8220</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links-col">
+            <h4>Menu</h4>
+            <ul>
+              <li><a href="#">ホーム</a></li>
+              <li><a href="#">事務所案内</a></li>
+              <li><a href="#">採用情報</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">サービス案内</a></li>
+              <li><a href="#">相続・事業承継</a></li>
+              <li><a href="#contact">お問合せ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <a href="#">個人情報保護方針</a>
+        <p>Copyright (c) 2025 - 2026 税理士法人内山会計 All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile CTA -->
+  <div class="mobile-cta">
+    <a href="tel:042-489-5775" class="m-cta-tel">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      電話する
+    </a>
+    <a href="#contact" class="m-cta-mail">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      お問合せ
+    </a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const nav = document.getElementById('nav');
+      
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
