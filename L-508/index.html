@@ -1,0 +1,959 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冨永正見税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2D4587;
+            --accent-color: #E88B23;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-light: #F4F7FA;
+            --bg-beige: #FFF9F2;
+            --white: #FFFFFF;
+            --border-color: #E0E0E0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(232, 139, 35, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #d67a1a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .btn-outline:hover {
+            background-color: #d67a1a;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding: 0 20px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-tel {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-tel svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--white);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-beige) 0%, #FFF 100%);
+            padding: 60px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path fill="%23FFFFFF" d="M0,40 C320,80 420,0 740,40 C1060,80 1160,0 1440,40 L1440,80 L0,80 Z"/></svg>') no-repeat bottom;
+            background-size: 100% 100%;
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 15px;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            height: 400px;
+            width: 100%;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .service-card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            align-items: center;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex: 1;
+            text-align: left;
+        }
+
+        .link-text {
+            color: var(--primary-color);
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        /* Recruit Section */
+        .recruit {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .recruit-box {
+            background-color: var(--bg-beige);
+            border-radius: var(--border-radius);
+            display: flex;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .recruit-content {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .recruit-content h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .recruit-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .recruit-content .small {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .recruit-image {
+            flex: 1;
+        }
+
+        .recruit-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Consultation Section */
+        .consultation {
+            padding: 80px 0;
+            background-color: var(--bg-beige);
+            text-align: center;
+            position: relative;
+        }
+
+        .consultation::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path fill="%23FFF9F2" d="M0,40 C320,0 420,40 740,20 C1060,0 1160,40 1440,20 L1440,40 L0,40 Z"/></svg>') no-repeat bottom;
+            background-size: 100% 100%;
+        }
+
+        .consultation h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .consultation p {
+            font-size: 15px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .consultation strong {
+            color: #D32F2F;
+        }
+
+        .consultation-tel {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .consultation-tel svg {
+            width: 30px;
+            height: 30px;
+            fill: currentColor;
+        }
+
+        /* Profile Section */
+        .profile {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .profile-box {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            display: flex;
+            padding: 40px;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            flex: 0 0 250px;
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-content .title {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .profile-content h3 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 10px;
+        }
+
+        .qualifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .qualifications li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .qualifications li::before {
+            content: '■';
+            color: var(--primary-color);
+            font-size: 10px;
+        }
+
+        .history {
+            font-size: 14px;
+            margin-bottom: 20px;
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .history p {
+            margin-bottom: 10px;
+        }
+
+        .history p:last-child {
+            margin-bottom: 0;
+        }
+
+        .registration {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 60px 0 100px;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .philosophy-image {
+            max-width: 200px;
+            margin: 0 auto 30px;
+        }
+
+        .philosophy p {
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+            font-size: 13px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+            padding: 10px;
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+            gap: 10px;
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .mobile-cta .btn-tel {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .mobile-cta .btn-mail {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 70px; /* For mobile CTA */
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            /* Mobile Menu */
+            .mobile-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary-color);
+                padding: 20px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+                overflow-y: auto;
+            }
+
+            .mobile-menu.active {
+                transform: translateX(0);
+            }
+
+            .mobile-menu ul {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .mobile-menu ul li a {
+                color: var(--white);
+                font-size: 18px;
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hero-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 22px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recruit-box {
+                flex-direction: column;
+            }
+
+            .recruit-content {
+                padding: 30px 20px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-box {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .profile-image {
+                flex: 0 0 auto;
+                width: 200px;
+                margin: 0 auto;
+            }
+
+            .consultation-tel {
+                font-size: 28px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mobile-cta {
+                display: block;
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="https://e-tominaga.com/assets/img/logo_white.png" alt="冨永正見税理士事務所">
+            </a>
+            
+            <div class="nav-desktop">
+                <ul class="nav-links">
+                    <li><a href="#">事務所案内</a></li>
+                    <li><a href="#">業務案内</a></li>
+                    <li><a href="#">税理士コラム</a></li>
+                    <li><a href="#">顧問料金表</a></li>
+                    <li><a href="#">交通アクセス</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+                <div class="header-contact">
+                    <a href="tel:042-443-1750" class="header-tel">
+                        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                        042-443-1750
+                    </a>
+                </div>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#">事務所案内</a></li>
+            <li><a href="#">業務案内</a></li>
+            <li><a href="#">税理士コラム</a></li>
+            <li><a href="#">顧問料金表</a></li>
+            <li><a href="#">交通アクセス</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1>冨永正見税理士事務所は、<br>調布市西つつじヶ丘にある相続に強い税理士事務所です。</h1>
+                    <p>当事務所は認定支援機関に認定された税理士事務所です。会計・申告・決算などの基本的な業務はもちろんのこと、相続税の経験が豊富ですので、お客様が安心できる申告を行ってまいります。当事務所は調布市、狛江市、府中市、世田谷区などを中心に活動していますので、些細なことでもお悩みごとがございましたら、お気軽にご連絡ください。すべてはあなたの笑顔のために。予約制有料相談も行っています！</p>
+                    <a href="#consultation" class="btn-primary">予約制有料相談はこちら</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="オフィス">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">冨永税理士事務所の業務案内</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="企業の財務会計支援">
+                        <div class="service-card-body">
+                            <h3>企業の財務会計支援</h3>
+                            <p>記帳代行、巡回監査、税務調査の立会、決算申告や確定申告書の作成など、会計業務全般を支援します。</p>
+                            <a href="#" class="btn-outline">詳細をみる</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80" alt="相続税対策">
+                        <div class="service-card-body">
+                            <h3>相続税対策</h3>
+                            <p>経験豊富な職員がお客様の相続をサポートします。相続税のシミュレーションや、名義変更手続きの代行なども行います。</p>
+                            <a href="#" class="btn-outline">詳細をみる</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="経営革新等支援機関">
+                        <div class="service-card-body">
+                            <h3>経営革新等支援機関</h3>
+                            <p>当事務所は経営革新等支援機関に認定されました。貴社の経営・事業計画を策定支援いたします。</p>
+                            <a href="#" class="btn-outline">詳細をみる</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" alt="確定申告">
+                        <div class="service-card-body">
+                            <h3>確定申告</h3>
+                            <p>当事務所では確定申告の代行を行います。不動産、譲渡どんな所得でも構いません。還付申告も行います</p>
+                            <a href="#" class="btn-outline">詳細をみる</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <a href="#" class="link-text">その他の業務は業務案内ページをご覧ください ></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recruit Section -->
+        <section class="recruit">
+            <div class="container">
+                <div class="recruit-box">
+                    <div class="recruit-content">
+                        <h2>人材募集中！</h2>
+                        <p>当事務所で一緒に仕事をしてみませんか？<br>随時面談を実施しておりますので、<br>ご希望の方は直接ご連絡ください。</p>
+                        <p class="small">相続などでキャリアアップしたい経験者はもちろん、<br>異業種からの転職を考えている未経験者の方も大歓迎です！<br>当事務所は京王線つつじヶ丘駅から徒歩1分と通いやすいです。</p>
+                        <a href="#" class="btn-primary">お問い合わせはこちらから</a>
+                    </div>
+                    <div class="recruit-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="人材募集">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation Section -->
+        <section class="consultation" id="consultation">
+            <div class="container">
+                <h2>予約制有料相談</h2>
+                <p>当事務所では、１時間5,500円（税込）の<strong>予約制有料相談</strong>を行っております。<br>相続にお困りの方、贈与をお考えの方、確定申告の代行税理士をお探しの方など<br>さまざまな相談に応じ、親切丁寧にお答えいたします。<br>どのような内容でもお気軽にお電話ください。</p>
+                <a href="tel:042-443-1750" class="consultation-tel">
+                    <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                    042-443-1750
+                </a>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section class="profile">
+            <div class="container">
+                <h2 class="section-title">所長プロフィール</h2>
+                <div class="profile-box">
+                    <div class="profile-image">
+                        <img src="https://e-tominaga.com/assets/img/officer.png" alt="冨永正見">
+                    </div>
+                    <div class="profile-content">
+                        <p class="title">税理士</p>
+                        <h3>冨永 正見</h3>
+                        <ul class="qualifications">
+                            <li>税理士（東京税理士会武蔵府中支部所属）</li>
+                            <li>行政書士</li>
+                            <li>相続士</li>
+                            <li>AFP・2級FP技能士</li>
+                            <li>相続手続相談士</li>
+                        </ul>
+                        <div class="history">
+                            <p>平成元年、税理士試験に合格。そして平成2年2月に税理士登録し、同年6月東京都調布市に冨永正見税理士事務所を開業。</p>
+                            <p>税理士事務所勤務以来、中小零細企業の申告等業務に携わり、開業後はＴＫＣシステムをフル活用して企業の財務相談、経営相談、相続対策など経営全般をサポートしています。また、企業の増販増客についても支援しています。</p>
+                        </div>
+                        <div class="registration">
+                            <p>税理士登録番号：第68884号<br>行政書士登録番号：第100871798号<br>行政書士会員番号：第8214号<br>相続士認定番号：No.11215</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="philosophy">
+            <div class="container">
+                <h2 class="section-title">経営理念</h2>
+                <div class="philosophy-image">
+                    <img src="https://e-tominaga.com/assets/img/principle.png" alt="自利利他">
+                </div>
+                <p>私たちは、お客様の経営改善に誠意をもってご奉仕します。<br>私たちは、法令を遵守し、個人情報を守り、社会貢献します。<br>事務所職員の能力開発と生活福祉の向上につとめ、<br>事務所を発展させるとともに一人一人の幸せを約束します。</p>
+                <a href="#" class="link-text">ＴＫＣ全国会の基本理念である「自利利他」とは ></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>事務所案内</h4>
+                    <ul>
+                        <li><a href="#">事務所案内</a></li>
+                        <li><a href="#">所長プロフィール</a></li>
+                        <li><a href="#">交通アクセス</a></li>
+                        <li><a href="#">経営理念</a></li>
+                        <li><a href="#">認定支援機関</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">勧誘方針</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>業務案内</h4>
+                    <ul>
+                        <li><a href="#">財務会計</a></li>
+                        <li><a href="#">確定申告</a></li>
+                        <li><a href="#">節税対策</a></li>
+                        <li><a href="#">相続税対策</a></li>
+                        <li><a href="#">相続士</a></li>
+                        <li><a href="#">経営計画改善</a></li>
+                        <li><a href="#">経営数値の把握</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>&nbsp;</h4>
+                    <ul>
+                        <li><a href="#">経営コンサルティング</a></li>
+                        <li><a href="#">財務コンサルティング</a></li>
+                        <li><a href="#">増販増客</a></li>
+                        <li><a href="#">増販増客カレンダー</a></li>
+                        <li><a href="#">増販増客事例集</a></li>
+                        <li><a href="#">セミナーのご案内</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>その他</h4>
+                    <ul>
+                        <li><a href="#">税理士コラム</a></li>
+                        <li><a href="#">顧問料金表</a></li>
+                        <li><a href="#">交通アクセス</a></li>
+                        <li><a href="#">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright (c) 2017 冨永正見税理士事務所 all rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <div class="mobile-cta-inner">
+            <a href="tel:042-443-1750" class="btn-tel">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                電話する
+            </a>
+            <a href="#" class="btn-mail">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                お問い合わせ
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            
+            // Animate hamburger icon
+            const spans = hamburger.querySelectorAll('span');
+            if (mobileMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -8px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
