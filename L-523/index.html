@@ -1,0 +1,915 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西島直人税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #09589d;
+            --primary-hover: #07467d;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --bg-blue-light: #f0f4f8;
+            --white: #ffffff;
+            --border-color: #eef2f5;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --radius: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-main);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-tel {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .header-tel:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 80px 20px 20px;
+            transition: var(--transition);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            height: 80vh;
+            min-height: 600px;
+            background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(9, 88, 157, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .features-wrapper {
+            display: flex;
+            gap: 50px;
+            align-items: stretch;
+        }
+
+        .features-image {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .features-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .features-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* News Section */
+        .news {
+            padding: 40px 0;
+            background: var(--bg-light);
+        }
+
+        .news-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .news-title-label {
+            font-weight: 700;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .news-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .news-text {
+            font-size: 0.95rem;
+        }
+
+        /* Contact & About Section */
+        .contact-about {
+            padding: 80px 0;
+            background: var(--bg-blue-light);
+        }
+
+        .ca-wrapper {
+            display: flex;
+            gap: 40px;
+        }
+
+        .ca-box {
+            flex: 1;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .ca-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .ca-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: #fcfcfc;
+        }
+
+        textarea.form-control {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-hover);
+        }
+
+        .contact-tel {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* About Table */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .profile-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .about-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .about-table th, .about-table td {
+            padding: 15px 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+
+        .about-table th {
+            width: 30%;
+            font-weight: 700;
+            color: var(--text-main);
+            background: #fafafa;
+        }
+
+        .about-table td {
+            color: var(--text-light);
+        }
+
+        .map-container {
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* TKC Section */
+        .tkc {
+            padding: 60px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .tkc-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tkc-box p {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .tkc-logo-wrap {
+            margin: 30px 0;
+        }
+
+        .tkc-desc {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .tkc-sub {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 5px 20px;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            padding: 40px 0 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .cta-btn {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--white);
+        }
+
+        .cta-tel {
+            background: var(--primary-color);
+        }
+
+        .cta-mail {
+            background: #333333;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .features-wrapper {
+                flex-direction: column;
+            }
+            .features-image {
+                height: 300px;
+            }
+            .ca-wrapper {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 54px; /* For mobile CTA */
+            }
+            .desktop-nav, .header-tel {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .news-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .mobile-cta {
+                display: flex;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .ca-box {
+                padding: 20px;
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="https://nishijima-kaikei.tkcnf.com/library/68b7a2652ae8c93f4525f8a1/6901792a89459a272bae3824.png" alt="西島直人税理士事務所 Nishijima kaikei">
+            </a>
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#features">強み</a></li>
+                    <li><a href="#about">事務所概要</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <a href="tel:09039065217" class="header-tel">TEL: 090-3906-5217</a>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="#" class="mobile-link">ホーム</a></li>
+            <li><a href="#services" class="mobile-link">サービス</a></li>
+            <li><a href="#features" class="mobile-link">強み</a></li>
+            <li><a href="#about" class="mobile-link">事務所概要</a></li>
+            <li><a href="#contact" class="mobile-link">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>あなたの未来を、<br>会計から支えます。</h1>
+                    <a href="#contact" class="btn-primary">無料相談を予約</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">当事務所のサービス</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="サービス画像" class="service-img">
+                        <p>当事務所は、巡回監査の実施により、お客様と毎月面談し、会計資料並びに会計記録の適法性、正確性及び適時性を確認します。</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="サービス画像" class="service-img">
+                        <p>これにより、経営者の意思決定に役立つデータを提供し、会計、税務や経営面のアドバイスを行います。この際、経営面のアドバイスでは、毎月の面談等を通して得られるお客様からの情報や『ＴＫＣ経営指標』の同業他社比較等によって、お客様の強みや経営課題等を分析・報告します。</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="サービス画像" class="service-img">
+                        <p>また、自社の店舗別・部門別ごとに業績を出し、経営会議等を開催して経営者の思いを共有してもらいながら、実績と行動の改善を図るお手伝いをします。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">当事務所の特長</h2>
+                <div class="features-wrapper">
+                    <div class="features-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="会計イメージ">
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <p>1. 巡回監査時の当事務所の支援により、経営者は自社の正確な月次損益を把握できるようになります。経営者の意思決定に役立つ情報、黒字決算につながる情報が入手できます。</p>
+                        </div>
+                        <div class="feature-card">
+                            <p>2. 「ＴＫＣ戦略財務情報システム（FXシリーズ）｣（e21まいスター等を含む）による自計化を支援します。また、継続MASシステムを使用した経営計画策定をご支援します。</p>
+                        </div>
+                        <div class="feature-card">
+                            <p>3. 自計化と経営計画策定に基づく業績管理体制（PDCA）の構築を当事務所が支援します。</p>
+                        </div>
+                        <div class="feature-card">
+                            <p>4. 一人当たり生産性を伸ばせるように、ご要望に応じ経営会議を開催し、社長の思いをサポート致します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news">
+            <div class="container">
+                <div class="news-container">
+                    <span class="news-title-label">お知らせ</span>
+                    <span class="news-date">2025.10</span>
+                    <span class="news-text">ホームページを公開しました。</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & About Section -->
+        <section id="contact" class="contact-about">
+            <div class="container">
+                <div class="ca-wrapper">
+                    <!-- Contact Form -->
+                    <div class="ca-box">
+                        <h2 class="ca-title">お問い合わせ</h2>
+                        <form action="#" method="POST">
+                            <div style="display: flex; gap: 15px;">
+                                <div class="form-group" style="flex: 1;">
+                                    <input type="text" class="form-control" placeholder="名" required>
+                                </div>
+                                <div class="form-group" style="flex: 1;">
+                                    <input type="email" class="form-control" placeholder="メール" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="メッセージ" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">お問い合わせ</button>
+                        </form>
+                        <div class="contact-tel">
+                            TEL : 090-3906-5217
+                        </div>
+                    </div>
+
+                    <!-- About Info -->
+                    <div id="about" class="ca-box">
+                        <h2 class="ca-title">事務所概要</h2>
+                        
+                        <div class="profile-section">
+                            <img src="https://nishijima-kaikei.tkcnf.com/library/68b7a2652ae8c93f4525f8a1/69041356b1e19f75d593ae12.jpg" alt="西島 直人" class="profile-img">
+                            <div class="profile-info">
+                                <h3>西島 直人</h3>
+                                <p>所長 / 税理士</p>
+                            </div>
+                        </div>
+
+                        <table class="about-table">
+                            <tbody>
+                                <tr>
+                                    <th>事務所名</th>
+                                    <td>西島直人税理士事務所</td>
+                                </tr>
+                                <tr>
+                                    <th>所長名</th>
+                                    <td>西島　直人</td>
+                                </tr>
+                                <tr>
+                                    <th>所在地</th>
+                                    <td>〒182-0023<br>東京都調布市染地２丁目１８番地３１</td>
+                                </tr>
+                                <tr>
+                                    <th>電話番号</th>
+                                    <td>090-3906-5217</td>
+                                </tr>
+                                <tr>
+                                    <th>業務内容</th>
+                                    <td>
+                                        ■税理士業務<br>
+                                        ・月次決算（巡回監査）<br>
+                                        ・法人税、所得税、消費税、相続税　申告業務<br>
+                                        ・経理業務の自立化（＝自計化）支援<br>
+                                        ・組織再編税制（合併）<br>
+                                        ・事業承継税制（法人版）支援<br>
+                                        ・タックスプランニング<br>
+                                        ・資産の譲渡・贈与・相続の事前対策<br>
+                                        ・税務調査立会<br><br>
+                                        ■コンサルタント業務<br>
+                                        ・経営会議・相続会議等各種会議開催<br>
+                                        ・経営改善計画策定支援<br>
+                                        ・金融機関対応支援<br>
+                                        ・創業・独立の支援<br>
+                                        ・M&Aサポート
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="map-container">
+                            <iframe src="https://maps.google.com/maps?q=東京都調布市染地２丁目１８番地３１&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TKC Section -->
+        <section class="tkc">
+            <div class="container">
+                <div class="tkc-box">
+                    <p>西島直人税理士事務所はＴＫＣ全国会会員です</p>
+                </div>
+                <div class="tkc-logo-wrap">
+                    <img src="https://nishijima-kaikei.tkcnf.com/material/lib02/tkc_logo1.gif" alt="TKC全国会" style="margin: 0 auto;">
+                </div>
+                <div class="tkc-desc">
+                    ＴＫＣ全国会は、租税正義の実現をめざし関与先企業の永続的繁栄に奉仕するわが国最大級の職業会計人集団です。
+                </div>
+                <div class="tkc-sub">
+                    東京税理士会
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="https://nishijima-kaikei.tkcnf.com/library/68b7a2652ae8c93f4525f8a1/6901792ffa258b241b0b4e60.png" alt="西島直人税理士事務所 Nishijima kaikei">
+            </div>
+            <div class="footer-links">
+                <a href="#">外部サービスの利用に関するプライバシーポリシー</a>
+            </div>
+            <div class="copyright">
+                Copyright (c) 2025 - 2026 西島直人税理士事務所 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:09039065217" class="cta-btn cta-tel">電話する</a>
+        <a href="#contact" class="cta-btn cta-mail">お問い合わせ</a>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileNav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
