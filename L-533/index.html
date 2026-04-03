@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アイタック税理士法人 | Prosperity of Business</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6699CC;
+            --secondary-color: #1a3a5c;
+            --accent-color: #e8734a;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+            --container-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* Header */
+        .site-header {
+            background: #fff;
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo-area .tagline {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .logo-area .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area .logo span {
+            color: var(--primary-color);
+            font-size: 28px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            text-align: right;
+        }
+
+        .header-tel .tel-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-tel .tel-number svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--primary-color);
+        }
+
+        .header-tel .tel-labels {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        .btn-cta {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Navigation */
+        .global-nav {
+            background-color: var(--primary-color);
+        }
+
+        .global-nav ul {
+            display: flex;
+            justify-content: center;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .global-nav li {
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .global-nav li:last-child {
+            border-right: none;
+        }
+
+        .global-nav a {
+            display: block;
+            color: #fff;
+            padding: 15px 10px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .global-nav a:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1994&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(26, 58, 92, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-contact-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            padding: 15px 0;
+            text-align: center;
+            color: var(--secondary-color);
+            font-weight: 700;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-contact-bar svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--primary-color);
+        }
+
+        /* Awards Section */
+        .awards {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .award-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .award-card.gold {
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            color: #fff;
+        }
+
+        .award-card.gold .award-text {
+            color: #fff;
+        }
+
+        .award-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .award-card.contain-img img {
+            object-fit: contain;
+            padding: 20px;
+            background: #fff;
+            height: 150px;
+        }
+
+        .award-text {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .award-text h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+        }
+
+        .award-card.gold .award-text h3 {
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+
+        .award-text p {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .cert-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cert-item {
+            background: #fff;
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .cert-item img {
+            max-height: 60px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+
+        .cert-item p {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+        }
+
+        .service-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .service-card h3 {
+            font-size: 16px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        /* Staff Section */
+        .staff {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .staff-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .staff-card img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .staff-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .staff-info .role {
+            display: block;
+            font-size: 12px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .staff-info .name {
+            font-size: 18px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .staff-history {
+            font-size: 11px;
+            color: var(--text-light);
+            text-align: left;
+            padding-left: 1em;
+            text-indent: -1em;
+        }
+
+        .staff-history li {
+            margin-bottom: 4px;
+        }
+
+        /* Access Section */
+        .access {
+            padding: 80px 0;
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .access-card h3 {
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .map-wrap {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .map-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .access-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .access-info p {
+            font-size: 14px;
+        }
+
+        .access-info .tel {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .access-info .tel svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--primary-color);
+        }
+
+        .appearance-img {
+            margin-top: 15px;
+            border-radius: 4px;
+            height: 120px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        /* News Section */
+        .news {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .news-container {
+            display: flex;
+            gap: 40px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-image {
+            flex: 0 0 300px;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .news-list {
+            flex: 1;
+        }
+
+        .news-list li {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+
+        .news-list .date {
+            width: 120px;
+            flex-shrink: 0;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+
+        .news-list .title {
+            font-size: 14px;
+        }
+
+        /* Pre-Footer CTA */
+        .pre-footer-cta {
+            background-color: var(--primary-color);
+            padding: 40px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .pre-footer-cta .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .pre-footer-cta .tel {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pre-footer-cta .tel svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+
+        .pre-footer-cta .btn-cta {
+            background-color: var(--accent-color);
+            font-size: 16px;
+            padding: 15px 40px;
+            border-radius: 30px;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact {
+            margin-bottom: 20px;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .footer-contact svg {
+            width: 18px;
+            height: 18px;
+            fill: #fff;
+            margin-top: 4px;
+        }
+
+        .footer-contact span {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            display: block;
+        }
+
+        .footer-btn {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .footer-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-col ul a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-cta-bar a {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 15px 0;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .mobile-cta-bar .btn-tel {
+            background-color: var(--primary-color);
+        }
+
+        .mobile-cta-bar .btn-mail {
+            background-color: var(--accent-color);
+        }
+
+        .mobile-cta-bar svg {
+            width: 18px;
+            height: 18px;
+            fill: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .staff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .awards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .news-container {
+                flex-direction: column;
+            }
+            .news-image {
+                flex: 0 0 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 50px; /* For mobile CTA */
+            }
+            .header-top {
+                padding: 15px;
+            }
+            .header-contact {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .global-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--secondary-color);
+            }
+            .global-nav.active {
+                display: block;
+            }
+            .global-nav ul {
+                flex-direction: column;
+            }
+            .global-nav li {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .hero h2 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .hero-contact-bar {
+                font-size: 14px;
+                flex-direction: column;
+                padding: 10px;
+            }
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+            .access-grid {
+                grid-template-columns: 1fr;
+            }
+            .pre-footer-cta .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .pre-footer-cta .tel {
+                font-size: 18px;
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .mobile-cta-bar {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .news-list li {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-top">
+            <div class="logo-area">
+                <p class="tagline">Prosperity of Business — 時代を先取りする迅速な対応を目指します</p>
+                <h1 class="logo"><span>itac</span> アイタック税理士法人</h1>
+            </div>
+            <div class="header-contact">
+                <div class="header-tel">
+                    <div class="tel-number">
+                        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                        03-3430-5011 / 03-5937-0521
+                    </div>
+                    <div class="tel-labels">
+                        <span>(本社)</span> &nbsp;&nbsp; <span>(新宿事務所)</span>
+                    </div>
+                </div>
+                <a href="#contact" class="btn-cta">無料相談を予約</a>
+            </div>
+            <button class="hamburger" id="js-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="global-nav" id="js-nav">
+            <ul>
+                <li><a href="#">トップページ</a></li>
+                <li><a href="#">会社概要</a></li>
+                <li><a href="#">業務案内</a></li>
+                <li><a href="#">税理士紹介</a></li>
+                <li><a href="#">アクセス</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Prosperity of Business</h2>
+                <p>時代を先取りする迅速な対応を目指します</p>
+            </div>
+            <div class="hero-contact-bar">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                03-3430-5011 (本社) / 03-5937-0521 (新宿事務所)
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section class="awards container">
+            <h2 class="section-title">叙勲・書籍・認定</h2>
+            <div class="awards-grid">
+                <div class="award-card gold">
+                    <img src="images/jokun.jpg" alt="旭日小綬章受章">
+                    <div class="award-text">
+                        <h3>旭日小綬章受章</h3>
+                        <p>当会社の代表理事 高橋省二が この度 「旭日小綬章」を受章いたしました。平成27年には天皇、皇后両陛下主催の春の園遊会に出席しました。</p>
+                    </div>
+                </div>
+                <div class="award-card contain-img">
+                    <img src="images/cover.jpg" alt="書籍出版">
+                    <div class="award-text">
+                        <h3>書籍出版</h3>
+                        <p>当会社の代表理事 高橋省二が この度 本「相続・贈与」を出版する事となりました。</p>
+                    </div>
+                </div>
+                <div class="cert-stack">
+                    <div class="cert-item">
+                        <img src="images/book_guide.jpg" alt="厳選ガイド" style="max-height: 80px;">
+                        <p style="font-size: 12px; margin-top: 10px;">「優良税理士・会計事務所〜厳選ガイド〜」にて紹介されました。</p>
+                    </div>
+                    <div class="cert-item">
+                        <p style="margin-bottom: 10px;">経営革新等支援機関として認定されました。</p>
+                        <img src="images/freee_advisor_logo.png" alt="freee認定アドバイザー">
+                        <p style="font-size: 12px; color: var(--primary-color);">freee認定アドバイザー</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services container">
+            <h2 class="section-title">業務案内</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                    </div>
+                    <h3>経理・財務</h3>
+                    <p>記帳代行から決算まで、企業の経理・財務に関するすべての業務をお手伝い致します。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>タックスコンサルティング</h3>
+                    <p>法人税や所得税等、あらゆる税務に関し疑問点にお答えします。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>相続税</h3>
+                    <p>相続に関するもめごとから相続税対策まで、相続に関するさまざまなご質問にお答えします。当社スタッフは、各種雑誌から依頼された相続税対策の記事を執筆したり、相続税の講演を行ったりしており豊富な経験と知識があります。安心してご相談ください。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                    </div>
+                    <h3>事業承継</h3>
+                    <p>後継者の不在、後継者への引継方法、自社株評価、M&A等、事業承継に関する様々な問題に対し、的確なアドバイスを致します。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <h3>国際会計</h3>
+                    <p>当社は、たくさんの外国法人日本支社の顧問をしています。そのため、国際会計については実践を踏まえたノウハウがあり、海外取引等についても的確なアドバイスを致します。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </div>
+                    <h3>海外進出</h3>
+                    <p>当社は、海外の会計士や税理士と提携しているだけでなく、定期的に交流をしておりますので、常に海外の新しい情報をキャッチしています。そのためお客様の海外進出に対し的確なアドバイスができます。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <h3>不動産</h3>
+                    <p>当社は、日本でも有名な商社、デベロッパー不動産会社と提携していますので、お客様の不動産に関する様々なご依頼に的確にお応えします。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>助成金申請</h3>
+                    <p>条件を満たしている場合には、国等から雇用助成金をはじめ、各種助成金が支給されます。当社は、企業が各種助成金を受給するお手伝いをしています。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <h3>教育人材育成</h3>
+                    <p>企業の人材育成や営業社員の教育等について、提携している講師を派遣する等のお手伝いをしています。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    </div>
+                    <h3>融資相談</h3>
+                    <p>日本政策金融公庫や銀行、保証協会等の融資申請のお手伝いをしています。又、資金繰りのご相談も承ります。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Staff -->
+        <section class="staff container">
+            <h2 class="section-title">税理士紹介</h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <img src="images/photo_takahashi.jpg" alt="高橋 省二">
+                    <div class="staff-info">
+                        <span class="role">理事長・税理士</span>
+                        <h3 class="name">高橋 省二</h3>
+                        <ul class="staff-history">
+                            <li>1944年生 東京都出身 慶應義塾大学商学部卒業</li>
+                            <li>1973年 税理士登録</li>
+                            <li>2001年〜2003年 東京税理士会 常務理事/国際部長</li>
+                            <li>2001年〜2003年 2005年〜2009年 日本税理士会連合会 理事</li>
+                            <li>2003年〜2005年 東京税理士会 武蔵府中支部 支部長</li>
+                            <li>2005年〜2007年 東京税理士会 常務理事/組織部長</li>
+                            <li>2007年〜2019年 東京税理士政治連盟 副会長</li>
+                            <li>現 日韓友好税理士連盟 副会長</li>
+                            <li>現 税理士三田会 副会長</li>
+                            <li>現 東京税務会計事務所健康保険組合 理事</li>
+                            <li>現 ミロク会計人会 多摩山梨地区会 顧問</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <img src="images/photo_ishiyama.jpg" alt="石山 健一">
+                    <div class="staff-info">
+                        <span class="role">副理事長・税理士</span>
+                        <h3 class="name">石山 健一</h3>
+                        <ul class="staff-history">
+                            <li>1954年生 山形県出身</li>
+                            <li>1981年 税理士登録</li>
+                            <li>2011年〜2015年 東京税理士会 武蔵府中支部 支部長</li>
+                            <li>2015年〜2019年 東京税理士会 理事</li>
+                            <li>現 東京税理士会 武蔵府中支部 顧問</li>
+                            <li>現 武蔵府中納税貯蓄組合連合会 会長</li>
+                            <li>現 学校法人中央学院 監事</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <img src="images/photo_takahashi_n.jpg" alt="高橋 直之">
+                    <div class="staff-info">
+                        <span class="role">理事・税理士</span>
+                        <h3 class="name">高橋 直之</h3>
+                        <ul class="staff-history">
+                            <li>1974年生 東京都出身 慶應義塾大学経済学部卒業</li>
+                            <li>2007年 当法人入社</li>
+                            <li>2015年 税理士登録</li>
+                            <li>現 東京税理士政治連盟 政策副委員長</li>
+                            <li>現 東京税理士会 武蔵府中支部 副支部長</li>
+                            <li>現 武蔵府中税理士政治連盟 会長</li>
+                            <li>現 日韓友好税理士連盟 常務理事</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <img src="images/photo_kubota.jpg" alt="久保田 啓介">
+                    <div class="staff-info">
+                        <span class="role">理事・公認会計士・税理士</span>
+                        <h3 class="name">久保田 啓介</h3>
+                        <ul class="staff-history">
+                            <li>1974年生 神奈川県出身</li>
+                            <li>1997年 慶應義塾大学 法律学部法律学科卒業</li>
+                            <li>2010年 公認会計士試験合格</li>
+                            <li>2011年 当法人入社</li>
+                            <li>2016年 公認会計士・税理士登録</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access -->
+        <section class="access container">
+            <h2 class="section-title">アクセス</h2>
+            <div class="access-grid">
+                <div class="access-card">
+                    <h3>本社</h3>
+                    <div class="map-wrap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.687512345678!2d139.575123456789!3d35.632123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM3JzU1LjYiTiAxMznCsDM0JzMwLjQiRQ!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="access-info">
+                        <p>〒201-0014 東京都狛江市東和泉4-3-7 ウェルスティビル202</p>
+                        <p class="tel"><svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg> 03-3430-5011</p>
+                        <p>FAX: 03-3480-7943</p>
+                        <p style="font-size: 12px; color: var(--text-light); margin-top: 10px;">小田急線和泉多摩川駅北口を出てすぐ前のビルの2Fとなります。1F 整体院様の左の階段から2Fにお上がり下さい。</p>
+                    </div>
+                    <img src="images/appearance.jpg" alt="本社外観" class="appearance-img">
+                </div>
+                <div class="access-card">
+                    <h3>新宿事務所</h3>
+                    <div class="map-wrap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.456789012345!2d139.695123456789!3d35.695123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQxJzQyLjQiTiAxMznCsDQxJzQyLjQiRQ!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="access-info">
+                        <p>〒160-0023 東京都新宿区西新宿7-18-18 新宿税理士ビル本館501号</p>
+                        <p class="tel"><svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg> 03-5937-0521</p>
+                        <p>FAX: 03-5937-0522</p>
+                        <p style="font-size: 12px; color: var(--text-light); margin-top: 10px;">各線 新宿駅より徒歩8分 / 都営大江戸線 新宿西口駅より徒歩5分 / 西武新宿線 西武新宿駅より徒歩6分<br>税理士ビルが3棟並んでいるうちの一番右側のビル（本館）です。</p>
+                    </div>
+                    <img src="images/appearance_shinjuku.jpg" alt="新宿事務所外観" class="appearance-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- News -->
+        <section class="news container">
+            <h2 class="section-title">ニュース＆トピックス</h2>
+            <div class="news-container">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" alt="News & Topics">
+                </div>
+                <ul class="news-list">
+                    <li>
+                        <span class="date">令和元年 10月</span>
+                        <span class="title">当会社の新宿事務所が新宿税理士ビルに移転しました。</span>
+                    </li>
+                    <li>
+                        <span class="date">平成30年 6月</span>
+                        <span class="title">当社が「優良税理士・会計事務所〜厳選ガイド〜」にて紹介されました。</span>
+                    </li>
+                    <li>
+                        <span class="date">平成27年 春</span>
+                        <span class="title">当会社の代表理事 高橋省二が天皇、皇后両陛下主催の春の園遊会に出席しました。</span>
+                    </li>
+                    <li>
+                        <span class="date">平成26年 秋</span>
+                        <span class="title">当会社の代表理事 高橋省二が この度 「旭日小綬章」を受章いたしました。</span>
+                    </li>
+                    <li>
+                        <span class="date">平成25年12月1日</span>
+                        <span class="title">当会社の代表理事 高橋省二が この度 本「相続・贈与」を出版する事となりました。</span>
+                    </li>
+                    <li>
+                        <span class="date">平成25年8月15日</span>
+                        <span class="title">当会社が経営革新等支援機関として認定されました。</span>
+                    </li>
+                    <li>
+                        <span class="date">平成25年6月</span>
+                        <span class="title">当会社の税理士 石山健一が 東京税理士会武蔵府中支部の支部長に再任しました。</span>
+                    </li>
+                    <li>
+                        <span class="date">平成23年10月</span>
+                        <span class="title">新宿駅西口に支店を開設しました。</span>
+                    </li>
+                    <li>
+                        <span class="date">平成23年8月</span>
+                        <span class="title">当事務所が小田急線 和泉多摩川駅前のビルに移転しました。</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Pre-Footer CTA -->
+        <div class="pre-footer-cta">
+            <div class="container">
+                <p class="tel">
+                    <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                    03-3430-5011 (本社) / 03-5937-0521 (新宿事務所)
+                </p>
+                <a href="#contact" class="btn-cta">無料相談を予約</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col footer-col-1">
+                <h2 class="footer-logo">アイタック税理士法人</h2>
+                <div class="footer-contact">
+                    <p>
+                        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                        03-3430-5011<br>
+                        <span>(03-3480-7943 FAX)</span>
+                    </p>
+                    <p>
+                        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                        03-5937-0521 (新宿事務所)<br>
+                        <span>(03-5937-0522 FAX)</span>
+                    </p>
+                    <p style="font-size: 12px; margin-top: 10px;">営業時間: 10:00〜18:00(月〜金)</p>
+                    <p style="font-size: 12px;">メール: info@itac.or.jp（24時間受付）</p>
+                </div>
+                <a href="#contact" class="footer-btn">無料相談を予約</a>
+            </div>
+            <div class="footer-col footer-col-2">
+                <h3>会社概要</h3>
+                <ul>
+                    <li><a href="#">本社</a></li>
+                    <li><a href="#">新宿事務所</a></li>
+                    <li><a href="#">業務案内</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-col-3">
+                <h3>リンク</h3>
+                <ul>
+                    <li><a href="#">トップページ</a></li>
+                    <li><a href="#">税理士紹介</a></li>
+                    <li><a href="#">アクセス</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">沿革</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright(C) 2011 itac All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta-bar">
+        <a href="tel:03-3430-5011" class="btn-tel">
+            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            電話する
+        </a>
+        <a href="mailto:info@itac.or.jp" class="btn-mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            メールする
+        </a>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        document.getElementById('js-hamburger').addEventListener('click', function() {
+            document.getElementById('js-nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
