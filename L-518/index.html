@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>昭和税理士法人 | 税務・会計のプロフェッショナル</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #384E80;
+            --secondary-color: #97A3BD;
+            --accent-color: #F28500; /* オレンジ系アクセント */
+            --bg-light: #F8F9FA;
+            --text-main: #333333;
+            --border-color: #E5E7EB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            color: #111;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 40px;
+            color: #555;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+        }
+
+        .btn-accent:hover {
+            background-color: #d97700;
+            opacity: 1;
+        }
+
+        .btn-white {
+            background-color: #FFFFFF;
+            color: var(--primary-color);
+        }
+
+        .btn-white:hover {
+            background-color: #f0f0f0;
+            opacity: 1;
+        }
+
+        /* Header */
+        header {
+            background-color: #FFFFFF;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            margin-right: 10px;
+            position: relative;
+        }
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 50%; height: 50%;
+            background-color: #1a2a4a;
+        }
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0; width: 50%; height: 50%;
+            background-color: #1a2a4a;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-image: url('http://www.showa-tax.or.jp/images/cover_img_original.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 20px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(56, 78, 128, 0.75); /* var(--primary-color) with opacity */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        /* Strengths Section */
+        .strengths {
+            padding: 80px 0;
+            background-color: #FFFFFF;
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .strength-card {
+            background-color: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .strength-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .strength-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .strength-card p {
+            font-size: 14px;
+            text-align: left;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        .dx-img {
+            margin-top: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            border-color: var(--border-color);
+        }
+
+        .service-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        /* Software Support Section */
+        .software {
+            padding: 60px 0;
+            background-color: #FFFFFF;
+            text-align: center;
+        }
+        .software h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        .software p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .cta-tel-wrap {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .cta-tel {
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .cta-time {
+            font-size: 14px;
+            background-color: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #FFFFFF;
+        }
+
+        .about-top {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            align-items: stretch;
+        }
+
+        .about-highlights {
+            flex: 1;
+            display: flex;
+            gap: 15px;
+        }
+
+        .highlight-card {
+            flex: 1;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .about-img-wrap {
+            flex: 1;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .about-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 2px solid var(--primary-color);
+        }
+
+        .about-table th, .about-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .about-table th {
+            width: 25%;
+            background-color: var(--bg-light);
+            font-weight: 700;
+            color: #111;
+        }
+
+        /* Recruit Section */
+        .recruit {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+        .recruit h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        .recruit p {
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-info {
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        .copyright {
+            font-size: 12px;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #FFFFFF;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-cta-bar a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            font-weight: 700;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .mobile-cta-tel {
+            color: var(--primary-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .mobile-cta-btn {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .strengths-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .about-top {
+                flex-direction: column;
+            }
+            .about-highlights {
+                width: 100%;
+            }
+            .about-img-wrap {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 50px; /* For mobile CTA */
+            }
+
+            .header-right {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #FFFFFF;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                align-items: flex-start;
+            }
+
+            .header-right.active {
+                display: flex;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 20px;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                width: 100%;
+                align-items: flex-start;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .strengths-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-tel-wrap {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .cta-tel {
+                font-size: 32px;
+            }
+
+            .about-highlights {
+                flex-direction: column;
+            }
+
+            .about-table th, .about-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .about-table th {
+                border-bottom: none;
+                padding-bottom: 5px;
+            }
+
+            .about-table td {
+                padding-top: 5px;
+                margin-bottom: 10px;
+            }
+
+            .mobile-cta-bar {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                昭和税理士法人
+            </a>
+            <div class="header-right" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="#services">業務案内</a></li>
+                    <li><a href="#about">事務所概要</a></li>
+                    <li><a href="#">お役立ち情報</a></li>
+                    <li><a href="#cta">お問い合わせ</a></li>
+                </ul>
+                <div class="header-contact">
+                    <a href="tel:044-933-0003" class="header-tel">📞 044-933-0003</a>
+                    <a href="#cta" class="btn btn-accent">無料相談はこちら</a>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>税務・会計のプロフェッショナル</h1>
+            <p>神奈川県川崎市多摩区にある税務・会計のプロフェショナル 昭和税理士法人です。<br>多彩なニーズと多様化する業務をトータルサポートいたします。</p>
+            <a href="#cta" class="btn btn-accent">無料相談はこちら</a>
+        </div>
+    </section>
+
+    <section id="strengths" class="strengths">
+        <div class="container">
+            <h2 class="section-title">当事務所の強み</h2>
+            <div class="strengths-grid">
+                <div class="strength-card">
+                    <div class="strength-icon">🤝</div>
+                    <h3>トータルサポート</h3>
+                    <p>当事務所は会計・税務はもちろんのこと、専門家を必要とするあらゆるシーンでお客様のビジネスを総合的にサポート致します。近年、デジタルトランスフォーメーション（ＤＸ）が急速に進展する中で、業務のイノベーションを積極的に推進していく必要があると考えます。当事務所では、AI−OCR等のデジタルツールを活用してタイムリーな期間損益の把握、適切な資産管理を目的とした業務改善を提案いたします。</p>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-icon">🏢</div>
+                    <h3>ワンストップサービス</h3>
+                    <p>会社経営、税金、資金繰り、会社設立、相続対策など、弁護士、司法書士、行政書士、社会保険労務士等の紹介を含め、あらゆる悩みにお答えします。</p>
+                </div>
+                <div class="strength-card">
+                    <div class="strength-icon">⚙️</div>
+                    <h3>業務ＤＸ化</h3>
+                    <p>当事務所では、AI-OCRや高性能スキャナー、最先端のサーバー環境を導入し、デジタルツールを積極的に活用しています。たとえば、領収書をスキャナーに通すだけで仕分けが完了する仕組みが整っており、従来手作業だった入力業務も大幅に自動化。こうした業務効率化によって、労力のかかる作業が軽減され、本来集中すべき提案業務や顧客対応に時間を充てることが可能です。私たちは税務業務のイノベーションを通じて、業務のDX化を促進しています。</p>
+                    <img src="http://www.showa-tax.or.jp/images/org_contentimg0_3.png" alt="業務DX化" class="dx-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">業務案内</h2>
+            <p class="section-subtitle">当法人がご提供させていただいている業務をご紹介いたします。ここに載っていない業務でも対応可能ですのでご相談ください。</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3>記帳指導</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>経営支援</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <h3>税務申告</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>相続相談</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>給与計算</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>起業支援</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>ＩＴ支援業務</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>その他</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="software">
+        <div class="container">
+            <h2>会計ソフトのサポートもおまかせ</h2>
+            <p>当法人では、『JDL IBEX出納帳』や『JDL IBEX会計』などの会計ソフトのサポートを行なって自計化のお手伝いもしております。パソコンに不慣れなお客様にも親切・丁寧にご指導いたします。</p>
+        </div>
+    </section>
+
+    <section id="cta" class="cta-section">
+        <div class="container cta-content">
+            <div class="cta-title">お気軽にご相談ください</div>
+            <div class="cta-tel-wrap">
+                <a href="tel:044-933-0003" class="cta-tel">📞 044-933-0003</a>
+                <span class="cta-time">受付時間 平日 9:00〜17:00</span>
+            </div>
+            <a href="#" class="btn btn-white">お問い合わせはこちら</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">事務所概要</h2>
+            <div class="about-top">
+                <div class="about-highlights">
+                    <div class="highlight-card">創業昭和45年</div>
+                    <div class="highlight-card">公認会計士2名</div>
+                    <div class="highlight-card">関与149社</div>
+                </div>
+                <div class="about-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="オフィスビル" class="about-img">
+                </div>
+            </div>
+            <table class="about-table">
+                <tbody>
+                    <tr>
+                        <th>名称</th>
+                        <td>昭和税理士法人</td>
+                    </tr>
+                    <tr>
+                        <th>所在地</th>
+                        <td>〒214-0014 神奈川県川崎市多摩区登戸2977番地 古舘ビル５、６階</td>
+                    </tr>
+                    <tr>
+                        <th>連絡先</th>
+                        <td>電話 044-933-0003 / FAX 044-932-0020</td>
+                    </tr>
+                    <tr>
+                        <th>所属団体</th>
+                        <td>東京地方税理士会川崎西支部</td>
+                    </tr>
+                    <tr>
+                        <th>税理士法人番号</th>
+                        <td>第1303号</td>
+                    </tr>
+                    <tr>
+                        <th>創業</th>
+                        <td>昭和45年９月５日 古舘税務会計事務所として創業</td>
+                    </tr>
+                    <tr>
+                        <th>設立</th>
+                        <td>平成18年12月26日 昭和税理士法人として法人化</td>
+                    </tr>
+                    <tr>
+                        <th>出資金</th>
+                        <td>５百万円</td>
+                    </tr>
+                    <tr>
+                        <th>人員構成</th>
+                        <td>公認会計士２名、税理士１名、常勤１名（５科目合格者）、常勤１名（科目合格者）、非常勤４名（科目合格者１名）、計９名</td>
+                    </tr>
+                    <tr>
+                        <th>関与会社数</th>
+                        <td>普通法人１４０社、医療法人３社、社会福祉法人１社、宗教法人２社、一般財団法人２社、信託会社１社、計１４９社</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="recruit">
+        <div class="container">
+            <h2>私たちと共に働きませんか？</h2>
+            <p>会計事務所経験があって、担当として顧問先を訪問できる人で当法人に関心がある方は→<a href="#" style="color: var(--primary-color); text-decoration: underline;">こちらから求人サイトへ</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-info">
+                <div class="footer-logo">昭和税理士法人</div>
+                <p>〒214-0014 神奈川県川崎市多摩区登戸２９７７番地 古舘ビル５、６階</p>
+                <p>TEL: 044-933-0003 / FAX: 044-932-0020</p>
+            </div>
+            <div class="copyright">
+                Copyright(c) 昭和税理士法人 All Right Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-cta-bar">
+        <a href="tel:044-933-0003" class="mobile-cta-tel">📞 044-933-0003</a>
+        <a href="#cta" class="mobile-cta-btn">無料相談はこちら</a>
+    </div>
+
+    <script>
+        document.getElementById('hamburgerBtn').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
