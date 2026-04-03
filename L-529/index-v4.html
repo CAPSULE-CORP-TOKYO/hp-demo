@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吉内弘充税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==========================================
+           Variables & Reset
+           ========================================== */
+        :root {
+            --primary-color: #2B7A9E;
+            --primary-hover: #22627e;
+            --accent-color: #E8943A;
+            --accent-hover: #d1822e;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #F8F9FA;
+            --bg-beige: #FDFBF7;
+            --white: #FFFFFF;
+            --border-color: #E0E0E0;
+            --container-width: 1100px;
+            --transition: all 0.3s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.8;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================
+           Typography & Utilities
+           ========================================== */
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 999px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(232, 148, 58, 0.3);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(43, 122, 158, 0.3);
+        }
+
+        /* ==========================================
+           Header
+           ========================================== */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .header-nav {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .header-nav ul {
+            display: flex;
+            justify-content: center;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .header-nav li {
+            position: relative;
+        }
+
+        .header-nav a {
+            display: block;
+            padding: 15px 25px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .header-nav a:hover, .header-nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-nav a.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 25px;
+            right: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* ==========================================
+           Hero Section
+           ========================================== */
+        .hero {
+            position: relative;
+            background: linear-gradient(105deg, var(--primary-color) 55%, #f4f7f6 55%);
+            overflow: hidden;
+            padding: 60px 0;
+        }
+
+        .hero-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            width: 50%;
+            color: var(--white);
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .hero-desc {
+            font-size: 15px;
+            margin-bottom: 35px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .hero-image img {
+            max-height: 450px;
+            object-fit: contain;
+        }
+
+        /* ==========================================
+           Services Section
+           ========================================== */
+        .services {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 3px solid var(--primary-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .service-sub {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .service-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .service-card .btn {
+            width: 80%;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        /* ==========================================
+           Feature Section (Jikeika & Map)
+           ========================================== */
+        .feature {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .feature-block h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .feature-text p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .feature-text .btn {
+            margin-top: 20px;
+        }
+
+        .map-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .map-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: var(--primary-color);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .map-desc {
+            font-size: 15px;
+            color: var(--text-light);
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* ==========================================
+           Greeting Section
+           ========================================== */
+        .greeting {
+            padding: 80px 0;
+            background-color: var(--bg-beige);
+        }
+
+        .greeting-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .greeting-text p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .greeting-signature {
+            margin-top: 30px;
+            text-align: right;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-main);
+        }
+
+        .greeting-image img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* ==========================================
+           Contact Section
+           ========================================== */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .contact-wrapper {
+            background-color: var(--bg-light);
+            border-radius: 20px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .contact-info p {
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .contact-info .tel {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 15px 0;
+        }
+
+        .contact-map img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .contact-action {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-action .btn {
+            width: 100%;
+            padding: 18px 20px;
+            font-size: 16px;
+        }
+
+        .contact-action .btn i {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        .form-link {
+            font-size: 14px;
+            color: var(--text-main);
+            text-decoration: underline;
+        }
+
+        .form-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* ==========================================
+           Footer
+           ========================================== */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-nav a {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .footer-nav a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.7;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+        }
+
+        /* ==========================================
+           Mobile CTA & Floating Button
+           ========================================== */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .mobile-cta .cta-tel {
+            background-color: var(--primary-color);
+        }
+
+        .mobile-cta .cta-mail {
+            background-color: var(--accent-color);
+        }
+
+        .mobile-cta i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            background-color: var(--accent-hover);
+        }
+
+        /* ==========================================
+           Responsive Design
+           ========================================== */
+        @media (min-width: 769px) {
+            .mobile-cta {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                background: linear-gradient(110deg, var(--primary-color) 65%, #f4f7f6 65%);
+            }
+            .hero-content {
+                width: 60%;
+            }
+            .hero-image {
+                width: 35%;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+            .contact-action {
+                grid-column: span 2;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 60px; /* For mobile CTA */
+            }
+            
+            .header-contact {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .header-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .header-nav.active {
+                display: block;
+            }
+
+            .header-nav ul {
+                flex-direction: column;
+            }
+
+            .header-nav a {
+                padding: 15px 20px;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .header-nav a.active::before {
+                display: none;
+            }
+
+            .hero {
+                background: var(--primary-color);
+                padding: 40px 0 0 0;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-image {
+                width: 80%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .greeting-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .greeting-image {
+                order: -1;
+                margin-bottom: 30px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+            }
+
+            .contact-action {
+                grid-column: span 1;
+            }
+
+            .floating-btn {
+                display: none;
+            }
+            
+            .mobile-cta {
+                display: flex !important;
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo">
+                <img src="images/logo.png" alt="吉内弘充税理士事務所ロゴ" onerror="this.style.display='none'">
+                <span class="logo-text">吉内弘充税理士事務所</span>
+            </div>
+            <div class="header-contact">
+                <span class="header-tel">TEL: 044-819-7081</span>
+                <a href="#" class="btn btn-accent">無料相談を予約する</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="header-nav" id="nav-menu">
+            <ul>
+                <li><a href="#" class="active">ホーム</a></li>
+                <li><a href="#">事務所の特徴</a></li>
+                <li><a href="#">サービス案内</a></li>
+                <li><a href="#">料金・顧問料</a></li>
+                <li><a href="#">事務所概要</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">初回のご相談は無料です。</h1>
+                <p class="hero-subtitle">法人・個人事業の会計／開業支援／各種税務相談</p>
+                <p class="hero-desc">法人の設立、個人事業の青色申告、相続税など、事前にご相談いただいた場合、お客様のメリットにつながることはたくさんあります。また、現在事業を営んでおられるお客様に対しても、専門的で幅広い見地から、お客様の利益を第一にアドバイスいたします。</p>
+                <a href="#" class="btn btn-accent">まずは無料相談ください</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/indx/pro.png" alt="吉内弘充税理士事務所 所長 吉内弘充">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3 class="service-title">法人のお客様</h3>
+                    <p class="service-sub">経理・申告</p>
+                    <p class="service-desc">〜法人を設立して事業をはじめる</p>
+                    <a href="#" class="btn btn-primary">詳しく見る</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="service-title">個人事業のお客様</h3>
+                    <p class="service-sub">経理・申告</p>
+                    <p class="service-desc">〜個人事業をはじめる</p>
+                    <a href="#" class="btn btn-primary">詳しく見る</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-people-roof"></i></div>
+                    <h3 class="service-title">相続・贈与・譲渡</h3>
+                    <p class="service-sub">のご相談</p>
+                    <p class="service-desc">相続税の免税点が下がるけれど…</p>
+                    <a href="#" class="btn btn-primary">詳しく見る</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="feature">
+        <div class="container">
+            <h2 class="section-title">皆様の「近所の税理士」</h2>
+            <div class="feature-grid">
+                <div class="feature-block feature-text">
+                    <h3>会計ソフトを導入する「自経化」のメリット</h3>
+                    <p>当事務所では、これから会計ソフトを導入しようとお考えの方に、弥生会計シリーズを使った経理のしかたをご案内しております。</p>
+                    <p>この弥生会計は、現金出納帳、預金出納帳、売掛帳や買掛帳に入力していくやり方で記帳をしていくことから簿記の知識が無くても入力ができるという簡単さだけでなく、１０名以内ならば給与明細書が作成できることや固定資産を登録することにより減価償却が簡単に計算できるという便利な機能があることが特徴的です。これらの機能により給与や減価償却の仕訳も簡単に作成できてしまいます。</p>
+                    <p>また、事業を営むお客様にとって、本来の業務以外の作業の効率化は大きなテーマです。会計ソフトを導入することによって、時間や労力が大幅に削減されるだけでなく、売上の推移、前年度との比較、収支のバランスなどが把握しやすくなり、事業の見通しを立てる上で大きな力となります。</p>
+                    <p>当事務所では、法人のお客様には原則として毎月１回お客様の事業所等にお伺いして、弥生会計の操作方法に関するご質問にお答えするとともに、とくに売掛金の回収の管理に重点を置いて入力状況のチェックを行い、売上債権の滞留を生まないように努めます。</p>
+                    <p>このようなやりとりを通じて、お客様にも知らず知らず経理の力がついていきます。お客様が事業を継続し、展開を考える上で、大きな財産になることは間違いありません。</p>
+                    <a href="#" class="btn btn-accent">「自経化」について詳しく</a>
+                </div>
+                <div class="feature-block">
+                    <div class="map-container">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="登戸・新百合ヶ丘周辺の地図イメージ">
+                        <i class="fas fa-map-marker-alt map-pin"></i>
+                    </div>
+                    <div class="map-desc">
+                        <p>当事務所のある、登戸・新百合ヶ丘周辺はもちろんのこと、神奈川県全域、東京、埼玉などのお客様からもご愛顧いただいております。基本的に毎月それぞれのお客様を訪問いたします。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Greeting Section -->
+    <section class="greeting">
+        <div class="container">
+            <h2 class="section-title">所長からのごあいさつ</h2>
+            <div class="greeting-grid">
+                <div class="greeting-text">
+                    <p>私どものホームページにようこそおいでいただきありがとうございます。</p>
+                    <p>平成２４年５月より川崎市の新百合ヶ丘から多摩区登戸に事務所を移し、現在に至っております。</p>
+                    <p>まず、私どもの事務所の財産は、お付き合いをさせていただいているお客様です。事務所を構えた当時から新規開業の方が多く、そのすべての方々がこの厳しい時代のなかでとにかく誠実にそして着実に商売をやり抜こうとされています。そしてありがたいことに私どもは皆様のこのご努力を間近で拝見させていただいております。</p>
+                    <p>私どもの真の使命は、パイプ役となって皆様がお持ちになっている誠実さや着実さを他のお客様とも共有していただき皆様のご商売のお役に立つことだと思っています。もちろん秘密に関わる事項を共有することはありませんが、お客様がそれぞれお持ちになっている理念や信念のような部分の多くは共有していただけるのではないかと思っています。</p>
+                    <p>私どもがお客様に会計ソフトを導入していただきたいとお願いしているのは、それがお客様の「誠実さ」や「着実さ」に必ずプラスになると考えているからです。日々や月々の売上や利益は「誠実さ」のバロメータであり、また例えば売掛金の回収状況は「着実さ」のバロメータといえなくもありません。これらの数値をリアルタイムで見ることができれば「誠実さ」「着実さ」のための意思決定の判断をより早くすることができると思うのです。</p>
+                    <p>私どもがするべきことは、上記にあるお客様の意思決定が間違ったものにならないために会計ソフトを導入し、その後の運用のお手伝いをすることです。ぜひとも私どもにお任せいただきたいと存じます。</p>
+                    <p>ぜひいろいろお話しをさせていただきたいと思っています。本日このページにお越しくださった皆様にお会いできる日を心よりお待ちいたしております。</p>
+                    <p class="greeting-signature">吉内弘充税理士事務所所長 吉内弘充</p>
+                </div>
+                <div class="greeting-image">
+                    <img src="images/indx/pro.png" alt="吉内弘充税理士事務所 所長 吉内弘充">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ・アクセス</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <p>〒214-0014<br>神奈川県川崎市多摩区登戸3528-1<br>プロムナード多摩川コープ401</p>
+                    <p class="tel">TEL: <a href="tel:044-819-7081">044-819-7081</a></p>
+                    <p>FAX: 044-819-7082</p>
+                    <p>【平日】9:00〜18:00 ／ 休業日: 土・日・祝</p>
+                    <p>アクセス: 小田急線・JR南武線「登戸駅」多摩川口 徒歩2分</p>
+                </div>
+                <div class="contact-map">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80" alt="アクセスマップ">
+                </div>
+                <div class="contact-action">
+                    <a href="#" class="btn btn-accent">無料相談・お問い合わせはこちら <i class="far fa-smile"></i></a>
+                    <a href="#" class="form-link">お問い合わせフォームへ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="#">ホーム</a>
+                <a href="#">事務所の特徴</a>
+                <a href="#">サービス案内</a>
+                <a href="#">料金・顧問料</a>
+                <a href="#">事務所概要</a>
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">サイトマップ</a>
+            </nav>
+            <p class="copyright">Copyright (c) 2010-2013 吉内弘充税理士事務所. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Button (PC) -->
+    <a href="tel:044-819-7081" class="floating-btn" aria-label="電話をかける">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+
+    <!-- Mobile CTA (SP) -->
+    <div class="mobile-cta">
+        <a href="tel:044-819-7081" class="cta-tel">
+            <i class="fas fa-phone-alt"></i>
+            電話する
+        </a>
+        <a href="#" class="cta-mail">
+            <i class="far fa-envelope"></i>
+            お問い合わせ
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
