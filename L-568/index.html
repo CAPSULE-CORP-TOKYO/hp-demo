@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渡邉謙会計事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5B8C3E;
+            --secondary-color: #D99B48;
+            --text-color: #333333;
+            --bg-color: #FAFAFA;
+            --section-bg: #F4F7F4;
+            --notice-bg: #FFF3CD;
+            --white: #FFFFFF;
+            --font-main: 'Noto Sans JP', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            position: relative;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 0.05em;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .header-tel {
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-color);
+        }
+
+        .header-tel svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-color);
+        }
+
+        .btn-contact {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(217, 155, 72, 0.3);
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(217, 155, 72, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: var(--primary-color);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-list li a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-list li a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Notice Bar */
+        .notice-bar {
+            background: var(--notice-bg);
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #856404;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            margin-bottom: 35px;
+            line-height: 1.8;
+            color: #555;
+            background: var(--section-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--section-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .about-inner {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .about-images {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-img-main {
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .about-img-sub {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 50%;
+            border-radius: 15px;
+            border: 8px solid var(--section-bg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-subtitle {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .about-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .about-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .about-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Info Cards Section */
+        .info-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .card-img-wrap {
+            height: 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(91, 140, 62, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            fill: var(--white);
+        }
+
+        .card-body {
+            padding: 25px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Access Section */
+        .access {
+            padding: 100px 0;
+            background: var(--section-bg);
+        }
+
+        .access-inner {
+            display: flex;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .access-map {
+            flex: 1;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .access-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+        }
+
+        .access-info {
+            flex: 1;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .access-info p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .access-info .tel {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 10px 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .access-info .tel svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            align-self: flex-start;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .footer-desc {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.15);
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            text-align: center;
+            padding: 12px 10px;
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            gap: 5px;
+        }
+
+        .mobile-cta svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+
+        .cta-tel {
+            background: var(--primary-color);
+        }
+
+        .cta-contact {
+            background: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero .container {
+                gap: 40px;
+            }
+            .about-inner {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-contact {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .nav-list {
+                flex-direction: column;
+            }
+
+            .nav-list li a {
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hero {
+                padding: 50px 0;
+            }
+
+            .hero .container {
+                flex-direction: column;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-image img {
+                height: 300px;
+            }
+
+            .about {
+                padding: 60px 0;
+            }
+
+            .about-inner {
+                flex-direction: column;
+            }
+
+            .about-img-sub {
+                width: 60%;
+                right: 10px;
+                bottom: -20px;
+            }
+
+            .info-section {
+                padding: 60px 0;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .access {
+                padding: 60px 0;
+            }
+
+            .access-inner {
+                flex-direction: column;
+            }
+
+            .access-map {
+                min-height: 250px;
+            }
+
+            .access-info {
+                padding: 40px 20px;
+            }
+
+            .mobile-cta {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo-area">
+                <img src="https://cpakenwatanabe.com/wp-content/uploads/2023/05/画像2-removebg-preview-1.png" alt="渡邉謙会計事務所 ロゴ" class="logo-img">
+                <span class="logo-text">渡邉謙会計事務所</span>
+            </div>
+            <div class="header-contact">
+                <a href="tel:0466-47-4826" class="header-tel">
+                    <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                    TEL: 0466-47-4826
+                </a>
+                <a href="https://cpakenwatanabe.com/contact/" class="btn-contact">お問い合わせ</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="main-nav" id="main-nav">
+            <ul class="nav-list">
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">サービス案内</a></li>
+                <li><a href="#">事務所プロフィール</a></li>
+                <li><a href="#">問い合わせ</a></li>
+                <li><a href="#">アクセス</a></li>
+                <li><a href="#">よくある質問</a></li>
+                <li><a href="#">お役立ち情報</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Notice Bar -->
+    <div class="notice-bar">
+        誠に恐れ入りますが現在は業務多忙につき新規の顧問先引受を停止しております。
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">湘南は藤沢鵠沼で活動する税理士、渡邉謙の会計事務所webサイトです。事務所は鵠沼海岸駅から徒歩1分！</h1>
+                <div class="hero-desc">
+                    <p>★☆★　当サイトは渡邉謙会計事務所の「税理士業務」を全般にご案内しているwebサイトです　★☆★</p>
+                    <p style="margin-top: 10px; font-size: 0.9em;">（このサイトは代表である渡邉自身が運営管理しています）</p>
+                </div>
+                <a href="https://cpakenwatanabe.com/contact/" class="btn-contact" style="display: inline-block;">お問い合わせ</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="オフィス風景">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">はじめに・ご挨拶</h2>
+            <div class="about-inner">
+                <div class="about-images">
+                    <img src="https://cpakenwatanabe.com/wp-content/uploads/2023/05/1_Primary_logo_512-e1684670240815.jpg" alt="代表写真" class="about-img-main">
+                    <img src="https://cpakenwatanabe.com/wp-content/uploads/2025/10/その2_修正1.png" alt="代表ポートレート" class="about-img-sub">
+                </div>
+                <div class="about-content">
+                    <h3 class="about-subtitle">代表：渡邉　謙</h3>
+                    <div class="about-text">
+                        <p>渡邉謙会計事務所のホームページをご覧頂き、誠にありがとうございます。</p>
+                        <p>弊所は「お客様の事業の中長期的な成長に貢献する」ことをモットーに小田急線鵠沼海岸駅から徒歩1分の会計事務所です。</p>
+                        <p>相談を伺う際には、お客様のお話によく耳を傾けるよう心がけています。設立したばかりの会社や、合併・買収をお考えの会社など、様々な規模の会社の方、不動産や相続に関する不安があるなど、様々なお悩みをお持ちの個人の方、それぞれのお客様にあわせて対応しています。</p>
+                        <p>さて、皆様は何を基準に税理士を探していますか？金額や年齢、性別やこれまでのキャリアなど、重視される項目はそれぞれ違っていて宜しいかと思います。</p>
+                        <p>しかし、私には全ての皆様方に大事にしていただきたいポイントがあるのです。</p>
+                        <p>それは「税理士の人柄（人格・性格・個性・キャラクター）」です。</p>
+                        <p>人間それぞれに個性があれば、税理士にも当然個性があります。税理士と一度顧問契約すれば、一般的には長期に渡り関係が継続することになります。</p>
+                        <p>契約後に「考え方が合わないな…」「性格的に好きになれない」と感じても、税理士変更には心理的負担と労力がかかるのが現実です。</p>
+                        <p>極端な話、「結婚」に近いような感覚もあるのかもしれません。嫌いになっただけでは簡単には別れられませんよね。</p>
+                        <p>ですから、「ここだ！」と思う税理士（事務所）が見つかるまで、慎重に、かつ広くお相手を探していただきたいのです。</p>
+                        <p>皆様が納得できるパートナーが見つかるよう願っています。もし巡り合わせがあるなら、私がそのお相手になれれば幸いです。</p>
+                    </div>
+                    <a href="#" class="about-link">
+                        事務所概要、所長のプロフィールはコチラ
+                        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Cards Section -->
+    <section class="info-section">
+        <div class="container">
+            <h2 class="section-title">サービス・情報</h2>
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="サービス背景" class="card-img">
+                        <div class="card-overlay">
+                            <svg class="card-icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">サービスのご案内</h3>
+                        <p class="card-text">サービスのご案内はこちらをクリックしてください<br>弊所の方針、サービス内容を動画でご案内しています</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="FAQ背景" class="card-img">
+                        <div class="card-overlay">
+                            <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">よくあるご質問</h3>
+                        <p class="card-text">コチラによくあるご質問をまとめています</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Youtube背景" class="card-img">
+                        <div class="card-overlay">
+                            <svg class="card-icon" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Youtubeでの情報発信</h3>
+                        <p class="card-text">インボイス制度の解説動画を作りました<br>電子帳簿保存法の解説動画を作りました</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="ニュース背景" class="card-img">
+                        <div class="card-overlay">
+                            <svg class="card-icon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V5h2v6zm0 4h-2v-2h2v2z"/></svg>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">ニュース</h3>
+                        <p class="card-text">2024/01/19　新規相談申し込みの方向けのヒアリングシートをGoogleフォームで作成しました</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Section -->
+    <section class="access">
+        <div class="container">
+            <h2 class="section-title">アクセス</h2>
+            <div class="access-inner">
+                <div class="access-map">
+                    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1200&q=80" alt="アクセス周辺風景">
+                </div>
+                <div class="access-info">
+                    <p>事務所までのアクセスはコチラをご覧ください<br>小田急線鵠沼海岸駅から徒歩1分</p>
+                    <p>〒251-0037<br>神奈川県藤沢市鵠沼海岸３丁目５−５<br>鵠沼原田ビル 205号室</p>
+                    <a href="tel:0466-47-4826" class="tel">
+                        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                        TEL: 0466-47-4826
+                    </a>
+                    <a href="https://cpakenwatanabe.com/contact/" class="btn-outline">お問い合わせ<br><span style="font-size: 0.8em; font-weight: normal;">コチラのフォームからお願いします</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 class="footer-title">渡邉謙会計事務所</h2>
+                <p class="footer-subtitle">所長：渡邉　謙</p>
+                <p class="footer-desc">神奈川県の湘南地域（鵠沼海岸が拠点）を中心に活動する個人会計事務所です。お客様の悩みをよく聞き、適時に的確に答えることを第一に行動しています。</p>
+            </div>
+            <div class="copyright">
+                Copyright &copy; 2019 渡邉謙会計事務所 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:0466-47-4826" class="cta-tel">
+            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            電話する
+        </a>
+        <a href="https://cpakenwatanabe.com/contact/" class="cta-contact">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            お問い合わせ
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const mainNav = document.getElementById('main-nav');
+
+            hamburger.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
