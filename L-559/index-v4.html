@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矢野直子税理士事務所</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --primary: #FF9900;
+    --primary-light: #FFE8CC;
+    --primary-dark: #E68A00;
+    --accent: #F07B5E; /* リデザイン画像のボタン色 */
+    --text-main: #333333;
+    --text-light: #666666;
+    --bg-light: #FFF9F2;
+    --white: #FFFFFF;
+  }
+
+  /* Reset & Base */
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; height: auto; display: block; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  
+  .section-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary);
+    margin: 15px auto 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 153, 0, 0.3);
+  }
+  .btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 153, 0, 0.4);
+  }
+  .btn-accent {
+    background-color: var(--accent);
+    box-shadow: 0 4px 10px rgba(240, 123, 94, 0.3);
+  }
+  .btn-accent:hover {
+    background-color: #d96a4f;
+    box-shadow: 0 6px 15px rgba(240, 123, 94, 0.4);
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo span {
+    color: var(--primary);
+    font-size: 26px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 700;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--primary); }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  .header-tel {
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-tel i { color: var(--primary); }
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--text-main);
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 100px 0;
+    background-color: var(--bg-light);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.05;
+    z-index: 0;
+  }
+  .hero .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hero-content {
+    flex: 1;
+    max-width: 550px;
+  }
+  .hero-catch {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+  .hero-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .hero-image img {
+    max-width: 90%;
+    border-radius: 20px 20px 20px 120px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+  }
+  .hero-shape {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background-color: #FDEBD0;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  /* Services */
+  .services { padding: 100px 0; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .service-card {
+    background: linear-gradient(145deg, #FFE8CC 0%, #FFD5A3 100%);
+    padding: 50px 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255,153,0,0.15);
+    transition: transform 0.3s ease;
+  }
+  .service-card:hover { transform: translateY(-10px); }
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 36px;
+    color: var(--primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  .service-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .service-desc {
+    font-size: 14px;
+    text-align: left;
+    line-height: 1.8;
+  }
+
+  /* Philosophy */
+  .philosophy {
+    padding: 100px 0;
+    position: relative;
+    background-color: #2C3E50;
+    color: var(--white);
+  }
+  .philosophy-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+  }
+  .philosophy .container { position: relative; z-index: 1; }
+  .philosophy .section-title::after { background-color: var(--primary); }
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .philosophy-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .philosophy-item h3 {
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .philosophy-item h3::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 18px;
+    background: var(--primary);
+    color: var(--white);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .philosophy-item p { font-size: 15px; line-height: 1.8; margin: 0; }
+
+  /* Flow */
+  .flow { padding: 100px 0; background-color: var(--bg-light); }
+  .flow-list {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+  }
+  .flow-item {
+    display: flex;
+    margin-bottom: 20px;
+    background: var(--white);
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    align-items: center;
+  }
+  .flow-num {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 24px;
+    margin-right: 25px;
+    flex-shrink: 0;
+  }
+  .flow-text { font-weight: 700; font-size: 18px; }
+  .flow-note {
+    max-width: 800px;
+    margin: 40px auto 0;
+    font-size: 14px;
+    color: var(--text-light);
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  /* Latest Posts */
+  .latest-posts { padding: 100px 0; }
+  .latest-posts-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .latest-posts-header {
+    background: var(--primary);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .latest-posts-content { padding: 40px; }
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .post-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  .post-info { padding: 10px 0; }
+  .post-cat {
+    display: inline-block;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .post-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  .post-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  .post-meta i { margin-right: 5px; }
+
+  /* Guidance (CTA + Access) */
+  .guidance { background-color: var(--primary-light); padding: 100px 0; }
+  .cta-area { text-align: center; margin-bottom: 80px; }
+  .cta-title { font-size: 28px; font-weight: 700; margin-bottom: 20px; }
+  .cta-tel {
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  .cta-time { font-size: 16px; color: var(--text-main); margin-bottom: 40px; font-weight: 500; }
+  
+  .access-area .section-title { margin-bottom: 40px; }
+  .access-area .section-title::after { display: none; }
+  .access-card {
+    display: flex;
+    background: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .access-map { flex: 1; min-height: 400px; }
+  .access-map iframe { width: 100%; height: 100%; border: none; }
+  .access-info {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .access-address {
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-weight: 500;
+  }
+  .access-address i { color: var(--primary); margin-right: 10px; font-size: 20px; }
+  .access-btn {
+    align-self: flex-start;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    transition: background-color 0.3s;
+  }
+  .access-btn:hover { background-color: #d96a4f; }
+  .access-images {
+    display: flex;
+    gap: 15px;
+  }
+  .access-images img {
+    width: calc(50% - 7.5px);
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 5px solid var(--primary);
+    padding: 80px 0 30px;
+    background: var(--white);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+  .footer-info h4 { font-size: 20px; margin-top: 0; margin-bottom: 20px; font-weight: 700; }
+  .footer-info p { font-size: 14px; margin-bottom: 8px; color: var(--text-main); }
+  .footer-nav { display: flex; gap: 60px; }
+  .footer-nav-col { display: flex; gap: 40px; }
+  .footer-nav-col ul { list-style: none; padding: 0; margin: 0; }
+  .footer-nav-col li { margin-bottom: 15px; }
+  .footer-nav-col a { font-size: 14px; font-weight: 700; transition: color 0.3s; }
+  .footer-nav-col a:hover { color: var(--primary); }
+  .copyright {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-light);
+    border-top: 1px solid #EEEEEE;
+    padding-top: 30px;
+  }
+
+  /* Mobile CTA Bar */
+  .mobile-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+  .mobile-cta-inner { display: flex; }
+  .mobile-cta a {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .mobile-cta a i { font-size: 20px; }
+  .mobile-cta-tel { background: var(--white); color: var(--primary); }
+  .mobile-cta-mail { background: var(--accent); color: var(--white); }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero-catch { font-size: 32px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .access-card { flex-direction: column; }
+    .access-map { min-height: 300px; }
+  }
+  @media (max-width: 768px) {
+    header { padding: 15px 20px; }
+    .header-right { display: none; }
+    .hamburger { display: block; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      gap: 15px;
+    }
+    .nav-links.active { display: flex; }
+    
+    .hero { padding: 60px 0; }
+    .hero .container { flex-direction: column; text-align: center; }
+    .hero-content { margin-bottom: 50px; max-width: 100%; }
+    .hero-image { justify-content: center; width: 100%; }
+    .hero-shape { top: 50%; right: 50%; transform: translate(50%, -50%); width: 300px; height: 300px; }
+    
+    .services-grid { grid-template-columns: 1fr; }
+    
+    .cta-tel { font-size: 32px; flex-direction: column; gap: 5px; }
+    
+    .footer-inner { flex-direction: column; gap: 40px; }
+    .footer-nav { flex-direction: column; gap: 20px; }
+    .footer-nav-col { flex-direction: column; gap: 0; }
+    
+    .mobile-cta { display: block; }
+    body { padding-bottom: 70px; }
+  }
+</style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span>矢</span> 矢野直子税理士事務所
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">税務申告</a></li>
+      <li><a href="#">相続税申告</a></li>
+      <li><a href="#">事務所紹介</a></li>
+      <li><a href="#">事務所通信</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  <div class="header-right">
+    <div class="header-tel">
+      <i class="fas fa-phone-alt"></i> 0467-95-2602
+    </div>
+    <a href="#" class="btn btn-accent"><i class="fas fa-envelope"></i> 無料相談を予約する</a>
+  </div>
+  <div class="hamburger">
+    <i class="fas fa-bars"></i>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="https://naoko-tax.com/wp-content/uploads/2020/04/IMG_4111.jpg" alt="背景" class="hero-bg">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-catch">お客様一人ひとりに寄り添い…。<br>極め細やかなサポートを…。</h1>
+      <p class="hero-sub">鎌倉・大船の地域密着型税理士事務所です。</p>
+      <a href="#" class="btn btn-accent">まずはお気軽にご相談ください</a>
+    </div>
+    <div class="hero-image">
+      <div class="hero-shape"></div>
+      <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="税理士イメージ">
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <h2 class="section-title">サービス内容</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-calculator"></i></div>
+        <h3 class="service-title">税務申告</h3>
+        <p class="service-desc">経営者の皆様一人ひとりが満足し、お客様自身・会社の仕事が発展していただくため、会計から一歩踏み込んだパートナーとなりたいと思っています。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-users"></i></div>
+        <h3 class="service-title">相続税申告</h3>
+        <p class="service-desc">既に発生した相続はもちろんのこと、将来の相続に不安をお持ちの方もお気軽にご相談ください。お任せいただければ全て当事務所で行います。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-handshake"></i></div>
+        <h3 class="service-title">事務所紹介</h3>
+        <p class="service-desc">矢野直子税理士事務所は、大船駅から徒歩10分、大船駅とフラワーセンターの間にあり、鎌倉青色申告会では、確定申告の指導を行っています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy">
+  <img src="http://naoko-tax.com/wp-content/uploads/2020/05/top_image.jpg" alt="理念背景" class="philosophy-bg">
+  <div class="container">
+    <h2 class="section-title">当事務所の理念</h2>
+    <div class="philosophy-grid">
+      <div class="philosophy-item">
+        <h3>会計には力がある</h3>
+        <p>ひとりひとりに満足していただき、お客様自身・会社の仕事が発展していくことが一番の喜び。だからこそ、見えにくい部分である＜会計（経営）＞を支えていく助けになりたいのです。また、会計から一歩踏み込んだ、パートナーとなることができるのも当税理士事務所の強みの一つです</p>
+      </div>
+      <div class="philosophy-item">
+        <h3>合法的に節税すること</h3>
+        <p>税理士に依頼する意義は、「相談できること」と、「合法的に節税すること」ではないでしょうか。合法的に税金や会社の経費を支払っていけるよう、また、相続の場合も、合法的にぎりぎりまで税金を抑えられるよう、時にはコンサルタントのように、今後の展望を一緒に考えていきます。</p>
+      </div>
+      <div class="philosophy-item">
+        <h3>相談に応じて何でも対応</h3>
+        <p>例えば、会計ソフトはお客様の使用されているもの何でも対応することが可能です。いつでも必要な資料を提出できるように準備をしています。困ったときも、フットワーク軽く、極力迅速に対応いたします。お客様の要望通りに動き、寄り添うことを大切にしています。</p>
+      </div>
+      <div class="philosophy-item">
+        <h3>女性も安心！</h3>
+        <p>同性だからこそ、話しやすい、聞きやすいこともあると思います。＜所得＞＜法人会計＞＜相続＞など税務に関して不安に思っていることがありましたら、一人で抱えず、まずはご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="container">
+    <h2 class="section-title">相談からご契約までの流れ</h2>
+    <ul class="flow-list">
+      <li class="flow-item">
+        <div class="flow-num">1</div>
+        <div class="flow-text">お客様からの相談のご依頼</div>
+      </li>
+      <li class="flow-item">
+        <div class="flow-num">2</div>
+        <div class="flow-text">日程調整 — 場所、時間等、極力お客様のご都合を優先いたします。</div>
+      </li>
+      <li class="flow-item">
+        <div class="flow-num">3</div>
+        <div class="flow-text">ご相談後、お見積書作成</div>
+      </li>
+      <li class="flow-item">
+        <div class="flow-num">4</div>
+        <div class="flow-text">お客様からのご依頼</div>
+      </li>
+      <li class="flow-item">
+        <div class="flow-num">5</div>
+        <div class="flow-text">契約締結</div>
+      </li>
+    </ul>
+    <div class="flow-note">
+      税理士には守秘義務が課せられています。（税理士法38条）税理業務に関して知り得た秘密は他には洩らしません。どうぞ、安心してご相談ください。
+    </div>
+  </div>
+</section>
+
+<section class="latest-posts">
+  <div class="container">
+    <div class="latest-posts-container">
+      <div class="latest-posts-header">最新の投稿</div>
+      <div class="latest-posts-content">
+        <div class="post-card">
+          <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="遺産分割のやり直し" class="post-img">
+          <div class="post-info">
+            <span class="post-cat">相続税</span>
+            <h3 class="post-title">遺産分割のやり直し</h3>
+            <div class="post-meta">
+              <span><i class="far fa-clock"></i> 2022年8月26日</span>
+              <span><i class="far fa-eye"></i> 1116 views</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guidance">
+  <div class="container">
+    <div class="cta-area">
+      <h2 class="cta-title">お気軽にお問い合わせください。</h2>
+      <div class="cta-tel"><i class="fas fa-phone-alt"></i> 0467-95-2602</div>
+      <div class="cta-time">受付時間 9:00-18:00 [ 祝日除く ]</div>
+      <a href="#" class="btn btn-accent"><i class="fas fa-envelope"></i> メールでのお問い合わせはこちら</a>
+    </div>
+
+    <div class="access-area">
+      <h2 class="section-title">ご案内</h2>
+      <div class="access-card">
+        <div class="access-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.865457585554!2d139.5280553152512!3d35.35280098027216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601845a0b0b0b0b1%3A0x1b0b0b0b0b0b0b0b!2z44CSMjQ3LTAwNzIg56We5aWI5bed55yM6Y6M5YCJ5biC5bKh5pys77yS5LiB55uu77yR77yT4oiS77yS77yT!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="access-info">
+          <div class="access-address">
+            <i class="fas fa-map-marker-alt"></i> 〒247-0072<br>神奈川県鎌倉市岡本 2-13-23 平井ビル301
+          </div>
+          <a href="#" class="access-btn">マップで開く</a>
+          <div class="access-images">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="事務所イメージ1">
+            <img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="事務所イメージ2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <h4>矢野直子税理士事務所</h4>
+        <p>〒247-0072 神奈川県鎌倉市岡本 2-13-23 平井ビル301</p>
+        <p>電話番号：0467-95-2602</p>
+        <p>Fax番号：0467-91-5266</p>
+        <p>mail：yano@naoko-tax.com</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-col">
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">税務申告</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">相続税申告</a></li>
+            <li><a href="#">事務所紹介</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">事務所通信</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      Copyright &copy; 鎌倉市｜大船｜矢野直子税理士事務所 All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <div class="mobile-cta-inner">
+    <a href="tel:0467-95-2602" class="mobile-cta-tel">
+      <i class="fas fa-phone-alt"></i>
+      0467-95-2602
+    </a>
+    <a href="#" class="mobile-cta-mail">
+      <i class="fas fa-envelope"></i>
+      無料相談を予約する
+    </a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+    });
+  });
+</script>
+
+</body>
+</html>
