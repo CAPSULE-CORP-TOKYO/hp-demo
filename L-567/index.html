@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大場尚之税理士・行政書士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1b2e50;
+            --accent-color: #d49a5b;
+            --text-color: #333333;
+            --bg-light: #f8f9fa;
+            --bg-section: #fdfbf7;
+            --white: #ffffff;
+            --font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-family); color: var(--text-color); line-height: 1.6; background-color: var(--white); }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+        ul { list-style: none; }
+
+        h1, h2, h3, h4 { color: var(--primary-color); font-weight: 700; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
+        .section-subtitle { text-align: center; font-size: 0.9rem; color: #666; margin-bottom: 3rem; font-weight: 700; letter-spacing: 1px; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; }
+
+        /* Header */
+        header { background-color: var(--primary-color); color: var(--white); padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 35px; filter: brightness(0) invert(1); }
+        .header-right { display: flex; align-items: center; gap: 30px; }
+        .header-tel { font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+        .btn-header { background-color: var(--accent-color); color: var(--white); padding: 10px 25px; border-radius: 30px; font-weight: 700; font-size: 0.9rem; transition: opacity 0.3s; }
+        .btn-header:hover { opacity: 0.8; }
+        
+        /* Navigation */
+        .nav-desktop { background-color: #152440; border-top: 1px solid rgba(255,255,255,0.1); }
+        .nav-list { display: flex; justify-content: center; gap: 50px; padding: 15px 0; }
+        .nav-list a { color: var(--white); font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-list a:hover { color: var(--accent-color); }
+
+        /* Hamburger */
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+        .hamburger span { width: 30px; height: 2px; background-color: var(--white); transition: 0.3s; }
+
+        /* Hero */
+        .hero { position: relative; background: url('https://images.unsplash.com/photo-1542931287-023b922fa89b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; padding: 120px 0 80px; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(27, 46, 80, 0.9) 0%, rgba(27, 46, 80, 0.4) 100%); }
+        .hero-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; }
+        .hero-content { max-width: 650px; color: var(--white); }
+        .hero-title { font-size: 2.4rem; line-height: 1.5; margin-bottom: 30px; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero-btn { display: inline-block; background-color: var(--accent-color); color: var(--white); padding: 18px 50px; border-radius: 40px; font-size: 1.1rem; font-weight: 700; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 5px 15px rgba(212, 154, 91, 0.4); }
+        .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(212, 154, 91, 0.6); }
+        .hero-image { max-width: 450px; position: absolute; bottom: -80px; right: 0; z-index: 0; }
+
+        /* Services */
+        .services { background-color: var(--white); }
+        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .service-card { background: var(--white); padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.06); border: 1px solid #eee; display: flex; flex-direction: column; align-items: center; }
+        .service-icon { width: 90px; height: 90px; border-radius: 50%; overflow: hidden; margin-bottom: 25px; border: 4px solid var(--bg-section); background-color: var(--accent-color); display: flex; justify-content: center; align-items: center; }
+        .service-icon img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; mix-blend-mode: multiply; }
+        .service-card h3 { font-size: 1.2rem; margin-bottom: 15px; line-height: 1.4; }
+        .service-card p { font-size: 0.9rem; color: #555; margin-bottom: 25px; text-align: left; flex-grow: 1; }
+        .btn-outline { display: inline-block; border: 2px solid var(--accent-color); color: var(--accent-color); padding: 10px 30px; border-radius: 30px; font-size: 0.9rem; font-weight: 700; transition: all 0.3s; }
+        .btn-outline:hover { background-color: var(--accent-color); color: var(--white); }
+
+        /* Strengths */
+        .strengths { background-color: var(--bg-section); }
+        .strength-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px; }
+        .strength-card { background: var(--white); padding: 35px 30px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); }
+        .strength-img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 25px; }
+        .strength-card h3 { font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; line-height: 1.4; }
+        .strength-card h3::before { content: ''; display: block; width: 24px; height: 24px; background-color: var(--accent-color); border-radius: 50%; flex-shrink: 0; }
+        .strength-card p { font-size: 0.9rem; color: #555; }
+        .strength-cta { text-align: center; }
+        .btn-large { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: var(--accent-color); color: var(--white); padding: 20px 60px; border-radius: 40px; font-size: 1.2rem; font-weight: 700; box-shadow: 0 8px 25px rgba(212, 154, 91, 0.4); transition: transform 0.3s; }
+        .btn-large:hover { transform: translateY(-3px); }
+
+        /* Info & News */
+        .info-news { background-color: var(--white); }
+        .info-news-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        
+        /* Office Info */
+        .office-card { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 5px 30px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column; gap: 25px; }
+        .map-container { width: 100%; height: 250px; border-radius: 10px; overflow: hidden; background-color: #eee; }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        .office-details { display: flex; gap: 25px; align-items: center; }
+        .office-rep-img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--bg-section); }
+        .office-text h4 { font-size: 1.1rem; margin-bottom: 8px; color: var(--primary-color); }
+        .office-text p { font-size: 0.9rem; margin-bottom: 5px; color: #555; }
+
+        /* News */
+        .news-list { display: flex; flex-direction: column; gap: 15px; }
+        .news-item { background: var(--white); padding: 25px; border-radius: 15px; display: flex; flex-direction: column; gap: 8px; transition: box-shadow 0.3s; box-shadow: 0 2px 15px rgba(0,0,0,0.03); border: 1px solid #eee; }
+        .news-item:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+        .news-date { font-size: 0.85rem; color: var(--primary-color); font-weight: 700; }
+        .news-title { font-size: 0.95rem; color: var(--text-color); font-weight: 500; }
+
+        /* Footer */
+        footer { background-color: var(--primary-color); color: var(--white); padding: 80px 0 30px; }
+        .footer-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; margin-bottom: 60px; }
+        .footer-logo img { height: 45px; margin-bottom: 25px; filter: brightness(0) invert(1); }
+        .footer-info p { font-size: 0.9rem; margin-bottom: 10px; opacity: 0.8; }
+        .footer-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .footer-nav a { font-size: 0.95rem; opacity: 0.8; transition: opacity 0.3s; }
+        .footer-nav a:hover { opacity: 1; color: var(--accent-color); }
+        .copyright { text-align: center; font-size: 0.8rem; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; }
+
+        /* Mobile CTA */
+        .mobile-cta { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); box-shadow: 0 -2px 15px rgba(0,0,0,0.1); z-index: 999; }
+        .mobile-cta-inner { display: flex; }
+        .mobile-cta a { flex: 1; text-align: center; padding: 15px 0; font-weight: 700; font-size: 0.95rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .mobile-cta-tel { background: var(--white); color: var(--primary-color); }
+        .mobile-cta-btn { background: var(--accent-color); color: var(--white); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-image { max-width: 380px; right: -20px; }
+            .service-grid, .strength-grid { gap: 20px; }
+            .info-news-inner { gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .header-right { display: none; }
+            .hamburger { display: flex; }
+            .nav-desktop { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-color); flex-direction: column; padding: 20px 0; border-top: none; }
+            .nav-desktop.active { display: flex; }
+            .nav-list { flex-direction: column; align-items: center; gap: 20px; padding: 0; }
+            
+            .hero { padding: 80px 0 0; text-align: center; }
+            .hero::before { background: rgba(27, 46, 80, 0.8); }
+            .hero-inner { flex-direction: column; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-image { position: relative; bottom: auto; right: auto; margin-top: 40px; max-width: 90%; display: block; margin-left: auto; margin-right: auto; }
+
+            .service-grid, .strength-grid, .info-news-inner, .footer-inner { grid-template-columns: 1fr; }
+            .footer-nav { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo img { margin: 0 auto 25px; }
+            .footer-info { text-align: center; }
+            
+            .mobile-cta { display: block; }
+            body { padding-bottom: 70px; }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="https://kamakura-tax.com/wp-content/themes/jamtpl/cmn/images/logo.png" alt="大場尚之税理士・行政書士事務所">
+            </a>
+            <div class="header-right">
+                <div class="header-tel">TEL: <a href="tel:0467-39-6272" style="color:inherit">0467-39-6272</a><br><span style="font-size:0.7rem;opacity:0.7">平日9時～17時（土日祝除く）</span></div>
+                <a href="#" class="btn-header">お問合せ</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    <nav class="nav-desktop" id="nav-menu">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">業務内容</a></li>
+                <li><a href="#">料金について</a></li>
+                <li><a href="#">経営理念</a></li>
+                <li><a href="#">事務所紹介</a></li>
+                <li><a href="#">お問合せ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <h1 class="hero-title">鎌倉、藤沢、湘南エリアの相続税、医業(医科・歯科)に特化した税理士・行政書士事務所です</h1>
+                <a href="#" class="hero-btn">お問合せ</a>
+            </div>
+            <img src="https://kamakura-tax.com/wp-content/themes/jamtpl/cmn/images/strength00.png" alt="代表 大場尚之" class="hero-image">
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">提供サービス</h2>
+            <p class="section-subtitle">業務内容</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="相続税申告・相続手続・生前対策">
+                    </div>
+                    <h3>相続税申告・相続手続・生前対策</h3>
+                    <p>平成27年以降、相続税法が大幅に改正され、相続税の対象者が年々増加しています。まずは現状を知り、争族にならない対策、節税対策などを検討しましょう。</p>
+                    <a href="#" class="btn-outline">詳しく見る</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="医科・歯科サポート">
+                    </div>
+                    <h3>医科・歯科サポート</h3>
+                    <p>当事務所が特に重点をおいているのは、相続及び相続税の対策、医業のサポート。医科・歯科の先生方の経営を税務面からしっかりとサポートいたします。</p>
+                    <a href="#" class="btn-outline">詳しく見る</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="税務一般">
+                    </div>
+                    <h3>税務一般</h3>
+                    <p>悩みを抱える方のお話や資料から現状を分析し、何が問題なのか見える化、会計・税務面からもお客様の強みや課題等をアドバイス致します。</p>
+                    <a href="#" class="btn-outline">詳しく見る</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="strengths">
+        <div class="container">
+            <h2 class="section-title">当事務所の強み</h2>
+            <p class="section-subtitle">Strengths</p>
+            <div class="strength-grid">
+                <div class="strength-card">
+                    <img src="https://kamakura-tax.com/wp-content/themes/jamtpl/cmn/images/strength01.png" alt="鎌倉に生まれ、鎌倉で育った税理士" class="strength-img">
+                    <h3>鎌倉に生まれ、鎌倉で育った税理士</h3>
+                    <p>当事務所の所長は、御成小学校・御成中学校卒業。地元が鎌倉のため、鎌倉・逗子・葉山・藤沢など湘南エリアの事情に精通しています。こちらは相続の土地の評価等を行う上で、大変重要な要素となっています。</p>
+                </div>
+                <div class="strength-card">
+                    <img src="https://kamakura-tax.com/wp-content/themes/jamtpl/cmn/images/strength02.png" alt="医業のサポート" class="strength-img">
+                    <h3>医業のサポート</h3>
+                    <p>当事務所が特に重点をおいているのは、相続及び相続税の対策、医業のサポート。悩みを抱える方のお話や資料から現状を分析し、何が問題なのか見える化、会計・税務面からもお客様の強みや課題等をアドバイス致します。</p>
+                </div>
+                <div class="strength-card">
+                    <img src="https://kamakura-tax.com/wp-content/themes/jamtpl/cmn/images/strength03.png" alt="豊富な経験と実績" class="strength-img">
+                    <h3>豊富な経験と実績</h3>
+                    <p>鎌倉に住む方を支え続ける税理士でありたい、と東京地方税理士会鎌倉支部・厚生副部長の役も務め、地元小学校の「はじめての税金教室」の先生や、企業のセミナー講師なども積極的に引き受け、日々精進しております。</p>
+                </div>
+            </div>
+            <div class="strength-cta">
+                <a href="tel:0467-39-6272" class="btn-large">お電話でのご予約・ご相談はこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color:var(--bg-section);padding:60px 0">
+        <div class="container">
+            <h2 class="section-title">当事務所運営専門サイト</h2>
+            <p class="section-subtitle">Specialized Website</p>
+            <div style="display:flex;gap:40px;align-items:center;flex-wrap:wrap;justify-content:center">
+                <div style="flex:0 0 300px"><a href="https://souzokuzei-kamakura.com/" target="_blank"><img src="https://kamakura-tax.com/wp-content/themes/jamtpl/cmn/images/websiteimage01.png" alt="鎌倉相続Navi" style="border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1)"></a></div>
+                <div style="flex:1;min-width:280px"><p style="line-height:1.9">平成27年以降、相続税法が大幅に改正され、相続税の対象者が年々増加しています。裁判所によると、もめる割合は遺産総額5000万円以下で7割を超えます。まずは現状を知り、争族にならない対策、節税対策などを検討しましょう。相続手続の代行も行っております。必要に応じて、弁護士や司法書士等専門分野の先生と連携しますのでご安心ください。</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-news">
+        <div class="container info-news-inner">
+            <div>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 0.5rem;">事務所案内</h2>
+                <p class="section-subtitle" style="text-align: left; margin-bottom: 2rem;">Office Info</p>
+                <div class="office-card">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.887850558034!2d139.5435!3d35.3115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDE4JzQxLjQiTiAxMznCsDMyJzM2LjYiRQ!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="office-details">
+                        <img src="https://kamakura-tax.com/wp-content/themes/jamtpl/cmn/images/strength00.png" alt="代表 大場尚之" class="office-rep-img">
+                        <div class="office-text">
+                            <h4>代表：大場 尚之</h4>
+                            <p>所在地：〒248-0014<br>神奈川県鎌倉市由比ヶ浜３－５－１１由比ヶ浜ＨＡＬＥ１０１</p>
+                            <p>TEL：0467-39-6272</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 0.5rem;">お知らせ</h2>
+                <p class="section-subtitle" style="text-align: left; margin-bottom: 2rem;">News</p>
+                <div class="news-list">
+                    <a href="#" class="news-item">
+                        <span class="news-date">2021.1.28</span>
+                        <span class="news-title">書籍「士業プロフェッショナル2021年版」掲載について</span>
+                    </a>
+                    <a href="#" class="news-item">
+                        <span class="news-date">2020.8.11</span>
+                        <span class="news-title">夏季休業について</span>
+                    </a>
+                    <a href="#" class="news-item">
+                        <span class="news-date">2020.7.13</span>
+                        <span class="news-title">書籍「相続・事業承継に強い!頼れる士業・専門家50選」について</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <a href="#" class="footer-logo">
+                        <img src="https://kamakura-tax.com/wp-content/themes/jamtpl/cmn/images/footer_logo.png" alt="大場尚之税理士・行政書士事務所">
+                    </a>
+                    <div class="footer-info">
+                        <p>〒248-0014<br>神奈川県鎌倉市由比ヶ浜３－５－１１由比ヶ浜ＨＡＬＥ１０１</p>
+                        <p>TEL: 0467-39-6272</p>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <a href="#">HOME</a>
+                    <a href="#">事業内容</a>
+                    <a href="#">料金について</a>
+                    <a href="#">経営理念</a>
+                    <a href="#">事務所紹介</a>
+                    <a href="#">お知らせ</a>
+                    <a href="#">お問合せ・セミナー申込み</a>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright &copy; 大場尚之税理士・行政書士事務所 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-cta">
+        <div class="mobile-cta-inner">
+            <a href="tel:0467-39-6272" class="mobile-cta-tel">
+                <span style="font-size: 0.75rem; color: #666; font-weight: 500;">お電話でのご相談</span>
+                0467-39-6272
+            </a>
+            <a href="#" class="mobile-cta-btn">
+                お問合せ・セミナー申込み
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
