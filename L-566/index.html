@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山崎暁生税理士事務所</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary: #1B3A5C;
+  --accent: #C7A84E;
+  --bg-base: #FAFAF7;
+  --text-main: #333333;
+  --text-light: #666666;
+  --white: #FFFFFF;
+  --section-padding: 100px 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 12px 32px;
+  border-radius: 999px;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #b39645;
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* Header */
+header {
+  background-color: var(--bg-base);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo i {
+  color: var(--accent);
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header-contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-tel {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--primary);
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-base);
+  z-index: 999;
+  padding-top: 100px;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-mobile.active {
+  display: flex;
+}
+
+.nav-mobile .nav-links {
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, rgba(250, 250, 247, 1) 0%, rgba(250, 250, 247, 0.9) 40%, rgba(250, 250, 247, 0) 100%), url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 16px;
+  margin-bottom: 40px;
+  color: var(--text-main);
+}
+
+/* Services */
+.services {
+  padding: var(--section-padding);
+  background-color: var(--bg-base);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--white);
+  font-size: 24px;
+}
+
+.service-card h3 {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--text-light);
+  text-align: left;
+}
+
+/* Features */
+.features {
+  padding: var(--section-padding);
+  background-color: var(--bg-base);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.feature-item {
+  text-align: center;
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #F5F0E1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--primary);
+  font-size: 32px;
+}
+
+.feature-item h3 {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.feature-item p {
+  font-size: 14px;
+  color: var(--text-light);
+  text-align: left;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: var(--section-padding);
+  background-color: var(--bg-base);
+}
+
+.cta-box {
+  background: linear-gradient(rgba(27, 58, 92, 0.85), rgba(27, 58, 92, 0.85)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  border-radius: 24px;
+  padding: 80px 40px;
+  text-align: center;
+  color: var(--white);
+}
+
+.cta-box h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.cta-box p {
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+/* About */
+.about {
+  padding: var(--section-padding);
+  background-color: var(--bg-base);
+}
+
+.about-content {
+  display: flex;
+  gap: 50px;
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.about-map {
+  flex: 1;
+  min-height: 400px;
+}
+
+.about-info {
+  flex: 1;
+  padding: 50px 50px 50px 0;
+}
+
+.about-info dl {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.about-info dt {
+  width: 30%;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.about-info dd {
+  width: 70%;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  color: var(--text-main);
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  margin: 0 15px;
+}
+
+.copyright {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Mobile CTA Bar */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.mobile-cta-inner {
+  display: flex;
+}
+
+.mobile-cta a {
+  flex: 1;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.mobile-cta .tel {
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+.mobile-cta .mail {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-content {
+    flex-direction: column;
+  }
+  .about-info {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px 0;
+  }
+  
+  .nav-desktop {
+    display: none;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  
+  .hero {
+    height: auto;
+    padding: 100px 0;
+    background: linear-gradient(rgba(250, 250, 247, 0.9), rgba(250, 250, 247, 0.9)), url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  }
+  
+  .hero h1 {
+    font-size: 28px;
+  }
+  
+  .services-grid, .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .about-info dt, .about-info dd {
+    width: 100%;
+    padding: 10px 0;
+  }
+  
+  .about-info dt {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  body {
+    padding-bottom: 60px; /* For mobile CTA */
+  }
+  
+  .mobile-cta {
+    display: block;
+  }
+}
+</style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <i class="fa-solid fa-users"></i>
+      山崎暁生税理士事務所
+    </a>
+    
+    <div class="nav-desktop">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">ホーム</a></li>
+          <li><a href="#">サービス</a></li>
+          <li><a href="#">事務所の特長</a></li>
+          <li><a href="#">事務所概要</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="header-contact">
+        <a href="tel:0467-55-2140" class="header-tel">TEL: 0467-55-2140</a>
+        <a href="#" class="btn">無料相談はこちら</a>
+      </div>
+    </div>
+
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-mobile" id="nav-mobile">
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">サービス</a></li>
+      <li><a href="#">事務所の特長</a></li>
+      <li><a href="#">事務所概要</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  <div class="header-contact" style="flex-direction: column;">
+    <a href="tel:0467-55-2140" class="header-tel">TEL: 0467-55-2140</a>
+    <a href="#" class="btn">無料相談はこちら</a>
+  </div>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>茅ヶ崎の暮らしとビジネスに寄り添う税理士事務所</h1>
+        <p>個人の確定申告から法人の税務顧問まで、地域に根ざした親身なサポートをお届けします。</p>
+        <a href="#" class="btn">まずはお気軽にご相談ください</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">サービス内容</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-calculator"></i></div>
+          <h3>税務顧問</h3>
+          <p>月次の記帳チェックから決算・申告まで、経営を税務面からトータルサポートいたします。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-file-signature"></i></div>
+          <h3>確定申告</h3>
+          <p>個人事業主・フリーランスの方の確定申告を丁寧にサポート。初めての方もご安心ください。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-people-roof"></i></div>
+          <h3>相続税・贈与税</h3>
+          <p>相続税の申告・対策から贈与税のご相談まで、ご家族の大切な資産をお守りします。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+          <h3>会社設立支援</h3>
+          <p>法人設立の手続きから設立後の届出、記帳指導まで一貫してお手伝いいたします。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-book"></i></div>
+          <h3>記帳代行</h3>
+          <p>日々の記帳業務を代行し、経営者の皆さまが本業に集中できる環境を整えます。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3>経営相談</h3>
+          <p>資金繰り・事業計画・融資相談など、経営全般のお悩みをご一緒に考えます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">選ばれる理由</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>TKC全国会会員</h3>
+          <p>TKC全国会に所属し、最新の税制情報と高品質な会計システムで正確・迅速な業務を実現しています。</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+          <h3>地域密着30年</h3>
+          <p>茅ヶ崎を中心に湘南エリアで長年にわたり、地元の個人・法人のお客さまをサポートしてまいりました。</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
+          <h3>親身な対応</h3>
+          <p>「相談しやすい税理士」をモットーに、お客さま一人ひとりに寄り添った丁寧な対応を心がけています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>まずはお話をお聞かせください</h2>
+        <p>初回のご相談は無料です。お電話またはメールにてお気軽にお問い合わせください。</p>
+        <div class="cta-buttons">
+          <a href="tel:0467-55-2140" class="btn"><i class="fa-solid fa-phone"></i> 0467-55-2140</a>
+          <a href="mailto:ak-ts@tkcnf.or.jp" class="btn btn-outline"><i class="fa-regular fa-envelope"></i> メールで相談する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <h2 class="section-title">事務所概要</h2>
+      <div class="about-content">
+        <div class="about-map">
+          <iframe src="https://maps.google.com/maps?q=神奈川県茅ヶ崎市菱沼３丁目２−３１&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="about-info">
+          <dl>
+            <dt>事務所名</dt>
+            <dd>山崎暁生税理士事務所</dd>
+            <dt>所長</dt>
+            <dd>山崎暁生（やまざき あきお）</dd>
+            <dt>所在地</dt>
+            <dd>〒253-0011 神奈川県茅ヶ崎市菱沼３丁目２−３１ 2F</dd>
+            <dt>TEL</dt>
+            <dd><a href="tel:0467-55-2140">0467-55-2140</a></dd>
+            <dt>メール</dt>
+            <dd><a href="mailto:ak-ts@tkcnf.or.jp">ak-ts@tkcnf.or.jp</a></dd>
+            <dt>所属</dt>
+            <dd>TKC全国会</dd>
+            <dt>アクセス</dt>
+            <dd>茅ヶ崎駅よりバス約10分</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="#">プライバシーポリシー</a>
+    </div>
+    <p class="copyright">&copy; 山崎暁生税理士事務所</p>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <div class="mobile-cta-inner">
+    <a href="tel:0467-55-2140" class="tel">
+      <i class="fa-solid fa-phone"></i>
+      0467-55-2140
+    </a>
+    <a href="mailto:ak-ts@tkcnf.or.jp" class="mail">
+      <i class="fa-regular fa-envelope"></i>
+      メールで相談する
+    </a>
+  </div>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+
+  hamburger.addEventListener('click', () => {
+    navMobile.classList.toggle('active');
+    
+    // Animate hamburger icon
+    const spans = hamburger.querySelectorAll('span');
+    if (navMobile.classList.contains('active')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
