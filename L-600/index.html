@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>濱野真一税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #C8102E;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-light: #F9F9F9;
+            --border-color: #E0E0E0;
+            --container-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header-top {
+            padding: 15px 0;
+            background: #FFFFFF;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .header-tel i {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .btn-contact {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-contact:hover {
+            background-color: #a00d25;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .main-nav {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            background: #FFFFFF;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 16px;
+            width: 1px;
+            background-color: var(--border-color);
+        }
+
+        .nav-link {
+            display: block;
+            padding: 16px 32px;
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-item.active .nav-link {
+            color: var(--primary-color);
+        }
+
+        .nav-item.active .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center right;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 65%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-catch {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-catch .highlight {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Sections Common */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-bg {
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        /* About & Philosophy Sections */
+        .two-col-layout {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .two-col-layout.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .text-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .image-content {
+            flex: 1;
+        }
+
+        .image-content img {
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 8px solid #FFFFFF;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #FFF0F2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .btn-detail {
+            margin-top: auto;
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-detail i {
+            font-size: 10px;
+        }
+
+        .btn-detail:hover {
+            background-color: #a00d25;
+        }
+
+        /* Info & News Section */
+        .info-news-layout {
+            display: flex;
+            gap: 60px;
+        }
+
+        .info-col, .news-col {
+            flex: 1;
+        }
+
+        .sub-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--text-color);
+        }
+
+        .info-content p {
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: var(--text-light);
+        }
+
+        .info-content .tel {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-top: 15px;
+        }
+
+        .news-list li {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        .news-date {
+            color: var(--text-light);
+            width: 100px;
+            flex-shrink: 0;
+        }
+
+        .news-title {
+            color: var(--text-color);
+        }
+
+        .news-title:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #FFFFFF;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0 20px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            height: 30px;
+            margin-bottom: 15px;
+        }
+
+        .footer-info p {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .copyright {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+            width: 100%;
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 500;
+            gap: 4px;
+        }
+
+        .mobile-cta a i {
+            font-size: 18px;
+        }
+
+        .mobile-cta .btn-tel {
+            background-color: #333333;
+        }
+
+        .mobile-cta .btn-mail {
+            background-color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero::before {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 60px; /* For mobile CTA */
+            }
+
+            .header-contact {
+                display: none; /* Hide on mobile, use CTA */
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #FFFFFF;
+                z-index: 100;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.is-active {
+                display: block;
+            }
+
+            .nav-list {
+                flex-direction: column;
+            }
+
+            .nav-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .nav-link {
+                padding: 15px 20px;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .hero {
+                min-height: 400px;
+                background-position: center;
+            }
+
+            .hero::before {
+                width: 100%;
+                clip-path: none;
+                background: rgba(255, 255, 255, 0.85);
+            }
+
+            .hero-catch {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            .two-col-layout, .two-col-layout.reverse, .info-news-layout {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .mobile-cta {
+                display: block;
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="http://www.hamanozeirisi.jp/images/logo.png" alt="濱野真一税理士事務所">
+                </a>
+                <div class="header-contact">
+                    <a href="tel:046-254-6161" class="header-tel">
+                        <i class="fas fa-phone-alt"></i>
+                        046-254-6161
+                    </a>
+                    <a href="#" class="btn-contact">
+                        <i class="far fa-envelope"></i>
+                        お問い合わせはこちら
+                    </a>
+                </div>
+                <button class="hamburger" id="js-hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="main-nav" id="js-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li class="nav-item active"><a href="#" class="nav-link">HOME</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">事務所案内</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">スタッフ紹介</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">業務案内</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">活動情報</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">アクセス</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-catch">
+                        <span class="highlight">全力サポート！</span>
+                        税のことなら私達にお任せください！
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section 1 -->
+        <section class="section">
+            <div class="container">
+                <div class="two-col-layout">
+                    <div class="text-content">
+                        <h2 class="section-title">お客様のために！</h2>
+                        <p>天地自然の理。水は高いところである山から低いところである海に流れていく。至極当たり前のことであります。しかしながら人の生業や日常生活の中でその理に反することが起きた時には必ず社会や人間関係においてひずみや何がしかの不経済が発生することになります。<br>当事務所は、お客様の円滑な会社運営や事業継承、遺産の分割や相続等を当たり前に遂行しサポートする天地自然の理を錦の御旗として運営をしております。<br>是非、良きパートナーとしてお声掛けください。</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="http://www.hamanozeirisi.jp/images/landscape.png" alt="事務所内観">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section 2 -->
+        <section class="section section-bg">
+            <div class="container">
+                <div class="two-col-layout reverse">
+                    <div class="text-content">
+                        <h2 class="section-title">元気よく、お客様目線で！</h2>
+                        <p>皆様のお近くの税理士をお探しのかた、お気軽にご相談ください。<br>若さ溢れるパワーと地元密着によるフットワークを活かし、皆様のお悩みに迅速かつ的確にご回答致します。</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="コンサルティング">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section">
+            <div class="container">
+                <div class="services-grid">
+                    <!-- Card 1 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-calculator"></i></div>
+                        <h3 class="service-title">税務・会計・記帳代行</h3>
+                        <a href="#" class="btn-detail">詳細はこちら <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-piggy-bank"></i></div>
+                        <h3 class="service-title">節税対策</h3>
+                        <a href="#" class="btn-detail">詳細はこちら <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-people-arrows"></i></div>
+                        <h3 class="service-title">相続・事業承継</h3>
+                        <a href="#" class="btn-detail">詳細はこちら <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                        <h3 class="service-title">経営コンサルティング</h3>
+                        <a href="#" class="btn-detail">詳細はこちら <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="service-title">新規起業支援</h3>
+                        <a href="#" class="btn-detail">詳細はこちら <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-coins"></i></div>
+                        <h3 class="service-title">有利な資金調達</h3>
+                        <a href="#" class="btn-detail">詳細はこちら <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info & News Section -->
+        <section class="section section-bg">
+            <div class="container">
+                <div class="info-news-layout">
+                    <div class="info-col">
+                        <h2 class="sub-title">Office Info</h2>
+                        <div class="info-content">
+                            <p>〒252-0023　神奈川県座間市立野台3-20-9</p>
+                            <p class="tel">TEL 046-254-6161</p>
+                        </div>
+                    </div>
+                    <div class="news-col">
+                        <h2 class="sub-title">News</h2>
+                        <ul class="news-list">
+                            <li>
+                                <span class="news-date">2015/08/03</span>
+                                <a href="#" class="news-title">書籍出版のお知らせ</a>
+                            </li>
+                            <li>
+                                <span class="news-date">2014/10/09</span>
+                                <a href="#" class="news-title">Webサイトをリニューアルしました</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="http://www.hamanozeirisi.jp/images/footerlogo.png" alt="濱野真一税理士事務所">
+                </div>
+                <div class="footer-info">
+                    <p>〒252-0023　神奈川県座間市立野台3-20-9</p>
+                    <p>TEL:046-254-6161　FAX:046-255-0289</p>
+                    <p>e-mail:<a href="mailto:hamano_info@amail.plala.or.jp">hamano_info@amail.plala.or.jp</a></p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">プライバシーポリシー</a>
+                    <a href="#">ログイン</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">copyright©2014 Hamano Tax Accounting Office all rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <div class="mobile-cta-inner">
+            <a href="tel:046-254-6161" class="btn-tel">
+                <i class="fas fa-phone-alt"></i>
+                046-254-6161
+            </a>
+            <a href="#" class="btn-mail">
+                <i class="far fa-envelope"></i>
+                お問い合わせ
+            </a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('js-hamburger');
+            const nav = document.getElementById('js-nav');
+
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('is-active');
+                
+                // Icon toggle
+                const icon = this.querySelector('i');
+                if (nav.classList.contains('is-active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
