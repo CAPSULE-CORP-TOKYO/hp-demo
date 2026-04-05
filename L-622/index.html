@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今道敏郎税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #E87722;
+            --primary-hover: #d1681c;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #FDF8F5;
+            --bg-white: #FFFFFF;
+            --border-color: #E5E5E5;
+            --font-family: 'Noto Sans JP', sans-serif;
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-white);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            fill: var(--primary-color);
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .header-tel svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-color);
+        }
+
+        .header-nav-wrapper {
+            background-color: var(--primary-color);
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .header-nav a {
+            color: var(--bg-white);
+            padding: 15px 30px;
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+        }
+
+        .header-nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-main);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--bg-white);
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .hero-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Badges Section */
+        .badges-section {
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            border: 2px solid #004098;
+            border-radius: 5px;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-white);
+            text-align: center;
+        }
+
+        .badge-small-text {
+            font-size: 12px;
+            color: #004098;
+            margin-bottom: 5px;
+        }
+
+        .badge-main-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #004098;
+        }
+
+        .badge-sub-text {
+            font-size: 10px;
+            color: #004098;
+            margin-top: 5px;
+        }
+
+        .badge-tkc {
+            border: 1px solid var(--border-color);
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-radius: 5px;
+        }
+
+        .badge-tkc-text {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .badge-tkc-logo {
+            color: #004098;
+            font-weight: 900;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Useful Info Top (Image Cards) */
+        .useful-top {
+            padding: 40px 0;
+        }
+
+        .cards-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .image-card {
+            background: var(--bg-white);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: visible;
+            position: relative;
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .card-label {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(232, 119, 34, 0.3);
+        }
+
+        .image-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .image-card-content {
+            padding: 20px;
+        }
+
+        .image-card-text {
+            font-size: 14px;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Useful Info Bottom (Text Cards) */
+        .useful-bottom {
+            background-color: var(--bg-light);
+            padding: 60px 0;
+        }
+
+        .cards-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .text-card {
+            background: var(--bg-white);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .text-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .text-card-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .text-card-list {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Office Overview */
+        .office-overview {
+            padding: 80px 0;
+        }
+
+        .overview-inner {
+            display: flex;
+            gap: 60px;
+        }
+
+        .overview-title-area {
+            width: 200px;
+            flex-shrink: 0;
+        }
+
+        .overview-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .overview-table {
+            flex-grow: 1;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .overview-table th,
+        .overview-table td {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .overview-table th {
+            width: 150px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .overview-table td {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 0 0 80px 0;
+        }
+
+        .cta-btn-large {
+            font-size: 18px;
+            padding: 15px 60px;
+            border-radius: 40px;
+            box-shadow: 0 4px 15px rgba(232, 119, 34, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-light);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--text-light);
+            margin: 0 10px;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Mobile Sticky CTA */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg-white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+        }
+
+        .mobile-cta-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--bg-white);
+            text-decoration: none;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--text-main);
+        }
+
+        .mobile-cta-mail {
+            background-color: var(--primary-color);
+        }
+
+        .mobile-cta-btn svg {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 5px;
+            fill: currentColor;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .overview-inner {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .overview-title-area {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-contact {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .header-nav-wrapper {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+            }
+
+            .header-nav-wrapper.active {
+                display: block;
+            }
+
+            .header-nav {
+                flex-direction: column;
+            }
+
+            .header-nav a {
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                display: block;
+            }
+
+            .hero {
+                height: auto;
+                padding: 80px 0;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .cards-grid-3,
+            .cards-grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-table th,
+            .overview-table td {
+                display: block;
+                width: 100%;
+                padding: 10px 0;
+            }
+            
+            .overview-table th {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .mobile-sticky-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 60px; /* Space for sticky CTA */
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-top">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/>
+                </svg>
+                今道敏郎税理士事務所
+            </a>
+            <div class="header-contact">
+                <a href="tel:045-984-7244" class="header-tel">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                    </svg>
+                    045-984-7244
+                </a>
+                <a href="mailto:imazei@tkcnf.or.jp" class="btn">お問合せ</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="header-nav-wrapper" id="nav-wrapper">
+            <nav class="header-nav">
+                <a href="#">トップページ</a>
+                <a href="#">事務所紹介</a>
+                <a href="#">経営理念</a>
+                <a href="#">業務案内</a>
+                <a href="#">料金について</a>
+                <a href="#">お問合せ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">継続的な黒字経営の実現を<br>ご支援させていただきます！</h1>
+                    <p class="hero-text">
+                        【当事務所では、毎月、貴社を訪問させていただきます。】<br>
+                        その最新のデータに基づき、安全性、収益性、生産性、成長性に関する同業者比較と時系列分析を行い、貴社の経営動向と課題をわかりやすく解説します。<br>
+                        相続・贈与のご相談お気軽にご連絡ください。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="badges-section container">
+            <div class="badge">
+                <span class="badge-small-text">中小企業経営力強化支援法に基づく</span>
+                <span class="badge-main-text">経営革新等支援機関</span>
+                <span class="badge-sub-text">認定機関 財務局・経済産業局</span>
+            </div>
+            <div class="badge-tkc">
+                <div class="badge-tkc-text">
+                    今道敏郎税理士事務所は<br>
+                    TKC全国会会員です
+                </div>
+                <div class="badge-tkc-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    TKC
+                </div>
+            </div>
+        </section>
+
+        <section class="useful-top container">
+            <div class="cards-grid-3">
+                <!-- Card 1 -->
+                <div class="image-card">
+                    <div class="card-label">経営者オススメ情報≪毎月更新≫</div>
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="経営者オススメ情報" class="image-card-img">
+                    <div class="image-card-content">
+                        <p class="image-card-text">【中小企業基盤整備機構】J-Net21特集「4月から、SNSを開始・活用してみませんか？」を掲載しました</p>
+                        <p class="image-card-text">【中小企業基盤整備機構】「海外市場に精通した専門家によるアドバイス事業」公募開始の通知登録について</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="image-card">
+                    <div class="card-label">税務Ｑ＆Ａ≪毎週更新≫</div>
+                    <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=800&q=80" alt="税務Ｑ＆Ａ" class="image-card-img">
+                    <div class="image-card-content">
+                        <p class="image-card-text">【所得税 譲渡所得 その他】未分割の相続財産から生ずる不動産所得の帰属</p>
+                        <p class="image-card-text">【法人税】法人税基本通達２－２－１４に定める短期前払費用について</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="image-card">
+                    <div class="card-label">Ｑ＆Ａ経営相談≪毎月更新≫</div>
+                    <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=800&q=80" alt="Ｑ＆Ａ経営相談" class="image-card-img">
+                    <div class="image-card-content">
+                        <p class="image-card-text">消費税転嫁拒否取り締まりの実態</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="useful-bottom">
+            <div class="container">
+                <div class="cards-grid-2">
+                    <!-- Left Column -->
+                    <div style="display: flex; flex-direction: column; gap: 30px;">
+                        <div class="text-card">
+                            <h3 class="text-card-title">書面添付制度</h3>
+                            <p class="text-card-desc">書面添付制度とは、税務申告書の内容が正しいことを税理士が確認する書類を添付する制度です。</p>
+                        </div>
+                        <div class="text-card">
+                            <h3 class="text-card-title">相続税額の早見表</h3>
+                            <p class="text-card-desc">相続税の額は、相続財産の総額と法定相続人の数によって変わります。この「早見表」で、おおよその相続税額を確認できます。</p>
+                        </div>
+                    </div>
+                    <!-- Right Column -->
+                    <div style="display: flex; flex-direction: column; gap: 30px;">
+                        <div class="text-card">
+                            <h3 class="text-card-title">ＴＫＣ経営指標≪毎月更新≫</h3>
+                            <p class="text-card-desc">業界の平均や黒字企業の平均と比較をすることで重要な経営のヒントを見つけることができます。</p>
+                        </div>
+                        <div class="text-card">
+                            <h3 class="text-card-title">ＴＫＣ全国会ＴＯＰＩＣＳ≪毎月更新≫</h3>
+                            <p class="text-card-desc">平成26年版『TKC経営指標(要約版PDF)』のダウンロードを開始</p>
+                        </div>
+                        <div class="text-card">
+                            <h3 class="text-card-title">ＴＫＣ全国会ＨＰリンク</h3>
+                            <ul class="text-card-list">
+                                <li>・ ＴＫＣ全国会ＴＯＰページ</li>
+                                <li>・ 医会研ホームページ</li>
+                                <li>・ ＴＫＣ計算書類公開データベース</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="office-overview container">
+            <div class="overview-inner">
+                <div class="overview-title-area">
+                    <h2 class="overview-title">事務所概要</h2>
+                </div>
+                <table class="overview-table">
+                    <tbody>
+                        <tr>
+                            <th>事務所名</th>
+                            <td>今道敏郎税理士事務所</td>
+                        </tr>
+                        <tr>
+                            <th>所長名</th>
+                            <td>今道敏郎</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>神奈川県横浜市緑区長津田7-1-43　ガーデニアパーク301</td>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td>045-984-7244</td>
+                        </tr>
+                        <tr>
+                            <th>FAX番号</th>
+                            <td>045-984-7267</td>
+                        </tr>
+                        <tr>
+                            <th>業務内容</th>
+                            <td>
+                                ・税務・会計に関すること<br>
+                                ・企業の経営に関すること<br>
+                                ・相続・贈与に関すること<br>
+                                ・創業・開業に関すること<br>
+                                ・建設業に関すること<br>
+                                ・人材育成に関すること
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>その他</th>
+                            <td>その他弁護士、司法書士、社会保険労務士、行政書士等との提携により、企業と経営者のあらゆる問題を総合的に対処します。</td>
+                        </tr>
+                        <tr>
+                            <th>メールアドレス</th>
+                            <td><a href="mailto:imazei@tkcnf.or.jp">imazei@tkcnf.or.jp</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="cta-section container">
+            <a href="mailto:imazei@tkcnf.or.jp" class="btn cta-btn-large">無料相談のご予約はこちら</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">東京地方税理士会所属</a>
+                <a href="#">個人情報保護方針</a>
+                <a href="#">外部サービスの利用に関するプライバシーポリシー</a>
+            </div>
+            <p class="footer-copy">Copyright (c) 2023 - 2026 Toshiro Imamichi All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <div class="mobile-cta-inner">
+            <a href="tel:045-984-7244" class="mobile-cta-btn mobile-cta-tel">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                </svg>
+                電話をかける
+            </a>
+            <a href="mailto:imazei@tkcnf.or.jp" class="mobile-cta-btn mobile-cta-mail">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                お問い合わせ
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navWrapper = document.getElementById('nav-wrapper');
+
+            hamburger.addEventListener('click', function() {
+                navWrapper.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
