@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>越智雅美（おちまさみ）税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7A1F3D;
+            --secondary: #F5ECE8;
+            --accent: #C89B7B;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-white: #FFFFFF;
+            --bg-light: #FAFAFA;
+            --border-color: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto 0;
+        }
+
+        .section-title.left {
+            text-align: left;
+        }
+
+        .section-title.left::after {
+            margin: 15px 0 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-white);
+        }
+
+        .btn-primary:hover {
+            background-color: #5e172e;
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--bg-white);
+        }
+
+        .btn-accent:hover {
+            background-color: #b38869;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            background-color: var(--secondary);
+            padding: 8px 0;
+            font-size: 0.8rem;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .header-main {
+            padding: 15px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .header-cta {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--primary);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            margin-top: 90px; /* Header height offset */
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-catch {
+            font-size: 2.5rem;
+            color: var(--primary);
+            line-height: 1.4;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        /* Services */
+        .services {
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .service-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Strengths */
+        .strengths {
+            background-color: var(--secondary);
+        }
+
+        .strengths-inner {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .strengths-img {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .strengths-content {
+            flex: 1;
+        }
+
+        .strengths-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Profile */
+        .profile-inner {
+            display: flex;
+            gap: 50px;
+            background-color: var(--bg-white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .profile-img {
+            flex: 0 0 300px;
+        }
+
+        .profile-img img {
+            border-radius: 15px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-greeting {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .profile-text {
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        .profile-details {
+            background-color: var(--bg-light);
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .profile-details dl {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .profile-details dt {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .profile-details dd {
+            color: var(--text-main);
+        }
+
+        .profile-certs {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .profile-certs p {
+            margin-bottom: 5px;
+        }
+
+        /* Pricing */
+        .pricing {
+            background-color: var(--secondary);
+        }
+
+        .pricing-lead {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .pricing-table {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--bg-white);
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .pricing-item span:last-child {
+            color: var(--primary);
+        }
+
+        .pricing-notes {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            background-color: var(--bg-white);
+            padding: 30px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .pricing-notes p {
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .pricing-notes ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .pricing-notes li {
+            margin-bottom: 5px;
+        }
+
+        .pricing-software {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .pricing-software h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .pricing-software .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .pricing-software p:last-child {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta {
+            position: relative;
+            text-align: center;
+            color: var(--bg-white);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(122, 31, 61, 0.85); /* Primary color with opacity */
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        /* Office Info */
+        .office-inner {
+            display: flex;
+            gap: 50px;
+            background-color: var(--bg-white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .office-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .office-details h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .office-details p {
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .office-details a {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .office-map {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--text-main);
+            color: var(--bg-white);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Fixed CTA */
+        .mobile-fixed-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-white);
+            padding: 15px 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-fixed-cta .btn {
+            display: block;
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-catch {
+                font-size: 2rem;
+            }
+            .profile-inner {
+                flex-direction: column;
+            }
+            .profile-img {
+                flex: 0 0 auto;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 80px; /* For mobile fixed CTA */
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .header-top {
+                display: none;
+            }
+
+            .hero {
+                margin-top: 60px;
+                min-height: 500px;
+            }
+
+            .hero-bg::after {
+                background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+            }
+
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: var(--bg-white);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.3s ease;
+                padding: 40px 20px;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                font-size: 1.2rem;
+                gap: 30px;
+                margin-bottom: 40px;
+            }
+
+            .header-cta {
+                display: none; /* Hide in mobile menu, use fixed bottom CTA */
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .strengths-inner, .office-inner {
+                flex-direction: column;
+            }
+
+            .profile-inner {
+                padding: 30px 20px;
+            }
+
+            .profile-details dl {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+            .profile-details dt {
+                margin-top: 10px;
+            }
+
+            .mobile-fixed-cta {
+                display: block;
+            }
+        }
+    </style>
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+</script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <p>受付時間：平日9:00〜17:00　休日 土日祝</p>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">越智雅美（おちまさみ）税理士事務所</div>
+                <nav class="nav">
+                    <div class="nav-menu">
+                        <ul class="nav-links">
+                            <li><a href="#hero">HOME</a></li>
+                            <li><a href="#services">業務案内</a></li>
+                            <li><a href="#pricing">料金</a></li>
+                            <li><a href="#profile">プロフィール</a></li>
+                            <li><a href="#office-info">お問い合わせ</a></li>
+                        </ul>
+                        <a href="mailto:mercury.q_ueen@tbz.t-com.ne.jp" class="btn btn-primary header-cta">お問い合わせフォームへ</a>
+                    </div>
+                    <button class="hamburger" aria-label="メニュー">
+                        <span></span><span></span><span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-catch">あなたの会社やご家族の大切なことを親身になって一緒に考えさせていただきます</h1>
+                    <p class="hero-sub">座間市の女性税理士が、相続申告・法人申告・融資支援を直接対応。親しみやすさとスピード感で、不安を安心に変えるサポートをお届けします。</p>
+                    <a href="mailto:mercury.q_ueen@tbz.t-com.ne.jp" class="btn btn-accent">まずはお気軽にご相談ください</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services section-padding">
+            <div class="container">
+                <h2 class="section-title">業務案内</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="起業サポート">
+                        <div class="service-content">
+                            <h3>起業サポート</h3>
+                            <p>会社設立の手続きから会計・税務まで、税理士が伴走します。「何から始めればいいか分からない」という段階でもお気軽にご相談ください。</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="借入れサポート">
+                        <div class="service-content">
+                            <h3>借入れサポート</h3>
+                            <p>借入れに必要な資料作成や返済計画をサポート。資金繰りに不安のある経営者様も安心してご相談ください。</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80" alt="相続サポート">
+                        <div class="service-content">
+                            <h3>相続サポート</h3>
+                            <p>相続税申告から生前対策まで丁寧にサポート。大切なご家族の相続を安心してご相談いただけます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="strengths" class="strengths section-padding">
+            <div class="container">
+                <div class="strengths-inner">
+                    <div class="strengths-img">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80" alt="安心して相談できるパートナーに">
+                    </div>
+                    <div class="strengths-content">
+                        <h2 class="section-title left">安心して相談できるパートナーに</h2>
+                        <p>相続申告・法人申告・融資支援を専門に、女性税理士が直接対応いたします。親しみやすさとスピード感を大切に、不安を安心に変えるサポートをご提供しています。初めての相続申告や起業支援、資金調達にも、どうぞお気軽にご相談ください。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile" class="profile section-padding">
+            <div class="container">
+                <h2 class="section-title">プロフィール</h2>
+                <div class="profile-inner">
+                    <div class="profile-img">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80" alt="越智雅美">
+                    </div>
+                    <div class="profile-content">
+                        <p class="profile-greeting">はじめまして。女性税理士として、相続・会社設立・法人申告・融資支援などを中心に活動しております。</p>
+                        <p class="profile-text">このHPにお越しになられた方は「これから会社を設立したい方」「既に事業を営む経営者の方」「相続申告が必要な方」「融資を検討している方」など、人生や事業の大切な節目に直面されている方が多いと思います。私は税の専門家であると同時に、経営の伴走者であり、資金調達のサポーター、相続の安心相談窓口としてお役に立ちたいと考えています。税理士事務所勤務時代は試算表や申告書の作成に追われる毎日で「本当に経営者さんのお役に立てているのだろうか？」と思うこともありました。しかし独立後、市役所などでの無料相談を通じて相続や事業に不安を抱える方々と接するようになり、相談が終わった後に「安心できました」「来てよかった」と笑顔で帰られる姿を見て、税理士になってよかったと心から感じています。私の事務所では女性税理士ならではの親しみやすさときめ細やかさ、スピード感ある対応、そして税理士が直接対応する安心感を大切にしています。専門的な内容でもできるだけわかりやすく、相談しやすい雰囲気を心がけています。</p>
+                        <div class="profile-details">
+                            <dl>
+                                <dt>出身地</dt><dd>神奈川県座間市</dd>
+                                <dt>趣味</dt><dd>神社仏閣めぐり、ファミレスめぐり</dd>
+                                <dt>好きなアーティスト</dt><dd>QUEEN、秦基博、ひびきpiano</dd>
+                                <dt>好きな食べ物</dt><dd>お菓子、コーヒー</dd>
+                                <dt>血液型</dt><dd>AB型</dd>
+                            </dl>
+                            <div class="profile-certs">
+                                <p>税理士登録番号 137464</p>
+                                <p>東京地方税理士会 大和支部</p>
+                                <p>認定経営革新等支援機関（認定支援機関ID 106714003601）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing section-padding">
+            <div class="container">
+                <h2 class="section-title">個別相談</h2>
+                <p class="pricing-lead">相談時間を選べるようになりました！</p>
+                
+                <div class="pricing-table">
+                    <div class="pricing-item">
+                        <span>30分</span>
+                        <span>8,800円（税込）</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>60分</span>
+                        <span>16,500円（税込）</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>90分</span>
+                        <span>22,000円（税込）</span>
+                    </div>
+                </div>
+
+                <div class="pricing-notes">
+                    <p>例）ピンポイントで相談したいことがある方／融資についてご相談したい方／相続について不安がある方／会社の数字の見方について知りたい方／確定申告書の書き方について知りたい方 など…</p>
+                    <ul>
+                        <li>基本的に電話またはZoomで対応いたします。対面の場合は90分での対応となります。</li>
+                        <li>より具体的な税金計算などをする場合には別途報酬を頂きます。</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-software">
+                    <h3>会計ソフト導入支援</h3>
+                    <p class="price">165,000円（税込）〜</p>
+                    <p>会計ソフトを使って会計入力をしたい方に、導入時の設定から操作方法などをご支援いたします。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta section-padding" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');">
+            <div class="cta-overlay"></div>
+            <div class="container cta-content">
+                <h2>まずはお気軽にご相談ください</h2>
+                <p>初回30分の無料相談を受付けております。ZOOM・電話にて対応いたします。相続・起業・融資など、人生や事業の節目のご相談をお待ちしております。</p>
+                <a href="mailto:mercury.q_ueen@tbz.t-com.ne.jp" class="btn btn-accent">お問い合わせフォームへ</a>
+            </div>
+        </section>
+
+        <section id="office-info" class="office-info section-padding">
+            <div class="container">
+                <h2 class="section-title">事務所情報</h2>
+                <div class="office-inner">
+                    <div class="office-details">
+                        <h3>越智雅美（おちまさみ）税理士事務所</h3>
+                        <p>〒252-0003 神奈川県座間市ひばりが丘2-23-15</p>
+                        <p>受付時間：平日9:00〜17:00（休日：土日祝）</p>
+                        <p>Email: <a href="mailto:mercury.q_ueen@tbz.t-com.ne.jp">mercury.q_ueen@tbz.t-com.ne.jp</a></p>
+                    </div>
+                    <div class="office-map">
+                        <!-- ダミーのGoogle Map iframe (座間市ひばりが丘付近) -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.365384651346!2d139.4318!3d35.49!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI5JzI0LjAiTiAxMznCsDI1JzU0LjUiRQ!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright &copy; 越智雅美（おちまさみ）税理士事務所 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="mobile-fixed-cta">
+        <a href="mailto:mercury.q_ueen@tbz.t-com.ne.jp" class="btn btn-accent">お問い合わせフォームへ</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            // ハンバーガーメニューのトグル
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // リンククリック時にメニューを閉じる
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
