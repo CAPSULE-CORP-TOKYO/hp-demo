@@ -175,28 +175,8 @@
         .nav-overlay ul li a {
             display: block;
             padding: 15px 0;
-            min-height: 44px;
             font-weight: 500;
-            font-size: 16px;
             color: var(--text-main);
-        }
-
-        .nav-overlay ul li a.nav-overlay-tel {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 18px;
-            margin-top: 10px;
-        }
-
-        .nav-overlay ul li a.nav-overlay-contact {
-            display: block;
-            background-color: var(--primary-color);
-            color: #ffffff;
-            text-align: center;
-            padding: 15px 0;
-            border-radius: 4px;
-            font-weight: 700;
-            margin-top: 10px;
         }
 
         /* Hero Section */
@@ -564,7 +544,7 @@
             }
         }
 
-        @media (min-width: 769px) {
+        @media (min-width: 1024px) {
             .header-inner {
                 justify-content: flex-start;
             }
@@ -572,10 +552,10 @@
                 margin-right: 40px;
             }
             .hamburger {
-                display: none !important;
+                display: none;
             }
             .nav-menu {
-                display: flex !important;
+                display: flex;
                 gap: 25px;
                 flex-grow: 1;
             }
@@ -585,7 +565,7 @@
                 color: var(--text-main);
             }
             .header-right {
-                display: flex !important;
+                display: flex;
                 align-items: center;
                 gap: 20px;
             }
@@ -595,11 +575,8 @@
                 color: var(--text-main);
             }
             .nav-overlay {
-                display: none !important;
+                display: none;
             }
-        }
-
-        @media (min-width: 1024px) {
             .hero {
                 padding: 100px 0;
             }
@@ -632,18 +609,9 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1023px) {
             body {
                 padding-bottom: 50px; /* For mobile CTA */
-            }
-            .nav-menu {
-                display: none !important;
-            }
-            .header-right {
-                display: none !important;
-            }
-            .hamburger {
-                display: block !important;
             }
         }
     </style>
@@ -697,8 +665,6 @@
             <li><a href="#">あいさつ</a></li>
             <li><a href="#">プロフィール</a></li>
             <li><a href="#">お知らせ</a></li>
-            <li><a href="tel:0467-87-6119" class="nav-overlay-tel">TEL: 0467-87-6119</a></li>
-            <li><a href="#" class="nav-overlay-contact">お問い合わせ</a></li>
         </ul>
     </div>
 
@@ -870,31 +836,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var hamburger = document.querySelector('.hamburger');
-            var navOverlay = document.querySelector('.nav-overlay');
+            const hamburger = document.querySelector('.hamburger');
+            const navOverlay = document.querySelector('.nav-overlay');
 
-            if (hamburger && navOverlay) {
-                hamburger.addEventListener('click', function() {
-                    hamburger.classList.toggle('active');
-                    navOverlay.classList.toggle('active');
-
-                    if (navOverlay.classList.contains('active')) {
-                        document.body.style.overflow = 'hidden';
-                    } else {
-                        document.body.style.overflow = '';
-                    }
-                });
-
-                // Close nav when a link is clicked
-                var navLinks = navOverlay.querySelectorAll('a');
-                for (var i = 0; i < navLinks.length; i++) {
-                    navLinks[i].addEventListener('click', function() {
-                        hamburger.classList.remove('active');
-                        navOverlay.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                
+                if (navOverlay.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
                 }
-            }
+            });
         });
     </script>
 </body>
