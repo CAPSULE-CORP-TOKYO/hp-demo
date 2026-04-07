@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カナメ経営グループ 堀内税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #336699;
+            --secondary-color: #e87a35;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f9;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --container-max-width: 1200px;
+            --header-height: 100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-orange {
+            background-color: var(--secondary-color);
+            color: var(--bg-white);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(232, 122, 53, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-orange:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(232, 122, 53, 0.4);
+            opacity: 1;
+        }
+
+        .header-nav {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .nav-list li a {
+            display: block;
+            padding: 15px 0;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-list li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-list li a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-image: url('https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf76bd7bd3f7ea05e2fb92.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-img-wrap {
+            height: 140px;
+            overflow: hidden;
+        }
+
+        .service-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .service-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            flex-grow: 1;
+        }
+
+        /* Strengths Section */
+        .strengths {
+            padding: 80px 0;
+        }
+
+        .strengths-inner {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .strengths-content {
+            flex: 1;
+        }
+
+        .strengths-subtitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .strengths-list {
+            margin-bottom: 20px;
+        }
+
+        .strengths-list li {
+            margin-bottom: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .strengths-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-top: 2px;
+        }
+
+        .strengths-desc {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .strengths-visual {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .strengths-visual img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background-color: var(--secondary-color);
+            color: var(--bg-white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-banner-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner-tel {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-white {
+            background-color: var(--bg-white);
+            color: var(--secondary-color);
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            opacity: 1;
+        }
+
+        .cta-banner-address {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Info & Office Section */
+        .info-office {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .info-office-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .info-box {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-box-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 10px;
+        }
+
+        .news-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .seminar-info {
+            margin-top: 20px;
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .seminar-info img {
+            max-width: 150px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .office-details p {
+            margin-bottom: 10px;
+        }
+
+        .office-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 15px;
+        }
+
+        .footer-tkc {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Fixed CTA */
+        .mobile-fixed-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-fixed-cta a {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            font-weight: 700;
+            color: var(--bg-white);
+            gap: 8px;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--primary-color);
+        }
+
+        .mobile-cta-mail {
+            background-color: var(--secondary-color);
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .strengths-inner {
+                flex-direction: column;
+            }
+            .info-office-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 60px; /* Space for mobile CTA */
+            }
+
+            .header-contact {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .header-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-white);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .header-nav.active {
+                display: block;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .nav-list li a {
+                padding: 15px 20px;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .hero {
+                padding: 60px 0;
+                min-height: auto;
+            }
+
+            .hero::before {
+                background: rgba(255,255,255,0.85);
+            }
+
+            .cta-banner-tel {
+                font-size: 2rem;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+
+            .mobile-fixed-cta {
+                display: flex;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo">
+                    <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf6aa7324564ee056eb122.png" alt="カナメ経営グループ 堀内税理士事務所">
+                </a>
+                <div class="header-contact">
+                    <a href="tel:0463-32-8818" class="header-tel">
+                        <i class="fas fa-phone-alt"></i> TEL：0463-32-8818
+                    </a>
+                    <a href="#contact" class="btn-orange">
+                        <i class="fas fa-envelope"></i> お気軽にお問い合わせください
+                    </a>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="header-nav" id="nav-menu">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#">ごあいさつ</a></li>
+                    <li><a href="#">業務案内</a></li>
+                    <li><a href="#">事務所案内</a></li>
+                    <li><a href="#">セミナー案内</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-text">
+                        株式会社カナメ経営会計 堀内寛人税理士事務所は税務、企業再生アシスト、会計、経営コンサルティング、事業承継を実施し、各種士業、コンサルタント会社、異業種との提携により顧問先の増収を心がけています。<br><br>
+                        又、医業・介護特化型の高品質かつ付加価値のあるサービス提供を行っていくとともに、収益向上を実現する具体的対策と、革新的な経営方針の提案をいたします。
+                    </p>
+                    <a href="#contact" class="btn-orange">
+                        <i class="fas fa-comment-dots"></i> お気軽にお問い合わせください
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">業務案内</h2>
+                <div class="services-grid">
+                    <!-- Card 1 -->
+                    <div class="service-card">
+                        <div class="service-img-wrap">
+                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d00a1f432ac0501b65c.jpg" alt="診療所新規開業コンサルティング">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">診療所新規開業コンサルティング</h3>
+                            <p class="service-desc">医業に関する経験とノウハウを活かし、開業意欲のあるドクターを全面的にバックアップさせて頂きます。</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="service-card">
+                        <div class="service-img-wrap">
+                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d006ce66ca3055a8a32.jpg" alt="病院・診療所経営コンサルティング">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">病院・診療所経営コンサルティング</h3>
+                            <p class="service-desc">自院の役割・特徴をしっかりと分析し、地域連携を目指した経営をサポートいたします。</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="service-card">
+                        <div class="service-img-wrap">
+                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d003d6cb2ae052797b6.jpg" alt="歯科経営改善コンサルティング">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">歯科経営改善コンサルティング</h3>
+                            <p class="service-desc">より多くの患者さんに喜ばれる歯科医療サービスのためのご提案をいたします。</p>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="service-card">
+                        <div class="service-img-wrap">
+                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d018dec601806f69f85.jpg" alt="介護経営支援コンサルティング">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">介護経営支援コンサルティング</h3>
+                            <p class="service-desc">事業計画や介護事業所業務改善等のコンサルティングを通して介護経営をサポートいたします。</p>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="service-card">
+                        <div class="service-img-wrap">
+                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d01324564ee056eb556.jpg" alt="事業承継対策コンサルティング">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">事業承継対策コンサルティング</h3>
+                            <p class="service-desc">事業継承に関する様々なご相談に適切な対応をできる専門家が揃っています。</p>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="service-card">
+                        <div class="service-img-wrap">
+                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d00e1452d13067c86a3.jpg" alt="相続支援コンサルティング">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">相続支援コンサルティング</h3>
+                            <p class="service-desc">相続は起きる前に対策をとることが重要です。早めの対策とこまめな見直しによって円滑な相続を支援いたします。</p>
+                        </div>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="service-card">
+                        <div class="service-img-wrap">
+                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d0103701aa8058eeae3.jpg" alt="給与計算代行サービス">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">給与計算代行サービス</h3>
+                            <p class="service-desc">給与計算業務を外部委託することで、社内の人材がより付加価値の高い業務へと集中することができます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="strengths">
+            <div class="container">
+                <h2 class="section-title">介護・医療経営サポートネットワーク</h2>
+                <div class="strengths-inner">
+                    <div class="strengths-content">
+                        <h3 class="strengths-subtitle">介護・医療事業者様へ</h3>
+                        <ul class="strengths-list">
+                            <li>ほしい人材が確保できていますか？</li>
+                            <li>リスクとコストに応じた保険に加入されていますか？</li>
+                            <li>利用者様、患者様の葬儀のケアはできていますか？</li>
+                            <li>事業計画を一緒に作りませんか？</li>
+                            <li>許認可・法務・コンプライアンスのことで困っていませんか？</li>
+                        </ul>
+                        <p class="strengths-desc">
+                            医療・介護事業の設立から経営に関する課題・問題点を解決し、円滑な事業運営を展開するためのサポートネットワークを構築しております。<br><br>
+                            ご相談は無料です。<br>
+                            お気軽にお問い合わせください。
+                        </p>
+                    </div>
+                    <div class="strengths-visual">
+                        <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf97e52ccb521206eaff14.png" alt="サポートネットワーク図">
+                        <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7ee9eefb59b305d6d7e6.jpg" alt="医療イメージ">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner" id="contact">
+            <div class="container">
+                <p class="cta-banner-title">お問い合わせ・ご相談は<br>株式会社カナメ経営会計</p>
+                <a href="tel:0463-32-8818" class="cta-banner-tel">
+                    <i class="fas fa-phone-alt"></i> 0463-32-8818
+                </a>
+                <a href="#" class="btn-white">
+                    <i class="fas fa-envelope"></i> お気軽にお問い合わせください
+                </a>
+                <p class="cta-banner-address">神奈川県平塚市平塚1-9-27　金目ビル内</p>
+            </div>
+        </section>
+
+        <section class="info-office">
+            <div class="container">
+                <div class="info-office-grid">
+                    <div class="info-box">
+                        <h3 class="info-box-title">お知らせ</h3>
+                        <ul class="news-list">
+                            <li>
+                                <span class="news-date">2022/07/28</span>
+                                <p>ホームページをリニューアルいたしました。今後ともよろしくお願いいたします。</p>
+                            </li>
+                        </ul>
+                        <div class="seminar-info">
+                            <span class="news-date">平成29年1月21日（土）・1月28日（土）開催</span>
+                            <p>経営ケアパスねっとセミナー<br>
+                            ■～医業の事業承継・相続～　2回シリーズ<br>
+                            「理事長・院長・経営者のお悩み、問題点、徹底攻略！！」<br>
+                            ［講師］堀内　寛人　株式会社カナメ経営会計 代表取締役　他</p>
+                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf85ff83d27fad056263d9.png" alt="セミナー写真">
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h3 class="info-box-title">事務所概要</h3>
+                        <div class="office-details">
+                            <p class="office-name">株式会社カナメ経営会計<br>堀内寛人税理士事務所</p>
+                            <p>神奈川県平塚市平塚1-9-27　金目ビル内</p>
+                            <p>TEL：0463-32-8818<br>FAX：0463-34-0416</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">
+                        <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf6aa7324564ee056eb122.png" alt="カナメ経営グループ 堀内税理士事務所">
+                    </a>
+                    <p class="footer-tkc">株式会社カナメ経営会計 堀内寛人税理士事務所はＴＫＣ全国会会員です</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="#">ホーム</a>
+                    <a href="#">ごあいさつ</a>
+                    <a href="#">業務案内</a>
+                    <a href="#">事務所案内</a>
+                    <a href="#">セミナー案内</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright (c) 2022 - 2026 カナメ経営グループ All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-fixed-cta">
+        <a href="tel:0463-32-8818" class="mobile-cta-tel">
+            <i class="fas fa-phone-alt"></i> TEL
+        </a>
+        <a href="#contact" class="mobile-cta-mail">
+            <i class="fas fa-envelope"></i> お問い合わせ
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
