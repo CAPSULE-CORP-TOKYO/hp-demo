@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大久保税理士事務所 | 分からないなら解るまで</title>
+    <meta name="description" content="栃木県小山市の税理士事務所。税務顧問、相続・事業承継、スタートアップ支援など、お客様の「分からない」を「解る」に変えるまで徹底サポートいたします。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-navy: #1B2E4B;
+            --gold-accent: #C9A84C;
+            --soft-green: #4A8B6E;
+            --bg-color: #FAFAF7;
+            --text-color: #2D2D2D;
+            --light-section-bg: #F0EDE8;
+            --white: #FFFFFF;
+            --font-sans: 'Noto Sans JP', sans-serif;
+            --font-serif: 'Noto Serif JP', serif;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--primary-navy);
+            letter-spacing: 0.05em;
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--gold-accent);
+            color: var(--white);
+            padding: 16px 48px;
+            border-radius: 30px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(201, 168, 76, 0.3);
+        }
+
+        .btn-gold:hover {
+            background-color: #b5953f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(201, 168, 76, 0.4);
+        }
+
+        .btn-gold::after {
+            content: '›';
+            font-size: 1.5rem;
+            margin-left: 10px;
+            line-height: 1;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-navy);
+            color: var(--white);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            filter: brightness(0) invert(1); /* Make logo white */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 2px;
+            background: var(--white);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(27, 46, 75, 0.7), rgba(27, 46, 75, 0.7)), url('https://kubozei.jp/wp-content/themes/kubozei_t/img/top-kv1.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 75px; /* Offset for fixed header */
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--gold-accent);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            letter-spacing: 0.1em;
+            font-family: var(--font-serif);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: var(--white);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-card::after {
+            content: '›';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .service-card.gold { background-color: var(--gold-accent); }
+        .service-card.green { background-color: var(--soft-green); }
+
+        .service-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        /* Customer Segments Section */
+        #segments {
+            padding-top: 0;
+        }
+
+        .segments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .segment-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .segment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .segment-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            color: var(--gold-accent);
+        }
+
+        .segment-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--primary-navy);
+            font-weight: 700;
+        }
+
+        .segment-card p {
+            font-size: 0.9rem;
+            text-align: left;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Greeting Section */
+        #greeting {
+            background-color: var(--light-section-bg);
+        }
+
+        .greeting-inner {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .greeting-image {
+            flex: 1;
+        }
+
+        .greeting-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .greeting-text {
+            flex: 1;
+        }
+
+        .greeting-text h3 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary-navy);
+        }
+
+        .greeting-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gold-accent);
+            font-weight: 500;
+        }
+
+        .greeting-text p {
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        /* News Section */
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news-item {
+            display: flex;
+            padding: 25px 0;
+            border-bottom: 1px solid #e0e0e0;
+            align-items: center;
+        }
+
+        .news-item:first-child {
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .news-date {
+            font-weight: 500;
+            color: var(--primary-navy);
+            width: 130px;
+            flex-shrink: 0;
+            font-family: var(--font-sans);
+        }
+
+        .news-title {
+            flex: 1;
+            transition: color 0.3s;
+            color: #333;
+        }
+
+        .news-item:hover .news-title {
+            color: var(--gold-accent);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--light-section-bg);
+        }
+
+        .contact-inner {
+            display: flex;
+            gap: 60px;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-navy);
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .contact-phone {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-serif);
+        }
+
+        .contact-phone svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gold-accent);
+        }
+
+        .contact-map {
+            flex: 1;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-navy);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #d0d0d0;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-nav a {
+            font-size: 0.9rem;
+            color: #d0d0d0;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-nav a:hover {
+            color: var(--gold-accent);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-inner {
+                flex-direction: column;
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+            .section-title { font-size: 1.8rem; margin-bottom: 2rem; }
+            
+            /* Mobile Nav */
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-navy);
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links li { margin: 15px 0; }
+            .hamburger { display: flex; }
+            .menu-toggle:checked ~ .nav-links { display: flex; }
+            .menu-toggle:checked ~ .hamburger span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+            .menu-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; }
+            .menu-toggle:checked ~ .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+            .hero-content h1 { font-size: 2.5rem; }
+            .segments-grid { grid-template-columns: 1fr; }
+            .greeting-inner { flex-direction: column; gap: 30px; }
+            .footer-inner { flex-direction: column; }
+            .footer-nav { flex-direction: column; gap: 20px; }
+        }
+
+        @media (max-width: 576px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .news-item { flex-direction: column; align-items: flex-start; gap: 5px; padding: 20px 0; }
+            .contact-phone { font-size: 1.5rem; }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="https://kubozei.jp/wp-content/themes/kubozei_t/img/logo.png" alt="大久保税理士事務所 ロゴ">
+            </a>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="#services">Service</a></li>
+                <li><a href="#greeting">About Us</a></li>
+                <li><a href="#greeting">Greeting</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Recruit</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container hero-content">
+                <h1>分からないなら<br><span class="highlight">解るまで</span></h1>
+                <p>Ohkubo Tax Accountant Office</p>
+                <a href="#contact" class="btn-gold">無料相談はこちら</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">SERVICES</h2>
+                <div class="services-grid">
+                    <a href="#" class="service-card gold">
+                        <img src="https://kubozei.jp/wp-content/themes/kubozei_t/img/icon1.png" alt="税務顧問アイコン">
+                        <h3>税務顧問</h3>
+                    </a>
+                    <a href="#" class="service-card gold">
+                        <img src="https://kubozei.jp/wp-content/themes/kubozei_t/img/icon2.png" alt="業績報告アイコン">
+                        <h3>業績報告</h3>
+                    </a>
+                    <a href="#" class="service-card gold">
+                        <img src="https://kubozei.jp/wp-content/themes/kubozei_t/img/icon3.png" alt="相続・事業継承アイコン">
+                        <h3>相続・事業継承</h3>
+                    </a>
+                    <a href="#" class="service-card green">
+                        <img src="https://kubozei.jp/wp-content/themes/kubozei_t/img/icon4.png" alt="経営支援アイコン">
+                        <h3>経営支援</h3>
+                    </a>
+                    <a href="#" class="service-card green">
+                        <img src="https://kubozei.jp/wp-content/themes/kubozei_t/img/icon5.png" alt="節税対策アイコン">
+                        <h3>節税対策</h3>
+                    </a>
+                    <a href="#" class="service-card green">
+                        <img src="https://kubozei.jp/wp-content/themes/kubozei_t/img/icon6.png" alt="経理代行アイコン">
+                        <h3>経理代行</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Segments Section -->
+        <section id="segments">
+            <div class="container">
+                <div class="segments-grid">
+                    <div class="segment-card">
+                        <svg class="segment-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                        <h3>法人・個人事業主</h3>
+                        <p>小売業、卸売業、建設業、製造業、飲食業や運送業など様々な業種の経験がありますので幅広い知識でバックアップしてまいります。</p>
+                    </div>
+                    <div class="segment-card">
+                        <svg class="segment-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <h3>相続・事業継承</h3>
+                        <p>相続税申告、確定申告、生前対策、不動産評価、事業承継、税務調査など相続にまつわる手続きや対策をサポート。</p>
+                    </div>
+                    <div class="segment-card">
+                        <svg class="segment-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                            <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                        </svg>
+                        <h3>スタートアップ</h3>
+                        <p>事業を始めたけど税理士を依頼すべきかお悩みの方。個人事業をやっていたが法人にすべきかお悩みの方。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Greeting Section -->
+        <section id="greeting">
+            <div class="container">
+                <h2 class="section-title">所長ご挨拶</h2>
+                <div class="greeting-inner">
+                    <div class="greeting-image">
+                        <img src="https://kubozei.jp/wp-content/themes/kubozei_t/img/syotyou.jpg" alt="大久保所長 写真">
+                    </div>
+                    <div class="greeting-text">
+                        <h3>大久保 所長</h3>
+                        <h4>大久保税理士事務所</h4>
+                        <p>大久保税理士事務所のホームページをご覧いただきありがとうございます。当事務所は、お客様の「分からない」を「解る」に変えることをモットーに、親切・丁寧な対応を心がけております。</p>
+                        <p>税務・会計に関するお悩みから、経営相談、相続・事業承継まで、幅広いニーズにお応えいたします。どんな些細なことでも構いませんので、お気軽にご相談ください。皆様の事業の発展と安心を、専門的な知識と経験で全力でサポートさせていただきます。</p>
+                        <a href="#" class="btn-gold">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section (QA: 古いニュースのみのため非表示) -->
+        <section id="news" style="display:none;">
+            <div class="container">
+                <h2 class="section-title">NEWS</h2>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <div class="news-date">2023.07.26</div>
+                        <a href="#" class="news-title">お盆休み期間のお知らせ</a>
+                    </li>
+                    <li class="news-item">
+                        <div class="news-date">2022.10.13</div>
+                        <a href="#" class="news-title">ホームページ公開のお知らせ</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">CONTACT</h2>
+                <div class="contact-inner">
+                    <div class="contact-info">
+                        <h3>大久保税理士事務所</h3>
+                        <p>〒323-0022<br>栃木県小山市八幡町2-12-26 ヤマジビル302</p>
+                        <div class="contact-phone">
+                            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                            0285-32-6158
+                        </div>
+                        <p>FAX: 0285-32-6295</p>
+                        <p style="margin-top: 20px;">お気軽にお問い合わせください。</p>
+                        <a href="#" class="btn-gold" style="margin-top: 10px; align-self: flex-start;">お問い合わせフォーム</a>
+                    </div>
+                    <div class="contact-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.824209536853!2d139.8016483152756!3d36.31349998005187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f4e1b1b1b1b1b%3A0x1b1b1b1b1b1b1b1b!2z44CSMzIzLTAwMjIg5qCD5pyo55yM5bCP5bGx5biC5YWr5bmh55S677yS5LiB55uu77yR77yS4oiS77yS77yW!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">
+                        <img src="https://kubozei.jp/wp-content/themes/kubozei_t/img/logo.png" alt="大久保税理士事務所 ロゴ">
+                    </a>
+                    <p>〒323-0022</p>
+                    <p>栃木県小山市八幡町2-12-26 ヤマジビル302</p>
+                    <p>TEL: 0285-32-6158 / FAX: 0285-32-6295</p>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#services">Service</a></li>
+                        <li><a href="#greeting">About Us</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#greeting">Greeting</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Recruit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; Ohkubo tax accountant office. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

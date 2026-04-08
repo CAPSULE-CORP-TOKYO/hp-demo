@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税理士法人あさひ 小山城東本部</title>
+    <meta name="description" content="栃木県小山市の税理士法人あさひ 小山城東本部。地域に愛された信頼と実績。IT活用の業務効率化、長期経営・事業承継戦略、税法改正アドバイスなど、皆様のニーズにお応えします。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-navy: #1A3A5C;
+            --accent-gold: #B8933E;
+            --accent-green: #3D8B6E;
+            --bg-main: #FAFAF5;
+            --text-main: #2A2A2A;
+            --bg-light: #F0EDE6;
+            --hero-overlay: rgba(26, 58, 92, 0.75);
+            --font-sans: 'Noto Sans JP', sans-serif;
+            --font-serif: 'Noto Serif JP', serif;
+            --header-height: 80px;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            padding-top: var(--header-height);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            color: var(--primary-navy);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-gold);
+            margin: 15px auto 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #fff;
+            padding: 16px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184, 147, 62, 0.3);
+            color: #fff;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--primary-navy);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: calc(80vh - var(--header-height));
+            min-height: 500px;
+            background-image: url('https://static.toriaez.jp/uploads/images/m0526/9474-20160701091900.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin-top: 0;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--hero-overlay);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--accent-green);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: left;
+        }
+
+        /* Affiliations Section */
+        #affiliations {
+            background-color: #fff;
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .affiliations-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .affiliation-badge {
+            padding: 10px 20px;
+            background-color: var(--bg-main);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .affiliation-badge::before {
+            content: '✓';
+            color: var(--accent-green);
+        }
+
+        /* News Section */
+        #news {
+            background-color: var(--bg-light);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .news-date {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-family: var(--font-sans);
+        }
+
+        .news-title {
+            font-size: 1rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* Access Section */
+        .access-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .access-info {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .access-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .access-details p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .access-details .tel {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin: 20px 0;
+            display: block;
+        }
+
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Contact CTA Section */
+        #contact-cta {
+            background-color: var(--accent-green);
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        #contact-cta h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        #contact-cta p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        #contact-cta .btn {
+            background-color: #fff;
+            color: var(--accent-green);
+        }
+        
+        #contact-cta .btn:hover {
+            background-color: var(--bg-main);
+            color: var(--primary-navy);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-navy);
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            color: #ccc;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links h4 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #888;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-grid, .access-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 48px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            /* Mobile Menu */
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: var(--header-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--header-height));
+                background-color: #fff;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 40px;
+                transition: 0.3s ease-in-out;
+                box-shadow: inset 0 5px 10px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span class="logo-icon">A</span>
+                税理士法人あさひ 小山城東本部
+            </a>
+            <button class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-links">
+                <a href="#">ホーム</a>
+                <a href="#about">事務所紹介</a>
+                <a href="#services">サービス内容</a>
+                <a href="#news">ニュース</a>
+                <a href="#access">アクセス</a>
+                <a href="https://www.zeiasahi.jp/form.html" class="nav-contact" style="color: var(--accent-gold);">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">地域に愛された信頼と実績。<br>栃木県小山市の税理士法人です。</h1>
+                    <p class="hero-subtitle">税理士法人あさひ 小山城東本部</p>
+                    <a href="https://www.zeiasahi.jp/form.html" class="btn">お問い合わせはこちら</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">About Us</span>
+                    <h2 class="section-title">事務所について</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>私たちは平成１５年１１月設立の税理士法人です。</p>
+                        <p>栃木県中部・南部、茨城県西部、埼玉県北部を中心に多くのお客様との取引実績があります。</p>
+                        <p>相談員税理士3名（内1名は公認会計士兼税理士）と元国税調査官の相談員税理士複数名による相談体制により、地域の経営者や住民の皆様のニーズに応えることを何よりも大切にしてきました。</p>
+                        <p>今、私たちがお客様に一番お役に立てるのはなにか？<br>それは・・・</p>
+                        <p>皆様のニーズに応えるため、法人・個人事業者の決算・税務申告対策、申告後の税務調査対策、他士業と連携した事業承継・相続対策、会計ソフト等の導入による事務処理の効率化、資金繰り対策など、皆様の業務を総合的に支援いたします。</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://media.toriaez.jp/m0526/188398726323_s.jpg" alt="税理士法人あさひ 小山城東本部のスタッフとオフィス風景">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Services</span>
+                    <h2 class="section-title">サービス内容</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3>IT活用の業務効率化</h3>
+                        <p>「会計」「税務」などの業務について、日々進化しているＩＴ技術を取り入れて合理化を図り、経営者の皆様が本業に振り向ける時間を確保すること。（当法人は弥生会計で有名な弥生ＰＡＰ会員、ＴＫＣシステムにより皆様の税務・会計を支援するＴＫＣ全国会会員、及び最近話題のマネーフォワードクラウドの公認メンバーです）</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>長期経営・事業承継戦略</h3>
+                        <p>法人・個人を問わず、長期的な視点で考えた経営・財務戦略や事業承継対策を提案し、お客様と一緒に解決策を見つけること。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💡</div>
+                        <h3>税法改正アドバイス</h3>
+                        <p>毎年改正される税法を、お客様の理解しやすい言葉で解説し、お客様が取るべき対応策について的確なアドバイスを行うこと。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="affiliations">
+            <div class="container">
+                <div class="affiliations-list">
+                    <span class="affiliation-badge">弥生PAP会員</span>
+                    <span class="affiliation-badge">TKC全国会会員</span>
+                    <span class="affiliation-badge">マネーフォワードクラウド公認メンバー</span>
+                    <span class="affiliation-badge">関東信越税理士会会員</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="news">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">News</span>
+                    <h2 class="section-title">新着情報</h2>
+                </div>
+                <div class="news-grid">
+                    <a href="#" class="news-card">
+                        <span class="news-date">2026.02.07</span>
+                        <h3 class="news-title">確定申告の疑問点は、国税庁ホームページの「令和７年分確定申告特集」を活用してみましょう。</h3>
+                    </a>
+                    <a href="#" class="news-card">
+                        <span class="news-date">2025.12.14</span>
+                        <h3 class="news-title">国税庁ホームページにおいて、「令和７年分確定申告特集（準備編）」が公表されています。</h3>
+                    </a>
+                    <a href="#" class="news-card">
+                        <span class="news-date">2025.10.07</span>
+                        <h3 class="news-title">国税庁ホームページにおいて、「年末調整がよくわかるページ（令和７年分）」が公表されています。</h3>
+                    </a>
+                    <a href="#" class="news-card">
+                        <span class="news-date">2025.07.02</span>
+                        <h3 class="news-title">財産評価基準書（路線価図・評価倍率表）が公開されています。</h3>
+                    </a>
+                    <a href="#" class="news-card">
+                        <span class="news-date">2025.06.03</span>
+                        <h3 class="news-title">国税庁から「令和７年度税制改正（基礎控除の見直し等関係）Ｑ＆Ａ」が出ています。</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="access">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Office Info</span>
+                    <h2 class="section-title">アクセス・事務所情報</h2>
+                </div>
+                <div class="access-grid">
+                    <div class="access-info">
+                        <h3>税理士法人あさひ 小山城東本部</h3>
+                        <div class="access-details">
+                            <p>〒323-0807<br>栃木県小山市城東一丁目６番33号</p>
+                            <span class="tel">TEL: 0285-20-0322</span>
+                            <p>FAX: 0285-23-0751</p>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <a href="https://www.zeiasahi.jp/map.html" class="btn" style="padding: 12px 30px; font-size: 1rem;">詳しい地図を見る</a>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <!-- Embed Google Map for Oyama City Joto area as placeholder -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.358245593816!2d139.8105!3d36.3085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f4e0000000000%3A0x0!2zMzbCsDE4JzMwLjYiTiAxMznCsDQ4JzM3LjgiRQ!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-cta">
+            <div class="container">
+                <h2>まずはお気軽にご相談ください</h2>
+                <p>税務・会計に関するお悩み、事業承継のご相談など、<br class="sp-only">専門家が丁寧に対応いたします。</p>
+                <a href="https://www.zeiasahi.jp/form.html" class="btn">お問い合わせフォームへ</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">税理士法人あさひ 小山城東本部</div>
+                    <p>〒323-0807</p>
+                    <p>栃木県小山市城東一丁目６番33号</p>
+                    <p>TEL: 0285-20-0322 / FAX: 0285-23-0751</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#">ホーム</a></li>
+                        <li><a href="#about">事務所紹介</a></li>
+                        <li><a href="#services">サービス内容</a></li>
+                        <li><a href="#news">ニュース</a></li>
+                        <li><a href="#access">アクセス</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://www.zeiasahi.jp/form.html">お問い合わせ</a></li>
+                        <li><a href="#">国税庁ホームページ</a></li>
+                        <li><a href="#">財務省ホームページ</a></li>
+                        <li><a href="#">e-Taxホームページ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 税理士法人あさひ 小山城東本部 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

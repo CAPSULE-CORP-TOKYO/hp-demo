@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>なかやす会計</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #68be8d;
+            --primary-hover: #549972;
+            --accent-color: #f09b59;
+            --accent-hover: #d98a4d;
+            --text-color: #5a5a5a;
+            --bg-color: #ffffff;
+            --bg-light: #f4f9f6;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --spacing-sm: 16px;
+            --spacing-md: 32px;
+            --spacing-lg: 64px;
+            --border-radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px; /* For mobile CTA bar */
+        }
+
+        @media (min-width: 769px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: #333;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: var(--spacing-lg);
+            color: #333;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Header */
+        .header {
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-logo-area {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-logo img {
+            height: 40px;
+        }
+
+        .header-subtext {
+            font-size: 12px;
+            color: #777;
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .header-subtext {
+                display: block;
+            }
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-tel {
+            display: none;
+            font-weight: 700;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .header-tel::before {
+            content: '📞';
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .header-tel {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .header-nav {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .header-nav {
+                display: block;
+                padding: 16px 0;
+            }
+            .nav-list {
+                display: flex;
+                justify-content: center;
+                gap: 32px;
+                list-style: none;
+            }
+            .nav-link {
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .nav-link:hover {
+                color: var(--primary-color);
+            }
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #333;
+            margin-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .menu-toggle span:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 1024px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: #fff;
+            z-index: 1000;
+            transition: left 0.3s ease;
+            padding: 24px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu-close {
+            text-align: right;
+            margin-bottom: 24px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .mobile-nav-list {
+            list-style: none;
+        }
+
+        .mobile-nav-item {
+            margin-bottom: 16px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .mobile-overlay.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-md) 0;
+        }
+
+        .hero-inner {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+
+        @media (min-width: 768px) {
+            .hero-inner {
+                min-height: 500px;
+                padding: var(--spacing-lg);
+            }
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,0) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            margin-bottom: 32px;
+            color: #444;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 40px;
+            }
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .service-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-img-wrap {
+            height: 180px;
+            overflow: hidden;
+            background-color: var(--bg-light);
+            padding: 16px;
+        }
+
+        .service-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .service-desc {
+            font-size: 14px;
+            margin-bottom: 24px;
+            flex-grow: 1;
+            color: #666;
+        }
+
+        .service-btn {
+            align-self: center;
+            padding: 10px 32px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-item {
+            text-align: center;
+            background: #fff;
+            padding: 32px 24px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .feature-img-wrap {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 24px;
+            border: 6px solid var(--bg-light);
+        }
+
+        .feature-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            text-align: left;
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .cta-inner {
+            background-color: var(--bg-light);
+            border-radius: 24px;
+            padding: 56px 24px;
+            text-align: center;
+        }
+
+        .cta-text {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: #333;
+        }
+
+        @media (min-width: 768px) {
+            .cta-text {
+                font-size: 24px;
+            }
+        }
+
+        /* News Section */
+        .news {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: none;
+        }
+
+        .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 16px;
+            background-color: #fff;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .news-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        @media (min-width: 768px) {
+            .news-item {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 24px;
+            }
+        }
+
+        .news-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        @media (min-width: 768px) {
+            .news-meta {
+                margin-bottom: 0;
+                min-width: 180px;
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+
+        .news-date {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .news-content {
+            flex-grow: 1;
+        }
+
+        .news-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .news-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: var(--spacing-lg) 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-company-list {
+            list-style: none;
+            margin-bottom: 24px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .footer-company-list li {
+            margin-bottom: 8px;
+        }
+
+        .footer-sns {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-sns a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.2);
+            font-size: 12px;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        .footer-sns a:hover {
+            background-color: rgba(255,255,255,0.4);
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 8px;
+        }
+
+        .footer-nav {
+            list-style: none;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .footer-nav li {
+            margin-bottom: 12px;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 24px;
+            opacity: 0.8;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            padding: 12px 16px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 900;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mobile-cta-bar .btn {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-cta-bar {
+                display: none;
+            }
+        }
+
+        /* Utility */
+        .hidden-pc {
+            display: block;
+        }
+        .hidden-sp {
+            display: none;
+        }
+        @media (min-width: 769px) {
+            .hidden-pc {
+                display: none;
+            }
+            .hidden-sp {
+                display: block;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-logo-area">
+                    <a href="#" class="header-logo">
+                        <img src="https://nakayasu-kaikei.com/wp-content/uploads/2023/07/%E3%81%AA%E3%81%8B%E3%82%84%E3%81%99-%E4%BC%9A%E8%A8%88-1.png" alt="なかやす会計">
+                    </a>
+                    <div class="header-subtext">
+                        公庫出身者の創業計画・資金調達に強い公認会計士事務所
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <a href="#contact" class="header-tel">00-0000-0000</a>
+                    <a href="#contact" class="btn btn-accent hidden-sp">お問い合わせ</a>
+                    <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">事務所概要</a></li>
+                    <li><a href="#services" class="nav-link">税務顧問サービス</a></li>
+                    <li><a href="#services" class="nav-link">創業計画・事業計画策定支援サービス</a></li>
+                    <li><a href="#services" class="nav-link">資金調達支援サービス</a></li>
+                    <li><a href="#services" class="nav-link">その他のサービス</a></li>
+                    <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-close" id="menuClose">✕</div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link">事務所概要</a></li>
+            <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">税務顧問サービス</a></li>
+            <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">創業計画・事業計画策定支援サービス</a></li>
+            <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">資金調達支援サービス</a></li>
+            <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">その他のサービス</a></li>
+            <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link">お問い合わせ</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80" alt="ビジネスミーティング" class="hero-bg">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">あなたの想いをカタチするために。</h1>
+                    <p class="hero-subtitle">事業計画策定から資金調達まで。<br>あなたと一緒にビジネスを軌道に乗せるためのサポートをしていきます。</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary">詳しいサービス内容を確認する</a>
+                        <a href="#contact" class="btn btn-accent">今すぐ相談する</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">サービス内容</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="税務顧問サービス" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">税務顧問サービス</h3>
+                        <p class="service-desc">税務顧問として税務代理、税務書類の作成、税務相談サービスを提供しています。</p>
+                        <a href="#contact" class="btn btn-primary service-btn">詳しく見る</a>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="創業計画・事業計画策定支援サービス" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">創業計画・事業計画策定支援サービス</h3>
+                        <p class="service-desc">創業計画・事業計画の策定を支援いたします。</p>
+                        <a href="#contact" class="btn btn-primary service-btn">詳しく見る</a>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80" alt="資金調達支援サービス" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">資金調達支援サービス</h3>
+                        <p class="service-desc">日本政策金融公庫、銀行、信用金庫その他金融機関からの借入支援、資金繰り計画の策定支援をいたします。</p>
+                        <a href="#contact" class="btn btn-primary service-btn">詳しく見る</a>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=600&q=80" alt="その他サービス" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">その他サービス</h3>
+                        <p class="service-desc">会社法監査、任意監査、などの公認会計士業務や、補助金申請などのビジネスに役立つサービスを提供しています。</p>
+                        <a href="#contact" class="btn btn-primary service-btn">詳しく見る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">なかやす会計の特徴</h2>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-item">
+                    <div class="feature-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=400&q=80" alt="お客様の担当は会計士本人です。" class="feature-img">
+                    </div>
+                    <h3 class="feature-title">１．お客様の担当は会計士本人です。</h3>
+                    <p class="feature-desc">お客様の担当は公認会計士・税理士である本人です。経営のご相談を気兼ねなくしていただけます。</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-item">
+                    <div class="feature-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="創業計画、資金調達をサポートします。" class="feature-img">
+                    </div>
+                    <h3 class="feature-title">２．創業計画、資金調達をサポートします。</h3>
+                    <p class="feature-desc">日本政策金融公庫で10年以上審査担当者（創業融資専門担当者を含む）をつとめた経験を活かしてサポートします。</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-item">
+                    <div class="feature-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80" alt="オンラインを利用したスピーディーな対応をします。" class="feature-img">
+                    </div>
+                    <h3 class="feature-title">３．オンラインを利用したスピーディーな対応をします。</h3>
+                    <p class="feature-desc">会計ソフトはクラウド会計（freee、MF）を利用し、コミュニケーションはメール・Slack・Zoom・Google Meet等を利用してスピーディーな対応をします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-inner">
+                <p class="cta-text">まずはお気軽にご相談ください。<br>お問い合わせはこちらから。</p>
+                <a href="#contact" class="btn btn-accent">お問い合わせはこちらから</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <div class="container">
+            <h2 class="section-title">お知らせ</h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <div class="news-meta">
+                        <span class="news-date">2023年7月24日</span>
+                        <span class="news-category">Uncategorized</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">HPを開設しました。</h3>
+                        <p class="news-desc">なかやす会計のHPを開設しました。こちらでサービスの内容などをご紹介いたします。</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Footer Col 1 -->
+                <div>
+                    <div class="footer-logo">なかやす会計</div>
+                    <ul class="footer-company-list">
+                        <li>・中安拓雄公認会計士事務所</li>
+                        <li>・中安拓雄税理士事務所</li>
+                        <li>・なかやすアドバイザリー株式会社</li>
+                    </ul>
+                    <div class="footer-sns">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="YouTube">YT</a>
+                    </div>
+                </div>
+                <!-- Footer Col 2 -->
+                <div>
+                    <h4 class="footer-title">サービス</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#about">事務所概要</a></li>
+                        <li><a href="#services">税務顧問サービス</a></li>
+                        <li><a href="#services">創業計画・事業計画策定支援サービス</a></li>
+                        <li><a href="#services">資金調達支援サービス</a></li>
+                        <li><a href="#services">その他のサービス</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Col 3 -->
+                <div>
+                    <h4 class="footer-title">お知らせ</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#">2023年7月24日<br>HPを開設しました。</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                Copyright (C) なかやす会計 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta-bar">
+        <a href="#contact" class="btn btn-accent">お問い合わせ</a>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const menuClose = document.getElementById('menuClose');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function openMenu() {
+                mobileMenu.classList.add('active');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                mobileMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuToggle.addEventListener('click', openMenu);
+            menuClose.addEventListener('click', closeMenu);
+            mobileOverlay.addEventListener('click', closeMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>若林晃一税理士事務所</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Reset & Variables */
+    :root {
+      --primary-color: #336699;
+      --secondary-color: #4A90D9;
+      --accent-color: #E8913A;
+      --text-color: #333333;
+      --text-light: #666666;
+      --bg-color: #F5F7FA;
+      --white: #FFFFFF;
+      --border-color: #E5E7EB;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease, opacity 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    ul, ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+      margin: 0;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* Layout Utilities */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--primary-color);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo::before {
+      content: '❖'; /* Placeholder for logo mark */
+      font-size: 1.8rem;
+    }
+
+    .nav-desktop {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-desktop a {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .nav-desktop a:hover {
+      color: var(--secondary-color);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-tel {
+      font-weight: 700;
+      color: var(--primary-color);
+      font-size: 1.125rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-tel::before {
+      content: '📞';
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 700;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      padding: 8px;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 16px 24px;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--primary-color);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color);
+      display: block;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background-image: url('https://static.toriaez.jp/uploads/images/m0902/16255-20190528212810.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 0;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(51, 102, 153, 0.75);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .hero .btn-primary {
+      font-size: 1.25rem;
+      padding: 16px 48px;
+      border-radius: 50px;
+    }
+
+    /* Services Section */
+    .services {
+      background-color: var(--bg-color);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .service-card {
+      background-color: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .service-body {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .service-title {
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin-bottom: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-desc {
+      color: var(--text-light);
+      margin-bottom: 24px;
+      flex-grow: 1;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    /* Blog Section */
+    .blog {
+      background-color: var(--white);
+    }
+
+    .blog-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 32px;
+      border: 1px solid var(--primary-color);
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    .blog-grid {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .blog-grid.active {
+      display: grid;
+    }
+
+    .blog-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+      display: block;
+      background-color: var(--white);
+    }
+
+    .blog-card:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .blog-card-img {
+      height: 160px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .blog-card-title {
+      padding: 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+
+    /* News Section */
+    .news {
+      background-color: var(--bg-color);
+    }
+
+    .news-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--white);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .news-list li {
+      display: flex;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-color);
+      align-items: flex-start;
+    }
+
+    .news-list li:last-child {
+      border-bottom: none;
+    }
+
+    .news-date {
+      color: var(--secondary-color);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .news-title {
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+
+    .news-item {
+      display: none;
+    }
+
+    .news-item.visible {
+      display: flex;
+    }
+
+    .btn-more {
+      display: block;
+      margin: 32px auto 0;
+      padding: 12px 40px;
+      border-radius: 50px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--accent-color);
+      padding: 80px 0;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .cta-section p {
+      font-size: 1.125rem;
+      margin-bottom: 32px;
+    }
+
+    .cta-section .btn-primary {
+      background-color: var(--white);
+      color: var(--accent-color);
+      font-size: 1.25rem;
+      padding: 16px 48px;
+      border-radius: 50px;
+    }
+
+    /* Access Section */
+    .access {
+      background-color: var(--white);
+    }
+
+    .access-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .access-info h3 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 24px;
+    }
+
+    .access-info p {
+      margin-bottom: 12px;
+      font-size: 1.125rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .map-placeholder {
+      background-color: var(--border-color);
+      height: 400px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .map-placeholder::after {
+        content: 'Map Area';
+        position: absolute;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 60px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.125rem;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 8px;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-col a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Mobile CTA Bar */
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 99;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-cta a {
+      flex: 1;
+      text-align: center;
+      padding: 16px;
+      font-weight: 700;
+      color: var(--white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mobile-cta-tel {
+      background-color: var(--primary-color);
+    }
+
+    .mobile-cta-mail {
+      background-color: var(--accent-color);
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background-color: var(--white);
+      width: 100%;
+      max-width: 800px;
+      max-height: 90vh;
+      border-radius: 12px;
+      overflow-y: auto;
+      position: relative;
+      padding: 40px;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 2rem;
+      color: var(--text-light);
+      line-height: 1;
+      padding: 8px;
+    }
+
+    .modal-body h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 8px;
+    }
+
+    .modal-body h4 {
+      color: var(--secondary-color);
+      font-size: 1.25rem;
+      margin: 32px 0 16px;
+    }
+
+    .modal-body p {
+      margin-bottom: 16px;
+    }
+
+    .modal-body img {
+      margin: 32px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-body ul {
+      list-style: disc;
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    
+    .modal-body ul li {
+        margin-bottom: 8px;
+    }
+    
+    .modal-body a {
+        color: var(--secondary-color);
+        text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .access-inner {
+        grid-template-columns: 1fr;
+      }
+      .map-placeholder {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-desktop, .header-actions {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .hero {
+        padding: 80px 0;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .section-padding {
+        padding: 60px 0;
+      }
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 32px;
+      }
+      .news-container {
+        padding: 24px;
+      }
+      .news-list li {
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px 0;
+      }
+      .mobile-cta {
+        display: flex;
+      }
+      body {
+        padding-bottom: 56px; /* Space for mobile CTA */
+      }
+      .modal-content {
+        padding: 24px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo">若林晃一税理士事務所</a>
+      <nav class="nav-desktop">
+        <a href="#">ホーム</a>
+        <a href="#services">サービス内容</a>
+        <a href="#blog">ブログ</a>
+        <a href="#access">事務所案内</a>
+        <a href="#access">アクセス</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:0285-42-4371" class="header-tel">0285-42-4371</a>
+        <a href="#contact" class="btn-primary">お問い合わせ</a>
+      </div>
+      <button class="hamburger" id="hamburger-btn">☰</button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobile-menu">
+      <a href="#">ホーム</a>
+      <a href="#services">サービス内容</a>
+      <a href="#blog">ブログ</a>
+      <a href="#access">事務所案内</a>
+      <a href="#access">アクセス</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>栃木県小山市にある税理士事務所です</h1>
+      <p>マネーフォワードクラウド会計導入による経理の効率化<br>
+      二次相続まで考慮した相続税の申告(税額が倍以上変わることもあります)<br>
+      栃木県事業承継･引継ぎ支援センターと連携した親族内･親族外の事業承継<br>
+      に取り組んでいます。</p>
+      <a href="#contact" class="btn-primary">お気軽にご相談ください</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services section-padding">
+    <div class="container">
+      <h2 class="section-title">サービス内容</h2>
+      <div class="service-grid">
+        <!-- Card 1 -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="マネーフォワードクラウド会計" class="service-img">
+          <div class="service-body">
+            <h3 class="service-title">マネーフォワードクラウド会計</h3>
+            <p class="service-desc">マネーフォワードクラウド会計では、ネットバンキングやクレジットカードなど様々なサービスとの連携が可能です。取得した明細から自動で仕訳が作成されるので、ワンクリックで仕訳が作成されます。</p>
+            <button class="btn-outline" onclick="openModal('modal-mf')">詳しく見る</button>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80" alt="相続税申告・生前相続対策" class="service-img">
+          <div class="service-body">
+            <h3 class="service-title">相続税申告・生前相続対策</h3>
+            <p class="service-desc">相続税最大のわな｢二次相続｣を考慮して相続税申告･生前相続対策を行います。二次相続とは、夫婦のどちらかが先に死亡(一次相続)した後、残された配偶者が死亡することを言います。</p>
+            <button class="btn-outline" onclick="openModal('modal-souzoku')">詳しく見る</button>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="事業承継" class="service-img">
+          <div class="service-body">
+            <h3 class="service-title">事業承継</h3>
+            <p class="service-desc">栃木県事業承継･引継ぎ支援センターと連携した親族内･親族外の事業承継</p>
+            <button class="btn-outline" onclick="openModal('modal-shoukei')">詳しく見る</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="blog section-padding">
+    <div class="container">
+      <h2 class="section-title">ブログ記事</h2>
+      <div class="blog-tabs">
+        <button class="tab-btn active" onclick="switchTab('souzoku')">相続税編</button>
+        <button class="tab-btn" onclick="switchTab('zouyo')">贈与税編</button>
+      </div>
+      
+      <!-- 相続税編 Grid -->
+      <div class="blog-grid active" id="grid-souzoku">
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">超えたら相続税がかかる！　相続税の基礎控除について解説します</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">図解で簡単にわかる！　相続税の計算方法をイチから解説します</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">配偶者は1億6,000万円まで相続税が非課税　実は二次相続まで考えないと損をします！</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">契約前に押さえておきたい　生命保険の死亡保険金に対する3種類の税金について解説します</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">生命保険で相続税を節税するには受取人を誰にするかが非常に重要です</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">保険金を受け取っていないのに課税!? 申告もれが怖い生命保険の権利について解説します</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">土地(宅地)の相続税評価額の計算方法を分かりやすく解説します(初心者向けです)</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">土地の評価を80%減額！　特定居住用宅地等(小規模宅地等の特例)について解説します</div>
+        </a>
+      </div>
+
+      <!-- 贈与税編 Grid -->
+      <div class="blog-grid" id="grid-zouyo">
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">贈与税(暦年課税)の基礎知識</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">生前贈与で効果的な相続対策を！その仕組みを解説します</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">贈与税を払って生前贈与をした方がお得な場合があります</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">最善の相続対策?生活費や教育費の援助には贈与税はかかりません!</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">贈与を相続で精算する？　難しい相続時精算課税を分かりやすく解説します</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">相続時精算課税を利用した方がいい場合と注意点について解説します</div>
+        </a>
+        <a href="#" class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="thumbnail" class="blog-card-img">
+          <div class="blog-card-title">相続開始前3年以内の贈与には節税効果なし！ただし孫への贈与は効果があります！</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="news section-padding">
+    <div class="container">
+      <h2 class="section-title">新着情報</h2>
+      <div class="news-container">
+        <ul class="news-list" id="news-list">
+          <li class="news-item visible">
+            <time class="news-date">2021.08.19</time>
+            <span class="news-title">記事｢土地の評価を80%減額！　特定居住用宅地等(小規模宅地等の特例)について解説します｣を公開しました</span>
+          </li>
+          <li class="news-item visible">
+            <time class="news-date">2020.10.22</time>
+            <span class="news-title">記事｢土地(宅地)の相続税評価額の計算方法を分かりやすく解説します(初心者向けです)｣を公開しました。</span>
+          </li>
+          <li class="news-item visible">
+            <time class="news-date">2020.08.25</time>
+            <span class="news-title">記事｢保険金を受け取っていないのに課税!? 申告もれが怖い生命保険の権利について解説します｣を公開しました</span>
+          </li>
+          <li class="news-item visible">
+            <time class="news-date">2020.08.22</time>
+            <span class="news-title">記事｢生命保険で相続税を節税するには受取人を誰にするかが非常に重要です｣を公開しました</span>
+          </li>
+          <li class="news-item visible">
+            <time class="news-date">2020.08.20</time>
+            <span class="news-title">記事｢契約前に押さえておきたい　生命保険の死亡保険金に対する3種類の税金について解説します｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2020.08.17</time>
+            <span class="news-title">記事｢相続開始前3年以内の贈与には節税効果なし！ただし孫への贈与は効果があります！｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2020.08.09</time>
+            <span class="news-title">記事｢配偶者は1億6,000万円まで相続税が非課税　実は二次相続まで考えないと損をします！｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2020.07.28</time>
+            <span class="news-title">記事｢図解で簡単にわかる！　相続税の計算方法をイチから解説します｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2020.07.25</time>
+            <span class="news-title">記事｢超えたら相続税がかかる！　相続税の基礎控除について解説します｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2020.07.15</time>
+            <span class="news-title">記事｢相続時精算課税を利用した方がいい場合と注意点について解説します｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2020.07.15</time>
+            <span class="news-title">記事｢贈与を相続で精算する？　難しい相続時精算課税を分かりやすく解説します｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2020.06.30</time>
+            <span class="news-title">記事｢最善の相続対策?生活費や教育費の援助には贈与税はかかりません!｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2020.05.07</time>
+            <span class="news-title">記事｢栃木県相続診断士会オンラインセミナー｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2019.09.30</time>
+            <span class="news-title">記事｢マネーフォワードクラウドの料金｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2019.06.25</time>
+            <span class="news-title">記事｢贈与税を払って生前贈与した方がお得な場合があります｣を公開しました</span>
+          </li>
+          <li class="news-item">
+            <time class="news-date">2018.10.03</time>
+            <span class="news-title">ホームページが公開されました。</span>
+          </li>
+        </ul>
+        <button class="btn-outline btn-more" id="btn-more-news">もっと見る</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <h2>お問い合わせ</h2>
+      <p>お気軽にご相談ください</p>
+      <a href="#" class="btn-primary">お問い合わせ</a>
+    </div>
+  </section>
+
+  <!-- Access / Info -->
+  <section id="access" class="access section-padding">
+    <div class="container access-inner">
+      <div class="access-info">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 32px;">事務所案内</h2>
+        <h3>若林晃一税理士事務所</h3>
+        <p>〒323-0828</p>
+        <p>栃木県小山市神山2-5-30</p>
+        <p>TEL: 0285-42-4371</p>
+        <p>FAX: 050-3164-5098<br><span style="font-size: 0.9rem; color: var(--text-light);">(↑以前と違うのでご注意下さい)</span></p>
+        <p>E-mail: wakabayashi@syo-kei.jp</p>
+      </div>
+      <div class="map-placeholder">
+        <!-- Map iframe would go here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>メニュー</h4>
+          <ul>
+            <li><a href="#">ホーム</a></li>
+            <li><a href="#services">サービス内容</a></li>
+            <li><a href="#blog">ブログ</a></li>
+            <li><a href="#access">事務所案内</a></li>
+            <li><a href="#access">アクセス</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>サービス詳細</h4>
+          <ul>
+            <li><a href="#">税務･会計</a></li>
+            <li><a href="#">相続税申告</a></li>
+            <li><a href="#">生前相続対策</a></li>
+            <li><a href="#">マネーフォワードクラウド会計･確定申告</a></li>
+            <li><a href="#">マネーフォワードクラウド請求書</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>料金表</h4>
+          <ul>
+            <li><a href="#">法人のお客様の料金</a></li>
+            <li><a href="#">個人のお客様の料金</a></li>
+            <li><a href="#">年末調整等･償却資産税の料金</a></li>
+            <li><a href="#">相続税申告･生前相続対策の料金</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>セミナー情報</h4>
+          <ul>
+            <li><a href="#">これから開催のセミナー</a></li>
+            <li><a href="#">過去のセミナー</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>copyright © 若林晃一税理士事務所 some rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile CTA Bar -->
+  <div class="mobile-cta">
+    <a href="tel:0285-42-4371" class="mobile-cta-tel">📞 0285-42-4371</a>
+    <a href="#contact" class="mobile-cta-mail">✉️ お問い合わせ</a>
+  </div>
+
+  <!-- Modals -->
+  <!-- Modal: マネーフォワード -->
+  <div class="modal-overlay" id="modal-mf">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-mf')">×</button>
+      <div class="modal-body">
+        <h3>マネーフォワードクラウド会計</h3>
+        <p>マネーフォワードクラウド会計では、ネットバンキングやクレジットカードなど様々なサービスとの連携が可能です。</p>
+        <img src="https://media.toriaez.jp/m0902/027.png" alt="マネーフォワード連携図">
+        <p>取得した明細から自動で仕訳が作成されるので、ワンクリックで仕訳が作成されます。</p>
+        <img src="https://media.toriaez.jp/m0902/318_full.PNG" alt="マネーフォワード仕訳画面">
+        <p>マネーフォワードクラウド会計と一緒に利用できるマネーフォワードクラウド請求書は、WEB上で請求書を作成して簡単にメール送信ができるなど非常に便利です。</p>
+        <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=800&q=80" alt="マネーフォワード請求書画面">
+        <p>当事務所ではマネーフォワードクラウド会計の導入に非常に力を入れています。ご興味のある方はお気軽にご相談ください。</p>
+        <p>マネーフォワードクラウドについてはこちらで詳しく解説しています。</p>
+        <ul>
+          <li><a href="#">マネーフォワードクラウド会計･確定申告</a></li>
+          <li><a href="#">マネーフォワードクラウド請求書</a></li>
+          <li><a href="#">マネーフォワードクラウドの料金</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: 相続税 -->
+  <div class="modal-overlay" id="modal-souzoku">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-souzoku')">×</button>
+      <div class="modal-body">
+        <h3>相続税申告・生前相続対策</h3>
+        <p>相続税最大のわな｢二次相続｣を考慮して相続税申告･生前相続対策を行います</p>
+        <p>二次相続とは、夫婦のどちらかが先に死亡(一次相続)した後、残された配偶者が死亡することを言います。</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+          <img src="https://media.toriaez.jp/m0902/630_m.png" alt="二次相続の図解1" style="max-width: 300px;">
+          <img src="https://media.toriaez.jp/m0902/359_m.png" alt="二次相続の図解2" style="max-width: 300px;">
+        </div>
+        <p>一次相続で配偶者が多額の財産を相続すると一次相続の相続税は少なくなりますが、二次相続の相続税が大きく増えてしまい、結果として一次相続と二次相続の相続税の合計が倍以上になることもあります。</p>
+        <p>次の例で具体的に見ていきます。</p>
+        <img src="https://media.toriaez.jp/m0902/577_m.png" alt="相続の具体例図解">
+        <p>父が死亡した際に母が父の財産を相続する割合に応じて、｢一次相続の相続税額｣、｢二次相続の相続税額｣、｢一次相続の相続税額と二次相続の相続税額の合計額｣をまとめたのが次の試算表です。</p>
+        <img src="https://media.toriaez.jp/m0902/579_full.PNG" alt="相続税試算表">
+        <p>(1)一次相続で母がすべての財産を相続した場合、一次相続では相続税額は0円となります。しかし二次相続では相続税額が3,640万円となり、一次相続と二次相続の相続税額の合計は3,640万円となります。</p>
+        <p>(2)一次相続で母が財産の5%(800万円)を相続した場合、一次相続では相続税額は1,634万円となります。しかし二次相続では相続税額は160万円となり、一次相続と二次相続の相続税額の合計は1,794万円となります。<br>
+        <span style="color: red;">(一次相続で母がすべての財産を相続した場合の半分以下です！)</span></p>
+        <p>一次相続の相続税の負担を少なくすることしか考慮しないと二次相続の相続税が増えてしまい最終的な税負担は倍以上になることもある相続税最大のわなです。</p>
+        <p>相続税の申告や生前相続対策の際に二次相続についての検討を行わない税理士もいるのですが、当事務所では次のようなシミュレーションなどを用いて検討を行うこととしています。</p>
+        <img src="https://media.toriaez.jp/m0902/263_full.jpg" alt="シミュレーション表">
+        <p>二次相続まで検討することによりに税負担を大きく減らすことができます。ご興味のある方はお気軽にご相談ください。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: 事業承継 -->
+  <div class="modal-overlay" id="modal-shoukei">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-shoukei')">×</button>
+      <div class="modal-body">
+        <h3>事業承継</h3>
+        <p>栃木県事業承継･引継ぎ支援センターと連携した親族内･親族外の事業承継</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Hamburger Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      hamburgerBtn.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburgerBtn.textContent = '☰';
+      });
+    });
+
+    // Blog Tabs
+    function switchTab(tabName) {
+      // Update buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Update grids
+      document.querySelectorAll('.blog-grid').forEach(grid => grid.classList.remove('active'));
+      document.getElementById(`grid-${tabName}`).classList.add('active');
+    }
+
+    // News "More" Button
+    const btnMoreNews = document.getElementById('btn-more-news');
+    const newsItems = document.querySelectorAll('.news-item');
+
+    btnMoreNews.addEventListener('click', () => {
+      newsItems.forEach(item => item.classList.add('visible'));
+      btnMoreNews.style.display = 'none';
+    });
+
+    // Modals
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on outside click
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

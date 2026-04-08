@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中央税理士法人</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #C19E6D;
+    --text-color: #262626;
+    --bg-light: #F9F9F9;
+    --bg-white: #FFFFFF;
+    --font-family: 'Noto Sans JP', sans-serif;
+    --transition: all 0.3s ease;
+  }
+
+  /* Reset & Base Styles */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+  }
+
+  a:hover {
+    opacity: 0.7;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Section Titles */
+  .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-title-en {
+    display: block;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+  }
+
+  .section-title-ja {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+
+  /* Header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 40px;
+  }
+
+  .logo img {
+    height: 30px;
+    width: auto;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .header-contact {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .header-tel {
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .header-tel::before {
+    content: '📞';
+    font-size: 1rem;
+  }
+
+  .btn-contact {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .btn-contact:hover {
+    background-color: #a8875a;
+    opacity: 1;
+  }
+
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 10px;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: var(--transition);
+  }
+
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    min-height: 600px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--bg-white);
+    position: relative;
+    padding-top: 80px; /* Header height */
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background-color: var(--primary-color);
+  }
+
+  /* About Section */
+  .about {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+  }
+
+  .about-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 2;
+  }
+
+  /* Service Section */
+  .service {
+    padding: 100px 0;
+    background-color: var(--bg-white);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .service-card {
+    background-color: var(--bg-white);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    border: 1px solid #eee;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  }
+
+  .service-img-wrap {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: var(--bg-light);
+  }
+
+  .service-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .service-card-text {
+    font-size: 0.95rem;
+    color: #555;
+    text-align: left;
+  }
+
+  /* Voice Section */
+  .voice {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+  }
+
+  .voice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .voice-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .voice-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .voice-bubble {
+    flex: 1;
+    background-color: var(--bg-white);
+    border: 2px solid #EAEAEA;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+  }
+
+  /* Speech bubble tails */
+  .voice-bubble::before,
+  .voice-bubble::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-style: solid;
+  }
+
+  .voice-item:nth-child(odd) .voice-bubble::before {
+    right: -22px;
+    border-width: 15px 0 15px 22px;
+    border-color: transparent transparent transparent #EAEAEA;
+  }
+
+  .voice-item:nth-child(odd) .voice-bubble::after {
+    right: -18px;
+    border-width: 14px 0 14px 19px;
+    border-color: transparent transparent transparent var(--bg-white);
+  }
+
+  .voice-item:nth-child(even) .voice-bubble::before {
+    left: -22px;
+    border-width: 15px 22px 15px 0;
+    border-color: transparent #EAEAEA transparent transparent;
+  }
+
+  .voice-item:nth-child(even) .voice-bubble::after {
+    left: -18px;
+    border-width: 14px 19px 14px 0;
+    border-color: transparent var(--bg-white) transparent transparent;
+  }
+
+  .voice-text {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .voice-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    flex-shrink: 0;
+  }
+
+  .voice-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--bg-white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .voice-num {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .voice-name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .voice-company {
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  /* Contact Section */
+  .contact {
+    padding: 100px 0;
+    background-color: var(--bg-white);
+    text-align: center;
+  }
+
+  .contact-text {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 1rem;
+  }
+
+  .contact-cta-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .btn-large {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 20px 60px;
+    border-radius: 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(193, 158, 109, 0.3);
+  }
+
+  .btn-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(193, 158, 109, 0.4);
+    opacity: 1;
+  }
+
+  .contact-tel-wrap {
+    margin-top: 20px;
+  }
+
+  .contact-tel {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .contact-tel::before {
+    content: 'TEL';
+    font-size: 1.2rem;
+    color: var(--primary-color);
+  }
+
+  .contact-time {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--bg-light);
+    padding: 80px 0 40px;
+    border-top: 1px solid #eee;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .footer-logo img {
+    height: 30px;
+    margin-bottom: 20px;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 60px;
+  }
+
+  .footer-nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-nav-col a {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .footer-nav-col a:hover {
+    color: var(--primary-color);
+  }
+
+  .footer-info {
+    text-align: right;
+  }
+
+  .footer-address {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .footer-tel {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #ddd;
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  /* Mobile CTA Bar */
+  .mobile-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  }
+
+  .mobile-cta-inner {
+    display: flex;
+    height: 60px;
+  }
+
+  .mobile-cta-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .mobile-cta-tel {
+    background-color: var(--bg-white);
+    color: var(--text-color);
+  }
+
+  .mobile-cta-mail {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .header-inner {
+      padding: 0 20px;
+    }
+    .nav-links {
+      display: none;
+    }
+    .header-contact {
+      display: none;
+    }
+    .hamburger {
+      display: block;
+    }
+    
+    /* Mobile Menu Overlay */
+    .mobile-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 80px);
+      background-color: var(--bg-white);
+      padding: 40px 20px;
+      transform: translateX(100%);
+      transition: var(--transition);
+      z-index: 999;
+      overflow-y: auto;
+    }
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .mobile-menu-links a {
+      font-size: 1.2rem;
+      font-weight: 500;
+      display: block;
+      padding: 10px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding-bottom: 60px; /* For mobile CTA */
+    }
+    .container {
+      padding: 0 16px;
+    }
+    .section-title {
+      margin-bottom: 40px;
+    }
+    .section-title-en {
+      font-size: 1.8rem;
+    }
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      padding: 0 20px;
+    }
+    .about, .service, .voice, .contact {
+      padding: 60px 0;
+    }
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+    .voice-item, .voice-item:nth-child(even) {
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+    .voice-bubble::before, .voice-bubble::after {
+      display: none; /* Hide tails on mobile for cleaner look */
+    }
+    .voice-bubble {
+      padding: 25px;
+    }
+    .voice-profile {
+      flex-direction: row;
+      width: 100%;
+      text-align: left;
+      align-items: center;
+      gap: 15px;
+    }
+    .voice-img {
+      margin-bottom: 0;
+      width: 60px;
+      height: 60px;
+    }
+    .contact-tel {
+      font-size: 2rem;
+    }
+    .footer-inner {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .footer-nav {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .footer-info {
+      text-align: left;
+    }
+    .mobile-cta {
+      display: block;
+    }
+  }
+</style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <img src="https://www.central-tc.com/img/logo.png" alt="中央税理士法人">
+      </a>
+      <div class="header-right">
+        <nav class="nav-links">
+          <a href="#about">私たちについて</a>
+          <a href="#service">業務内容</a>
+          <a href="#voice">クライアントの声</a>
+          <a href="#recruit">採用情報</a>
+          <a href="#contact">問い合わせ</a>
+        </nav>
+        <div class="header-contact">
+          <a href="tel:0282-27-5741" class="header-tel">0282-27-5741</a>
+          <a href="#contact" class="btn-contact">問い合わせ</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-menu-links">
+      <a href="#about">私たちについて</a>
+      <a href="#service">業務内容</a>
+      <a href="#voice">クライアントの声</a>
+      <a href="#recruit">採用情報</a>
+      <a href="#contact">問い合わせ</a>
+    </nav>
+    <div class="contact-cta-wrap">
+      <a href="tel:0282-27-5741" class="contact-tel">0282-27-5741</a>
+      <a href="#contact" class="btn-large" style="padding: 15px 40px; font-size: 1rem;">お問い合わせ</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <h2 class="hero-title">主役のミカタ。</h2>
+      <p class="hero-subtitle">相談を聞き、談笑し、時に背中を押す。それが私たちのやり方です。</p>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <span class="section-title-en">About</span>
+          <h2 class="section-title-ja">私たちについて</h2>
+        </div>
+        <p class="about-text">
+          複雑で難しい税金のこと、 会社の未来。どんなときも、ちょっとしたことでも、なんでも相談できる距離にいることが、お客様の不安を取り除き、同じ目線で明日を創るために大切なことだと考えます。
+        </p>
+      </div>
+    </section>
+
+    <section id="service" class="service">
+      <div class="container">
+        <div class="section-title">
+          <span class="section-title-en">Service</span>
+          <h2 class="section-title-ja">業務内容</h2>
+        </div>
+        <div class="service-grid">
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="会計税務サポート">
+            </div>
+            <h3 class="service-card-title">会計税務サポート</h3>
+            <p class="service-card-text">当税理士法人の行う会計税務顧問は、毎月訪問させていただく「月次訪問監査」を基本としております。</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" alt="相続・贈与・確定申告">
+            </div>
+            <h3 class="service-card-title">相続・贈与・確定申告</h3>
+            <p class="service-card-text">相続税の申告には高い専門知識が求められるため、税理士の知識・経験によって税額が大きく変わってきます。</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="報酬料金表">
+            </div>
+            <h3 class="service-card-title">報酬料金表</h3>
+            <p class="service-card-text"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="voice" class="voice">
+      <div class="container">
+        <div class="section-title">
+          <span class="section-title-en">Voice</span>
+          <h2 class="section-title-ja">クライアントの声</h2>
+        </div>
+        <div class="voice-list">
+          <!-- Voice 01 -->
+          <div class="voice-item">
+            <div class="voice-bubble">
+              <p class="voice-text">宇都宮市松が峰を本店に置く「マツガミネコーヒービルヂング」</p>
+            </div>
+            <div class="voice-profile">
+              <img src="https://www.central-tc.com/img/index/s1.jpg" alt="クライアント写真" class="voice-img">
+              <div>
+                <div class="voice-num">01</div>
+                <div class="voice-name">宇都宮の人気カフェ、オーナーの相談役</div>
+              </div>
+            </div>
+          </div>
+          <!-- Voice 02 -->
+          <div class="voice-item">
+            <div class="voice-bubble">
+              <p class="voice-text">Win Graffiti株式会社</p>
+            </div>
+            <div class="voice-profile">
+              <img src="https://www.central-tc.com/img/index/s2.jpg" alt="クライアント写真" class="voice-img">
+              <div>
+                <div class="voice-num">02</div>
+                <div class="voice-name">想いを理解し、ブランド力と自立を共に育てる。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <span class="section-title-en">Contact</span>
+        </div>
+        <p class="contact-text">
+          法人設立手続きや税理士の顧問契約、相続・贈与、その他のご相談は、以下のフォームよりお問い合わせ下さい。お電話でお問い合わせの際は下記番号よりお願い致します。
+        </p>
+        <div class="contact-cta-wrap">
+          <a href="#" class="btn-large">まずはお気軽にご相談ください</a>
+          <div class="contact-tel-wrap">
+            <a href="tel:0282-27-5741" class="contact-tel">0282-27-5741</a>
+            <p class="contact-time">受付時間: お電話受付時間　8:30-17:30</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <a href="#">
+            <img src="https://www.central-tc.com/img/logo.png" alt="中央税理士法人">
+          </a>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <a href="#about">私たちについて</a>
+            <a href="#">代表挨拶</a>
+            <a href="#">経営理念</a>
+            <a href="#">会社概要</a>
+          </div>
+          <div class="footer-nav-col">
+            <a href="#service">業務内容</a>
+            <a href="#">会計税務サポート</a>
+            <a href="#">相続・贈与・確定申告</a>
+            <a href="#">報酬料金表</a>
+          </div>
+          <div class="footer-nav-col">
+            <a href="#voice">クライアントの声</a>
+            <a href="#recruit">採用情報</a>
+            <a href="#contact">問い合わせ</a>
+          </div>
+        </div>
+        <div class="footer-info">
+          <p class="footer-address">〒328-0011　栃木県栃木市大宮町2136-9</p>
+          <a href="tel:0282-27-5741" class="footer-tel">TEL 0282-27-5741</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>©central tax corp</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile CTA Bar -->
+  <div class="mobile-cta">
+    <div class="mobile-cta-inner">
+      <a href="tel:0282-27-5741" class="mobile-cta-btn mobile-cta-tel">📞 0282-27-5741</a>
+      <a href="#contact" class="mobile-cta-btn mobile-cta-mail">✉️ お問い合わせ</a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+
+      function toggleMenu() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+      });
+    });
+  </script>
+</body>
+</html>

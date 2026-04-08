@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社高橋会計</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #026ec8;
+            --secondary: #e9f7ff;
+            --dark: #092237;
+            --text: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--secondary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 15px auto 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #025ba6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(2, 110, 200, 0.3);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo img {
+            height: 40px;
+            filter: brightness(0) invert(1); /* Make logo white */
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-desktop a {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--primary);
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .header-tel span {
+            font-size: 0.7rem;
+            color: #aaa;
+        }
+
+        .header-tel a {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Mobile Nav */
+        .nav-mobile {
+            display: none;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark);
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-mobile.active {
+            display: block;
+        }
+
+        .nav-mobile ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-mobile a {
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 600px;
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 34, 55, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Sections Common */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .card-container {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        /* Greeting */
+        .greeting-inner {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .greeting-img {
+            flex: 0 0 300px;
+        }
+
+        .greeting-img img {
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .greeting-text {
+            flex: 1;
+        }
+
+        .greeting-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .greeting-name {
+            text-align: right;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Services */
+        .services-desc {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--text-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            position: relative;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 40px 25px 30px;
+            position: relative;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            color: var(--primary);
+        }
+
+        .service-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .service-en {
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            color: var(--primary);
+        }
+
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .feature-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        /* News */
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-weight: 500;
+            color: var(--primary);
+            flex: 0 0 100px;
+        }
+
+        .news-title {
+            flex: 1;
+        }
+
+        /* Company */
+        .company-inner {
+            display: flex;
+            gap: 40px;
+        }
+
+        .company-info {
+            flex: 1;
+        }
+
+        .company-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .company-table th, .company-table td {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .company-table th {
+            width: 30%;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .company-map {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-info .logo img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-nav a {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .footer-nav a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+            height: 60px;
+        }
+
+        .mobile-cta-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--dark);
+        }
+
+        .mobile-cta-mail {
+            background-color: var(--primary);
+        }
+
+        .mobile-cta-btn svg {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid, .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .company-inner {
+                flex-direction: column;
+            }
+            .company-map {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop, .header-contact {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero {
+                height: 400px;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .section-padding {
+                padding: 50px 0;
+            }
+            .card-container {
+                padding: 20px;
+            }
+            .greeting-inner {
+                flex-direction: column;
+            }
+            .greeting-img {
+                flex: auto;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            .services-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-inner {
+                flex-direction: column;
+            }
+            .footer-nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+            body {
+                padding-bottom: 60px; /* For mobile CTA */
+            }
+            .mobile-cta {
+                display: block;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="https://www.takahashi-kaikei.net/library/66824d1923f6c32a40c7ec4a/682ff866ac8a3a4340677377.png" alt="株式会社高橋会計">
+            </a>
+            
+            <nav class="nav-desktop">
+                <a href="#">ホーム</a>
+                <a href="#">事務所案内</a>
+                <a href="#">企業経営</a>
+                <a href="#">医業経営</a>
+                <a href="#">相続税・事業承継</a>
+                <a href="#">お問合せ</a>
+            </nav>
+
+            <div class="header-contact">
+                <div class="header-tel">
+                    <span>電話でのお問合せ</span>
+                    <a href="tel:0285-22-7117">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        0285-22-7117
+                    </a>
+                </div>
+                <a href="#" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    CONTACT
+                </a>
+            </div>
+
+            <button class="hamburger" id="hamburger">
+                ☰
+            </button>
+        </div>
+
+        <nav class="nav-mobile" id="nav-mobile">
+            <ul>
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">事務所案内</a></li>
+                <li><a href="#">TKCシステムを活用した取り組み</a></li>
+                <li><a href="#">個人情報保護方針</a></li>
+                <li><a href="#">企業経営</a></li>
+                <li><a href="#">医業経営</a></li>
+                <li><a href="#">相続税・事業承継</a></li>
+                <li><a href="#">お問合せ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">私たちは、お客様の発展と永続を願い、<br>これからも共に歩んでいきます</h1>
+                <a href="#" class="btn btn-primary">お問い合わせはこちら</a>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">ご挨拶</h2>
+                <div class="card-container greeting-inner">
+                    <div class="greeting-img">
+                        <img src="https://www.takahashi-kaikei.net/library/66824d1923f6c32a40c7ec4a/680f2f96184eb46e3839916e.jpg" alt="代表 橘川 行男">
+                    </div>
+                    <div class="greeting-text">
+                        <p>当事務所は、長年の実績を活かし医業をはじめ、幅広い業種に対応した会計・税務支援を行っております。各業種の特徴に合わせた対応で、お客様の経営をサポートいたします。また、相続税の申告や事業承継に関するご相談にも対応し、将来に備えた計画や手続きを専門的にサポートいたします。どうぞお気軽にご相談ください。</p>
+                        <div class="greeting-name">橘川　行男（税理士）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">サービス案内</h2>
+                <p class="services-desc">当事務所は、巡回監査の実施により、お客様と毎月面談し、会計資料並びに会計記録の適法性、正確性及び適時性を確認します。これにより、経営者の意思決定に役立つデータを提供し、会計、税務や経営面のアドバイスを行います。この際、経営面のアドバイスでは、毎月の面談等を通して得られるお客様からの情報や『ＴＫＣ経営指標』の同業他社比較等によって、お客様の強みや経営課題等を分析・報告します。</p>
+                
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop" alt="企業経営">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                            </div>
+                            <h3 class="service-title">企業経営</h3>
+                            <div class="service-en">Corporate management</div>
+                        </div>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop" alt="医業経営">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM12 8v8M8 12h8"/></svg>
+                            </div>
+                            <h3 class="service-title">医業経営</h3>
+                            <div class="service-en">Medical practice</div>
+                        </div>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=2069&auto=format&fit=crop" alt="相続税・事業承継">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <h3 class="service-title">相続税・事業承継</h3>
+                            <div class="service-en">Inheritance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">当事務所の3つの特長</h2>
+                <div class="features-grid">
+                    <!-- Feature 1 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="16 11 18 13 22 9"></polyline></svg>
+                        </div>
+                        <h3 class="feature-title">毎月貴社を訪問し、<br>自計化を支援いたします</h3>
+                        <p class="feature-text">巡回監査を通じて、経営者が正確な月次損益を把握できる体制づくりを支援しています。業種を問わず、経理体制の整備やクラウドシステムの導入にも対応しています。</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3 class="feature-title">医業に特化した<br>会計・税務サポート</h3>
+                        <p class="feature-text">医業特有の会計税務面のサポートに加え、クリニックの先生方のご状況に合わせた、きめ細かなアドバイスを心がけています。</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21h6M12 17v4M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/></svg>
+                        </div>
+                        <h3 class="feature-title">相続税申告、事業承継の相談<br>安心の実績で対応</h3>
+                        <p class="feature-text">相続税の申告については、多くの実績を持ち、最適なアドバイスとサポートを提供しています。事前のご相談も承っています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">お知らせ</h2>
+                <div class="card-container">
+                    <div class="news-list">
+                        <div class="news-item">
+                            <div class="news-date">2025.05.28</div>
+                            <div class="news-title">ホームページをリニューアルしました</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">事務所概要</h2>
+                <div class="card-container company-inner">
+                    <div class="company-info">
+                        <table class="company-table">
+                            <tbody>
+                                <tr>
+                                    <th>事務所名</th>
+                                    <td>株式会社高橋会計</td>
+                                </tr>
+                                <tr>
+                                    <th>所長名</th>
+                                    <td>橘川　行男（税理士）</td>
+                                </tr>
+                                <tr>
+                                    <th>会長名</th>
+                                    <td>高橋　清（税理士）</td>
+                                </tr>
+                                <tr>
+                                    <th>所在地</th>
+                                    <td>〒3230807 栃木県小山市城東7-15-30</td>
+                                </tr>
+                                <tr>
+                                    <th>電話番号</th>
+                                    <td>0285-22-7117</td>
+                                </tr>
+                                <tr>
+                                    <th>FAX番号</th>
+                                    <td>0285-22-6801</td>
+                                </tr>
+                                <tr>
+                                    <th>営業時間</th>
+                                    <td>08:30～17:30</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="company-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.426588267232!2d139.8115883152758!3d36.30219998005435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f4e1b1b1b1b1b%3A0x1b1b1b1b1b1b1b1b!2z44CSMzIzLTA4MDcg5qCD5pyo55yM5bCP5bGx5biC5Z-O5p2xNy0xNS0zMA!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <a href="#" class="logo">
+                        <img src="https://www.takahashi-kaikei.net/library/66824d1923f6c32a40c7ec4a/682ff866ac8a3a4340677377.png" alt="株式会社高橋会計">
+                    </a>
+                    <p>〒3230807 栃木県小山市城東7-15-30</p>
+                    <p>TEL: 0285-22-7117 / FAX: 0285-22-6801</p>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="#">ホーム</a></li>
+                        <li><a href="#">事務所案内</a></li>
+                        <li><a href="#">TKCシステムを活用した取り組み</a></li>
+                        <li><a href="#">個人情報保護方針</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">企業経営</a></li>
+                        <li><a href="#">医業経営</a></li>
+                        <li><a href="#">相続税・事業承継</a></li>
+                        <li><a href="#">お問合せ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright (c) 2025 - 2026 株式会社高橋会計 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-cta">
+        <div class="mobile-cta-inner">
+            <a href="tel:0285-22-7117" class="mobile-cta-btn mobile-cta-tel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                電話する
+            </a>
+            <a href="#" class="mobile-cta-btn mobile-cta-mail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                WEB問合せ
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('nav-mobile').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

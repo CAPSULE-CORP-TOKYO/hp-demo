@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>桐生中央税理士法人 / (有)山上会計事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #666666;
+            --accent-color: #eab010;
+            --bg-light: #f9f9f9;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --spacing-sm: 16px;
+            --spacing-md: 32px;
+            --spacing-lg: 64px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--primary-color);
+            line-height: 1.6;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Buttons */
+        .btn-gold {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-gold:hover {
+            background-color: #ffffff;
+            color: var(--accent-color);
+        }
+
+        .btn-gold.large {
+            padding: 16px 48px;
+            font-size: 18px;
+        }
+
+        /* Header */
+        .header-top {
+            background-color: #ffffff;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .catchphrase {
+            font-size: 12px;
+            color: var(--primary-color);
+        }
+
+        .header-contact-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .header-contact-info .tel {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .header-contact-info .tel i {
+            color: var(--accent-color);
+            margin-right: 5px;
+        }
+
+        .header-main {
+            padding: 20px 0;
+            background-color: #ffffff;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        /* Navigation */
+        .nav-wrapper {
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 15px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .main-nav a:hover {
+            color: var(--accent-color);
+            background-color: #ffffff;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0;
+            background-color: #ffffff;
+        }
+
+        .hero-inner {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero-bg {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .hero-content h2 {
+            font-size: 32px;
+            line-height: 1.4;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        /* Greeting Section */
+        .greeting {
+            padding: var(--spacing-lg) 0;
+            position: relative;
+            background-image: url('https://kiryu-yamakami.co.jp/wp/wp-content/uploads/2024/02/20240215bnr_top.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .greeting::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1;
+        }
+
+        .greeting .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .greeting-content {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .greeting-img {
+            flex: 0 0 300px;
+        }
+
+        .greeting-img img {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .greeting-text {
+            flex: 1;
+        }
+
+        .greeting-subtitle {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .greeting-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+
+        .service-body {
+            padding: 30px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-body h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        /* Info Section (Seminars & News) */
+        .info-section {
+            padding: var(--spacing-lg) 0;
+            background-color: #ffffff;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        .info-note {
+            font-size: 13px;
+            color: #d9534f;
+            margin-bottom: 10px;
+        }
+
+        .info-list {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-icon {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        .info-date {
+            display: block;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .info-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--primary-color);
+            line-height: 1.4;
+        }
+
+        .more-link {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .more-link a {
+            font-size: 14px;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer-cta {
+            background-color: var(--bg-light);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer-main {
+            background-color: #ffffff;
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info .footer-logo {
+            margin-bottom: 20px;
+            max-width: 250px;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .footer-contact-box {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .footer-contact-box h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .footer-contact-box p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .footer-contact-box .contact-link {
+            text-align: center;
+        }
+
+        .footer-contact-box .contact-link a {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+
+        .footer-nav a {
+            font-size: 13px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-cta-bar a {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .mobile-cta-bar .btn-tel {
+            background-color: var(--primary-color);
+        }
+
+        .mobile-cta-bar .btn-web {
+            background-color: var(--accent-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                right: 50%;
+                transform: translate(50%, -50%);
+                width: 90%;
+                text-align: center;
+            }
+            .greeting-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .greeting-img {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 60px; /* For mobile CTA bar */
+            }
+
+            .header-top {
+                display: none;
+            }
+
+            .header-main .container {
+                position: relative;
+            }
+
+            .header-main .btn-gold {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-wrapper {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                z-index: 100;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-wrapper.active {
+                display: block;
+            }
+
+            .main-nav {
+                flex-direction: column;
+            }
+
+            .main-nav a {
+                border-bottom: 1px solid var(--border-color);
+                padding: 15px 20px;
+            }
+
+            .hero {
+                padding: 20px 0;
+            }
+
+            .hero-bg {
+                height: 400px;
+            }
+
+            .hero-content {
+                padding: 20px;
+            }
+
+            .hero-content h2 {
+                font-size: 24px;
+            }
+
+            .services-grid, .info-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .greeting-content {
+                padding: 20px;
+            }
+
+            .mobile-cta-bar {
+                display: flex;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="catchphrase">お客様に地域で一番愛される事務所になる</div>
+                <div class="header-contact-info">
+                    <span>受付時間　8:30～17:30</span>
+                    <span class="tel"><i class="fas fa-phone-alt"></i>0277-46-1122</span>
+                    <span>FAX：0277-22-0338</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a href="/" class="logo">
+                    <img src="https://kiryu-yamakami.co.jp/wp/wp-content/uploads/2020/08/logo_yamakami8_1.png" alt="桐生中央税理士法人 / (有)山上会計事務所">
+                </a>
+                <a href="https://kiryu-yamakami.co.jp/contact/" class="btn-gold"><i class="far fa-envelope"></i> WEBお問い合わせ</a>
+                <button class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="nav-wrapper" id="nav-menu">
+            <div class="container">
+                <ul class="main-nav">
+                    <li><a href="#">トップ</a></li>
+                    <li><a href="#">桐生中央税理士法人とは</a></li>
+                    <li><a href="#">経営計画</a></li>
+                    <li><a href="#">企業ドック</a></li>
+                    <li><a href="#">研修・教育</a></li>
+                    <li><a href="#">社員紹介</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner">
+                    <img src="https://kiryu-yamakami.co.jp/wp/wp-content/uploads/2026/01/20260123_slide_a.jpg" alt="お客様の経営と生活を総合的にサポートするトータルパートナー" class="hero-bg">
+                    <div class="hero-content">
+                        <h2>お客様の経営と生活を<br>総合的にサポートする<br>トータルパートナー</h2>
+                        <a href="https://kiryu-yamakami.co.jp/contact/" class="btn-gold">まずはお気軽にご相談ください</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Greeting Section -->
+        <section class="greeting">
+            <div class="container">
+                <h2 class="section-title">代表者挨拶</h2>
+                <div class="greeting-content">
+                    <div class="greeting-img">
+                        <img src="https://kiryu-yamakami.co.jp/wp/wp-content/uploads/2024/02/yokoyama20240214-introduction.jpg" alt="代表税理士 横山 嘉孝">
+                    </div>
+                    <div class="greeting-text">
+                        <div class="greeting-subtitle">代表税理士　横山 嘉孝</div>
+                        <p>桐生中央税理士法人のホームページをご覧いただき有難うございます。</p>
+                        <p>「お客様に地域で一番愛される事務所になる」という経営理念のもと、日々の業務に取り組んでおります。</p>
+                        <p>月次業務や決算、税金面のサポートだけでなく、お客様の経営に関する不安や懸念を丁寧にヒアリングし、変化を続ける経済や税制に対してどのように対応していくかを常にお客様の立場から考え、経営をより元気にしていくお手伝いができればと考えております。</p>
+                        <p>また、経営と生活を総合的にサポートするトータルパートナーとして、全てが解決できるワンストップサービスもおこなっております。</p>
+                        <p>地域のトータルサポートを担うパートナーとして当税理士法人をご利用いただければ幸甚です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <div class="services-grid">
+                    <!-- Card 1 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="桐生中央税理士法人とは">
+                        </div>
+                        <div class="service-body">
+                            <h3>桐生中央税理士法人とは</h3>
+                            <a href="#" class="btn-gold">詳しくはこちら <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="経営計画">
+                        </div>
+                        <div class="service-body">
+                            <h3>経営計画</h3>
+                            <a href="#" class="btn-gold">詳しくはこちら <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=800&q=80" alt="研修・教育">
+                        </div>
+                        <div class="service-body">
+                            <h3>研修・教育</h3>
+                            <a href="#" class="btn-gold">詳しくはこちら <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="社員紹介">
+                        </div>
+                        <div class="service-body">
+                            <h3>社員紹介</h3>
+                            <a href="#" class="btn-gold">詳しくはこちら <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <!-- Seminars -->
+                    <div class="info-col">
+                        <h2 class="section-title">セミナー・イベントのご案内</h2>
+                        <p class="info-note">※コロナウイルスの影響により、本年度の飲食セミナーの開催は見送りとさせて頂きました。</p>
+                        <p class="info-note">※コロナウイルスの影響により、本年度のボウリング大会、ゴルフコンペの開催を見送りとさせて頂きました。</p>
+                        <ul class="info-list">
+                            <li>
+                                <div class="info-icon"><i class="fas fa-bullhorn"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2022年10月29日</span>
+                                    <span class="info-title">ゴルフコンペ開催の報告</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="fas fa-bullhorn"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2021年9月14日</span>
+                                    <span class="info-title">2021年10月16日　ゴルフコンペ延期のお知らせ</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="fas fa-bullhorn"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2021年8月12日</span>
+                                    <span class="info-title">2021年10月16日　ゴルフコンペ開催のご案内</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="fas fa-bullhorn"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2020年9月29日</span>
+                                    <span class="info-title">セミナーのご案内【見送り】</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="fas fa-bullhorn"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2020年9月29日</span>
+                                    <span class="info-title">イベントのご案内【見送り】</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="more-link">
+                            <a href="#">もっとみる &gt;&gt;</a>
+                        </div>
+                    </div>
+
+                    <!-- News -->
+                    <div class="info-col">
+                        <h2 class="section-title">経営ニュース</h2>
+                        <ul class="info-list">
+                            <li>
+                                <div class="info-icon"><i class="far fa-newspaper"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2022年11月7日</span>
+                                    <span class="info-title">経営ニュース第9号　桐生市等物価高騰支援金</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="far fa-newspaper"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2022年10月4日</span>
+                                    <span class="info-title">経営ニュース第8号　新ぐんまチャレンジ支援金等</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="far fa-newspaper"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2021年12月28日</span>
+                                    <span class="info-title">経営ニュース第7号　電帳法改正・事業復活支援金</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="far fa-newspaper"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2021年9月27日</span>
+                                    <span class="info-title">経営ニュース第6号　インボイス制度について</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="far fa-newspaper"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2021年7月16日</span>
+                                    <span class="info-title">経営ニュース第5号　月次支援金が始まります！</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="far fa-newspaper"></i></div>
+                                <div class="info-text">
+                                    <span class="info-date">2021年3月29日</span>
+                                    <span class="info-title">経営ニュース第4号　所得税法の改正事項について</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="more-link">
+                            <a href="#">もっとみる &gt;&gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-cta">
+            <div class="container">
+                <a href="https://kiryu-yamakami.co.jp/contact/" class="btn-gold large">まずはお気軽にご相談ください</a>
+            </div>
+        </div>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-info">
+                        <img src="https://kiryu-yamakami.co.jp/wp/wp-content/uploads/2020/08/logo_yamakami8_1.png" alt="桐生中央税理士法人 / (有)山上会計事務所" class="footer-logo">
+                        <p>群馬県桐生市元宿町9番26号</p>
+                        <p>TEL：0277-46-1122</p>
+                        <p>FAX：0277-22-0338</p>
+                        <p>受付時間：8:30～17:30</p>
+                    </div>
+                    <div class="footer-contact-box">
+                        <h4>ご相談窓口</h4>
+                        <p>所得税・法人税・消費税・相続税等に関わる税務一般～決算対策、経営計画の策定、業績管理等の会社関連の質問等、お客様の疑問を解決へと導きます。お気軽にお問い合わせください。</p>
+                        <div class="contact-link">
+                            <a href="https://kiryu-yamakami.co.jp/contact/">お問い合わせはこちらから ＞＞</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="footer-nav">
+                    <li><a href="#">トップ</a></li>
+                    <li><a href="#">桐生中央税理士法人とは</a></li>
+                    <li><a href="#">経営計画</a></li>
+                    <li><a href="#">企業ドック</a></li>
+                    <li><a href="#">研修・教育</a></li>
+                    <li><a href="#">社員紹介</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#">個人情報</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+                
+                <div class="copyright">
+                    Copyright &copy; 山上会計 All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta-bar">
+        <a href="tel:0277-46-1122" class="btn-tel">
+            <i class="fas fa-phone-alt"></i>
+            <span>電話する</span>
+        </a>
+        <a href="https://kiryu-yamakami.co.jp/contact/" class="btn-web">
+            <i class="far fa-envelope"></i>
+            <span>WEBお問い合わせ</span>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger-menu');
+            const navMenu = document.getElementById('nav-menu');
+
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

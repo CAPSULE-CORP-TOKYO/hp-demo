@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eN税理士法人</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary-color: #1B3654;
+            --secondary-color: #B4A356;
+            --text-color: #333333;
+            --bg-light: #F8F9FA;
+            --bg-white: #FFFFFF;
+            --font-family: 'Noto Sans JP', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-family); color: var(--text-color); line-height: 1.6; background-color: var(--bg-light); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* Layout */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 32px; color: var(--primary-color); font-weight: 700; letter-spacing: 2px; }
+        .section-title h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--secondary-color); margin: 16px auto 0; }
+        .section-title p { font-size: 14px; color: #666; margin-top: 8px; letter-spacing: 1px; font-weight: 500; }
+
+        /* Buttons */
+        .btn { display: inline-block; padding: 12px 32px; background: var(--secondary-color); color: #fff; border-radius: 30px; font-weight: 700; transition: 0.3s; text-align: center; border: none; cursor: pointer; }
+        .btn:hover { background: #9c8d4a; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        /* Header */
+        header { position: fixed; top: 0; left: 0; width: 100%; background: var(--bg-white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; height: 80px; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 700; color: var(--primary-color); }
+        .logo img { height: 40px; }
+        .nav-menu { display: flex; gap: 24px; align-items: center; }
+        .nav-menu a { font-size: 14px; font-weight: 500; transition: color 0.3s; }
+        .nav-menu a:hover { color: var(--secondary-color); }
+        .header-contact { display: flex; align-items: center; gap: 20px; }
+        .header-tel { font-weight: 700; color: var(--primary-color); font-size: 18px; }
+        .hamburger { display: none; cursor: pointer; font-size: 24px; color: var(--primary-color); }
+
+        /* Hero */
+        .hero { margin-top: 80px; height: 600px; position: relative; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(27,54,84,0.9) 0%, rgba(27,54,84,0.4) 100%); }
+        .hero-content { position: relative; z-index: 1; color: #fff; max-width: 600px; }
+        .hero-title { font-size: 48px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+        .hero-subtitle { font-size: 20px; margin-bottom: 32px; font-weight: 500; }
+
+        /* About */
+        .about { background: var(--bg-white); }
+        .about-inner { display: flex; gap: 60px; align-items: center; }
+        .about-text { flex: 1; }
+        .about-text p { margin-bottom: 20px; font-size: 16px; line-height: 1.8; }
+        .about-image { flex: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* Philosophy */
+        .philosophy { background: var(--bg-light); }
+        .philosophy-card { background: var(--bg-white); border: 2px solid var(--primary-color); border-radius: 12px; padding: 60px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; }
+        .philosophy-card p { font-size: 18px; line-height: 2; font-weight: 500; }
+
+        /* Corporate Profile */
+        .profile { background: var(--bg-white); }
+        .profile-card { background: var(--bg-white); border-radius: 12px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; border: 1px solid #eee; }
+        .profile-row { display: flex; border-bottom: 1px solid #eee; padding: 20px 0; }
+        .profile-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .profile-row:first-child { padding-top: 0; }
+        .profile-th { width: 30%; font-weight: 700; color: var(--primary-color); display: flex; align-items: center; gap: 12px; }
+        .profile-th i { color: var(--secondary-color); width: 20px; text-align: center; }
+        .profile-td { width: 70%; }
+
+        /* Member */
+        .member { background: var(--bg-light); }
+        .member-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .member-card { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .member-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .member-card:hover img { transform: scale(1.05); }
+        .member-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px 20px 20px; background: linear-gradient(to top, rgba(27,54,84,0.9) 0%, transparent 100%); color: #fff; }
+        .member-role { font-size: 12px; color: var(--secondary-color); margin-bottom: 4px; font-weight: 700; }
+        .member-name { font-size: 20px; font-weight: 700; }
+
+        /* Works */
+        .works { background: var(--bg-white); }
+        .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .work-card { background: var(--bg-white); border: 1px solid #eee; border-radius: 12px; padding: 40px 30px; text-align: center; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .work-card:hover { border-color: var(--primary-color); box-shadow: 0 15px 30px rgba(27,54,84,0.1); transform: translateY(-5px); }
+        .work-icon { font-size: 48px; color: var(--secondary-color); margin-bottom: 24px; }
+        .work-title { font-size: 20px; color: var(--primary-color); font-weight: 700; margin-bottom: 16px; }
+        .work-desc { font-size: 14px; color: #666; text-align: left; }
+
+        /* Contact */
+        .contact { background: var(--primary-color); color: #fff; }
+        .contact .section-title h2 { color: #fff; }
+        .contact-lead { text-align: center; margin-bottom: 40px; font-size: 16px; }
+        .contact-form-card { background: var(--bg-white); color: var(--text-color); border-radius: 12px; padding: 50px; max-width: 800px; margin: 0 auto; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .form-group { margin-bottom: 24px; }
+        .form-label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--primary-color); }
+        .form-label span { color: #e74c3c; font-size: 12px; margin-left: 8px; }
+        .form-control { width: 100%; padding: 12px 16px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 16px; transition: border-color 0.3s; }
+        .form-control:focus { outline: none; border-color: var(--secondary-color); }
+        textarea.form-control { height: 150px; resize: vertical; }
+        .form-submit { text-align: center; margin-top: 40px; }
+        .form-submit .btn { padding: 16px 48px; font-size: 18px; }
+
+        /* Map */
+        .map { padding: 0; line-height: 0; }
+        .map iframe { width: 100%; height: 450px; border: none; }
+
+        /* Footer */
+        footer { background: var(--primary-color); color: #fff; padding: 60px 0 30px; }
+        .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; margin-bottom: 40px; }
+        .footer-info { max-width: 300px; }
+        .footer-logo { margin-bottom: 20px; }
+        .footer-logo img { height: 50px; filter: brightness(0) invert(1); }
+        .footer-nav { display: flex; flex-direction: column; gap: 12px; }
+        .footer-nav a { transition: color 0.3s; }
+        .footer-nav a:hover { color: var(--secondary-color); }
+        .footer-banners { display: flex; flex-direction: column; gap: 16px; }
+        .footer-banners img { height: 50px; object-fit: contain; background: #fff; padding: 5px; border-radius: 4px; }
+        .copyright { text-align: center; font-size: 12px; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+
+        /* Mobile CTA */
+        .mobile-cta { display: none; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
+        .mobile-cta a { flex: 1; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 16px; font-weight: 700; font-size: 14px; }
+        .mobile-cta .cta-tel { background: var(--bg-white); color: var(--primary-color); }
+        .mobile-cta .cta-contact { background: var(--secondary-color); color: #fff; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-inner { flex-direction: column; }
+            .profile-row { flex-direction: column; gap: 8px; }
+            .profile-th, .profile-td { width: 100%; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            section { padding: 60px 0; }
+            .header-contact { display: none; }
+            .hamburger { display: block; }
+            .nav-menu { position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px); background: var(--bg-white); flex-direction: column; justify-content: center; transition: 0.3s; }
+            .nav-menu.active { left: 0; }
+            .nav-menu a { font-size: 18px; }
+            .hero-title { font-size: 32px; }
+            .hero { height: 500px; }
+            .philosophy-card { padding: 30px 20px; }
+            .philosophy-card p { font-size: 16px; }
+            .contact-form-card { padding: 30px 20px; }
+            .footer-inner { flex-direction: column; }
+            body { padding-bottom: 56px; }
+            .mobile-cta { display: flex; }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="https://en-tax.co.jp/assets/img/hero-logo.png" alt="eN税理士法人 ロゴ" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;">eN税理士法人</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#">トップ</a>
+                <a href="#about">当法人について</a>
+                <a href="#philosophy">私たちの理念</a>
+                <a href="#profile">会社概要</a>
+                <a href="#member">士業紹介</a>
+                <a href="#works">業務内容</a>
+                <a href="#contact">お問い合わせ</a>
+            </nav>
+            <div class="header-contact">
+                <div class="header-tel"><i class="fas fa-phone-alt"></i> 0277-44-3854</div>
+                <a href="#contact" class="btn">お問い合わせ</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">eN税理士法人</h1>
+                <p class="hero-subtitle">群馬県桐生市の税理士事務所</p>
+                <a href="#contact" class="btn">無料相談を予約する</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>当法人について</h2>
+                <p>ABOUT</p>
+            </div>
+            <div class="about-inner">
+                <div class="about-text">
+                    <p>創立50年以上の歴史を持つ公認会計士事務所を母体として平成30年6月に設立した税理士法人です。</p>
+                    <p>公認会計士及び税理士による税務・会計を中心とした企業のご支援をしており、<br>社会保険労務士、中小企業診断士を常設し、さらに司法書士とも連携することで、<br>ワンストップサービスであらゆる業務の企業支援を行うことに全力を尽くします。</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://en-tax.co.jp/assets/img/about-img.jpg" alt="当法人について">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="philosophy">
+        <div class="container">
+            <div class="section-title">
+                <h2>私たちの理念</h2>
+                <p>PHILOSOPHY</p>
+            </div>
+            <div class="philosophy-card">
+                <p>社名の「eN」の由来でもありますが、人と人の「縁」を大切にし、人の集まる「苑」を中心に、人の輪「円」をつくり、時にはくつろぎながら（宴）、助け合える（援）、強い繋がりを持った社会の一助になることを使命とします。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Profile -->
+    <section id="profile" class="profile">
+        <div class="container">
+            <div class="section-title">
+                <h2>会社概要</h2>
+                <p>CORPORATE PROFILE</p>
+            </div>
+            <div class="profile-card">
+                <div class="profile-row">
+                    <div class="profile-th"><i class="fas fa-building"></i> 会社名</div>
+                    <div class="profile-td">eN税理士法人</div>
+                </div>
+                <div class="profile-row">
+                    <div class="profile-th"><i class="fas fa-map-marker-alt"></i> 所在地</div>
+                    <div class="profile-td">〒376-0035 群馬県桐生市仲町1-12-20</div>
+                </div>
+                <div class="profile-row">
+                    <div class="profile-th"><i class="fas fa-phone-alt"></i> 電話</div>
+                    <div class="profile-td">0277-44-3854</div>
+                </div>
+                <div class="profile-row">
+                    <div class="profile-th"><i class="fas fa-user-tie"></i> 代表者名</div>
+                    <div class="profile-td">公認会計士・税理士　園田　誠</div>
+                </div>
+                <div class="profile-row">
+                    <div class="profile-th"><i class="fas fa-users"></i> 従業員数</div>
+                    <div class="profile-td">20名</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member -->
+    <section id="member" class="member">
+        <div class="container">
+            <div class="section-title">
+                <h2>士業紹介</h2>
+                <p>MEMBER / PARTNER</p>
+            </div>
+            <div class="member-grid">
+                <div class="member-card">
+                    <img src="https://en-tax.co.jp/assets/img/member-sonoda_makoto.jpg" alt="園田 誠">
+                    <div class="member-info">
+                        <div class="member-role">公認会計士・税理士</div>
+                        <div class="member-name">代表社員 園田 誠</div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="https://en-tax.co.jp/assets/img/member-sonoda_akinari.jpg" alt="園田 晃也">
+                    <div class="member-info">
+                        <div class="member-role">公認会計士</div>
+                        <div class="member-name">園田 晃也</div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="https://en-tax.co.jp/assets/img/member-sonoda_junya.jpg" alt="園田 純也">
+                    <div class="member-info">
+                        <div class="member-role">税理士</div>
+                        <div class="member-name">園田 純也</div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="https://en-tax.co.jp/assets/img/member-yokoduka_takuro.jpg" alt="横塚 卓郎">
+                    <div class="member-info">
+                        <div class="member-role">特定社会保険労務士・AFP</div>
+                        <div class="member-name">横塚 卓郎</div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="https://en-tax.co.jp/assets/img/member-yoshida_akira.jpg" alt="吉田 晃">
+                    <div class="member-info">
+                        <div class="member-role">中小企業診断士</div>
+                        <div class="member-name">吉田 晃</div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="https://en-tax.co.jp/assets/img/member-ishihara_shuichi.jpg" alt="石原 秀一">
+                    <div class="member-info">
+                        <div class="member-role">司法書士 / 司法書士こぐれ・いしはら事務所</div>
+                        <div class="member-name">石原 秀一</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works -->
+    <section id="works" class="works">
+        <div class="container">
+            <div class="section-title">
+                <h2>業務内容</h2>
+                <p>WORKS</p>
+            </div>
+            <div class="works-grid">
+                <div class="work-card">
+                    <div class="work-icon"><i class="fas fa-calculator"></i></div>
+                    <h3 class="work-title">税務顧問・税務財務コンサルティング</h3>
+                    <p class="work-desc">月次決算、税務申告、調査立ち合いなどの一般的な税務顧問業務はもちろんのこと、士業集団によるワンストップサービスであらゆる業務をお手伝いいたします。</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="work-title">経営コンサルティング</h3>
+                    <p class="work-desc">税務・財務上のお客様の顕在化したご要望にとどまらず、経営環境を迅速かつ的確に把握・分析し、将来を見据えたアドバイス及びその実行支援をすることにより継続的な企業の成長をサポートいたします。</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-icon"><i class="fas fa-globe"></i></div>
+                    <h3 class="work-title">国際税務</h3>
+                    <p class="work-desc">国際取引がある企業、海外進出企業に対して、親会社と海外子会社との間の費用負担・海外出向社員に対する給与の取り扱いなど国際税務に関する各種ご相談に対応いたします。</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-icon"><i class="fas fa-handshake"></i></div>
+                    <h3 class="work-title">事業承継</h3>
+                    <p class="work-desc">当社は、認定経営革新等支援機関の指定を受けており、お客様の会社が発展し、存続し続けるために総合的な支援ができる体制を整えております。</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-icon"><i class="fas fa-sitemap"></i></div>
+                    <h3 class="work-title">組織再編</h3>
+                    <p class="work-desc">効率的な組織体制の構築のためにお客様にとって最良の選択をご提案するとともに、きめ細やかなアドバイスを通じて組織再編の成功をサポートいたします。</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3 class="work-title">相続税申告</h3>
+                    <p class="work-desc">相続に関するご相談から申告まで、最良の資産承継が実行されるよう豊富な知識と経験を活かして、総合的な相続税申告サービスを提供いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>CONTACT</h2>
+            </div>
+            <p class="contact-lead">顧問報酬一覧表のご請求など、こちらのフォームからお気軽にお問い合わせ下さい</p>
+            <div class="contact-form-card">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label class="form-label">お名前<span>※</span></label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">ふりがな<span>※</span></label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">電話番号<span>※</span></label>
+                        <input type="tel" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス<span>※</span></label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス（確認）<span>※</span></label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">お問い合わせ内容<span>※</span></label>
+                        <textarea class="form-control" required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn">入力内容の確認</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d802.7186051361501!2d139.34160112927594!3d36.41223349875192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601ee34dd5e04c91%3A0x630c8de5b82884b7!2zZU7nqI7nkIblo6vms5Xkuro!5e0!3m2!1sja!2sjp!4v1553173038661" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="https://en-tax.co.jp/assets/img/footer-logo.png" alt="eN税理士法人" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display:none; font-size: 24px; font-weight: 700;">eN税理士法人</span>
+                    </div>
+                    <p>〒376-0035<br>群馬県桐生市仲町1-12-20<br>TEL: 0277-44-3854</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="#">TOP</a>
+                    <a href="#about">当法人について</a>
+                    <a href="#philosophy">私たちの理念</a>
+                    <a href="#profile">会社概要</a>
+                    <a href="#member">士業紹介</a>
+                    <a href="#works">業務内容</a>
+                    <a href="#contact">お問い合わせ</a>
+                </div>
+                <div class="footer-banners">
+                    <img src="https://en-tax.co.jp/assets/img/bnr-moneyforward.png" alt="マネーフォワード クラウド 公認メンバー">
+                    <img src="https://en-tax.co.jp/assets/img/bnr-en.png" alt="eN社会保険労務士法人">
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2019 eN Tax Co.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:0277-44-3854" class="cta-tel"><i class="fas fa-phone-alt"></i> 0277-44-3854</a>
+        <a href="#contact" class="cta-contact"><i class="fas fa-envelope"></i> お問い合わせ</a>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking a link
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = hamburger.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
