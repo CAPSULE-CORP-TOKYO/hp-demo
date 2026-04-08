@@ -160,38 +160,53 @@
         /* Hero Section */
         .hero {
             position: relative;
-            background-image: url('https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf76bd7bd3f7ea05e2fb92.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 100px 0;
-            min-height: 500px;
+            background: var(--bg-white);
+            padding: 80px 0;
+            min-height: 480px;
             display: flex;
             align-items: center;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
 
         .hero::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+            width: 45%;
+            height: 100%;
+            background-image: url('https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf76bd7bd3f7ea05e2fb92.jpg');
+            background-size: cover;
+            background-position: center right;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 600px;
+            max-width: 55%;
+        }
+
+        .hero-catchcopy {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .hero-text {
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: 400;
             line-height: 1.8;
             color: var(--text-main);
             margin-bottom: 30px;
-            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
 
         /* Services Section */
@@ -230,15 +245,23 @@
         }
 
         .service-img-wrap {
-            height: 140px;
-            overflow: hidden;
+            padding: 30px 20px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .service-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .service-img-wrap i {
+            font-size: 2.5rem;
         }
+
+        .service-card:nth-child(1) .service-img-wrap i { color: #e74c3c; }
+        .service-card:nth-child(2) .service-img-wrap i { color: #e87a35; }
+        .service-card:nth-child(3) .service-img-wrap i { color: #27ae60; }
+        .service-card:nth-child(4) .service-img-wrap i { color: #2ecc71; }
+        .service-card:nth-child(5) .service-img-wrap i { color: #3498db; }
+        .service-card:nth-child(6) .service-img-wrap i { color: #336699; }
+        .service-card:nth-child(7) .service-img-wrap i { color: #8e44ad; }
 
         .service-content {
             padding: 20px;
@@ -561,12 +584,24 @@
             }
 
             .hero {
-                padding: 60px 0;
+                padding: 40px 0;
                 min-height: auto;
             }
 
+            .hero .container {
+                flex-direction: column;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
             .hero::before {
-                background: rgba(255,255,255,0.85);
+                display: none;
+            }
+
+            .hero-catchcopy {
+                font-size: 1.3rem;
             }
 
             .cta-banner-tel {
@@ -631,6 +666,7 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
+                    <h1 class="hero-catchcopy">医療・福祉業界の実績多数！<br>経験で培った安心をご提供します。</h1>
                     <p class="hero-text">
                         株式会社カナメ経営会計 堀内寛人税理士事務所は税務、企業再生アシスト、会計、経営コンサルティング、事業承継を実施し、各種士業、コンサルタント会社、異業種との提携により顧問先の増収を心がけています。<br><br>
                         又、医業・介護特化型の高品質かつ付加価値のあるサービス提供を行っていくとともに、収益向上を実現する具体的対策と、革新的な経営方針の提案をいたします。
@@ -649,7 +685,7 @@
                     <!-- Card 1 -->
                     <div class="service-card">
                         <div class="service-img-wrap">
-                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d00a1f432ac0501b65c.jpg" alt="診療所新規開業コンサルティング">
+                            <i class="fas fa-hospital"></i>
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">診療所新規開業コンサルティング</h3>
@@ -659,7 +695,7 @@
                     <!-- Card 2 -->
                     <div class="service-card">
                         <div class="service-img-wrap">
-                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d006ce66ca3055a8a32.jpg" alt="病院・診療所経営コンサルティング">
+                            <i class="fas fa-stethoscope"></i>
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">病院・診療所経営コンサルティング</h3>
@@ -669,7 +705,7 @@
                     <!-- Card 3 -->
                     <div class="service-card">
                         <div class="service-img-wrap">
-                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d003d6cb2ae052797b6.jpg" alt="歯科経営改善コンサルティング">
+                            <i class="fas fa-tooth"></i>
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">歯科経営改善コンサルティング</h3>
@@ -679,7 +715,7 @@
                     <!-- Card 4 -->
                     <div class="service-card">
                         <div class="service-img-wrap">
-                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d018dec601806f69f85.jpg" alt="介護経営支援コンサルティング">
+                            <i class="fas fa-hand-holding-heart"></i>
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">介護経営支援コンサルティング</h3>
@@ -689,7 +725,7 @@
                     <!-- Card 5 -->
                     <div class="service-card">
                         <div class="service-img-wrap">
-                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d01324564ee056eb556.jpg" alt="事業承継対策コンサルティング">
+                            <i class="fas fa-handshake"></i>
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">事業承継対策コンサルティング</h3>
@@ -699,7 +735,7 @@
                     <!-- Card 6 -->
                     <div class="service-card">
                         <div class="service-img-wrap">
-                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d00e1452d13067c86a3.jpg" alt="相続支援コンサルティング">
+                            <i class="fas fa-file-contract"></i>
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">相続支援コンサルティング</h3>
@@ -709,7 +745,7 @@
                     <!-- Card 7 -->
                     <div class="service-card">
                         <div class="service-img-wrap">
-                            <img src="https://www.kaname-tax.com/library/62b27640d4a29cb127584ab5/62cf7d0103701aa8058eeae3.jpg" alt="給与計算代行サービス">
+                            <i class="fas fa-calculator"></i>
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">給与計算代行サービス</h3>
