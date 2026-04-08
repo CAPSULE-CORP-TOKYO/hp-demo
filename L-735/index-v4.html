@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税理士高木総合事務所 / (株)DO-TAX | 高崎市の相続・税務の専門家</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --accent-color: #c9a84c;
+            --accent-hover: #b39543;
+            --bg-light: #f7f8fa;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .section-title small {
+            display: block;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: var(--text-main);
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .logo-mark {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav a:not(.btn-nav) {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav a:not(.btn-nav):hover {
+            color: var(--accent-color);
+        }
+
+        .btn-nav {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--accent-hover);
+            color: var(--white);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            background-image: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            color: var(--white);
+        }
+
+        .hero-phone {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Services */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        /* Why Choose Us */
+        .reasons-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .reasons-graphic {
+            flex: 1;
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .diagram {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .diagram-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background-color: var(--white);
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .diagram-center .d-mark {
+            color: var(--accent-color);
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .diagram-center .d-text {
+            font-size: 0.6rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .diagram-node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .diagram-node svg {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 5px;
+            fill: currentColor;
+        }
+
+        .node-top { top: 0; left: 50%; transform: translateX(-50%); }
+        .node-right { top: 50%; right: 0; transform: translateY(-50%); }
+        .node-bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .node-left { top: 50%; left: 0; transform: translateY(-50%); }
+
+        /* Connecting lines */
+        .diagram::before {
+            content: '';
+            position: absolute;
+            top: 40px; bottom: 40px; left: 50%;
+            width: 2px;
+            background-color: var(--border-color);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        .diagram::after {
+            content: '';
+            position: absolute;
+            left: 40px; right: 40px; top: 50%;
+            height: 2px;
+            background-color: var(--border-color);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .reasons-text {
+            flex: 1;
+        }
+
+        .reasons-text h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .benefit-list {
+            margin-bottom: 25px;
+        }
+
+        .benefit-list li {
+            background: var(--bg-light);
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            font-size: 0.95rem;
+        }
+
+        .benefit-list strong {
+            color: var(--primary-color);
+        }
+
+        .partner-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            background-color: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        /* Areas */
+        .areas-list {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .areas-note {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Office */
+        .office-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .office-section .section-title {
+            color: var(--white);
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .office-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .office-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .office-logo .logo-mark {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .registration-info {
+            font-size: 0.9rem;
+            color: #a0aec0;
+            line-height: 1.8;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0f2038;
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #a0aec0;
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .reasons-container {
+                flex-direction: column;
+            }
+            .reasons-graphic {
+                min-height: 350px;
+            }
+            .office-grid {
+                grid-template-columns: 1fr;
+            }
+            .office-section .section-title {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p.subtitle {
+                font-size: 1rem;
+            }
+            .section {
+                padding: 50px 0;
+            }
+            .diagram {
+                transform: scale(0.8);
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <span class="logo-mark">D</span>
+                <span class="logo-text">税理士高木総合事務所 / (株)DO-TAX</span>
+            </div>
+            <nav class="nav">
+                <a href="#services">サービス</a>
+                <a href="#reasons">選ばれる理由</a>
+                <a href="#office">事務所案内</a>
+                <a href="tel:027-315-0273" class="btn-nav">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>税理士高木総合事務所 / (株)DO-TAX</h1>
+                <p class="subtitle">相続の費用・時間・税金をワンストップで解決。<br>高崎市の相続・税務の専門家</p>
+                <a href="tel:027-315-0273" class="btn-primary">無料相談をご予約ください</a>
+                <p class="hero-phone">お電話：027-315-0273</p>
+            </div>
+        </section>
+
+        <section id="services" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">私たちのサービス</h2>
+                <div class="grid-4">
+                    
+                    <div class="service-card">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <h3>相続コンサルタント業務</h3>
+                        <p>遺産分割協議、相続税申告、相続登記、名義変更等を一体的に行い、相続手続き全体を効率的かつ有利に完了します。</p>
+                    </div>
+
+                    <div class="service-card">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                        <h3>税務代理・監査会計業務</h3>
+                        <p>税務相談、確定申告書の作成、税務調査対策。記帳代行・帳簿作成、監査、決算書作成及び企業会計・財務指導。</p>
+                    </div>
+
+                    <div class="service-card">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <h3>法律相談・行政書士業務</h3>
+                        <p>遺言書作成、遺産分割協議書、各種契約書作成。建設業許可申請など各種営業許可申請。</p>
+                    </div>
+
+                    <div class="service-card">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <h3>不動産コンサルタント</h3>
+                        <p>土地・建物の分析及び運用提案。居住用・事業用不動産の収益率改善。不動産投資計画の分析・立案。</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="reasons" class="section">
+            <div class="container">
+                <h2 class="section-title">高木総合事務所が選ばれる理由<br><small>(ワンストップサービス)</small></h2>
+                
+                <div class="reasons-container">
+                    <div class="reasons-graphic">
+                        <div class="diagram">
+                            <div class="diagram-center">
+                                <span class="d-mark">D</span>
+                                <span class="d-text">(株)DO-TAX</span>
+                            </div>
+                            <div class="diagram-node node-top">
+                                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                税務
+                            </div>
+                            <div class="diagram-node node-right">
+                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                法務
+                            </div>
+                            <div class="diagram-node node-bottom">
+                                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                                不動産
+                            </div>
+                            <div class="diagram-node node-left">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                                会計
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reasons-text">
+                        <h3>税務、相続、法務、不動産…<br>複数の専門家に依頼する手間とコストを削減。<br>窓口を一本化し、スムーズで有利な解決へと導きます。</h3>
+                        
+                        <ul class="benefit-list">
+                            <li><strong>費用を節約</strong> → 相続全体の費用が減少します</li>
+                            <li><strong>時間を節約</strong> → 手続きがスムーズに進みます</li>
+                            <li><strong>税金を節約</strong> → 税務上で有利に分割できます</li>
+                        </ul>
+
+                        <div class="partner-note">
+                            <svg style="width:24px;height:24px;fill:var(--accent-color);flex-shrink:0;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <p>パートナー弁護士との連携による相続トラブル解決支援も行っております。複雑な事案も安心してお任せください。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="areas" class="section bg-light">
+            <div class="container text-center">
+                <h2 class="section-title">対応地域</h2>
+                <p class="areas-list">前橋市、高崎市、伊勢崎市、太田市、渋川市、安中市、藤岡市、富岡市、沼田市、みどり市、館林市、桐生市</p>
+                <p class="areas-note">※相続につきましては群馬県ほか東京、埼玉、栃木、新潟、長野の交通至便地について対応いたします。</p>
+            </div>
+        </section>
+
+        <section id="office" class="section office-section">
+            <div class="container office-grid">
+                <div class="office-info">
+                    <h2 class="section-title">事務所案内</h2>
+                    
+                    <div class="office-logo">
+                        <span class="logo-mark">D</span>
+                        <span>税理士高木総合事務所 / (株)DO-TAX</span>
+                    </div>
+
+                    <ul class="contact-info">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            〒370-0045 群馬県高崎市下小鳥町41-8
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <a href="tel:027-315-0273">027-315-0273</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <a href="mailto:dotax@jcom.zaq.ne.jp">dotax@jcom.zaq.ne.jp</a>
+                        </li>
+                    </ul>
+
+                    <p class="registration-info">
+                        日本税理士会 登録 第108800号<br>
+                        日本行政書士会 登録 第10140312号
+                    </p>
+                </div>
+
+                <div class="map-container">
+                    <!-- Generic Google Maps embed pointing to Takasaki area as placeholder for actual address -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12845.88172688046!2d138.9915!3d36.345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601e8d0000000000%3A0x0!2z576k6aas55yM6auY5bSO5biC5LiL5bCP6bOl55S6NDEtOA!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">サイトマップ</a>
+            </div>
+            <p class="copyright">&copy; 2010-2026 Do-TAX Co. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

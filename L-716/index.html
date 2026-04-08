@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ぐんま税理士法人</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        /* ==========================================
+           Variables & Reset
+           ========================================== */
+        :root {
+            --primary: #4F81BD;
+            --primary-dark: #3A6A9E;
+            --secondary: #333333;
+            --accent: #3290E5;
+            --light-bg: #F5F7FA;
+            --white: #FFFFFF;
+            --border: #E0E0E0;
+            --line-green: #06C755;
+            --text-main: #333333;
+            --text-light: #666666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--white);
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================
+           Typography & Common Components
+           ========================================== */
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(50, 144, 229, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            color: var(--white);
+        }
+
+        .btn-line {
+            background: var(--line-green);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+        }
+
+        .btn-line:hover {
+            background: #05b34c;
+            transform: translateY(-2px);
+            color: var(--white);
+        }
+
+        .btn-line .material-icons {
+            margin-right: 8px;
+        }
+
+        /* ==========================================
+           Header
+           ========================================== */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo img {
+            height: 35px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* ==========================================
+           Hero Section
+           ========================================== */
+        .hero {
+            background: linear-gradient(135deg, #e6f0fa 0%, #f5f7fa 100%);
+            padding: 100px 20px 160px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            color: var(--secondary);
+        }
+
+        /* ==========================================
+           Features Section
+           ========================================== */
+        .features {
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 80px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: var(--text-light);
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        /* ==========================================
+           Services Section
+           ========================================== */
+        .services {
+            background: var(--light-bg);
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 35px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: var(--border);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .service-text {
+            font-size: 13px;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        .services-action {
+            text-align: center;
+        }
+
+        /* ==========================================
+           Subsidy Support Section
+           ========================================== */
+        .subsidy {
+            padding: 80px 0;
+        }
+
+        .subsidy-inner {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+        }
+
+        .subsidy-content {
+            flex: 1;
+        }
+
+        .subsidy-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border-bottom: 2px dashed var(--border);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .subsidy-text {
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .link-text {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: underline;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .link-text .material-icons {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+
+        .link-text:hover {
+            color: var(--primary-dark);
+        }
+
+        /* ==========================================
+           News Section
+           ========================================== */
+        .news {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            background: var(--white);
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .news-item {
+            display: flex;
+            padding: 20px 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: 15px;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            width: 120px;
+            color: var(--text-light);
+            flex-shrink: 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .news-title {
+            flex: 1;
+        }
+
+        .news-title a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .news-more {
+            text-align: center;
+        }
+
+        /* ==========================================
+           Contact Section
+           ========================================== */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-phone {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-phone .material-icons {
+            color: var(--primary);
+            font-size: 36px;
+        }
+
+        /* ==========================================
+           Office Info Section
+           ========================================== */
+        .office-info {
+            padding: 60px 0;
+            text-align: center;
+            background: var(--light-bg);
+        }
+
+        .office-info p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* ==========================================
+           Footer
+           ========================================== */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 50px 0 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-nav a {
+            color: #cccccc;
+        }
+
+        .footer-nav a:hover {
+            color: var(--white);
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: #999;
+        }
+
+        /* ==========================================
+           Mobile Sticky CTA
+           ========================================== */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+            padding: 10px 15px;
+        }
+
+        .mobile-sticky-cta .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .mobile-sticky-cta .btn {
+            flex: 1;
+            padding: 12px 0;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        /* ==========================================
+           Media Queries (Responsive Design)
+           ========================================== */
+        @media (max-width: 992px) {
+            .hero-title { font-size: 32px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            /* Header & Nav */
+            .menu-toggle { display: flex; }
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                gap: 20px;
+                text-align: center;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.3s ease-in-out;
+            }
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            /* Hamburger Animation */
+            .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+            /* Layout Adjustments */
+            .hero { padding: 60px 20px 100px; }
+            .hero-title { font-size: 26px; }
+            
+            .features { margin-top: -40px; padding-bottom: 50px; }
+            .features-grid { grid-template-columns: 1fr; gap: 20px; }
+            
+            .subsidy-inner { flex-direction: column; padding: 30px 20px; text-align: center; }
+            
+            .contact-buttons { flex-direction: column; padding: 0 20px; }
+            .contact-phone { font-size: 24px; }
+            
+            .news-list { padding: 20px; }
+            .news-item { flex-direction: column; gap: 5px; padding: 15px 0; }
+            
+            /* Mobile Sticky CTA Activation */
+            .mobile-sticky-cta { display: block; }
+            body { padding-bottom: 70px; } /* Prevent footer overlap */
+        }
+
+        @media (max-width: 576px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-nav { flex-direction: column; gap: 15px; }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="https://www.gunma-tax.jp/library/571e1ca198e854c164f334e8/5a3777d3a47270f444268542.png" alt="ぐんま税理士法人">
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#">HOME</a>
+                <a href="#office">事務所案内</a>
+                <a href="#services">業務案内</a>
+                <a href="#">採用情報</a>
+                <a href="#">お客様との対談</a>
+            </nav>
+            <div class="menu-toggle" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-subtitle">ぐんま税理士法人</div>
+            <h1 class="hero-title">経営にお悩みの企業を支援する</h1>
+            <a href="https://www.gunma-tax.jp/form/gunma-taxjp/contact" target="_blank" rel="noopener noreferrer" class="btn btn-primary">お問い合わせはこちら</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="material-icons feature-icon">handshake</div>
+                    <h3 class="feature-title">顧客第一主義</h3>
+                    <p class="feature-text">税理士先生が顧問先に納税指導をするといった上から目線のスタイルでなく、お客様の視点に立ってそれぞれのニーズに合わせたサービスを提供しております。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="material-icons feature-icon">trending_up</div>
+                    <h3 class="feature-title">総合的な経営サポート</h3>
+                    <p class="feature-text">税務会計、労務、法務、資金調達、事業承継、M&Aなどお客様に必要なすべての経営サポートを高品質で提供しております。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="material-icons feature-icon">support_agent</div>
+                    <h3 class="feature-title">コンサルティング</h3>
+                    <p class="feature-text">お客様のニーズ、課題に対する解決策を提案し実行し、モニタリングを通じて結果にコミットします。難しい課題、重大な課題こそが得意分野です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">業務案内</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="material-icons service-icon">account_balance_wallet</div>
+                    <h3 class="service-title">税務会計</h3>
+                    <p class="service-text">税務・会計業務全般をサポート</p>
+                </div>
+                <div class="service-card">
+                    <div class="material-icons service-icon">work</div>
+                    <h3 class="service-title">労務</h3>
+                    <p class="service-text">社会保険・給与関連サービス</p>
+                </div>
+                <div class="service-card">
+                    <div class="material-icons service-icon">gavel</div>
+                    <h3 class="service-title">法務</h3>
+                    <p class="service-text">法的支援・コンプライアンス</p>
+                </div>
+                <div class="service-card">
+                    <div class="material-icons service-icon">monetization_on</div>
+                    <h3 class="service-title">資金調達</h3>
+                    <p class="service-text">融資・資金繰り支援</p>
+                </div>
+                <div class="service-card">
+                    <div class="material-icons service-icon">domain</div>
+                    <h3 class="service-title">事業承継・M&A</h3>
+                    <p class="service-text">事業承継計画・M&A支援</p>
+                </div>
+                <div class="service-card">
+                    <div class="material-icons service-icon">description</div>
+                    <h3 class="service-title">補助金支援</h3>
+                    <p class="service-text">補助金申請・経営力向上計画</p>
+                </div>
+            </div>
+            <div class="services-action">
+                <a href="https://www.gunma-tax.jp/fee" target="_blank" rel="noopener noreferrer" class="btn btn-primary">料金表はコチラ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subsidy Support Section -->
+    <section class="subsidy">
+        <div class="container">
+            <div class="subsidy-inner">
+                <div class="subsidy-content">
+                    <h2 class="subsidy-title">補助金支援のご案内</h2>
+                    <p class="subsidy-text">ぐんま税理士法人では補助金申請を支援しています。税制優遇や補助金審査で加点となる経営力向上計画の策定も支援していますので、お気軽にお問い合わせください。</p>
+                    <a href="https://www.gunma-tax.jp/hojyokin-support" target="_blank" rel="noopener noreferrer" class="link-text">詳しくはこちら <span class="material-icons">arrow_forward</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <div class="container">
+            <h2 class="section-title">お知らせ</h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <div class="news-date">2026.04.08</div>
+                    <div class="news-title"><a href="#">ニュースレターを更新しました（第68号）</a></div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">2026.03.10</div>
+                    <div class="news-title"><a href="#">ニュースレターを更新しました（第67号）</a></div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">2026.02.06</div>
+                    <div class="news-title"><a href="#">ニュースレターを更新しました（第66号）</a></div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">2026.01.05</div>
+                    <div class="news-title"><a href="#">ニュースレターを更新しました（第65号）</a></div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">2025.12.25</div>
+                    <div class="news-title"><a href="#">年末年始の営業ご案内</a></div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">2025.12.10</div>
+                    <div class="news-title"><a href="#">ニュースレターを更新しました（第64号）</a></div>
+                </li>
+            </ul>
+            <div class="news-more">
+                <a href="https://www.gunma-tax.jp/news" target="_blank" rel="noopener noreferrer" class="link-text">お知らせ一覧はこちら <span class="material-icons">arrow_forward</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <div class="contact-buttons">
+                <a href="https://www.gunma-tax.jp/form/gunma-taxjp/contact" target="_blank" rel="noopener noreferrer" class="btn btn-primary">お問い合わせ</a>
+                <a href="https://page.line.me/695diqsn?openQrModal=true" target="_blank" rel="noopener noreferrer" class="btn btn-line">
+                    <span class="material-icons">chat</span> LINEでお問い合わせ
+                </a>
+            </div>
+            <a href="tel:027-323-4439" class="contact-phone">
+                <span class="material-icons">phone_in_talk</span> TEL 027-323-4439（代）
+            </a>
+        </div>
+    </section>
+
+    <!-- Office Info Section -->
+    <section id="office" class="office-info">
+        <div class="container">
+            <h2 class="section-title">事務所案内</h2>
+            <p>〒370-0837 群馬県高崎市下横町10番地6</p>
+            <p>TEL 027-323-4439（代）</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="#">HOME</a>
+                <a href="#office">事務所案内</a>
+                <a href="#services">業務案内</a>
+                <a href="#">採用情報</a>
+                <a href="#">お客様との対談</a>
+            </nav>
+            <div class="footer-links">
+                <a href="https://www.gunma-tax.jp/news" target="_blank" rel="noopener noreferrer">お知らせ一覧はこちら</a>
+            </div>
+            <div class="footer-bottom">
+                <p>© ぐんま税理士法人</p>
+                <p><a href="#">外部サービスの利用に関するプライバシーポリシー</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <div class="btn-group">
+            <a href="https://www.gunma-tax.jp/form/gunma-taxjp/contact" target="_blank" rel="noopener noreferrer" class="btn btn-primary">お問い合わせ</a>
+            <a href="https://page.line.me/695diqsn?openQrModal=true" target="_blank" rel="noopener noreferrer" class="btn btn-line">LINEで相談</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            mobileMenuBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

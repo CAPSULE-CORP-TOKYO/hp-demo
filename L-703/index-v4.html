@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>島津会計税理士法人</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #65ab3a;
+            --secondary: #744bab;
+            --dark: #142141;
+            --text: #333333;
+            --light-green: #f0f8e8;
+            --white: #ffffff;
+            --cta-accent: #e8a020;
+            --gray-light: #f5f5f5;
+            --gray-border: #e0e0e0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .bg-light {
+            background-color: var(--light-green);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--dark);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .header-contact {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            background-color: var(--dark);
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .mobile-nav.active {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-nav a {
+            color: var(--white);
+            font-weight: 500;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-nav .btn-header {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Hero */
+        .hero {
+            background-color: var(--light-green);
+            padding: 40px 0 0 0;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .hero-content {
+            padding: 20px 0;
+        }
+
+        .hero-content h1 {
+            font-size: 1.8rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .hero-rep {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: right;
+            color: var(--primary);
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            object-fit: cover;
+        }
+
+        .hero-banner {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .hero-banner h2 {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+        }
+
+        .hero-banner p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Services */
+        .grid-services {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        /* Related Services */
+        .grid-related {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .related-item img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--gray-border);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .related-item a:hover img {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Strengths */
+        .grid-strengths {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .strength-item {
+            text-align: center;
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .strength-icon {
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .strength-icon img {
+            max-height: 100%;
+        }
+
+        .strength-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .strength-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* CTA */
+        .cta-section {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-phone {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1;
+        }
+
+        .cta-email {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .btn-cta {
+            background-color: var(--cta-accent);
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(232, 160, 32, 0.3);
+        }
+
+        .btn-cta:hover {
+            background-color: #d69018;
+            color: var(--white);
+        }
+
+        .btn-header {
+            background-color: var(--cta-accent);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* Office Info */
+        .office-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .office-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .office-table th, .office-table td {
+            border: 1px solid var(--gray-border);
+            padding: 15px;
+            text-align: left;
+        }
+
+        .office-table th {
+            background-color: var(--light-green);
+            width: 30%;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .business-content h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .business-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .business-content li {
+            position: relative;
+            padding-left: 1.5em;
+            margin-bottom: 8px;
+        }
+
+        .business-content li::before {
+            content: '・';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .office-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* News */
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-border);
+            gap: 10px;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .news-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--white);
+            white-space: nowrap;
+        }
+
+        .badge-primary { background-color: var(--primary); }
+        .badge-secondary { background-color: var(--secondary); }
+
+        .news-title {
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .news-title:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-info p {
+            margin: 0 0 10px 0;
+            color: #ccc;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: 50px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .grid-services {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .grid-related {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-strengths {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .news-item {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .news-meta {
+                min-width: 220px;
+            }
+
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section {
+                padding: 100px 0;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            .nav {
+                display: flex;
+                gap: 30px;
+            }
+
+            .nav a {
+                font-weight: 500;
+                position: relative;
+            }
+
+            .nav a::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--primary);
+                transition: width 0.3s ease;
+            }
+
+            .nav a:hover::after {
+                width: 100%;
+            }
+
+            .header-contact {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .header-contact .phone {
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
+
+            .hero-inner {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .hero-content {
+                flex: 1;
+                padding-right: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                flex: 1;
+            }
+
+            .hero-image img {
+                border-radius: 8px;
+            }
+
+            .hero-banner h2 {
+                font-size: 2rem;
+            }
+
+            .grid-related {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .office-layout {
+                flex-direction: row;
+            }
+
+            .office-table-wrap {
+                flex: 1;
+            }
+
+            .office-image {
+                flex: 1;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">島津会計税理士法人</a>
+            
+            <nav class="nav">
+                <a href="#office-info">事務所紹介</a>
+                <a href="#services">業務案内</a>
+                <a href="#services">相続サポート</a>
+                <a href="#office-info">アクセス</a>
+            </nav>
+
+            <div class="header-contact">
+                <span class="phone">027-323-2203</span>
+                <a href="#cta" class="btn-header">資料請求・お問合せ</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">☰</button>
+        </div>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#office-info">事務所紹介</a>
+            <a href="#services">業務案内</a>
+            <a href="#services">相続サポート</a>
+            <a href="#office-info">アクセス</a>
+            <a href="#cta" class="btn-header">資料請求・お問合せ</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <h1>島津会計税理士法人は、<br>おかげさまで創業60周年を迎えました。</h1>
+                    <p>当法人は会長の島津弘が昭和39年に此処高崎で島津弘税理士事務所を開業したのがはじまりです。その後、地元産業界の皆様に支えられ今日まで税理士事務所を続けて参りました。税理士法人への組織変更を機に、若輩者ながら私島津文弘が平成14年に代表社員に就任いたしました。皆様に有益なサービスが提供できるように日々努力し、最善のパートナーとなれればと考えております。</p>
+                    <div class="hero-rep">代表 島津 文弘</div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://www.10101010.jp/library/574be1053c645e8a492d6964/6757e3e6ccaba630053c0b5b.jpg" alt="代表 島津 文弘">
+                </div>
+            </div>
+            <div class="hero-banner">
+                <div class="container">
+                    <h2>先進的経理合理化のお手伝い</h2>
+                    <p>島津会計税理士法人は、まるごと提供します</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">サービス</h2>
+                <div class="grid-services">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop" alt="相続・贈与" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">相続・贈与</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop" alt="ビジネスメンタル" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">ビジネスメンタル</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=400&h=300&fit=crop" alt="税務・会計" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">税務・会計</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop" alt="事業承継・M&A" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">事業承継・M&A</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="related-services" class="section bg-light">
+            <div class="container">
+                <div class="grid-related">
+                    <div class="related-item">
+                        <a href="#"><img src="https://www.10101010.jp/library/574be1053c645e8a492d6964/574d6953367434aa410010da.jpg" alt="高崎相続サポートセンター"></a>
+                    </div>
+                    <div class="related-item">
+                        <a href="#"><img src="https://www.10101010.jp/library/574be1053c645e8a492d6964/574d6956367434aa410010dc.jpg" alt="日本橋相続税相談室"></a>
+                    </div>
+                    <div class="related-item">
+                        <a href="#"><img src="https://www.10101010.jp/library/574be1053c645e8a492d6964/62d79f72bdd1a39a4e8086d9.jpg" alt="しまづリスクマネジメント"></a>
+                    </div>
+                    <div class="related-item">
+                        <a href="#"><img src="https://www.10101010.jp/library/574be1053c645e8a492d6964/62d79f76866a2250018a5ae6.jpg" alt="高崎ビジネスメンタル～こころの窓"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="strengths" class="section">
+            <div class="container">
+                <h2 class="section-title">私たちの特長</h2>
+                <div class="grid-strengths">
+                    <div class="strength-item">
+                        <div class="strength-icon">
+                            <img src="https://www.10101010.jp/material/lib02/tkc_logo1.gif" alt="TKC全国会会員">
+                        </div>
+                        <h3 class="strength-title">TKC全国会会員</h3>
+                        <p class="strength-desc">租税正義の実現をめざし関与先企業の永続的繁栄に奉仕するわが国最大級の職業会計人集団</p>
+                    </div>
+                    <div class="strength-item">
+                        <div class="strength-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                        </div>
+                        <h3 class="strength-title">認定経営革新等支援機関</h3>
+                        <p class="strength-desc">中小企業を巡る経営課題が多様化・複雑化する中、中小企業支援を行う支援事業の担い手の多様化・活性化を図るため、国が認定する公的な支援機関です。</p>
+                    </div>
+                    <div class="strength-item">
+                        <div class="strength-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h3 class="strength-title">創業60年の実績</h3>
+                        <p class="strength-desc">昭和39年開業、地元群馬・高崎で60年以上の信頼と実績。長年の経験を活かし、お客様をサポートいたします。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta-section">
+            <div class="container">
+                <h2>お問合せ・ご相談はお気軽に</h2>
+                <p class="cta-phone">027-323-2203</p>
+                <p class="cta-email">s.matsumoto1010@tkcnf.or.jp</p>
+                <a href="#" class="btn btn-cta">無料相談のお問合せ</a>
+            </div>
+        </section>
+
+        <section id="office-info" class="section">
+            <div class="container">
+                <h2 class="section-title">事務所概要</h2>
+                <div class="office-layout">
+                    <div class="office-table-wrap">
+                        <table class="office-table">
+                            <tbody>
+                                <tr>
+                                    <th>事務所名</th>
+                                    <td>島津会計税理士法人</td>
+                                </tr>
+                                <tr>
+                                    <th>所長名</th>
+                                    <td>島津　文弘</td>
+                                </tr>
+                                <tr>
+                                    <th>税理士登録番号</th>
+                                    <td>72236</td>
+                                </tr>
+                                <tr>
+                                    <th>税理士登録年月日</th>
+                                    <td>1991/05/21</td>
+                                </tr>
+                                <tr>
+                                    <th>所在地</th>
+                                    <td>群馬県高崎市昭和町226番地</td>
+                                </tr>
+                                <tr>
+                                    <th>電話番号</th>
+                                    <td>027-323-2203</td>
+                                </tr>
+                                <tr>
+                                    <th>FAX番号</th>
+                                    <td>027-327-0221</td>
+                                </tr>
+                                <tr>
+                                    <th>Eメール</th>
+                                    <td>s.matsumoto1010@tkcnf.or.jp</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="business-content">
+                            <h3>業務内容</h3>
+                            <ul>
+                                <li>法人税・所得税・消費税の申告書、各種届出書の作成</li>
+                                <li>譲渡、贈与、相続の事前対策、申告書の作成</li>
+                                <li>税務調査の立会い</li>
+                                <li>その他税務判断に関する相談</li>
+                                <li>試算表、経営分析表の作成</li>
+                                <li>決算書の作成</li>
+                                <li>会計処理に関する相談</li>
+                                <li>経営計画、資金繰り計画の相談、指導</li>
+                                <li>各種書類の作成</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="office-image">
+                        <img src="https://www.10101010.jp/library/574be1053c645e8a492d6964/5ef04e7ffff60bb1486b54f5.jpg" alt="事務所風景">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">新着情報</h2>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <div class="news-meta">
+                            <time class="news-date">2026.1.9</time>
+                            <span class="badge badge-primary">事務所ニュース</span>
+                        </div>
+                        <a href="#" class="news-title">「いつか」来るかもしれない、その日のために。「３つの備え」をしておきましょう</a>
+                    </li>
+                    <li class="news-item">
+                        <div class="news-meta">
+                            <time class="news-date">2025.8.25</time>
+                            <span class="badge badge-secondary">税務・会計ニュース</span>
+                        </div>
+                        <a href="#" class="news-title">10月にWindows10のサポートが終了します</a>
+                    </li>
+                    <li class="news-item">
+                        <div class="news-meta">
+                            <time class="news-date">2025.8.12</time>
+                            <span class="badge badge-secondary">税務・会計ニュース</span>
+                        </div>
+                        <a href="#" class="news-title">「ふるさと」を胸に――ふるさと納税の「ポイント付与」が10月から廃止</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <div class="footer-logo">島津会計税理士法人</div>
+                    <p>群馬県高崎市昭和町226番地<br>027-323-2203</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">外部サービスの利用に関するプライバシーポリシー</a>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright (c) 2026 Shimazu Kaikei Zeirishihoujin All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            var nav = document.getElementById('mobileNav');
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        var mobileLinks = document.querySelectorAll('.mobile-nav a');
+        mobileLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileNav').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

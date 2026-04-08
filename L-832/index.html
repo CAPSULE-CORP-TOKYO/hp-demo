@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遠藤会計事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f79646; /* Warm Orange */
+            --primary-hover: #e0853a;
+            --secondary: #1f497d; /* Navy Blue */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-color: #faf7f5;
+            --white: #ffffff;
+            --border-color: #e5e5e5;
+            --shadow: 0 10px 30px rgba(247, 150, 70, 0.1);
+            --shadow-hover: 0 15px 40px rgba(247, 150, 70, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            color: var(--secondary);
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .global-nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        .global-nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .global-nav a:hover {
+            color: var(--primary);
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-tel {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-tel i {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(247, 150, 70, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(247, 150, 70, 0.4);
+            color: var(--white);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--secondary);
+            margin-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .hamburger span:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 65%;
+            height: 100%;
+            background-color: rgba(247, 150, 70, 0.95);
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            max-width: 600px;
+        }
+
+        .hero-text {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.4;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Strengths Section */
+        .strengths {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .strengths-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .strengths-text p {
+            margin-bottom: 16px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--bg-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(247, 150, 70, 0.1);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .service-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.5;
+            padding-top: 4px;
+        }
+
+        /* Office Info Section */
+        .office-info {
+            background-color: var(--white);
+        }
+
+        .office-card {
+            background-color: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(247, 150, 70, 0.1);
+        }
+
+        .info-row {
+            display: flex;
+            padding: 20px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-row:first-child {
+            padding-top: 0;
+        }
+
+        .info-term {
+            width: 160px;
+            font-weight: 700;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+
+        .info-desc {
+            flex-grow: 1;
+            color: var(--text-main);
+        }
+
+        /* News & Updates Section */
+        .news {
+            background-color: var(--bg-color);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .news-category {
+            display: inline-block;
+            background-color: rgba(31, 73, 125, 0.1);
+            color: var(--secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            align-self: flex-start;
+        }
+
+        .news-category.orange {
+            background-color: rgba(247, 150, 70, 0.1);
+            color: var(--primary);
+        }
+
+        .news-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .news-text {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta {
+            position: relative;
+            padding: 100px 0;
+            background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(247, 150, 70, 0.85);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+        }
+
+        .cta-text {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            color: var(--primary-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 40px 0 24px;
+            text-align: center;
+        }
+
+        .footer-info {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .copyright {
+            font-size: 12px;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 24px;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+        }
+
+        .mobile-cta-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0;
+            font-size: 12px;
+            font-weight: 700;
+            gap: 4px;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--white);
+            color: var(--secondary);
+        }
+
+        .mobile-cta-tel i {
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .mobile-cta-contact {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .mobile-cta-contact i {
+            font-size: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-text {
+                font-size: 28px;
+            }
+            .header-contact {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-wrapper {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 24px;
+                transition: var(--transition);
+                overflow-y: auto;
+            }
+
+            .nav-wrapper.active {
+                left: 0;
+            }
+
+            .global-nav ul {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+
+            .global-nav li {
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .global-nav a {
+                display: block;
+                padding: 16px 0;
+                font-size: 16px;
+            }
+
+            .header-contact {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                margin-top: 24px;
+                gap: 16px;
+            }
+
+            .hero {
+                height: 500px;
+            }
+
+            .hero-overlay {
+                width: 100%;
+                clip-path: none;
+                background-color: rgba(247, 150, 70, 0.85);
+            }
+
+            .hero-text {
+                font-size: 24px;
+            }
+
+            .office-card {
+                padding: 24px;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .info-term {
+                width: 100%;
+            }
+
+            .cta-text {
+                font-size: 20px;
+            }
+
+            body {
+                padding-bottom: 60px; /* For mobile CTA bar */
+            }
+
+            .mobile-cta-bar {
+                display: block;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <i class="fas fa-chart-pie"></i>
+                遠藤会計事務所
+            </a>
+            <div class="nav-wrapper" id="navWrapper">
+                <nav class="global-nav">
+                    <ul>
+                        <li><a href="#">トップページ</a></li>
+                        <li><a href="#">お知らせ</a></li>
+                        <li><a href="#">事務所紹介</a></li>
+                        <li><a href="#">経営理念</a></li>
+                        <li><a href="#">交通案内</a></li>
+                        <li><a href="#">業務案内</a></li>
+                    </ul>
+                </nav>
+                <div class="header-contact">
+                    <a href="tel:0276-49-0660" class="header-tel">
+                        <i class="fas fa-phone-alt"></i>
+                        0276-49-0660
+                    </a>
+                    <a href="#" class="btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        お問い合わせ
+                    </a>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-text">
+                    遠藤会計事務所は、<br>
+                    皆さんの夢への実現をサポートする<br>
+                    ビジネスパートナーでありたいと<br>
+                    考えております。
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strengths Section -->
+    <section class="strengths section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">Strengths</span>
+                <h2 class="section-title">当事務所の特徴</h2>
+            </div>
+            <div class="strengths-text">
+                <p>遠藤会計事務所は、法人・個人のさまざまな税(相続税,贈与税,法人税,所得税,消費税)に関するアドバイスを親切・丁寧に提供いたします！！</p>
+                <p>群馬県の太田市を中心に活動しております。<br>その他にも伊勢崎市, 館林市, 桐生市, 足利市など近隣の市町村の方もお気軽にご相談ください。</p>
+                <p>税金対策, 新会社法, 起業, 独立開業, 相続税, 贈与税, 不動産の有効活用などお気軽にご相談ください。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">Services</span>
+                <h2 class="section-title">業務内容</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <div class="service-text">法人税・所得税・消費税の申告書、各種届出書の作成</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="service-text">譲渡、贈与、相続の事前対策、申告書の作成</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
+                    <div class="service-text">税務調査の立会い</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-comments"></i></div>
+                    <div class="service-text">その他税務判断に関する相談</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="service-text">試算表、経営分析表の作成</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-book"></i></div>
+                    <div class="service-text">総勘定元帳の記帳代行</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="service-text">決算書の作成</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="service-text">会計処理に関する相談</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-folder-open"></i></div>
+                    <div class="service-text">各種書類の作成</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Info Section -->
+    <section class="office-info section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">Office Info</span>
+                <h2 class="section-title">事務所概要</h2>
+            </div>
+            <div class="office-card">
+                <div class="info-row">
+                    <div class="info-term">事務所名</div>
+                    <div class="info-desc">遠藤会計事務所</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-term">所長名</div>
+                    <div class="info-desc">遠藤 恭司</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-term">所在地</div>
+                    <div class="info-desc">群馬県太田市石原町991-1</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-term">電話番号</div>
+                    <div class="info-desc">0276-49-0660</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-term">FAX番号</div>
+                    <div class="info-desc">0276-49-0661</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-term">メール</div>
+                    <div class="info-desc"><a href="mailto:endotax@tkcnf.or.jp">endotax@tkcnf.or.jp</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Updates Section -->
+    <section class="news section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">News & Updates</span>
+                <h2 class="section-title">お知らせ・お役立ち情報</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-category">お知らせ</div>
+                    <div class="news-text">確定申告期間中は、土曜日も営業しております。</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-category orange">お役立ちコーナー</div>
+                    <div class="news-title">経営者オススメ情報（毎月更新）</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-category orange">お役立ちコーナー</div>
+                    <div class="news-title">税務Ｑ＆Ａ（毎週更新）</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-category orange">お役立ちコーナー</div>
+                    <div class="news-title">Ｑ＆Ａ経営相談（毎月更新）</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-category orange">お役立ちコーナー</div>
+                    <div class="news-title">書面添付制度</div>
+                    <div class="news-text">書面添付制度とは、税務申告書の内容が正しいことを税理士が確認する書類を添付する制度です。</div>
+                </div>
+                <div class="news-card">
+                    <div class="news-category orange">お役立ちコーナー</div>
+                    <div class="news-title">ＴＫＣ経営指標（毎月更新）</div>
+                    <div class="news-text">業界の平均や黒字企業の平均と比較をすることで重要な経営のヒントを見つけることができます。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-overlay"></div>
+        <div class="container cta-content">
+            <h2 class="cta-text">詳細について知りたい！<br>ご質問等があればお気軽にお問合せください。</h2>
+            <a href="#" class="btn-white">
+                <i class="fas fa-envelope"></i>
+                まずはお気軽にご相談ください
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-info">
+                関東信越税理士会所属
+            </div>
+            <div class="copyright">
+                Copyright (c) 2016 - 2026 Endo Kaikei Jimusyo All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta-bar">
+        <div class="mobile-cta-inner">
+            <a href="tel:0276-49-0660" class="mobile-cta-btn mobile-cta-tel">
+                <i class="fas fa-phone-alt"></i>
+                電話をかける
+            </a>
+            <a href="#" class="mobile-cta-btn mobile-cta-contact">
+                <i class="fas fa-envelope"></i>
+                お問い合わせ
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navWrapper = document.getElementById('navWrapper');
+
+            hamburger.addEventListener('click', function() {
+                navWrapper.classList.toggle('active');
+                
+                // ハンバーガーアイコンのアニメーション（簡易的）
+                const spans = this.querySelectorAll('span');
+                if (navWrapper.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

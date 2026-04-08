@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>創業・ベンチャー支援に特化した会計事務所 | MINORASU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F39800;
+            --secondary: #333333;
+            --accent: #4CAF50;
+            --bg-light: #FFFFFF;
+            --bg-alt: #F8F8F8;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 4px 6px rgba(243, 152, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #e08c00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(243, 152, 0, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 12px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .desktop-nav ul {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .desktop-nav a {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--primary);
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-phone {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--secondary);
+            margin-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .hamburger span:last-child {
+            margin-bottom: 0;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: var(--bg-light);
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: 0.3s ease-in-out;
+            z-index: 1000;
+            padding: 80px 24px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-nav a {
+            font-size: 16px;
+            font-weight: 500;
+            display: block;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-image: linear-gradient(rgba(51, 51, 51, 0.7), rgba(51, 51, 51, 0.7)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1440&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            display: inline-block;
+            background-color: var(--primary);
+            padding: 4px 16px;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .hero-subtext {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--bg-alt);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background-color: rgba(243, 152, 0, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        /* Strengths Section */
+        .strengths {
+            background-color: var(--bg-light);
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .strength-item {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .strength-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+        }
+
+        .strength-item h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .strength-item p {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* Greeting Section */
+        .greeting {
+            background-color: var(--bg-alt);
+        }
+
+        .greeting-inner {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .greeting-content {
+            flex: 1;
+        }
+
+        .greeting-content h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .greeting-content .name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .greeting-video {
+            flex: 1;
+            width: 100%;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* News Section */
+        .news {
+            background-color: var(--bg-light);
+        }
+
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-link {
+            display: flex;
+            padding: 20px 0;
+            gap: 24px;
+            align-items: baseline;
+            transition: background-color 0.3s;
+        }
+
+        .news-link:hover {
+            background-color: var(--bg-alt);
+            opacity: 1;
+        }
+
+        .news-date {
+            font-weight: 700;
+            color: var(--secondary);
+            min-width: 100px;
+        }
+
+        .news-title {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            transition: text-decoration-color 0.3s;
+        }
+
+        .news-link:hover .news-title {
+            text-decoration-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Office Section */
+        .office {
+            background-color: var(--bg-alt);
+        }
+
+        .office-address {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        .office-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .parking-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+        
+        .parking-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 64px 0;
+        }
+
+        .contact h2 {
+            font-size: 28px;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .contact-phone {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .contact-phone svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: white;
+            color: var(--secondary);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 64px 0 0;
+            position: relative;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .footer-logo img {
+            height: 48px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-nav ul {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-nav a {
+            font-size: 14px;
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary);
+        }
+
+        .footer-info {
+            text-align: center;
+        }
+
+        .footer-phone {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            padding: 16px 0;
+            background-color: #222;
+            color: #999;
+        }
+
+        .footer-bg {
+            width: 100%;
+            height: 20px;
+            background-image: url('https://minorasu.jp/wp-content/uploads/sites/2/footer1.png');
+            background-repeat: repeat-x;
+            background-position: bottom;
+            background-size: contain;
+        }
+
+        /* Mobile Sticky CTA */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-sticky-inner {
+            display: flex;
+        }
+
+        .mobile-sticky-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .mobile-sticky-btn.phone {
+            background-color: var(--primary);
+        }
+
+        .mobile-sticky-btn.mail {
+            background-color: var(--accent);
+        }
+
+        .mobile-sticky-btn svg {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 4px;
+            fill: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .greeting-inner {
+                flex-direction: column;
+            }
+            .office-grid {
+                grid-template-columns: 1fr;
+            }
+            .map-container, .parking-img {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 48px 0;
+            }
+            
+            .desktop-nav, .header-contact {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-subtext {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .news-link {
+                flex-direction: column;
+                gap: 8px;
+                padding: 16px 0;
+            }
+
+            .contact-phone {
+                font-size: 32px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            body {
+                padding-bottom: 60px; /* Space for sticky CTA */
+            }
+
+            .mobile-sticky-cta {
+                display: block;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="https://minorasu.jp/" class="logo">
+                <img src="https://minorasu.jp/wp-content/uploads/sites/2/logo_2023.png" alt="MINORASU">
+            </a>
+            
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="https://minorasu.jp/">ホーム</a></li>
+                    <li><a href="https://minorasu.jp/service">サービス</a></li>
+                    <li><a href="https://minorasu.jp/fee2">料金案内</a></li>
+                    <li><a href="https://minorasu.jp/greeting">代表ご挨拶</a></li>
+                    <li><a href="https://minorasu.jp/blog_tsubomi">ブログ</a></li>
+                    <li><a href="https://minorasu.jp/office">事務所案内</a></li>
+                    <li><a href="https://minorasu.jp/contactus">お問合せ</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-contact">
+                <div class="header-phone">027-386-2807</div>
+                <a href="https://minorasu.jp/contactus" class="btn btn-primary" style="padding: 8px 16px; font-size: 14px;">お問合せ</a>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="overlay" id="overlay"></div>
+    <nav class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="https://minorasu.jp/">ホーム</a></li>
+            <li><a href="https://minorasu.jp/service">サービス</a></li>
+            <li><a href="https://minorasu.jp/fee2">料金案内</a></li>
+            <li><a href="https://minorasu.jp/greeting">代表ご挨拶</a></li>
+            <li><a href="https://minorasu.jp/blog_tsubomi">ブログ</a></li>
+            <li><a href="https://minorasu.jp/office">事務所案内</a></li>
+            <li><a href="https://minorasu.jp/contactus">お問合せ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <span class="hero-subtitle">群馬県高崎市発</span>
+                <h1>創業・ベンチャー支援<br>に特化した会計事務所</h1>
+                <p class="hero-subtext">～あなたの「夢の実現」のサポートを致します～</p>
+                <p class="hero-desc">持続可能な企業経営のお手伝いをMINORASUで</p>
+                <a href="https://minorasu.jp/contactus" class="btn btn-primary">無料相談を予約する</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">サービス案内</h2>
+                <p class="section-subtitle">群馬県高崎市の会計・税務・ベンチャー企業支援を行なっています。</p>
+                
+                <div class="services-grid">
+                    <!-- Card 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                        </div>
+                        <h3>はじめて税理士を<br>お探しの方へ</h3>
+                        <p>はじめてで何からはじめてよいかわからない方もご安心ください。</p>
+                        <a href="https://minorasu.jp/hajimete" class="btn btn-outline">詳しく見る</a>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+                        </div>
+                        <h3>税理士を変更したい方へ</h3>
+                        <p>税理士変更をお考えの方へ</p>
+                        <a href="https://minorasu.jp/henkou" class="btn btn-outline">詳しく見る</a>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+                        </div>
+                        <h3>バックオフィスの<br>最適化を考えている方へ</h3>
+                        <p>バックオフィスサポート</p>
+                        <a href="https://minorasu.jp/nsdesign" class="btn btn-outline">詳しく見る</a>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                        </div>
+                        <h3>上場を目指している方へ</h3>
+                        <p>上場支援</p>
+                        <a href="https://minorasu.jp/ipo-staion-takasaki" class="btn btn-outline">詳しく見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strengths Section -->
+        <section id="strengths" class="strengths">
+            <div class="container">
+                <h2 class="section-title">当事務所の3つの強み</h2>
+                
+                <div class="strengths-grid">
+                    <div class="strength-item">
+                        <div class="strength-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.5 2.54l2.27 2.27c.78-1.41 1.23-3.04 1.23-4.81 0-4.84-3.61-8.82-8-9.95zM4.12 3.84L2.71 5.25L6.1 8.64C5.41 9.63 5 10.77 5 12c0 3.87 3.13 7 7 7c1.23 0 2.37-.41 3.36-1.1l3.39 3.39l1.41-1.41L4.12 3.84zM12 17c-2.76 0-5-2.24-5-5c0-.83.21-1.6.56-2.27l6.71 6.71c-.67.35-1.44.56-2.27.56zm1-10.95V3.02C8.61 4.15 5 8.13 5 12.97l2.27-2.27c.32-.79.5-1.64.5-2.54c0-3.53 2.61-6.43 6-6.92z"/></svg>
+                        </div>
+                        <h3>すぐに対応</h3>
+                        <p>お客様のお困りごとにすぐに対応いたします。</p>
+                    </div>
+                    
+                    <div class="strength-item">
+                        <div class="strength-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+                        </div>
+                        <h3>気軽に相談</h3>
+                        <p>些細なことでもお気軽にご相談いただけます。</p>
+                    </div>
+
+                    <div class="strength-item">
+                        <div class="strength-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 3.83L18.17 19H5.83L12 5.83zM11 10h2v5h-2zm0 6h2v2h-2z"/></svg>
+                        </div>
+                        <h3>高品質かつ低価格なサービス</h3>
+                        <p>高品質なサービスをリーズナブルな価格で提供いたします。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Greeting Section -->
+        <section id="greeting" class="greeting">
+            <div class="container">
+                <h2 class="section-title">代表ご挨拶</h2>
+                
+                <div class="greeting-inner">
+                    <div class="greeting-content">
+                        <h3>税理士</h3>
+                        <div class="name">長島祐太</div>
+                        <p>群馬県高崎市を拠点に、創業・ベンチャー支援に特化した会計事務所を運営しております。<br><br>
+                        お客様の「夢の実現」をサポートするため、税務・会計の枠を超えた経営のパートナーとして、持続可能な企業経営のお手伝いをさせていただきます。<br><br>
+                        些細なことでも、どうぞお気軽にご相談ください。</p>
+                    </div>
+                    <div class="greeting-video">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/Q63tAhJAdvw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="news">
+            <div class="container">
+                <h2 class="section-title">News & Columns</h2>
+                
+                <div class="news-list">
+                    <ul>
+                        <li class="news-item">
+                            <a href="https://minorasu.jp/blog_tsubomi/blog_staff/%e3%80%90%e3%81%96%e3%81%a3%e3%81%8f%e3%82%8a%e8%a7%a3%e8%aa%ac%e3%80%91%e3%83%8f%e3%82%ba%e3%83%ac%e9%a6%ac%e5%88%b8%e3%81%af%e7%b5%8c%e8%b2%bb%e3%81%ab%e3%81%aa%e3%82%8b%e3%81%ae%e3%81%8b%ef%bc%9f.html" class="news-link">
+                                <span class="news-date">2025/07/25</span>
+                                <span class="news-title">【ざっくり解説】ハズレ馬券は経費になるのか？</span>
+                            </a>
+                        </li>
+                        <li class="news-item">
+                            <a href="https://minorasu.jp/blog_tsubomi/blog_staff/%e3%80%90%e3%81%96%e3%81%a3%e3%81%8f%e3%82%8a%e8%a7%a3%e8%aa%ac%e3%80%91%e5%b2%a9%e4%b8%8b%e4%ba%8b%e4%bb%b6.html" class="news-link">
+                                <span class="news-date">2025/07/17</span>
+                                <span class="news-title">【ざっくり解説】岩瀬事件</span>
+                            </a>
+                        </li>
+                        <li class="news-item">
+                            <a href="https://minorasu.jp/blog_tsubomi/blog_staff/%e6%a9%9f%e5%8b%95%e6%88%a6%e5%a3%abgundam-gquuuuuux.html" class="news-link">
+                                <span class="news-date">2025/07/02</span>
+                                <span class="news-title">機動戦士Gundam GQuuuuuuX</span>
+                            </a>
+                        </li>
+                        <li class="news-item">
+                            <a href="https://minorasu.jp/blog_tsubomi/blog_staff/%e2%97%8f%e3%80%8c%e9%9f%b3%e6%a5%bd%e3%81%8c%e3%80%81%e5%83%95%e3%81%ae%e4%b8%96%e7%95%8c%e3%82%92%e5%a4%89%e3%81%88%e3%81%9f%e3%80%8d%e2%80%95%e2%80%95%e3%80%8e%e3%83%87%e3%82%a4%e3%82%ba%e3%82%aa.html" class="news-link">
+                                <span class="news-date">2025/06/06</span>
+                                <span class="news-title">●「音楽が、僕の世界を変えた」――『デイズオンユース・ストーリーズ』に学ぶ、社長の"情熱"の伝え方</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Office Info Section -->
+        <section id="office" class="office">
+            <div class="container">
+                <h2 class="section-title">事務所所在地情報</h2>
+                <p class="office-address">〒370-0046 群馬県高崎市江木町610-10 ミノラスビル3F</p>
+                
+                <div class="office-grid">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1607.057030598311!2d139.01722411779156!3d36.33378535874833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601e8d66cebce927%3A0x60c2be3640a9c92e!2z44CSMzcwLTAwNDYg576k6aas55yM6auY5bSO5biC5rGf5pyo55S677yW77yR77yQ4oiS77yR77yQ!5e0!3m2!1sja!2sjp!4v1696899460306!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="parking-img">
+                        <img src="https://minorasu.jp/wp-content/uploads/sites/2/park-wides1.png" alt="駐車場の案内">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>お気軽にご相談ください</h2>
+                
+                <div class="contact-phone">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    027-386-2807
+                </div>
+                
+                <div class="contact-buttons">
+                    <a href="https://minorasu.jp/contactus" class="contact-btn">
+                        <img src="https://minorasu.jp/wp-content/uploads/sites/2/re_icon03mail.png" alt="Mail">
+                        お問合せはこちら
+                    </a>
+                    <a href="https://www.chatwork.com/Nagashima_Yutax" class="contact-btn">
+                        <img src="https://minorasu.jp/wp-content/uploads/sites/2/icon002.png" alt="Chatwork">
+                        Chatwork
+                    </a>
+                    <a href="https://line.me/R/ti/p/%40388qkyte" class="contact-btn">
+                        <img src="https://minorasu.jp/wp-content/uploads/sites/2/icon_line.png" alt="LINE">
+                        LINE
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <a href="https://minorasu.jp/" class="footer-logo">
+                <img src="https://minorasu.jp/wp-content/uploads/sites/2/logo_2023.png" alt="MINORASU">
+            </a>
+            
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="https://minorasu.jp/">ホーム</a></li>
+                    <li><a href="https://minorasu.jp/service">サービス</a></li>
+                    <li><a href="https://minorasu.jp/fee2">料金案内</a></li>
+                    <li><a href="https://minorasu.jp/greeting">代表ご挨拶</a></li>
+                    <li><a href="https://minorasu.jp/blog_tsubomi">ブログ</a></li>
+                    <li><a href="https://minorasu.jp/office">事務所案内</a></li>
+                    <li><a href="https://minorasu.jp/contactus">お問合せ</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-info">
+                <div class="footer-phone">027-386-2807</div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            Copyright© 2026 MINORASU会計事務所 all rights Reserved.
+        </div>
+        <div class="footer-bg"></div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <div class="mobile-sticky-inner">
+            <a href="tel:027-386-2807" class="mobile-sticky-btn phone">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                電話する
+            </a>
+            <a href="https://minorasu.jp/contactus" class="mobile-sticky-btn mail">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                お問合せ
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Toggle hamburger animation (optional simple version)
+            const spans = hamburger.querySelectorAll('span');
+            if (mobileNav.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+</body>
+</html>

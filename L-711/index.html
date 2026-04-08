@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関東信越税理士会 高崎支部</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #F77F00;
+            --sub-color: #2D2D2D;
+            --accent-color: #3398CC;
+            --bg-white: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #E0E0E0;
+            --max-width: 1200px;
+            --font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--main-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--sub-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--main-color);
+        }
+
+        /* Header */
+        .header-top {
+            background-color: var(--bg-light);
+            padding: 8px 0;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: none;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-top-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-main {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--sub-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--main-color);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20% 50%);
+        }
+
+        /* Navigation */
+        .nav-menu {
+            display: none;
+            list-style: none;
+            height: 100%;
+        }
+
+        .nav-item {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-link {
+            padding: 0 20px;
+            font-weight: 500;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            color: var(--main-color);
+        }
+
+        /* Dropdown */
+        .has-dropdown > .nav-link::after {
+            content: '▼';
+            font-size: 0.6rem;
+            margin-left: 5px;
+            color: #999;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--bg-white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            list-style: none;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--main-color);
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item a {
+            display: block;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .dropdown-item:last-child a {
+            border-bottom: none;
+        }
+
+        .dropdown-item a:hover {
+            background-color: var(--bg-light);
+            color: var(--main-color);
+            padding-left: 25px;
+        }
+
+        .header-cta {
+            display: none;
+        }
+
+        .btn-member {
+            background-color: var(--main-color);
+            color: var(--bg-white);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        .btn-member:hover {
+            background-color: #d66d00;
+            color: var(--bg-white);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: block;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .hamburger-box {
+            width: 24px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .hamburger-inner {
+            display: block;
+            top: 50%;
+            margin-top: -1px;
+        }
+
+        .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+            width: 24px;
+            height: 2px;
+            background-color: var(--sub-color);
+            position: absolute;
+            transition: transform 0.15s ease;
+        }
+
+        .hamburger-inner::before { top: -8px; content: ""; }
+        .hamburger-inner::after { bottom: -8px; content: ""; }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: var(--bg-white);
+            z-index: 99;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-list {
+            list-style: none;
+        }
+
+        .mobile-nav-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 15px 0;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .mobile-dropdown {
+            display: none;
+            list-style: none;
+            background-color: var(--bg-light);
+            padding: 10px 20px;
+        }
+
+        .mobile-dropdown.active {
+            display: block;
+        }
+
+        .mobile-dropdown a {
+            display: block;
+            padding: 10px 0;
+            font-size: 0.95rem;
+        }
+
+        .mobile-menu-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background-image: url('https://www.takasakizeirishi.com/img/slide-1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+            padding: 0 16px;
+        }
+
+        .hero-title {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--main-color);
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+            letter-spacing: 0.05em;
+        }
+
+        /* Categories */
+        .categories {
+            background-color: var(--bg-light);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .category-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-title {
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--sub-color);
+        }
+
+        /* News Section */
+        .news-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .news-list {
+            list-style: none;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .news-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-link {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 10px;
+            gap: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .news-link:hover {
+            background-color: var(--bg-light);
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .news-date {
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .news-tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            white-space: nowrap;
+        }
+
+        .tag-blue { background-color: var(--accent-color); }
+        .tag-orange { background-color: var(--main-color); }
+
+        .news-title {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .news-empty {
+            padding: 20px 10px;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-more {
+            display: block;
+            text-align: right;
+            margin-top: 20px;
+            font-weight: 500;
+            color: var(--main-color);
+        }
+
+        .news-more::after {
+            content: '→';
+            margin-left: 5px;
+        }
+
+        /* Warning Section */
+        .warning-section {
+            background-color: #FFF8F0;
+            border-top: 4px solid var(--main-color);
+            border-bottom: 4px solid var(--main-color);
+        }
+
+        .warning-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            background: var(--bg-white);
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .warning-img-wrap {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .warning-img {
+            max-width: 150px;
+            margin: 0 auto 10px;
+        }
+
+        .warning-caption {
+            font-size: 0.8rem;
+            color: var(--main-color);
+            font-weight: 700;
+        }
+
+        .warning-content {
+            flex-grow: 1;
+        }
+
+        .warning-title {
+            font-size: 1.3rem;
+            color: var(--sub-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .warning-text {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+
+        .warning-contact {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Banners */
+        .banners {
+            background-color: var(--bg-white);
+        }
+
+        .banner-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .banner-item {
+            display: block;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: opacity 0.3s, box-shadow 0.3s;
+        }
+
+        .banner-item:hover {
+            opacity: 0.8;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .banner-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--sub-color);
+            color: var(--bg-white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info {
+            flex: 1;
+        }
+
+        .footer-logo {
+            max-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-address {
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .footer-links-wrap {
+            flex: 1;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            color: var(--main-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a::before {
+            content: '›';
+            margin-right: 8px;
+            color: var(--main-color);
+        }
+
+        .footer-links a:hover {
+            color: var(--bg-white);
+        }
+
+        .footer-member-btn {
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .footer-member-btn img {
+            max-width: 200px;
+            margin: 0 auto;
+            transition: opacity 0.3s;
+        }
+
+        .footer-member-btn img:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        /* Mobile Sticky CTA */
+        .mobile-sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--main-color);
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-sticky-cta a {
+            display: block;
+            text-align: center;
+            color: var(--bg-white);
+            padding: 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Back to Top */
+        #back-to-top {
+            position: fixed;
+            bottom: 80px; /* Above sticky CTA on mobile */
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--sub-color);
+            color: var(--bg-white);
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 998;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        #back-to-top:hover {
+            opacity: 1;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .header-top { display: block; }
+            .hamburger { display: none; }
+            .nav-menu { display: flex; }
+            .header-cta { display: block; }
+            
+            .category-grid { grid-template-columns: repeat(3, 1fr); }
+            
+            .news-link { flex-direction: row; align-items: center; }
+            .news-meta { width: 220px; flex-shrink: 0; }
+            
+            .warning-box { flex-direction: row; padding: 50px; }
+            .warning-img-wrap { width: 200px; }
+            
+            .banner-grid { grid-template-columns: repeat(3, 1fr); }
+            
+            .footer-inner { flex-direction: row; justify-content: space-between; }
+            .footer-links { grid-template-columns: repeat(2, 1fr); }
+            
+            .mobile-sticky-cta { display: none; }
+            body { padding-bottom: 0 !important; }
+            #back-to-top { bottom: 30px; }
+        }
+
+        @media (min-width: 1024px) {
+            .banner-grid { grid-template-columns: repeat(4, 1fr); }
+            .logo { font-size: 1.4rem; }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body style="padding-bottom: 60px;"> <!-- Padding for mobile sticky CTA -->
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-info">
+                    <span>〒370-0006 群馬県高崎市問屋町3丁目10番3 問屋町センター第2ビル304号</span>
+                    <span>📞 027-361-7788</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a href="./" class="logo">
+                    <div class="logo-icon"></div>
+                    関東信越税理士会 高崎支部
+                </a>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="./" class="nav-link">HOME</a></li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link">高崎支部</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="./takasaki.php#1">支部長挨拶</a></li>
+                                <li class="dropdown-item"><a href="./takasaki.php#2">基本方針</a></li>
+                                <li class="dropdown-item"><a href="./takasaki.php#4">支部の概要</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="./biz.php" class="nav-link">事業活動</a></li>
+                        <li class="nav-item"><a href="./link.php" class="nav-link">リンク集</a></li>
+                        <li class="nav-item"><a href="./inquiry.php" class="nav-link">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-cta">
+                    <a href="./m_page.php" class="btn-member">会員専用ページ</a>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item"><a href="./" class="mobile-nav-link">HOME</a></li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link" id="mobile-dropdown-toggle">高崎支部 ▼</a>
+                <ul class="mobile-dropdown" id="mobile-dropdown">
+                    <li><a href="./takasaki.php#1">支部長挨拶</a></li>
+                    <li><a href="./takasaki.php#2">基本方針</a></li>
+                    <li><a href="./takasaki.php#4">支部の概要</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-item"><a href="./biz.php" class="mobile-nav-link">事業活動</a></li>
+            <li class="mobile-nav-item"><a href="./link.php" class="mobile-nav-link">リンク集</a></li>
+            <li class="mobile-nav-item"><a href="./inquiry.php" class="mobile-nav-link">お問い合わせ</a></li>
+            <li class="mobile-nav-item" style="border:none; margin-top: 20px;">
+                <a href="./m_page.php" class="btn-member" style="display:block; text-align:center;">会員専用ページ</a>
+            </li>
+        </ul>
+        <div class="mobile-menu-info">
+            <p>〒370-0006<br>群馬県高崎市問屋町3丁目10番3<br>問屋町センター第2ビル304号</p>
+            <p style="margin-top:10px; font-weight:bold;">TEL: 027-361-7788</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">税理士はあなたの頼れるパートナー</h2>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories section-padding">
+            <div class="container">
+                <div class="category-grid">
+                    <a href="takasaki.php" class="category-card">
+                        <img src="https://www.takasakizeirishi.com/img/top_shibu.jpg" alt="高崎支部のご案内" class="category-img">
+                        <div class="category-title">高崎支部のご案内</div>
+                    </a>
+                    <a href="biz.php" class="category-card">
+                        <img src="https://www.takasakizeirishi.com/img/top_biz.jpg" alt="事業活動" class="category-img">
+                        <div class="category-title">事業活動</div>
+                    </a>
+                    <a href="link.php" class="category-card">
+                        <img src="https://www.takasakizeirishi.com/img/top_member.jpg" alt="リンク集" class="category-img">
+                        <div class="category-title">リンク集</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Public News -->
+        <section class="news section-padding">
+            <div class="container news-container">
+                <h2 class="section-title">高崎支部からのお知らせ</h2>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <a href="topics.php?no=39" class="news-link">
+                            <div class="news-meta">
+                                <span class="news-date">2025.12.23</span>
+                                <span class="news-tag tag-blue">相談会</span>
+                            </div>
+                            <div class="news-title">令和７年分所得税確定申告無料相談会</div>
+                        </a>
+                    </li>
+                    <li class="news-item">
+                        <a href="topics.php?no=38" class="news-link">
+                            <div class="news-meta">
+                                <span class="news-date">2025.03.17</span>
+                                <span class="news-tag tag-orange">重要</span>
+                            </div>
+                            <div class="news-title">令和７年度 税理士会高崎支部による無料税務相談日程表</div>
+                        </a>
+                    </li>
+                    <li class="news-item">
+                        <a href="topics.php?no=37" class="news-link">
+                            <div class="news-meta">
+                                <span class="news-date">2025.03.17</span>
+                                <span class="news-tag tag-orange">重要</span>
+                            </div>
+                            <div class="news-title">令和7年度 相続に特化した税理士会高崎支部による無料税務相談日程表</div>
+                        </a>
+                    </li>
+                </ul>
+                <a href="topics_list.php" class="news-more">過去のお知らせ一覧はこちら</a>
+            </div>
+        </section>
+
+        <!-- Member News -->
+        <section class="news section-padding" style="background-color: var(--bg-light);">
+            <div class="container news-container">
+                <h2 class="section-title">会員向けお知らせ</h2>
+                <div class="news-list">
+                    <div class="news-empty">現在、情報がありません。</div>
+                </div>
+                <a href="m_topics_list.php" class="news-more">過去の会員向けお知らせ一覧はこちら</a>
+            </div>
+        </section>
+
+        <!-- Warning Section -->
+        <section class="warning-section section-padding">
+            <div class="container">
+                <div class="warning-box">
+                    <div class="warning-img-wrap">
+                        <img src="https://www.takasakizeirishi.com/img/zeirishi_badge_big.png" alt="税理士バッジ" class="warning-img">
+                        <div class="warning-caption">日本税理士連合会の統一会員証<br>【税理士バッジ】</div>
+                    </div>
+                    <div class="warning-content">
+                        <h3 class="warning-title">税理士のニセ者にご注意ください！！</h3>
+                        <p class="warning-text">税理士業務は、税理士として登録されている者で無ければ原則としてできません。
+税理士資格を持たないニセ者は、自分は表面に出ないで、納税者の喜ぶようなことを言って関心を買おうとします。
+また、不当な料金を請求したり、納税者が損害を被った例もあります。
+税理士は、常に税理士証票を持ち、税理士バッジを付けています。
+不審な点がございましたら、お問い合わせ下さい。</p>
+                        <div class="warning-contact">
+                            📍 〒370-0006 群馬県高崎市問屋町3丁目10番3 問屋町センター第2ビル304号<br>
+                            📞 027-361-7788
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banners -->
+        <section class="banners section-padding">
+            <div class="container">
+                <div class="banner-grid">
+                    <a href="https://www.zeirishikensaku.jp/NzBranchMembersListPerson/List/MzA=/MzAy" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/kensaku.png" alt="税理士情報検索サイト">
+                    </a>
+                    <a href="https://www.kzei.or.jp/" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/banner6.png" alt="関東信越税理士会">
+                    </a>
+                    <a href="https://www.nta.go.jp/users/gensen/nenmatsu/nencho.htm" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/nencho.png" alt="年末調整">
+                    </a>
+                    <a href="https://www.nta.go.jp/about/introduction/torikumi/week/index.htm" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/kokuzei_torikumi_all_kikan.png" alt="国税庁の取組紹介">
+                    </a>
+                    <a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice.htm" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/invoice.png" alt="インボイス制度特設サイト">
+                    </a>
+                    <a href="https://www.nta.go.jp/" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/kokuzei.jpg" alt="国税庁">
+                    </a>
+                    <a href="http://www.e-tax.nta.go.jp/" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/e-tax_banner.png" alt="e-Tax">
+                    </a>
+                    <a href="https://www.eltax.lta.go.jp/" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/el-tax_banner.png" alt="eLTAX">
+                    </a>
+                    <a href="https://www.zeirishikensaku.jp/" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/zenkoku.png" alt="税理士を国内で探す">
+                    </a>
+                    <a href="http://www.takasakiweb.jp/" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/takasaki_banner.png" alt="高崎新聞">
+                    </a>
+                    <a href="https://www.nichizeiren.or.jp/" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/nichizeiren_banner.jpg" alt="日本税理士会連合会">
+                    </a>
+                    <a href="https://www.nta.go.jp/about/organization/kantoshinetsu/sake/sakagura/japanese.htm" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/sake.png" alt="酒蔵マップ">
+                    </a>
+                    <a href="https://www.nta.go.jp/users/gensen/2025kiso/index.htm" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/kiso.png" alt="所得税の基礎控除の見直し等">
+                    </a>
+                    <a href="https://www.nta.go.jp/users/gensen/nencho/index.htm" target="_blank" class="banner-item">
+                        <img src="https://www.takasakizeirishi.com/img/banner/gensen.jpg" alt="年末調整がよくわかるページ">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <img src="https://www.takasakizeirishi.com/img/foot_logo.png" alt="関東信越税理士会高崎支部" class="footer-logo">
+                    <div class="footer-address">
+                        〒370-0006<br>
+                        群馬県高崎市問屋町3丁目10番3<br>
+                        問屋町センター第2ビル304号<br>
+                        TEL: 027-361-7788
+                    </div>
+                </div>
+                
+                <div class="footer-links-wrap">
+                    <div class="footer-title">INFORMATION</div>
+                    <ul class="footer-links">
+                        <li><a href="./">HOME</a></li>
+                        <li><a href="./takasaki.php">高崎支部</a></li>
+                        <li><a href="./biz.php">事業活動</a></li>
+                        <li><a href="./inquiry.php">お問い合わせ</a></li>
+                        <li><a href="./link.php">リンク集</a></li>
+                        <li><a href="./privacy.php">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-member-btn">
+                    <a href="./m_page.php">
+                        <img src="https://www.takasakizeirishi.com/img/foot_memb_btn.png" alt="会員専用ページ">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 関東信越税理士会高崎支部 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="./inquiry.php">お問い合わせ</a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="トップへ戻る">↑</button>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        hamburger.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            // Optional: animate hamburger icon here
+        });
+
+        // Mobile Dropdown Toggle
+        const mobileDropdownToggle = document.getElementById('mobile-dropdown-toggle');
+        const mobileDropdown = document.getElementById('mobile-dropdown');
+
+        mobileDropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            mobileDropdown.classList.toggle('active');
+            if(mobileDropdown.classList.contains('active')) {
+                this.textContent = '高崎支部 ▲';
+            } else {
+                this.textContent = '高崎支部 ▼';
+            }
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

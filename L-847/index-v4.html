@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>群馬新規創業支援室 | 向田会計グループ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #56427A; /* ディープパープル */
+            --secondary-color: #065FD4; /* ブルーアクセント */
+            --accent-color: #E58A63; /* リデザイン画像のオレンジアクセント */
+            --text-color: #333333;
+            --text-gray: #666666;
+            --bg-color: #F8F9FA;
+            --white: #ffffff;
+            --container-width: 1100px;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px; /* モバイルCTA用余白 */
+        }
+
+        @media (min-width: 769px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .section-title {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 769px) {
+            .section-title {
+                font-size: 1.5rem;
+                padding: 20px 40px;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 6px rgba(229, 138, 99, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #d47a53;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(229, 138, 99, 0.4);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        @media (min-width: 769px) {
+            .logo img {
+                height: 50px;
+            }
+        }
+
+        .header-contact {
+            display: none;
+        }
+
+        @media (min-width: 769px) {
+            .header-contact {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+
+        .header-tel {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .header-tel span {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .header-tel a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-tel a svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-color);
+        }
+
+        .header-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .header-btn:hover {
+            background-color: #d47a53;
+        }
+
+        /* Navigation */
+        .nav {
+            display: none;
+            border-top: 1px solid #eee;
+        }
+
+        @media (min-width: 769px) {
+            .nav {
+                display: block;
+            }
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-item:last-child {
+            border-right: none;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 15px 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+            background-color: #f9f9f9;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: block;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        @media (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        @media (min-width: 769px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        @media (min-width: 769px) {
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        .hero-btn {
+            font-size: 1.1rem;
+            padding: 15px 40px;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 60px 0;
+        }
+
+        @media (min-width: 769px) {
+            section {
+                padding: 80px 0;
+            }
+        }
+
+        /* Support Section */
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 769px) {
+            .support-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .support-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .support-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .support-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .support-card-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .support-text {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .support-card .btn {
+            width: 100%;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 769px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--white);
+        }
+
+        .service-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .service-content p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (min-width: 769px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
+        }
+
+        .feature-item {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .feature-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 3px solid var(--bg-color);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            fill: var(--primary-color);
+        }
+
+        .feature-title {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        /* Greeting Section */
+        .greeting-content {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        @media (min-width: 769px) {
+            .greeting-content {
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 50px;
+            }
+        }
+
+        .greeting-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #eee;
+            flex-shrink: 0;
+        }
+
+        .greeting-text {
+            flex-grow: 1;
+        }
+
+        .greeting-text p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .greeting-sign {
+            text-align: right;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        /* Access Section */
+        .access-content {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        @media (min-width: 769px) {
+            .access-content {
+                flex-direction: row;
+            }
+        }
+
+        .access-map {
+            width: 100%;
+            height: 300px;
+        }
+
+        @media (min-width: 769px) {
+            .access-map {
+                width: 50%;
+                height: auto;
+                min-height: 400px;
+            }
+        }
+
+        .access-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .access-info {
+            padding: 40px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (min-width: 769px) {
+            .access-info {
+                width: 50%;
+            }
+        }
+
+        .access-info h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .access-info p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #e6d5b8 0%, #d4b886 100%);
+            border-radius: var(--border-radius);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 769px) {
+            .cta-banner {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                padding: 40px 60px;
+            }
+        }
+
+        .cta-banner-text h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 769px) {
+            .cta-banner-text h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .cta-banner-text p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .cta-banner-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 769px) {
+            .cta-banner-actions {
+                width: auto;
+                align-items: flex-end;
+            }
+        }
+
+        .cta-tel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: var(--white);
+            padding: 10px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+        }
+
+        .cta-tel svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-color);
+        }
+
+        .cta-mail-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .cta-mail-btn:hover {
+            background-color: #d47a53;
+            transform: translateY(-2px);
+        }
+
+        .cta-mail-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+
+        /* News Section */
+        .news-list {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        @media (min-width: 769px) {
+            .news-list {
+                padding: 30px 40px;
+            }
+        }
+
+        .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 15px 0;
+            border-bottom: 1px dashed #ccc;
+            gap: 10px;
+        }
+
+        @media (min-width: 769px) {
+            .news-item {
+                flex-direction: row;
+                align-items: center;
+                gap: 30px;
+            }
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-weight: 700;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        .news-title {
+            color: var(--text-color);
+        }
+
+        .news-title:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-nav a {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-nav a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .footer-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin: 0 auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-address {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 10px;
+        }
+
+        .footer-tel {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .footer-tel svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+
+        .footer-hours {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 769px) {
+            .mobile-cta {
+                display: none;
+            }
+        }
+
+        .mobile-cta-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--primary-color);
+        }
+
+        .mobile-cta-mail {
+            background-color: var(--accent-color);
+        }
+
+        .mobile-cta-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+            margin-bottom: 4px;
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo">
+                    <img src="https://www.keiei-soudan.jp/wp-content/uploads/sites/17/shien.png" alt="群馬新規創業支援室">
+                </a>
+                <div class="header-contact">
+                    <div class="header-tel">
+                        <span>フリーダイヤル</span>
+                        <a href="tel:0120-714-960">
+                            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                            0120-714-960
+                        </a>
+                    </div>
+                    <a href="https://www.keiei-soudan.jp/contactus" class="header-btn">ご相談・お見積り(無料)</a>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Desktop Nav -->
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">トップページ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">サービス案内</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">料金案内</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">よくある質問</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">代表ご挨拶</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">事務所案内</a></li>
+                    <li class="nav-item"><a href="https://www.keiei-soudan.jp/contactus" class="nav-link">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile Nav -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#" class="mobile-nav-link">トップページ</a>
+            <a href="#" class="mobile-nav-link">サービス案内</a>
+            <a href="#" class="mobile-nav-link">料金案内</a>
+            <a href="#" class="mobile-nav-link">よくある質問</a>
+            <a href="#" class="mobile-nav-link">代表ご挨拶</a>
+            <a href="#" class="mobile-nav-link">事務所案内</a>
+            <a href="https://www.keiei-soudan.jp/contactus" class="mobile-nav-link">お問い合わせ</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">創業50年を超える実績</h1>
+                <p class="hero-subtitle">群馬県桐生市の向田会計グループが運営しています（桐生市･緑市･太田市･伊勢崎市･足利市）の新規開業･新設法人をサポート</p>
+                <a href="https://www.keiei-soudan.jp/contactus" class="btn hero-btn">まずはお気軽にご相談ください</a>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section class="support">
+            <div class="container">
+                <h2 class="section-title">群馬県の法人設立をサポート | 新規開業支援に力を入れています</h2>
+                <div class="support-grid">
+                    <!-- Card 1 -->
+                    <div class="support-card">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="創業税務顧問サポート" class="support-img">
+                        <div class="support-content">
+                            <h3 class="support-card-title">創業税務顧問サポート</h3>
+                            <p class="support-text">会社設立後２年以内の会社さまに、安心して税理士事務所のサービスを受けて頂けるよう、「創業税務顧問サポート」をご用意させていただきました。</p>
+                            <a href="#" class="btn">創業サポートについて詳しく</a>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="support-card">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="法人設立サポート" class="support-img">
+                        <div class="support-content">
+                            <h3 class="support-card-title">法人設立サポート</h3>
+                            <p class="support-text">スムーズな設立手続きをはじめ、設立後の各種経営上のご相談や税務相談などのアフターフォローといったサービスをご提供させていただきます。</p>
+                            <a href="#" class="btn">法人設立サポートについて詳しく</a>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="support-card">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="税務顧問サポート" class="support-img">
+                        <div class="support-content">
+                            <h3 class="support-card-title">税務顧問サポート</h3>
+                            <p class="support-text">群馬県内全域をはじめとし栃木県、埼玉県、東京都等、広範囲に渡り法人企業、個人事業のお客様をサポートしている経営支援グループです。</p>
+                            <a href="#" class="btn">税務顧問サポートについて詳しく</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">向田会計グループが提供するサービスメニュー</h2>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg>
+                        </div>
+                        <div class="service-content">
+                            <h3>税務申告</h3>
+                            <p>税務顧問サポートを手がける税理士法人向田会計ではのべ387件（令和2年5月時点）を超えるお客様の税務･会計に関わる顧問税理士事務所として万全のサポート体制を整えております。</p>
+                        </div>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+                        </div>
+                        <div class="service-content">
+                            <h3>経理事務のアウトソーシング</h3>
+                            <p>毎月の領収証や通帳のコピーなどをお預かりし、我々が会計ソフトに入力させていただきます。今まで見えなかった経費の状況が明確になり、節税対策などのアドバイスへ繋げることができます。</p>
+                        </div>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.83L18.17 20H5.83L12 5.83zM11 10h2v5h-2zm0 6h2v2h-2z"/></svg>
+                        </div>
+                        <div class="service-content">
+                            <h3>法人設立</h3>
+                            <p>お客様の会社設立において、設立前から設立後の経営状況を見据えた手厚いサポートをご提供しております。起業・創業において最も大切なのは、設立後の経営状況まで視野に入れ設立手続きを行うことにあります。</p>
+                        </div>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        </div>
+                        <div class="service-content">
+                            <h3>給与計算代行</h3>
+                            <p>給与計算の業務は、スピードと正確性が求められる専門性の高い仕事です。お客様の毎月の給与計算・賞与の計算といった一連の業務を代行いたします。毎月の面倒な業務負担を削減すると共に安定した給与計算が実現できます。</p>
+                        </div>
+                    </div>
+                    <!-- Service 5 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                        </div>
+                        <div class="service-content">
+                            <h3>資金調達</h3>
+                            <p>創業して間もない企業様の資金調達をお手伝いするためのサポートに力を入れています。創業時の融資についても様々な制度がございます。創業時の事業計画書の作成や返済計画についてのプランニングなど豊富な経験と実績があります。</p>
+                        </div>
+                    </div>
+                    <!-- Service 6 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                        </div>
+                        <div class="service-content">
+                            <h3>事業計画策定</h3>
+                            <p>「具体的」で「経営に役立つ」また、「実現可能」で「現実的」な経営計画書の策定をお手伝いします。この経営計画書は開業にあたっての金融機関から求められる事業計画書としても活用することができます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">地域に密着した安心と信頼のサポート体制</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-number">01</div>
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        <div class="feature-title">創業50年超の実績</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">02</div>
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <div class="feature-title">群馬県地域密着</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">03</div>
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                        <div class="feature-title">創業融資支援</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">04</div>
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        <div class="feature-title">事業計画書策定</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">05</div>
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.41l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.41zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+                        <div class="feature-title">明瞭な料金体系</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">06</div>
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8.5 13H9v-2.5H6.5v-2H9V9h1.5v2.5H13v2h-2.5V16z"/></svg>
+                        <div class="feature-title">医院開業支援業務</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">07</div>
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                        <div class="feature-title">役立つ情報発信</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">08</div>
+                        <svg class="feature-icon" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        <div class="feature-title">事業承継支援</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Greeting Section -->
+        <section class="greeting">
+            <div class="container">
+                <h2 class="section-title">お客様に成長発展をしていただくことが私たちの願いです</h2>
+                <div class="greeting-content">
+                    <img src="https://www.keiei-soudan.jp/wp-content/uploads/sites/17/banner18.png" alt="代表ご挨拶" class="greeting-img">
+                    <div class="greeting-text">
+                        <p>私たち向田会計グループは、ここ桐生の地で50年以上の歴史を持つ老舗の会計事務所です。地域密着で商売、仕事をさせて頂いておりますので、政策金融公庫、群馬銀行、足利銀行、東和銀行、桐生信用金庫、しののめ信用金庫など地域の金融機関とは密な関係を築きあげております。<br>
+                        お客様からの資金需要に対しての受け皿となる体制もしっかりと整えていることは私たちの強みです。</p>
+                        <div class="greeting-sign">— 税理士法人向田会計グループ　代表ご挨拶</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access Section -->
+        <section class="access">
+            <div class="container">
+                <h2 class="section-title">向田会計グループへのアクセス</h2>
+                <div class="access-content">
+                    <div class="access-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3210.918814560297!2d139.3338577500477!3d36.41115947879269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601ee2458cad1fc1%3A0xac317cb9abd28d88!2z56iO55CG5aOr5rOV5Lq65ZCR55Sw5Lya6KiI!5e0!3m2!1sja!2sjp!4v1642999029906!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="access-info">
+                        <h3>向田会計グループ（税理士法人向田会計／株式会社向田会計事務所）</h3>
+                        <p>〒376-0045 群馬県桐生市末広町6-10　MSビル2F　JR桐生駅徒歩3分</p>
+                        <p>TEL　0277-45-2160／FAX　0277-45-2161</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner Section -->
+        <section class="cta-banner-section">
+            <div class="container">
+                <div class="cta-banner">
+                    <div class="cta-banner-text">
+                        <h2>法人設立・創業相談承ります</h2>
+                        <p>会社設立・法人創業支援に強い向田会計グループ</p>
+                    </div>
+                    <div class="cta-banner-actions">
+                        <a href="tel:0120-714-960" class="cta-tel">
+                            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                            0120-714-960
+                        </a>
+                        <a href="https://www.keiei-soudan.jp/contactus" class="cta-mail-btn">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            メールでのお問合せはこちら
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news">
+            <div class="container">
+                <h2 class="section-title">新着情報</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-date">2026年3月31日</div>
+                        <a href="#" class="news-title">フリモ4月号掲載のお知らせ(相続無料相談会4/11、4/17、4/24開催)</a>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2026年2月27日</div>
+                        <a href="#" class="news-title">フリモ3月号掲載のお知らせ(相続無料相談会随時開催)</a>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2026年2月2日</div>
+                        <a href="#" class="news-title">フリモ2月号掲載のお知らせ(相続無料相談会随時開催)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-nav">
+                <a href="#">トップページ</a>
+                <a href="#">サービス案内</a>
+                <a href="#">料金案内</a>
+                <a href="#">よくある質問</a>
+                <a href="#">代表ご挨拶</a>
+                <a href="#">事務所案内</a>
+                <a href="#">個人情報保護に関する規定</a>
+                <a href="https://www.keiei-soudan.jp/contactus">お問い合わせ</a>
+            </div>
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <img src="https://www.keiei-soudan.jp/wp-content/uploads/sites/17/shien.png" alt="向田会計グループ">
+                </div>
+                <div class="footer-address">
+                    〒376-0045 群馬県桐生市末広町6-10 MSビル 2F TEL : 0277-45-2160 FAX : 0277-45-2161
+                </div>
+                <div class="footer-tel">
+                    <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                    0120-714-960
+                </div>
+                <div class="footer-hours">営業時間9:00〜18:00</div>
+            </div>
+            <div class="copyright">
+                Copyright© 2026 向田会計グループ all rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:0120-714-960" class="mobile-cta-btn mobile-cta-tel">
+            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            電話する
+        </a>
+        <a href="https://www.keiei-soudan.jp/contactus" class="mobile-cta-btn mobile-cta-mail">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            メール相談
+        </a>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

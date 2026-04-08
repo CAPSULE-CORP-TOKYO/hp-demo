@@ -1,0 +1,93 @@
+Generate a single-file HTML page (inline CSS, no external CSS files) for 関東信越税理士会 高崎支部 (Kanto-Shinetsu Tax Accountants Association, Takasaki Branch).
+
+## Design Specs
+- Font: "Noto Sans JP" from Google Fonts, fallback sans-serif
+- Responsive: 375px to 1440px fluid
+- Hamburger menu on mobile (pure CSS or minimal inline JS)
+- Sticky CTA bar on mobile (orange "お問い合わせ" button fixed bottom)
+- Minimum 16px padding on all sides
+- Archetype: Corporate Formal (modernized)
+- Colors: Main #F77F00 (orange), Sub #2D2D2D (dark charcoal), Accent #3398CC (blue), Background #FFFFFF / #F8F9FA
+
+## Structure & Text (use ALL text VERBATIM)
+
+### Header / Navigation
+- Logo text: 関東信越税理士会 高崎支部
+- Address: 〒370-0006 群馬県高崎市問屋町3丁目10番3 問屋町センター第2ビル304号
+- Phone: 027-361-7788
+- Nav items: HOME, 事業活動, リンク集, お問い合わせ
+- CTA button: 会員専用ページ (link to ./m_page.php)
+- Dropdown "高崎支部": 支部長挨拶 (./takasaki.php#1), 基本方針 (./takasaki.php#2), 支部の概要 (./takasaki.php#4)
+
+### Hero Section (carousel feel, single hero is OK)
+- Main image: use https://www.takasakizeirishi.com/img/slide-1.jpg
+- Overlay text: 税理士はあなたの頼れるパートナー
+
+### 3-Column Category Cards
+1. Image: https://www.takasakizeirishi.com/img/top_shibu.jpg → Label: 高崎支部のご案内 → Link: takasaki.php
+2. Image: https://www.takasakizeirishi.com/img/top_biz.jpg → Label: 事業活動 → Link: biz.php
+3. Image: https://www.takasakizeirishi.com/img/top_member.jpg → Label: リンク集 → Link: link.php
+
+### News Section: 高崎支部からのお知らせ
+- 2025.12.23 [相談会] 令和７年分所得税確定申告無料相談会 → topics.php?no=39
+- 2025.03.17 [重要] 令和７年度 税理士会高崎支部による無料税務相談日程表 → topics.php?no=38
+- 2025.03.17 [重要] 令和7年度 相続に特化した税理士会高崎支部による無料税務相談日程表 → topics.php?no=37
+- Link: 過去のお知らせ一覧はこちら → topics_list.php
+
+### Member News Section: 会員向けお知らせ
+- 現在、情報がありません。
+- Link: 過去の会員向けお知らせ一覧はこちら → m_topics_list.php
+
+### Warning Section: 税理士のニセ者にご注意ください！！
+- Image: https://www.takasakizeirishi.com/img/zeirishi_badge_big.png
+- Caption: 日本税理士連合会の統一会員証【税理士バッジ】
+- Text (verbatim):
+  税理士業務は、税理士として登録されている者で無ければ原則としてできません。
+  税理士資格を持たないニセ者は、自分は表面に出ないで、納税者の喜ぶようなことを言って関心を買おうとします。
+  また、不当な料金を請求したり、納税者が損害を被った例もあります。
+  税理士は、常に税理士証票を持ち、税理士バッジを付けています。
+  不審な点がございましたら、お問い合わせ下さい。
+- Contact: 〒370-0006 群馬県高崎市問屋町3丁目10番3 問屋町センター第2ビル304号 / 027-361-7788
+
+### Banner Links Section (partner organization logos in grid)
+Use original image URLs for all banners:
+- https://www.takasakizeirishi.com/img/banner/kensaku.png → https://www.zeirishikensaku.jp/NzBranchMembersListPerson/List/MzA=/MzAy (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/banner6.png → https://www.kzei.or.jp/ (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/nencho.png → https://www.nta.go.jp/users/gensen/nenmatsu/nencho.htm (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/kokuzei_torikumi_all_kikan.png → https://www.nta.go.jp/about/introduction/torikumi/week/index.htm (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/invoice.png → https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice.htm (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/kokuzei.jpg → https://www.nta.go.jp/ (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/e-tax_banner.png → http://www.e-tax.nta.go.jp/ (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/el-tax_banner.png → https://www.eltax.lta.go.jp/ (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/zenkoku.png → https://www.zeirishikensaku.jp/ (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/takasaki_banner.png → http://www.takasakiweb.jp/ (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/nichizeiren_banner.jpg → https://www.nichizeiren.or.jp/ (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/sake.png → https://www.nta.go.jp/about/organization/kantoshinetsu/sake/sakagura/japanese.htm (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/kiso.png → https://www.nta.go.jp/users/gensen/2025kiso/index.htm (target=_blank)
+- https://www.takasakizeirishi.com/img/banner/gensen.jpg → https://www.nta.go.jp/users/gensen/nencho/index.htm (target=_blank)
+
+### Footer (dark background #2D2D2D)
+- Logo: https://www.takasakizeirishi.com/img/foot_logo.png (alt: 関東信越税理士会高崎支部)
+- Address: 〒370-0006 群馬県高崎市問屋町3丁目10番3 問屋町センター第2ビル304号
+- Phone: 027-361-7788
+- INFORMATION links: HOME (./), 高崎支部 (./takasaki.php), 事業活動 (./biz.php), お問い合わせ (./inquiry.php), リンク集 (./link.php), プライバシーポリシー (./privacy.php)
+- Member button image: https://www.takasakizeirishi.com/img/foot_memb_btn.png → ./m_page.php
+- Copyright: © 関東信越税理士会高崎支部 All Rights Reserved.
+
+## Image Mapping
+- Logo images (logo.png, foot_logo.png, zeirishi_badge.png, zeirishi_badge_big.png): use original URLs
+- Slide images (slide-1.jpg): use original URL
+- Category images (top_shibu.jpg, top_biz.jpg, top_member.jpg): use original URLs
+- All banner images: use original URLs
+- foot_memb_btn.png: use original URL
+
+## Important Rules
+- ALL text must appear verbatim - do not omit, translate, or paraphrase any content
+- All links must use the exact URLs specified above
+- Single HTML file with all CSS inline in <style> tag
+- Use Noto Sans JP from Google Fonts
+- Mobile-first responsive design
+- Smooth, modern look with good whitespace and subtle shadows on cards
+- News items should have date badges and category tags styled nicely
+- The warning section should have a distinct background to draw attention
+- Back to top button

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ももとせマネジメント税理士法人</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #0e2c5e;
+            --sub-color: #8596ad;
+            --accent-color: #fea33a;
+            --bg-white: #ffffff;
+            --bg-light: #f5f7fa;
+            --text-main: #333333;
+            --text-light: #ffffff;
+            --header-height: 80px;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 80px 16px;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .bg-main {
+            background-color: var(--main-color);
+            color: var(--text-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: var(--main-color);
+        }
+
+        .bg-main .section-title {
+            color: var(--text-light);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(254, 163, 58, 0.3);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(254, 163, 58, 0.4);
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-list a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 0;
+        }
+
+        .nav-list a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            padding: 16px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--main-color);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: calc(100vh - var(--header-height));
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(14, 44, 94, 0.75), rgba(14, 44, 94, 0.75)), url('https://www.momotose.biz/library/57304901b15fb3bbf8ad39ae/57318803f490ead169003abd.jpg') center/cover no-repeat;
+            color: var(--text-light);
+            padding: 16px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 40px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 40px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border-top: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: var(--main-color);
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+
+        .about-note {
+            font-size: 0.9rem;
+            color: var(--sub-color);
+        }
+
+        /* Company Info Table */
+        .info-table-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table th, .info-table td {
+            padding: 20px 24px;
+            border-bottom: 1px solid #eaeaea;
+            text-align: left;
+        }
+
+        .info-table tr:last-child th, .info-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .info-table th {
+            width: 30%;
+            background-color: var(--bg-light);
+            color: var(--main-color);
+            font-weight: 700;
+        }
+
+        .info-table tr:nth-child(even) td {
+            background-color: #fafbfc;
+        }
+
+        .badges {
+            max-width: 800px;
+            margin: 24px auto 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .badge {
+            background-color: var(--sub-color);
+            color: var(--text-light);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Map Section */
+        .map-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-company {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-tel {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            display: inline-block;
+            border-bottom: 1px solid var(--text-light);
+            padding-bottom: 4px;
+        }
+
+        /* Area Section */
+        .area-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0a1f42;
+            color: var(--text-light);
+            padding: 60px 16px 40px;
+            text-align: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .footer-nav a {
+            font-size: 0.9rem;
+        }
+
+        .footer-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--sub-color);
+        }
+
+        /* Sticky CTA (Mobile) */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--accent-color);
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .sticky-cta a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .sticky-cta a:first-child {
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .info-table th {
+                width: 40%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav {
+                position: fixed;
+                top: var(--header-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--header-height));
+                background-color: var(--bg-white);
+                transition: 0.3s ease-in-out;
+                overflow-y: auto;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                padding: 40px 24px;
+                gap: 32px;
+            }
+
+            .nav-list a {
+                font-size: 1.2rem;
+                display: block;
+                border-bottom: 1px solid var(--bg-light);
+                padding-bottom: 16px;
+            }
+
+            .menu-toggle:checked ~ .nav {
+                left: 0;
+            }
+
+            .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .info-table th, .info-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .info-table th {
+                padding-bottom: 8px;
+                border-bottom: none;
+            }
+
+            .info-table td {
+                padding-top: 0;
+                margin-bottom: 16px;
+            }
+
+            .info-table tr {
+                display: block;
+                border-bottom: 1px solid #eaeaea;
+            }
+
+            .info-table tr:last-child {
+                border-bottom: none;
+            }
+
+            .contact-tel {
+                font-size: 2rem;
+            }
+
+            .sticky-cta {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 56px; /* Height of sticky CTA */
+            }
+            
+            .footer {
+                padding-bottom: 80px; /* Extra padding for sticky CTA */
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="https://www.momotose.biz/library/57304901b15fb3bbf8ad39ae/62d79ae51cbcb9080687014d.png" alt="ももとせマネジメント税理士法人">
+            </a>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#about">事務所紹介</a></li>
+                    <li><a href="#choose">税理士の選び方</a></li>
+                    <li><a href="#services">業務案内</a></li>
+                    <li><a href="#recruit">採用情報</a></li>
+                    <li><a href="#news">お知らせ</a></li>
+                    <li><a href="#contact">お問合せ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>「まず黒字！もっと黒字！ずっと黒字！」</h1>
+            <p>地域の中小企業の持続的な発展をサポートします。</p>
+            <a href="#contact" class="btn">お問合せはこちら</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-light">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>税務・会計サポート</h3>
+                    <p>各種税務に関する業務、月次決算体制構築、月次巡回監査、決算対策等、経理・会計・決算に関する業務をご提供いたします。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>経営計画・コンサルティング</h3>
+                    <p>経営計画作成支援、経営承継、経理の合理化、節税のご提案など、経営に関する様々なサービスもご提供しております。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>ニッチトップ戦略塾【高崎】</h3>
+                    <p>「経営者の仕事」としての勉強会。中小零細経営に特化した勉強会や、経営者同士の懇親・異業種交流の場をご提供いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">代表メッセージ・事務所紹介</h2>
+            <div class="about-content">
+                <p>私たちは、税務申告に限らず、月次決算支援、経営計画策定支援、中小零細経営に特化した勉強会（ニッチトップ戦略塾【高崎】）、経営者同士の懇親や異業種交流の場の「ちょっと早い忘年会！」の開催など、経営者のビジョンを実現するために「まず黒字！もっと黒字！ずっと黒字！」をコンセプトに、地域の会社を元気にするためのサポートをご提供いたします。</p>
+                <p class="about-note">※サービスに対する考え方の詳細は、「事務所紹介」のコーナーをご覧ください。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Info Table Section -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title">事務所概要</h2>
+            <div class="info-table-wrapper">
+                <table class="info-table">
+                    <tbody>
+                        <tr>
+                            <th>事務所名</th>
+                            <td>ももとせマネジメント税理士法人</td>
+                        </tr>
+                        <tr>
+                            <th>代表社員名</th>
+                            <td>小澤　昌人</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>群馬県高崎市緑町一丁目7番地7</td>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td>027-387-0606</td>
+                        </tr>
+                        <tr>
+                            <th>FAX番号</th>
+                            <td>027-387-0607</td>
+                        </tr>
+                        <tr>
+                            <th>業務内容</th>
+                            <td>・独立、開業支援に関する業務<br>・各種税務に関する業務<br>・月次決算体制構築、月次巡回監査、決算対策等、経理・会計・決算に関する業務<br>・ＴＫＣシステムを活用した自計化の支援に関する業務<br>・経営計画作成支援に関する業務<br>・経営承継に関する業務<br>・経理の合理化に関する業務<br>・節税のご提案</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="badges">
+                <span class="badge">ももとせマネジメント税理士法人はＴＫＣ全国会会員です</span>
+                <span class="badge">関東信越税理士会所属</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section>
+        <div class="container">
+            <div class="map-container">
+                <iframe width="100%" height="400" src="https://www.google.com/maps/embed/v1/place?language=ja&q=群馬県高崎市緑町一丁目7番地７&zoom=17&key=AIzaSyBELgItfVodS3ThPdrIsX4vbOE4Hb3MVUE" style="border:0;" allowfullscreen loading="lazy" title="Google Maps"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-main">
+        <div class="container">
+            <h2 class="section-title">お気軽にお問合せください。</h2>
+            <div class="contact-info">
+                <p class="contact-company">ももとせマネジメント税理士法人</p>
+                <a href="tel:027-387-0606" class="contact-tel">TEL：027-387-0606</a>
+                <a href="mailto:ozawa-masato@tkcnf.or.jp" class="contact-email">Email: ozawa-masato@tkcnf.or.jp</a>
+            </div>
+            <div style="text-align: center;">
+                <a href="#" class="btn">お問合せフォームへ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Area Section -->
+    <section class="bg-light">
+        <div class="container">
+            <p class="area-text">【対応地域】高崎市、前橋市、伊勢崎市を中心とし、中小企業様の税務等に関してお手伝いをさせていただいております。ご質問等ございましたらももとせマネジメント税理士法人までお気軽にお問合わせください！！</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="#">ホーム</a>
+                <a href="#about">事務所紹介</a>
+                <a href="#choose">税理士の選び方</a>
+                <a href="#services">業務案内</a>
+                <a href="#recruit">採用情報</a>
+                <a href="#news">お知らせ</a>
+                <a href="#contact">お問合せ</a>
+            </nav>
+            <p class="copyright">Copyright (c) 2025 - 2026 ももとせマネジメント税理士法人 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA (Mobile Only) -->
+    <div class="sticky-cta">
+        <a href="tel:027-387-0606">📞 電話する</a>
+        <a href="#contact">✉️ お問合せ</a>
+    </div>
+
+    <script>
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
+    </script>
+</body>
+</html>

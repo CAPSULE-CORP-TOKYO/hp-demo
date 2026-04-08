@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新井徳治税理士事務所 | 群馬県高崎市で税務・会計、経営のことなら</title>
+    <meta name="description" content="群馬県高崎市で税務・会計、経営のことなら新井徳治税理士事務所。丁寧な仕事と真心サービスと誠実な対応が自慢です。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-navy: #1a2b4c;
+            --primary-navy-light: #2a3f6c;
+            --accent-blue: #2563eb;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light-gray: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --container-width: 1100px;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-main);
+        }
+
+        /* Header */
+        .header-top {
+            background-color: var(--white);
+            padding: 15px 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+
+        /* Navigation */
+        .main-nav {
+            background-color: var(--primary-navy);
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .main-nav li {
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .main-nav li:last-child {
+            border-right: none;
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .main-nav a:hover {
+            background-color: var(--primary-navy-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(26, 43, 76, 0.9) 0%, rgba(26, 43, 76, 0.4) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-navy);
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            color: var(--primary-navy);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--bg-light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            color: var(--primary-navy);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .service-link i {
+            font-size: 0.8rem;
+        }
+
+        .service-link:hover {
+            color: var(--accent-blue);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .about-image {
+            flex: 0 0 350px;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-subtitle {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #d32f2f; /* Reddish color from mockup */
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .about-body {
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .about-name {
+            font-weight: 700;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        /* Office Info Section */
+        .office-info {
+            padding: 80px 0;
+            background-color: var(--bg-light-gray);
+        }
+
+        .office-content {
+            display: flex;
+            gap: 40px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .office-details {
+            flex: 1;
+        }
+
+        .office-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-navy);
+        }
+
+        .info-list {
+            margin-bottom: 20px;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .info-list i {
+            color: var(--primary-navy);
+            margin-top: 4px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .office-map {
+            flex: 1;
+            min-height: 250px;
+            border-radius: 4px;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Contact CTA Section */
+        .contact-cta {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .contact-cta p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333333;
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #aaaaaa;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            font-size: 0.9rem;
+            color: #dddddd;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888888;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-content, .office-content {
+                flex-direction: column;
+            }
+            .about-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .office-map {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .main-nav ul {
+                flex-direction: column;
+            }
+            .main-nav li {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .main-nav a {
+                text-align: center;
+                padding: 12px;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header-top">
+        <div class="container">
+            <div class="logo">
+                <i class="fa-solid fa-building-columns"></i>
+                新井徳治税理士事務所
+            </div>
+            <div class="header-contact">
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:0120-038-260">Tel: 0120-038-260</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#">トップページ</a></li>
+                <li><a href="#services">当事務所の特徴</a></li>
+                <li><a href="#services">業務内容</a></li>
+                <li><a href="#">よくあるご質問</a></li>
+                <li><a href="#">ご契約の流れ</a></li>
+                <li><a href="#about">事務所概要</a></li>
+                <li><a href="https://tax-arai.com/mailform/mailform_1/">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">丁寧な仕事と真心サービスと<br>誠実な対応が自慢です。</h1>
+                <a href="https://tax-arai.com/mailform/mailform_1/" class="btn">お問い合わせはこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services & Features</h2>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">当事務所の特徴</h3>
+                    <p class="service-desc">当事務所の特徴をご案内します。</p>
+                    <a href="https://www.tax-arai.com/basic/feature.html" class="service-link">当事務所の特徴 <i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h3 class="service-title">業務内容について</h3>
+                    <p class="service-desc">お客様のことを第一に考え、どんな時も的確で丁寧な対応を心がけています。</p>
+                    <a href="https://www.tax-arai.com/basic/service.html" class="service-link">業務内容について <i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="service-title">お気軽にご連絡を。</h3>
+                    <p class="service-desc">どんな些細なお問い合わせでも結構です。ぜひ一度当事務所にご相談下さい。</p>
+                    <a href="https://tax-arai.com/mailform/mailform_1/" class="service-link">お気軽にご連絡を <i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="所長税理士 新井徳治">
+                </div>
+                <div class="about-text">
+                    <h3 class="about-subtitle">群馬県高崎市で税務・会計、経営のご相談なら、<br>新井徳治税理士事務所にお任せ下さい。</h3>
+                    <p class="about-body">
+                        はじめまして。この度は新井徳治税理士事務所のホームページにアクセスしていただき誠に有り難うございます。<br>
+                        新井徳治税理士事務所は平成10年5月に群馬県高崎市で法人税・所得税・相続税を扱う会計事務所として設立いたしました。以来、お客様に安心・信頼していただけるよう、常に誠実・丁寧を心がけてお取引をさせていただいております。
+                    </p>
+                    <p class="about-name">所長税理士：新井徳治</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Info Section -->
+    <section class="office-info">
+        <div class="container">
+            <div class="office-content">
+                <div class="office-details">
+                    <h3>Office Information</h3>
+                    <ul class="info-list">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>〒370-0042<br>群馬県高崎市貝沢町947−1</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Tel: <a href="tel:0120-038-260">0120-038-260</a><br>(または 027-395-4480)</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span><a href="https://tax-arai.com/mailform/mailform_1/">お問い合わせフォーム</a></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="office-map" aria-label="地図のプレースホルダー">
+                    <!-- Map placeholder image via CSS background -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <p>お問い合わせは、気軽にてお任せください。</p>
+            <a href="https://tax-arai.com/mailform/mailform_1/" class="btn" style="background-color: var(--primary-navy); color: var(--white);">お問い合わせはこちら</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    新井徳治税理士事務所
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <ul>
+                            <li><a href="#">トップページ</a></li>
+                            <li><a href="#services">当事務所の特徴</a></li>
+                            <li><a href="#services">業務内容</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <ul>
+                            <li><a href="#">よくあるご質問</a></li>
+                            <li><a href="#">ご契約の流れ</a></li>
+                            <li><a href="#about">事務所概要</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <ul>
+                            <li><a href="https://tax-arai.com/mailform/mailform_1/">お問い合わせ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright (c) 新井徳治税理士事務所 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

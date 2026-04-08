@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>尾花俊彦税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #99ce25;
+            --secondary-color: #6b911b;
+            --bg-color: #fffcdb;
+            --text-color: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --accent-color: #e67e5d;
+            --container-width: 1000px;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            background-color: var(--bg-color);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-nav-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .desktop-nav ul {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .desktop-nav a {
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn-header-contact {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(230, 126, 93, 0.4);
+        }
+
+        .btn-header-contact:hover {
+            background-color: #d66a48;
+            opacity: 1;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger span:nth-child(3) { bottom: 0; }
+
+        .hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(255, 252, 219, 0.95);
+            z-index: 99;
+            padding-top: 80px;
+            text-align: center;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-bottom: 40px;
+        }
+
+        .hero-inner {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .hero-inner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-catch {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .hero-subtitle {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        /* Section Common */
+        .section-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .service-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .service-content p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Strengths Section */
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+        }
+
+        .greeting-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .greeting-box img {
+            border-radius: var(--border-radius);
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .greeting-text-box {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            font-size: 0.85rem;
+        }
+
+        .greeting-text-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .greeting-text-box p {
+            margin-bottom: 10px;
+        }
+
+        .link-more {
+            color: var(--secondary-color);
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .strengths-list-box {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .strengths-list-box ol {
+            counter-reset: strength-counter;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .strengths-list-box li {
+            position: relative;
+            padding-left: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .strengths-list-box li::before {
+            counter-increment: strength-counter;
+            content: counter(strength-counter) ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary-color);
+        }
+
+        .strengths-list-box .link-more {
+            align-self: flex-end;
+            margin-top: 20px;
+        }
+
+        /* CTA Section */
+        .cta-banner {
+            background-color: #fcecd9;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .cta-text-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cta-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .cta-tel-large {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .btn-cta-large {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(230, 126, 93, 0.4);
+            text-align: center;
+        }
+
+        .btn-cta-large:hover {
+            background-color: #d66a48;
+            opacity: 1;
+        }
+
+        /* Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-block h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+        }
+
+        .area-content {
+            display: flex;
+            gap: 20px;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            height: calc(100% - 40px);
+        }
+
+        .area-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.5;
+        }
+
+        .area-text p {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .area-text .note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .topics-list {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            height: calc(100% - 40px);
+        }
+
+        .topics-list li {
+            border-bottom: 1px dashed #ccc;
+            padding: 12px 0;
+            min-height: 45px;
+        }
+
+        .topics-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-nav {
+            margin-bottom: 30px;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-info {
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 5px;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+        }
+
+        .mobile-cta-btn {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--white);
+            color: var(--secondary-color);
+            border-top: 2px solid var(--secondary-color);
+        }
+
+        .mobile-cta-mail {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cta-banner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .cta-text-area {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-right {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-inner {
+                padding: 30px 20px;
+                min-height: 300px;
+            }
+            .hero-subtitle {
+                font-size: 2.5rem;
+            }
+            .services-grid, .strengths-grid, .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .area-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .mobile-cta-bar {
+                display: block;
+            }
+            body {
+                padding-bottom: 60px; /* For mobile CTA bar */
+            }
+            .footer-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="#"><img src="images/logo.gif" alt="尾花俊彦税理士事務所"></a>
+            </div>
+            <div class="header-right">
+                <div class="header-top">
+                    <a href="tel:0276-49-2093" class="header-tel"><i class="fas fa-phone-alt"></i> 0276-49-2093</a>
+                </div>
+                <div class="header-nav-area">
+                    <nav class="desktop-nav">
+                        <ul>
+                            <li><a href="#">ホーム</a></li>
+                            <li><a href="#">事務所案内</a></li>
+                            <li><a href="#">業務案内</a></li>
+                            <li><a href="#">料金案内</a></li>
+                            <li><a href="#">お問合せ</a></li>
+                            <li><a href="#">税務トピックス</a></li>
+                            <li><a href="#">個人情報について</a></li>
+                        </ul>
+                    </nav>
+                    <a href="#" class="btn-header-contact">お問合せフォームへ</a>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="#">ホーム</a></li>
+            <li><a href="#">事務所案内</a></li>
+            <li><a href="#">業務案内</a></li>
+            <li><a href="#">料金案内</a></li>
+            <li><a href="#">お問合せ</a></li>
+            <li><a href="#">税務トピックス</a></li>
+            <li><a href="#">個人情報について</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <p class="hero-catch">いつでも明るく元気がモットー</p>
+                    <h1 class="hero-title">尾花俊彦税理士事務所へようこそ！</h1>
+                    <h2 class="hero-subtitle">共に育つ</h2>
+                    <p class="hero-desc">地域に根差した経営者の皆さまの身近な相談相手</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <h3 class="section-title"><i class="fas fa-briefcase"></i> 業務案内</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="service-content">
+                        <h4>法人税</h4>
+                        <p>法人税、所得税、消費税、相続税、税金対策、税務調査 等</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="service-content">
+                        <h4>会計経理</h4>
+                        <p>記帳代行、経理代行、決算書作成、会計ソフト 等</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <div class="service-content">
+                        <h4>経営相談</h4>
+                        <p>会社設立、事業承継、相続対策、資金繰り 等</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="strengths">
+            <h3 class="section-title"><i class="fas fa-lightbulb"></i> 当事務所のココが強み</h3>
+            <div class="strengths-grid">
+                <div class="greeting-box">
+                    <img src="images/staff.jpg" alt="代表 尾花俊彦">
+                    <div class="greeting-text-box">
+                        <h4>🍀 ごあいさつ</h4>
+                        <p>太田市の税理士、尾花俊彦と申します。<br>主に群馬県エリアを中心にフットワークよく活動しています。<br>尾花俊彦税理士事務所では、会計ソフトを利用した自計化、電子申告を推進しております。その他、記帳代行から税務、会計、申告、経営相談まで幅広く対応しております。<br>いつでも税理士本人が、お客様の元に伺い、誠実に対応させていただきますので、どうぞお気軽にご相談ください。</p>
+                        <a href="#" class="link-more">＞＞事務所案内はこちら</a>
+                    </div>
+                </div>
+                <div class="strengths-list-box">
+                    <ol>
+                        <li>製造業、卸小売業、飲食業に強い！</li>
+                        <li>会計ソフトによるＩＴ化支援</li>
+                        <li>会社設立から経営相談までトータルサポート</li>
+                    </ol>
+                    <a href="#" class="link-more">＞＞業務案内はこちら</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-banner">
+                <div class="cta-text-area">
+                    <span class="cta-label">お気軽にお問合せください</span>
+                    <a href="tel:0276-49-2093" class="cta-tel-large">0276-49-2093</a>
+                </div>
+                <a href="#" class="btn-cta-large">お問合せフォームへ</a>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-block">
+                    <h4><i class="fas fa-map-marker-alt"></i> 対応地域</h4>
+                    <div class="area-content">
+                        <div class="area-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="area-text">
+                            <p>群馬県エリア: 太田市、桐生市、伊勢崎市、前橋市、高崎市　他。</p>
+                            <p>栃木県エリア: 足利市、佐野市　他。</p>
+                            <p>その他: 東武線沿線上エリア</p>
+                            <p class="note">※IT化支援による会計ソフトを活用した作業の円滑化を図っておりますので、遠隔地の方でも対応可能です。まずはご相談ください。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-block">
+                    <h4><i class="fas fa-info-circle"></i> トピックス更新履歴</h4>
+                    <ul class="topics-list">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#">事務所案内</a></li>
+                    <li><a href="#">業務案内</a></li>
+                    <li><a href="#">料金案内</a></li>
+                    <li><a href="#">お問合せ</a></li>
+                    <li><a href="#">税務トピックス</a></li>
+                    <li><a href="#">個人情報について</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <p>TEL: 0276-49-2093 | FAX: 0276-49-5399</p>
+                <p>Copyright (c) 2016 - 2026 尾花俊彦税理士事務所 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-cta-bar">
+        <div class="mobile-cta-inner">
+            <a href="tel:0276-49-2093" class="mobile-cta-btn mobile-cta-tel"><i class="fas fa-phone-alt"></i> 電話</a>
+            <a href="#" class="mobile-cta-btn mobile-cta-mail"><i class="fas fa-envelope"></i> お問合せ</a>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile nav when clicking a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
