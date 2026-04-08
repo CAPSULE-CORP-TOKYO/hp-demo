@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>横塚俊介税理士事務所</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #5BA4A4;
+            --accent: #E8A735;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #F8F9FA;
+            --bg-white: #FFFFFF;
+            --max-width: 1100px;
+            --border-radius: 12px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--text-main);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-white);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--bg-white);
+            box-shadow: 0 4px 10px rgba(232, 167, 53, 0.3);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            padding: 15px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-phone {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            display: flex;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin-left: auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--bg-white);
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-text {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* News */
+        .news {
+            background-color: var(--bg-white);
+        }
+
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+            border-top: 1px solid #eee;
+        }
+
+        .news-item {
+            display: flex;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            gap: 30px;
+        }
+
+        .news-date {
+            font-weight: 500;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .news-text {
+            flex: 1;
+        }
+
+        .news-btn-wrap {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Inheritance */
+        .inheritance {
+            background-color: var(--bg-light);
+        }
+
+        .inheritance-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .inheritance-content {
+            flex: 1;
+        }
+
+        .inheritance-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 2px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .inheritance-subtitle {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .inheritance-text {
+            margin-bottom: 20px;
+        }
+
+        .inheritance-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .inheritance-list li::before {
+            content: '・';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .inheritance-qr {
+            text-align: center;
+            width: 200px;
+            flex-shrink: 0;
+        }
+
+        .inheritance-qr img {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .inheritance-qr p {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Company */
+        .company {
+            background-color: var(--bg-white);
+        }
+
+        .company-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .company-table th, .company-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+
+        .company-table th {
+            width: 200px;
+            background-color: #fcfcfc;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .company-table tr:last-child th, .company-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .map-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Services */
+        .services {
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            display: flex;
+            background-color: var(--accent);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            color: var(--bg-white);
+            height: 220px;
+        }
+
+        .service-img {
+            width: 40%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            width: 60%;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .service-text {
+            font-size: 13px;
+            line-height: 1.6;
+            opacity: 0.9;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            align-self: flex-end;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--accent);
+            padding: 60px 0;
+            text-align: center;
+            color: var(--bg-white);
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .cta-phone {
+            font-size: 32px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-white);
+            padding-top: 60px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-info .logo {
+            margin-bottom: 15px;
+        }
+
+        .footer-address {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-phone-block {
+            text-align: right;
+        }
+
+        .footer-phone {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .footer-hours {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        .copyright {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            text-align: center;
+            padding: 15px 0;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .inheritance-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .inheritance-list li {
+                text-align: left;
+                display: inline-block;
+                width: 100%;
+            }
+            .inheritance-list {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-right {
+                display: none; /* Simplified for mobile, would normally have a hamburger menu */
+            }
+            .hero {
+                padding: 80px 0;
+                justify-content: center;
+            }
+            .hero-content {
+                margin: 0;
+                text-align: center;
+            }
+            .news-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .company-table th, .company-table td {
+                display: block;
+                width: 100%;
+            }
+            .company-table th {
+                background-color: transparent;
+                padding-bottom: 5px;
+                border-bottom: none;
+            }
+            .company-table td {
+                padding-top: 0;
+                margin-bottom: 10px;
+            }
+            .service-card {
+                flex-direction: column;
+                height: auto;
+            }
+            .service-img {
+                width: 100%;
+                height: 200px;
+            }
+            .service-content {
+                width: 100%;
+            }
+            .cta-actions {
+                flex-direction: column;
+            }
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .footer-phone-block {
+                text-align: center;
+            }
+            .footer-phone {
+                justify-content: center;
+            }
+            .footer-contact {
+                flex-direction: column;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <i class="fas fa-leaf"></i> 横塚俊介税理士事務所
+            </a>
+            <div class="header-right">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#">事務所案内</a></li>
+                        <li><a href="#">業務案内</a></li>
+                        <li><a href="#">お役立ち情報</a></li>
+                    </ul>
+                </nav>
+                <div class="header-contact">
+                    <div class="header-phone">
+                        <i class="fas fa-phone-alt"></i> 0276-55-8033
+                    </div>
+                    <a href="#" class="btn btn-primary">お問合わせ</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">税務・相続のことなら<br>横塚俊介税理士事務所にお任せください</h1>
+                    <p class="hero-text">相続が起きたらどうしたらいいかな？相続になる前に何か対策はできないかな？税金についてはよくわからないな…。等々、当事務所では様々なお悩みに誠心誠意お応え致します！</p>
+                    <a href="#" class="btn btn-accent">無料相談を予約する</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="news">
+            <div class="container">
+                <h2 class="section-title">ニュース・トピックス</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-date">2026/04/01</div>
+                        <div class="news-text">お役立ち情報を更新しました。</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020/07/03</div>
+                        <div class="news-text">このたび弊所が移転することになりましたのでご案内を申し上げます。詳細は下記をご確認ください。</div>
+                    </div>
+                </div>
+                <div class="news-btn-wrap">
+                    <a href="#" class="btn btn-primary">もっと見る</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="inheritance">
+            <div class="container">
+                <div class="inheritance-card">
+                    <div class="inheritance-content">
+                        <h2 class="inheritance-title">確かな<span class="highlight">相続税対策</span>しませんか？</h2>
+                        <div class="inheritance-subtitle">相続税対策なら横塚俊介税理士事務所</div>
+                        <p class="inheritance-text">弊所では顧問先様の大切な財産を守るために現状の把握からいたします。<br>財産評価を基に相続税をどう抑えるかの対策をご提案します。</p>
+                        <ul class="inheritance-list">
+                            <li>財産分割準備</li>
+                            <li>納税資金準備</li>
+                        </ul>
+                    </div>
+                    <div class="inheritance-qr">
+                        <img src="https://yokozuka-office.jp/img/qr_video.png" alt="QR Code">
+                        <p>紹介動画はこちら</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="company">
+            <div class="container">
+                <h2 class="section-title">会社概要</h2>
+                <table class="company-table">
+                    <tbody>
+                        <tr>
+                            <th>所長</th>
+                            <td>税理士 横塚 俊介</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>〒373-0861<br>群馬県太田市南矢島町543番地1 リアン1F</td>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td>0276-55-8033</td>
+                        </tr>
+                        <tr>
+                            <th>FAX番号</th>
+                            <td>0276-55-8034</td>
+                        </tr>
+                        <tr>
+                            <th>駐車台数</th>
+                            <td>5台までご利用いただけます</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3217.203150227029!2d139.3804811152748!3d36.258846580063626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f274bae8a592f%3A0xbad9a4d8f5a29d77!2z44CSMzczLTA4NjEg576k6aas55yM5aSq55Sw5biC5Y2X55-i5bO255S677yV77yU77yT!5e0!3m2!1sja!2sjp!4v1593997580936!5m2!1sja!2sjp" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">業務案内</h2>
+                <div class="services-grid">
+                    
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600');"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">相続税申告業務／相続対策サポート</h3>
+                            <p class="service-text">財産評価、相続税申告書作成、相続登記取次ぎ／相続税対策、納税準備、財産分割準備 他</p>
+                            <a href="#" class="service-link">詳細を見る <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600');"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">法人・個人の財務会計／決算申告業務</h3>
+                            <p class="service-text">法人の定期財務監査、決算業務／個人事業の財務監査、確定申告業務</p>
+                            <a href="#" class="service-link">詳細を見る <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600');"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">起業支援サポート</h3>
+                            <p class="service-text">個人事業からの法人化提案</p>
+                            <a href="#" class="service-link">詳細を見る <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600');"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">事業承継サポート等</h3>
+                            <p class="service-text">次世代への事業引き継ぎ方法の検討、他お客様の様々なニーズにお応えいたします。</p>
+                            <a href="#" class="service-link">詳細を見る <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">お気軽にご相談ください。</h2>
+                <div class="cta-actions">
+                    <div class="cta-phone">
+                        <i class="fas fa-phone-alt"></i> 0276-55-8033
+                    </div>
+                    <a href="#" class="btn cta-btn">お問い合わせ</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <div class="logo">
+                        <i class="fas fa-leaf"></i> 横塚俊介税理士事務所
+                    </div>
+                    <div class="footer-address">
+                        〒373-0861<br>
+                        群馬県太田市南矢島町543番地1 リアン1F
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <div class="footer-phone-block">
+                        <div class="footer-phone">
+                            <i class="fas fa-phone-alt"></i> 0276-55-8033
+                        </div>
+                        <div class="footer-hours">電話の受付時間 平日9：00～18：00</div>
+                    </div>
+                    <a href="#" class="btn btn-primary">お問い合わせ</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 横塚俊介税理士事務所
+        </div>
+    </footer>
+
+</body>
+</html>

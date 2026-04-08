@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅沼経営センターグループ／浅沼みらい税理士法人</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a3668;
+            --accent: #f08300;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f6f8;
+            --bg-white: #ffffff;
+            --container-width: 1100px;
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        .section-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title span {
+            display: block;
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-top: 8px;
+            font-weight: 700;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--bg-white);
+            box-shadow: 0 4px 15px rgba(240, 131, 0, 0.3);
+        }
+
+        .btn-accent:hover {
+            background-color: #d97600;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(240, 131, 0, 0.4);
+        }
+
+        .btn-outline {
+            background-color: var(--bg-white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--bg-white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo-area .tagline {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .logo-area .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 1.2;
+        }
+
+        .logo-area .logo-icon {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-tel {
+            text-align: right;
+        }
+
+        .header-tel .tel-num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-tel .tel-time {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px 0;
+        }
+
+        .nav-menu a {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 560px;
+            background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(26, 54, 104, 0.9) 0%, rgba(26, 54, 104, 0.4) 100%);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            color: var(--bg-white);
+        }
+
+        .hero-tag {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        /* Service */
+        .service {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card-header {
+            position: relative;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-card-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(240, 131, 0, 0.85), rgba(240, 131, 0, 0.95));
+            z-index: 1;
+        }
+
+        .service-card-header > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .service-card-body {
+            padding: 30px;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .service-list li i {
+            color: var(--accent);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Strengths */
+        .strengths {
+            padding: 0 0 80px;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .strengths-title {
+            color: var(--accent);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .strengths-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .strength-item {
+            background: var(--bg-white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .strength-icon {
+            width: 45px;
+            height: 45px;
+            background: #fff3e6;
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        /* Topics & Seminar */
+        .topics-seminar {
+            padding: 80px 0;
+        }
+
+        .topics-desc {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: var(--radius);
+            background: var(--bg-white);
+            transition: var(--transition);
+        }
+
+        .topic-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-color: #ddd;
+        }
+
+        .topic-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .topic-label {
+            background: var(--accent);
+            color: var(--bg-white);
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            font-weight: 700;
+        }
+
+        .topic-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .btn-wrap {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ts-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .useful-banner {
+            background: #fff3e6;
+            border-radius: var(--radius);
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            border: 1px solid #ffe0b2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .useful-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .useful-content h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .useful-content .sub {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .useful-content p {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .useful-icon {
+            font-size: 5rem;
+            color: rgba(240, 131, 0, 0.2);
+            position: absolute;
+            right: 20px;
+            bottom: -10px;
+            z-index: 1;
+        }
+
+        .seminar-box {
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .seminar-box h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .seminar-box p {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            color: var(--text-main);
+        }
+
+        /* Company */
+        .company {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .company-desc {
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .office-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .office-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .office-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .office-info {
+            padding: 25px;
+        }
+
+        .office-name {
+            font-weight: 700;
+            color: var(--bg-white);
+            background: var(--primary);
+            text-align: center;
+            padding: 10px;
+            margin: -25px -25px 20px -25px;
+            font-size: 1.1rem;
+        }
+
+        .office-detail {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .office-detail span {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .office-detail i {
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1556761175-5973dc0f32d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 54, 104, 0.95);
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact .section-title {
+            color: var(--bg-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 50px 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .contact-tel {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .contact-time {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        .footer-info {
+            font-size: 0.85rem;
+            color: #d0d5e0;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px 50px;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: #d0d5e0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a::before {
+            content: '\f105';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.7rem;
+            color: var(--accent);
+        }
+
+        .footer-links a:hover {
+            color: var(--bg-white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.75rem;
+            color: #a0aabf;
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            color: var(--bg-white);
+            font-size: 0.8rem;
+            font-weight: 700;
+            gap: 6px;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--primary);
+        }
+
+        .mobile-cta-mail {
+            background-color: var(--accent);
+        }
+
+        .mobile-cta i {
+            font-size: 1.3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            .ts-bottom {
+                grid-template-columns: 1fr;
+            }
+            .office-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-top {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            .header-contact, .nav-menu {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero {
+                height: 450px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+            .strength-item {
+                width: 100%;
+                justify-content: center;
+            }
+            .topic-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .contact-tel {
+                font-size: 2rem;
+            }
+            .mobile-cta {
+                display: flex;
+            }
+            body {
+                padding-bottom: 65px;
+            }
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-white);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+                border-top: 1px solid #eee;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-area">
+                    <p class="tagline">創業60年、グループ総勢120名。栃木県足利市・群馬県太田市・埼玉県の総合会計事務所</p>
+                    <a href="#" class="logo-text">
+                        <i class="fa-solid fa-chart-pie logo-icon"></i>
+                        <div>
+                            浅沼経営センターグループ<br>
+                            浅沼みらい税理士法人
+                        </div>
+                    </a>
+                </div>
+                <div class="header-contact">
+                    <div class="header-tel">
+                        <a href="tel:0284-41-1365" class="tel-num"><i class="fa-solid fa-phone"></i> 0284-41-1365</a>
+                        <p class="tel-time">受付時間 9:00 ～ 18:00</p>
+                    </div>
+                    <a href="#contact" class="btn btn-accent">お問い合わせ</a>
+                </div>
+                <button class="hamburger" aria-label="メニューを開く">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-menu">
+                <a href="#service">会計・税務</a>
+                <a href="#service">医療・福祉</a>
+                <a href="#service">相続・承継</a>
+                <a href="#service">人事・労務</a>
+                <a href="#seminar">セミナー</a>
+                <a href="#topics">トピックス</a>
+                <a href="#useful">お役立ち情報</a>
+                <a href="#">採用情報</a>
+                <a href="#company">会社案内</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">創業60年の総合会計事務所<br>グループ総勢120名が経営支援</span>
+                <h1 class="hero-title">浅沼経営センターグループ<br>浅沼みらい税理士法人</h1>
+                <p class="hero-subtitle">お客様の未来を共に創る、信頼のパートナー。</p>
+                <a href="#contact" class="btn btn-accent">まずはお気軽にご相談ください</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service -->
+    <section id="service" class="service">
+        <div class="container">
+            <h2 class="section-title">SERVICE<span>業務案内</span></h2>
+            <div class="service-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-card-header" style="background-image: url('https://www.asanuma-keiei.jp/_site-assets/imgs/img-tax.jpg');">
+                        <i class="fa-solid fa-calculator service-card-icon"></i>
+                        <h3 class="service-card-title">会計・税務</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-chevron-right"></i>毎月訪問</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>事業計画</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>税務調査</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>その場で会計</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>経営分析</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>決算診断</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>総合サービス</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-card-header" style="background-image: url('https://www.asanuma-keiei.jp/_site-assets/imgs/img-medical.jpg');">
+                        <i class="fa-solid fa-hospital service-card-icon"></i>
+                        <h3 class="service-card-title">医療・福祉</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-chevron-right"></i>開業支援</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>医業経営</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>医療法人設立</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>医療機関の承継</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>税務調査</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>毎月訪問・その場で会計</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>経営分析</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-card-header" style="background-image: url('https://www.asanuma-keiei.jp/_site-assets/imgs/img-succession.jpg');">
+                        <i class="fa-solid fa-handshake service-card-icon"></i>
+                        <h3 class="service-card-title">相続・承継</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-chevron-right"></i>事業承継</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>相続対策</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>税務調査</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>事業Ｍ＆Ａ</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="service-card">
+                    <div class="service-card-header" style="background-image: url('https://www.asanuma-keiei.jp/_site-assets/imgs/img-labor.jpg');">
+                        <i class="fa-solid fa-users service-card-icon"></i>
+                        <h3 class="service-card-title">人事・労務</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-chevron-right"></i>社会保険の手続</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>給与計算</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>人事制度</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>就業規則</li>
+                            <li><i class="fa-solid fa-chevron-right"></i>事務デザイン</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strengths -->
+    <section class="strengths">
+        <div class="container">
+            <h3 class="strengths-title">私たちの強み</h3>
+            <div class="strengths-grid">
+                <div class="strength-item">
+                    <div class="strength-icon"><i class="fa-solid fa-award"></i></div>
+                    創業60年の実績
+                </div>
+                <div class="strength-item">
+                    <div class="strength-icon"><i class="fa-solid fa-users-cog"></i></div>
+                    グループ総勢120名の体制
+                </div>
+                <div class="strength-item">
+                    <div class="strength-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+                    栃木・群馬・埼玉の3拠点
+                </div>
+            </div>
+            <a href="#contact" class="btn btn-accent">無料相談を予約する</a>
+        </div>
+    </section>
+
+    <!-- Topics & Seminar -->
+    <section id="topics" class="topics-seminar">
+        <div class="container">
+            <h2 class="section-title">TOPICS</h2>
+            <p class="topics-desc">経営者向けコラムや、税務・承継・労務・生命保険などについての最新情報です。</p>
+            
+            <div class="topics-grid">
+                <a href="#" class="topic-item">
+                    <span class="topic-date">2025.11.13</span>
+                    <span class="topic-label">生命保険かわら版</span>
+                    <h3 class="topic-title">年金支払特約～事業保険での活用～</h3>
+                </a>
+                <a href="#" class="topic-item">
+                    <span class="topic-date">2025.11.12</span>
+                    <span class="topic-label">労務かわら版</span>
+                    <h3 class="topic-title">労働時間管理の重要性②</h3>
+                </a>
+                <a href="#" class="topic-item">
+                    <span class="topic-date">2025.11.11</span>
+                    <span class="topic-label">労務かわら版</span>
+                    <h3 class="topic-title">労働時間管理の重要性①</h3>
+                </a>
+                <a href="#" class="topic-item">
+                    <span class="topic-date">2025.11.10</span>
+                    <span class="topic-label">税務かわら版</span>
+                    <h3 class="topic-title">"年収の壁"改正で年末調整が変わります！⑤</h3>
+                </a>
+            </div>
+            
+            <div class="btn-wrap">
+                <a href="#" class="btn btn-outline">トピックス一覧</a>
+            </div>
+
+            <div class="ts-bottom">
+                <div id="useful" class="useful-banner">
+                    <i class="fa-solid fa-laptop-code useful-icon"></i>
+                    <div class="useful-content">
+                        <h3>経営者様 お役立ちコンテンツ</h3>
+                        <span class="sub">My Komon コンテンツを配信中</span>
+                        <p>「会計・税務」「医療・福祉」「相続・承継」「人事・労務」など、最新の経営コンテンツを定期的に発信中。</p>
+                    </div>
+                </div>
+                
+                <div id="seminar" class="seminar-box">
+                    <h3>SEMINAR</h3>
+                    <p>浅沼経営センターグループのセミナー・講座・イベントなどごご紹介します。</p>
+                    <div>
+                        <a href="#" class="btn btn-outline">開催予定のセミナー</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company -->
+    <section id="company" class="company">
+        <div class="container">
+            <h2 class="section-title">COMPANY<span>会社案内</span></h2>
+            <p class="company-desc">創業60年、グループ総勢120名。栃木県足利市・群馬県太田市・埼玉県の総合会計事務所です。</p>
+            
+            <div class="office-grid">
+                <div class="office-card">
+                    <img src="https://www.asanuma-keiei.jp/_site-assets/imgs/ph-ashikaga.jpg" alt="足利本社" class="office-img">
+                    <div class="office-info">
+                        <h3 class="office-name">足利本社</h3>
+                        <div class="office-detail">
+                            <span><i class="fa-solid fa-map-marker-alt"></i> 栃木県足利市本城2-1901-8</span>
+                            <span><i class="fa-solid fa-phone"></i> 0284-41-1365</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="office-card">
+                    <img src="https://www.asanuma-keiei.jp/_site-assets/imgs/ph-gumma.jpg" alt="群馬本社" class="office-img">
+                    <div class="office-info">
+                        <h3 class="office-name">群馬本社</h3>
+                        <div class="office-detail">
+                            <span><i class="fa-solid fa-map-marker-alt"></i> 群馬県太田市石原町473-1</span>
+                            <span><i class="fa-solid fa-phone"></i> 0276-48-9511</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="office-card">
+                    <img src="https://www.asanuma-keiei.jp/_site-assets/imgs/ph-saitama.jpg" alt="埼玉支社" class="office-img">
+                    <div class="office-info">
+                        <h3 class="office-name">埼玉支社</h3>
+                        <div class="office-detail">
+                            <span><i class="fa-solid fa-map-marker-alt"></i> 埼玉県久喜市本町1-9-3</span>
+                            <span><i class="fa-solid fa-phone"></i> 0480-29-3231</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-wrap" style="margin-bottom: 0;">
+                <a href="#" class="btn btn-outline">会社案内トップ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">CONTACT</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>お電話でのお問い合わせ</h3>
+                    <a href="tel:0284-41-1365" class="contact-tel"><i class="fa-solid fa-phone"></i> 0284-41-1365</a>
+                    <p class="contact-time">受付時間 9:00 ～ 18:00</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Webからのお問い合わせ</h3>
+                    <a href="#" class="btn btn-accent" style="width: 100%; max-width: 300px;">お問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <div>
+                            浅沼経営センターグループ<br>
+                            浅沼みらい税理士法人
+                        </div>
+                    </div>
+                    <p class="footer-info">
+                        創業60年、グループ総勢120名。<br>
+                        栃木県足利市・群馬県太田市・埼玉県の総合会計事務所
+                    </p>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-links">
+                        <a href="#company">会社案内</a>
+                        <a href="#service">会計・税務</a>
+                        <a href="#seminar">セミナー</a>
+                        <a href="#">採用情報</a>
+                        <a href="#service">医療・福祉</a>
+                        <a href="#topics">トピックス</a>
+                        <a href="#contact">お問い合わせ</a>
+                        <a href="#service">相続・承継</a>
+                        <a href="#useful">お役立ち情報</a>
+                        <a href="#service">人事・労務</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyrights &copy; 2026 All Rights Reserved by 浅沼経営センターグループ</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:0284-41-1365" class="mobile-cta-tel">
+            <i class="fa-solid fa-phone"></i>
+            電話する
+        </a>
+        <a href="#contact" class="mobile-cta-mail">
+            <i class="fa-solid fa-envelope"></i>
+            お問い合わせ
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if(navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking a link
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

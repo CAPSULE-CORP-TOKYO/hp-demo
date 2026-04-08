@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税理士法人あさひ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8BA888;
+            --primary-dark: #6b8568;
+            --text: #5C4A32;
+            --bg: #F5F0E8;
+            --white: #FFFFFF;
+            --accent: #cda052;
+            --border: #e0dcd3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding: 0 20px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .global-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .header-tel {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.2;
+        }
+
+        .header-tel .tel-num {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .header-tel .tel-time {
+            font-size: 10px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--text);
+            margin-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .hamburger span:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Section Common */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-direction: column;
+        }
+
+        .section-title-inner {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .section-title-inner::before,
+        .section-title-inner::after {
+            content: '';
+            width: 2px;
+            height: 30px;
+            background-color: var(--text);
+            transform: rotate(30deg);
+        }
+
+        .section-title-inner::after {
+            transform: rotate(-30deg);
+        }
+
+        .section-title .en {
+            display: block;
+            font-size: 16px;
+            color: var(--primary);
+            letter-spacing: 0.1em;
+            margin-top: 5px;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            background-color: var(--primary);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .hero-top {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%;
+        }
+
+        .hero-text {
+            writing-mode: vertical-rl;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.2em;
+            line-height: 1.5;
+            z-index: 2;
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            z-index: 1;
+        }
+
+        .hero-wave svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 120px;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            height: 400px;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        /* News */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .news-card-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .news-card-content {
+            font-size: 14px;
+            white-space: pre-line;
+        }
+
+        /* About */
+        .about-inner {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .about-image {
+            flex: 0 0 40%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-catch {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .about-catch span {
+            background: linear-gradient(transparent 60%, rgba(139, 168, 136, 0.3) 60%);
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .about-text {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .about-name {
+            text-align: right;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .btn-readmore {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 40px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            background: var(--white);
+            transition: all 0.3s;
+        }
+
+        .btn-readmore::after {
+            content: '>';
+            margin-left: 10px;
+            font-family: monospace;
+        }
+
+        .btn-readmore:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Service */
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .service-card:nth-child(1)::before {
+            background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .service-card:nth-child(2)::before {
+            background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .service-card-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: var(--primary);
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .service-tag {
+            background: var(--primary);
+            color: var(--white);
+            font-size: 13px;
+            padding: 6px 20px;
+            border-radius: 30px;
+        }
+
+        .service-more {
+            text-align: right;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        /* Feature */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .feature-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-visual {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            flex-shrink: 0;
+        }
+
+        .feature-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .feature-number {
+            position: absolute;
+            top: 20px;
+            left: -40px;
+            writing-mode: vertical-rl;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 0.1em;
+        }
+
+        .feature-item:nth-child(even) .feature-number {
+            left: auto;
+            right: -40px;
+        }
+
+        .feature-badge {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 90px;
+            height: 90px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .feature-item:nth-child(even) .feature-badge {
+            right: auto;
+            left: -10px;
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-subtitle {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .feature-text {
+            font-size: 14px;
+        }
+
+        /* Recruit */
+        .recruit {
+            position: relative;
+            padding: 120px 20px;
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        .recruit::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(245, 240, 232, 0.85);
+        }
+
+        .recruit-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .recruit-bg-text {
+            font-size: 80px;
+            color: var(--primary);
+            font-weight: 700;
+            opacity: 0.3;
+            margin-bottom: -40px;
+            letter-spacing: 0.1em;
+        }
+
+        .recruit .section-title {
+            margin-bottom: 60px;
+        }
+
+        .recruit-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .recruit-btn {
+            background: var(--white);
+            padding: 25px 30px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid transparent;
+        }
+
+        .recruit-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .recruit-btn-icon {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        /* Office */
+        .office-img-wrap {
+            margin-bottom: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .office-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .office-table th, .office-table td {
+            padding: 25px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .office-table tr:last-child th,
+        .office-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .office-table th {
+            width: 25%;
+            font-weight: 500;
+            background-color: rgba(139, 168, 136, 0.05);
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: var(--bg);
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-cta-logo {
+            margin-bottom: 30px;
+        }
+
+        .footer-cta-logo img {
+            height: 50px;
+            margin: 0 auto;
+        }
+
+        .footer-cta-text {
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .footer-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 40px;
+            border-radius: 8px;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 18px;
+            gap: 10px;
+            min-width: 300px;
+        }
+
+        .btn-cta-tel {
+            background: var(--primary);
+        }
+
+        .btn-cta-mail {
+            background: #6b8e6a;
+        }
+
+        .btn-cta span {
+            font-size: 12px;
+            font-weight: 400;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            padding: 60px 20px 30px;
+            font-size: 13px;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            gap: 40px;
+        }
+
+        .footer-branch {
+            flex: 1;
+        }
+
+        .footer-branch-name {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            list-style: none;
+            margin-bottom: 30px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #888;
+            font-size: 11px;
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-text {
+                font-size: 32px;
+            }
+            .about-inner, .feature-item {
+                gap: 30px;
+            }
+            .feature-visual {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .header-right .global-nav,
+            .header-right .header-tel {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-top {
+                height: 300px;
+                padding-left: 20px;
+            }
+
+            .hero-text {
+                font-size: 28px;
+            }
+
+            .hero-image-container {
+                height: 300px;
+            }
+
+            .about-inner {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-item, .feature-item:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .feature-number, .feature-item:nth-child(even) .feature-number {
+                position: static;
+                writing-mode: horizontal-tb;
+                margin-bottom: 10px;
+            }
+
+            .feature-badge, .feature-item:nth-child(even) .feature-badge {
+                bottom: -15px;
+                right: 50%;
+                transform: translateX(50%);
+                left: auto;
+            }
+
+            .recruit-bg-text {
+                font-size: 40px;
+            }
+
+            .recruit-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .office-table th, .office-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .office-table th {
+                border-bottom: none;
+                padding-bottom: 5px;
+            }
+
+            .footer-cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-cta {
+                min-width: 100%;
+            }
+
+            .footer-info {
+                flex-direction: column;
+            }
+
+            .mobile-cta {
+                display: flex;
+            }
+
+            .mobile-cta a {
+                flex: 1;
+                text-align: center;
+                padding: 15px;
+                color: var(--white);
+                font-weight: 700;
+                font-size: 14px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .mobile-cta .tel { background: var(--primary); }
+            .mobile-cta .mail { background: #6b8e6a; }
+            
+            body {
+                padding-bottom: 60px; /* For mobile CTA */
+            }
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: var(--white);
+            z-index: 99;
+            padding: 40px 20px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .mobile-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            display: block;
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="https://www.keieishien.co.jp/library/5768dbabf18a545c7518ef43/67a2c71581d91ea2774ae77f.png" alt="税理士法人あさひ">
+            </a>
+            <div class="header-right">
+                <nav class="global-nav">
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">事務所案内</a></li>
+                        <li><a href="#">ごあいさつ</a></li>
+                        <li><a href="#">当事務所の特長</a></li>
+                        <li><a href="#">法人・個人事業主の方へ</a></li>
+                        <li><a href="#">個人の方へ</a></li>
+                        <li><a href="#">採用情報</a></li>
+                        <li><a href="#">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+                <a href="tel:0283-21-5556" class="header-tel">
+                    <span class="tel-num">0283-21-5556</span>
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">事務所案内</a></li>
+            <li><a href="#">ごあいさつ</a></li>
+            <li><a href="#">当事務所の特長</a></li>
+            <li><a href="#">法人・個人事業主の方へ</a></li>
+            <li><a href="#">個人の方へ</a></li>
+            <li><a href="#">採用情報</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-top">
+                <h1 class="hero-text">企業の悩み・不安を解消し、<br>希望を創造・共有します</h1>
+                <div class="hero-wave">
+                    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                        <path fill="#F5F0E8" fill-opacity="1" d="M0,60L48,66.7C96,73,192,87,288,82.7C384,78,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,77.3C1248,69,1344,43,1392,29.3L1440,16L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <img src="https://www.keieishien.co.jp/library/5768dbabf18a545c7518ef43/67a57a2b925bd0445b9f17fc.png" alt="相談風景">
+            </div>
+        </section>
+
+        <section class="news">
+            <div class="container">
+                <h2 class="section-title">
+                    <div class="section-title-inner">新着情報</div>
+                    <span class="en">News</span>
+                </h2>
+                <div class="news-list">
+                    <article class="news-card">
+                        <h3 class="news-card-title">【 R8.4.7. 求人募集のお知らせ 】</h3>
+                        <div class="news-card-content">おかげ様で 多くのお客様から様々なご依頼を頂いております。
+
+業務拡大に伴い 一緒に働いてくれる新しい仲間を募集しています。
+「 数字を扱う仕事は好きだけど、堅苦しい雰囲気はちょっと・・・ 」
+「 専門スキルを身につけながら、長く働ける職場がいい 」
+そんな方にぴったりの職場です。
+■募集職種 税務会計スタッフ
+■仕事内容 会計データチェック / 決算業務 申告書作成補助 / 顧問先対応 / 各種税務相談への対応 など 経験に合わせて、出来る業務から担当して頂きます。
+■職場の魅力 質問しやすいフォロー体制 / 成果を評価する制度 / チームワークを大切にする環境 / 子育て・家庭の都合に対応できる柔軟な環境
+
+お客様の支援を通じて、やりがいを感じる仕事です。
+「 やってみたい 」 「 話だけでも聞いてみたい 」
+そんな気持ちがあれば、ぜひお気軽にお問い合わせ下さい。</div>
+                    </article>
+                    <article class="news-card">
+                        <h3 class="news-card-title">【 令和7年分・所得税確定申告につきまして 】</h3>
+                        <div class="news-card-content">1,000件を超える多くのお客様に確定申告のご依頼を頂きまして、誠にありがとうございました。
+当事務所をお選び頂きました事、心より感謝申し上げます。
+確定申告は毎年の事ながら、ご不安やお手間が多い手続きかと思います。
+今後も皆様に寄り添っていけるよう、努めてまいります。
+来年の確定申告や税務相談につきましても、お気軽にお問い合わせ下さい。
+
+引き続き どうぞ宜しくお願い致します。</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title">
+                    <div class="section-title-inner">ごあいさつ</div>
+                    <span class="en">About</span>
+                </h2>
+                <div class="about-inner">
+                    <div class="about-image">
+                        <img src="https://www.keieishien.co.jp/library/5768dbabf18a545c7518ef43/67a2e7afd0fa70f43c2da554.png" alt="代表 税理士 山崎 好一">
+                    </div>
+                    <div class="about-content">
+                        <h3 class="about-catch">
+                            <span>一番身近な存在でありたい。</span><br>
+                            <span>共に歩むパートナーでありたい。</span>
+                        </h3>
+                        <p class="about-text">お客様の声を聴き、共に考え、「悩み・不安」を的確に把握し、 共にアイディアを出し合い、適切な解消方法で処置をしていく。そして、お客様の経営状態を健康にしていく事務所でありたいと考えます。</p>
+                        <p class="about-name">代表名: 税理士 山崎 好一</p>
+                        <div style="text-align: right;">
+                            <a href="#" class="btn-readmore">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service">
+            <div class="container">
+                <h2 class="section-title">
+                    <div class="section-title-inner">サービス案内</div>
+                    <span class="en">Service</span>
+                </h2>
+                <div class="service-grid">
+                    <a href="#" class="service-card">
+                        <div class="service-card-inner">
+                            <h3 class="service-title">法人・個人事業主の方へ</h3>
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
+                            </div>
+                            <div class="service-tags">
+                                <span class="service-tag">税務・会計</span>
+                                <span class="service-tag">起業支援</span>
+                                <span class="service-tag">相続</span>
+                                <span class="service-tag">社会福祉法人の方へ</span>
+                                <span class="service-tag">医療経営者の方へ</span>
+                            </div>
+                            <div class="service-more">More-></div>
+                        </div>
+                    </a>
+                    <a href="#" class="service-card">
+                        <div class="service-card-inner">
+                            <h3 class="service-title">個人の方へ</h3>
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </div>
+                            <div class="service-tags">
+                                <span class="service-tag">相続申告</span>
+                                <span class="service-tag">相続対策・贈与</span>
+                                <span class="service-tag">確定申告</span>
+                            </div>
+                            <div class="service-more">More-></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature">
+            <div class="container">
+                <h2 class="section-title">
+                    <div class="section-title-inner">当事務所の特長</div>
+                    <span class="en">Feature</span>
+                </h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-visual">
+                            <div class="feature-number">Feature 01</div>
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="親身な対応・丁寧な経営アドバイス" class="feature-img">
+                            <div class="feature-badge">Read<br>More ></div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">親身な対応・丁寧な経営アドバイス</h3>
+                            <p class="feature-subtitle">監査担当を中心に、貴社をチームでサポートします</p>
+                            <p class="feature-text">永続的にお客様を支えるため、事務所全体が一丸となり、貴社にとって最適な解決策を提案いたします。専門用語をできるだけ避け、分かりやすく実践的な経営アドバイスを行います。些細な疑問にも親身に対応いたしますので、お気軽にご相談ください。確かなサポートにより、強い経営体質へと導きます。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-visual">
+                            <div class="feature-number">Feature 02</div>
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="豊富な経験と専門的知識" class="feature-img">
+                            <div class="feature-badge">Read<br>More ></div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">豊富な経験と専門的知識</h3>
+                            <p class="feature-text">当事務所には医療・社会福祉法人に特化した専門スタッフが在籍しておりますので、豊富な実績と専門知識に基づいた、税務、会計にとどまらない確かなサポートをお約束いたします。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-visual">
+                            <div class="feature-number">Feature 03</div>
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="増加する相続問題に対応" class="feature-img">
+                            <div class="feature-badge">Read<br>More ></div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">増加する相続問題に対応</h3>
+                            <p class="feature-text">当事務所では、毎年相続税40件～50件・贈与税60件の申告を行ない、相続税の申告は累計1000件を超える実績を有し、豊富な経験をもとに、複雑な案件にも対応しております。相続税・贈与税の申告はもちろんのこと、お客様の想いを伺い、お客様一人ひとりの状況に応じた最適なアドバイスを提供し、円滑に相続手続きを進めるお手伝いもしております。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recruit">
+            <div class="recruit-content">
+                <div class="recruit-bg-text">Recruit</div>
+                <h2 class="section-title">
+                    <div class="section-title-inner">採用情報</div>
+                </h2>
+                <div class="recruit-buttons">
+                    <a href="#" class="recruit-btn">
+                        <span>採用メッセージ</span>
+                        <span class="recruit-btn-icon">➔</span>
+                    </a>
+                    <a href="#" class="recruit-btn">
+                        <span>スタッフの声</span>
+                        <span class="recruit-btn-icon">➔</span>
+                    </a>
+                    <a href="#" class="recruit-btn">
+                        <span>募集要項</span>
+                        <span class="recruit-btn-icon">➔</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="office">
+            <div class="container">
+                <h2 class="section-title">
+                    <div class="section-title-inner">事務所情報</div>
+                    <span class="en">Office</span>
+                </h2>
+                <div class="office-img-wrap">
+                    <img src="https://www.keieishien.co.jp/library/5768dbabf18a545c7518ef43/67c667f4990f35c358f473b3.jpg" alt="事務所外観">
+                </div>
+                <table class="office-table">
+                    <tbody>
+                        <tr>
+                            <th>事務所名</th>
+                            <td>税理士法人あさひ 小山城南本部（代表）</td>
+                        </tr>
+                        <tr>
+                            <th>住所</th>
+                            <td>〒323-0829<br>栃木県小山市東城南5-1-7</td>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td>0285-28-0996</td>
+                        </tr>
+                        <tr>
+                            <th>FAX番号</th>
+                            <td>0285-28-0997</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="footer-cta">
+        <div class="container">
+            <div class="footer-cta-logo">
+                <img src="https://www.keieishien.co.jp/library/5768dbabf18a545c7518ef43/67a2c71581d91ea2774ae77f.png" alt="税理士法人あさひ">
+            </div>
+            <p class="footer-cta-text">まずは、お気軽にお問合せ下さい。</p>
+            <div class="footer-cta-buttons">
+                <a href="tel:0285-28-0996" class="btn-cta btn-cta-tel">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <div>
+                        0285-28-0996
+                        <span>営業時間 / 9:00〜17:00</span>
+                    </div>
+                </a>
+                <a href="#" class="btn-cta btn-cta-mail">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    メールでのお問い合わせ ➔
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-info">
+            <div class="footer-branch">
+                <div class="footer-branch-name">小山城南本部</div>
+                <p>所在地：〒323-0829 栃木県小山市東城南5-1-7<br>
+                TEL：0285-28-0996 / FAX：0285-28-0997</p>
+            </div>
+            <div class="footer-branch">
+                <div class="footer-branch-name">佐野本部</div>
+                <p>所在地：〒327-0844 栃木県佐野市富岡町1296-2<br>
+                TEL：0283-21-5556 / FAX：0283-21-5559</p>
+            </div>
+        </div>
+        <ul class="footer-nav">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">事務所案内</a></li>
+            <li><a href="#">法人・個人事業主の方へ</a></li>
+            <li><a href="#">個人の方へ</a></li>
+            <li><a href="#">採用情報</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+        </ul>
+        <p class="copyright">Copyright (c) 2026 税理士法人あさひ 小山城南本部 All Rights Reserved.</p>
+    </footer>
+
+    <div class="mobile-cta">
+        <a href="tel:0285-28-0996" class="tel">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" style="margin-bottom: 5px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            電話する
+        </a>
+        <a href="#" class="mail">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" style="margin-bottom: 5px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            お問い合わせ
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const spans = this.querySelectorAll('span');
+                if (mobileMenu.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川島税務会計事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a4e;
+            --accent: #c8956c;
+            --bg-main: #f8f6f3;
+            --bg-white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --radius: 12px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            --font-main: 'Noto Sans JP', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 32px;
+        }
+
+        /* Desktop Nav */
+        .desktop-nav {
+            display: none;
+        }
+
+        .desktop-nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        .desktop-nav a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Nav */
+        .menu-checkbox {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--bg-white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-direction: column;
+        }
+
+        .mobile-nav a {
+            padding: 15px 5%;
+            display: block;
+            border-bottom: 1px solid #f0f0f0;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .menu-checkbox:checked ~ .mobile-nav {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://kawashima-tax.net/image/office1.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26, 26, 78, 0.6), rgba(26, 26, 78, 0.9));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 0 20px;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--accent);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            text-align: left;
+            line-height: 1.8;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Mission Box */
+        .mission-section {
+            margin-bottom: 80px;
+        }
+
+        .mission-box {
+            background: var(--bg-white);
+            padding: 30px 25px;
+            border-radius: var(--radius);
+            border: 4px solid #dcb89d; /* Lighter accent for border */
+            box-shadow: var(--shadow);
+            text-align: justify;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            padding-bottom: 100px;
+        }
+
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        /* News Cards */
+        .news-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--accent);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+        }
+
+        a.news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .news-card h2 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .news-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .card-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            color: var(--accent);
+        }
+
+        /* Specific Card Styles */
+        .phone-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 15px 0;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text-light);
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            transition: opacity 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        /* Sidebar / Calendar */
+        .sidebar {
+            width: 100%;
+        }
+
+        .calendar-widget {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .calendar-header {
+            background: #dcb89d;
+            color: var(--text-light);
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .calendar-body {
+            padding: 20px;
+        }
+
+        .month-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .month-nav span {
+            color: #888;
+            font-weight: normal;
+            font-size: 0.85rem;
+        }
+
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .calendar-table th, .calendar-table td {
+            padding: 8px 0;
+            width: 14.28%;
+        }
+
+        .calendar-table th {
+            border-bottom: 1px solid #eee;
+            color: #333;
+            font-weight: 500;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+
+        .sun { color: #e74c3c; }
+        .sat { color: #3498db; }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .affiliation {
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: opacity 0.3s, color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .desktop-nav { display: block; }
+            .mobile-menu-btn, .menu-checkbox, .mobile-nav { display: none !important; }
+            
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.1rem; text-align: center; }
+            
+            .mission-section { margin-top: -60px; position: relative; z-index: 10; }
+            .mission-box { padding: 40px 60px; font-size: 1.05rem; text-align: center; }
+            
+            .layout-grid { grid-template-columns: 2fr 1fr; gap: 50px; }
+            .btn-primary { width: auto; }
+            
+            .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 { font-size: 3.5rem; }
+            .layout-grid { gap: 80px; }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="https://kawashima-tax.net/image/imgR030330.png" alt="川島税務会計事務所ロゴ">
+                <span>川島税務会計事務所</span>
+            </a>
+            
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="https://kawashima-tax.net/company.html">会社概要</a></li>
+                    <li><a href="https://kawashima-tax.net/access.html">アクセス</a></li>
+                    <li><a href="https://kawashima-tax.net/faq.html">ＦＡＱ</a></li>
+                    <li><a href="https://kawashima-tax.net/cgi-bin/mailsys.cgi">問い合わせ</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="mobile-menu-btn">☰</label>
+            
+            <nav class="mobile-nav">
+                <a href="https://kawashima-tax.net/company.html">会社概要</a>
+                <a href="https://kawashima-tax.net/access.html">アクセス</a>
+                <a href="https://kawashima-tax.net/faq.html">ＦＡＱ</a>
+                <a href="https://kawashima-tax.net/cgi-bin/mailsys.cgi">問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>川島税務会計事務所</h1>
+            <p>困難な時代を生き抜く経営者様に、税務・会計を中心としたサービスを主軸に、経営のトータルサポートを行う会計事務所です。また、事業承継や相続、贈与など、お客様が抱えているお悩みを、常にお客様の立場から、お客様と一緒になって解決に導きます</p>
+        </div>
+    </section>
+
+    <!-- Mission Box -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-box">
+                川島税務会計事務所は、困難な時代を生き抜く経営者様に、税務・会計を中心としたサービスを主軸に、経営のトータルサポートを行う会計事務所です。また、事業承継や相続、贈与など、お客様が抱えているお悩みを、常にお客様の立場から、お客様と一緒になって解決に導きます
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container layout-grid">
+            
+            <!-- Left Column: News Cards -->
+            <div class="news-column">
+                
+                <!-- Card 1: Google Map -->
+                <a href="https://www.google.com/search?q=%E5%B7%9D%E5%B3%B6%E7%A8%8E%E5%8B%99%E4%BC%9A%E8%A8%88%E4%BA%8B%E5%8B%99%E6%89%80" class="news-card" target="_blank">
+                    <div class="card-flex">
+                        <div class="card-content">
+                            <h2>●GoogleMapに掲載されました</h2>
+                            <p>こちらからGooglMapをご確認いただけます</p>
+                        </div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2: Free Consultation -->
+                <div class="news-card">
+                    <div class="card-content">
+                        <h2>●無料相談のご案内</h2>
+                        <p>当事務所で無料相談を受け賜わります<br>当サイトのお問い合わせページまたはお電話でご希望の日時をご予約ください</p>
+                        <div class="phone-number">TEL 0283-85-7390</div>
+                        <a href="https://kawashima-tax.net/cgi-bin/mailsys.cgi" class="btn-primary">無料相談を予約する</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: New Year -->
+                <div class="news-card">
+                    <div class="card-flex">
+                        <div class="card-content">
+                            <h2>●謹賀新年</h2>
+                            <p>本年もご愛顧のほど宜しくお願い申し上げます</p>
+                        </div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="8" height="10"></rect><path d="M10 12V4l2-2 2 2v8"></path><path d="M6 16l2-4"></path><path d="M18 16l-2-4"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Grand Open -->
+                <div class="news-card">
+                    <div class="card-flex">
+                        <div class="card-content">
+                            <h2>●グランドオープン</h2>
+                            <p>2021年12月12日<br>みなさまの心温まるご協力のお陰で、無事オープンすることができました<br>今後とも宜しくお願い申し上げます</p>
+                        </div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"></path><path d="M8 8h8"></path><path d="M12 12c-2-2-5-2-7 0s-2 5 0 7 5 2 7 0"></path><path d="M12 12c2-2 5-2 7 0s2 5 0 7-5 2-7 0"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                <div class="calendar-widget">
+                    <div class="calendar-header">営業日のお知らせ</div>
+                    <div class="calendar-body">
+                        <div class="month-nav">
+                            <span>前</span> <strong>2026/4</strong> <span>次</span>
+                        </div>
+                        <table class="calendar-table">
+                            <thead>
+                                <tr>
+                                    <th class="sun">日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th class="sat">土</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td><td class="sat">4</td></tr>
+                                <tr><td class="sun">5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="sat">11</td></tr>
+                                <tr><td class="sun">12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td class="sat">18</td></tr>
+                                <tr><td class="sun">19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td class="sat">25</td></tr>
+                                <tr><td class="sun">26</td><td>27</td><td>28</td><td class="sun">29</td><td>30</td><td></td><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <div class="footer-logo">川島税務会計事務所</div>
+                <span class="affiliation">関東信越税理士会所属</span>
+                <p>〒327-0831</p>
+                <p>栃木県佐野市浅沼町898番地 磯貝ビル １階西</p>
+                <p style="margin-top: 10px; font-size: 1.1rem; font-weight: bold; color: var(--accent);">TEL 0283-85-7390</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="https://kawashima-tax.net/company.html">会社概要</a></li>
+                    <li><a href="https://kawashima-tax.net/access.html">アクセス</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="https://kawashima-tax.net/faq.html">ＦＡＱ</a></li>
+                    <li><a href="https://kawashima-tax.net/cgi-bin/mailsys.cgi">問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            ©2021 all right kawashima tax office
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栃木・群馬会社設立サポートセンター｜江原会計事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E67E22;
+            --secondary: #2E7D32;
+            --accent: #1565C0;
+            --bg-white: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --text-main: #212529;
+            --text-light: #6C757D;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.8;
+            background-color: var(--bg-white);
+            padding-top: 80px; /* For sticky header */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 96px 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3 {
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 48px;
+            color: var(--secondary);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .phone-link {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Hero */
+        #hero {
+            background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.8)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&h=600&fit=crop') center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+            margin-top: -80px; /* Offset body padding */
+            padding-top: 200px;
+        }
+
+        #hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        /* Stats */
+        #stats {
+            padding: 48px 0;
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 32px 24px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--secondary);
+        }
+
+        /* News */
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+        }
+
+        .service-card-header {
+            background: var(--bg-light);
+            padding: 24px;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .service-card-body {
+            padding: 32px 24px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Finance */
+        #finance {
+            background: linear-gradient(rgba(21, 101, 192, 0.9), rgba(21, 101, 192, 0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&h=600&fit=crop') center/cover fixed;
+            color: white;
+            text-align: center;
+        }
+
+        #finance h2 {
+            color: white;
+        }
+
+        .finance-stats {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 32px 0;
+            color: #FFD54F;
+        }
+
+        /* Industry */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .industry-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        .industry-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .industry-card h3 {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0 20px;
+        }
+
+        /* Service Menu */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .menu-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-card-content {
+            padding: 24px;
+            flex-grow: 1;
+        }
+
+        .menu-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--secondary);
+        }
+
+        .menu-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Office */
+        .office-content {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .office-info {
+            padding: 48px;
+            text-align: center;
+        }
+
+        .office-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .office-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* CTA */
+        #cta {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        #cta h2 {
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .cta-phone {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            margin: 24px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 48px 0 24px;
+            text-align: center;
+        }
+
+        .footer-info {
+            margin-bottom: 32px;
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #adb5bd;
+            border-top: 1px solid #495057;
+            padding-top: 24px;
+            margin-top: 24px;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+                gap: 24px;
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .news-item {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .news-date {
+                width: 150px;
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .industry-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .office-content {
+                flex-direction: row;
+            }
+
+            .office-info {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: left;
+            }
+
+            .office-image {
+                flex: 1;
+                height: auto;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            h1 { font-size: 3rem; }
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="#">栃木・群馬会社設立サポートセンター<br><span style="font-size: 0.8rem; font-weight: normal;">江原会計事務所</span></a>
+            </div>
+            <nav class="nav-menu">
+                <a href="#">ホーム</a>
+                <a href="#office">事務所紹介</a>
+                <a href="#services">サポート料金</a>
+                <a href="#testimonials">お客様の声</a>
+                <a href="#cta">無料相談</a>
+                <a href="#office">アクセス</a>
+            </nav>
+            <div class="header-contact">
+                <a href="tel:0120-964-459" class="phone-link">0120-964-459</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>会社設立・起業をお考えの方へ</h1>
+                <p>会社設立前・設立手続き・設立後の<br>サポート全てお任せください！</p>
+                <p style="margin-top: 48px; font-weight: bold;">なぜここまでサポートできるのか</p>
+            </div>
+        </section>
+
+        <section id="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">会社設立実績 100件超</div>
+                    <div class="stat-card">会社設立手数料 実質0円</div>
+                    <div class="stat-card">初回相談無料! アピタ足利より車で2分</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="bg-light">
+            <div class="container">
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-date">2022年6月15日</div>
+                        <div class="news-title">「創業融資に関するセルフチェック診断」を始めました！</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025年8月1日</div>
+                        <div class="news-title">輸出ビジネスの味方！知っておきたい「消費税の輸出免税制度」</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025年5月30日</div>
+                        <div class="news-title">利益が出たらすぐ節税？やってはいけない節税対策3選</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025年5月13日</div>
+                        <div class="news-title">2025年4月からの高年齢者雇用の対応策</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025年4月22日</div>
+                        <div class="news-title">中小企業向け賃上げ促進税制について</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025年3月20日</div>
+                        <div class="news-title">企業が今後直面する可能性のある困難 『2025年の崖』の課題や対策とは</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>当センターのサービス</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">信頼性の高い会社を作りたい！という方にオススメ！</div>
+                        <div class="service-card-body">株式会社設立コース</div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-header">コストを節約して会社を作りたい！という方はコチラ！</div>
+                        <div class="service-card-body">合同会社設立コース</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="finance">
+            <div class="container">
+                <h2>創業融資サポート</h2>
+                <div class="finance-stats">
+                    最大融資調達額 1,000万円<br>
+                    融資通過率 98%超
+                </div>
+                <p style="font-size: 1.25rem; font-weight: bold;">創業融資に特化した専門家による創業融資サポート</p>
+            </div>
+        </section>
+
+        <section id="testimonials" class="bg-light">
+            <div class="container">
+                <h2>お客様の声</h2>
+                <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1200&h=400&fit=crop" alt="お客様の声" style="border-radius: var(--radius); box-shadow: var(--shadow); margin: 0 auto;">
+                </div>
+            </div>
+        </section>
+
+        <section id="industry">
+            <div class="container">
+                <h2>業種別サポート</h2>
+                <div class="industry-grid">
+                    <div class="industry-card">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&h=400&fit=crop" alt="飲食業">
+                        <h3>飲食業を開業される方</h3>
+                    </div>
+                    <div class="industry-card">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop" alt="建設業">
+                        <h3>建設業で独立される方</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="service-menu" class="bg-light">
+            <div class="container">
+                <h2>創業サポートメニュー</h2>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop" alt="株式会社設立サポート">
+                        <div class="menu-card-content">
+                            <h3>株式会社設立サポート</h3>
+                            <p>自社で設立するよりもお得！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop" alt="合同会社設立サポート">
+                        <div class="menu-card-content">
+                            <h3>合同会社設立サポート</h3>
+                            <p>費用を抑えて会社を作れる！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=300&fit=crop" alt="創業融資サポート">
+                        <div class="menu-card-content">
+                            <h3>創業融資サポート</h3>
+                            <p>費用を抑えて会社を作れる！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=400&h=300&fit=crop" alt="補助金サポート">
+                        <div class="menu-card-content">
+                            <h3>補助金サポート</h3>
+                            <p>着手金無料、完全成功報酬！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop" alt="助成金サポート">
+                        <div class="menu-card-content">
+                            <h3>助成金サポート</h3>
+                            <p>着手金無料、完全成功報酬！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=400&h=300&fit=crop" alt="決算・法人税申告サポート">
+                        <div class="menu-card-content">
+                            <h3>決算・法人税申告サポート</h3>
+                            <p>駆け込み・丸投げでもOK！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=400&h=300&fit=crop" alt="事業計画書作成サポート">
+                        <div class="menu-card-content">
+                            <h3>事業計画書作成サポート</h3>
+                            <p>銀行対策+事業の航海図に！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=400&h=300&fit=crop" alt="法人化診断サポート">
+                        <div class="menu-card-content">
+                            <h3>法人化診断サポート</h3>
+                            <p>個人と法人はどちらが必要？</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop" alt="許認可申請サポート">
+                        <div class="menu-card-content">
+                            <h3>許認可申請サポート</h3>
+                            <p>許認可申請もお任せ！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop" alt="記帳代行サポート">
+                        <div class="menu-card-content">
+                            <h3>記帳代行サポート</h3>
+                            <p>税務署対策はお任せ！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=400&h=300&fit=crop" alt="税務調査サポート">
+                        <div class="menu-card-content">
+                            <h3>税務調査サポート</h3>
+                            <p>税務署対策はお任せ！</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop" alt="税務・経営顧問サポート">
+                        <div class="menu-card-content">
+                            <h3>税務・経営顧問サポート</h3>
+                            <p>事業の頼れるパートナー！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="office">
+            <div class="container">
+                <h2>事業所情報</h2>
+                <div class="office-content">
+                    <div class="office-info">
+                        <h3>ファーストアカウンティング江原会計</h3>
+                        <p>〒326-0823 栃木県足利市朝倉町2-1-7</p>
+                        <p style="margin-top: 16px; font-weight: bold; color: var(--primary);">足利・太田を中心に栃木・群馬全域に対応しています！</p>
+                        <p>足利・太田を中心に群馬・栃木全域対応</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="オフィス外観" class="office-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="container">
+                <h2>無料相談はこちら</h2>
+                <p>まずはお気軽にご相談ください</p>
+                <a href="tel:0120-964-459" class="cta-phone">0120-964-459</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-info">
+                <p>運営:江原会計事務所</p>
+                <p style="font-size: 1.25rem; font-weight: bold; margin: 16px 0;">栃木・群馬会社設立サポートセンター</p>
+                <p>〒326-0823 栃木県足利市朝倉町2-1-7</p>
+            </div>
+            <div class="copyright">
+                Copyright (C) 栃木・群馬会社設立サポートセンター All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アーツ税理士法人 北関東事務所（アーツ公認会計士事務所）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary-teal: #17677E;
+  --secondary-teal: #418592;
+  --light-teal: #78adbb;
+  --bg-warm: #F2F1DF;
+  --bg-card: #FBF6E2;
+  --bg-white: #FFFFFF;
+  --accent-red: #EB2E00;
+  --text-main: #333333;
+  --link-color: #003366;
+  --border-radius: 16px;
+  --box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --spacing-section: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text-main);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+.en {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-teal);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-teal);
+  margin-bottom: 3rem;
+  letter-spacing: 0.05em;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent-red);
+  color: var(--bg-white);
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(235, 46, 0, 0.2);
+}
+
+.btn:hover {
+  background: #c22600;
+  color: var(--bg-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(235, 46, 0, 0.3);
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg-white);
+  box-shadow: var(--box-shadow);
+  z-index: 1000;
+  height: 80px;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary-teal);
+}
+
+.logo img {
+  height: 36px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--primary-teal);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-tel {
+  font-weight: 700;
+  color: var(--primary-teal);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary-teal);
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 85vh;
+  min-height: 650px;
+  background: linear-gradient(rgba(23, 103, 126, 0.85), rgba(23, 103, 126, 0.85)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&h=600&fit=crop') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--bg-white);
+  padding-top: 80px;
+}
+
+.hero-content {
+  width: 100%;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.hero-questions {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-question-card {
+  background: var(--bg-white);
+  color: var(--primary-teal);
+  padding: 35px 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 300px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-question-card .num {
+  font-size: 2.5rem;
+  color: var(--light-teal);
+  display: block;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+}
+
+/* About */
+.about {
+  padding: var(--spacing-section) 0;
+  background: var(--bg-warm);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-img {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  color: var(--primary-teal);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Services */
+.services {
+  padding: var(--spacing-section) 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-teal);
+  color: var(--bg-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.service-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+/* Strengths */
+.strengths {
+  padding: var(--spacing-section) 0;
+  background: var(--bg-warm);
+}
+
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 24px;
+}
+
+.strength-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--bg-white);
+  padding: 24px 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.strength-num {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--light-teal);
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+  width: 45px;
+  flex-shrink: 0;
+}
+
+.strength-text {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+/* Testimonials */
+.testimonials {
+  padding: var(--spacing-section) 0;
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
+}
+
+.testi-card {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testi-quote {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 30px;
+  line-height: 1.8;
+}
+
+.testi-quote::before {
+  content: '\f10d';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--light-teal);
+  opacity: 0.4;
+  font-size: 1.5rem;
+}
+
+.testi-info {
+  border-top: 1px solid rgba(23, 103, 126, 0.1);
+  padding-top: 20px;
+}
+
+.testi-company {
+  font-size: 0.9rem;
+  color: var(--secondary-teal);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.testi-author {
+  font-weight: 700;
+  color: var(--primary-teal);
+  font-size: 1.1rem;
+}
+
+/* Office Info */
+.office {
+  padding: var(--spacing-section) 0;
+  background: var(--bg-warm);
+}
+
+.office-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.office-info-box {
+  background: var(--bg-white);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30px;
+}
+
+.office-info-box h3 {
+  color: var(--primary-teal);
+  border-bottom: 2px solid var(--light-teal);
+  padding-bottom: 12px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.office-info-box p {
+  margin-bottom: 10px;
+}
+
+.access-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.access-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.access-list li::before {
+  content: '■';
+  position: absolute;
+  left: 0;
+  color: var(--primary-teal);
+  font-size: 0.8rem;
+  top: 4px;
+}
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.map-wrapper {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  height: 350px;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.map-image {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: var(--spacing-section) 0;
+  text-align: center;
+  background: var(--bg-white);
+}
+
+.cta-section h2 {
+  font-size: 2.2rem;
+  color: var(--primary-teal);
+  margin-bottom: 20px;
+}
+
+.cta-tel {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-teal);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-teal);
+  color: var(--bg-white);
+  padding: 60px 0 30px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo img {
+  height: 45px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-info {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: var(--bg-white);
+  opacity: 0.8;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: var(--bg-white);
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-grid, .office-grid {
+    grid-template-columns: 1fr;
+  }
+  .strengths-grid, .testi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    display: none;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  
+  .header-tel {
+    font-size: 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-questions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-question-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .cta-tel {
+    font-size: 2rem;
+  }
+  
+  /* Mobile Menu Active State */
+  .nav-active .nav-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-white);
+    padding: 30px 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .nav-active .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+  
+  .nav-active .nav-links a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .nav-active .header-right {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-active .header-right .btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+</style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <img src="https://www.aerts-kitakanto.jp/img/common/footer_rogo.jpg" alt="AERTS Logo">
+      アーツ税理士法人
+    </a>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#about">事務所概要</a></li>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#testimonials">お客様の声</a></li>
+        <li><a href="#cta">お問い合わせ</a></li>
+      </ul>
+      <div class="header-right">
+        <div class="header-tel en"><i class="fa-solid fa-phone"></i> 0283-20-8350</div>
+        <a href="#cta" class="btn">無料相談はこちら</a>
+      </div>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section id="hero" class="hero">
+    <div class="container hero-content">
+      <h1>アーツからの3つの質問</h1>
+      <div class="hero-questions">
+        <div class="hero-question-card">
+          <span class="num en">01</span>
+          経営に必要な情報を使っていますか？
+        </div>
+        <div class="hero-question-card">
+          <span class="num en">02</span>
+          余計な税理士報酬を払っていませんか？
+        </div>
+        <div class="hero-question-card">
+          <span class="num en">03</span>
+          会計事務所のアドバイスを活かせていますか？
+        </div>
+      </div>
+      <a href="#cta" class="btn">無料相談はこちら</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=500&fit=crop" alt="事務所イメージ">
+      </div>
+      <div class="about-text">
+        <h2>アーツ税理士法人・アーツ公認会計士事務所</h2>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title">サービス一覧</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          <div class="service-title">ミニマム決算申告コース</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-handshake"></i></div>
+          <div class="service-title">ミニマム顧問コース</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="service-title">月次決算コース</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div class="service-title">カスタマイズコース</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-laptop-file"></i></div>
+          <div class="service-title">インターネット会計</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-building-circle-arrow-right"></i></div>
+          <div class="service-title">M&A</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="service-title">株式公開</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <div class="service-title">企業評価/投資コンサルティング</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="strengths" class="strengths">
+    <div class="container">
+      <h2 class="section-title">アーツ10大特徴（アーツが選ばれるには理由がある！）</h2>
+      <div class="strengths-grid">
+        <div class="strength-item">
+          <div class="strength-num">1</div>
+          <div class="strength-text">月次決算の推進による迅速な計数把握</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">2</div>
+          <div class="strength-text">経営に必要な情報をタイムリーに提供</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">3</div>
+          <div class="strength-text">経営課題の分析・解決への提案</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">4</div>
+          <div class="strength-text">余計な報酬はいただきません</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">5</div>
+          <div class="strength-text">自計化の推進によるコスト削減</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">6</div>
+          <div class="strength-text">お客様の経営に、選べる4つの会計</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">7</div>
+          <div class="strength-text">融資・資金繰り相談にも対応</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">8</div>
+          <div class="strength-text">月々の会計データをインターネットで</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">9</div>
+          <div class="strength-text">税務調査に徹底的に対応いたします</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">10</div>
+          <div class="strength-text">IT戦略の一翼としての会計システム</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2 class="section-title">お客様の声</h2>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-quote">税務・財務上のことで申し上げれば、以前は訊きづらかった初歩的な質問やわかりにくい税法改正などもきちん...</div>
+          <div class="testi-info">
+            <div class="testi-company">オニックス株式会社（不動産賃貸業）</div>
+            <div class="testi-author">代表取締役 K.O様</div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">会計上の数字の読み込み方などの指導により、勘だけの判断ではなく最新の会計データを基に経営戦略や決断を...</div>
+          <div class="testi-info">
+            <div class="testi-company">株式会社デカルト（飲食店向デザイン/工事）</div>
+            <div class="testi-author">代表取締役 山本勝彦様</div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">また、事務所のスタッフの皆さんの対応にも大変満足しています。わからないことがあって電話やメールで担当...</div>
+          <div class="testi-info">
+            <div class="testi-company">株式会社フォルトゥーナ（飲食業）</div>
+            <div class="testi-author">代表取締役 中道澄人様</div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">経営の事、従業員の事、将来の事、個人的な事とか何でも遠慮せず相談にのってもらっている為、うちの会社に...</div>
+          <div class="testi-info">
+            <div class="testi-company">株式会社琉南設備工業（江戸川区 建設業）</div>
+            <div class="testi-author">代表取締役 楚南幸則様</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="office" class="office">
+    <div class="container">
+      <h2 class="section-title">事務所概要</h2>
+      <div class="office-grid">
+        <div class="office-info">
+          <div class="office-info-box">
+            <h3>■北関東事務所</h3>
+            <p>〒327-0843<br>栃木県佐野市堀米町 3362-2</p>
+            <p class="en">TEL：0283-20-8350<br>FAX：0283-20-8840</p>
+          </div>
+          <div class="office-info-box">
+            <h3>■東京事務所</h3>
+            <p>〒106-0032<br>東京都港区六本木7-3-12<br>六本木インターナショナルビル4F</p>
+            <p class="en">TEL:03-5414-5055<br>FAX:03-5414-5056</p>
+          </div>
+          <div class="office-info-box">
+            <h3>アクセス</h3>
+            <ul class="access-list">
+              <li>■JR両毛線、東武佐野線・佐野駅より車で８分</li>
+              <li>■東武佐野線・堀米駅より徒歩１５分</li>
+              <li>■東北自動車道・佐野インターより車で１５分程度</li>
+            </ul>
+          </div>
+        </div>
+        <div class="map-container">
+          <div class="map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3214.288636173262!2d139.5786413152766!3d36.32959898004822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f30a5b5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2z44CSMzI3LTA4NDMg5qCD5pyo55yM5L2Q6YeO5biC5aCA57Gz55S6MzM2Mi0y!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <div class="map-image">
+            <img src="https://www.aerts-kitakanto.jp/img/common/footer_map_1.jpg" alt="アクセスマップ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta" class="cta-section">
+    <div class="container">
+      <h2>まずはお気軽にご相談ください</h2>
+      <div class="cta-tel en"><i class="fa-solid fa-phone"></i> 0283-20-8350</div>
+      <a href="#" class="btn">お問い合わせ</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">
+      <img src="https://www.aerts-kitakanto.jp/img/common/footer_rogo.jpg" alt="AERTS Logo">
+      アーツ税理士法人
+    </div>
+    <div class="footer-info">
+      〒327-0843 栃木県佐野市堀米町3362-2<br>
+      <span class="en">TEL：0283-20-8350 / FAX：0283-20-8840</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#">■HOME</a></li>
+      <li><a href="#">■北関東事務所概要</a></li>
+      <li><a href="#">■経営方針</a></li>
+      <li><a href="#">■税務会計サービス</a></li>
+      <li><a href="#">■コンサルティングサービス</a></li>
+      <li><a href="#">■フローチャート</a></li>
+      <li><a href="#">■報酬</a></li>
+      <li><a href="#">■求人採用</a></li>
+      <li><a href="#">■お客様の声</a></li>
+      <li><a href="#">■お問い合わせ</a></li>
+      <li><a href="#">■サイトマップ</a></li>
+      <li><a href="#">■個人情報保護方針</a></li>
+    </ul>
+    <div class="copyright">
+      2008 AERTS tax accountant office All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const headerInner = document.querySelector('.header-inner');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    // Toggle mobile menu
+    hamburger.addEventListener('click', () => {
+      headerInner.classList.toggle('nav-active');
+      const icon = hamburger.querySelector('i');
+      if (headerInner.classList.contains('nav-active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Close mobile menu when a link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        headerInner.classList.remove('nav-active');
+        const icon = hamburger.querySelector('i');
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      });
+    });
+  });
+</script>
+</body>
+</html>

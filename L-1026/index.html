@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央税理士法人 | 主役のミカタ。</title>
+    <meta name="description" content="栃木県栃木市の中央税理士法人。相談を聞き、談笑し、時に背中を押す。それが私たちのやり方です。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #C19E6D;
+            --primary-hover: #a88758;
+            --text-main: #262626;
+            --text-sub: #474645;
+            --bg-white: #FFFFFF;
+            --bg-light: #F9F9F9;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.08);
+            --font-sans: 'Noto Sans JP', sans-serif;
+            --font-serif: 'Noto Serif JP', serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Typography */
+        h1, h2, h3, .serif {
+            font-family: var(--font-serif);
+            font-weight: 700;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--text-main);
+        }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Components */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 48px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            box-shadow: 0 4px 15px rgba(193, 158, 109, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(193, 158, 109, 0.4);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 30px;
+        }
+
+        .menu-btn {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: var(--bg-white);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 100px; /* Account for header */
+            padding-bottom: 40px;
+            background-color: var(--bg-light);
+        }
+
+        .hero-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-title-box {
+            background-color: rgba(193, 158, 109, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 20px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero-title-box h1 {
+            color: var(--bg-white);
+            font-size: 1.8rem;
+            letter-spacing: 0.1em;
+            margin: 0;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .about-content p {
+            color: var(--text-sub);
+        }
+
+        /* Service Section */
+        .service {
+            background-color: var(--bg-light);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            fill: var(--primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        /* Voice Section */
+        .voice {
+            background-color: var(--bg-white);
+        }
+
+        .voice-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .voice-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .voice-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .voice-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .voice-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .voice-num {
+            color: var(--primary);
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .voice-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .voice-card p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--bg-light);
+        }
+
+        .contact-box {
+            background: var(--bg-white);
+            padding: 60px 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-desc {
+            color: var(--text-sub);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .contact-tel-wrap {
+            margin-bottom: 30px;
+        }
+
+        .contact-tel {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-family: var(--font-serif);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .contact-tel svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            fill: currentColor;
+        }
+
+        .contact-time {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-white);
+            padding: 60px 0 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            height: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-nav {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 30px;
+        }
+
+        .footer-nav a {
+            color: var(--text-sub);
+            font-size: 0.85rem;
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            text-align: center;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Fallback: ensure content is visible even if JS/Observer fails */
+        .no-js .fade-up,
+        .fade-up.force-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: 4rem;
+            }
+
+            .hero-title-box h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+
+            .service-grid, .voice-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-box {
+                padding: 80px 60px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 2fr;
+            }
+
+            .footer-nav {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="https://central-tc.com/img/logo.png" alt="中央税理士法人">
+            </a>
+            <button class="menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-wrapper fade-up">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80" alt="Consultation" class="hero-bg">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <div class="hero-title-box">
+                            <h1>主役のミカタ。</h1>
+                        </div>
+                        <div>
+                            <a href="/contact/" class="btn btn-primary">詳細はこちら</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title fade-up">私たちについて</h2>
+                <div class="about-grid">
+                    <div class="about-img fade-up">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80" alt="Office Meeting">
+                    </div>
+                    <div class="about-content fade-up">
+                        <h3 class="serif">相談を聞き、談笑し、時に背中を押す。それが私たちのやり方です。</h3>
+                        <p>複雑で難しい税金のこと、会社の未来。どんなときも、ちょっとしたことでも、なんでも相談できる距離にいることが、お客様の不安を取り除き、同じ目線で明日を創るために大切なことだと考えます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Section -->
+        <section class="service" id="service">
+            <div class="container">
+                <h2 class="section-title fade-up">業務内容</h2>
+                <div class="service-grid">
+                    <!-- Card 1 -->
+                    <div class="service-card fade-up">
+                        <svg class="service-icon" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 14H7v-2h4v2zm0-4H7v-2h4v2zm0-4H7V7h4v2zm6 8h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V7h4v2z"/>
+                        </svg>
+                        <h3 class="serif">会計税務サポート</h3>
+                        <p>当税理士法人の行う会計税務顧問は、毎月訪問させていただく「月次訪問監査」を基本としております。</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="service-card fade-up" style="transition-delay: 0.1s;">
+                        <svg class="service-icon" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v1h-2v-1H9v-2h4v-1h-3c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1h3V9h2v1h2v2h-4v1h3c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1zM13 9V3.5L18.5 9H13z"/>
+                        </svg>
+                        <h3 class="serif">相続・贈与・確定申告</h3>
+                        <p>相続税の申告には高い専門知識が求められるため、税理士の知識・経験によって税額が大きく変わってきます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voice Section -->
+        <section class="voice" id="voice">
+            <div class="container">
+                <h2 class="section-title fade-up">クライアントの声</h2>
+                <div class="voice-grid">
+                    <!-- Voice 1 -->
+                    <div class="voice-card fade-up">
+                        <img src="https://central-tc.com/img/index/s1.jpg" alt="宇都宮の人気カフェ、オーナーの相談役" class="voice-img">
+                        <div class="voice-content">
+                            <span class="voice-num">01</span>
+                            <h3 class="serif">宇都宮の人気カフェ、オーナーの相談役</h3>
+                            <p>宇都宮市松が峰を本店に置く「マツガミネコーヒービルヂング」</p>
+                        </div>
+                    </div>
+                    <!-- Voice 2 -->
+                    <div class="voice-card fade-up" style="transition-delay: 0.1s;">
+                        <img src="https://central-tc.com/img/index/s2.jpg" alt="想いを理解し、ブランド力と自立を共に育てる。" class="voice-img">
+                        <div class="voice-content">
+                            <span class="voice-num">02</span>
+                            <h3 class="serif">想いを理解し、ブランド力と自立を共に育てる。</h3>
+                            <p>Win Graffiti株式会社</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-box fade-up">
+                    <h2 class="section-title" style="margin-bottom: 20px;">お問い合わせ</h2>
+                    <p class="contact-desc">法人設立手続きや税理士の顧問契約、相続・贈与、その他のご相談は、以下のフォームよりお問い合わせ下さい。お電話でお問い合わせの際は下記番号よりお願い致します。</p>
+                    
+                    <div class="contact-tel-wrap">
+                        <a href="tel:0282-27-5741" class="contact-tel">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                            </svg>
+                            0282-27-5741
+                        </a>
+                        <p class="contact-time">お電話受付時間 8:30-17:30</p>
+                    </div>
+
+                    <a href="/contact/" class="btn btn-primary">詳細はこちら</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <a href="/">
+                        <img src="https://central-tc.com/img/logo.png" alt="中央税理士法人">
+                    </a>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="/about/">私たちについて</a></li>
+                        <li><a href="/about/#ceo">代表挨拶</a></li>
+                        <li><a href="/about/#philosophy">経営理念</a></li>
+                        <li><a href="/about/#company">会社概要</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="/service/">業務内容</a></li>
+                        <li><a href="/service/#support">会計税務サポート</a></li>
+                        <li><a href="/service/#plan">相続・贈与・確定申告</a></li>
+                        <li><a href="/service/#price">報酬料金表</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="/voice/01.html">クライアントの声</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="/recruit/">採用情報</a></li>
+                        <li><a href="/contact/">問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <a href="https://www.facebook.com/central.tc" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                    </svg>
+                </a>
+                <div class="footer-info">
+                    <span>中央税理士法人</span>
+                    <span style="margin: 0 10px;">|</span>
+                    <span>〒328-0011 栃木県栃木市大宮町2136-9</span>
+                    <span style="margin: 0 10px;">|</span>
+                    <span>TEL 0282-27-5741</span>
+                </div>
+                <div class="copyright">
+                    &copy;central tax corp
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var fadeElements = document.querySelectorAll('.fade-up');
+
+            // Fallback: if IntersectionObserver is not supported, show all immediately
+            if (!('IntersectionObserver' in window)) {
+                fadeElements.forEach(function(el) { el.classList.add('is-visible'); });
+                return;
+            }
+
+            var observerOptions = {
+                root: null,
+                rootMargin: '50px',
+                threshold: 0.05
+            };
+
+            var observer = new IntersectionObserver(function(entries, obs) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(function(el) { observer.observe(el); });
+
+            // Safety net: force-show any still-hidden elements after 2 seconds
+            setTimeout(function() {
+                document.querySelectorAll('.fade-up:not(.is-visible)').forEach(function(el) {
+                    el.classList.add('is-visible');
+                });
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
