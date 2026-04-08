@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>石原 毅 税理士事務所</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --navy: #1B3A5C;
+            --navy-dark: #11253A;
+            --green: #2E7D4F;
+            --light-gray: #F5F6F8;
+            --white: #FFFFFF;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #E0E0E0;
+            --font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        .section-title {
+            text-align: center;
+            color: var(--navy);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--green);
+            margin: 15px auto 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        .btn-green {
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            padding: 15px 50px;
+            font-size: 18px;
+            border-radius: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-green:hover {
+            background-color: #24633e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 65vh;
+            min-height: 450px;
+            background-image: url('https://www.ishiharakaikei.jp/library/56fe02369f61d27f1f181957/5b3dbe8c1491236a08a8c984.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(27, 58, 92, 0.75); /* Dark navy overlay */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.5;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background-color: var(--green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 25px;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .service-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        /* Overview Section */
+        .overview {
+            padding: 80px 0;
+        }
+
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .overview-table th, 
+        .overview-table td {
+            padding: 25px 20px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+            font-size: 15px;
+            vertical-align: top;
+        }
+
+        .overview-table th {
+            width: 30%;
+            background-color: var(--light-gray);
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .overview-table td ul {
+            list-style-type: none;
+        }
+
+        .overview-table td ul li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 8px;
+        }
+
+        .overview-table td ul li::before {
+            content: '・';
+            position: absolute;
+            left: 0;
+            color: var(--text-main);
+        }
+
+        .overview-table td ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .cta .phone {
+            font-size: 54px;
+            font-weight: 700;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            letter-spacing: 2px;
+        }
+
+        .cta .phone span {
+            font-size: 40px; /* Icon size */
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-dark);
+            color: #A0AAB5;
+            padding: 50px 0 20px;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links a {
+            color: #A0AAB5;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 12px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px 20px;
+            }
+
+            .hero {
+                height: auto;
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 22px;
+            }
+
+            .overview-table th, 
+            .overview-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .overview-table th {
+                border-bottom: none;
+                padding-bottom: 10px;
+            }
+
+            .overview-table td {
+                padding-top: 0;
+                padding-bottom: 25px;
+            }
+
+            .cta .phone {
+                font-size: 36px;
+            }
+            
+            .cta .phone span {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="https://www.ishiharakaikei.jp/library/56fe02369f61d27f1f181957/64a233cf72d3e33103548268.png" alt="石原 毅 税理士事務所">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">トップページ</a></li>
+                    <li><a href="#overview">事務所紹介</a></li>
+                    <li><a href="#">経営理念</a></li>
+                    <li><a href="#">交通案内</a></li>
+                    <li><a href="#services">業務案内</a></li>
+                    <li><a href="#">料金について</a></li>
+                    <li><a href="https://www.ishiharakaikei.jp/form/ishiharakaikeijp/inquiry">お問合せ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>社長のやる気を応援します！<br>頼れるあなたの経営パートナー！！</h1>
+                <a href="https://www.ishiharakaikei.jp/form/ishiharakaikeijp/inquiry" class="btn btn-outline">無料相談・お問合せ</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">業務案内</h2>
+                <div class="services-grid">
+                    <!-- Card 1 -->
+                    <div class="service-card">
+                        <div class="icon-circle">&#x1F5A9;</div> <!-- Calculator icon -->
+                        <h3>税務・会計・決算</h3>
+                        <p>税務・会計・決算に関する業務</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="service-card">
+                        <div class="icon-circle">&#x1F6E0;</div> <!-- Wrench icon -->
+                        <h3>独立・開業・設立</h3>
+                        <p>独立、開業、設立に関する業務</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="service-card">
+                        <div class="icon-circle">&#x1F91D;</div> <!-- Handshake icon -->
+                        <h3>経営相談・経営<br>コンサルティング</h3>
+                        <p>経営相談・経営コンサルティング</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="service-card">
+                        <div class="icon-circle">&#x1F4C8;</div> <!-- Chart icon -->
+                        <h3>自計化支援</h3>
+                        <p>自計化の支援</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Office Overview Section -->
+        <section id="overview" class="overview">
+            <div class="container">
+                <h2 class="section-title">事務所概要</h2>
+                <table class="overview-table">
+                    <tbody>
+                        <tr>
+                            <th>事務所名</th>
+                            <td>石原 毅 税理士事務所</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>群馬県伊勢崎市宮子町3598－7</td>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td>0270-24-1246</td>
+                        </tr>
+                        <tr>
+                            <th>FAX番号</th>
+                            <td>0270-24-1247</td>
+                        </tr>
+                        <tr>
+                            <th>業務内容</th>
+                            <td>
+                                <ul>
+                                    <li>税務・会計・決算に関する業務</li>
+                                    <li>独立、開業、設立に関する業務</li>
+                                    <li>経営相談・経営コンサルティング</li>
+                                    <li>自計化の支援</li>
+                                    <li>エクセルを利用した効率化の提案</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>適格請求書発行事業者登録番号</th>
+                            <td>
+                                石原毅税理士事務所：T7-8103-3458-2466<br>
+                                石原会計　有限会社：T5-0700-0202-1297<br>
+                                石原邦栄社会保険労務士事務所：T8-8108-5102-2441
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>まずはお気軽にご相談ください。</h2>
+                <div class="phone">
+                    <span>&#x1F4DE;</span> 0270-24-1246
+                </div>
+                <a href="https://www.ishiharakaikei.jp/form/ishiharakaikeijp/inquiry" class="btn btn-green">メールでのお問合せ</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">トップページ</a>
+                <a href="#overview">事務所紹介</a>
+                <a href="#">経営理念</a>
+                <a href="#">交通案内</a>
+                <a href="#services">業務案内</a>
+                <a href="#">料金について</a>
+                <a href="https://www.ishiharakaikei.jp/form/ishiharakaikeijp/inquiry">お問合せ</a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 石原 毅 税理士事務所
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

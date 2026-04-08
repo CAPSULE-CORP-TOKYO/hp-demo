@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定方ひろみつ - 伊勢崎市議会議員</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3366CC;
+            --primary-hover: #2852a3;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #e2e8f0;
+            --container-max-width: 1100px;
+            --section-padding: 80px 20px;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo .sub {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .logo .main {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .header-btn {
+            display: none;
+        }
+
+        .hamburger {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            color: var(--bg-white);
+            padding: 60px 20px 0;
+            overflow: hidden;
+        }
+
+        .hero-inner {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-text {
+            margin-bottom: 40px;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .hero-main {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .hero-ruby {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            width: 300px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        /* Greeting Section */
+        .greeting {
+            padding: var(--section-padding);
+            background-color: var(--bg-light);
+        }
+
+        .greeting-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .greeting-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .greeting-text {
+            flex: 1;
+        }
+
+        .greeting-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .greeting-link {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: underline;
+            margin-top: 10px;
+        }
+
+        /* Promise Section */
+        .promise {
+            padding: var(--section-padding);
+            background-color: var(--bg-white);
+        }
+
+        .promise-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .promise-header h3 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .promise-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .promise-main-img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            margin: 0 auto 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .promise-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .promise-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .promise-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+        }
+
+        .promise-card p {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Profile Section */
+        .profile {
+            padding: var(--section-padding);
+            background-color: var(--bg-light);
+        }
+
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            background-color: var(--bg-white);
+            padding: 40px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .profile-meta {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .timeline {
+            list-style: none;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--border-color);
+        }
+
+        .timeline li {
+            position: relative;
+            margin-bottom: 20px;
+            padding-left: 15px;
+        }
+
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 2px solid var(--bg-white);
+        }
+
+        .profile-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .profile-images img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Activity Section */
+        .activity {
+            padding: var(--section-padding);
+            background-color: var(--bg-white);
+        }
+
+        .activity-desc {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-muted);
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .activity-card {
+            background-color: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .activity-content {
+            padding: 20px;
+        }
+
+        .activity-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .activity-card:hover .activity-title {
+            color: var(--primary-color);
+        }
+
+        /* Support Section */
+        .support {
+            padding: var(--section-padding);
+            background-color: var(--bg-light);
+        }
+
+        .support-card {
+            background-color: var(--bg-white);
+            border-radius: var(--border-radius);
+            padding: 40px 20px;
+            box-shadow: var(--box-shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .support-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .support-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .support-info p {
+            margin-bottom: 10px;
+        }
+
+        .support-map {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        .support-cta {
+            text-align: center;
+        }
+
+        .support-cta p {
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(51, 102, 204, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-main);
+            color: var(--bg-white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--bg-white);
+        }
+
+        .footer-info {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            background-color: var(--bg-white);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .mobile-cta .cta-tel {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+        }
+
+        .mobile-cta .cta-mail {
+            background-color: var(--bg-white);
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .promise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .activity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .profile-content {
+                flex-direction: row;
+                padding: 40px;
+            }
+            .profile-images {
+                width: 300px;
+            }
+            .support-card {
+                padding: 40px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .header-inner {
+                padding: 20px;
+            }
+            .hamburger {
+                display: none;
+            }
+            .nav-links {
+                display: flex;
+                gap: 30px;
+                align-items: center;
+            }
+            .nav-links a {
+                font-weight: 500;
+                font-size: 0.95rem;
+            }
+            .nav-links a:hover {
+                color: var(--primary-color);
+            }
+            .header-btn {
+                display: inline-block;
+                background-color: var(--primary-color);
+                color: var(--bg-white);
+                padding: 10px 25px;
+                border-radius: 25px;
+                font-weight: 700;
+                font-size: 0.9rem;
+            }
+            .header-btn:hover {
+                background-color: var(--primary-hover);
+            }
+            
+            /* Mobile menu active state for desktop (reset) */
+            .nav-links.active {
+                position: static;
+                flex-direction: row;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .hero {
+                padding: 80px 20px 0;
+            }
+            .hero-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+            .hero-text {
+                margin-bottom: 80px;
+            }
+            .hero-main {
+                font-size: 4rem;
+            }
+            .hero-image img {
+                width: 450px;
+            }
+
+            .greeting-content {
+                flex-direction: row;
+                gap: 60px;
+            }
+            .greeting-image {
+                max-width: 400px;
+            }
+
+            .promise-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            /* Make the 7th card span across or center */
+            .promise-card:last-child {
+                grid-column: 1 / -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .mobile-cta {
+                display: none;
+            }
+            body {
+                padding-bottom: 0;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            body {
+                padding-bottom: 50px; /* Space for mobile CTA */
+            }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span class="sub">伊勢崎市議会議員</span>
+                <span class="main">定方ひろみつ</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#greeting">ごあいさつ</a>
+                <a href="#promise">約束</a>
+                <a href="#profile">プロフィール</a>
+                <a href="#activity">活動日記</a>
+                <a href="#support">後援会</a>
+            </nav>
+            <a href="tel:0270-61-1632" class="header-btn">0270-61-1632</a>
+            <button class="hamburger" aria-label="メニューを開く">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <p class="hero-sub">伊勢崎市議会議員</p>
+                <h1 class="hero-main">定方ひろみつ</h1>
+                <p class="hero-ruby">さだかた ひろみつ</p>
+            </div>
+            <div class="hero-image">
+                <img src="img/title-04.jpg" alt="定方ひろみつ">
+            </div>
+        </div>
+    </section>
+
+    <section id="greeting" class="greeting">
+        <div class="container">
+            <h2 class="section-title">ごあいさつ</h2>
+            <div class="greeting-content">
+                <img src="img/p-photo-02.jpg" alt="ごあいさつ" class="greeting-image">
+                <div class="greeting-text">
+                    <p>平素より格別のご配慮を賜り、心より厚く御礼申し上げます。市議会議員の活動も、早いもので４年目となりました。日頃の皆さまからのお声を市政に反映すべく、一般質問を行い、また委員会活動においても課題解決に向けて取り組んでまいりました。伊勢崎市に住んで良かったと思って頂けるように、皆さま方のご意見ご要望をしっかりお聞きし、安心で安全な住みやすいまちづくりに、全力で取り組んで参る所存です。今後とも皆様のご指導ご鞭撻を賜りますよう、どうぞ宜しくお願い致します。</p>
+                    <a href="#" class="greeting-link">【定方ひろみつ　活動報告】はここからご覧になれます</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="promise" class="promise">
+        <div class="container">
+            <h2 class="section-title">約束</h2>
+            <div class="promise-header">
+                <h3>明るく笑顔で暮らせる伊勢崎市を目指します</h3>
+                <p>私の『したい』</p>
+            </div>
+            
+            <img src="img/promice.jpg" alt="約束" class="promise-main-img">
+
+            <div class="promise-grid">
+                <div class="promise-card">
+                    <svg class="promise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <p>１．なんでもいいから誰かの役に立ちたい</p>
+                </div>
+                <div class="promise-card">
+                    <svg class="promise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <p>２．誰にでもわかるような言葉でしゃべりたい</p>
+                </div>
+                <div class="promise-card">
+                    <svg class="promise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <p>３．市民の皆様と同じ目線に立って政治をしたい</p>
+                </div>
+                <div class="promise-card">
+                    <svg class="promise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    <p>４．感謝の気持ちで誰にでも笑顔で寄り添いたい</p>
+                </div>
+                <div class="promise-card">
+                    <svg class="promise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                    <p>５．謙虚な姿勢を忘れずに、市民の皆様の声を親切丁寧にお聴きしたい</p>
+                </div>
+                <div class="promise-card">
+                    <svg class="promise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <p>６．剣道で学んだ作法で、礼儀正しく接したい</p>
+                </div>
+                <div class="promise-card">
+                    <svg class="promise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    <p>７．市民の皆様との出会い(一期一会)を大切にしたい</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="profile">
+        <div class="container">
+            <h2 class="section-title">プロフィール</h2>
+            <div class="profile-content">
+                <div class="profile-info">
+                    <h3 class="profile-name">定方　宏允（さだかた　ひろみつ）</h3>
+                    <p class="profile-meta">昭和５１年７月２０日　　４９歳</p>
+                    
+                    <ul class="timeline">
+                        <li>税理士（関東信越税理士会伊勢崎支部登録）</li>
+                        <li>全日本剣道連盟剣道６段</li>
+                        <li>好きな言葉：不撓（不屈の精神）</li>
+                        <li>伊勢崎市議会議員（１期目）令和４年５月～現在</li>
+                        <li>建設水道委員会 委員長（令和７年５月～現在）</li>
+                        <li>少子高齢対策特別委員会 副委員長（令和７年５月～現在）</li>
+                        <li>定方宏允税理士事務所 所長（平成30年11月～現在）</li>
+                        <li>株式会社定方経営 代表取締役（平成30年11月～現在）</li>
+                    </ul>
+                </div>
+                <div class="profile-images">
+                    <img src="img/kendou.jpg" alt="剣道">
+                    <img src="img/family.jpg" alt="家族">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="activity" class="activity">
+        <div class="container">
+            <h2 class="section-title">活動日記</h2>
+            <p class="activity-desc">日々の活動状況はブログにて紹介しています。ご覧になりたい記事をクリックして下さい。</p>
+            
+            <div class="activity-grid">
+                <a href="https://sadakata720.blog.fc2.com/blog-entry-54.html" target="_blank" rel="noopener noreferrer" class="activity-card">
+                    <img src="https://images.unsplash.com/photo-1577415124269-fc1140a69e91?auto=format&fit=crop&q=80&w=800" alt="活動風景" class="activity-img">
+                    <div class="activity-content">
+                        <p class="activity-title">2026. 4. 8 — 春の全国交通安全運動</p>
+                    </div>
+                </a>
+                <a href="https://sadakata720.blog.fc2.com/blog-entry-53.html" target="_blank" rel="noopener noreferrer" class="activity-card">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=800" alt="活動風景" class="activity-img">
+                    <div class="activity-content">
+                        <p class="activity-title">2026. 4. 5 — 『田部井下区老人クラブ総会』</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="support" class="support">
+        <div class="container">
+            <h2 class="section-title">後援会</h2>
+            <div class="support-card">
+                <div class="support-info">
+                    <h3>定方ひろみつ後援会事務所</h3>
+                    <p>〒379-2222 伊勢崎市田部井町二丁目588番地5</p>
+                    <p>TEL:0270-61-1632 FAX:0270-61-1633</p>
+                    <p><a href="mailto:hiromitsu.sadakata@sadakata.jp">E-mail:hiromitsu.sadakata@sadakata.jp</a></p>
+                </div>
+                
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6427.297053453774!2d139.23753020345978!3d36.34506728988628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601ee68092c68b3f%3A0xc1ec2bb56ad99f49!2z5a6a5pa55a6P5YWB56iO55CG5aOr5LqL5YuZ5omA!5e0!3m2!1sja!2sjp!4v1763337858703!5m2!1sja!2sjp" class="support-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                
+                <div class="support-cta">
+                    <p>お気軽にお立ち寄り下さい</p>
+                    <a href="mailto:hiromitsu.sadakata@sadakata.jp" class="btn-primary">お問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">ホーム</a>
+                <a href="#greeting">ごあいさつ</a>
+                <a href="#promise">約束</a>
+                <a href="#profile">プロフィール</a>
+                <a href="#activity">活動日記</a>
+                <a href="#support">後援会</a>
+            </div>
+            <div class="footer-info">
+                <p>定方ひろみつ後援会事務所</p>
+                <p>TEL: 0270-61-1632</p>
+                <p>〒379-2222 群馬県伊勢崎市田部井町二丁目588番地5</p>
+            </div>
+            <p class="copyright">&copy;Copyright 伊勢崎市議会議員 定方ひろみつ</p>
+        </div>
+    </footer>
+
+    <div class="mobile-cta">
+        <a href="tel:0270-61-1632" class="cta-tel">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            0270-61-1632
+        </a>
+        <a href="mailto:hiromitsu.sadakata@sadakata.jp" class="cta-mail">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            お問い合わせ
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

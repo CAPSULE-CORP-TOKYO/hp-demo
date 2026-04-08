@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光山会計事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e6b;
+            --accent-color: #c87d55;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f5f7;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --container-width: 1120px;
+            --header-height: 80px;
+            --nav-height: 50px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--bg-white);
+        }
+
+        .btn-accent:hover {
+            background-color: #b06a45;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+        }
+
+        .btn-primary:hover {
+            background-color: #1e2b4d;
+        }
+
+        /* Header */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+            padding: 0 20px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo span {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .header-tel svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .header-nav-wrap {
+            background-color: var(--primary-color);
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: center;
+            height: var(--nav-height);
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .header-nav a {
+            color: var(--bg-white);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .header-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--primary-color);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(228, 164, 121, 0.9) 0%, rgba(44, 62, 107, 0.9) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+            padding: 80px 0 120px;
+            color: var(--bg-white);
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 24px;
+        }
+
+        .hero-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .hero-image img.face {
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .hero-names {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-main);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: right;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-names p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .hero-names img.sign {
+            height: 30px;
+            margin-left: auto;
+            margin-top: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--primary-color);
+            padding: 0 0 80px;
+            position: relative;
+        }
+
+        .services-intro {
+            text-align: center;
+            color: var(--bg-white);
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: -60px; /* Overlap with hero */
+            position: relative;
+            z-index: 10;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary-color);
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-desc {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .service-btn {
+            width: 100%;
+            max-width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .service-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .features-inner {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .features-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .feature-item-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(200, 125, 85, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-item-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent-color);
+        }
+
+        .feature-item-text {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .features-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 150px);
+            gap: 15px;
+        }
+
+        .features-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .features-images img:first-child {
+            grid-row: span 2;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 60px 20px;
+        }
+
+        .cta-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(228, 164, 121, 0.9) 0%, rgba(44, 62, 107, 0.9) 100%);
+            border-radius: 20px;
+            padding: 50px 30px;
+            text-align: center;
+            color: var(--bg-white);
+            box-shadow: 0 15px 30px rgba(44, 62, 107, 0.2);
+        }
+
+        .cta-text {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .cta-tel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .cta-tel svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        .cta-btn {
+            font-size: 18px;
+            padding: 15px 50px;
+        }
+
+        /* Info & News Section */
+        .info-news {
+            padding: 60px 0 100px;
+        }
+
+        .info-news-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .info-block, .news-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-map {
+            width: 100%;
+            height: 250px;
+            background-color: #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .info-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .info-address {
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .info-address svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-color);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .news-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .news-date {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .news-title {
+            font-size: 15px;
+            color: var(--text-main);
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .news-arrow {
+            width: 16px;
+            height: 16px;
+            fill: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-info {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            background: var(--bg-white);
+            padding: 10px;
+            border-radius: 4px;
+            display: inline-flex;
+        }
+
+        .footer-logo img {
+            height: 30px;
+        }
+
+        .footer-logo span {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .footer-tel {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-tel svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .footer-nav {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 40px;
+        }
+
+        .footer-nav a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-nav a:hover {
+            color: var(--bg-white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Mobile Sticky CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+            height: 60px;
+        }
+
+        .mobile-cta-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            font-size: 12px;
+            font-weight: 500;
+            gap: 4px;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--primary-color);
+        }
+
+        .mobile-cta-mail {
+            background-color: var(--accent-color);
+        }
+
+        .mobile-cta-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 32px; }
+            .features-inner { flex-direction: column; }
+            .features-images { width: 100%; }
+            .info-news-grid { gap: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            .header-contact { display: none; }
+            .hamburger { display: block; }
+            
+            .header-nav-wrap {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                height: calc(100vh - var(--header-height));
+                background-color: var(--primary-color);
+                transform: translateX(100%);
+                transition: var(--transition);
+                z-index: 99;
+                overflow-y: auto;
+            }
+
+            .header-nav-wrap.active {
+                transform: translateX(0);
+            }
+
+            .header-nav {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 0;
+            }
+
+            .header-nav a {
+                padding: 15px 20px;
+                font-size: 16px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hero { padding: 40px 0 80px; }
+            .hero .container { flex-direction: column; text-align: center; gap: 40px; }
+            .hero-image { align-items: center; }
+            .hero-names { text-align: center; }
+            .hero-names img.sign { margin: 10px auto 0; }
+
+            .services-grid { grid-template-columns: 1fr; margin-top: -30px; }
+            .service-card { padding: 30px 20px; }
+
+            .features-images { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .features-images img:first-child { grid-row: auto; }
+
+            .cta-inner { padding: 40px 20px; }
+            .cta-tel { font-size: 28px; }
+
+            .info-news-grid { grid-template-columns: 1fr; }
+
+            .footer-top { flex-direction: column; gap: 40px; }
+            .footer-nav { grid-template-columns: 1fr; }
+
+            .mobile-cta { display: block; }
+            body { padding-bottom: 60px; }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <a href="#" class="logo">
+                <img src="https://www.kohyama-kaikei.co.jp/cms/wp-content/themes/customtheme/img/h1.png" alt="ロゴ">
+                <span>光山会計事務所</span>
+            </a>
+            <div class="header-contact">
+                <a href="tel:0270-76-0037" class="header-tel">
+                    <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                    0270-76-0037
+                </a>
+                <a href="#" class="btn btn-accent">ご相談・お問い合わせ</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="header-nav-wrap" id="nav-wrap">
+            <nav class="header-nav">
+                <a href="#">ご挨拶・業務案内</a>
+                <a href="#">職員・事務所紹介</a>
+                <a href="#">個人のお客様</a>
+                <a href="#">法人のお客様</a>
+                <a href="#">料金・サービス</a>
+                <a href="#">採用情報</a>
+                <a href="#">ご相談・お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">身近な相談相手、信頼できるサポーターでありたい。</h1>
+                <p class="hero-text">ようこそ光山会計事務所のホームページへ。</p>
+                <p class="hero-text">群馬県伊勢崎市にて税理士事務所を開業しております。</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://www.kohyama-kaikei.co.jp/cms/wp-content/themes/customtheme/img/face.png" alt="代表写真" class="face">
+                <div class="hero-names">
+                    <p>光山会計事務所 所長 光山 喜一郎</p>
+                    <p>光山武志税理士事務所 所長 光山 武志</p>
+                    <img src="https://www.kohyama-kaikei.co.jp/cms/wp-content/themes/customtheme/img/name.png" alt="署名" class="sign">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="services-intro">
+            <p>税金のこと、各種申告のこと、経験豊富な専門家が適切なアドバイスや業務を行います。何でもお尋ねください。</p>
+        </div>
+        <div class="container">
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <h3 class="service-title">個人のお客様</h3>
+                    <p class="service-desc">個人のお客様：所得税・相続・贈与・遺言状資産管理など</p>
+                    <a href="#" class="btn btn-primary service-btn">
+                        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </a>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                    </div>
+                    <h3 class="service-title">法人のお客様</h3>
+                    <p class="service-desc">法人のお客様：税務・会計代行労務管理など</p>
+                    <a href="#" class="btn btn-primary service-btn">
+                        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-inner">
+                <div class="features-content">
+                    <div class="feature-item">
+                        <div class="feature-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        </div>
+                        <p class="feature-item-text">当事務所の特色と致しましては建物内において、光山喜一郎と光山武志の親子２名の税理士がそれぞれ開業しております。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </div>
+                        <p class="feature-item-text">お客様のニーズに応じて私達が誠心誠意対応致します。</p>
+                    </div>
+                </div>
+                <div class="features-images">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800" alt="ミーティング">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600" alt="デスクワーク">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=600" alt="握手">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-inner">
+                <p class="cta-text">お気軽にお問合せください。</p>
+                <a href="tel:0270-76-0037" class="cta-tel">
+                    <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                    0270-76-0037
+                </a>
+                <a href="#" class="btn btn-accent cta-btn">ご相談・お問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info & News -->
+    <section class="info-news">
+        <div class="container">
+            <div class="info-news-grid">
+                <!-- Info -->
+                <div class="info-block">
+                    <div class="info-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.541458994511!2d139.2392813152758!3d36.29916698005481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601eb5b5b5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2z44CSMzcwLTAxMDMg576k6aas55yM5LyK5Yui5bSO5biC5aKD5LiL5rWV5ZCN77yR77yT77yY77yY4oiS77yR!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="info-address">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>〒370-0103 群馬県伊勢崎市境下渕名１３８８−１</span>
+                    </div>
+                </div>
+                <!-- News -->
+                <div class="news-block">
+                    <div class="news-list">
+                        <a href="#" class="news-item">
+                            <span class="news-date">2019/07/19</span>
+                            <span class="news-title">夏季休業のお知らせ</span>
+                            <svg class="news-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                        </a>
+                        <a href="#" class="news-item">
+                            <span class="news-date">2018/12/15</span>
+                            <span class="news-title">年末年始の休業のお知らせ</span>
+                            <svg class="news-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                        </a>
+                        <a href="#" class="news-item">
+                            <span class="news-date">2018/07/20</span>
+                            <span class="news-title">夏季休業のお知らせ</span>
+                            <svg class="news-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="https://www.kohyama-kaikei.co.jp/cms/wp-content/themes/customtheme/img/h1.png" alt="ロゴ">
+                        <span>光山会計事務所</span>
+                    </div>
+                    <a href="tel:0270-76-0037" class="footer-tel">
+                        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                        0270-76-0037
+                    </a>
+                </div>
+                <div class="footer-nav">
+                    <a href="#">ご挨拶・業務案内</a>
+                    <a href="#">職員・事務所紹介</a>
+                    <a href="#">個人のお客様</a>
+                    <a href="#">法人のお客様</a>
+                    <a href="#">料金・サービス</a>
+                    <a href="#">採用情報</a>
+                    <a href="#">ご相談・お問い合わせ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>群馬県を拠点に活動する会計（税理士）事務所　伊勢崎市・光山会計事務所</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-cta">
+        <div class="mobile-cta-inner">
+            <a href="tel:0270-76-0037" class="mobile-cta-btn mobile-cta-tel">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                0270-76-0037
+            </a>
+            <a href="#" class="mobile-cta-btn mobile-cta-mail">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                ご相談・お問い合わせ
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navWrap = document.getElementById('nav-wrap');
+
+            hamburger.addEventListener('click', function() {
+                navWrap.classList.toggle('active');
+                // Simple animation for hamburger lines could be added here
+            });
+        });
+    </script>
+</body>
+</html>

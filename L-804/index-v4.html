@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大島昭浩税理士事務所・大島晴恵労務管理事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #b4c30e;
+            --secondary-color: #53b649;
+            --text-color: #171717;
+            --bg-color: #eeecec;
+            --white: #ffffff;
+            --font-main: 'Noto Sans JP', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .desktop-only {
+            display: none;
+        }
+
+        @media (min-width: 769px) {
+            .desktop-only {
+                display: block;
+            }
+            .mobile-only {
+                display: none;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo-area .subhead {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .tel-link {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tel-link::before {
+            content: '📞';
+            font-size: 18px;
+            color: var(--primary-color);
+        }
+
+        .header-nav {
+            background-color: var(--primary-color);
+        }
+
+        .header-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 16px 0;
+        }
+
+        .header-nav a {
+            font-weight: 700;
+            color: var(--text-color);
+            font-size: 15px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--text-color);
+            margin-bottom: 6px;
+            transition: 0.3s;
+        }
+
+        .hamburger span:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 550px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            line-height: 1.4;
+            margin-bottom: 16px;
+            color: var(--text-color);
+        }
+
+        .hero p {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--bg-color);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            font-weight: 700;
+            text-align: center;
+            padding: 16px;
+            font-size: 18px;
+        }
+
+        .service-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--white);
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+        }
+
+        .en-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .section-title p {
+            font-size: 15px;
+        }
+
+        .faq-image-wrap {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .faq-image-wrap img {
+            border-radius: 20px;
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--white);
+        }
+
+        .faq-item summary {
+            padding: 20px 40px 20px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            list-style: none;
+            font-size: 15px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '▼';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item[open] summary::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Office Info Section */
+        .office-info {
+            background-color: var(--white);
+        }
+
+        .office-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+
+        .office-card {
+            border-radius: 30px;
+            background-color: var(--white);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tax-card {
+            border: 12px solid var(--primary-color);
+        }
+
+        .labor-card {
+            border: 12px solid var(--secondary-color);
+        }
+
+        .card-img-wrap {
+            padding: 20px;
+            background-color: var(--white);
+        }
+
+        .card-img-wrap img {
+            border-radius: 16px;
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+        }
+
+        .office-card-content {
+            padding: 30px;
+            color: var(--white);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tax-card .office-card-content {
+            background-color: var(--primary-color);
+        }
+
+        .labor-card .office-card-content {
+            background-color: var(--secondary-color);
+        }
+
+        .office-card-content h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .office-card-content p {
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.8;
+            flex-grow: 1;
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 12px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        .text-tax {
+            color: var(--primary-color);
+        }
+
+        .text-labor {
+            color: var(--secondary-color);
+        }
+
+        /* News Banner */
+        .news-banner {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 24px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-company {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .footer-address {
+            font-size: 14px;
+        }
+
+        .footer-right {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-right > p:first-child {
+            font-size: 14px;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .footer-info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .footer-tel {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 12px 0;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 20px;
+            opacity: 0.8;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-cta-bar a {
+            flex: 1;
+            text-align: center;
+            padding: 16px;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cta-tel {
+            background-color: var(--white);
+            color: var(--secondary-color);
+        }
+
+        .cta-contact {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+            .header-nav ul {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 54px; /* Space for mobile CTA */
+            }
+
+            .header-top {
+                padding: 12px 16px;
+            }
+
+            .logo {
+                height: 32px;
+            }
+
+            .header-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .header-nav.active {
+                display: block;
+            }
+
+            .header-nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+            }
+
+            .header-nav a {
+                display: block;
+                padding: 16px 20px;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+
+            .hero {
+                height: auto;
+                padding: 60px 0;
+            }
+
+            .hero-content {
+                padding: 30px 20px;
+            }
+
+            .hero h1 {
+                font-size: 22px;
+            }
+
+            .section-padding {
+                padding: 50px 0;
+            }
+
+            .office-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="logo-area">
+                <p class="subhead">群馬県太田市の税理士・会計事務所　大島会計</p>
+                <a href="index.php">
+                    <img src="https://oshima-kaikei.net/images/logo.png" alt="大島昭浩税理士事務所・大島晴恵労務管理事務所" class="logo">
+                </a>
+            </div>
+            <div class="header-contact desktop-only">
+                <a href="tel:0276-46-3649" class="tel-link">0276-46-3649</a>
+                <a href="contact.php" class="btn btn-primary">お問い合わせ・ご相談</a>
+            </div>
+            <button class="hamburger mobile-only" aria-label="メニューを開く" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="header-nav" id="mobile-nav">
+            <ul class="container">
+                <li><a href="index.php">ホーム</a></li>
+                <li><a href="service.php">業務サービス</a></li>
+                <li><a href="charge.php">料金表</a></li>
+                <li><a href="company.php">事務所紹介</a></li>
+                <li><a href="faq.php">よくある質問</a></li>
+                <li><a href="contact.php">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>大島昭浩税理士事務所<br>大島晴恵労務管理事務所</h1>
+                    <p>税務会計・労務管理のプロフェッショナルが、<br>あなたのビジネスをサポートします。</p>
+                    <a href="contact.php" class="btn btn-primary">まずはお気軽にご相談ください</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services section-padding">
+            <div class="container">
+                <div class="service-grid">
+                    <!-- Card 1 -->
+                    <div class="service-card">
+                        <div class="card-header">税務会計顧問</div>
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="税務会計顧問">
+                        <div class="card-body">
+                            <a href="service.php#Aa" class="btn btn-secondary">詳しく見る</a>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="service-card">
+                        <div class="card-header">労務管理顧問</div>
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="労務管理顧問">
+                        <div class="card-body">
+                            <a href="service.php#Ab" class="btn btn-secondary">詳しく見る</a>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="service-card">
+                        <div class="card-header">新規開業サポート</div>
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="新規開業サポート">
+                        <div class="card-body">
+                            <a href="service.php#Ac" class="btn btn-secondary">詳しく見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq section-padding">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="en-title">Friendly</span>
+                    <h2>FAQ</h2>
+                    <p>あなたの疑問や不安に、いつでもお答えいたします。お気軽にご相談ください。</p>
+                </div>
+                
+                <div class="faq-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="相談シーン">
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>経理のことがまったくわからないのですが大丈夫ですか？</summary>
+                        <div class="faq-answer">
+                            <p>経理事務に不慣れなお客様であっても大丈夫です。必要な資料をお預けいただくだけで、帳簿の作成から確定申告などの税務手続まですべて当事務所で行います。</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="office-info section-padding">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="en-title">Office Info</span>
+                    <h2>Office Info</h2>
+                </div>
+                <div class="office-grid">
+                    <!-- Card 1 -->
+                    <div class="office-card tax-card">
+                        <div class="card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="大島昭浩税理士事務所">
+                        </div>
+                        <div class="office-card-content">
+                            <h3>大島昭浩税理士事務所</h3>
+                            <p>会社を経営していくうえでの悩み、いろいろあると思いますが、その中でも「経理事務」に悩みを感じる経営者の方は多いのではないでしょうか？</p>
+                            <a href="company.php#Zeimu" class="btn btn-white text-tax">詳しく見る</a>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="office-card labor-card">
+                        <div class="card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="大島晴恵労務管理事務所">
+                        </div>
+                        <div class="office-card-content">
+                            <h3>大島晴恵労務管理事務所</h3>
+                            <p>・就業規則の作り方がわからない。<br>・社会保険の手続きの仕方が分からない。<br>等々、ご相談下さい。</p>
+                            <a href="company.php#Romu" class="btn btn-white text-labor">詳しく見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="news-banner">
+            <div class="container">
+                <p>メール、電話、郵便などを使った税務会計顧問も行っています。</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <p class="footer-company">大島昭浩税理士事務所・大島晴恵労務管理事務所</p>
+                    <p class="footer-address">群馬県太田市石原町566-1</p>
+                </div>
+                <div class="footer-right">
+                    <p>問い合わせ</p>
+                    <div class="footer-info-item">
+                        <span>📍</span> 群馬県太田市石原町566-1
+                    </div>
+                    <div class="footer-info-item footer-tel">
+                        <span>📞</span> 0276-46-3649
+                    </div>
+                    <div class="footer-info-item">
+                        FAX : 0276-48-7790
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright &copy; . 大島昭浩税理士事務所　大島晴恵労務管理事務所. All Right Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-cta-bar mobile-only">
+        <a href="tel:0276-46-3649" class="cta-tel">📞 0276-46-3649</a>
+        <a href="contact.php" class="cta-contact">お問い合わせ・ご相談</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            menuToggle.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>茂木真和税理士事務所 | 群馬県太田市の税理士</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B4F8A;
+            --secondary: #2E7D96;
+            --bg: #F7F9FC;
+            --text: #2C3E50;
+            --accent: #C9953C;
+            --white: #FFFFFF;
+            --footer-bg: #1B2A4A;
+            --gray-light: #E2E8F0;
+            --gray-text: #64748B;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #123863;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: #205a6d;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-accent:hover {
+            background-color: #a87b30;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 5%;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .header-actions {
+            display: none;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--primary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Mobile Nav Overlay */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease-in-out;
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+
+        .mobile-nav ul {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-nav li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-nav a {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .mobile-nav .header-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 80%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background-image: linear-gradient(rgba(27,79,138,0.7), rgba(27,79,138,0.85)), url('https://www.motegi-tax.com/wp-content/themes/motegiTax/img/front_mainVIs-bg01.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px; /* Offset for header */
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .service-card-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .service-card-body {
+            padding: 2rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid var(--gray-light);
+        }
+
+        .service-card .btn {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        /* Private Bank Section */
+        .private-bank {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem auto;
+            box-shadow: 0 15px 30px rgba(46, 125, 150, 0.2);
+        }
+
+        .private-bank h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .private-bank h2::after {
+            background-color: var(--accent);
+        }
+
+        .private-bank p {
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .pricing-header {
+            background-color: var(--bg);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-light);
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .pricing-body {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pricing-label {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .pricing-amount span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .pricing-notes {
+            font-size: 0.8rem;
+            color: var(--gray-text);
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--gray-light);
+        }
+
+        .pricing-notes li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .pricing-notes li::before {
+            content: '※';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Company Info Section */
+        .company-info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .info-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--gray-light);
+        }
+
+        .info-box h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 0.5rem;
+        }
+
+        .mtc-group-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .mtc-group-list a {
+            color: var(--text);
+            display: flex;
+            align-items: center;
+        }
+
+        .mtc-group-list a::before {
+            content: '▸';
+            color: var(--secondary);
+            margin-right: 8px;
+        }
+
+        .mtc-group-list a:hover {
+            color: var(--primary);
+        }
+
+        .ma-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .ma-link a {
+            display: inline-block;
+            padding: 15px 30px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 4px;
+            background: var(--white);
+            font-weight: 500;
+        }
+
+        .ma-link a:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1); /* Make logo white */
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-tel {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            display: block;
+        }
+
+        .footer-nav-group h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        .footer-nav-group ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-nav-group a {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .footer-nav-group a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Desktop Media Queries */
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                font-weight: 500;
+                color: var(--text);
+            }
+
+            .nav-links a:hover {
+                color: var(--primary);
+            }
+
+            .header-actions {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .header-actions .btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .about-content {
+                flex-direction: row;
+                align-items: center;
+                padding: 3rem;
+            }
+
+            .about-text {
+                flex: 1;
+                padding-right: 2rem;
+            }
+
+            .about-image {
+                flex: 1;
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .company-info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="https://www.motegi-tax.com/wp-content/themes/motegiTax/img/siteHeader-logo.png" alt="茂木真和税理士事務所">
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#services">相続</a>
+                <a href="#services">財産コンサル</a>
+                <a href="#services">MTC</a>
+                <a href="#company-info">インフォメーション</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://www.motegi-tax.com/contact" class="btn btn-primary">お問い合わせ [WEB]</a>
+                <a href="tel:0276-60-5500" class="btn btn-accent">お問い合わせ [TEL]</a>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="#services" class="mobile-link">相続</a></li>
+            <li><a href="#services" class="mobile-link">財産コンサル</a></li>
+            <li><a href="#services" class="mobile-link">MTC</a></li>
+            <li><a href="#company-info" class="mobile-link">インフォメーション</a></li>
+        </ul>
+        <div class="header-actions" style="display: flex;">
+            <a href="https://www.motegi-tax.com/contact" class="btn btn-primary">お問い合わせ [WEB]</a>
+            <a href="tel:0276-60-5500" class="btn btn-accent">お問い合わせ [TEL]</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>全力でお客様のチカラになります</h1>
+                <p>群馬県太田市の茂木真和税理士事務所 — 相続・財産コンサル・企業経営の総合支援</p>
+                <a href="https://www.motegi-tax.com/contact" class="btn btn-accent" style="font-size: 1.1rem; padding: 15px 40px;">お問い合わせ</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title">事業内容</h2>
+                <div class="services-grid">
+                    
+                    <!-- Card 1 -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>相続</h3>
+                            <p>相続に関するご相談を承りますのでお気軽にご相談下さい。</p>
+                        </div>
+                        <div class="service-card-body">
+                            <div class="service-tags">
+                                <span class="tag">相続人</span>
+                                <span class="tag">相続財産</span>
+                                <span class="tag">遺言</span>
+                                <span class="tag">遺産分割協議</span>
+                                <span class="tag">名義変更</span>
+                                <span class="tag">贈与</span>
+                            </div>
+                            <a href="https://www.motegi-tax.com/inheritance-index" class="btn btn-secondary">詳しく見る</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>財産コンサル</h3>
+                            <p>財産にかかわる様々な事は弊社にお任せください。ワンストップで対応させていただきます。</p>
+                        </div>
+                        <div class="service-card-body">
+                            <div class="service-tags">
+                                <span class="tag">財産コンサル</span>
+                                <span class="tag">生前贈与</span>
+                            </div>
+                            <a href="https://www.motegi-tax.com/private-bank" class="btn btn-secondary">詳しく見る</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>MTC</h3>
+                            <p>MTCグループはすべてのステージでお客様をご支援できる準備を整えています。</p>
+                        </div>
+                        <div class="service-card-body">
+                            <div class="service-tags">
+                                <span class="tag">茂木真和税理士事務所</span>
+                                <span class="tag">モテギ・ビジネス・クリエイション</span>
+                                <span class="tag">エム・ビー・シー</span>
+                                <span class="tag">株式会社 財産ネットワーク茂木</span>
+                            </div>
+                            <a href="https://www.motegi-tax.com/office" class="btn btn-secondary">詳しく見る</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">事務所案内</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>群馬県太田市にあります茂木真和税理士事務所は群馬県を中心に法人、個人の財務から申告までを総合的にサポートさせていただいております。相続、相続税に関してのご相談、ご依頼も承ります。</p>
+                        <p>茂木真和税理士事務所はMTC（モテギ・タックス・コンサルタンツオフィス）グループの1つであり、MTCは財務税務、システムコンサルティング、不動産コンサルティング、宅地建物取引業など幅広く企業経営の総合支援をしております。</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://www.motegi-tax.com/wp-content/themes/motegiTax/img/front_info-company.png" alt="茂木真和税理士事務所 外観">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Private Bank Section -->
+        <section id="private-bank" class="container">
+            <div class="private-bank">
+                <h2>PRIVATE BANK<br><span style="font-size: 1.2rem; font-weight: normal;">【財産コンサル】</span></h2>
+                <p>土地やマンションなど建物の評価を再度見直すことでより良い運用方法をご提案致します。プライベートバンクとして、お客様の資産をコンサルティング致します。</p>
+                <a href="https://www.motegi-tax.com/private-bank" class="btn btn-outline">資産見直しはコチラ</a>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title">料金のご案内</h2>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">法人のお客様</div>
+                        <div class="pricing-body">
+                            <div class="pricing-label">顧問料</div>
+                            <div class="pricing-amount">30,000<span>円（税抜）〜</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-header" style="background-color: #E0F2F1;">個人のお客様（事業所得）</div>
+                        <div class="pricing-body">
+                            <div class="pricing-label">顧問料</div>
+                            <div class="pricing-amount">20,000<span>円（税抜）〜</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="pricing-notes">
+                    <li>売上や資産規模その他の条件に応じて報酬規定は異なります。上記の金額は目安としてご参考ください。</li>
+                    <li>お客様と面談を行い、ご納得いただいてからの契約となりますので、どうぞご安心ください。</li>
+                    <li>料金に関するご質問がございましたらお問合せください。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Company Info Section -->
+        <section id="company-info" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">インフォメーション</h2>
+                
+                <div class="company-info-grid">
+                    <div class="info-box">
+                        <h3>所在地</h3>
+                        <p>〒373-0852<br>群馬県太田市新井町561-1</p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-text);">MTCは茂木真和税理士事務所をはじめ、会社設立支援、相続税に関するご相談や各種コンサルティング業務を執り行い、企業経営の総合支援を行っております。</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>MTCグループ案内</h3>
+                        <ul class="mtc-group-list">
+                            <li><a href="https://www.motegi-tax.com/office#mtc1">茂木真和税理士事務所</a></li>
+                            <li><a href="https://www.motegi-tax.com/office#mtc2">モテギ・ビジネス・クリエイション</a></li>
+                            <li><a href="https://www.motegi-tax.com/office#mtc3">エム・ビー・シー</a></li>
+                            <li><a href="https://www.motegi-tax.com/office#mtc4">財産ネットワークス茂木</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ma-link">
+                    <a href="https://www.motegi-tax.com/wp-content/uploads/2023/09/ma_guideline.pdf" target="_blank" rel="noopener noreferrer">中小 M&A ガイドライン遵守に関する補足説明資料 (PDF)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">
+                        <img src="https://www.motegi-tax.com/wp-content/themes/motegiTax/img/siteHeader-logo.png" alt="茂木真和税理士事務所">
+                    </a>
+                    <div class="footer-contact">
+                        <p>〒373-0852 群馬県太田市新井町561-1</p>
+                        <a href="tel:0276-60-5500" class="footer-tel">TEL.0276-60-5500</a>
+                        <a href="https://www.motegi-tax.com/contact" class="btn btn-outline" style="margin-top: 1rem; width: 100%;">お問い合わせ [WEB]</a>
+                    </div>
+                </div>
+
+                <div class="footer-nav-group">
+                    <h4>サービス</h4>
+                    <ul>
+                        <li><a href="https://www.motegi-tax.com/inheritance-index">相続</a></li>
+                        <li><a href="https://www.motegi-tax.com/private-bank">財産コンサル</a></li>
+                        <li><a href="https://www.motegi-tax.com/office">MTCグループ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav-group">
+                    <h4>事務所案内</h4>
+                    <ul>
+                        <li><a href="https://www.motegi-tax.com/office">事務所案内・代表ご挨拶</a></li>
+                        <li><a href="https://www.motegi-tax.com/contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav-group">
+                    <h4>その他</h4>
+                    <ul>
+                        <li><a href="#">ホーム</a></li>
+                        <li><a href="#">サイトマップ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                COPYRIGHT(C)2020 茂木真和税理士事務所 ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                mobileNav.classList.toggle('active');
+                // Simple animation for hamburger icon
+                const spans = menuBtn.querySelectorAll('span');
+                if (mobileNav.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -8px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            }
+
+            menuBtn.addEventListener('click', toggleMenu);
+
+            // Close menu when a link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileNav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
