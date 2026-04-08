@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      if(!new URLSearchParams(location.search).has('preview')){gtag('config','G-7D6G7DTDPP');}
+    </script>
+    <title>原卓税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B3A5C;
+            --secondary: #4A90D9;
+            --bg: #F5F7FA;
+            --text: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --border: #E0E5EC;
+            --section-padding: 100px 0;
+            --container-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            line-height: 1.8;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            background-color: var(--secondary);
+            color: var(--white);
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #3a7bc2;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            color: var(--white);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-phone {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--white);
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(27, 58, 92, 0.7), rgba(27, 58, 92, 0.7)), url('images/cover_img_original.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding-top: 80px; /* Offset for header */
+        }
+
+        .hero-content {
+            color: var(--white);
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* Services */
+        .services {
+            padding: var(--section-padding);
+            background-color: var(--bg);
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 16px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px;
+            color: var(--secondary);
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Strengths */
+        .strengths {
+            padding: var(--section-padding);
+            background-color: var(--white);
+        }
+
+        .strengths-flex {
+            display: flex;
+            align-items: flex-start;
+            gap: 60px;
+        }
+
+        .strengths-img {
+            flex: 1;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .strengths-content {
+            flex: 1;
+        }
+
+        .strengths-text {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .rep-img {
+            max-width: 300px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .cta-phone {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .cta-hours {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Office Info */
+        .office-info {
+            padding: var(--section-padding);
+            background-color: var(--bg);
+        }
+
+        .office-flex {
+            display: flex;
+            gap: 60px;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .office-details {
+            flex: 1;
+        }
+
+        .office-details h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .info-label {
+            width: 100px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .info-value {
+            flex: 1;
+        }
+
+        .office-map {
+            flex: 1;
+        }
+
+        .office-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #11243A;
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-nav {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 40px;
+        }
+
+        .footer-nav a {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .footer-nav a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Mobile Sticky CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .mobile-cta-phone {
+            background-color: var(--primary);
+        }
+
+        .mobile-cta-mail {
+            background-color: var(--secondary);
+        }
+
+        .mobile-cta svg {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 4px;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background-color: var(--primary);
+            padding: 40px 20px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 998;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+
+        .mobile-menu a {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .strengths-flex, .office-flex {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 60px 0;
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .strengths-flex {
+                flex-direction: column;
+            }
+
+            .office-flex {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+
+            .cta-phone {
+                font-size: 28px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+
+            .mobile-cta {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 60px; /* Space for sticky CTA */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">原卓税理士事務所</div>
+            <div class="nav-desktop">
+                <ul class="nav-links">
+                    <li><a href="#top">トップページ</a></li>
+                    <li><a href="#services">業務案内</a></li>
+                    <li><a href="#office">事務所概要</a></li>
+                </ul>
+                <div class="header-contact">
+                    <span class="header-phone">TEL 0463-73-6740</span>
+                    <a href="http://www.h-cpta.com/contact.html" class="btn">お問い合わせ</a>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#top" class="mobile-link">トップページ</a></li>
+            <li><a href="#services" class="mobile-link">業務案内</a></li>
+            <li><a href="#office" class="mobile-link">事務所概要</a></li>
+            <li><a href="http://www.h-cpta.com/contact.html" class="mobile-link">お問い合わせ</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero -->
+    <section id="top" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>原卓税理士事務所</h1>
+                <p style="font-size: 20px; margin-bottom: 30px; opacity: 0.95; line-height: 1.8;">私どもは、平塚市に事務所をもつ税務会計事務所です。代表である税理士は大磯町在住であり、平塚税務署管轄の地域を中心に仕事をさせていただいております。会社経営、税金、法人・個人の資産運用管理、相続対策など、ぜひとも当事務所にご相談ください。</p>
+                <a href="http://www.h-cpta.com/contact.html" class="btn">お問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">業務案内</h2>
+            <p class="services-intro">記帳指導から、給与計算・税務申告・相続・起業相談・経営相談・保険の販売、会計ソフト導入、ＩＴ化の相談まで幅広く業務を行っております。個人の方・法人の方 まずはご相談下さい。</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    <h3>記帳指導</h3>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <h3>経営支援</h3>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <h3>税務申告</h3>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <h3>相続相談</h3>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="14.01"></line><line x1="12" y1="14" x2="12" y2="14.01"></line><line x1="8" y1="14" x2="8" y2="14.01"></line><line x1="16" y1="10" x2="16" y2="10.01"></line><line x1="12" y1="10" x2="12" y2="10.01"></line><line x1="8" y1="10" x2="8" y2="10.01"></line><line x1="16" y1="18" x2="16" y2="18.01"></line><line x1="12" y1="18" x2="12" y2="18.01"></line><line x1="8" y1="18" x2="8" y2="18.01"></line></svg>
+                    <h3>給与計算</h3>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <h3>起業支援</h3>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>
+                    <h3>ＩＴ支援業務</h3>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line></svg>
+                    <h3>電子申告</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strengths -->
+    <section class="strengths">
+        <div class="container">
+            <h2 class="section-title">事務所の強み</h2>
+            <div class="strengths-flex">
+                <div class="strengths-img">
+                    <img src="images/org_contentimg2_0.png" alt="事務所外観">
+                </div>
+                <div class="strengths-content">
+                    <p class="strengths-text">
+                        当事務所は祖父が開業して以来７０年以上にわたって税務会計事務所を運営しております。現在は、その経験をもとに積極的なＩＴ化等の新たな力を活かした税務会計事務所へと変わりました。<br>
+                        また、自社サーバーを活用して、川崎・横浜や東京の方々とも仕事をさせていただいておりますので、近隣の方々に限らず、遠方の方々も、ぜひご相談ください。
+                    </p>
+                    <img src="images/org_contentimg0_2.png" alt="代表 原卓" class="rep-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <div class="cta-phone">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                TEL 0463-73-6740
+            </div>
+            <p class="cta-hours">（受付時間：月曜日〜金曜日 9:00〜17:00）</p>
+            <a href="http://www.h-cpta.com/contact.html" class="btn">お問い合わせ</a>
+        </div>
+    </section>
+
+    <!-- Office Info -->
+    <section id="office" class="office-info">
+        <div class="container">
+            <h2 class="section-title">事務所概要</h2>
+            <div class="office-flex">
+                <div class="office-details">
+                    <h3>原卓税理士事務所</h3>
+                    <div class="info-row">
+                        <div class="info-label">所在地</div>
+                        <div class="info-value">〒254-0074<br>神奈川県平塚市大原３番４１号</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">連絡先</div>
+                        <div class="info-value">TEL 0463-73-6740</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">代表税理士</div>
+                        <div class="info-value">原　卓<br>（税理士登録番号第101444号）</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">所属税理士</div>
+                        <div class="info-value">下田　こず絵</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">所員数</div>
+                        <div class="info-value">１０名</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">所属団体</div>
+                        <div class="info-value">東京地方税理士会　平塚支部</div>
+                    </div>
+                </div>
+                <div class="office-map">
+                    <img src="images/org_contentimg2_1.png" alt="アクセスマップ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-info">
+                <h4>原卓税理士事務所</h4>
+                <p>〒254-0074 神奈川県平塚市大原３番４１号</p>
+                <p>TEL 0463-73-6740</p>
+            </div>
+            <div class="footer-nav">
+                <a href="#top">トップページ</a>
+                <a href="#services">業務案内</a>
+                <a href="#office">事務所概要</a>
+                <a href="http://www.h-cpta.com/contact.html">お問い合わせ</a>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright(c) 原卓税理士事務所 All Right Reserved.
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-cta">
+        <a href="tel:0463-73-6740" class="mobile-cta-phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            電話する
+        </a>
+        <a href="http://www.h-cpta.com/contact.html" class="mobile-cta-mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            お問い合わせ
+        </a>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            // Animate hamburger lines
+            const spans = hamburger.querySelectorAll('span');
+            if (mobileMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Close menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const spans = hamburger.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
