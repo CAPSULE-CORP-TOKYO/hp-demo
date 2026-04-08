@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相続税専門税理士 富山広道 【想う相続税理士】</title>
+    <meta name="description" content="せっかく費用を払うなら、相続税の申告は、相続税専門税理士にお任せください。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ========================================
+           Variables & Reset
+           ======================================== */
+        :root {
+            --primary-blue: #004b87;
+            --primary-blue-dark: #003366;
+            --accent-teal: #2e8b57;
+            --accent-teal-hover: #236b43;
+            --bg-light: #f8f9fa;
+            --text-main: #333333;
+            --text-light: #ffffff;
+            --font-family: 'Noto Sans JP', sans-serif;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--text-main);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-teal);
+            margin: 10px auto 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-white {
+            background-color: var(--text-light);
+            color: var(--primary-blue);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-white:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-teal {
+            background-color: var(--accent-teal);
+            color: var(--text-light);
+            box-shadow: 0 4px 6px rgba(46, 139, 87, 0.3);
+        }
+
+        .btn-teal:hover {
+            background-color: var(--accent-teal-hover);
+        }
+
+        /* ========================================
+           Header
+           ======================================== */
+        header {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: none; /* Hidden on mobile */
+        }
+
+        .nav-links ul {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-blue-dark);
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (min-width: 992px) {
+            .mobile-menu-btn { display: none; }
+            .nav-links { display: block; }
+            .logo { font-size: 1.5rem; flex-direction: row; align-items: baseline; gap: 10px;}
+            .logo span { font-size: 1.2rem; }
+        }
+
+        /* ========================================
+           Hero Section
+           ======================================== */
+        .hero {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 40px 0 0 0;
+            overflow: hidden;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .hero-content {
+            padding-bottom: 40px;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+
+        .hero-features {
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .hero-features p {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-features i {
+            color: var(--accent-teal);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .hero-buttons .btn {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .hero-buttons .btn small {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .hero-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
+        }
+
+        @media (min-width: 768px) {
+            .hero { padding: 60px 0; }
+            .hero-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+            .hero-content { flex: 1; padding-bottom: 0; }
+            .hero-image { flex: 1; justify-content: flex-end; }
+            .hero-image img { max-width: 90%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+            .hero-title { font-size: 2.8rem; }
+            .hero-subtitle { font-size: 1.5rem; }
+            .hero-buttons { flex-direction: row; }
+            .hero-buttons .btn { width: auto; min-width: 220px; }
+        }
+
+        /* ========================================
+           Testimonials (お客様の声)
+           ======================================== */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 40px 30px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            text-align: center;
+        }
+
+        .card-avatar {
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            border: 3px solid var(--bg-light);
+        }
+
+        .card-quote {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .card-author {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (min-width: 768px) {
+            .cards-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* ========================================
+           Features
+           ======================================== */
+        .features {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-teal);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .feature-desc {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* ========================================
+           Service Flow
+           ======================================== */
+        .flow {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-teal);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            z-index: 2;
+        }
+
+        .step-text {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Connecting lines for mobile (vertical) */
+        .flow-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background-color: #ccc;
+            z-index: 1;
+        }
+
+        @media (min-width: 768px) {
+            .flow-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            
+            .flow-step {
+                flex: 1;
+            }
+
+            /* Connecting lines for desktop (horizontal) */
+            .flow-step:not(:last-child)::after {
+                top: 25px;
+                left: 50%;
+                width: 100%;
+                height: 2px;
+                transform: none;
+            }
+        }
+
+        /* ========================================
+           Why Choose Us
+           ======================================== */
+        .why-choose-us {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .reasons-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .reasons-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: var(--bg-light);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .reasons-list li i {
+            color: var(--accent-teal);
+            margin-top: 3px;
+            font-size: 1.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .reasons-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        /* ========================================
+           Bottom CTA
+           ======================================== */
+        .bottom-cta {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 60px 0;
+        }
+
+        .cta-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .cta-text h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-text p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .cta-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+            .cta-buttons {
+                flex-direction: row;
+                width: auto;
+                max-width: none;
+            }
+        }
+
+        /* ========================================
+           Footer
+           ======================================== */
+        footer {
+            background-color: var(--bg-light);
+            padding: 60px 0 20px;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .footer-logo span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-main);
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .footer-links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .footer-links a::before {
+            content: '•';
+            color: var(--accent-teal);
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .search-box {
+            display: flex;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--primary-blue);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        @media (min-width: 768px) {
+            .footer-inner {
+                grid-template-columns: 1fr 2fr 1fr;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>想う相続税理士</span>
+                相続税専門税理士 富山広道
+            </a>
+            
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-comments"></i> お客様の声</a></li>
+                    <li><a href="#"><i class="fa-solid fa-user"></i> 私のこと</a></li>
+                    <li><a href="#"><i class="fa-solid fa-building"></i> 事務所案内</a></li>
+                    <li><a href="#"><i class="fa-solid fa-yen-sign"></i> サービスと料金</a></li>
+                    <li><a href="https://www.hiromichi-tax.com/contact/"><i class="fa-solid fa-envelope"></i> お問い合わせ</a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-comments"></i> お客様の声</a></li>
+                <li><a href="#"><i class="fa-solid fa-user"></i> 私のこと</a></li>
+                <li><a href="#"><i class="fa-solid fa-building"></i> 事務所案内</a></li>
+                <li><a href="#"><i class="fa-solid fa-yen-sign"></i> サービスと料金</a></li>
+                <li><a href="https://www.hiromichi-tax.com/contact/"><i class="fa-solid fa-envelope"></i> お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <h2 class="hero-subtitle">相続税専門税理士<br>富山広道 【想う相続税理士】</h2>
+                <h1 class="hero-title">相続税専門税理士に<br>任せてスッキリ！</h1>
+                
+                <div class="hero-features">
+                    <p><i class="fa-solid fa-check"></i> 相続税専門税理士が直接対応</p>
+                    <p><i class="fa-solid fa-check"></i> 事前予約で土日祝日夜間対応可能</p>
+                    <p><i class="fa-solid fa-check"></i> 明確な料金体系＋スピード対応</p>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="https://www.hiromichi-tax.com/contact/" class="btn btn-white">
+                        <div>
+                            無料相談はこちら
+                            <small>(TELまたはメール)</small>
+                        </div>
+                    </a>
+                    <a href="#" class="btn btn-teal">サービスと料金</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://i0.wp.com/www.hiromichi-tax.com/wp-content/uploads/2019/05/%E6%83%B3%E3%81%86%E7%9B%B8%E7%B6%9A%E7%A8%8E%E7%90%86%E5%A3%AB2019052103.png?fit=680%2C390&ssl=1" alt="富山広道 税理士">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">お客様の声</h2>
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                    <p class="card-quote">「土地の評価が絡む複雑な相続にも対応」</p>
+                    <p class="card-author">（相続税申告のお客様 A様）</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-avatar"><i class="fa-solid fa-user-nurse"></i></div>
+                    <p class="card-quote">「親身になってくださり家族間の事まで相談できて以前から知っていたような感じでいろいろ話せました」</p>
+                    <p class="card-author">（相続税申告のお客様 B様）</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+                    <p class="card-quote">「メール、電話、面会で頻繁に不明点の確認や相談ができた」</p>
+                    <p class="card-author">（相続税申告のお客様 D様）</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="cards-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3 class="feature-title">直接対応</h3>
+                    <p class="feature-desc">担当税理士が直接、親身な支援、やりとり全てサービスを提供します。</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-people-arrows"></i></div>
+                    <h3 class="feature-title">柔軟な対応</h3>
+                    <p class="feature-desc">事前予約で土日祝日夜間対応可能、明確なことができます。</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <h3 class="feature-title">安心価格</h3>
+                    <p class="feature-desc">安心の価格設定で、確実なサービスを受けられます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Flow -->
+    <section class="flow">
+        <div class="container">
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">相談→面談</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">遺産プラン策定</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">書類取り寄せ<br>柔軟な対応</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">書類作成</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">安心価格<br>サービスと料金</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">弊事務所が選ばれる理由</h2>
+            <ul class="reasons-list">
+                <li><i class="fa-solid fa-circle-check"></i> 「土地の評価が絡む複雑な相続にも対応」</li>
+                <li><i class="fa-solid fa-circle-check"></i> 「すごく面倒で自分ではとてもできないと思った」</li>
+                <li><i class="fa-solid fa-circle-check"></i> 「親身になってくださり家族間の事まで相談」</li>
+                <li><i class="fa-solid fa-circle-check"></i> 「『相続税専門』と謳っているところやホームページの分かりやすい内容」</li>
+                <li><i class="fa-solid fa-circle-check"></i> 「安心予約、明確な料金体系＋スピード対応」</li>
+                <li><i class="fa-solid fa-circle-check"></i> 「ネットでは調べられないような事があり、個人で申告するにはハードルが高い」</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+        <div class="container cta-inner">
+            <div class="cta-text">
+                <h2>無料相談はこちら</h2>
+                <p>無料相談にてサービスをご連絡ください</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="https://www.hiromichi-tax.com/contact/" class="btn btn-teal">
+                    <div>
+                        無料相談はこちら<br>
+                        <small>(TELまたはメール)</small>
+                    </div>
+                </a>
+                <a href="#" class="btn btn-teal" style="background-color: #1e6b43;">サービスと料金</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    富山広道
+                    <span>【想う相続税理士】</span>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#">お客様の声</a>
+                    <a href="#">事務所案内</a>
+                    <a href="#">私のこと</a>
+                    <a href="#">サービスと料金</a>
+                    <a href="#">無料相談</a>
+                    <a href="#">安心価格</a>
+                </div>
+
+                <div class="footer-contact">
+                    <p style="font-weight: 700; margin-bottom: 5px;">お問い合わせ</p>
+                    <div class="search-box">
+                        <input type="text" placeholder="検索キーワード">
+                        <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 相続税専門税理士 All rights reserved. | Noto Sans JP
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal JS for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+
+            menuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                // Toggle icon between bars and times
+                const icon = this.querySelector('i');
+                if (mobileNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

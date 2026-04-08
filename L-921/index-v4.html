@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岩田会計事務所 | 栃木県小山市</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #046AB7;
+            --accent-color: #E59A74;
+            --bg-color: #FDF8F5;
+            --section-bg: #F5EFEA;
+            --text-color: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --border-radius-lg: 40px;
+            --border-radius-md: 16px;
+            --border-radius-sm: 8px;
+            --container-width: 1120px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--text-color);
+        }
+
+        .section-box {
+            background-color: var(--section-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 60px 40px;
+            margin: 0 20px;
+            max-width: calc(var(--container-width) - 40px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 40px;
+        }
+
+        .logo-text-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            color: var(--text-light);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .header-tel {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1;
+        }
+
+        .header-tel::before {
+            content: '📞';
+            font-size: 18px;
+            color: var(--accent-color);
+        }
+
+        .header-time {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .header-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .header-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        .nav {
+            border-top: 1px solid #eee;
+            background-color: var(--white);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 40px 20px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .hero-inner {
+            position: relative;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            aspect-ratio: 21 / 9;
+            display: flex;
+            align-items: center;
+            padding: 60px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.2) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .hero-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        /* Banner */
+        .banner-container {
+            padding: 0 20px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .banner {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: var(--border-radius-sm);
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(229, 154, 116, 0.3);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .feature-content {
+            padding: 30px 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.5;
+        }
+
+        /* Service */
+        .service-img-wrap {
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Office */
+        .office-main-img {
+            width: 100%;
+            border-radius: var(--border-radius-md);
+            margin-bottom: 40px;
+            aspect-ratio: 21 / 9;
+            object-fit: cover;
+        }
+
+        .office-greeting {
+            font-size: 16px;
+            line-height: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .office-info-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-md);
+            padding: 40px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .office-map {
+            flex: 1;
+            background-color: #eee;
+            border-radius: var(--border-radius-sm);
+            aspect-ratio: 4 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            overflow: hidden;
+        }
+
+        .office-details {
+            flex: 1;
+        }
+
+        .office-address {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Seekers */
+        .speech-bubbles {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bubble {
+            background-color: var(--white);
+            border: 2px solid var(--section-bg);
+            border-radius: 30px;
+            padding: 20px 40px;
+            position: relative;
+            width: fit-content;
+            max-width: 80%;
+            font-weight: 500;
+            color: var(--text-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .bubble:nth-child(odd) {
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .bubble:nth-child(even) {
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+            background-color: var(--section-bg);
+            border-color: var(--section-bg);
+        }
+
+        /* Recruit */
+        .recruit-inner {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .recruit-content {
+            flex: 1;
+        }
+
+        .recruit-subtitle {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        .recruit-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .recruit-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            padding: 15px 20px;
+            background-color: var(--white);
+            border-radius: var(--border-radius-sm);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .recruit-link:hover {
+            transform: translateX(5px);
+            color: var(--primary-color);
+        }
+
+        .recruit-link::before {
+            content: '▶';
+            color: var(--accent-color);
+            font-size: 12px;
+        }
+
+        .recruit-images {
+            flex: 1;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+        }
+
+        /* CTA Bottom */
+        .cta-bottom {
+            background: linear-gradient(135deg, #E59A74, #D47A54);
+            padding: 60px 20px;
+            text-align: center;
+            color: var(--white);
+            border-radius: var(--border-radius-lg);
+            margin: 0 20px 80px;
+            max-width: calc(var(--container-width) - 40px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .btn-tel {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-tel:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-form {
+            background-color: var(--white);
+            color: var(--accent-color);
+        }
+
+        .btn-form:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--white);
+            padding: 60px 20px 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            max-width: var(--container-width);
+            margin: 0 auto 40px;
+        }
+
+        .footer-info {
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 30px;
+        }
+
+        .footer-logo span {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .footer-address {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-tel {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .footer-fax {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .footer-nav-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-nav a {
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-light);
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+        }
+
+        .mobile-cta-btn {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            font-weight: 700;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--white);
+            color: var(--text-color);
+            border-right: 1px solid #eee;
+        }
+
+        .mobile-cta-tel span {
+            font-size: 16px;
+            color: var(--accent-color);
+        }
+
+        .mobile-cta-form {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .recruit-inner {
+                flex-direction: column;
+            }
+            .footer-inner {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-contact {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+            .nav.active {
+                display: block;
+            }
+            .nav-list {
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+            }
+            .nav-link {
+                display: block;
+                padding: 15px 20px;
+                border-bottom: 1px solid #eee;
+            }
+            .hero-inner {
+                aspect-ratio: auto;
+                padding: 40px 20px;
+            }
+            .hero-title {
+                font-size: 24px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-box, .cta-bottom {
+                margin: 0 16px;
+                border-radius: var(--border-radius-md);
+                padding: 40px 20px;
+                max-width: none;
+            }
+            .office-info-card {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .bubble {
+                max-width: 100%;
+            }
+            .cta-actions {
+                flex-direction: column;
+            }
+            .footer-nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .mobile-cta {
+                display: block;
+            }
+            body {
+                padding-bottom: 60px;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <a href="#" class="logo-area">
+                <img src="https://www.iwatakaikei.net/library/571e1ca120ece4165c0cc5bf/6886d8b2d5e98e66b077dc17.png" alt="岩田会計事務所ロゴ" class="logo-img">
+                <div class="logo-text-wrap">
+                    <span class="logo-sub">栃木県小山市の岩田会計事務所</span>
+                    <span class="logo-text">岩田会計事務所</span>
+                </div>
+            </a>
+            <div class="header-contact">
+                <div class="header-tel-wrap">
+                    <a href="tel:0285-28-6100" class="header-tel">0285-28-6100</a>
+                    <span class="header-time">受付時間：9:00〜17:00</span>
+                </div>
+                <a href="#" class="header-btn">お問い合わせ</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="nav" id="navMenu">
+            <ul class="nav-list">
+                <li><a href="#" class="nav-link">HOME</a></li>
+                <li><a href="#" class="nav-link">事務所案内</a></li>
+                <li><a href="#" class="nav-link">当事務所の特長</a></li>
+                <li><a href="#" class="nav-link">サービス案内</a></li>
+                <li><a href="#" class="nav-link">税理士をお探しの方へ</a></li>
+                <li><a href="#" class="nav-link">採用情報</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-inner">
+                <img src="https://www.iwatakaikei.net/library/571e1ca120ece4165c0cc5bf/68d4afaacafe8f78110a7707.png" alt="岩田会計事務所 外観" class="hero-bg">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">岩田会計事務所は、地域企業の良き相談相手として経営支援を行う会計事務所です。</h1>
+                    <p class="hero-text">税務・会計はもちろん、社会保険や建設業の届出など幅広く対応し、必要に応じて専門家とも連携しています。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner -->
+        <div class="banner-container">
+            <div class="banner">
+                <span>💡</span> 「年収の壁」見直しで、何が、どうなる？
+            </div>
+        </div>
+
+        <!-- Features -->
+        <section class="section">
+            <div class="section-box">
+                <h2 class="section-title">当事務所の特長</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="TKCシステムによる自計化支援" class="feature-img">
+                        <div class="feature-content">
+                            <h3 class="feature-title">TKCシステムによる自計化支援</h3>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="毎月の巡回監査と経営アドバイス" class="feature-img">
+                        <div class="feature-content">
+                            <h3 class="feature-title">毎月の巡回監査と経営アドバイス</h3>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="企業防衛制度で持続的な発展を支援" class="feature-img">
+                        <div class="feature-content">
+                            <h3 class="feature-title">企業防衛制度で持続的な発展を支援</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service -->
+        <section class="section container">
+            <h2 class="section-title">サービス案内</h2>
+            <div class="service-img-wrap">
+                <img src="https://www.iwatakaikei.net/library/571e1ca120ece4165c0cc5bf/68d4b1e0cafe8f78110a77ae.png" alt="サービス案内" style="width: 100%;">
+            </div>
+        </section>
+
+        <!-- Office -->
+        <section class="section">
+            <div class="section-box">
+                <h2 class="section-title">事務所案内</h2>
+                <img src="https://www.iwatakaikei.net/library/571e1ca120ece4165c0cc5bf/6886b36e2b0fbf0612e5065c.png" alt="事務所案内" class="office-main-img" style="margin-bottom: 24px;">
+                <img src="https://www.iwatakaikei.net/library/571e1ca120ece4165c0cc5bf/68d4b0c2fa258b241b06fede.png" alt="岩田会計事務所 スタッフ" class="office-main-img">
+                <p class="office-greeting">40年以上の経験を活かして、数字を軸に企業の経営を伴走支援し、地域社会の発展に貢献できる良きパートナーとして、黒字化と笑顔の経営を一緒に目指してまいります。</p>
+                
+                <div class="office-info-card">
+                    <div class="office-map">
+                        <!-- Google Maps iframe placeholder -->
+                        <div style="padding: 40px; text-align: center;">
+                            <span style="font-size: 32px;">📍</span><br>Map Area
+                        </div>
+                    </div>
+                    <div class="office-details">
+                        <p class="office-address">〒323-0820<br>栃木県小山市西城南3-7-20</p>
+                        <a href="#" class="header-btn" style="display: inline-block;">詳細を見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seekers -->
+        <section class="section container">
+            <h2 class="section-title">税理士をお探しの方へ</h2>
+            <div class="speech-bubbles">
+                <div class="bubble">顧問契約の流れ</div>
+                <div class="bubble">料金について</div>
+                <div class="bubble">よくある質問</div>
+                <div class="bubble">お客様の声</div>
+            </div>
+        </section>
+
+        <!-- Recruit -->
+        <section class="section container">
+            <h2 class="section-title">採用情報</h2>
+            <div class="recruit-inner">
+                <div class="recruit-content">
+                    <h3 class="recruit-subtitle">私たちと一緒に働きませんか</h3>
+                    <div class="recruit-links">
+                        <a href="#" class="recruit-link">スタッフインタビュー</a>
+                        <a href="#" class="recruit-link">監査担当者の一日</a>
+                        <a href="#" class="recruit-link">キャリアアップ</a>
+                        <a href="#" class="recruit-link">福利厚生</a>
+                        <a href="#" class="recruit-link">募集要項</a>
+                    </div>
+                </div>
+                <div class="recruit-images">
+                    <img src="https://www.iwatakaikei.net/library/571e1ca120ece4165c0cc5bf/68d4b34ecafe8f78110a77ce.png" alt="採用情報 写真">
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Bottom -->
+        <section class="cta-bottom">
+            <h2 class="cta-title">まずはお気軽にご相談ください</h2>
+            <div class="cta-actions">
+                <a href="tel:0285-28-6100" class="btn btn-tel">📞 0285-28-6100</a>
+                <a href="#" class="btn btn-form">お問い合わせフォーム ＞</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-info">
+                <a href="#" class="footer-logo">
+                    <img src="https://www.iwatakaikei.net/library/571e1ca120ece4165c0cc5bf/6886d8b2d5e98e66b077dc17.png" alt="岩田会計事務所ロゴ">
+                    <span>岩田会計事務所</span>
+                </a>
+                <p class="footer-address">〒323-0820 栃木県小山市西城南3-7-20</p>
+                <p class="footer-tel">TEL: 0285-28-6100</p>
+                <p class="footer-fax">FAX: 0285-28-6500</p>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-nav-col">
+                    <a href="#">HOME</a>
+                    <a href="#">事務所案内</a>
+                    <a href="#">サービス案内</a>
+                </div>
+                <div class="footer-nav-col">
+                    <a href="#">税理士をお探しの方へ</a>
+                    <a href="#">採用情報</a>
+                    <a href="#">個人情報保護方針</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright (c) 2026 Iwata accounting office All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <div class="mobile-cta-inner">
+            <a href="tel:0285-28-6100" class="mobile-cta-btn mobile-cta-tel">
+                お電話はこちら
+                <span>0285-28-6100</span>
+            </a>
+            <a href="#" class="mobile-cta-btn mobile-cta-form">
+                <span style="font-size: 20px; margin-bottom: 2px;">✉</span>
+                お問い合わせ
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

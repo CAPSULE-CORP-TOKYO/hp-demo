@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>磯島会計事務所 | 栃木県小山市の税理士事務所</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B4F72;
+            --primary-hover: #143b55;
+            --accent: #C69C3F;
+            --accent-hover: #b08a35;
+            --bg-light: #F8F9FA;
+            --bg-white: #FFFFFF;
+            --text-main: #2D2D2D;
+            --text-light: #666666;
+            --border-color: #E0E0E0;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            margin-top: 0;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg-white);
+            font-size: 1.1rem;
+            padding: 15px 40px;
+            box-shadow: 0 4px 10px rgba(198, 156, 63, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            border: 1px solid var(--primary);
+            padding: 10px 25px;
+            font-size: 0.95rem;
+            border-radius: 5px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        .header-cta {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .header-cta:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary);
+            /* Simulating the split image/color background from mockup */
+            background-image: linear-gradient(105deg, rgba(198, 156, 63, 0.95) 0%, rgba(198, 156, 63, 0.85) 45%, transparent 45%),
+                              linear-gradient(to right, #1B4F72, #2a75a3);
+            padding: 100px 0 180px;
+            color: var(--bg-white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-tagline {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Services Cards */
+        .services {
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 60px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        /* Main Content Split */
+        .content-split {
+            padding: 60px 0;
+            background-color: var(--bg-white);
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        /* News List */
+        .news-list li {
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            min-width: 100px;
+        }
+
+        .news-title {
+            font-weight: 500;
+        }
+
+        .news-title:hover {
+            color: var(--accent);
+        }
+
+        /* Banner */
+        .banner-box {
+            border: 2px solid var(--accent);
+            padding: 40px 20px;
+            text-align: center;
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 150px;
+        }
+
+        .banner-box h3 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        /* Additional Services */
+        .additional-services {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .service-item {
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .service-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .service-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Office Overview Table */
+        .office-overview {
+            padding: 60px 0 80px;
+            background-color: var(--bg-white);
+        }
+
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .overview-table th, .overview-table td {
+            padding: 18px 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .overview-table th {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            width: 30%;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .overview-table td {
+            background-color: var(--bg-white);
+        }
+
+        .overview-table tr:nth-child(even) td {
+            background-color: var(--bg-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a::before {
+            content: '›';
+            margin-right: 8px;
+            color: var(--accent);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .footer-contact p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .footer-contact .tel {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 15px;
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+                gap: 25px;
+            }
+
+            .nav-menu a {
+                font-size: 0.95rem;
+                font-weight: 500;
+                color: var(--text-main);
+            }
+
+            .nav-menu a:hover {
+                color: var(--accent);
+            }
+
+            .hero {
+                padding: 120px 0 200px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .split-grid {
+                grid-template-columns: 1.5fr 1fr;
+            }
+
+            .news-list li {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-icon">i</div>
+                磯島会計事務所
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#top">トップページ</a></li>
+                    <li><a href="#services">会社経理のご相談</a></li>
+                    <li><a href="#services">相続税申告のご相談</a></li>
+                    <li><a href="#price">料金について</a></li>
+                    <li><a href="#contact">お問合せ</a></li>
+                </ul>
+            </nav>
+            <a href="https://www.isojimakaikei.com/form/isojima/inquiry" class="header-cta">無料相談予約</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-tagline">栃木県小山市にある税理士事務所</div>
+                    <h1>お客様の未来を拓く、<br>信頼と実績のパートナー。<br>栃木県小山市の税理士事務所です。</h1>
+                    <a href="https://www.isojimakaikei.com/form/isojima/inquiry" class="btn btn-primary">お問合せはこちら</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <div class="card-grid">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="8" y="8" width="8" height="2"></rect>
+                            <rect x="8" y="12" width="8" height="2"></rect>
+                            <rect x="8" y="16" width="8" height="2"></rect>
+                        </svg>
+                        <h3>会社経理のご相談</h3>
+                        <p>法人・個人事業の月次巡回監査、決算事前対策及び申告業務。会計ソフトを活用した自計化支援業務。</p>
+                        <a href="#contact" class="btn-outline">詳しく見る</a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <h3>相続税申告のご相談</h3>
+                        <p>相続税・贈与税など資産税に関する税務相談及び申告業務。事業承継及び自社株対策。円満な相続と円滑な事業承継をご支援します。</p>
+                        <a href="#contact" class="btn-outline">詳しく見る</a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="card" id="price">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"></path>
+                            <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"></path>
+                        </svg>
+                        <h3>料金について</h3>
+                        <p>当事務所の料金体系をご案内しています。お客様のニーズに合わせた最適なプランをご提案します。</p>
+                        <a href="#contact" class="btn-outline">詳しく見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-split">
+            <div class="container split-grid">
+                <div class="news-section">
+                    <h2>最新情報</h2>
+                    <ul class="news-list">
+                        <li>
+                            <span class="news-date">2024-01-15</span>
+                            <a href="#" class="news-title">令和８年度税制改正大綱について</a>
+                        </li>
+                        <li>
+                            <span class="news-date">2023-12-01</span>
+                            <a href="#" class="news-title">電子帳簿保存法・インボイス最新情報</a>
+                        </li>
+                        <li>
+                            <span class="news-date">2023-10-20</span>
+                            <a href="#" class="news-title">年収の壁に関する解説を掲載しました</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="banner-section">
+                    <div class="banner-box">
+                        <h3>電子帳簿保存法・<br>インボイス制度</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="additional-services">
+            <div class="container">
+                <h2>その他の支援業務</h2>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h4>創業・開業支援</h4>
+                        <p>新規開業における経営相談、創業融資相談、創業計画策定支援。法人設立、許認可申請業務をサポートいたします。</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>リスクマネージメント</h4>
+                        <p>経営情報の提供、各種共済制度及び保険を活用した企業防衛に関するリスクマネージメント業務をご提案します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="office-overview" id="overview">
+            <div class="container">
+                <h2>事務所概要</h2>
+                <table class="overview-table">
+                    <tbody>
+                        <tr>
+                            <th>事務所名</th>
+                            <td>磯島会計事務所</td>
+                        </tr>
+                        <tr>
+                            <th>所長名</th>
+                            <td>税理士　磯島 貴司</td>
+                        </tr>
+                        <tr>
+                            <th>税理士登録番号</th>
+                            <td>101024</td>
+                        </tr>
+                        <tr>
+                            <th>税理士登録年月日</th>
+                            <td>2004/09/27</td>
+                        </tr>
+                        <tr>
+                            <th>住所</th>
+                            <td>〒323-0820<br>栃木県小山市西城南2丁目30番地37</td>
+                        </tr>
+                        <tr>
+                            <th>TEL</th>
+                            <td>0285-38-9407</td>
+                        </tr>
+                        <tr>
+                            <th>FAX</th>
+                            <td>0285-38-9408</td>
+                        </tr>
+                        <tr>
+                            <th>mail</th>
+                            <td><a href="mailto:isojimakaikei@tkcnf.or.jp">isojimakaikei@tkcnf.or.jp</a></td>
+                        </tr>
+                        <tr>
+                            <th>URL</th>
+                            <td><a href="https://www.isojimakaikei.com" target="_blank" rel="noopener noreferrer">https://www.isojimakaikei.com</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>サイトマップ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#top">トップページ</a></li>
+                        <li><a href="#services">会社経理のご相談</a></li>
+                        <li><a href="#services">相続税申告のご相談</a></li>
+                        <li><a href="#price">料金について</a></li>
+                        <li><a href="#overview">事務所概要</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>お問い合せ</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.isojimakaikei.com/form/isojima/inquiry">お問合せフォーム</a></li>
+                        <li><a href="#">採用情報</a></li>
+                        <li><a href="#">個人情報保護方針</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>お問い合わせ</h4>
+                    <p>〒323-0820<br>栃木県小山市西城南2丁目30番地37</p>
+                    <p class="tel">TEL: 0285-38-9407</p>
+                    <p>FAX: 0285-38-9408</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright (c) 2026 磯島会計事務所 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
