@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曹洞宗 青木山 本覚寺</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-main: #333333;
+            --color-accent: #d49a6a;
+            --color-bg: #f9f8f6;
+            --color-white: #ffffff;
+            --color-history-bg: #eef4f8;
+            --font-main: 'Noto Sans JP', sans-serif;
+            --container-width: 1000px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-main);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 40px;
+            letter-spacing: 0.05em;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--color-white);
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-top {
+            padding: 15px 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-tel {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .header-tel svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--color-main);
+        }
+
+        .header-bottom {
+            background-color: var(--color-main);
+        }
+
+        .global-nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        .global-nav li {
+            margin: 0 20px;
+        }
+
+        .global-nav a {
+            display: block;
+            color: var(--color-white);
+            padding: 15px 0;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .global-nav a:hover,
+        .global-nav a.active {
+            color: var(--color-accent);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--color-main);
+            margin-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .hamburger span:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 65%;
+            height: 100%;
+            background-image: url('http://www.hongakuzenji.jp/images/top/ph01.png');
+            background-size: cover;
+            background-position: center;
+            mask-image: linear-gradient(to right, transparent 0%, black 40%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero-content h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* History Section */
+        .history {
+            padding: 60px 0;
+        }
+
+        .history-card {
+            background-color: var(--color-history-bg);
+            border-radius: 20px;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .history-image {
+            width: 45%;
+        }
+
+        .history-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .history-content {
+            width: 55%;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .history-content h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .history-content p {
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 60px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service-card-body {
+            padding: 30px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-card-body h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .service-card-body p {
+            font-size: 14px;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            text-align: center;
+            font-size: 13px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* Access Section */
+        .access {
+            padding: 60px 0 100px;
+        }
+
+        .access-inner {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .access-map {
+            width: 55%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .access-map iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            display: block;
+        }
+
+        .access-info {
+            width: 45%;
+        }
+
+        .access-info h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .access-info p {
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .access-info .header-tel {
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-main);
+            color: var(--color-white);
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-nav a {
+            font-size: 13px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-nav a:hover {
+            opacity: 1;
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 0;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .mobile-cta .tel {
+            color: var(--color-main);
+            background-color: var(--color-white);
+        }
+
+        .mobile-cta .btn {
+            border-radius: 0;
+            padding: 15px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 24px;
+            }
+            .history-content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-contact {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .header-bottom {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: var(--color-main);
+                transition: right 0.3s ease;
+                z-index: 100;
+                padding-top: 80px;
+            }
+
+            .header-bottom.is-active {
+                right: 0;
+            }
+
+            .global-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .global-nav li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .global-nav a {
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero-bg {
+                width: 100%;
+                mask-image: linear-gradient(to bottom, transparent 0%, black 60%);
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 60%);
+                opacity: 0.3;
+            }
+
+            .hero .container {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 20px;
+            }
+
+            .history-card {
+                flex-direction: column;
+            }
+
+            .history-image, .history-content {
+                width: 100%;
+            }
+
+            .history-image img {
+                height: 250px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .access-inner {
+                flex-direction: column;
+            }
+
+            .access-map, .access-info {
+                width: 100%;
+            }
+
+            .access-info {
+                text-align: center;
+            }
+
+            .access-info .header-tel {
+                justify-content: center;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .mobile-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="http://www.hongakuzenji.jp/images/common/logo.png" alt="曹洞宗 青木山 本覚寺">
+                </a>
+                <div class="header-contact">
+                    <a href="tel:045-322-0191" class="header-tel">
+                        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                        045-322-0191
+                    </a>
+                    <a href="#" class="btn">お問い合わせ</a>
+                </div>
+                <button class="hamburger" id="js-hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div class="header-bottom" id="js-nav">
+            <div class="container">
+                <ul class="global-nav">
+                    <li><a href="#" class="active">ホーム</a></li>
+                    <li><a href="#">寺史</a></li>
+                    <li><a href="#">催し事</a></li>
+                    <li><a href="#">葬祭場</a></li>
+                    <li><a href="#">写真</a></li>
+                    <li><a href="#">地図と連絡先</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>約八百年の歳月を数えます。<br>本覚寺は1226年に開山されてのち、</h1>
+                    <a href="#" class="btn">お気軽にお問い合わせください</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="history">
+            <div class="container">
+                <div class="history-card">
+                    <div class="history-image">
+                        <img src="http://www.hongakuzenji.jp/images/top/ph01.png" alt="寺史">
+                    </div>
+                    <div class="history-content">
+                        <h2>寺史</h2>
+                        <p>本覺寺は1226年に開山されてのち、曹洞宗寺、葬祭場としての歴史を持ちます。横浜の高島台に位置し、地域の方々に親しまれてきました。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">葬祭場・催し事</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="http://www.hongakuzenji.jp/images/top/ph02.png" alt="葬祭場">
+                        <div class="service-card-body">
+                            <h3>葬祭場</h3>
+                            <p>本堂にあたり、葬祭の荘厳を満喫します。</p>
+                            <a href="#" class="btn">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="http://www.hongakuzenji.jp/images/common/ogimage.jpg" alt="催し事">
+                        <div class="service-card-body">
+                            <h3>催し事</h3>
+                            <p>法要回忌法要、樹木葬等、催してご提供をします。</p>
+                            <a href="#" class="btn">詳細を見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="container">
+                <h2 class="section-title">写真</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="http://www.hongakuzenji.jp/images/top/ph01.png" alt="写真1">
+                        <div class="gallery-caption">本堂</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="http://www.hongakuzenji.jp/images/top/ph02.png" alt="写真2">
+                        <div class="gallery-caption">木彫り</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="http://www.hongakuzenji.jp/images/top/ph03.png" alt="写真3">
+                        <div class="gallery-caption">写真</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="http://www.hongakuzenji.jp/images/top/ph04.png" alt="写真4">
+                        <div class="gallery-caption">本尊の像</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="access">
+            <div class="container">
+                <div class="access-inner">
+                    <div class="access-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.366558455644!2d139.6236813152533!3d35.47045898024391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185c13b1234567%3A0x89abcdef01234567!2z56We5aWI5bed55yM5qiq5rWc5biC56We5aWI5bed5Yy66auY5bO25Y-w77yR4oiS77yS!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="access-info">
+                        <h2>地図と連絡先</h2>
+                        <p>神奈川県横浜市神奈川区高島台１−２</p>
+                        <a href="tel:045-322-0191" class="header-tel">
+                            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                            045-322-0191
+                        </a>
+                        <a href="#" class="btn">お問い合わせ</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-copy">
+                SotoZen Hongaku-ji Since1226<br>
+                Copyright (c) Hongaku-ji All Rights Reserved.
+            </div>
+            <ul class="footer-nav">
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">寺史</a></li>
+                <li><a href="#">催し事</a></li>
+                <li><a href="#">葬祭場</a></li>
+                <li><a href="#">写真</a></li>
+                <li><a href="#">地図と連絡先</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="mobile-cta">
+        <div class="mobile-cta-inner">
+            <a href="tel:045-322-0191" class="tel">
+                <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: var(--color-main); margin-right: 8px;"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                045-322-0191
+            </a>
+            <a href="#" class="btn">お問い合わせ</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('js-hamburger');
+            const nav = document.getElementById('js-nav');
+
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('is-active');
+                
+                // ハンバーガーアイコンのアニメーション（簡易）
+                const spans = this.querySelectorAll('span');
+                if (nav.classList.contains('is-active')) {
+                    spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
