@@ -1,0 +1,745 @@
+提供された要件とリデザイン画像に基づき、単一のHTMLファイル（インラインCSS/JS含む）を作成しました。
+
+デザインの忠実な再現、指定されたカラーパレット（メインカラー `#6B3A7A`、アクセントのゴールド）、テキストインベントリの厳守、および画像マッピングを適用しています。
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>野毛山不動尊 横浜成田山</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #4A2554; /* ヘッダー上部、フッターなどの濃い紫 */
+            --color-secondary: #6B3A7A; /* メインカラー: ディープパープル */
+            --color-accent: #B89758; /* アクセント: ゴールド */
+            --color-accent-hover: #a3854d;
+            --color-bg-light: #F8F5F9; /* 薄い紫の背景 */
+            --color-text-main: #333333;
+            --color-text-light: #666666;
+            --color-white: #ffffff;
+            --font-main: 'Noto Sans JP', sans-serif;
+        }
+
+        /* Reset */
+        *, *::before, *::after { box-sizing: border-box; }
+        body, h1, h2, h3, h4, p, ul, figure { margin: 0; padding: 0; }
+        ul { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+        button { background: none; border: none; cursor: pointer; font: inherit; }
+
+        /* Base */
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            background-color: var(--color-bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Typography */
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--color-text-main);
+        }
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-accent);
+            margin: 12px auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 12px 32px;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: var(--color-accent-hover);
+        }
+
+        /* Header */
+        .header-top-bar {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        .header-top-bar a {
+            text-decoration: underline;
+            margin-left: 16px;
+        }
+        .header-main {
+            background-color: var(--color-white);
+            padding: 16px 0;
+            position: relative;
+        }
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--color-primary);
+        }
+        .header-logo img {
+            height: 40px;
+            width: auto;
+            /* IMG-01がバナー画像のため、ロゴとして適切に表示されるよう調整 */
+            object-fit: contain;
+        }
+        .header-contact {
+            display: none;
+            align-items: center;
+            gap: 24px;
+        }
+        .header-tel {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .header-tel::before {
+            content: '📞'; /* アイコン代用 */
+            font-size: 16px;
+        }
+        .header-nav {
+            background-color: var(--color-white);
+            border-top: 1px solid #eee;
+            display: none;
+        }
+        .header-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 16px 0;
+        }
+        .header-nav a {
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .header-nav a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: block;
+            width: 30px;
+            height: 24px;
+            position: relative;
+            z-index: 100;
+        }
+        .hamburger span {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-primary);
+            transition: all 0.3s;
+            left: 0;
+        }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger span:nth-child(3) { bottom: 0; }
+        .hamburger.is-active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+        .hamburger.is-active span:nth-child(2) { opacity: 0; }
+        .hamburger.is-active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+        /* Mobile Nav Drawer */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--color-white);
+            padding-top: 100px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 99;
+        }
+        .mobile-nav.is-active {
+            transform: translateX(0);
+        }
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        .mobile-nav a {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            background-image: url('https://yokohamanaritasan.jp/./images/pho_top1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 16px;
+            text-align: center;
+            color: var(--color-white);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(74, 37, 84, 0.6); /* 紫のオーバーレイ */
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .hero-bottom-bar {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 12px 16px;
+            font-size: 14px;
+        }
+
+        /* News */
+        .news {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 40px 0;
+        }
+        .news-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .news-title {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+        }
+        .news-title span {
+            font-size: 14px;
+            font-weight: 400;
+        }
+        .news-list {
+            flex: 1;
+        }
+        .news-list li {
+            display: flex;
+            flex-direction: column;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+        }
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+        .news-list time {
+            margin-bottom: 4px;
+            opacity: 0.8;
+        }
+
+        /* Prayers (Cards) */
+        .prayers {
+            padding: 60px 0;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        .card {
+            background-color: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            align-items: center;
+            text-align: center;
+        }
+        .card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .card p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 24px;
+            flex: 1;
+        }
+        .card .btn {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        /* Introductions */
+        .introductions {
+            padding: 60px 0;
+        }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .intro-item {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .intro-header {
+            margin-bottom: 8px;
+        }
+        .intro-en {
+            font-size: 14px;
+            color: var(--color-text-light);
+            letter-spacing: 0.1em;
+        }
+        .intro-ja {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        .intro-item img {
+            width: 100%;
+            border-radius: 8px;
+            height: 240px;
+            object-fit: cover;
+        }
+        .intro-text {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+        }
+
+        /* Events & Access */
+        .events-access {
+            background-color: var(--color-white);
+            padding: 60px 0;
+        }
+        .ea-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+        .ea-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .ea-title span {
+            display: block;
+            font-size: 14px;
+            color: var(--color-text-light);
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+        .events-list li {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        .events-list .date {
+            width: 80px;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        .events-list .desc {
+            flex: 1;
+        }
+        .access-info {
+            margin-top: 24px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .access-info p {
+            margin-bottom: 8px;
+        }
+        .access-map-placeholder {
+            width: 100%;
+            height: 240px;
+            background-color: #eee;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            margin-bottom: 24px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .footer-logo img {
+            height: 60px;
+            width: auto;
+        }
+        .footer-info {
+            font-size: 14px;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .footer-copy {
+            font-size: 12px;
+            opacity: 0.6;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            z-index: 100;
+        }
+        .mobile-cta a {
+            flex: 1;
+            text-align: center;
+            padding: 16px 0;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .mobile-cta .cta-tel {
+            color: var(--color-primary);
+            border-right: 1px solid #eee;
+        }
+        .mobile-cta .cta-btn {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .header-contact { display: flex; }
+            .hamburger { display: none; }
+            .header-nav { display: block; }
+            .mobile-nav { display: none; }
+            .mobile-cta { display: none; }
+            
+            .hero { padding: 120px 16px; }
+            .hero h2 { font-size: 48px; }
+            .hero p { font-size: 24px; }
+
+            .news-inner { flex-direction: row; align-items: center; gap: 60px; }
+            .news-title { text-align: left; border-right: 1px solid rgba(255,255,255,0.2); padding-right: 60px; }
+            .news-list li { flex-direction: row; gap: 24px; align-items: center; }
+            .news-list time { margin-bottom: 0; width: 100px; }
+
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+            .intro-grid { grid-template-columns: repeat(2, 1fr); gap: 60px; }
+            .ea-grid { grid-template-columns: repeat(2, 1fr); }
+            .ea-title { text-align: left; }
+            .access-info { text-align: left; }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top-bar">
+            横浜成田山節分会 2月3日（火） <a href="#">節分会の詳細はこちら</a>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="header-logo">
+                    <img src="https://yokohamanaritasan.jp/images/naritasan_Banner.png" alt="野毛山不動尊 横浜成田山">
+                    <span>野毛山不動尊 横浜成田山</span>
+                </div>
+                <div class="header-contact">
+                    <a href="tel:045-231-4935" class="header-tel">045-231-4935</a>
+                    <a href="#" class="btn">お問い合わせ</a>
+                </div>
+                <button class="hamburger" id="js-hamburger" aria-label="メニューを開く">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <ul class="container">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">縁起と歴史</a></li>
+                <li><a href="#">御護摩ご祈祷</a></li>
+                <li><a href="#">七五三祝祷</a></li>
+                <li><a href="#">諸礼・御守り</a></li>
+                <li><a href="#">アクセス</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav" id="js-mobile-nav">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">縁起と歴史</a></li>
+            <li><a href="#">御護摩ご祈祷</a></li>
+            <li><a href="#">七五三祝祷</a></li>
+            <li><a href="#">諸礼・御守り</a></li>
+            <li><a href="#">アクセス</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content container">
+                <h2>令和8年 初詣は横浜成田山へ</h2>
+                <p>願いが叶うと噂に高い<br>野毛のお不動様にご加護を祈る</p>
+                <a href="#" class="btn">新春特別護摩札 申込受付中</a>
+            </div>
+        </section>
+        <div class="hero-bottom-bar">
+            御護摩札ご郵送希望の場合 送料 1体〜2体 500円 / 3体〜9体 800円 / 10体以上無料
+        </div>
+
+        <!-- News -->
+        <section class="news">
+            <div class="container news-inner">
+                <div class="news-title">NEWS<br><span>お知らせ</span></div>
+                <ul class="news-list">
+                    <li><time>2024.05.20</time><p>車両通行止めのお知らせ</p></li>
+                    <li><time>2024.04.19</time><p>野毛大道芸開催</p></li>
+                    <li><time>2024.04.05</time><p>開創154年例大祭のご案内</p></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Prayers (Cards) -->
+        <section class="prayers container">
+            <h2 class="section-title">横浜成田山の諸祈願と諸供養</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="https://yokohamanaritasan.jp/images/pho_top2_1.jpg" alt="御護摩御祈祷">
+                    <div class="card-content">
+                        <h3>御護摩御祈祷</h3>
+                        <p>御護摩は、不動明王をご本尊とし、その前に壇を設けて御本尊の御口である炉に、願いを込めた護摩木と供物を投じ、皆様の願い事の成就を祈願する真言密教の秘法です。</p>
+                        <a href="#" class="btn">詳しくはこちら</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://yokohamanaritasan.jp/images/pho_top3_1.jpg" alt="特別個人のご祈願">
+                    <div class="card-content">
+                        <h3>特別個人のご祈願</h3>
+                        <p>御護摩のほか、厄除け、方難除け、お初まいり、七五三など、個人の願いに応じ、特別にご祈願いたします。御護摩御修行の時間以外でご予約ください。</p>
+                        <a href="#" class="btn">詳しくはこちら</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://yokohamanaritasan.jp/images/pho_top3_2.jpg" alt="交通安全お車ご祈願">
+                    <div class="card-content">
+                        <h3>交通安全お車ご祈願</h3>
+                        <p>お車と運転される方の無事故・息災を、お不動様からあらたかなるご霊徳をいただき、一日一日を無事安全と息災を願い、ご祈願いたします。</p>
+                        <a href="#" class="btn">詳しくはこちら</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <!-- 供養の画像がマッピング表にないため、ご奉安の画像をプレースホルダーとして使用 -->
+                    <img src="https://yokohamanaritasan.jp/images/pho_top2_4.jpg" alt="ご供養">
+                    <div class="card-content">
+                        <h3>ご供養</h3>
+                        <p>墓所が遠方で、年回忌、先祖・水子などのご供養が出来ない方、横浜成田山大師堂にて皆様にご参列をいただき、御供養いたします。お電話または当山受付所までご相談ください。</p>
+                        <a href="#" class="btn">詳しくはこちら</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introductions -->
+        <section class="introductions container">
+            <div class="intro-grid">
+                <div class="intro-item">
+                    <div class="intro-header">
+                        <div class="intro-en">PRAYER</div>
+                        <div class="intro-ja">御護摩御祈祷</div>
+                    </div>
+                    <img src="https://yokohamanaritasan.jp/images/pho_top2_1.jpg" alt="御護摩御祈祷">
+                    <p class="intro-text">御護摩とは不動明王をご本尊とし、その前に壇を設け、いろいろな供物を捧げ、護摩木という特別につくられた薪をたいて不動明王に祈る真言密教の秘法です。</p>
+                    <div><a href="#" class="btn">詳しくはこちら</a></div>
+                </div>
+                <div class="intro-item">
+                    <div class="intro-header">
+                        <div class="intro-en">AMULET</div>
+                        <div class="intro-ja">御守り</div>
+                    </div>
+                    <img src="https://yokohamanaritasan.jp/images/pho_top2_2.jpg" alt="御守り">
+                    <p class="intro-text">皆様の願いに応じた様々な御守や当山独特の御守をお授けしております。とくに病魔退散・疫病消除・厄難消除などあらゆる災いを封じ込める御守をお授けしております。</p>
+                    <div><a href="#" class="btn">詳しくはこちら</a></div>
+                </div>
+                <div class="intro-item">
+                    <div class="intro-header">
+                        <div class="intro-en">AUSPICIOUS</div>
+                        <div class="intro-ja">縁起と歴史</div>
+                    </div>
+                    <img src="https://yokohamanaritasan.jp/images/pho_top2_3.jpg" alt="縁起と歴史">
+                    <p class="intro-text">野毛山不動尊と親しまれている成田山横浜別院は野毛山の地に大本山成田山から御本尊不動明王を勧請以来、法燈151年、願い事がかなうと噂に高い祈願霊場として多くの人々にご信仰を頂いております。</p>
+                    <div><a href="#" class="btn">詳しくはこちら</a></div>
+                </div>
+                <div class="intro-item">
+                    <div class="intro-header">
+                        <div class="intro-en">DEDICATION</div>
+                        <div class="intro-ja">ご奉安</div>
+                    </div>
+                    <img src="https://yokohamanaritasan.jp/images/pho_top2_4.jpg" alt="ご奉安">
+                    <p class="intro-text">横浜成田山では、新本堂完成より3回目のお正月を迎え、多くのご信徒のご参詣をいただいております。</p>
+                    <div><a href="#" class="btn">詳しくはこちら</a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events & Access -->
+        <section class="events-access">
+            <div class="container ea-grid">
+                <!-- Annual Events -->
+                <div>
+                    <h2 class="ea-title"><span>ANNUAL EVENTS</span>年間行事</h2>
+                    <img src="https://yokohamanaritasan.jp/./images/2024_setubun.jpg" alt="年間行事" style="border-radius: 8px; margin-bottom: 24px;">
+                    <ul class="events-list">
+                        <li><span class="date">12/31</span><span class="desc">大火焚（古いお札を納める祭り）</span></li>
+                        <li><span class="date">1/1～31</span><span class="desc">新春特別大護摩供</span></li>
+                        <li><span class="date">2/3</span><span class="desc">節分会特別大護摩祈祷会</span></li>
+                        <li><span class="date">2/3～9</span><span class="desc">星まつり特別大護摩供 並 お祓い</span></li>
+                        <li><span class="date">2/12</span><span class="desc">出世稲荷二の午 宵宮祭</span></li>
+                        <li><span class="date">2/13</span><span class="desc">出世稲荷二の午 例大祭</span></li>
+                    </ul>
+                </div>
+                <!-- Access -->
+                <div>
+                    <h2 class="ea-title"><span>ACCESS</span>アクセス</h2>
+                    <div class="access-map-placeholder">
+                        Map Image Placeholder
+                    </div>
+                    <div class="access-info">
+                        <p><strong>野毛山不動尊 横浜成田山</strong></p>
+                        <p>〒220-0031 神奈川県横浜市西区宮崎町30</p>
+                        <p>TEL: 045-231-4935<br>FAX: 045-231-8739</p>
+                        <div style="margin-top: 16px;"><a href="#" class="btn">詳しくはこちら</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="https://yokohamanaritasan.jp/images/logo2.png" alt="野毛山不動尊 横浜成田山">
+            </div>
+            <div class="footer-info">
+                <p>〒220-0031 神奈川県横浜市西区宮崎町30</p>
+                <p>TEL 045-231-4935 / FAX 045-231-8739</p>
+            </div>
+            <p class="footer-copy">Copyright &copy; 2020 Yokohama-Naritasan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta">
+        <a href="tel:045-231-4935" class="cta-tel">📞 045-231-4935</a>
+        <a href="#" class="cta-btn">お問い合わせ</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('js-hamburger');
+            const mobileNav = document.getElementById('js-mobile-nav');
+
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('is-active');
+                mobileNav.classList.toggle('is-active');
+                
+                // Prevent body scroll when menu is open
+                if (this.classList.contains('is-active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
