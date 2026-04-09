@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>横濱浅間神社</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary-color: #C8333B;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #F9F9F9;
+            --bg-white: #FFFFFF;
+            --border-color: #E0E0E0;
+            --font-family: 'Noto Sans JP', sans-serif;
+            --container-width: 1000px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-family); color: var(--text-main); line-height: 1.6; background-color: var(--bg-white); -webkit-font-smoothing: antialiased; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* Utility Classes */
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 16px; }
+        .text-center { text-align: center; }
+        .section-padding { padding: 80px 0; }
+        @media (max-width: 768px) { .section-padding { padding: 50px 0; } }
+
+        /* Typography */
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.4; }
+        .section-title-wrapper { text-align: center; margin-bottom: 40px; }
+        .section-icon { width: 48px; height: 48px; background-color: var(--primary-color); border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; margin-bottom: 16px; color: white; font-size: 24px; }
+        .section-subtitle { color: var(--primary-color); font-size: 14px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.1em; }
+        .section-title { font-size: 28px; letter-spacing: 0.05em; }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 40px; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 30px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; background: transparent; cursor: pointer; }
+        .btn:hover { background-color: var(--primary-color); color: white; }
+        .btn-solid { background-color: var(--primary-color); color: white; border: none; }
+        .btn-solid:hover { background-color: #a82a31; }
+        .btn-arrow::after { content: '→'; margin-left: 8px; }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); z-index: 100; border-bottom: 1px solid var(--border-color); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; max-width: 1200px; margin: 0 auto; }
+        .logo { display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 700; }
+        .logo-icon { width: 32px; height: 32px; background-color: var(--primary-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 16px; }
+        .header-tel { display: none; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; }
+        .header-bottom { border-top: 1px solid var(--border-color); background: white; display: none; }
+        @media (min-width: 1025px) {
+            .header-tel { display: flex; }
+            .header-bottom { display: block; }
+            .header-nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+            .global-nav { display: flex; }
+            .global-nav li a { display: block; padding: 16px 20px; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+            .global-nav li a:hover { color: var(--primary-color); }
+            .header-btn { padding: 10px 24px; font-size: 13px; }
+        }
+
+        /* Hamburger Menu */
+        .hamburger { display: block; width: 30px; height: 24px; position: relative; cursor: pointer; z-index: 101; background: transparent; border: none; }
+        .hamburger span { display: block; width: 100%; height: 2px; background-color: var(--text-main); position: absolute; left: 0; transition: all 0.3s; }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger span:nth-child(3) { bottom: 0; }
+        .hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+        @media (min-width: 1025px) { .hamburger { display: none; } }
+
+        /* Mobile Menu Drawer */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 300px; height: 100vh; background-color: white; z-index: 100; padding-top: 80px; transition: right 0.3s ease; box-shadow: -2px 0 10px rgba(0,0,0,0.1); overflow-y: auto; }
+        .mobile-menu.active { right: 0; }
+        .mobile-nav li a { display: block; padding: 16px 24px; border-bottom: 1px solid var(--border-color); font-weight: 500; }
+        .mobile-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 99; display: none; opacity: 0; transition: opacity 0.3s; }
+        .mobile-menu-overlay.active { display: block; opacity: 1; }
+
+        /* Hero */
+        .hero { height: 100vh; min-height: 600px; background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 60px; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-title { font-size: 48px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .hero-subtitle { font-size: 24px; font-weight: 400; letter-spacing: 0.05em; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 1; font-size: 12px; letter-spacing: 0.1em; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .hero-scroll::after { content: ''; width: 1px; height: 40px; background-color: white; display: block; animation: scrollDown 2s infinite; }
+        @keyframes scrollDown { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 50.1% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+        @media (max-width: 768px) { .hero-title { font-size: 32px; } .hero-subtitle { font-size: 18px; } }
+
+        /* History Section */
+        .history-box { background-color: var(--bg-light); border-radius: 16px; padding: 40px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 32px; }
+        .history-box p { text-align: left; display: inline-block; max-width: 800px; }
+        @media (max-width: 768px) { .history-box { padding: 24px; } }
+
+        /* Deities Section */
+        .deities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+        .deity-card { background: white; border-radius: 12px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border-color); }
+        .deity-role { font-size: 14px; color: var(--primary-color); font-weight: 700; margin-bottom: 8px; }
+        .deity-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+        .deity-kana { font-size: 12px; color: var(--text-light); margin-bottom: 16px; }
+        .deity-desc { font-size: 14px; text-align: left; }
+        @media (max-width: 768px) { .deities-grid { grid-template-columns: 1fr; } }
+
+        /* Shrine Building Section */
+        .shrine-box { border: 1px solid var(--border-color); border-radius: 12px; padding: 40px; text-align: center; margin-bottom: 32px; }
+        .shrine-box p { max-width: 700px; margin: 0 auto; }
+
+        /* Festivals Section */
+        .festivals-intro { text-align: center; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .festivals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+        .festival-card { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border-color); display: flex; flex-direction: column; }
+        .festival-date { background-color: var(--primary-color); color: white; text-align: center; padding: 12px; font-weight: 700; font-size: 18px; }
+        .festival-content { padding: 24px; background: white; flex-grow: 1; text-align: center; }
+        .festival-name { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+        .festival-desc { font-size: 14px; text-align: left; color: var(--text-light); }
+        @media (max-width: 1024px) { .festivals-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .festivals-grid { grid-template-columns: 1fr; } }
+
+        /* Gallery Section */
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .gallery-item { aspect-ratio: 3/2; border-radius: 8px; overflow: hidden; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+        /* Access Section */
+        .access-container { display: flex; gap: 40px; background: var(--bg-light); padding: 40px; border-radius: 16px; }
+        .access-info { flex: 1; }
+        .access-map { flex: 1; border-radius: 8px; overflow: hidden; min-height: 300px; }
+        .access-map img { width: 100%; height: 100%; object-fit: cover; }
+        .access-item { margin-bottom: 24px; }
+        .access-label { font-weight: 700; margin-bottom: 8px; display: block; border-left: 4px solid var(--primary-color); padding-left: 8px; }
+        @media (max-width: 768px) { .access-container { flex-direction: column; padding: 24px; } }
+
+        /* Footer */
+        .footer { background-color: #333; color: white; padding: 60px 0 20px; }
+        .footer-top { display: flex; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 40px; }
+        .footer-info { flex: 1; min-width: 250px; }
+        .footer-logo { display: flex; align-items: center; gap: 8px; font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+        .footer-logo-icon { width: 32px; height: 32px; background-color: var(--primary-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; }
+        .footer-address { font-size: 14px; color: #CCC; margin-bottom: 8px; }
+        .footer-tel { font-size: 18px; font-weight: 700; }
+        .footer-links { flex: 2; display: flex; gap: 40px; min-width: 300px; }
+        .footer-nav-col { flex: 1; }
+        .footer-nav-col ul li { margin-bottom: 12px; }
+        .footer-nav-col ul li a { color: #CCC; font-size: 14px; transition: color 0.3s; }
+        .footer-nav-col ul li a:hover { color: white; }
+        .footer-sns { flex: 1; min-width: 200px; }
+        .footer-sns-title { font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+        .sns-icons { display: flex; gap: 16px; }
+        .sns-icon { width: 32px; height: 32px; background: #555; border-radius: 50%; display: flex; justify-content: center; align-items: center; transition: background 0.3s; font-size: 14px; }
+        .sns-icon:hover { background: var(--primary-color); }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid #555; font-size: 12px; color: #999; }
+        @media (max-width: 768px) { .footer-top { flex-direction: column; } .footer-links { flex-direction: column; gap: 20px; } }
+
+        /* Mobile CTA Bar */
+        .mobile-cta { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 90; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
+        .mobile-cta a { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 0; font-size: 12px; font-weight: 700; background: white; color: var(--text-main); border-top: 1px solid var(--border-color); }
+        .mobile-cta a:first-child { border-right: 1px solid var(--border-color); }
+        .mobile-cta a.cta-primary { background: var(--primary-color); color: white; border-top-color: var(--primary-color); }
+        .mobile-cta-icon { font-size: 20px; margin-bottom: 4px; }
+        @media (min-width: 769px) { .mobile-cta { display: none; } body { padding-bottom: 0; } }
+        @media (max-width: 768px) { body { padding-bottom: 60px; } }
+
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <a href="#" class="logo">
+                <div class="logo-icon">❀</div>
+                横濱浅間神社
+            </a>
+            <div class="header-tel">
+                <span style="font-size: 14px; margin-right: 4px;">📞</span> <a href="tel:045-311-2891">045-311-2891</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="header-bottom">
+            <div class="header-nav-container">
+                <ul class="global-nav">
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#history">由緒</a></li>
+                    <li><a href="#">お守り紹介</a></li>
+                    <li><a href="#">ご祈祷</a></li>
+                    <li><a href="#gallery">ギャラリー</a></li>
+                    <li><a href="#">神社概要</a></li>
+                    <li><a href="#access">お問い合わせ</a></li>
+                </ul>
+                <a href="#" class="btn btn-solid header-btn">創立九百五十年記念事業奉賛のお願い</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-nav">
+            <li><a href="#">ホーム</a></li>
+            <li><a href="#history">由緒</a></li>
+            <li><a href="#">お守り紹介</a></li>
+            <li><a href="#">ご祈祷</a></li>
+            <li><a href="#gallery">ギャラリー</a></li>
+            <li><a href="#">神社概要</a></li>
+            <li><a href="#access">お問い合わせ</a></li>
+            <li style="padding: 16px 24px;"><a href="#" class="btn btn-solid" style="width: 100%; text-align: center;">創立九百五十年記念事業奉賛のお願い</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">横濱浅間神社</h1>
+            <p class="hero-subtitle">Yokohama Sengen Shrine</p>
+        </div>
+        <div class="hero-scroll">Scroll</div>
+    </section>
+
+    <!-- History -->
+    <section id="history" class="section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <div class="section-icon">❀</div>
+                <div class="section-subtitle">横濱浅間神社について</div>
+                <h2 class="section-title">創立</h2>
+            </div>
+            <div class="history-box">
+                <p>横濱浅間神社はもともとこの地域(現在の浅間町一帯)の鎮守として承歴4年(1080年)に祀られたのが始まりとされています。文治元年(1186年)に源瀬朝公によって御分霊が勧請され浅間神社になりました。<br>昔も今も地域の守り神として親しまれています。</p>
+            </div>
+            <div class="text-center">
+                <a href="#" class="btn btn-arrow">詳しくはこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deities -->
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <div class="section-icon">❀</div>
+                <h2 class="section-title">ご祭神</h2>
+            </div>
+            <div class="deities-grid">
+                <div class="deity-card">
+                    <div class="deity-role">主祭神</div>
+                    <h3 class="deity-name">木花咲耶姫命</h3>
+                    <div class="deity-kana">このはなさくやひめのみこと</div>
+                    <p class="deity-desc">家内安全・安産・子育て・縁結び・産業振興・学業成就のご神徳をもたらす神様として広く信仰されています。</p>
+                </div>
+                <div class="deity-card">
+                    <div class="deity-role">相殿</div>
+                    <h3 class="deity-name">天照皇大神</h3>
+                    <div class="deity-kana">あまてらしますすめおおかみ</div>
+                </div>
+                <div class="deity-card">
+                    <div class="deity-role">相殿</div>
+                    <h3 class="deity-name">武甕槌命</h3>
+                    <div class="deity-kana">たけみかづちのみこと</div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#" class="btn btn-arrow">詳しくはこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shrine Building -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <div class="section-icon">❀</div>
+                <h2 class="section-title">社殿</h2>
+            </div>
+            <div class="shrine-box">
+                <p>承暦４年（西暦1080年）の創祀より焼失復興を繰り返しながら守り継がれてきました。現在の社殿は昭和３４年落成の本殿二階建て浅間造。木造建築は全国でも珍しいとされる。</p>
+            </div>
+            <div class="text-center">
+                <a href="#" class="btn btn-arrow">神社概要はこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festivals -->
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <div class="section-icon">❀</div>
+                <h2 class="section-title">祭典</h2>
+            </div>
+            <p class="festivals-intro">横濱浅間神社の祭典は、千年の祈りを今に伝える、氏子とともに歩む大切な行事です。<br>祭りは神様と人間とを結び、地域の安寧と繁栄を祈る特別な時間となっています。</p>
+            
+            <div class="festivals-grid">
+                <div class="festival-card">
+                    <div class="festival-date">1月1日</div>
+                    <div class="festival-content">
+                        <h3 class="festival-name">歳旦祭</h3>
+                        <p class="festival-desc">新しい年の始めを寿ぎ、皇室の弥栄・国の発展・氏子崇敬者と地域の平安をお祈りする。</p>
+                    </div>
+                </div>
+                <div class="festival-card">
+                    <div class="festival-date">2月3日</div>
+                    <div class="festival-content">
+                        <h3 class="festival-name">節分祭</h3>
+                        <p class="festival-desc">新年最初の節分に際し、その年の災厄除け・無病息災をお祈りする。氏子崇敬者の年男年女等による豆まき行事を行う。</p>
+                    </div>
+                </div>
+                <div class="festival-card">
+                    <div class="festival-date">6月1日</div>
+                    <div class="festival-content">
+                        <h3 class="festival-name">例祭</h3>
+                        <p class="festival-desc">一年に一度、定められた日に、ご祭神のご神徳に感謝するとともに皇室の安泰・氏子崇敬者と地域の安全・繁栄をお祈りする。</p>
+                    </div>
+                </div>
+                <div class="festival-card">
+                    <div class="festival-date">10月17日</div>
+                    <div class="festival-content">
+                        <h3 class="festival-name">招魂社祭</h3>
+                        <p class="festival-desc">大東亜戦争での氏子戦没者の英霊の御霊を慰めるとともに日本国と世界の平和をお祈りする。</p>
+                    </div>
+                </div>
+                <div class="festival-card">
+                    <div class="festival-date">12月31日</div>
+                    <div class="festival-content">
+                        <h3 class="festival-name">大祓式</h3>
+                        <p class="festival-desc">大晦日の夜に行われる。それぞれの一年間の心身の汚れを祓い清める。</p>
+                    </div>
+                </div>
+                <div class="festival-card">
+                    <div class="festival-date">12月31日</div>
+                    <div class="festival-content">
+                        <h3 class="festival-name">除夜祭</h3>
+                        <p class="festival-desc">大晦日の夜に行われる。この一年間無事に過ごせたことに感謝し、来る年も無事に過ごせるようお祈りする。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#" class="btn btn-arrow">詳しくはこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <div class="section-icon">📷</div>
+                <h2 class="section-title">ギャラリー</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=600&q=80" alt="ギャラリー画像1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1528360354687-839420409a6d?auto=format&fit=crop&w=600&q=80" alt="ギャラリー画像2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1613967193490-1d17b930c1a1?auto=format&fit=crop&w=600&q=80" alt="ギャラリー画像3"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=600&q=80" alt="ギャラリー画像4"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=600&q=80" alt="ギャラリー画像5"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=600&q=80" alt="ギャラリー画像6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access -->
+    <section id="access" class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <div class="section-icon">📍</div>
+                <h2 class="section-title">アクセス</h2>
+            </div>
+            <div class="access-container">
+                <div class="access-info">
+                    <div class="access-item">
+                        <span class="access-label">住所</span>
+                        <p>〒220-0072<br>神奈川県横浜市西区浅間町1-19-10</p>
+                    </div>
+                    <div class="access-item">
+                        <span class="access-label">交通機関</span>
+                        <p>横浜駅西口より徒歩15分<br>相鉄線平沼橋駅より徒歩10分</p>
+                    </div>
+                </div>
+                <div class="access-map">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="アクセスマップ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">❀</div>
+                        横濱浅間神社
+                    </div>
+                    <p class="footer-address">〒220-0072 神奈川県横浜市西区浅間町1-19-10</p>
+                    <p class="footer-tel">TEL: 045-311-2891</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-nav-col">
+                        <ul>
+                            <li><a href="#">ホーム</a></li>
+                            <li><a href="#history">由緒</a></li>
+                            <li><a href="#">お守り・授与品</a></li>
+                            <li><a href="#">ご祈祷</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-col">
+                        <ul>
+                            <li><a href="#gallery">ギャラリー</a></li>
+                            <li><a href="#">神社概要</a></li>
+                            <li><a href="#access">アクセス</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-sns">
+                    <div class="footer-sns-title">ソーシャルメディア</div>
+                    <div class="sns-icons">
+                        <a href="#" class="sns-icon" aria-label="Facebook">F</a>
+                        <a href="#" class="sns-icon" aria-label="Twitter">X</a>
+                        <a href="#" class="sns-icon" aria-label="Instagram">I</a>
+                        <a href="#" class="sns-icon" aria-label="YouTube">Y</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 横濱浅間神社
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:045-311-2891">
+            <span class="mobile-cta-icon">📞</span>
+            電話する
+        </a>
+        <a href="#access" class="cta-primary">
+            <span class="mobile-cta-icon">📍</span>
+            アクセス
+        </a>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const body = document.body;
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            if (mobileMenu.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
