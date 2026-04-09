@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天台宗 安山 安禅院 別格 円満寺</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A7A44;
+            --secondary-color: #C1A063;
+            --bg-color: #F5F5F0;
+            --text-color: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            margin: 12px auto 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            gap: 4px;
+            opacity: 0.9;
+        }
+
+        .nav-menu a:hover {
+            opacity: 1;
+        }
+
+        .nav-menu svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-header {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+        }
+
+        .btn-header svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .btn-header-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .btn-header-text .label {
+            font-size: 10px;
+        }
+
+        .btn-header-text .tel {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--white);
+            margin-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .hamburger span:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 0 16px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+        }
+
+        .about-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 0 0 80px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-image {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .service-content {
+            padding: 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        /* News Section */
+        .news {
+            padding: 0 0 80px;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .news-item {
+            background: var(--white);
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            font-size: 14px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 24px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+
+        .news-item a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .news-banner {
+            display: block;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .news-banner:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info .footer-logo {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-info .footer-logo span {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .footer-address {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .footer-map img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.7;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Mobile CTA Bar */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .mobile-cta .cta-tel {
+            background-color: var(--secondary-color);
+        }
+
+        .mobile-cta .cta-mail {
+            background-color: var(--primary-color);
+        }
+
+        .mobile-cta svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            margin-bottom: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu, .header-cta {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .about-card {
+                flex-direction: column;
+                padding: 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .mobile-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 60px; /* Space for mobile CTA */
+            }
+
+            /* Mobile Menu Active State */
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active a {
+                flex-direction: row;
+                font-size: 16px;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span>天台宗 安山 安禅院 別格</span>
+                円満寺
+            </div>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li>
+                        <a href="#">
+                            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                            <span>トップページ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            <span>円満寺について</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                            <span>行事案内</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.83L18.17 20H5.83L12 5.83zM11 10h2v4h-2v-4zm0 5h2v2h-2v-2z"/></svg>
+                            <span>斎場案内</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                            <span>円満寺報</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <span>交通案内</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="tel:045-231-4383" class="btn-header">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <div class="btn-header-text">
+                        <span class="label">お問い合わせ</span>
+                        <span class="tel">TEL: 045-231-4383</span>
+                    </div>
+                </a>
+            </div>
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">安禅院 円満寺へようこそ</h1>
+                <p class="hero-subtitle">心安らぐ、祈りの空間</p>
+                <a href="#" class="btn">永代供養墓のご案内</a>
+            </div>
+        </section>
+
+        <section class="about container">
+            <h2 class="section-title">円満寺について</h2>
+            <div class="about-card">
+                <div class="about-image">
+                    <img src="http://enmanji-yokohama.jp/images/top.gif" alt="円満寺の風景">
+                </div>
+                <div class="about-text">
+                    <p>円満寺の境内には、日本の四季を彩る歴史的建造物があり、円満寺の北条氏の歴史と密接されています。<br>
+                    都会の喧騒から離れた静寂の杜。心穏やかに過ごせます。<br>
+                    円満寺では、円満寺の歴史的建造物、水子供養の歴史的建造物を見学することができます。<br>
+                    皆様の心に寄り添い、心安らぐ祈りの空間となるよう努めています。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services container">
+            <h2 class="section-title">永代供養墓・水子供養のご案内</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&w=800&q=80" alt="永代供養墓 沙羅双樹の杜" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">永代供養墓 沙羅双樹の杜</h3>
+                        <p class="service-desc">随時ご相談や資料請求、見学にご対応しております。</p>
+                        <a href="#" class="btn">詳しく見る</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1605648916361-9bc12ad6a569?auto=format&fit=crop&w=800&q=80" alt="水子供養" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">水子供養</h3>
+                        <p class="service-desc">水子供養を承り、水子供養の御祈祷を行います。</p>
+                        <a href="#" class="btn">詳しく見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="news container">
+            <h2 class="section-title">円満寺からのお知らせ</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <a href="#">→永代供養墓　沙羅双樹の杜のご案内はこちら</a>
+                </div>
+                <div class="news-item">
+                    永代供養墓　沙羅双樹の杜 — 随時ご相談や資料請求、見学にご対応しております。お電話もしくはメールにてお問い合わせ下さいませ。（メールの場合、「沙羅双樹の杜　資料請求（もしくは見学・相談）希望」と件名にお入れ下さいませ。<br>
+                    TEL: 045-231-4383 FAX: 045-241-4499 Email: enmanji@xb3.so-net.ne.jp
+                </div>
+                <div class="news-item">
+                    RareA（レアリア）に当寺の「沙羅双樹の杜」及び「水子供養」が掲載されました（外部リンク）
+                </div>
+                <div class="news-item">
+                    産経新聞社 ソナエ「お墓レポート」に沙羅双樹の杜が掲載されました（外部リンク）
+                </div>
+                <div class="news-item">
+                    当山住職を五十三年間勤めておりました西郊良光師が京都曼殊院門跡門主に就任を致しました。また、良光師のご長男であり副住職を勤めておりました西郊良貴師が円満寺住職に就任致しました。
+                </div>
+            </div>
+            <a href="#" class="news-banner">
+                <img src="http://enmanji-yokohama.jp/images/sara-banner-top.png" alt="永代供養墓 沙羅双樹の杜 お問い合わせ、ご案内はこちら">
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <span>天台宗 安山 安禅院 別格</span>
+                        円満寺
+                    </div>
+                    <div class="footer-address">
+                        〒220-0061<br>
+                        神奈川県横浜市西区久保町50-1<br>
+                        TEL: 045-231-4383
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">東日本大震災への支援</a></li>
+                        <li><a href="#">年間行事</a></li>
+                        <li><a href="#">天台宗関連リンク</a></li>
+                    </ul>
+                </div>
+                <div class="footer-map">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="アクセスマップ">
+                </div>
+            </div>
+            <div class="copyright">
+                © Enmanji All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-cta">
+        <div class="mobile-cta-inner">
+            <a href="tel:045-231-4383" class="cta-tel">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                電話をかける
+            </a>
+            <a href="mailto:enmanji@xb3.so-net.ne.jp" class="cta-mail">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                お問い合わせ
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const navMenu = document.getElementById('navMenu');
+
+            hamburgerBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

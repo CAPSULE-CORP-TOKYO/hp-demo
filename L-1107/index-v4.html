@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星川杉山神社</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5B8C3E;
+            --text-color: #333333;
+            --bg-color: #F0F5ED;
+            --card-bg-gradient: linear-gradient(180deg, #E8DAB2 0%, #F4E8D1 100%);
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding-inline: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #4a7332;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 32px;
+            letter-spacing: 0.1em;
+        }
+
+        /* Top Notice */
+        .top-notice {
+            background-color: #E8EFE5;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 12px;
+            color: var(--text-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: '⛩️'; /* 代替アイコン */
+            font-size: 24px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-nav {
+            display: none;
+        }
+
+        .header-tel {
+            display: none;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .menu-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            height: 70px;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: var(--white);
+            transition: 0.3s;
+        }
+
+        /* Fixed Side Nav */
+        .fixed-side-nav {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 150px;
+            background: var(--white);
+            border: 1px solid var(--primary-color);
+            border-right: none;
+            z-index: 90;
+            flex-direction: column;
+        }
+
+        .fixed-side-nav a {
+            writing-mode: vertical-rl;
+            padding: 16px 8px;
+            border-bottom: 1px solid var(--primary-color);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fixed-side-nav a:last-child {
+            border-bottom: none;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 24px 16px;
+            text-align: center;
+        }
+
+        .hero-img-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .hero-text h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 14px;
+        }
+
+        /* Vertical Nav */
+        .vertical-nav {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 40px 0 60px;
+        }
+
+        .vertical-nav a {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            padding: 0 8px;
+            border-left: 1px solid #ccc;
+        }
+
+        .vertical-nav a:first-child {
+            border-left: none;
+        }
+
+        /* About Section */
+        .about-section {
+            margin-bottom: 80px;
+        }
+
+        .gradient-box {
+            background: var(--card-bg-gradient);
+            border-radius: 20px;
+            padding: 40px 24px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .about-section h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .about-section p {
+            font-size: 14px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        /* News Section */
+        .news-section {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .news-scroll {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 24px;
+            scroll-snap-type: x mandatory;
+            text-align: left;
+        }
+
+        .news-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .news-scroll::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 3px;
+        }
+
+        .news-card {
+            flex: 0 0 260px;
+            scroll-snap-align: start;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .news-card-body {
+            padding: 16px;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .news-title {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Prayer Section */
+        .prayer-section {
+            margin-bottom: 80px;
+        }
+
+        .prayer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .prayer-content img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+        }
+
+        .prayer-text {
+            text-align: center;
+        }
+
+        .prayer-text p {
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .service-card-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1.1;
+            background: var(--primary-color);
+            clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0 100%, 0 20%);
+            padding: 2px;
+        }
+
+        .service-card-inner {
+            background: var(--white);
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0 100%, 0 20%);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            gap: 12px;
+        }
+
+        .service-card-inner h4 {
+            writing-mode: vertical-rl;
+            margin: 0;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        .service-card-inner img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-color);
+            padding: 60px 0 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: var(--bg-color);
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 100%;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-logo::before {
+            content: '⛩️';
+            font-size: 24px;
+        }
+
+        .footer-info {
+            font-size: 12px;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 32px;
+            font-size: 12px;
+        }
+
+        .copyright {
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: var(--white);
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu a {
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .header-nav {
+                display: flex;
+                gap: 24px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .header-tel {
+                display: block;
+            }
+            .menu-btn {
+                display: none;
+            }
+            .fixed-side-nav {
+                display: flex;
+            }
+            .hero-img-wrapper img {
+                height: 500px;
+            }
+            .about-section p {
+                text-align: center;
+            }
+            .prayer-content {
+                flex-direction: row;
+                text-align: left;
+            }
+            .prayer-text {
+                text-align: left;
+            }
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <div class="top-notice">
+        【重要・ご一読ください】ご参拝される皆さまへ12/17更新
+    </div>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">星川杉山神社</a>
+            <div class="header-right">
+                <nav class="header-nav">
+                    <a href="#">HOME</a>
+                    <a href="#">神社について</a>
+                    <a href="#">交通アクセス</a>
+                    <a href="#">ご祈祷について</a>
+                </nav>
+                <div class="header-tel">
+                    <a href="tel:045-332-2655">TEL: 045-332-2655</a>
+                </div>
+                <button class="menu-btn" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    MENU
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <aside class="fixed-side-nav">
+        <a href="#">お問い合わせ</a>
+        <a href="#">交通アクセス</a>
+    </aside>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#">HOME</a>
+        <a href="#">神社について</a>
+        <a href="#">交通アクセス</a>
+        <a href="#">ご祈祷について</a>
+        <a href="#">坂の上便り</a>
+        <a href="#">年中行事</a>
+        <a href="#">お参り</a>
+        <a href="#">結婚式</a>
+        <a href="#">お問い合わせ</a>
+    </div>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="星川杉山神社 境内">
+            </div>
+            <div class="hero-text">
+                <h1>星川杉山神社</h1>
+                <p>御祭神 日本武尊をおまつりする横浜の神社</p>
+            </div>
+        </section>
+
+        <nav class="container vertical-nav">
+            <a href="#">交通アクセス</a>
+            <a href="#">よくあるご質問</a>
+            <a href="#">お葬式</a>
+            <a href="#">建築のおまつり</a>
+            <a href="#">お参り</a>
+            <a href="#">年中行事</a>
+            <a href="#">ご祈祷</a>
+            <a href="#">神社について</a>
+        </nav>
+
+        <section class="about-section container">
+            <div class="gradient-box">
+                <h2 class="section-title">星川杉山神社について</h2>
+                <h3>御祭神 日本武尊</h3>
+                <p>星川杉山神社がおまつりする神さまは、日本武尊(やまとたけるのみこと)とおっしゃいます。日本を1つの国にする為、草薙の剣を手に西から東へと旅をし、大きな功績を残された神さまです。</p>
+                <a href="#" class="btn">もっと読む</a>
+            </div>
+        </section>
+
+        <section class="news-section container">
+            <h2 class="section-title">坂の上便り</h2>
+            <div class="news-scroll">
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="令和8年新入学児童勧学祭">
+                    <div class="news-card-body">
+                        <div class="news-date">2026.02.12</div>
+                        <h3 class="news-title">令和8年新入学児童勧学祭</h3>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1516383740770-fbcc5ccbece0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="なりすましメールにご注意ください">
+                    <div class="news-card-body">
+                        <div class="news-date">2026.02.02</div>
+                        <h3 class="news-title">【重要】なりすましメールにご注意ください</h3>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="令和8年節分祭（更新）">
+                    <div class="news-card-body">
+                        <div class="news-date">2026.01.05</div>
+                        <h3 class="news-title">令和8年節分祭（更新）</h3>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="令和８年どんど焼き">
+                    <div class="news-card-body">
+                        <div class="news-date">2026.01.04</div>
+                        <h3 class="news-title">令和８年どんど焼き</h3>
+                    </div>
+                </article>
+            </div>
+            <a href="#" class="btn">もっと読む</a>
+        </section>
+
+        <section class="prayer-section container">
+            <h2 class="section-title">ご祈祷</h2>
+            <div class="gradient-box prayer-content">
+                <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ご祈祷">
+                <div class="prayer-text">
+                    <p>皆様の願いに寄り添い、謹んでご祈祷を奉仕いたします。<br>混雑を避け、静謐な環境でお参りいただくため、事前のご予約をお願いしております。</p>
+                    <a href="#" class="btn">もっと読む</a>
+                </div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card-wrapper">
+                    <div class="service-card-inner">
+                        <h4>お参り</h4>
+                        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="お参り">
+                    </div>
+                </div>
+                <div class="service-card-wrapper">
+                    <div class="service-card-inner">
+                        <h4>ご祈祷</h4>
+                        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="ご祈祷">
+                    </div>
+                </div>
+                <div class="service-card-wrapper">
+                    <div class="service-card-inner">
+                        <h4>結婚式</h4>
+                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="結婚式">
+                    </div>
+                </div>
+                <div class="service-card-wrapper">
+                    <div class="service-card-inner">
+                        <h4>建築のおまつり</h4>
+                        <img src="https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="建築のおまつり">
+                    </div>
+                </div>
+                <div class="service-card-wrapper">
+                    <div class="service-card-inner">
+                        <h4>お葬式</h4>
+                        <img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="お葬式">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-logo">星川杉山神社</div>
+            <div class="footer-info">
+                <p>宮司 平岡好晃</p>
+                <p>〒240-0006 神奈川県横浜市保土ケ谷区星川１丁目１９−１</p>
+                <p>TEL: <a href="tel:045-332-2655">045-332-2655</a> / FAX: 045-333-6846</p>
+            </div>
+            <nav class="footer-nav">
+                <a href="#">神社について</a>
+                <a href="#">ご祈祷について</a>
+                <a href="#">年中行事</a>
+                <a href="#">お参り</a>
+                <a href="#">結婚式</a>
+                <a href="#">お問い合わせ</a>
+            </nav>
+            <div class="copyright">
+                Copyright &copy; 星川杉山神社 All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            
+            // ハンバーガーアイコンのアニメーション（簡易）
+            const spans = document.querySelectorAll('.menu-btn span');
+            if (menu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

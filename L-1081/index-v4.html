@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光源寺 浄土真宗 真宗大谷派</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C5A55A;
+            --primary-hover: #b39348;
+            --secondary: #C85A32;
+            --secondary-hover: #b04d29;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #F9F8F4;
+            --bg-white: #FFFFFF;
+            --font-sans: 'Noto Sans JP', sans-serif;
+            --font-serif: 'Noto Serif JP', serif;
+            --container-width: 1000px;
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .serif {
+            font-family: var(--font-serif);
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-hover);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: var(--bg-white);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            max-width: 1200px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-tel {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .header-btn {
+            padding: 10px 24px;
+            font-size: 13px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--header-height));
+            background-color: var(--bg-white);
+            padding: 20px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .mobile-nav a {
+            font-size: 16px;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: var(--header-height);
+            height: 600px;
+            background-image: url('https://d2qn0rbzsp387.cloudfront.net/customers/49Kz7GJt/media/2026/02/1576508a-dc80-4c46-8eec-ca9df1dd2171.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 40px;
+            letter-spacing: 0.05em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Greeting Section */
+        .greeting {
+            background-color: var(--bg-body);
+            position: relative;
+            margin-top: -60px;
+            z-index: 2;
+        }
+
+        .greeting-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            color: var(--text-main);
+        }
+
+        .greeting-card {
+            background-color: var(--bg-white);
+            border-radius: 16px;
+            padding: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .greeting-subtitle {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .greeting-text {
+            font-size: 15px;
+            line-height: 2;
+            margin-bottom: 40px;
+            text-align: left;
+            display: inline-block;
+            max-width: 800px;
+        }
+
+        .priest-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .priest-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .priest-info {
+            text-align: left;
+        }
+
+        .priest-title {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .priest-name {
+            font-size: 20px;
+            font-weight: 700;
+            font-family: var(--font-serif);
+        }
+
+        .priest-kana {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-left: 8px;
+        }
+
+        /* History Section */
+        .history {
+            background-color: var(--bg-body);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background-color: var(--primary);
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .history-text-block {
+            margin-bottom: 40px;
+        }
+
+        .history-subtitle {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .history-text {
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        .history-img-single {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .history-images-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 85%;
+        }
+
+        .history-img-back {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 75%;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .history-img-front {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70%;
+            height: 75%;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .history-card {
+            background-color: var(--bg-white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        /* Services Section */
+        .services {
+            position: relative;
+            background-image: url('https://d2qn0rbzsp387.cloudfront.net/customers/49Kz7GJt/media/2026/02/a30b184a-a8a7-408d-ba8a-d1e8eae4d4d4.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(249, 248, 244, 0.85);
+        }
+
+        .services .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 24px;
+            fill: var(--primary);
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .service-btn {
+            margin-top: auto;
+            width: 100%;
+            padding: 12px 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--bg-body);
+        }
+
+        .contact-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background-image: url('https://d2qn0rbzsp387.cloudfront.net/customers/49Kz7GJt/media/2026/03/f864e085-acc5-4c73-abcd-edbee728752a.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-card {
+            background-color: rgba(249, 248, 244, 0.95);
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-title {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-buttons .btn {
+            flex: 1;
+            max-width: 280px;
+            padding: 16px 0;
+            font-size: 16px;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+        }
+
+        .contact-info .tel {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-body);
+            padding: 60px 0 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .footer-info .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            max-width: 600px;
+        }
+
+        .footer-nav a {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .footer-bottom {
+            text-align: right;
+            font-size: 11px;
+            color: var(--text-light);
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-cta a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .mobile-cta-tel {
+            background-color: var(--primary);
+        }
+
+        .mobile-cta-contact {
+            background-color: var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .history-grid {
+                gap: 40px;
+            }
+            .services-grid {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .greeting {
+                margin-top: -40px;
+            }
+
+            .greeting-card {
+                padding: 40px 20px;
+            }
+
+            .greeting-title {
+                font-size: 24px;
+            }
+
+            .greeting-subtitle {
+                font-size: 18px;
+            }
+
+            .history-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .history-images-wrapper {
+                padding-bottom: 0;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .history-img-back, .history-img-front {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+
+            /* Reorder for mobile */
+            .history-grid > div:nth-child(1) { order: 1; }
+            .history-grid > div:nth-child(2) { order: 2; }
+            .history-grid > div:nth-child(3) { order: 3; }
+            .history-grid > div:nth-child(4) { order: 4; }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-buttons .btn {
+                max-width: 100%;
+            }
+
+            .contact-card {
+                padding: 40px 20px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .footer-nav {
+                justify-content: flex-start;
+            }
+
+            .footer-bottom {
+                text-align: center;
+            }
+
+            body {
+                padding-bottom: 60px; /* For mobile CTA */
+            }
+
+            .mobile-cta {
+                display: flex;
+            }
+        }
+    </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="https://d2qn0rbzsp387.cloudfront.net/customers/49Kz7GJt/media/2026/01/f422d69f-1ffd-4ed5-bb36-38ce09ce0775.png" alt="光源寺 浄土真宗 真宗大谷派">
+            </a>
+            
+            <div class="nav-desktop">
+                <nav class="nav-links">
+                    <a href="#">トップ</a>
+                    <a href="#">歴史・行事</a>
+                    <a href="#">境内のご案内</a>
+                    <a href="#">浄土真宗とは</a>
+                    <a href="#">葬儀・法要</a>
+                    <a href="#">よくある質問</a>
+                    <a href="#">概要・地図</a>
+                    <a href="#">ブログ</a>
+                </nav>
+                <div class="header-contact">
+                    <a href="tel:045-231-3069" class="header-tel">045-231-3069</a>
+                    <a href="#" class="btn btn-primary header-btn">お問い合わせ</a>
+                </div>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="#">トップ</a></li>
+            <li><a href="#">歴史・行事</a></li>
+            <li><a href="#">境内のご案内</a></li>
+            <li><a href="#">浄土真宗とは</a></li>
+            <li><a href="#">葬儀・法要</a></li>
+            <li><a href="#">よくある質問</a></li>
+            <li><a href="#">概要・地図</a></li>
+            <li><a href="#">ブログ</a></li>
+        </ul>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="tel:045-231-3069" style="font-size: 18px; font-weight: bold; display: block; margin-bottom: 10px;">TEL: 045-231-3069</a>
+            <a href="#" class="btn btn-primary" style="width: 100%;">お問い合わせ</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title serif">ようこそ光源寺へ</h2>
+                <p class="hero-subtitle serif">横浜で150年以上、阿弥陀の願いに包まれて</p>
+                <a href="#" class="btn btn-primary">お気軽にお問い合わせください</a>
+            </div>
+        </section>
+
+        <!-- Greeting Section -->
+        <section class="greeting section-padding">
+            <div class="container">
+                <h2 class="greeting-title serif">お寺は、すべての方に開かれた場所</h2>
+                <div class="greeting-card">
+                    <h3 class="greeting-subtitle serif">仏事の本質を、次の世代へ</h3>
+                    <p class="greeting-text">
+                        光源寺のホームページをご覧いただき、誠にありがとうございます。<br>
+                        このページを通じて、より多くの方に光源寺の歩みやお念仏の教えを知っていただけましたら幸いです。<br>
+                        どなた様にも仏法を身近に感じていただき、共に生きるよろこびを分かち合える場となれるよう努めております。どうぞお気軽にお参りください。
+                    </p>
+                    <div class="priest-profile">
+                        <img src="https://d2qn0rbzsp387.cloudfront.net/customers/49Kz7GJt/media/2025/12/38eca605-42b6-49c4-96bf-28888379f8b8.jpg" alt="住職 渡辺 賢" class="priest-img">
+                        <div class="priest-info">
+                            <p class="priest-title">光源寺 住職</p>
+                            <p class="priest-name">渡辺 賢 <span class="priest-kana">わたなべ けん</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section class="history section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title serif">普段お寺に縁遠い方もお気軽に</h2>
+                </div>
+                
+                <div class="history-grid">
+                    <!-- Row 1 -->
+                    <div class="history-text-block">
+                        <h3 class="history-subtitle serif">明治から続く、約150年の歴史</h3>
+                        <p class="history-text">
+                            新しいご縁をいただく皆様には丁寧でなるべくわかりやすい仏事を心がけております。また、長年支えていただいた皆様とともに歩んできた歴史、育んできた変わらぬつながりの一つひとつを大事にさせていただいてきました。
+                        </p>
+                    </div>
+                    <div class="history-img-single">
+                        <img src="https://d2qn0rbzsp387.cloudfront.net/customers/49Kz7GJt/media/2026/02/f4c98836-fb51-4fdf-a3f0-960f30949535.jpg" alt="光源寺 外観">
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="history-images-wrapper">
+                        <img src="https://d2qn0rbzsp387.cloudfront.net/customers/49Kz7GJt/media/2025/12/63dbf000-8a72-408c-9066-8f957fd04d0e.jpg" alt="本堂内観" class="history-img-back">
+                        <img src="https://d2qn0rbzsp387.cloudfront.net/customers/49Kz7GJt/media/2025/12/6eb17648-fe56-4f68-9502-2ce91abe035e.jpg" alt="住職" class="history-img-front">
+                    </div>
+                    <div class="history-card">
+                        <p class="history-text">
+                            光源寺は、明治時代から約150年にわたり、この横浜の地で仏様の教えを守り伝えてまいりました。幾世代ものお見送りに立ち会ってきた経験と、400年以上前から安置されるご本尊が見守ってこられた歴史。この確かな重みこそが、心のこもった「ちゃんとした仏事」をお約束できるよう日々歩んでおります。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <div class="services-grid">
+                    <!-- Card 1 -->
+                    <div class="service-card">
+                        <svg class="service-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L10 6H14L12 2Z" />
+                            <path d="M8 8H16V10H8V8Z" />
+                            <path d="M6 12H18V14H6V12Z" />
+                            <path d="M4 16H20V22H4V16Z" />
+                            <rect x="11" y="4" width="2" height="4" />
+                        </svg>
+                        <h3 class="service-title serif">葬儀・法要</h3>
+                        <a href="#" class="btn btn-primary service-btn">詳しく見る</a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="service-card">
+                        <svg class="service-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" />
+                        </svg>
+                        <h3 class="service-title serif">境内のご案内</h3>
+                        <a href="#" class="btn btn-primary service-btn">詳しく見る</a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="service-card">
+                        <svg class="service-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 6C12 6 15 9 15 12C15 15 12 18 12 18C12 18 9 15 9 12C9 9 12 6 12 6Z" fill="currentColor"/>
+                            <path d="M6 12C6 12 9 9 12 9C15 9 18 12 18 12C18 12 15 15 12 15C9 15 6 12 6 12Z" fill="currentColor"/>
+                        </svg>
+                        <h3 class="service-title serif">浄土真宗とは</h3>
+                        <a href="#" class="btn btn-primary service-btn">詳しく見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-card">
+                        <h2 class="contact-title serif">お問い合わせはこちら</h2>
+                        <div class="contact-buttons">
+                            <a href="#" class="btn btn-secondary">相談フォーム</a>
+                            <a href="tel:045-231-3069" class="btn btn-secondary">お電話はこちら</a>
+                        </div>
+                        <div class="contact-info">
+                            <p>光源寺</p>
+                            <p>〒220-0045 神奈川県横浜市西区伊勢町３丁目１２３</p>
+                            <p class="tel">TEL : 045-231-3069</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <a href="#" class="logo">
+                        <img src="https://d2qn0rbzsp387.cloudfront.net/customers/49Kz7GJt/media/2026/01/f422d69f-1ffd-4ed5-bb36-38ce09ce0775.png" alt="光源寺 浄土真宗 真宗大谷派">
+                    </a>
+                    <p>光源寺</p>
+                    <p>〒220-0045 神奈川県横浜市西区伊勢町３丁目１２３</p>
+                    <p>TEL : 045-231-3069</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="#">トップ</a>
+                    <a href="#">歴史・行事</a>
+                    <a href="#">境内のご案内</a>
+                    <a href="#">浄土真宗とは</a>
+                    <a href="#">葬儀・法要</a>
+                    <a href="#">よくある質問</a>
+                    <a href="#">概要・地図</a>
+                    <a href="#">ブログ</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>©光源寺 浄土真宗 真宗大谷派</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:045-231-3069" class="mobile-cta-tel">お電話</a>
+        <a href="#" class="mobile-cta-contact">お問い合わせ</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.querySelector('.mobile-nav');
+
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const spans = this.querySelectorAll('span');
+                if (this.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
