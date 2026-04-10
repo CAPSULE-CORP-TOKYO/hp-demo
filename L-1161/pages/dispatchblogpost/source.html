@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="UTF-8">
+<title>【2026年最新】Claude Dispatch（デスパッチ）とは？スマホからAIに仕事を任せる新時代の使い方</title>
+<style>
+  body { font-family: 'Hiragino Kaku Gothic Pro', 'メイリオ', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.9; color: #333; }
+  h1 { font-size: 1.6em; color: #1a1a2e; border-bottom: 3px solid #6c5ce7; padding-bottom: 10px; }
+  h2 { font-size: 1.3em; color: #2d3436; margin-top: 35px; padding-left: 12px; border-left: 4px solid #6c5ce7; }
+  .illustration { text-align: center; margin: 30px 0; }
+  .illustration svg { max-width: 100%; }
+  .point-box { background: #f8f9ff; border: 1px solid #ddd; border-radius: 10px; padding: 20px; margin: 20px 0; }
+  .step { background: #fff; border-left: 4px solid #00b894; padding: 12px 16px; margin: 10px 0; border-radius: 0 8px 8px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .step-num { display: inline-block; background: #00b894; color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: bold; margin-right: 8px; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+  th { background: #6c5ce7; color: #fff; padding: 10px; }
+  td { border: 1px solid #ddd; padding: 10px; }
+  tr:nth-child(even) { background: #f8f9ff; }
+  .caption { font-size: 0.85em; color: #888; text-align: center; margin-top: 5px; }
+</style>
+</head>
+<body>
+
+<h1>【2026年最新】Claude Dispatch（デスパッチ）とは？スマホからAIに仕事を任せる新時代の使い方</h1>
+
+<p>「外出先からパソコンのAIに仕事を任せたい」——そんな願いを叶える機能が、Anthropic社の<strong>Claude Dispatch（クロード デスパッチ）</strong>です。スマートフォンからデスクトップのClaudeに指示を出し、帰社したら作業が完了している、という働き方が現実になりました。</p>
+
+<!-- イラスト1: スマホ→PC 概念図 -->
+<div class="illustration">
+<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- スマホ -->
+  <rect x="50" y="40" width="70" height="120" rx="10" fill="#f0f0f0" stroke="#333" stroke-width="2"></rect>
+  <rect x="58" y="55" width="54" height="85" rx="3" fill="#6c5ce7"></rect>
+  <text x="85" y="100" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">指示</text>
+  <circle cx="85" cy="150" r="5" fill="#ccc"></circle>
+  <text x="85" y="180" text-anchor="middle" fill="#555" font-size="12">スマホ</text>
+  <!-- 矢印 -->
+  <line x1="140" y1="100" x2="250" y2="100" stroke="#6c5ce7" stroke-width="3" marker-end="url(#arrowhead)"></line>
+  <text x="195" y="88" text-anchor="middle" fill="#6c5ce7" font-size="13" font-weight="bold">Dispatch</text>
+  <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6c5ce7"></polygon></marker></defs>
+  <!-- PC -->
+  <rect x="270" y="50" width="140" height="90" rx="5" fill="#f0f0f0" stroke="#333" stroke-width="2"></rect>
+  <rect x="280" y="58" width="120" height="70" rx="3" fill="#2d3436"></rect>
+  <text x="340" y="88" text-anchor="middle" fill="#00b894" font-size="10">Claude が作業中...</text>
+  <text x="340" y="105" text-anchor="middle" fill="#6c5ce7" font-size="10">📊 レポート作成</text>
+  <text x="340" y="118" text-anchor="middle" fill="#6c5ce7" font-size="10">📧 メール下書き</text>
+  <rect x="305" y="140" width="70" height="8" rx="2" fill="#ccc"></rect>
+  <text x="340" y="170" text-anchor="middle" fill="#555" font-size="12">デスクトップPC</text>
+  <!-- 完了通知 -->
+  <line x1="410" y1="100" x2="500" y2="100" stroke="#00b894" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowhead2)"></line>
+  <text x="455" y="88" text-anchor="middle" fill="#00b894" font-size="11">完了通知</text>
+  <defs><marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#00b894"></polygon></marker></defs>
+  <!-- スマホ2 -->
+  <rect x="510" y="55" width="55" height="90" rx="8" fill="#f0f0f0" stroke="#333" stroke-width="2"></rect>
+  <rect x="517" y="67" width="41" height="60" rx="3" fill="#00b894"></rect>
+  <text x="537" y="100" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">完了!</text>
+  <text x="537" y="170" text-anchor="middle" fill="#555" font-size="12">確認</text>
+</svg>
+<p class="caption">▲ Dispatchの基本的な流れ：スマホで指示→PCが自動作業→完了通知</p>
+</div>
+
+<h2>Dispatchでできること</h2>
+
+<p>Dispatchは単なるリモート操作ではありません。Claudeが自律的に考え、複数の手順を組み合わせてタスクを完了させます。たとえば、「Excelのデータをまとめてレポートを作って」と一言伝えれば、ファイルを開き、分析し、報告書を作成するところまで自動で進めてくれます。</p>
+
+<div class="point-box">
+<strong>主な活用シーン</strong><br><br>
+<strong>📊 データ処理</strong> — Excelやスプレッドシートのデータ集計・分析・グラフ作成<br>
+<strong>📧 メール・Slack</strong> — 受信メールの要約、返信下書き、Slackメッセージの検索<br>
+<strong>📄 書類作成</strong> — Word文書、PowerPoint資料、PDF帳票の作成・編集<br>
+<strong>🗂️ ファイル整理</strong> — フォルダ内のファイル整理、名前変更、形式変換<br>
+<strong>🌐 情報収集</strong> — Webで最新情報を調べてまとめる<br>
+<strong>⏰ 定期タスク</strong> — 毎朝のメールチェックや週次レポートのスケジュール実行
+</div>
+
+<!-- イラスト2: セットアップ手順 -->
+<h2>始め方はかんたん3ステップ</h2>
+
+<div class="illustration">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+  <!-- Step 1 -->
+  <rect x="10" y="10" width="170" height="130" rx="12" fill="#f8f9ff" stroke="#6c5ce7" stroke-width="2"></rect>
+  <circle cx="95" cy="40" r="16" fill="#6c5ce7"></circle>
+  <text x="95" y="45" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">1</text>
+  <text x="95" y="72" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">デスクトップアプリ</text>
+  <text x="95" y="90" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">を更新</text>
+  <text x="95" y="115" text-anchor="middle" fill="#888" font-size="10">最新版の Claude</text>
+  <text x="95" y="130" text-anchor="middle" fill="#888" font-size="10">Desktop を準備</text>
+  <!-- Step 2 -->
+  <rect x="210" y="10" width="170" height="130" rx="12" fill="#f8f9ff" stroke="#00b894" stroke-width="2"></rect>
+  <circle cx="295" cy="40" r="16" fill="#00b894"></circle>
+  <text x="295" y="45" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">2</text>
+  <text x="295" y="72" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">スマホアプリを</text>
+  <text x="295" y="90" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">インストール</text>
+  <text x="295" y="115" text-anchor="middle" fill="#888" font-size="10">iOS / Android の</text>
+  <text x="295" y="130" text-anchor="middle" fill="#888" font-size="10">Claude アプリ</text>
+  <!-- Step 3 -->
+  <rect x="410" y="10" width="170" height="130" rx="12" fill="#f8f9ff" stroke="#e17055" stroke-width="2"></rect>
+  <circle cx="495" cy="40" r="16" fill="#e17055"></circle>
+  <text x="495" y="45" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">3</text>
+  <text x="495" y="72" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">Cowork画面で</text>
+  <text x="495" y="90" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">Dispatchを接続</text>
+  <text x="495" y="115" text-anchor="middle" fill="#888" font-size="10">「Get started」を</text>
+  <text x="495" y="130" text-anchor="middle" fill="#888" font-size="10">クリックして完了</text>
+</svg>
+<p class="caption">▲ セットアップは3ステップで完了します</p>
+</div>
+
+<p>デスクトップのCowork画面で「Dispatch」を選び、「Get started」をクリックするだけで接続が完了します。スマホ側のClaudeアプリにもDispatchタブが表示され、すぐに使い始めることができます。</p>
+
+<h2>利用するための条件</h2>
+
+<p>Dispatchを使うには、いくつかの条件があります。まず、ClaudeのProプラン（月額約20ドル）またはMaxプランへの加入が必要です。また、作業中はデスクトップPCが起動した状態を保つ必要があります。パソコンがスリープすると、Claudeはタスクを実行できなくなります。</p>
+
+<h2>ビジネスでの活用イメージ</h2>
+
+<p>たとえば経営者の方であれば、移動中のタクシーの中から「今月の売上データをまとめて、前年比のグラフ付きレポートを作っておいて」と指示できます。オフィスに到着する頃には、Claudeがレポートを完成させています。会計事務所であれば「顧問先から届いた通帳コピーのPDFをCSVに変換して」「月次の勤怠データを集計して」といった定型作業を外出中に進められます。</p>
+
+<h2>注意点</h2>
+
+<p>現在Dispatchは研究プレビュー段階のため、今後仕様が変わる可能性があります。また、パスワード入力やクレジットカード情報の入力など、セキュリティに関わる操作はClaudeが代行することはできません。機密データの取り扱いには十分ご注意ください。</p>
+
+<h2>まとめ</h2>
+
+<table>
+<tbody><tr><th>項目</th><th>内容</th></tr>
+<tr><td>機能名</td><td>Claude Dispatch（デスパッチ）</td></tr>
+<tr><td>提供元</td><td>Anthropic社（Claude デスクトップアプリ内）</td></tr>
+<tr><td>できること</td><td>スマホからPCのClaudeに作業を指示・結果を確認</td></tr>
+<tr><td>対応デバイス</td><td>iPhone / Android + Windows / Mac デスクトップ</td></tr>
+<tr><td>必要なプラン</td><td>Pro（月額約20ドル）または Max プラン</td></tr>
+<tr><td>セットアップ</td><td>デスクトップとスマホのアプリを最新版に更新し接続</td></tr>
+<tr><td>主な活用例</td><td>レポート作成、メール処理、ファイル整理、情報収集</td></tr>
+<tr><td>注意点</td><td>PC起動が必要・研究プレビュー段階・機密情報の入力は不可</td></tr>
+</tbody></table>
+
+<p style="font-size:0.85em; color:#888; margin-top:30px;">参考：<a href="https://support.claude.com/en/articles/13947068-assign-tasks-to-claude-from-anywhere-in-cowork" target="_blank">Anthropic公式ヘルプ - Assign tasks to Claude from anywhere in Cowork</a>　｜　<a href="https://support.claude.com/en/articles/13345190-get-started-with-cowork" target="_blank">Get started with Cowork</a></p>
+
+
+
+</body></html>

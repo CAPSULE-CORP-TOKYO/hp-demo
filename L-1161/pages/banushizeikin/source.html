@@ -1,0 +1,595 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="競走馬オーナーのための税金教室｜個人馬主・法人馬主・組合馬主・一口馬主の税務を分かりやすく解説。茨城県土浦市 林税理士社労士事務所">
+<title>競走馬オーナーのための税金教室｜林税理士社労士事務所</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+:root {
+  --deep-green: #1a3a2a;
+  --green: #2d5a3f;
+  --light-green: #3d7a5a;
+  --gold: #c8a84e;
+  --light-gold: #e8d494;
+  --cream: #faf6ee;
+  --warm-white: #fefcf7;
+  --dark-text: #2a2a2a;
+  --body-text: #444;
+  --border: #ddd5c5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--cream);
+  color: var(--body-text);
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+/* ===== ヘッダー ===== */
+header {
+  background: linear-gradient(135deg, var(--deep-green) 0%, var(--green) 60%, var(--light-green) 100%);
+  color: white;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 5 L35 15 L30 12 L25 15Z' fill='rgba(200,168,78,0.06)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 30px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.site-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--light-gold);
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.site-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  margin-top: 6px;
+  font-weight: 300;
+}
+
+.office-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 0.95rem;
+  color: var(--light-gold);
+  text-align: right;
+  opacity: 0.9;
+}
+
+/* ===== ナビゲーション ===== */
+nav {
+  background: rgba(0,0,0,0.2);
+  margin-top: 25px;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+nav a {
+  display: block;
+  padding: 10px 22px;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+nav a:hover, nav a.active {
+  background: var(--gold);
+  color: var(--deep-green);
+}
+
+/* ===== ヒーロー ===== */
+.hero {
+  background: linear-gradient(to bottom, var(--deep-green), var(--green));
+  color: white;
+  text-align: center;
+  padding: 60px 30px 50px;
+  position: relative;
+}
+
+.hero-svg {
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.6rem;
+  color: var(--light-gold);
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* ===== メインコンテンツ ===== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 30px 60px;
+}
+
+.section-heading {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  color: var(--deep-green);
+  border-left: 4px solid var(--gold);
+  padding-left: 16px;
+  margin: 50px 0 25px;
+}
+
+.section-heading:first-of-type {
+  margin-top: 0;
+}
+
+.intro-text {
+  font-size: 1.05rem;
+  line-height: 2;
+  margin-bottom: 30px;
+  color: var(--body-text);
+}
+
+/* ===== カード ===== */
+.owner-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin: 30px 0 40px;
+}
+
+.owner-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.owner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 18px;
+}
+
+.card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.15rem;
+  color: var(--deep-green);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--body-text);
+}
+
+.card-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--deep-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-top: 12px;
+}
+
+/* ===== 事業所得の条件 ===== */
+.condition-box {
+  background: var(--warm-white);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 30px;
+  margin: 30px 0;
+  position: relative;
+}
+
+.condition-box::before {
+  content: '重要';
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--gold);
+  color: var(--deep-green);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 2px 16px;
+  border-radius: 20px;
+}
+
+.condition-box h3 {
+  font-family: 'Noto Serif JP', serif;
+  color: var(--deep-green);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.condition-list {
+  list-style: none;
+  counter-reset: cond;
+}
+
+.condition-list li {
+  counter-increment: cond;
+  padding: 12px 0 12px 45px;
+  position: relative;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.condition-list li:last-child { border-bottom: none; }
+
+.condition-list li::before {
+  content: counter(cond);
+  position: absolute;
+  left: 0; top: 12px;
+  width: 30px; height: 30px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ===== インフォグラフィック ===== */
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.info-row.reverse { flex-direction: row-reverse; }
+
+.info-svg {
+  flex: 0 0 280px;
+  max-width: 280px;
+}
+
+.info-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.info-text h3 {
+  font-family: 'Noto Serif JP', serif;
+  color: var(--deep-green);
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+/* ===== フッター ===== */
+footer {
+  background: var(--deep-green);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 30px;
+  font-size: 0.85rem;
+}
+
+footer .office-link {
+  color: var(--light-gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer .copyright {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  opacity: 0.6;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 768px) {
+  .site-title { font-size: 1.4rem; }
+  nav a { padding: 8px 14px; font-size: 0.8rem; }
+  .hero { padding: 40px 20px 35px; }
+  .hero h1 { font-size: 1.3rem; }
+  main { padding: 30px 18px 40px; }
+  .section-heading { font-size: 1.25rem; }
+  .info-row, .info-row.reverse { flex-direction: column; text-align: center; }
+  .info-svg { flex: none; max-width: 220px; margin: 0 auto; }
+  .owner-cards { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .owner-cards { grid-template-columns: 1fr; }
+  .header-top { justify-content: center; text-align: center; }
+  .office-name { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <div class="site-title">競走馬オーナーのための税金教室</div>
+        <div class="site-subtitle">馬主の確定申告・節税・消費税をやさしく解説します</div>
+      </div>
+      <div class="office-name">林税理士社労士事務所<br>茨城県土浦市・つくば市</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">馬主になるには</a></li>
+        <li><a href="income-expense.html">収入と経費</a></li>
+        <li><a href="depreciation-blue.html">減価償却と青色申告</a></li>
+        <li><a href="tax-detail.html">消費税・源泉徴収</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== ヒーロー ===== -->
+<section class="hero">
+  <div class="hero-svg">
+    <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- 競馬場の芝 -->
+      <defs>
+        <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3d7a5a"></stop>
+          <stop offset="100%" stop-color="#2d5a3f"></stop>
+        </linearGradient>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.05)"></stop>
+          <stop offset="100%" stop-color="rgba(255,255,255,0)"></stop>
+        </linearGradient>
+        <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#e8d494"></stop>
+          <stop offset="100%" stop-color="#c8a84e"></stop>
+        </linearGradient>
+      </defs>
+      <!-- 背景の柵 -->
+      <rect x="0" y="140" width="500" height="60" fill="url(#grass)" rx="4"></rect>
+      <g stroke="#c8a84e" stroke-width="2" opacity="0.5">
+        <line x1="30" y1="110" x2="30" y2="145"></line>
+        <line x1="80" y1="110" x2="80" y2="145"></line>
+        <line x1="130" y1="110" x2="130" y2="145"></line>
+        <line x1="370" y1="110" x2="370" y2="145"></line>
+        <line x1="420" y1="110" x2="420" y2="145"></line>
+        <line x1="470" y1="110" x2="470" y2="145"></line>
+        <line x1="20" y1="118" x2="140" y2="118"></line>
+        <line x1="20" y1="130" x2="140" y2="130"></line>
+        <line x1="360" y1="118" x2="480" y2="118"></line>
+        <line x1="360" y1="130" x2="480" y2="130"></line>
+      </g>
+      <!-- 馬のシルエット（走る姿） -->
+      <g transform="translate(180, 60) scale(0.9)" fill="url(#goldGrad)">
+        <!-- 胴体 -->
+        <ellipse cx="70" cy="50" rx="55" ry="25"></ellipse>
+        <!-- 首 -->
+        <path d="M115,40 Q130,15 125,0 L135,0 Q142,18 128,42Z"></path>
+        <!-- 頭 -->
+        <ellipse cx="130" cy="0" rx="18" ry="10" transform="rotate(-15,130,0)"></ellipse>
+        <!-- 耳 -->
+        <path d="M140,-8 L145,-20 L148,-8Z"></path>
+        <path d="M135,-10 L138,-22 L142,-10Z"></path>
+        <!-- 前脚（伸びた姿勢） -->
+        <path d="M105,70 Q115,90 130,100 L127,102 Q112,92 100,72Z"></path>
+        <path d="M95,72 Q85,95 75,105 L78,107 Q90,95 100,74Z"></path>
+        <!-- 後脚 -->
+        <path d="M40,70 Q50,95 65,105 L62,107 Q47,95 35,72Z"></path>
+        <path d="M30,68 Q20,90 10,100 L13,102 Q25,90 35,70Z"></path>
+        <!-- 尻尾 -->
+        <path d="M15,38 Q-10,25 -5,50 Q0,40 15,45Z" opacity="0.8"></path>
+        <!-- たてがみ -->
+        <path d="M120,30 Q125,20 128,5 Q122,18 115,28Z" opacity="0.7"></path>
+        <path d="M118,32 Q120,22 123,10 Q117,22 113,30Z" opacity="0.6"></path>
+      </g>
+      <!-- 装飾の星 -->
+      <g fill="#c8a84e" opacity="0.3">
+        <circle cx="50" cy="40" r="2"></circle>
+        <circle cx="440" cy="30" r="2.5"></circle>
+        <circle cx="380" cy="55" r="1.5"></circle>
+        <circle cx="100" cy="65" r="1.8"></circle>
+        <circle cx="460" cy="75" r="2"></circle>
+      </g>
+      <!-- テキスト装飾ライン -->
+      <line x1="150" y1="180" x2="350" y2="180" stroke="#c8a84e" stroke-width="1" opacity="0.4"></line>
+    </svg>
+  </div>
+  <h1>美浦トレセン関係の税務もお任せください</h1>
+  <p>競走馬の保有に関する税金は複雑ですが、正しく理解すれば大きな節税効果が期待できます。個人馬主・法人馬主・一口馬主、それぞれの税務のポイントを分かりやすく解説いたします。</p>
+</section>
+
+<!-- ===== メインコンテンツ ===== -->
+<main>
+
+  <h2 class="section-heading">競走馬オーナーになるには</h2>
+
+  <p class="intro-text">
+    競走馬を直接保有するのは条件的にも難しいという方には、愛馬会会員（一口馬主）からのスタートをお勧めします。こちらは専門の愛馬会法人が募集している競走馬に投資する形になります。競走馬の保有形態は主に以下の4つに分かれます。
+  </p>
+
+  <div class="owner-cards">
+
+    <!-- 個人馬主 -->
+    <div class="owner-card">
+      <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" fill="none" stroke="#c8a84e" stroke-width="2"></circle>
+        <circle cx="50" cy="50" r="44" fill="#faf6ee"></circle>
+        <!-- 人物アイコン -->
+        <circle cx="50" cy="32" r="12" fill="#2d5a3f"></circle>
+        <path d="M28,72 Q28,52 50,52 Q72,52 72,72Z" fill="#2d5a3f"></path>
+        <!-- 馬のシルエット（小） -->
+        <g transform="translate(60,20) scale(0.2)" fill="#c8a84e">
+          <ellipse cx="50" cy="40" rx="35" ry="18"></ellipse>
+          <path d="M80,28 Q90,10 87,0 L93,0 Q97,12 85,30Z"></path>
+          <ellipse cx="90" cy="0" rx="12" ry="7" transform="rotate(-10,90,0)"></ellipse>
+        </g>
+      </svg>
+      <div class="card-title">個人馬主</div>
+      <div class="card-desc">個人で競走馬を所有する形態です。事業所得にすれば赤字を他の所得と損益通算できるため、節税効果が大きくなります。共有馬主として10人まで共同保有も可能です。</div>
+      <span class="card-tag">事業所得</span>
+    </div>
+
+    <!-- 法人馬主 -->
+    <div class="owner-card">
+      <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" fill="none" stroke="#c8a84e" stroke-width="2"></circle>
+        <circle cx="50" cy="50" r="44" fill="#faf6ee"></circle>
+        <!-- ビルアイコン -->
+        <rect x="30" y="25" width="40" height="50" rx="3" fill="#2d5a3f"></rect>
+        <rect x="36" y="32" width="8" height="6" rx="1" fill="#c8a84e" opacity="0.7"></rect>
+        <rect x="48" y="32" width="8" height="6" rx="1" fill="#c8a84e" opacity="0.7"></rect>
+        <rect x="36" y="44" width="8" height="6" rx="1" fill="#c8a84e" opacity="0.7"></rect>
+        <rect x="48" y="44" width="8" height="6" rx="1" fill="#c8a84e" opacity="0.7"></rect>
+        <rect x="42" y="58" width="16" height="17" rx="2" fill="#c8a84e"></rect>
+        <!-- 屋根 -->
+        <path d="M26,25 L50,12 L74,25Z" fill="#1a3a2a"></path>
+      </svg>
+      <div class="card-title">法人馬主</div>
+      <div class="card-desc">株式会社・有限会社として競走馬を所有する形態です。法人税の実効税率低下により、規模によっては法人のほうが税金上有利なケースもあります。</div>
+      <span class="card-tag">法人所得</span>
+    </div>
+
+    <!-- 組合馬主 -->
+    <div class="owner-card">
+      <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" fill="none" stroke="#c8a84e" stroke-width="2"></circle>
+        <circle cx="50" cy="50" r="44" fill="#faf6ee"></circle>
+        <!-- 複数人アイコン -->
+        <circle cx="35" cy="33" r="9" fill="#2d5a3f"></circle>
+        <path d="M18,60 Q18,46 35,46 Q52,46 52,60Z" fill="#2d5a3f"></path>
+        <circle cx="60" cy="33" r="9" fill="#3d7a5a"></circle>
+        <path d="M43,60 Q43,46 60,46 Q77,46 77,60Z" fill="#3d7a5a"></path>
+        <!-- 握手 -->
+        <path d="M38,65 L50,72 L62,65" stroke="#c8a84e" stroke-width="3" fill="none" stroke-linecap="round"></path>
+      </svg>
+      <div class="card-title">組合馬主</div>
+      <div class="card-desc">仲間同士で組合を作り、馬主登録することが可能です。組合契約に定める分配割合に応じて各組合員に利益や損失が帰属し、それぞれが確定申告を行います。</div>
+      <span class="card-tag">分配所得</span>
+    </div>
+
+    <!-- 一口馬主 -->
+    <div class="owner-card">
+      <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" fill="none" stroke="#c8a84e" stroke-width="2"></circle>
+        <circle cx="50" cy="50" r="44" fill="#faf6ee"></circle>
+        <!-- コインアイコン -->
+        <ellipse cx="50" cy="48" rx="22" ry="22" fill="#c8a84e"></ellipse>
+        <ellipse cx="50" cy="48" rx="18" ry="18" fill="none" stroke="#2d5a3f" stroke-width="1.5"></ellipse>
+        <text x="50" y="55" text-anchor="middle" font-size="20" font-weight="bold" fill="#2d5a3f" font-family="serif">口</text>
+        <!-- 複数の小コイン -->
+        <circle cx="25" cy="70" r="6" fill="#e8d494" opacity="0.6"></circle>
+        <circle cx="75" cy="70" r="6" fill="#e8d494" opacity="0.6"></circle>
+      </svg>
+      <div class="card-title">愛馬会会員（一口馬主）</div>
+      <div class="card-desc">クラブ（匿名組合）に出資する形態です。賞金の配当も受け取れますが、法的には馬主ではないため、税務上は雑所得となり損益通算はできません。</div>
+      <span class="card-tag">雑所得</span>
+    </div>
+
+  </div>
+
+  <!-- ===== 事業所得の条件 ===== -->
+  <h2 class="section-heading">事業所得として認められる条件</h2>
+
+  <p class="intro-text">
+    競走馬保有の所得は原則として雑所得に分類されます。雑所得では他の所得と損益通算（赤字と黒字の相殺）ができません。しかし、以下の条件を満たすと事業所得として認められ、他の所得との通算が可能になります。
+  </p>
+
+  <div class="condition-box">
+    <h3>事業所得の判定要件（いずれかを満たすこと）</h3>
+    <ol class="condition-list">
+      <li>その年において、登録馬でその年の登録期間が<strong>6か月以上</strong>であるものを<strong>5頭以上</strong>保有している場合</li>
+      <li>その年以前<strong>3年以内</strong>の各年において、登録馬（登録期間6か月以上）を<strong>2頭以上</strong>保有し、かつ前年以前3年以内に<strong>黒字の年が1年以上</strong>ある場合</li>
+      <li>確定申告書に、保有競走馬の<strong>出走回数および競馬賞金収入額の証明書</strong>を添付する必要があります</li>
+    </ol>
+  </div>
+
+  <div class="info-row">
+    <div class="info-svg">
+      <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 申告書イメージ -->
+        <rect x="30" y="10" width="180" height="180" rx="8" fill="white" stroke="#ddd5c5" stroke-width="2"></rect>
+        <rect x="50" y="30" width="140" height="15" rx="3" fill="#2d5a3f" opacity="0.15"></rect>
+        <rect x="50" y="55" width="120" height="8" rx="2" fill="#ddd5c5"></rect>
+        <rect x="50" y="70" width="100" height="8" rx="2" fill="#ddd5c5"></rect>
+        <rect x="50" y="85" width="130" height="8" rx="2" fill="#ddd5c5"></rect>
+        <!-- チェックマーク -->
+        <circle cx="200" cy="120" r="35" fill="#2d5a3f" opacity="0.1"></circle>
+        <path d="M180,120 L195,135 L225,100" stroke="#2d5a3f" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+        <!-- 添付書類 -->
+        <rect x="50" y="110" width="100" height="60" rx="4" fill="#faf6ee" stroke="#c8a84e" stroke-width="1.5"></rect>
+        <text x="100" y="138" text-anchor="middle" font-size="10" fill="#c8a84e" font-family="sans-serif">証明書</text>
+        <text x="100" y="155" text-anchor="middle" font-size="8" fill="#999" font-family="sans-serif">出走回数・賞金収入</text>
+      </svg>
+    </div>
+    <div class="info-text">
+      <h3>確定申告に必要な証明書</h3>
+      <p>中央競馬では日本中央競馬会（JRA）発行の「競走馬の登録、出走回数及び競馬賞金収入等証明書」を、地方競馬では地方競馬全国協会や主催者発行の証明書を、確定申告書に添付する必要があります。</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div>
+    <a href="index.html" class="office-link">林税理士社労士事務所</a>　｜　茨城県土浦市・つくば市　｜　美浦トレセン関係の税務
+  </div>
+  <div class="copyright">© 林税理士社労士事務所　無断転載・利用を禁じます。</div>
+</footer>
+
+
+
+</body></html>

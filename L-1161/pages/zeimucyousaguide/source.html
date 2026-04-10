@@ -1,0 +1,708 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税務調査 実践対策ガイド｜中小企業経営者のための完全マニュアル</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --primary-light: #2471a3;
+    --accent: #d4740e;
+    --success: #1e8449;
+    --danger: #b03a2e;
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --text: #2c3e50;
+    --text-light: #6c7a89;
+    --border: #dde4ec;
+    --shadow: 0 2px 12px rgba(0,0,0,0.07);
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff; padding: 24px 20px; text-align: center;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  }
+  .header h1 { font-size: 1.35rem; letter-spacing: 0.06em; }
+  .header .sub { font-size: 0.78rem; opacity: 0.85; margin-top: 4px; }
+  .container { max-width: 780px; margin: 0 auto; padding: 20px 16px 80px; }
+  .nav-bar {
+    display: flex; gap: 8px; overflow-x: auto; padding: 12px 0 16px;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .nav-bar::-webkit-scrollbar { display: none; }
+  .nav-pill {
+    flex-shrink: 0; padding: 8px 16px; border-radius: 24px;
+    font-size: 0.82rem; font-weight: 600; cursor: pointer;
+    border: 2px solid var(--border); background: var(--card); color: var(--text);
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .nav-pill:hover, .nav-pill.active {
+    background: var(--primary); color: #fff; border-color: var(--primary);
+  }
+  .phase-header {
+    display: flex; align-items: center; gap: 12px;
+    margin: 28px 0 16px; padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary-light);
+  }
+  .phase-icon { font-size: 1.6rem; }
+  .phase-title { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
+  .phase-desc { font-size: 0.85rem; color: var(--text-light); margin-bottom: 16px; }
+  .accordion { margin-bottom: 12px; }
+  .acc-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 18px; background: var(--card);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    cursor: pointer; transition: all 0.2s;
+    box-shadow: var(--shadow); user-select: none;
+  }
+  .acc-header:hover { border-color: var(--primary-light); background: #f0f5fa; }
+  .accordion.open .acc-header {
+    border-radius: var(--radius) var(--radius) 0 0;
+    border-bottom: none; background: #eaf1f8;
+    border-color: var(--primary-light);
+  }
+  .acc-num {
+    flex-shrink: 0; width: 32px; height: 32px;
+    border-radius: 50%; background: var(--primary);
+    color: #fff; font-size: 0.85rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .acc-question { flex: 1; font-size: 0.95rem; font-weight: 600; line-height: 1.6; }
+  .acc-arrow { flex-shrink: 0; font-size: 1.1rem; color: var(--text-light); transition: transform 0.3s; }
+  .accordion.open .acc-arrow { transform: rotate(180deg); }
+  .acc-body {
+    display: none; padding: 20px 20px 24px;
+    background: var(--card); border: 1px solid var(--primary-light);
+    border-top: none; border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: var(--shadow); animation: slideDown 0.3s ease;
+  }
+  .accordion.open .acc-body { display: block; }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+  .answer-label {
+    display: inline-block; font-size: 0.75rem; font-weight: 700;
+    padding: 3px 12px; border-radius: 20px; margin-bottom: 10px;
+  }
+  .label-do { background: #d5f5e3; color: var(--success); }
+  .label-reason { background: #d6eaf8; color: var(--primary); }
+  .label-caution { background: #fadbd8; color: var(--danger); }
+  .answer-text { font-size: 0.92rem; line-height: 1.9; margin-bottom: 14px; }
+  .answer-text strong { color: var(--primary); }
+  .action-box {
+    background: #fef9e7; border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0; padding: 16px 18px; margin: 12px 0;
+  }
+  .action-box h5 { font-size: 0.85rem; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .action-box ul { list-style: none; padding: 0; }
+  .action-box li { font-size: 0.88rem; line-height: 1.8; padding: 4px 0 4px 20px; position: relative; }
+  .action-box li::before { content: "✔"; position: absolute; left: 0; color: var(--success); font-weight: 700; font-size: 0.8rem; }
+  .reason-box {
+    background: #eaf2f8; border-left: 4px solid var(--primary-light);
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0;
+  }
+  .reason-box h5 { font-size: 0.85rem; color: var(--primary); margin-bottom: 6px; }
+  .reason-box p { font-size: 0.85rem; line-height: 1.8; }
+  .caution-box {
+    background: #fdedec; border-left: 4px solid var(--danger);
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0;
+  }
+  .caution-box h5 { font-size: 0.85rem; color: var(--danger); margin-bottom: 6px; }
+  .caution-box p { font-size: 0.85rem; line-height: 1.7; }
+  .phrase-box {
+    background: #f4f6f9; border: 2px solid var(--border);
+    border-radius: 10px; padding: 14px 18px; margin: 12px 0;
+    font-size: 0.9rem; line-height: 1.7;
+  }
+  .phrase-box::before { content: "💬 "; }
+  .source-tag {
+    font-size: 0.78rem; color: var(--text-light);
+    margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border);
+  }
+  .check-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.85rem; }
+  .check-table th { background: var(--primary); color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+  .check-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  .check-table tr:nth-child(even) td { background: #f8f9fb; }
+  .footer { text-align: center; padding: 24px 16px; font-size: 0.75rem; color: var(--text-light); }
+  .footer a { color: var(--primary-light); text-decoration: none; }
+  .link-banner {
+    display: block; text-align: center;
+    background: linear-gradient(135deg, var(--accent), #d35400);
+    color: #fff; padding: 16px 20px;
+    border-radius: var(--radius); margin: 24px 0;
+    text-decoration: none; font-weight: 700; font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(212,116,14,0.3); transition: all 0.2s;
+  }
+  .link-banner:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(212,116,14,0.4); }
+  .link-banner .small { font-size: 0.78rem; font-weight: 400; opacity: 0.9; display: block; margin-top: 4px; }
+  @media print { .header { position: static; } .nav-bar { display: none; } .acc-body { display: block !important; } .link-banner { display: none; } }
+  @media (max-width: 480px) { .header h1 { font-size: 1.1rem; } .acc-header { padding: 14px 14px; } .acc-question { font-size: 0.88rem; } }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>税務調査 実践対策ガイド</h1>
+  <div class="sub">中小企業経営者のための具体的な対応マニュアル（2026年4月改訂版）</div>
+</div>
+<div class="container" id="app">
+  <div class="nav-bar" id="nav">
+    <div class="nav-pill" data-target="phase1">事前通知・無予告調査</div>
+    <div class="nav-pill" data-target="phase2">調査前の準備</div>
+    <div class="nav-pill" data-target="phase3">当日：資料要求への対応</div>
+    <div class="nav-pill" data-target="phase4">当日：質問・追及への対応</div>
+    <div class="nav-pill" data-target="phase5">否認指摘・反論テクニック</div>
+    <div class="nav-pill" data-target="phase6">修正申告・更正の選択</div>
+    <div class="nav-pill" data-target="phase7">加算税・重加算税</div>
+    <div class="nav-pill" data-target="phase8">戦略的な時期の活用</div>
+  </div>
+
+  <!-- ===== フェーズ1 ===== -->
+  <section id="phase1">
+    <div class="phase-header">
+      <span class="phase-icon">📞</span>
+      <span class="phase-title">フェーズ1：事前通知を受けたら・無予告調査が来たら</span>
+    </div>
+    <p class="phase-desc">税務署から連絡があった瞬間の対応が、調査全体の流れを決めます。</p>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">1</span><span class="acc-question">税務署から「調査に伺いたい」と電話がありました。最初に何をすべきですか？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>その場で日程を承諾せず、必要事項をメモして「顧問税理士と相談して折り返します」と伝えてください。</strong></p>
+        <div class="action-box">
+          <h5>📝 電話で確認・メモすべき6項目</h5>
+          <ul>
+            <li>担当調査官の氏名と所属部署（統括官の名前も確認します）</li>
+            <li>調査の対象税目（法人税・消費税・源泉所得税など）</li>
+            <li>調査の対象期間（例：令和4年4月〜令和7年3月の3期分）</li>
+            <li>調査の希望日程（「確認して折り返します」でOKです）</li>
+            <li>調査にかかる予定日数（通常2〜3日が多いです）</li>
+            <li>事前に用意を求められる書類の有無</li>
+          </ul>
+        </div>
+        <div class="action-box">
+          <h5>📱 電話を切った直後にやること</h5>
+          <ul>
+            <li><strong>顧問税理士に即連絡</strong>します。メモした内容をすべて伝えます</li>
+            <li>税理士と相談のうえ調査日程を決定します</li>
+            <li>繁忙期や決算時期を避けて日程調整することは正当な権利です（国税通則法第74条の9第2項）</li>
+          </ul>
+        </div>
+        <div class="reason-box">
+          <h5>💡 なぜこの対応が正しいのか</h5>
+          <p>日程変更の要求は納税者の権利であり、「受忍義務（協力義務）の放棄」にはあたりません。正当な理由（多忙、税理士との日程調整など）による変更要求は何度でも可能です。</p>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第74条の9（事前通知）、同第2項</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">2</span><span class="acc-question">無予告調査（突然の訪問）が来ました。どう対応すべきですか？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>事業所の中には入れず、外で待たせたまま速やかに税理士に連絡してください。</strong>その上で日程の再調整（リスケジュール）を求めます。</p>
+        <div class="action-box">
+          <h5>🛡️ 無予告調査への具体的対応手順</h5>
+          <ul>
+            <li><strong>「どうぞ」と言わないでください。</strong>建物内に入れる必要はありません。「明示の承諾」を与えない限り、立ち入りはできません</li>
+            <li>「質問検査章」（身分証明書）の提示を求め、氏名・所属をメモします</li>
+            <li>「顧問税理士が立ち会わない限り、質問には応じられません」と事務的に伝えます</li>
+            <li>「今日は予定がありますので、来週の○曜日にお願いできますか」と<strong>具体的な代替日を提示</strong>します</li>
+          </ul>
+        </div>
+        <div class="reason-box">
+          <h5>💡 なぜ入れてはいけないのか</h5>
+          <p>任意調査ですので、代表者の合意なく調査を開始することはできません。受忍義務はありますが、別の日程を提案することは正当な対応です。無予告調査の法定要件（国税通則法第74条の10：事実の正確な把握が困難になるおそれ等）を満たしていない場合もあるため、慌てて応じる必要はありません。</p>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第74条の10（事前通知を要しない場合）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フェーズ2 ===== -->
+  <section id="phase2">
+    <div class="phase-header">
+      <span class="phase-icon">📋</span>
+      <span class="phase-title">フェーズ2：調査前の準備（調査日までにやること）</span>
+    </div>
+    <p class="phase-desc">事前通知から調査当日までの準備が結果を大きく左右します。</p>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">3</span><span class="acc-question">事前通知があった後、実地調査の前に「売上除外などの不正」に気付いてしまったら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>税務調査（実地調査）が始まる前に、速やかに自主的な「修正申告書」を提出してください。</strong></p>
+        <div class="reason-box">
+          <h5>💡 なぜ急ぐのか</h5>
+          <p>事前連絡を受けた段階であっても、具体的な調査や指摘を受ける前（＝実地調査の臨場前）であれば、国税庁の事務運営指針に基づき「更正があるべきことを予知してされたもの」には該当しません。つまり、<strong>過少申告加算税および重加算税が課されない</strong>のです。実地調査が始まってからでは手遅れになりますので、不正に気付いた場合はすぐに税理士に相談して修正申告を提出してください。</p>
+        </div>
+        <div class="caution-box">
+          <h5>⚠️ 重要な注意点</h5>
+          <p>事前通知後〜実地調査前に修正申告をした場合でも、修正申告の内容が「調査対象以外の事項」についてのものであれば加算税は原則なしです。ただし、調査対象の税目・期間に関するものは5%の加算税がかかる場合があります。いずれにしても調査後（10%〜15%）より大幅に有利ですので、早期の修正申告が鉄則です。</p>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第65条第5項、国税庁事務運営指針</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">4</span><span class="acc-question">調査前に用意しておくべき書類は何ですか？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text">対象期間の帳簿書類一式を整理し、<strong>すぐに提示できる状態</strong>にしておきます。</p>
+        <table class="check-table">
+          <thead><tr><th>書類の種類</th><th>具体的な内容</th></tr></thead>
+          <tbody>
+            <tr><td>法定帳簿</td><td>総勘定元帳、仕訳帳、現金出納帳、売掛帳、買掛帳</td></tr>
+            <tr><td>決算書類</td><td>貸借対照表、損益計算書、勘定科目内訳明細書</td></tr>
+            <tr><td>申告書類</td><td>確定申告書（法人税・消費税・地方税）の控え</td></tr>
+            <tr><td>証憑書類</td><td>領収書、請求書、納品書、契約書（年月順に整理）</td></tr>
+            <tr><td>通帳・明細</td><td>全金融機関の通帳またはWeb明細（対象期間分）</td></tr>
+            <tr><td>給与関連</td><td>賃金台帳、源泉徴収簿、年末調整関連書類</td></tr>
+            <tr><td>議事録</td><td>株主総会議事録、取締役会議事録（役員報酬・賞与の決議）</td></tr>
+            <tr><td>在庫関連</td><td>期末棚卸表、棚卸明細</td></tr>
+            <tr><td>電子データ</td><td>会計ソフトデータ、電子取引データ（メール受領の請求書等）</td></tr>
+          </tbody>
+        </table>
+        <div class="source-tag">📖 根拠：法人税法施行規則第67条、電子帳簿保存法第7条</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">5</span><span class="acc-question">従業員にはどう伝えるべきですか？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>「聞かれたことに事実をありのまま答えてください」とだけ伝えてください。</strong></p>
+        <div class="caution-box">
+          <h5>⚠️ 絶対にやってはいけないこと</h5>
+          <p>「調査官には何も話すな」「聞かれても知らないと言え」といった<strong>口裏合わせの指示は絶対にしないでください。</strong>発覚すると「仮装・隠蔽」と認定され、重加算税（35%〜40%）の対象になりかねません。</p>
+        </div>
+        <div class="reason-box">
+          <h5>💡 従業員ヒアリングについて</h5>
+          <p>調査官が従業員に直接ヒアリングを求めてくることがあります。法律上は完全に断ることは難しいですが、国税当局も「代表者の了解を得た上で行う」よう調査官を指導しています。「代表者の了解をもらうよう教育されているはずですよね？」と確認し、勝手なヒアリングを牽制してください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フェーズ3 ===== -->
+  <section id="phase3">
+    <div class="phase-header">
+      <span class="phase-icon">📂</span>
+      <span class="phase-title">フェーズ3：調査当日 ─ 資料・書類の要求への対応</span>
+    </div>
+    <p class="phase-desc">帳簿や書類の見せ方ひとつで調査の方向が変わります。適切な範囲で協力しましょう。</p>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">6</span><span class="acc-question">「帳票類（書類）を税務署に持って帰りたい」と言われたら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>持ち帰りは断り、「税務署からコピー機を持ってきて、必要な分をすべてコピーして持って帰ってください」と伝えます。</strong></p>
+        <div class="reason-box">
+          <h5>💡 なぜ断るべきなのか</h5>
+          <p>持ち帰りを許すと、税務署内で複数人によって細かくチェックされ調査が長引くリスクがあります。また、帳票類を紛失されるリスクもあります。帳簿の「留め置き」（国税通則法第74条の7）はあくまで任意であり、強制ではありません。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">7</span><span class="acc-question">「コピーをとらせてほしい」と依頼されたら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text">納税者のコピー機を使う場合は、<strong>コピー代金の実費（白黒10円、カラー50円等）を請求します。</strong>また、調査官にコピーさせるのではなく、<strong>納税者側で2枚コピーを取り、1枚を調査官に渡し、もう1枚を自社の控え</strong>として残してください。</p>
+        <div class="reason-box">
+          <h5>💡 なぜ控えを残すのか</h5>
+          <p>コピーを渡すことは受忍義務の範囲外（任意）であり、コピー代は税務署が負担すべき実費です。控えを残すことで、調査官がどこを調べているのかを把握でき、次の対策を立てやすくなります。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">8</span><span class="acc-question">「パソコンを見せてください」と言われたら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>パソコンをそのまま渡すことは拒否してください。</strong>「見たいものを指示してください。こちらで操作して画面に出します（または印刷してお見せします）」と対応します。</p>
+        <div class="phrase-box">「必要なデータを指示してください。こちらで操作し、画面提示または印刷してお渡しします」</div>
+        <div class="reason-box">
+          <h5>💡 なぜ直接操作させてはいけないのか</h5>
+          <p>受忍義務は税務に関するものに限定されており、個人のメールや写真、会社のノウハウなどを調査官に見せる義務はありません。情報技術専門官が同行している場合、データ復旧ソフトで削除済みの私的データまで復元されるリスクもあります。直接操作させる法的義務はなく、画面提示・印刷で協力義務は十分に果たされています。</p>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第74条の2（質問検査権の範囲）</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">9</span><span class="acc-question">「社長個人の通帳や自宅を見せてください」と言われたら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text">会社に対する調査であれば、<strong>「個人に対する調査に受忍義務はありません」とキッパリ断ります。</strong></p>
+        <div class="phrase-box">「今行われている税務調査は何に対する調査ですか？法人に対する調査ですよね。個人の通帳・自宅は法人の調査の範囲外です」</div>
+        <div class="reason-box">
+          <h5>💡 根拠</h5>
+          <p>法人の税務調査において、個人に対する調査権限は原則としてありません。「質問検査章」に記載された税目を確認してください。「法人税」の記載しかないのに社長個人の預金通帳を見せろと言うならば、それは権限外の調査です。</p>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第74条の2〜第74条の6（質問検査権の範囲は法定税目に限定）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フェーズ4 ===== -->
+  <section id="phase4">
+    <div class="phase-header">
+      <span class="phase-icon">🗣️</span>
+      <span class="phase-title">フェーズ4：調査当日 ─ 質問・追及への対応</span>
+    </div>
+    <p class="phase-desc">調査官の質問への答え方で結果が大きく変わります。3つの基本ルールを守りましょう。</p>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">10</span><span class="acc-question">調査官の質問に対する基本的な回答ルールは？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>「聞かれたことだけに、事実を正確に、簡潔に答える」</strong>が鉄則です。</p>
+        <div class="action-box">
+          <h5>💬 回答の3つの基本ルール</h5>
+          <ul>
+            <li><strong>①聞かれたことだけ答える</strong>：質問されていないことを自分から話す必要はありません。余計な情報は新たな疑問を生むだけです</li>
+            <li><strong>②わからないことは「確認します」と答える</strong>：推測で答えると矛盾が生じて不信感を招きます。「確認して後日ご回答します」は正当な対応です</li>
+            <li><strong>③嘘をつかない</strong>：虚偽の答弁は国税通則法第128条により処罰対象です。事実と異なることを言うくらいなら「記憶にありません」と正直に答えてください</li>
+          </ul>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第74条の2（質問検査権）、第128条（罰則：1年以下の懲役又は50万円以下の罰金）</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">11</span><span class="acc-question">「一筆入れてください（申述書を書いてください）」と言われたら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-caution">要注意</span>
+        <p class="answer-text"><strong>絶対に書いてはいけません（サインしてはいけません）。</strong></p>
+        <div class="phrase-box">「内容の正誤に関わらず、自供を強要する書面には署名しません。事実関係の確認が必要でしたら、後日、当方から書面（抗弁書）で回答します」</div>
+        <div class="reason-box">
+          <h5>💡 なぜ絶対に書いてはいけないのか</h5>
+          <p><strong>申述書を求めてくること自体が、「調査官側に重加算税を課すための証拠が足りないことの裏返し」です。</strong>一筆書いてしまうと「納税者自身が自白・認めた事実」となり、それを根拠に重加算税（35%〜40%）などの不利な処分を受けることになります。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">12</span><span class="acc-question">調査官との会話を録音してもよいですか？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>すべてのやり取りをICレコーダー等で録音することが推奨されます。</strong>違法行為ではありません。</p>
+        <div class="reason-box">
+          <h5>💡 録音が最大の武器になる理由</h5>
+          <p>「言った・言わない」のトラブルを防ぐため、調査官とのやり取りはすべて記録を残してください。録音は盗聴ではなく、納税者の身を守る正当な証拠保全です。机の上に置いておくだけでも構いません。記録があることで、調査官の発言の正確性を後日検証できますし、不服申立ての際にも有力な証拠になります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フェーズ5 ===== -->
+  <section id="phase5">
+    <div class="phase-header">
+      <span class="phase-icon">⚔️</span>
+      <span class="phase-title">フェーズ5：否認指摘を受けたときの反論テクニック</span>
+    </div>
+    <p class="phase-desc">調査官の指摘がすべて正しいとは限りません。適切な反論で不当な課税を防ぎましょう。</p>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">13</span><span class="acc-question">否認の根拠が曖昧なまま「証拠を出してください」と立証を求められたら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>「否認するなら、その根拠を税務署側が法令に基づいて立証してください」と主張します。</strong></p>
+        <div class="phrase-box">「否認を主張されるのであれば、その法的根拠を法令に基づいて立証していただけますか。立証責任は否認する側にあります」</div>
+        <div class="reason-box">
+          <h5>💡 立証責任の所在</h5>
+          <p>税務調査において、否認するための根拠を示す<strong>「立証責任」は納税者ではなく、調査官（国税側）にあります。</strong>「証拠を出せ」と立証責任を転嫁してくる場合がありますが、これは最高裁判決（昭和57年7月1日等）でも明確に否定されています。「納税者に悪魔の証明を強いることは法的に誤りである」と認識してください。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">14</span><span class="acc-question">国税庁の「質疑応答事例」や「通達」を根拠に否認されたら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>「質疑応答事例や通達は国税庁の独自の見解であり、納税者を拘束する法律ではありません」と反論し、法令の根拠を求めます。</strong></p>
+        <div class="reason-box">
+          <h5>💡 反論の5つの武器</h5>
+          <p>否認指摘に対しては、以下の5つの観点で反論を組み立てることができます。</p>
+        </div>
+        <div class="action-box">
+          <h5>⚖️ 反論の5パターン</h5>
+          <ul>
+            <li><strong>①専門書</strong>：有利な解釈が記載された実務書・学術書を提示します</li>
+            <li><strong>②立法趣旨</strong>：その法律が何を抑制するために作られたかを説き、形式的適用を否定します</li>
+            <li><strong>③有利な判決</strong>：TAINS等の判例データベースから類似の勝訴事例を引用します</li>
+            <li><strong>④社会通念（商習慣）</strong>：「業界の常識」から見て不自然ではないことを主張します</li>
+            <li><strong>⑤借用概念</strong>：税法に定義がない場合、民法や商法の定義が優先されるという法的原則を援用します</li>
+          </ul>
+        </div>
+        <div class="source-tag">📖 根拠：租税法律主義（憲法第84条）</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">15</span><span class="acc-question">質問検査権を逸脱した調査をされている気がします。どう止めればよいですか？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>「質問検査章」を直ちに提示させ、記載された「税目」を確認してください。</strong></p>
+        <div class="action-box">
+          <h5>🔍 権限逸脱チェックの手順</h5>
+          <ul>
+            <li>「質問検査章」の提示を求め、記載された税目を確認します</li>
+            <li>記載された税目と関係のない質問や書類要求は権限外です</li>
+            <li>身分証の提示を拒否、あるいは不携帯の場合は、調査自体を拒否できます</li>
+            <li>権限外の調査には「公務員職権濫用罪（刑法第193条）にあたりませんか」と指摘してください</li>
+          </ul>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第74条の2〜第74条の6、刑法第193条</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フェーズ6 ===== -->
+  <section id="phase6">
+    <div class="phase-header">
+      <span class="phase-icon">📝</span>
+      <span class="phase-title">フェーズ6：修正申告と更正 ─ どちらを選ぶべきか</span>
+    </div>
+    <p class="phase-desc">この選択が最も重要な判断です。安易に修正申告に応じると取り返しがつかなくなります。</p>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">16</span><span class="acc-question">「修正申告をしてください」と勧められました。応じるべきですか？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-caution">要注意</span>
+        <p class="answer-text"><strong>納得できない場合は修正申告に応じず、「更正してください」と主張してください。</strong></p>
+        <div class="action-box">
+          <h5>⚖️ 修正申告と更正の比較</h5>
+          <ul>
+            <li><strong>修正申告</strong>：納税者の「自主的な行為」。原則として不服申立て（異議申立て・審査請求）ができなくなります</li>
+            <li><strong>更正</strong>：税務署の「職権による処分」。不服申立ての権利が確保されます。本税や加算税が増えるなどの不利益はありません</li>
+          </ul>
+        </div>
+        <div class="reason-box">
+          <h5>💡 更正を選ぶメリット</h5>
+          <p>更正処分を受けても、本税や加算税の金額は修正申告した場合と同じです。不利益は何もありません。むしろ、調査官は更正通知書に詳細な「理由の附記」を書く義務があるため、根拠が曖昧な否認はしにくくなります。<strong>納得がいかないなら「更正」一択です。</strong></p>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第74条の11第3項（修正申告等の勧奨）、行政手続法第32条</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">17</span><span class="acc-question">納得していないのに修正申告を強要されたら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>「行政手続法第32条違反（不利益な取扱いの禁止）にあたりますよ」と警告してください。</strong></p>
+        <div class="phrase-box">「修正申告はあくまで納税者の自発的な意思に基づくものであり、従わなくても不利益な取扱いは禁止されています（行政手続法第32条）。更正処分をしていただければ結構です」</div>
+        <div class="reason-box">
+          <h5>💡 なぜ強要に応じてはいけないのか</h5>
+          <p>修正申告は行政指導の範疇であり、従わなくても法的な不利益はありません。更正処分を受けたとしても、本税・加算税の金額は変わらず、むしろ不服申立ての権利を確保できます。それでも強要してくる場合は「公務員職権濫用罪（刑法第193条）にあたりますよ」と警告してください。</p>
+        </div>
+        <div class="source-tag">📖 根拠：行政手続法第32条、国税通則法第74条の11第3項、刑法第193条</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">18</span><span class="acc-question">「更正を求めるなら、青色申告を取り消しますよ」と脅されたら？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>怯まないでください。</strong>「事務運営指針に定められた青色申告取消の要件に、本当に該当するのですか？」と確認・反論します。</p>
+        <div class="reason-box">
+          <h5>💡 青色取消は簡単にはできない</h5>
+          <p>青色申告の取消は法人税法第127条に基づき、「帳簿の備付保存がない」「隠ぺい・仮装により真実性を疑う相当な理由がある」等、<strong>極めて厳格な要件</strong>を満たさなければできません。更正をする場合、調査官は更正通知書に詳細な「理由の附記」を書く必要があり、その手間や根拠の曖昧さを誤魔化すために青色取消をチラつかせているケースが多いのです。「法的な要件を満たさない状況での取消示唆は、行政手続法第32条に抵触する不当な強要です」と抗議してください。</p>
+        </div>
+        <div class="source-tag">📖 根拠：法人税法第127条、行政手続法第32条、国税庁事務運営指針（法人の青色申告の承認の取消しについて）</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">19</span><span class="acc-question">更正処分に納得できない場合の不服申立ての手順は？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text">不服申立ては<strong>法律で保障された納税者の権利</strong>です。以下の手順で行使できます。</p>
+        <div class="action-box">
+          <h5>⚖️ 不服申立ての3ステップ</h5>
+          <ul>
+            <li><strong>ステップ1</strong>：処分を知った日の翌日から<strong>3か月以内</strong>に、税務署長への「再調査の請求」か、国税不服審判所への「審査請求」のいずれかを選択します</li>
+            <li><strong>ステップ2</strong>：再調査の請求の結果にも不服がある場合は、決定から1か月以内に審査請求ができます</li>
+            <li><strong>ステップ3</strong>：審査請求の裁決にも不服がある場合は、裁決から6か月以内に裁判所へ訴訟を提起できます</li>
+          </ul>
+        </div>
+        <div class="action-box">
+          <h5>📄 「抗弁書」提出のポイント</h5>
+          <ul>
+            <li>調査官ではなく、<strong>決裁権を持つ「統括官」</strong>に対して手渡してください</li>
+            <li>やり取りはすべて録音し、「言った言わない」を防ぎます</li>
+            <li>憲法第16条（請願権）・請願法第5条に基づき、税務署には「受理し誠実に処理する義務」があります</li>
+          </ul>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第75条、第115条、憲法第16条、請願法第5条</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フェーズ7 ===== -->
+  <section id="phase7">
+    <div class="phase-header">
+      <span class="phase-icon">💰</span>
+      <span class="phase-title">フェーズ7：加算税の仕組みと重加算税への対抗</span>
+    </div>
+    <p class="phase-desc">ペナルティの仕組みを正確に知ることが、最善の防御になります。（2026年4月現在の最新税率）</p>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">20</span><span class="acc-question">加算税の税率はタイミングによってどう変わりますか？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>修正のタイミングが早いほど、加算税の負担は軽くなります。</strong></p>
+        <table class="check-table">
+          <thead><tr><th>タイミング</th><th>過少申告加算税率</th><th>備考</th></tr></thead>
+          <tbody>
+            <tr><td><strong>事前通知前に自主修正</strong></td><td><strong>0%（なし）</strong></td><td>最も有利。事前連絡後でも実地調査前なら該当する場合あり</td></tr>
+            <tr><td>事前通知後〜更正予知前に修正</td><td><strong>5%</strong>（50万円超過部分は10%）</td><td>通知後でも調査着手前なら軽減されます</td></tr>
+            <tr><td>調査後（更正予知後）に修正・更正</td><td><strong>10%</strong>（50万円超過部分は15%）</td><td>調査で指摘された後の修正です</td></tr>
+            <tr><td>仮装・隠蔽ありの場合</td><td><strong>35%</strong>（重加算税）</td><td>無申告の仮装隠蔽は<strong>40%</strong>です</td></tr>
+          </tbody>
+        </table>
+        <div class="caution-box">
+          <h5>⚠️ 令和6年改正による加重措置（2024年1月〜）</h5>
+          <p>帳簿の提示を求められた際に提示しなかった場合、または帳簿への売上金額の記載が本来の金額の2分の1未満だった場合は、上記に<strong>10%が加算</strong>されます。3分の2未満の場合は<strong>5%が加算</strong>されます。日頃からの適正な記帳が一層重要になっています。</p>
+        </div>
+        <p class="answer-text" style="margin-top:12px;">これに加えて<strong>延滞税</strong>（法定納期限の翌日〜完納日まで日割計算）も別途かかります。</p>
+        <div class="source-tag">📖 根拠：国税通則法第65条（過少申告加算税）、第66条（無申告加算税）、第68条（重加算税）、第60条（延滞税）</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">21</span><span class="acc-question">過少申告加算税を免除させるためのポイントは？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text">国税通則法第65条と事務運営指針の規定を正確に理解しておきましょう。</p>
+        <div class="action-box">
+          <h5>🛡️ 加算税免除の2つの論点</h5>
+          <ul>
+            <li><strong>「予知」の定義</strong>：事前連絡があった段階でも、実地調査（臨場）の前であれば「更正があるべきことを予知してされたもの」には該当しません。つまり加算税は免除されます</li>
+            <li><strong>「正当な理由」</strong>：税務職員の誤指導や、官職名を冠した解説書の記載に従った場合は、国税通則法第65条第4項に基づき加算税は課されません</li>
+          </ul>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第65条第4項・第5項、国税庁事務運営指針</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">22</span><span class="acc-question">「重加算税（35%〜40%）」を課すと言われました。どう対抗しますか？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-caution">要注意</span>
+        <p class="answer-text"><strong>「隠ぺい・仮装」の要件を厳格に確認し、安易に認めないでください。</strong></p>
+        <div class="action-box">
+          <h5>🛡️ 重加算税への防御ポイント</h5>
+          <ul>
+            <li>重加算税には「隠ぺい・仮装」という<strong>厳格な要件</strong>があります。単純な計算ミスや記帳漏れでは該当しません</li>
+            <li>調査官が「申述書（一筆）」を求めてきたら、<strong>絶対にサインしないでください。</strong>求めてくること自体が証拠不十分の裏返しです</li>
+            <li>従業員の私的な不正に会社が直接関与していない場合、源泉徴収義務者（会社）への重加算税は不当です</li>
+            <li>納得できない場合は修正申告に応じず、更正処分を受けて不服申立てをしてください</li>
+          </ul>
+        </div>
+        <div class="source-tag">📖 根拠：国税通則法第68条（重加算税）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フェーズ8 ===== -->
+  <section id="phase8">
+    <div class="phase-header">
+      <span class="phase-icon">📅</span>
+      <span class="phase-title">フェーズ8：戦略的な時期の活用と最新トレンド</span>
+    </div>
+    <p class="phase-desc">調査の時期や最新の動向を知っておくことも、有効な戦略の一つです。</p>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">23</span><span class="acc-question">「春の調査（5月〜6月）」が納税者に有利な理由は？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>7月10日の「定例異動」という調査官のデッドラインを交渉材料にしてください。</strong></p>
+        <div class="reason-box">
+          <h5>💡 春の調査が有利な仕組み</h5>
+          <p>調査官は、事務年度の区切りである6月末までに案件を「消化」したいという強い心理的圧力を受けています。7月10日に定例の人事異動があるため、それまでに担当案件を終わらせたいのです。回答を丁寧に、しかし時間をかけて行い、6月中旬まで持ち込めば、異動を控えた調査官は早期結了を求めてくる傾向があります。この時間的プレッシャーは、秋の調査（7月〜12月）では使えない交渉材料です。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">24</span><span class="acc-question">最新の調査トレンド（IT調査・赤字企業）への対策は？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text">国税のKSKシステム（国税総合管理システム）による選定基準を理解し、備えてください。</p>
+        <div class="action-box">
+          <h5>📊 最新の調査傾向への備え</h5>
+          <ul>
+            <li><strong>赤字企業への包囲網</strong>：国税はKSKを用いて、同業他社と著しく数字が乖離した企業を「仮装赤字」として選定しています。正当な赤字であることを証明する資料を整備しておいてください</li>
+            <li><strong>IT調査のリスク</strong>：情報技術専門官による削除データの復元は常套手段です。パソコンは「直接触らせない」防御を貫いてください</li>
+            <li><strong>電子帳簿保存法</strong>：2024年1月〜電子取引データの電子保存が義務化されています。メール受領の請求書PDF等のデータ保存体制を整備してください</li>
+            <li><strong>インボイス制度</strong>：適格請求書の保存要件の充足状況は重要チェックポイントです。登録番号の有効性確認を日常的に行ってください</li>
+          </ul>
+        </div>
+        <div class="source-tag">📖 根拠：電子帳簿保存法第7条、消費税法第30条第7項</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-header"><span class="acc-num">25</span><span class="acc-question">税務調査に強くなるための心構えは？</span><span class="acc-arrow">▼</span></div>
+      <div class="acc-body">
+        <span class="answer-label label-do">こうする</span>
+        <p class="answer-text"><strong>税務調査は「対等な交渉」です。</strong>調査官の言いなりになる必要はありません。以下の3つの原則を守ってください。</p>
+        <div class="action-box">
+          <h5>🛡️ 3つの鉄則</h5>
+          <ul>
+            <li><strong>①録音の徹底</strong>：すべてのやり取りを記録してください。これは納税者の身を守る正当な証拠保全です</li>
+            <li><strong>②書面主義の貫徹</strong>：重要な反論は「抗弁書」で行い、税務署からの回答も書面で求めてください</li>
+            <li><strong>③更正処分を辞さない構え</strong>：納得できない強要には「更正してください」で応じ、不服申立ての権利を確保してください</li>
+          </ul>
+        </div>
+        <div class="reason-box">
+          <h5>💡 最後に</h5>
+          <p>行政手続法、国税通則法、そして信義誠実の原則は、すべて納税者の権利を守るための法律です。適正な記帳と証憑の保存を日頃から徹底し、法律に基づいた冷静な対応をすることが、不当な課税を退け、会社と財産を守る唯一の道です。日頃から顧問税理士と密に連携し、いつ調査が来ても対応できる体制を整えておきましょう。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="link-banner" href="税務調査Q&amp;Aクイズ.html">
+    理解度をチェック！ → 税務調査Q&amp;Aクイズに挑戦する
+    <span class="small">全40問・4択クイズで知識を確認できます</span>
+  </a>
+
+  <div class="footer">
+    <p>本ガイドは、国税通則法・行政手続法等の法令および国税庁公式情報に基づいて作成しています。</p>
+    <p style="margin-top:4px;">参照：<a href="https://www.nta.go.jp/information/other/data/h24/nozeikankyo/ippan02.htm" target="_blank" rel="noopener">国税庁 税務調査手続FAQ</a>　|　<a href="https://www.nta.go.jp/law/jimu-unei/sonota/120912/index.htm" target="_blank" rel="noopener">国税庁 事務運営指針</a></p>
+    <p style="margin-top:8px;">© 2026 林税理士社労士事務所</p>
+    <p style="margin-top:4px;font-size:0.7rem;">本ガイドはあくまで一般的な情報提供を目的としたものであり、個別の税務判断を行うものではありません。具体的な事案については必ず専門家にご相談ください。</p>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.acc-header').forEach(header => {
+  header.addEventListener('click', () => {
+    header.parentElement.classList.toggle('open');
+  });
+});
+document.querySelectorAll('.nav-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const target = document.getElementById(pill.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sections = document.querySelectorAll('section[id]');
+const pills = document.querySelectorAll('.nav-pill[data-target]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+  });
+  pills.forEach(p => p.classList.toggle('active', p.dataset.target === current));
+});
+</script>
+
+
+</body></html>

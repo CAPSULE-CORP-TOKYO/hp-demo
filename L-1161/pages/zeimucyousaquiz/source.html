@@ -1,0 +1,1998 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税務調査Q&amp;A クイズアプリ｜中小企業経営者のための実践ガイド</title>
+<style>
+  :root {
+    --primary: #1a5276;
+    --primary-light: #2980b9;
+    --accent: #e67e22;
+    --success: #27ae60;
+    --danger: #c0392b;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #2c3e50;
+    --text-light: #7f8c8d;
+    --border: #dce1e8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 20px 24px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header h1 { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.05em; }
+  .header .subtitle { font-size: 0.8rem; opacity: 0.85; margin-top: 4px; }
+  .container { max-width: 720px; margin: 0 auto; padding: 20px 16px 100px; }
+
+  /* スタート画面 */
+  .start-screen { text-align: center; padding: 40px 20px; }
+  .start-screen .logo {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+  }
+  .start-screen h2 { font-size: 1.4rem; margin-bottom: 12px; color: var(--primary); }
+  .start-screen p { color: var(--text-light); margin-bottom: 24px; font-size: 0.95rem; }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .category-card {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .category-card:hover, .category-card.selected {
+    border-color: var(--primary-light);
+    background: #eaf2f8;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  .category-card .icon { font-size: 1.8rem; margin-bottom: 6px; }
+  .category-card .label { font-size: 0.85rem; font-weight: 600; color: var(--primary); }
+  .category-card .count { font-size: 0.75rem; color: var(--text-light); margin-top: 2px; }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), #d35400);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(230,126,34,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(230,126,34,0.45); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+  .btn-outline:hover { background: var(--primary); color: #fff; }
+  .btn-sm { padding: 10px 24px; font-size: 0.9rem; }
+
+  /* 進捗バー */
+  .progress-section { margin-bottom: 20px; }
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+  }
+  .progress-info .category-tag {
+    background: var(--primary);
+    color: #fff;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .progress-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-light), var(--accent));
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  /* 問題カード */
+  .question-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .question-number {
+    font-size: 0.8rem;
+    color: var(--primary-light);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .question-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+
+  /* 選択肢 */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #f8f9fb;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    width: 100%;
+    font-family: inherit;
+    color: var(--text);
+  }
+  .option-btn:hover:not(.disabled) {
+    border-color: var(--primary-light);
+    background: #eaf2f8;
+  }
+  .option-label {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .option-btn.correct {
+    border-color: var(--success);
+    background: #eafaf1;
+  }
+  .option-btn.correct .option-label { background: var(--success); }
+  .option-btn.wrong {
+    border-color: var(--danger);
+    background: #fdedec;
+  }
+  .option-btn.wrong .option-label { background: var(--danger); }
+  .option-btn.disabled { cursor: default; opacity: 0.7; }
+  .option-btn.disabled.correct { opacity: 1; }
+
+  /* 解説 */
+  .explanation {
+    background: #fef9e7;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 20px;
+    margin-top: 16px;
+    animation: fadeIn 0.4s ease;
+  }
+  .explanation h4 {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .explanation p { font-size: 0.9rem; line-height: 1.8; }
+  .explanation .source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f0e6c8;
+  }
+  .next-btn-area { text-align: center; margin-top: 20px; }
+
+  /* 結果画面 */
+  .result-screen { text-align: center; padding: 30px 20px; }
+  .result-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+  .score-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #fff;
+    position: relative;
+  }
+  .score-circle .label { font-size: 0.75rem; font-weight: 500; }
+  .score-high { background: linear-gradient(135deg, var(--success), #2ecc71); }
+  .score-mid { background: linear-gradient(135deg, var(--accent), #f39c12); }
+  .score-low { background: linear-gradient(135deg, var(--danger), #e74c3c); }
+
+  .result-message { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+  .result-detail { font-size: 0.9rem; color: var(--text-light); margin-bottom: 24px; }
+
+  .result-breakdown {
+    text-align: left;
+    margin-top: 20px;
+  }
+  .result-breakdown h4 {
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--border);
+  }
+  .breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 0.88rem;
+  }
+  .breakdown-item .cat-name { font-weight: 600; }
+  .breakdown-item .cat-score { color: var(--primary-light); font-weight: 700; }
+
+  .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* レビュー画面 */
+  .review-item {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .review-item .q-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .review-item .badge {
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .badge-correct { background: var(--success); }
+  .badge-wrong { background: var(--danger); }
+  .review-item .q-text { font-weight: 600; font-size: 0.95rem; margin-bottom: 8px; }
+  .review-item .answer-info { font-size: 0.85rem; color: var(--text-light); }
+  .review-item .answer-info strong { color: var(--success); }
+  .review-item .exp-text { font-size: 0.85rem; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); line-height: 1.7; }
+
+  .back-top { text-align: center; margin: 24px 0; }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.75rem;
+    color: var(--text-light);
+  }
+  .footer a { color: var(--primary-light); text-decoration: none; }
+
+  /* レスポンシブ */
+  @media (max-width: 480px) {
+    .category-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.1rem; }
+    .question-card { padding: 20px 16px; }
+    .btn { padding: 12px 28px; font-size: 0.9rem; }
+  }
+</style>
+<script>"use strict";
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+var _React = React,
+  useState = _React.useState,
+  useCallback = _React.useCallback,
+  useMemo = _React.useMemo;
+
+// ==========================================
+// 問題データベース（国税庁公式情報に基づく）
+// ==========================================
+var QUESTIONS = [
+// ── カテゴリ1: 税務調査の基礎知識 ──
+{
+  id: 1,
+  category: "基礎知識",
+  question: "税務調査の「事前通知」について、正しいものはどれですか？",
+  options: ["事前通知は法律上の義務ではなく、税務署の任意で行われます", "原則として調査開始前に、納税者と税理士の双方に通知されます", "事前通知は必ず書面（郵送）で届きます", "事前通知から調査開始まで、必ず1か月以上の猶予があります"],
+  correct: 1,
+  explanation: "国税通則法第74条の9により、実地調査を行う場合は原則として、調査開始日前までに相当の時間的余裕をおいて、納税者本人と税務代理人（顧問税理士）の双方に、電話等で事前通知が行われます。ただし、違法・不正が疑われる場合には無予告調査もあり得ます。",
+  source: "国税通則法第74条の9（国税庁 税務調査手続FAQ）"
+}, {
+  id: 2,
+  category: "基礎知識",
+  question: "事前通知で伝えられる内容として、法律で定められていないものはどれですか？",
+  options: ["調査の開始日時", "調査の対象となる税目", "調査の対象となる期間", "予想される追徴税額"],
+  correct: 3,
+  explanation: "事前通知では、調査開始日時・場所・対象税目・対象期間・調査の目的・対象となる帳簿書類などが伝えられます。しかし、追徴税額の予想は通知事項に含まれていません。調査は申告内容の確認が目的であり、最初から追徴を前提としたものではありません。",
+  source: "国税通則法第74条の9第1項各号"
+}, {
+  id: 3,
+  category: "基礎知識",
+  question: "税務調査における調査官の「質問検査権」について、正しいものはどれですか？",
+  options: ["調査官は納税者の自宅に無断で立ち入ることができます", "調査官は帳簿書類の提示を求める権限がありますが、強制力はありません", "質問検査権に基づく質問に対して正当な理由なく拒否すると罰則があります", "調査官は金庫や引き出しを勝手に開けて確認することができます"],
+  correct: 2,
+  explanation: "国税通則法第74条の2に基づく質問検査権は「任意調査」ですが、正当な理由なく質問への回答を拒否したり、偽りの答弁をした場合は、1年以下の懲役又は50万円以下の罰金が科される可能性があります（同法第128条）。ただし、あくまで任意調査であり、強制的な捜索はできません。",
+  source: "国税通則法第74条の2、第128条"
+}, {
+  id: 4,
+  category: "基礎知識",
+  question: "税務調査の種類として、一般的に行われるものはどれですか？",
+  options: ["任意調査（実地調査）のみです", "強制調査（マルサ）のみです", "任意調査と強制調査の2種類があります", "書面調査・任意調査・強制調査の3種類があります"],
+  correct: 2,
+  explanation: "税務調査には大きく分けて「任意調査」と「強制調査」があります。中小企業に対して行われるのはほとんどが任意調査です。強制調査（いわゆる「マルサ」）は、国税犯則取締法に基づき裁判所の令状を得て行うもので、巨額の脱税が疑われる場合に限られます。",
+  source: "国税通則法第7章の2、国税犯則取締法"
+}, {
+  id: 5,
+  category: "基礎知識",
+  question: "税務調査の対象期間は原則として何年分ですか？",
+  options: ["直近1年分", "直近3年分", "直近5年分", "直近7年分"],
+  correct: 1,
+  explanation: "税務調査の対象期間は原則として直近3年分（3事業年度分）です。ただし、調査の過程で不正が発見された場合は5年分に延長され、仮装・隠蔽（いわゆる脱税行為）がある場合には最大7年分まで遡及されることがあります。",
+  source: "国税通則法第70条（更正・決定等の期間制限）"
+}, {
+  id: 6,
+  category: "基礎知識",
+  question: "税務署が法人に対して税務調査を行う頻度の目安として、実態に最も近いものはどれですか？",
+  options: ["毎年必ず全法人に調査が入ります", "概ね3年〜5年に1回程度です", "設立後10年間は調査がありません", "売上1億円未満の法人は調査対象外です"],
+  correct: 1,
+  explanation: "税務調査の実施頻度に明確な法定基準はありませんが、一般的に3年〜5年に1回程度のペースで実地調査が行われることが多いとされています。ただし、申告内容に不審な点がある場合や、業種・規模によっては短い間隔で調査が行われることもあります。売上規模による免除はありません。",
+  source: "国税庁 令和6事務年度 法人税等の調査事績の概要"
+},
+// ── カテゴリ2: 事前通知・日程調整 ──
+{
+  id: 7,
+  category: "事前通知・日程",
+  question: "税務調査の事前通知を受けた際、調査日程の変更を申し出ることはできますか？",
+  options: ["法律で決まった日程なので変更はできません", "合理的な理由があれば、日程の変更を申し出ることができます", "税理士を通じてのみ変更の申出ができます", "変更できるのは1回限りです"],
+  correct: 1,
+  explanation: "事前通知の日程はあくまで「申出」であり、納税者側に合理的な理由（繁忙期、決算期、体調不良など）がある場合は日程の変更を求めることができます。国税庁の事務運営指針でも「納税者の合理的な都合を考慮する」とされています。変更回数に法的制限はありません。",
+  source: "国税通則法第74条の9第2項、国税庁事務運営指針"
+}, {
+  id: 8,
+  category: "事前通知・日程",
+  question: "事前通知なしに税務調査が行われる場合（無予告調査）について、正しいものはどれですか？",
+  options: ["無予告調査は法律上禁止されています", "無予告調査の場合でも任意調査なので、帳簿を見せる義務はありません", "事前通知をすると正確な事実の把握が困難になると判断される場合などに行われます", "無予告調査が行われたら、直ちに弁護士に連絡しなければなりません"],
+  correct: 2,
+  explanation: "国税通則法第74条の10により、事前通知をすることで違法・不正な行為を容易にし、正確な事実の把握を困難にするおそれがある場合などには、事前通知を行わずに調査できると規定されています。ただし、これも任意調査ですので、質問検査権に基づく対応は同様です。",
+  source: "国税通則法第74条の10"
+}, {
+  id: 9,
+  category: "事前通知・日程",
+  question: "事前通知を受けてから調査当日までに、経営者がまずやるべきことは何ですか？",
+  options: ["都合の悪い帳簿や書類を処分しておきます", "顧問税理士に連絡し、対象期間の帳簿や申告内容を一緒に確認します", "従業員全員に調査のことを伝え、調査官には何も話さないよう指示します", "取引先に連絡して、反面調査に備えてもらいます"],
+  correct: 1,
+  explanation: "事前通知を受けたら、まず顧問税理士に連絡するのが最も重要です。対象税目・期間の帳簿や申告書を税理士と一緒に確認し、不明点を事前に整理しておくことが適切な対応です。帳簿の処分は証拠隠滅として重加算税の対象となり得ますし、従業員に沈黙を指示するのも不自然な対応です。",
+  source: "国税庁 税務調査手続FAQ（一般納税者向け）"
+}, {
+  id: 10,
+  category: "事前通知・日程",
+  question: "事前通知で「対象税目」が法人税と通知された場合、調査当日に消費税の帳簿も見られることはありますか？",
+  options: ["通知された税目以外は絶対に調査されません", "通知された税目以外を調査する場合は、改めて事前通知が必要です", "調査の過程で必要があれば、非違が疑われる他の税目も調査対象になることがあります", "事前通知の税目は単なる参考なので、全税目が常に対象です"],
+  correct: 2,
+  explanation: "国税通則法第74条の9第4項により、調査の過程で対象税目以外について非違（誤りや不正）が疑われる場合は、その税目についても質問検査権が行使される可能性があります。ただし、その場合は調査対象を変更する旨の説明が行われます。",
+  source: "国税通則法第74条の9第4項"
+},
+// ── カテゴリ3: 調査当日の対応 ──
+{
+  id: 11,
+  category: "当日の対応",
+  question: "税務調査の当日、調査官から質問を受けたときの対応として、最も適切なものはどれですか？",
+  options: ["質問にはすべて即答しなければなりません", "不確かなことは「確認して後日回答します」と答えるのが適切です", "顧問税理士がいない場で質問に答える義務はありません", "調査官の質問はすべて録音する必要があります"],
+  correct: 1,
+  explanation: "税務調査ではその場で正確に回答できない事項が出てくることは当然です。不確かな記憶や曖昧な内容について推測で答えるよりも、「確認して後日正確にお答えします」と伝える方が適切です。曖昧な回答はかえって疑念を招く原因になります。",
+  source: "国税庁 税務調査手続FAQ（一般納税者向け）"
+}, {
+  id: 12,
+  category: "当日の対応",
+  question: "調査官が帳簿書類の「留め置き」（預かり）を求めた場合、どう対応すべきですか？",
+  options: ["法律上の義務なので、必ず応じなければなりません", "一切応じる必要はありません。断っても罰則はありません", "留め置きに応じるかどうかは任意ですが、正当な理由なく拒否すると調査に支障をきたす場合があります", "留め置きの代わりに、コピーを渡せば問題ありません"],
+  correct: 2,
+  explanation: "帳簿書類の留め置き（一時預かり）は、国税通則法第74条の7に基づくもので、調査の円滑な実施のために行われます。留め置きに応じるかどうかは任意ですが、調査への協力として合理的な範囲で応じることが実務上は望ましいです。必要な場合はコピーの提供で代替する交渉も可能です。",
+  source: "国税通則法第74条の7"
+}, {
+  id: 13,
+  category: "当日の対応",
+  question: "税務調査の際、調査官に見せなければならない書類として、正しいものはどれですか？",
+  options: ["調査対象期間の総勘定元帳・仕訳帳・領収書・請求書などの帳簿書類です", "通帳の原本のみで、帳簿類は不要です", "確定申告書の控えのみで足ります", "税理士が作成した書類のみで、社内文書は見せる必要がありません"],
+  correct: 0,
+  explanation: "税務調査では、法定帳簿（総勘定元帳・仕訳帳）、決算書類、領収書・請求書・契約書等の証憑書類、通帳、給与台帳など、取引に関する帳簿書類全般が調査対象となります。日頃から整理しておくことが重要です。",
+  source: "国税通則法第74条の2〜第74条の6、法人税法第150条の2"
+}, {
+  id: 14,
+  category: "当日の対応",
+  question: "調査中に調査官がパソコンのデータを確認したいと言った場合、どう対応すべきですか？",
+  options: ["パソコンのデータは調査対象外なので、見せる義務はありません", "調査官に直接パソコンを操作させなければなりません", "電子データも調査対象です。自分で操作して画面を見せるか、印刷して提示するのが適切です", "パソコンのデータは電子帳簿保存法の届出をしていなければ調査対象外です"],
+  correct: 2,
+  explanation: "電子帳簿保存法の届出の有無にかかわらず、取引に関する電子データも質問検査権の対象です。ただし、調査官に直接パソコンを操作させる義務はなく、納税者自身が操作して必要なデータを画面で提示したり、印刷して渡すのが一般的な対応です。",
+  source: "国税通則法第74条の2、電子帳簿保存法"
+}, {
+  id: 15,
+  category: "当日の対応",
+  question: "調査官から「反面調査を行う」と言われました。反面調査とは何ですか？",
+  options: ["本社と支店の両方を同時に調査することです", "調査の結果について税務署内部で再確認（ダブルチェック）することです", "取引先や金融機関など第三者に対して行う調査のことです", "前回の税務調査の結果を再度検証する調査のことです"],
+  correct: 2,
+  explanation: "反面調査とは、納税者の申告内容を検証するために、その取引先、金融機関、外注先などの第三者に対して行われる調査です。取引の実在性や金額の正確性を裏付けるために行われます。反面調査の実施は法律で認められていますが、国税庁は必要最小限にとどめるよう運営指針を定めています。",
+  source: "国税庁 調査手続の実施に当たっての基本的な考え方等について（事務運営指針）"
+}, {
+  id: 16,
+  category: "当日の対応",
+  question: "税務調査中の昼食について、調査官に対して適切な対応はどれですか？",
+  options: ["調査官にお弁当やお茶を出すのがマナーです", "調査官への接待的な対応は不要で、お茶程度の提供で十分です", "調査官に食事を提供すると贈賄になる可能性があります", "調査官と一緒に外食に行って、良好な関係を築くべきです"],
+  correct: 1,
+  explanation: "調査官は国家公務員であり、納税者から過度な接待を受けることはできません。お茶程度の提供は一般的なマナーとして問題ありませんが、高額なお弁当を用意したり、外食に誘ったりする必要はまったくありません。調査官自身も昼食は自分で用意するか外に食べに行くのが通常です。",
+  source: "国家公務員倫理法・国家公務員倫理規程"
+},
+// ── カテゴリ4: 帳簿・証憑の整備 ──
+{
+  id: 17,
+  category: "帳簿・証憑",
+  question: "法人が帳簿書類を保存しなければならない期間は、原則として何年間ですか？",
+  options: ["3年間", "5年間", "7年間", "10年間"],
+  correct: 2,
+  explanation: "法人税法施行規則第67条により、法人は帳簿書類（総勘定元帳、仕訳帳、棚卸表、貸借対照表、損益計算書、領収書、請求書等）を、その事業年度の確定申告書の提出期限の翌日から7年間保存する義務があります。なお、欠損金の繰越控除を適用する場合は10年間の保存が必要です。",
+  source: "法人税法施行規則第67条"
+}, {
+  id: 18,
+  category: "帳簿・証憑",
+  question: "領収書を紛失してしまった場合、税務調査ではどうなりますか？",
+  options: ["領収書がなければ、その経費は一切認められません", "領収書がなくても、他の証拠（通帳、メール、出金伝票など）で取引の事実を証明できれば認められる場合があります", "領収書を紛失した旨の書面を税務署に提出すれば問題ありません", "領収書の紛失は即座に重加算税の対象になります"],
+  correct: 1,
+  explanation: "領収書は取引を証明する重要な証拠ですが、紛失した場合でも、通帳の引落し記録、クレジットカード明細、メールの注文確認、出金伝票への記録など、複数の補完的な証拠で取引の事実を客観的に証明できれば、経費として認められる可能性があります。ただし、日頃から証憑の整理・保管を徹底することが最も重要です。",
+  source: "法人税法第22条（損金の額の算入）、国税不服審判所裁決例"
+}, {
+  id: 19,
+  category: "帳簿・証憑",
+  question: "電子帳簿保存法において、電子取引データの保存について正しいものはどれですか？",
+  options: ["電子取引のデータは印刷して紙で保存しておけば問題ありません", "2024年1月以降、電子取引データは原則として電子データのまま保存する必要があります", "電子帳簿保存法の届出をしていない事業者は関係ありません", "メールで受け取った請求書は電子取引に該当しません"],
+  correct: 1,
+  explanation: "2024年（令和6年）1月1日以降、電子取引（メール、クラウド、EDI等で授受した取引情報）のデータは、原則として電子データのまま保存することが義務化されました。届出の有無に関係なく、すべての事業者が対象です。メールで受け取った請求書・領収書PDFも電子取引データに該当します。ただし、相当の理由がある場合の猶予措置もあります。",
+  source: "電子帳簿保存法第7条、国税庁 電子帳簿等保存制度特設サイト"
+}, {
+  id: 20,
+  category: "帳簿・証憑",
+  question: "インボイス制度において、仕入税額控除を受けるために必要なものはどれですか？",
+  options: ["従来の請求書があれば十分です", "適格請求書（インボイス）発行事業者の登録番号が記載された請求書等が必要です", "銀行の振込明細書があれば、請求書は不要です", "年間取引額が1,000万円以下の取引先からの仕入れは書類不要です"],
+  correct: 1,
+  explanation: "2023年（令和5年）10月1日に開始されたインボイス制度では、仕入税額控除の適用を受けるために、適格請求書（インボイス）発行事業者の登録番号（T+13桁の番号）が記載された適格請求書等の保存が必要です。税務調査でもインボイスの記載要件の充足状況は重要なチェックポイントとなっています。",
+  source: "消費税法第30条第7項、国税庁 インボイス制度特設サイト"
+}, {
+  id: 21,
+  category: "帳簿・証憑",
+  question: "電子帳簿保存法の「検索要件」について、正しいものはどれですか？",
+  options: ["すべての事業者に検索機能の整備が求められます", "基準期間の売上高が5,000万円以下で、ダウンロードの求めに応じられる場合は検索要件が不要です", "検索要件とは、データにパスワードをかけることです", "検索要件は2024年に廃止されました"],
+  correct: 1,
+  explanation: "電子帳簿保存法では、電子取引データに「日付・金額・取引先」で検索できる機能を求めていますが、基準期間（2期前）の売上高が5,000万円以下の事業者で、税務調査時にデータのダウンロードの求めに応じられる場合は、この検索要件が免除されます。中小企業にとっては実務上の大きな負担軽減となっています。",
+  source: "電子帳簿保存法施行規則第5条第5項、国税庁FAQ（電子取引関係）"
+},
+// ── カテゴリ5: 修正申告・更正 ──
+{
+  id: 22,
+  category: "修正申告・更正",
+  question: "税務調査の結果、申告に誤りが見つかった場合、「修正申告」と「更正」の違いについて正しいものはどれですか？",
+  options: ["修正申告と更正は同じもので、名前が違うだけです", "修正申告は納税者自身が行うもので、更正は税務署が職権で行うものです", "修正申告は税理士が行い、更正は納税者本人が行います", "修正申告は所得税だけ、更正は法人税だけに適用されます"],
+  correct: 1,
+  explanation: "修正申告は、納税者が自ら誤りを認めて正しい内容に訂正した申告書を提出することです。一方、更正は税務署長が職権で申告内容を正しく修正する処分です。修正申告に応じない場合、税務署側は更正処分を行います。修正申告は不服申立てができませんが、更正処分に対しては不服申立てが可能という重要な違いがあります。",
+  source: "国税通則法第24条（更正）、第19条（修正申告）"
+}, {
+  id: 23,
+  category: "修正申告・更正",
+  question: "調査官から修正申告を勧められた場合、必ず応じなければなりませんか？",
+  options: ["はい。調査官の指示には必ず従わなければなりません", "いいえ。修正申告はあくまで任意であり、納得できなければ応じる義務はありません", "税理士の同意がある場合のみ、拒否できます", "一度修正申告を勧められたら、24時間以内に回答しなければなりません"],
+  correct: 1,
+  explanation: "修正申告はあくまで納税者の「自主的な行為」であり、強制されるものではありません。国税庁の事務運営指針でも、修正申告の勧奨に際しては「あくまで納税者の自発的な意思に基づくものである」ことを説明し、更正の請求ができなくなる旨も教示するよう定められています。納得できない場合は応じずに更正処分を受け、不服申立てをする選択肢もあります。",
+  source: "国税通則法第74条の11第3項、国税庁事務運営指針"
+}, {
+  id: 24,
+  category: "修正申告・更正",
+  question: "「調査の終了の際の手続」として、調査官が行うべきことはどれですか？",
+  options: ["口頭で結果を伝えれば完了です", "申告に問題がなかった場合は「更正決定等をすべきと認められない」旨を書面で通知します", "調査結果を新聞に公表します", "結果は後日、裁判所から通知されます"],
+  correct: 1,
+  explanation: "国税通則法第74条の11第1項により、調査の結果、更正決定等をすべきと認められない場合（申告内容に問題がない場合）は、その旨を書面で納税者に通知しなければなりません。一方、修正申告の勧奨や更正処分を行う場合は、その理由も説明されます。",
+  source: "国税通則法第74条の11"
+},
+// ── カテゴリ6: 加算税・延滞税 ──
+{
+  id: 25,
+  category: "加算税・延滞税",
+  question: "過少申告加算税の税率について、正しいものはどれですか？",
+  options: ["一律20%です", "事前通知前の自主修正なら0%、事前通知後なら5%〜15%、調査後なら10%〜15%です", "初回の調査なら加算税は一切かかりません", "税理士がいれば加算税は免除されます"],
+  correct: 1,
+  explanation: "過少申告加算税は、修正申告のタイミングによって税率が変わります。事前通知前の自主修正であれば加算税はかかりません。事前通知後〜調査による更正予知前の修正では5%（期限内申告税額超過分は10%）、調査による更正を予知した後の修正や更正処分では10%（同15%）が課されます。",
+  source: "国税通則法第65条、加算税制度の改正のあらまし（国税庁）"
+}, {
+  id: 26,
+  category: "加算税・延滞税",
+  question: "重加算税が課されるのは、どのような場合ですか？",
+  options: ["計算ミスで申告額を間違えた場合です", "売上の計上漏れがあった場合は自動的に重加算税の対象です", "仮装・隠蔽（売上の意図的な除外や架空経費の計上など）が認められた場合です", "修正申告に応じなかった場合です"],
+  correct: 2,
+  explanation: "重加算税は、国税通則法第68条に基づき、納税者が「仮装・隠蔽」を行った場合に課されます。具体的には、売上を意図的に除外する、架空の経費を計上する、二重帳簿を作成するなどの悪質な行為が該当します。単純な計算ミスや解釈の相違は重加算税の対象にはなりません。税率は35%（無申告の場合は40%）と非常に重いペナルティです。",
+  source: "国税通則法第68条"
+}, {
+  id: 27,
+  category: "加算税・延滞税",
+  question: "延滞税について、正しいものはどれですか？",
+  options: ["修正申告をすれば延滞税はかかりません", "延滞税は法定納期限の翌日から完納の日まで課されます", "延滞税の税率は年1%固定です", "個人事業主には延滞税は課されません"],
+  correct: 1,
+  explanation: "延滞税は、税金を法定納期限までに完納しなかった場合に、その翌日から完納の日までの日数に応じて課されます。修正申告をした場合でも、本来の法定納期限から遡って延滞税が発生します。税率は年によって変動し、納期限後2か月以内と2か月超で税率が異なります。法人・個人を問わず適用されます。",
+  source: "国税通則法第60条"
+}, {
+  id: 28,
+  category: "加算税・延滞税",
+  question: "無申告加算税が課されるのは、どのような場合ですか？",
+  options: ["申告期限を1日でも遅れた場合に自動的に50%の加算税が課されます", "確定申告書を法定期限までに提出しなかった場合に課されます。税率は原則15%〜20%です", "無申告加算税は個人にのみ適用され、法人には適用されません", "期限後申告であっても、1か月以内に自主的に申告すれば常に免除されます"],
+  correct: 1,
+  explanation: "無申告加算税は、確定申告書を法定期限までに提出しなかった場合に課されます。原則として納付すべき税額に対して15%（50万円超の部分は20%）です。ただし、期限後申告が「調査の事前通知前」かつ一定の要件を満たす場合は5%に軽減されます。法人・個人の両方に適用されます。",
+  source: "国税通則法第66条"
+},
+// ── カテゴリ7: 不服申立て ──
+{
+  id: 29,
+  category: "不服申立て",
+  question: "税務署の更正処分に納得できない場合、最初にとるべき手続はどれですか？",
+  options: ["直ちに裁判所に訴訟を提起します", "処分があったことを知った日の翌日から3か月以内に「再調査の請求」又は「審査請求」を行います", "国税庁長官に直接申し出ます", "税理士会を通じて異議を申し立てます"],
+  correct: 1,
+  explanation: "更正処分に不服がある場合は、処分があったことを知った日の翌日から3か月以内に、税務署長に対する「再調査の請求」か、国税不服審判所に対する「審査請求」のいずれかを選択して行います。原則として、不服申立ての手続を経た後でなければ裁判（訴訟）を提起することはできません（不服申立て前置主義）。",
+  source: "国税通則法第75条、第115条"
+}, {
+  id: 30,
+  category: "不服申立て",
+  question: "国税不服審判所について、正しいものはどれですか？",
+  options: ["税務署の一部門であり、独立した組織ではありません", "裁判と同じく、弁護士でなければ代理人になれません", "国税庁の特別の機関として設置された、税務署から独立した第三者機関です", "審査請求の結果に不服がある場合は、再度審査請求を行います"],
+  correct: 2,
+  explanation: "国税不服審判所は、国税庁の特別の機関として税務署から独立して設置されており、納税者の正当な権利利益の救済を図るとともに、税務行政の適正な運営を確保することを目的としています。審査請求に対する裁決に不服がある場合は、裁決があったことを知った日の翌日から6か月以内に裁判所に訴訟を提起できます。",
+  source: "国税通則法第78条、第115条"
+},
+// ── カテゴリ8: 実務上の注意点 ──
+{
+  id: 31,
+  category: "実務の注意点",
+  question: "税務調査で特に見られやすい項目として、最も該当するものはどれですか？",
+  options: ["文房具などの少額な消耗品費", "売上の計上時期・交際費・役員報酬・在庫の評価", "正しく処理された減価償却費", "法定福利費（社会保険料の会社負担分）"],
+  correct: 1,
+  explanation: "税務調査で重点的にチェックされる項目は、売上の計上時期（期ずれ）、交際費の使途と損金算入限度額、役員報酬の定期同額性、期末在庫の評価です。これらは意図的・非意図的に誤りが生じやすく、金額的影響も大きいため、調査の着眼点として国税庁の内部資料でも重視されています。",
+  source: "国税庁 法人税の申告書確認表、税務調査着眼点"
+}, {
+  id: 32,
+  category: "実務の注意点",
+  question: "売上の「期ずれ」とは何ですか？",
+  options: ["売上の金額を間違えて計上することです", "売上を正しい事業年度に計上せず、翌期に繰り延べること（またはその逆）です", "売上を現金で受け取らず、掛売りにすることです", "売上の消費税率を間違えることです"],
+  correct: 1,
+  explanation: "期ずれとは、売上（または仕入）を本来計上すべき事業年度ではなく、別の事業年度に計上してしまうことです。例えば、3月決算法人が3月中に引き渡した商品の売上を4月に計上するケースが該当します。意図的でなくても、税務調査では非常によく指摘される項目です。期末前後の取引は特に注意が必要です。",
+  source: "法人税法第22条の2（収益の額）、法人税基本通達2-1-1〜2-1-4"
+}, {
+  id: 33,
+  category: "実務の注意点",
+  question: "中小法人の交際費について、損金算入の取扱いとして正しいものはどれですか？",
+  options: ["交際費は全額損金不算入（経費にならない）です", "年間800万円まで全額損金算入できます（資本金1億円以下の法人の場合）", "1件あたり1万円以下の飲食費のみ損金算入できます", "接待の相手が取引先の場合に限り、全額損金算入できます"],
+  correct: 1,
+  explanation: "資本金1億円以下の中小法人は、年間800万円までの交際費を全額損金算入できる特例措置があります（租税特別措置法第61条の4）。また、1人あたり1万円以下（令和6年度改正で5,000円から引上げ）の飲食費は交際費から除外されます。ただし、接待の日時・場所・相手先・金額・参加人数等の記録が必要です。",
+  source: "租税特別措置法第61条の4、令和6年度税制改正"
+}, {
+  id: 34,
+  category: "実務の注意点",
+  question: "役員報酬について、税務調査で問題にされやすいポイントはどれですか？",
+  options: ["役員報酬の金額が高すぎること（ただし上限は法律で決まっています）", "定期同額給与の要件を満たさない報酬の変更（期中での増減額など）です", "役員報酬を銀行振込で支払っていること", "役員が複数いる場合に報酬額が異なること"],
+  correct: 1,
+  explanation: "法人税法第34条により、役員報酬が損金算入されるためには「定期同額給与」「事前確定届出給与」「業績連動給与」のいずれかの要件を満たす必要があります。最もよく使われる定期同額給与は、毎月同額を支給するものですが、期中で経営判断により増額・減額した場合、その変更が認められる期間（原則として事業年度開始後3か月以内）を超えていると、損金不算入とされるリスクがあります。",
+  source: "法人税法第34条（役員給与の損金不算入）"
+}, {
+  id: 35,
+  category: "実務の注意点",
+  question: "個人的な支出を会社の経費として処理した場合、税務調査ではどうなりますか？",
+  options: ["金額が小さければ問題になりません", "役員賞与として認定され、法人税・所得税の両方で追徴される可能性があります", "次の事業年度で修正すれば問題ありません", "個人から会社に返金すれば、遡って取り消されます"],
+  correct: 1,
+  explanation: "役員の個人的な支出を会社の経費として処理した場合、その支出は法人の損金として認められず、役員に対する「認定賞与」（役員賞与）として取り扱われます。その結果、法人側では損金不算入となり法人税が増加し、役員個人側でも給与所得として所得税・住民税が課税されるという「二重の追徴」が発生します。金額の大小は問いません。",
+  source: "法人税法第34条、所得税法第28条"
+},
+// ── カテゴリ9: 消費税の調査 ──
+{
+  id: 36,
+  category: "消費税の調査",
+  question: "消費税の税務調査で特に注意すべき点はどれですか？",
+  options: ["消費税は法人税と一緒に調査されるので、別途の対策は不要です", "仕入税額控除の要件（帳簿・請求書等の保存）が満たされているかが重点チェックされます", "消費税は売上1,000万円以下なら調査の対象外です", "簡易課税を選択していれば、消費税の調査は行われません"],
+  correct: 1,
+  explanation: "消費税の調査では、仕入税額控除の適用要件が最も重要なチェックポイントです。具体的には、帳簿に法定記載事項が記載されているか、請求書等（インボイス制度では適格請求書）が適切に保存されているかが確認されます。要件を満たさない仕入税額控除は否認され、追徴されるリスクがあります。",
+  source: "消費税法第30条第7項〜第9項"
+}, {
+  id: 37,
+  category: "消費税の調査",
+  question: "インボイス制度下で、免税事業者からの仕入れについて正しいものはどれですか？",
+  options: ["免税事業者からの仕入れは仕入税額控除が一切できません", "経過措置として、2026年9月30日までは仕入税額の80%を控除できます", "免税事業者から仕入れた場合でも、従来どおり100%控除できます", "免税事業者との取引自体が禁止されています"],
+  correct: 1,
+  explanation: "インボイス制度の経過措置として、免税事業者からの仕入れについては段階的に控除割合が縮小されます。2023年10月〜2026年9月は80%控除、2026年10月〜2029年9月は50%控除、それ以降は控除不可となります。この経過措置は帳簿に一定の記載を行うことが要件です。税務調査でも経過措置の適用が正しいか確認されます。",
+  source: "消費税法附則第52条、第53条（インボイス制度経過措置）"
+},
+// ── カテゴリ10: その他の重要事項 ──
+{
+  id: 38,
+  category: "その他",
+  question: "税務調査の結果を従業員や取引先に知られることはありますか？",
+  options: ["税務署が調査結果を公表することがあります", "調査官には守秘義務があり、調査で知り得た情報を第三者に漏らすことは法律で禁じられています", "取引先には反面調査の際に自社の申告内容が伝えられます", "税務署は調査結果を信用情報機関に報告します"],
+  correct: 1,
+  explanation: "調査官には国家公務員法第100条に基づく守秘義務があり、職務上知り得た秘密を漏らすことは禁止されています。税務調査の結果が公表されたり、取引先に自社の申告内容が直接伝えられることはありません。反面調査はあくまで取引の事実確認が目的であり、調査対象企業の申告内容を開示するものではありません。",
+  source: "国家公務員法第100条（秘密を守る義務）"
+}, {
+  id: 39,
+  category: "その他",
+  question: "税務調査が終了した後、同じ事項について再度調査されることはありますか？",
+  options: ["一度調査が終わった事項は、二度と調査されません（一事不再理の原則）", "新たな情報があれば、同じ事項について再調査されることがあります", "3年経過すれば同じ事項でも再調査されます", "再調査は税務署長の許可が不要で、いつでも行われます"],
+  correct: 1,
+  explanation: "国税通則法第74条の11第6項により、調査終了後に「新たに得られた情報」に照らして非違があると認められる場合は、再調査が行われることがあります。ただし、再調査を行うには税務署長の判断が必要であり、正当な理由なく繰り返し同じ事項を調査することは認められていません。",
+  source: "国税通則法第74条の11第6項"
+}, {
+  id: 40,
+  category: "その他",
+  question: "税務調査に備えて、日頃から経営者が最も心がけるべきことはどれですか？",
+  options: ["税務署との良好な人間関係を築いておくことです", "節税対策を最大限に活用して、納税額を極限まで減らすことです", "適正な記帳と証憑の整理保管を日常的に行い、顧問税理士と定期的にコミュニケーションをとることです", "税務調査が来ないよう、売上を調整して目立たないようにすることです"],
+  correct: 2,
+  explanation: "税務調査への最善の備えは、日々の適正な記帳と証憑（領収書・請求書等）の整理保管を徹底し、顧問税理士との定期的なコミュニケーションによって正確な申告を行うことです。税務調査は正しい申告をしていれば恐れるものではありません。売上の調整は脱税行為にあたり、かえって重大なリスクを招きます。",
+  source: "国税庁 税務調査手続FAQ（一般納税者向け）、法人税法第150条の2"
+}];
+var CATEGORIES = [{
+  key: "基礎知識",
+  icon: "📚",
+  label: "基礎知識"
+}, {
+  key: "事前通知・日程",
+  icon: "📞",
+  label: "事前通知・日程"
+}, {
+  key: "当日の対応",
+  icon: "🏢",
+  label: "当日の対応"
+}, {
+  key: "帳簿・証憑",
+  icon: "📋",
+  label: "帳簿・証憑"
+}, {
+  key: "修正申告・更正",
+  icon: "📝",
+  label: "修正申告・更正"
+}, {
+  key: "加算税・延滞税",
+  icon: "💰",
+  label: "加算税・延滞税"
+}, {
+  key: "不服申立て",
+  icon: "⚖️",
+  label: "不服申立て"
+}, {
+  key: "実務の注意点",
+  icon: "⚠️",
+  label: "実務の注意点"
+}, {
+  key: "消費税の調査",
+  icon: "🧾",
+  label: "消費税の調査"
+}, {
+  key: "その他",
+  icon: "📌",
+  label: "その他"
+}];
+var OPTION_LABELS = ["A", "B", "C", "D"];
+function shuffle(arr) {
+  var a = _toConsumableArray(arr);
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var _ref = [a[j], a[i]];
+    a[i] = _ref[0];
+    a[j] = _ref[1];
+  }
+  return a;
+}
+
+// ================
+// メインアプリ
+// ================
+function App() {
+  var _useState = useState("start"),
+    _useState2 = _slicedToArray(_useState, 2),
+    screen = _useState2[0],
+    setScreen = _useState2[1]; // start, quiz, result, review
+  var _useState3 = useState("all"),
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedCategory = _useState4[0],
+    setSelectedCategory = _useState4[1];
+  var _useState5 = useState([]),
+    _useState6 = _slicedToArray(_useState5, 2),
+    questions = _useState6[0],
+    setQuestions = _useState6[1];
+  var _useState7 = useState(0),
+    _useState8 = _slicedToArray(_useState7, 2),
+    currentIdx = _useState8[0],
+    setCurrentIdx = _useState8[1];
+  var _useState9 = useState(null),
+    _useState10 = _slicedToArray(_useState9, 2),
+    selected = _useState10[0],
+    setSelected = _useState10[1];
+  var _useState11 = useState(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    answered = _useState12[0],
+    setAnswered = _useState12[1];
+  var _useState13 = useState([]),
+    _useState14 = _slicedToArray(_useState13, 2),
+    results = _useState14[0],
+    setResults = _useState14[1];
+  var categoryCount = useMemo(function () {
+    var counts = {};
+    QUESTIONS.forEach(function (q) {
+      counts[q.category] = (counts[q.category] || 0) + 1;
+    });
+    return counts;
+  }, []);
+  var startQuiz = useCallback(function () {
+    var qs;
+    if (selectedCategory === "all") {
+      qs = shuffle(QUESTIONS);
+    } else {
+      qs = shuffle(QUESTIONS.filter(function (q) {
+        return q.category === selectedCategory;
+      }));
+    }
+    setQuestions(qs);
+    setCurrentIdx(0);
+    setSelected(null);
+    setAnswered(false);
+    setResults([]);
+    setScreen("quiz");
+  }, [selectedCategory]);
+  var handleSelect = useCallback(function (idx) {
+    if (answered) return;
+    setSelected(idx);
+    setAnswered(true);
+    setResults(function (prev) {
+      return [].concat(_toConsumableArray(prev), [{
+        question: questions[currentIdx],
+        selectedIdx: idx,
+        isCorrect: idx === questions[currentIdx].correct
+      }]);
+    });
+  }, [answered, questions, currentIdx]);
+  var nextQuestion = useCallback(function () {
+    if (currentIdx + 1 >= questions.length) {
+      setScreen("result");
+    } else {
+      setCurrentIdx(function (prev) {
+        return prev + 1;
+      });
+      setSelected(null);
+      setAnswered(false);
+    }
+  }, [currentIdx, questions.length]);
+  var correctCount = results.filter(function (r) {
+    return r.isCorrect;
+  }).length;
+  var totalCount = results.length;
+  var scorePercent = totalCount > 0 ? Math.round(correctCount / totalCount * 100) : 0;
+  var categoryResults = useMemo(function () {
+    var map = {};
+    results.forEach(function (r) {
+      var cat = r.question.category;
+      if (!map[cat]) map[cat] = {
+        correct: 0,
+        total: 0
+      };
+      map[cat].total++;
+      if (r.isCorrect) map[cat].correct++;
+    });
+    return map;
+  }, [results]);
+
+  // スタート画面
+  if (screen === "start") {
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      className: "header"
+    }, /*#__PURE__*/React.createElement("h1", null, "\u7A0E\u52D9\u8ABF\u67FB Q&A \u30AF\u30A4\u30BA"), /*#__PURE__*/React.createElement("div", {
+      className: "subtitle"
+    }, "\u4E2D\u5C0F\u4F01\u696D\u7D4C\u55B6\u8005\u306E\u305F\u3081\u306E\u5B9F\u8DF5\u30AC\u30A4\u30C9")), /*#__PURE__*/React.createElement("div", {
+      className: "container"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "start-screen"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "logo"
+    }, "\uD83D\uDD0D"), /*#__PURE__*/React.createElement("h2", null, "\u7A0E\u52D9\u8ABF\u67FB\u306E\u5BFE\u5FDC\u529B\u3092\u30C1\u30A7\u30C3\u30AF\uFF01"), /*#__PURE__*/React.createElement("p", null, "\u56FD\u7A0E\u5E81\u306E\u516C\u5F0F\u60C5\u5831\u306B\u57FA\u3065\u3044\u305F\u5168", QUESTIONS.length, "\u554F\u306E\u5B9F\u8DF5\u7684\u306A\u30AF\u30A4\u30BA\u3067\u3059\u3002", /*#__PURE__*/React.createElement("br", null), "\u30AB\u30C6\u30B4\u30EA\u3092\u9078\u3093\u3067\u30014\u629E\u554F\u984C\u306B\u6311\u6226\u3057\u3066\u307F\u307E\u3057\u3087\u3046\u3002"), /*#__PURE__*/React.createElement("div", {
+      className: "category-grid"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "category-card ".concat(selectedCategory === "all" ? "selected" : ""),
+      onClick: function onClick() {
+        return setSelectedCategory("all");
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "icon"
+    }, "\uD83C\uDFAF"), /*#__PURE__*/React.createElement("div", {
+      className: "label"
+    }, "\u5168\u30AB\u30C6\u30B4\u30EA"), /*#__PURE__*/React.createElement("div", {
+      className: "count"
+    }, "\u5168", QUESTIONS.length, "\u554F")), CATEGORIES.map(function (cat) {
+      return /*#__PURE__*/React.createElement("div", {
+        key: cat.key,
+        className: "category-card ".concat(selectedCategory === cat.key ? "selected" : ""),
+        onClick: function onClick() {
+          return setSelectedCategory(cat.key);
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "icon"
+      }, cat.icon), /*#__PURE__*/React.createElement("div", {
+        className: "label"
+      }, cat.label), /*#__PURE__*/React.createElement("div", {
+        className: "count"
+      }, categoryCount[cat.key] || 0, "\u554F"));
+    })), /*#__PURE__*/React.createElement("button", {
+      className: "btn btn-primary",
+      onClick: startQuiz
+    }, "\u30AF\u30A4\u30BA\u3092\u30B9\u30BF\u30FC\u30C8 \u2192")), /*#__PURE__*/React.createElement("div", {
+      className: "footer"
+    }, /*#__PURE__*/React.createElement("p", null, "\u672C\u30A2\u30D7\u30EA\u306F\u3001\u56FD\u7A0E\u5E81\u516C\u5F0F\u60C5\u5831\u306B\u57FA\u3065\u3044\u3066\u4F5C\u6210\u3057\u3066\u3044\u307E\u3059\u3002", /*#__PURE__*/React.createElement("br", null), "\u53C2\u7167\uFF1A", /*#__PURE__*/React.createElement("a", {
+      href: "https://www.nta.go.jp/information/other/data/h24/nozeikankyo/ippan02.htm",
+      target: "_blank",
+      rel: "noopener"
+    }, "\u56FD\u7A0E\u5E81 \u7A0E\u52D9\u8ABF\u67FB\u624B\u7D9AFAQ")), /*#__PURE__*/React.createElement("p", {
+      style: {
+        marginTop: "8px"
+      }
+    }, "\xA9 2026 \u6797\u7A0E\u7406\u58EB\u793E\u52B4\u58EB\u4E8B\u52D9\u6240"))));
+  }
+
+  // クイズ画面
+  if (screen === "quiz") {
+    var q = questions[currentIdx];
+    var progress = (currentIdx + (answered ? 1 : 0)) / questions.length * 100;
+    var catInfo = CATEGORIES.find(function (c) {
+      return c.key === q.category;
+    });
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      className: "header"
+    }, /*#__PURE__*/React.createElement("h1", null, "\u7A0E\u52D9\u8ABF\u67FB Q&A \u30AF\u30A4\u30BA")), /*#__PURE__*/React.createElement("div", {
+      className: "container"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "progress-section"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "progress-info"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "category-tag"
+    }, catInfo ? catInfo.icon : "📋", " ", q.category), /*#__PURE__*/React.createElement("span", null, currentIdx + 1, " / ", questions.length)), /*#__PURE__*/React.createElement("div", {
+      className: "progress-bar"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "progress-fill",
+      style: {
+        width: "".concat(progress, "%")
+      }
+    }))), /*#__PURE__*/React.createElement("div", {
+      className: "question-card",
+      key: q.id
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "question-number"
+    }, "\u7B2C", currentIdx + 1, "\u554F"), /*#__PURE__*/React.createElement("div", {
+      className: "question-text"
+    }, q.question), /*#__PURE__*/React.createElement("div", {
+      className: "options"
+    }, q.options.map(function (opt, idx) {
+      var cls = "option-btn";
+      if (answered) {
+        cls += " disabled";
+        if (idx === q.correct) cls += " correct";else if (idx === selected && idx !== q.correct) cls += " wrong";
+      }
+      return /*#__PURE__*/React.createElement("button", {
+        key: idx,
+        className: cls,
+        onClick: function onClick() {
+          return handleSelect(idx);
+        }
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "option-label"
+      }, OPTION_LABELS[idx]), /*#__PURE__*/React.createElement("span", null, opt));
+    })), answered && /*#__PURE__*/React.createElement("div", {
+      className: "explanation"
+    }, /*#__PURE__*/React.createElement("h4", null, selected === q.correct ? "✅ 正解です！" : "❌ 不正解です"), /*#__PURE__*/React.createElement("p", null, q.explanation), /*#__PURE__*/React.createElement("div", {
+      className: "source"
+    }, "\uD83D\uDCD6 \u6839\u62E0\uFF1A", q.source))), answered && /*#__PURE__*/React.createElement("div", {
+      className: "next-btn-area"
+    }, /*#__PURE__*/React.createElement("button", {
+      className: "btn btn-primary btn-sm",
+      onClick: nextQuestion
+    }, currentIdx + 1 >= questions.length ? "結果を見る →" : "次の問題 →"))));
+  }
+
+  // 結果画面
+  if (screen === "result") {
+    var scoreClass = scorePercent >= 80 ? "score-high" : scorePercent >= 50 ? "score-mid" : "score-low";
+    var getMessage = function getMessage() {
+      if (scorePercent >= 90) return {
+        title: "素晴らしい！",
+        detail: "税務調査に対する深い理解をお持ちです。この知識を日常の経営にも活かしてください。"
+      };
+      if (scorePercent >= 70) return {
+        title: "よくできました！",
+        detail: "基本的な知識はしっかりと身についています。間違えた問題を復習して、さらに理解を深めましょう。"
+      };
+      if (scorePercent >= 50) return {
+        title: "もう少しです！",
+        detail: "いくつかの重要なポイントを見直す必要があります。解説をよく読んで、正しい知識を身につけましょう。"
+      };
+      return {
+        title: "復習が必要です",
+        detail: "税務調査の基本的な知識を体系的に学び直すことをお勧めします。顧問税理士にもご相談ください。"
+      };
+    };
+    var msg = getMessage();
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      className: "header"
+    }, /*#__PURE__*/React.createElement("h1", null, "\u7A0E\u52D9\u8ABF\u67FB Q&A \u30AF\u30A4\u30BA")), /*#__PURE__*/React.createElement("div", {
+      className: "container"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "result-screen"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "result-card"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "score-circle ".concat(scoreClass)
+    }, scorePercent, /*#__PURE__*/React.createElement("span", {
+      className: "label"
+    }, "\u70B9")), /*#__PURE__*/React.createElement("div", {
+      className: "result-message"
+    }, msg.title), /*#__PURE__*/React.createElement("div", {
+      className: "result-detail"
+    }, totalCount, "\u554F\u4E2D ", correctCount, "\u554F\u6B63\u89E3\u3000\uFF08\u6B63\u7B54\u7387 ", scorePercent, "%\uFF09"), /*#__PURE__*/React.createElement("p", {
+      style: {
+        fontSize: "0.9rem",
+        color: "#7f8c8d"
+      }
+    }, msg.detail), /*#__PURE__*/React.createElement("div", {
+      className: "result-breakdown"
+    }, /*#__PURE__*/React.createElement("h4", null, "\u30AB\u30C6\u30B4\u30EA\u5225\u306E\u6210\u7E3E"), Object.entries(categoryResults).map(function (_ref2) {
+      var _CATEGORIES$find;
+      var _ref3 = _slicedToArray(_ref2, 2),
+        cat = _ref3[0],
+        data = _ref3[1];
+      return /*#__PURE__*/React.createElement("div", {
+        className: "breakdown-item",
+        key: cat
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "cat-name"
+      }, (_CATEGORIES$find = CATEGORIES.find(function (c) {
+        return c.key === cat;
+      })) === null || _CATEGORIES$find === void 0 ? void 0 : _CATEGORIES$find.icon, " ", cat), /*#__PURE__*/React.createElement("span", {
+        className: "cat-score"
+      }, data.correct, " / ", data.total, "\uFF08", Math.round(data.correct / data.total * 100), "%\uFF09"));
+    }))), /*#__PURE__*/React.createElement("div", {
+      className: "btn-group"
+    }, /*#__PURE__*/React.createElement("button", {
+      className: "btn btn-primary btn-sm",
+      onClick: function onClick() {
+        return setScreen("review");
+      }
+    }, "\u89E3\u7B54\u3092\u632F\u308A\u8FD4\u308B"), /*#__PURE__*/React.createElement("button", {
+      className: "btn btn-outline btn-sm",
+      onClick: function onClick() {
+        setScreen("start");
+        setSelectedCategory("all");
+      }
+    }, "\u30C8\u30C3\u30D7\u306B\u623B\u308B"))), /*#__PURE__*/React.createElement("div", {
+      className: "footer"
+    }, /*#__PURE__*/React.createElement("p", null, "\xA9 2026 \u6797\u7A0E\u7406\u58EB\u793E\u52B4\u58EB\u4E8B\u52D9\u6240"))));
+  }
+
+  // 振り返り画面
+  if (screen === "review") {
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      className: "header"
+    }, /*#__PURE__*/React.createElement("h1", null, "\u89E3\u7B54\u306E\u632F\u308A\u8FD4\u308A")), /*#__PURE__*/React.createElement("div", {
+      className: "container"
+    }, results.map(function (r, i) {
+      return /*#__PURE__*/React.createElement("div", {
+        className: "review-item",
+        key: i
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "q-header"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "badge ".concat(r.isCorrect ? "badge-correct" : "badge-wrong")
+      }, r.isCorrect ? "正解" : "不正解"), /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: "0.8rem",
+          color: "#7f8c8d"
+        }
+      }, "\u7B2C", i + 1, "\u554F\uFF5C", r.question.category)), /*#__PURE__*/React.createElement("div", {
+        className: "q-text"
+      }, r.question.question), /*#__PURE__*/React.createElement("div", {
+        className: "answer-info"
+      }, "\u3042\u306A\u305F\u306E\u56DE\u7B54\uFF1A", OPTION_LABELS[r.selectedIdx], ". ", r.question.options[r.selectedIdx], /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("strong", null, "\u6B63\u89E3\uFF1A", OPTION_LABELS[r.question.correct], ". ", r.question.options[r.question.correct])), /*#__PURE__*/React.createElement("div", {
+        className: "exp-text"
+      }, r.question.explanation, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: "0.78rem",
+          color: "#95a5a6"
+        }
+      }, "\uD83D\uDCD6 ", r.question.source)));
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "back-top"
+    }, /*#__PURE__*/React.createElement("button", {
+      className: "btn btn-outline btn-sm",
+      onClick: function onClick() {
+        return setScreen("result");
+      }
+    }, "\u2190 \u7D50\u679C\u306B\u623B\u308B"), " ", /*#__PURE__*/React.createElement("button", {
+      className: "btn btn-primary btn-sm",
+      onClick: function onClick() {
+        setScreen("start");
+        setSelectedCategory("all");
+      }
+    }, "\u30C8\u30C3\u30D7\u306B\u623B\u308B")), /*#__PURE__*/React.createElement("div", {
+      className: "footer"
+    }, /*#__PURE__*/React.createElement("p", null, "\xA9 2026 \u6797\u7A0E\u7406\u58EB\u793E\u52B4\u58EB\u4E8B\u52D9\u6240"))));
+  }
+  return null;
+}
+ReactDOM.createRoot(document.getElementById("root")).render( /*#__PURE__*/React.createElement(App, null));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfUmVhY3QiLCJSZWFjdCIsInVzZVN0YXRlIiwidXNlQ2FsbGJhY2siLCJ1c2VNZW1vIiwiUVVFU1RJT05TIiwiaWQiLCJjYXRlZ29yeSIsInF1ZXN0aW9uIiwib3B0aW9ucyIsImNvcnJlY3QiLCJleHBsYW5hdGlvbiIsInNvdXJjZSIsIkNBVEVHT1JJRVMiLCJrZXkiLCJpY29uIiwibGFiZWwiLCJPUFRJT05fTEFCRUxTIiwic2h1ZmZsZSIsImFyciIsImEiLCJfdG9Db25zdW1hYmxlQXJyYXkiLCJpIiwibGVuZ3RoIiwiaiIsIk1hdGgiLCJmbG9vciIsInJhbmRvbSIsIl9yZWYiLCJBcHAiLCJfdXNlU3RhdGUiLCJfdXNlU3RhdGUyIiwiX3NsaWNlZFRvQXJyYXkiLCJzY3JlZW4iLCJzZXRTY3JlZW4iLCJfdXNlU3RhdGUzIiwiX3VzZVN0YXRlNCIsInNlbGVjdGVkQ2F0ZWdvcnkiLCJzZXRTZWxlY3RlZENhdGVnb3J5IiwiX3VzZVN0YXRlNSIsIl91c2VTdGF0ZTYiLCJxdWVzdGlvbnMiLCJzZXRRdWVzdGlvbnMiLCJfdXNlU3RhdGU3IiwiX3VzZVN0YXRlOCIsImN1cnJlbnRJZHgiLCJzZXRDdXJyZW50SWR4IiwiX3VzZVN0YXRlOSIsIl91c2VTdGF0ZTEwIiwic2VsZWN0ZWQiLCJzZXRTZWxlY3RlZCIsIl91c2VTdGF0ZTExIiwiX3VzZVN0YXRlMTIiLCJhbnN3ZXJlZCIsInNldEFuc3dlcmVkIiwiX3VzZVN0YXRlMTMiLCJfdXNlU3RhdGUxNCIsInJlc3VsdHMiLCJzZXRSZXN1bHRzIiwiY2F0ZWdvcnlDb3VudCIsImNvdW50cyIsImZvckVhY2giLCJxIiwic3RhcnRRdWl6IiwicXMiLCJmaWx0ZXIiLCJoYW5kbGVTZWxlY3QiLCJpZHgiLCJwcmV2IiwiY29uY2F0Iiwic2VsZWN0ZWRJZHgiLCJpc0NvcnJlY3QiLCJuZXh0UXVlc3Rpb24iLCJjb3JyZWN0Q291bnQiLCJyIiwidG90YWxDb3VudCIsInNjb3JlUGVyY2VudCIsInJvdW5kIiwiY2F0ZWdvcnlSZXN1bHRzIiwibWFwIiwiY2F0IiwidG90YWwiLCJjcmVhdGVFbGVtZW50IiwiY2xhc3NOYW1lIiwib25DbGljayIsImhyZWYiLCJ0YXJnZXQiLCJyZWwiLCJzdHlsZSIsIm1hcmdpblRvcCIsInByb2dyZXNzIiwiY2F0SW5mbyIsImZpbmQiLCJjIiwid2lkdGgiLCJvcHQiLCJjbHMiLCJzY29yZUNsYXNzIiwiZ2V0TWVzc2FnZSIsInRpdGxlIiwiZGV0YWlsIiwibXNnIiwiZm9udFNpemUiLCJjb2xvciIsIk9iamVjdCIsImVudHJpZXMiLCJfcmVmMiIsIl9DQVRFR09SSUVTJGZpbmQiLCJfcmVmMyIsImRhdGEiLCJSZWFjdERPTSIsImNyZWF0ZVJvb3QiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIiwicmVuZGVyIl0sInNvdXJjZXMiOlsiSW5saW5lIEJhYmVsIHNjcmlwdCJdLCJzb3VyY2VzQ29udGVudCI6WyJcbmNvbnN0IHsgdXNlU3RhdGUsIHVzZUNhbGxiYWNrLCB1c2VNZW1vIH0gPSBSZWFjdDtcblxuLy8gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4vLyDllY/poYzjg4fjg7zjgr/jg5njg7zjgrnvvIjlm73nqI7luoHlhazlvI/mg4XloLHjgavln7rjgaXjgY/vvIlcbi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuY29uc3QgUVVFU1RJT05TID0gW1xuICAvLyDilIDilIAg44Kr44OG44K044OqMTog56iO5YuZ6Kq/5p+744Gu5Z+656SO55+l6K2YIOKUgOKUgFxuICB7XG4gICAgaWQ6IDEsXG4gICAgY2F0ZWdvcnk6IFwi5Z+656SO55+l6K2YXCIsXG4gICAgcXVlc3Rpb246IFwi56iO5YuZ6Kq/5p+744Gu44CM5LqL5YmN6YCa55+l44CN44Gr44Gk44GE44Gm44CB5q2j44GX44GE44KC44Gu44Gv44Gp44KM44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLkuovliY3pgJrnn6Xjga/ms5XlvovkuIrjga7nvqnli5njgafjga/jgarjgY/jgIHnqI7li5nnvbLjga7ku7vmhI/jgafooYzjgo/jgozjgb7jgZlcIixcbiAgICAgIFwi5Y6f5YmH44Go44GX44Gm6Kq/5p+76ZaL5aeL5YmN44Gr44CB57SN56iO6ICF44Go56iO55CG5aOr44Gu5Y+M5pa544Gr6YCa55+l44GV44KM44G+44GZXCIsXG4gICAgICBcIuS6i+WJjemAmuefpeOBr+W/heOBmuabuOmdou+8iOmDtemAge+8ieOBp+WxiuOBjeOBvuOBmVwiLFxuICAgICAgXCLkuovliY3pgJrnn6XjgYvjgonoqr/mn7vplovlp4vjgb7jgafjgIHlv4XjgZox44GL5pyI5Lul5LiK44Gu54y25LqI44GM44GC44KK44G+44GZXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDEsXG4gICAgZXhwbGFuYXRpb246IFwi5Zu956iO6YCa5YmH5rOV56ysNzTmnaHjga4544Gr44KI44KK44CB5a6f5Zyw6Kq/5p+744KS6KGM44GG5aC05ZCI44Gv5Y6f5YmH44Go44GX44Gm44CB6Kq/5p+76ZaL5aeL5pel5YmN44G+44Gn44Gr55u45b2T44Gu5pmC6ZaT55qE5L2Z6KOV44KS44GK44GE44Gm44CB57SN56iO6ICF5pys5Lq644Go56iO5YuZ5Luj55CG5Lq677yI6aGn5ZWP56iO55CG5aOr77yJ44Gu5Y+M5pa544Gr44CB6Zu76Kmx562J44Gn5LqL5YmN6YCa55+l44GM6KGM44KP44KM44G+44GZ44CC44Gf44Gg44GX44CB6YGV5rOV44O75LiN5q2j44GM55aR44KP44KM44KL5aC05ZCI44Gr44Gv54Sh5LqI5ZGK6Kq/5p+744KC44GC44KK5b6X44G+44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojumAmuWJh+azleesrDc05p2h44GuOe+8iOWbveeojuW6gSDnqI7li5noqr/mn7vmiYvntppGQVHvvIlcIlxuICB9LFxuICB7XG4gICAgaWQ6IDIsXG4gICAgY2F0ZWdvcnk6IFwi5Z+656SO55+l6K2YXCIsXG4gICAgcXVlc3Rpb246IFwi5LqL5YmN6YCa55+l44Gn5Lyd44GI44KJ44KM44KL5YaF5a6544Go44GX44Gm44CB5rOV5b6L44Gn5a6a44KB44KJ44KM44Gm44GE44Gq44GE44KC44Gu44Gv44Gp44KM44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLoqr/mn7vjga7plovlp4vml6XmmYJcIixcbiAgICAgIFwi6Kq/5p+744Gu5a++6LGh44Go44Gq44KL56iO55uuXCIsXG4gICAgICBcIuiqv+afu+OBruWvvuixoeOBqOOBquOCi+acn+mWk1wiLFxuICAgICAgXCLkuojmg7PjgZXjgozjgovov73lvrTnqI7poY1cIlxuICAgIF0sXG4gICAgY29ycmVjdDogMyxcbiAgICBleHBsYW5hdGlvbjogXCLkuovliY3pgJrnn6Xjgafjga/jgIHoqr/mn7vplovlp4vml6XmmYLjg7vloLTmiYDjg7vlr77osaHnqI7nm67jg7vlr77osaHmnJ/plpPjg7voqr/mn7vjga7nm67nmoTjg7vlr77osaHjgajjgarjgovluLPnsL/mm7jpoZ7jgarjganjgYzkvJ3jgYjjgonjgozjgb7jgZnjgILjgZfjgYvjgZfjgIHov73lvrTnqI7poY3jga7kuojmg7Pjga/pgJrnn6XkuovpoIXjgavlkKvjgb7jgozjgabjgYTjgb7jgZvjgpPjgILoqr/mn7vjga/nlLPlkYrlhoXlrrnjga7norroqo3jgYznm67nmoTjgafjgYLjgorjgIHmnIDliJ3jgYvjgonov73lvrTjgpLliY3mj5DjgajjgZfjgZ/jgoLjga7jgafjga/jgYLjgorjgb7jgZvjgpPjgIJcIixcbiAgICBzb3VyY2U6IFwi5Zu956iO6YCa5YmH5rOV56ysNzTmnaHjga4556ysMemgheWQhOWPt1wiXG4gIH0sXG4gIHtcbiAgICBpZDogMyxcbiAgICBjYXRlZ29yeTogXCLln7rnpI7nn6XorZhcIixcbiAgICBxdWVzdGlvbjogXCLnqI7li5noqr/mn7vjgavjgYrjgZHjgovoqr/mn7vlrpjjga7jgIzos6rllY/mpJzmn7vmqKnjgI3jgavjgaTjgYTjgabjgIHmraPjgZfjgYTjgoLjga7jga/jganjgozjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuiqv+afu+WumOOBr+e0jeeojuiAheOBruiHquWuheOBq+eEoeaWreOBp+eri+OBoeWFpeOCi+OBk+OBqOOBjOOBp+OBjeOBvuOBmVwiLFxuICAgICAgXCLoqr/mn7vlrpjjga/luLPnsL/mm7jpoZ7jga7mj5DnpLrjgpLmsYLjgoHjgovmqKnpmZDjgYzjgYLjgorjgb7jgZnjgYzjgIHlvLfliLblipvjga/jgYLjgorjgb7jgZvjgpNcIixcbiAgICAgIFwi6LOq5ZWP5qSc5p+75qip44Gr5Z+644Gl44GP6LOq5ZWP44Gr5a++44GX44Gm5q2j5b2T44Gq55CG55Sx44Gq44GP5ouS5ZCm44GZ44KL44Go572w5YmH44GM44GC44KK44G+44GZXCIsXG4gICAgICBcIuiqv+afu+WumOOBr+mHkeW6q+OChOW8leOBjeWHuuOBl+OCkuWLneaJi+OBq+mWi+OBkeOBpueiuuiqjeOBmeOCi+OBk+OBqOOBjOOBp+OBjeOBvuOBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAyLFxuICAgIGV4cGxhbmF0aW9uOiBcIuWbveeojumAmuWJh+azleesrDc05p2h44GuMuOBq+WfuuOBpeOBj+izquWVj+aknOafu+aoqeOBr+OAjOS7u+aEj+iqv+afu+OAjeOBp+OBmeOBjOOAgeato+W9k+OBqueQhueUseOBquOBj+izquWVj+OBuOOBruWbnuetlOOCkuaLkuWQpuOBl+OBn+OCiuOAgeWBveOCiuOBruetlOW8geOCkuOBl+OBn+WgtOWQiOOBr+OAgTHlubTku6XkuIvjga7mh7Llvbnlj4jjga81MOS4h+WGhuS7peS4i+OBrue9sOmHkeOBjOenkeOBleOCjOOCi+WPr+iDveaAp+OBjOOBguOCiuOBvuOBme+8iOWQjOazleesrDEyOOadoe+8ieOAguOBn+OBoOOBl+OAgeOBguOBj+OBvuOBp+S7u+aEj+iqv+afu+OBp+OBguOCiuOAgeW8t+WItueahOOBquaNnOe0ouOBr+OBp+OBjeOBvuOBm+OCk+OAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7pgJrliYfms5XnrKw3NOadoeOBrjLjgIHnrKwxMjjmnaFcIlxuICB9LFxuICB7XG4gICAgaWQ6IDQsXG4gICAgY2F0ZWdvcnk6IFwi5Z+656SO55+l6K2YXCIsXG4gICAgcXVlc3Rpb246IFwi56iO5YuZ6Kq/5p+744Gu56iu6aGe44Go44GX44Gm44CB5LiA6Iis55qE44Gr6KGM44KP44KM44KL44KC44Gu44Gv44Gp44KM44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLku7vmhI/oqr/mn7vvvIjlrp/lnLDoqr/mn7vvvInjga7jgb/jgafjgZlcIixcbiAgICAgIFwi5by35Yi26Kq/5p+777yI44Oe44Or44K177yJ44Gu44G/44Gn44GZXCIsXG4gICAgICBcIuS7u+aEj+iqv+afu+OBqOW8t+WItuiqv+afu+OBrjLnqK7poZ7jgYzjgYLjgorjgb7jgZlcIixcbiAgICAgIFwi5pu46Z2i6Kq/5p+744O75Lu75oSP6Kq/5p+744O75by35Yi26Kq/5p+744GuM+eorumhnuOBjOOBguOCiuOBvuOBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAyLFxuICAgIGV4cGxhbmF0aW9uOiBcIueojuWLmeiqv+afu+OBq+OBr+Wkp+OBjeOBj+WIhuOBkeOBpuOAjOS7u+aEj+iqv+afu+OAjeOBqOOAjOW8t+WItuiqv+afu+OAjeOBjOOBguOCiuOBvuOBmeOAguS4reWwj+S8gealreOBq+WvvuOBl+OBpuihjOOCj+OCjOOCi+OBruOBr+OBu+OBqOOCk+OBqeOBjOS7u+aEj+iqv+afu+OBp+OBmeOAguW8t+WItuiqv+afu++8iOOBhOOCj+OChuOCi+OAjOODnuODq+OCteOAje+8ieOBr+OAgeWbveeojueKr+WJh+WPlue3oOazleOBq+WfuuOBpeOBjeijgeWIpOaJgOOBruS7pOeKtuOCkuW+l+OBpuihjOOBhuOCguOBruOBp+OAgeW3qOmhjeOBruiEseeojuOBjOeWkeOCj+OCjOOCi+WgtOWQiOOBq+mZkOOCieOCjOOBvuOBmeOAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7pgJrliYfms5XnrKw356ug44GuMuOAgeWbveeojueKr+WJh+WPlue3oOazlVwiXG4gIH0sXG4gIHtcbiAgICBpZDogNSxcbiAgICBjYXRlZ29yeTogXCLln7rnpI7nn6XorZhcIixcbiAgICBxdWVzdGlvbjogXCLnqI7li5noqr/mn7vjga7lr77osaHmnJ/plpPjga/ljp/liYfjgajjgZfjgabkvZXlubTliIbjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuebtOi/kTHlubTliIZcIixcbiAgICAgIFwi55u06L+RM+W5tOWIhlwiLFxuICAgICAgXCLnm7Tov5E15bm05YiGXCIsXG4gICAgICBcIuebtOi/kTflubTliIZcIlxuICAgIF0sXG4gICAgY29ycmVjdDogMSxcbiAgICBleHBsYW5hdGlvbjogXCLnqI7li5noqr/mn7vjga7lr77osaHmnJ/plpPjga/ljp/liYfjgajjgZfjgabnm7Tov5Ez5bm05YiG77yIM+S6i+alreW5tOW6puWIhu+8ieOBp+OBmeOAguOBn+OBoOOBl+OAgeiqv+afu+OBrumBjueoi+OBp+S4jeato+OBjOeZuuimi+OBleOCjOOBn+WgtOWQiOOBrzXlubTliIbjgavlu7bplbfjgZXjgozjgIHku67oo4Xjg7vpmqDolL3vvIjjgYTjgo/jgobjgovohLHnqI7ooYzngrrvvInjgYzjgYLjgovloLTlkIjjgavjga/mnIDlpKc35bm05YiG44G+44Gn6YGh5Y+K44GV44KM44KL44GT44Go44GM44GC44KK44G+44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojumAmuWJh+azleesrDcw5p2h77yI5pu05q2j44O75rG65a6a562J44Gu5pyf6ZaT5Yi26ZmQ77yJXCJcbiAgfSxcbiAge1xuICAgIGlkOiA2LFxuICAgIGNhdGVnb3J5OiBcIuWfuuekjuefpeitmFwiLFxuICAgIHF1ZXN0aW9uOiBcIueojuWLmee9suOBjOazleS6uuOBq+WvvuOBl+OBpueojuWLmeiqv+afu+OCkuihjOOBhumgu+W6puOBruebruWuieOBqOOBl+OBpuOAgeWun+aFi+OBq+acgOOCgui/keOBhOOCguOBruOBr+OBqeOCjOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi5q+O5bm05b+F44Ga5YWo5rOV5Lq644Gr6Kq/5p+744GM5YWl44KK44G+44GZXCIsXG4gICAgICBcIuamguOBrTPlubTjgJw15bm044GrMeWbnueoi+W6puOBp+OBmVwiLFxuICAgICAgXCLoqK3nq4vlvowxMOW5tOmWk+OBr+iqv+afu+OBjOOBguOCiuOBvuOBm+OCk1wiLFxuICAgICAgXCLlo7LkuIox5YSE5YaG5pyq5rqA44Gu5rOV5Lq644Gv6Kq/5p+75a++6LGh5aSW44Gn44GZXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDEsXG4gICAgZXhwbGFuYXRpb246IFwi56iO5YuZ6Kq/5p+744Gu5a6f5pa96aC75bqm44Gr5piO56K644Gq5rOV5a6a5Z+65rqW44Gv44GC44KK44G+44Gb44KT44GM44CB5LiA6Iis55qE44GrM+W5tOOAnDXlubTjgasx5Zue56iL5bqm44Gu44Oa44O844K544Gn5a6f5Zyw6Kq/5p+744GM6KGM44KP44KM44KL44GT44Go44GM5aSa44GE44Go44GV44KM44Gm44GE44G+44GZ44CC44Gf44Gg44GX44CB55Sz5ZGK5YaF5a6544Gr5LiN5a+p44Gq54K544GM44GC44KL5aC05ZCI44KE44CB5qWt56iu44O76KaP5qih44Gr44KI44Gj44Gm44Gv55+t44GE6ZaT6ZqU44Gn6Kq/5p+744GM6KGM44KP44KM44KL44GT44Go44KC44GC44KK44G+44GZ44CC5aOy5LiK6KaP5qih44Gr44KI44KL5YWN6Zmk44Gv44GC44KK44G+44Gb44KT44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojuW6gSDku6Tlkow25LqL5YuZ5bm05bqmIOazleS6uueojuetieOBruiqv+afu+S6i+e4vuOBruamguimgVwiXG4gIH0sXG5cbiAgLy8g4pSA4pSAIOOCq+ODhuOCtOODqjI6IOS6i+WJjemAmuefpeODu+aXpeeoi+iqv+aVtCDilIDilIBcbiAge1xuICAgIGlkOiA3LFxuICAgIGNhdGVnb3J5OiBcIuS6i+WJjemAmuefpeODu+aXpeeoi1wiLFxuICAgIHF1ZXN0aW9uOiBcIueojuWLmeiqv+afu+OBruS6i+WJjemAmuefpeOCkuWPl+OBkeOBn+mam+OAgeiqv+afu+aXpeeoi+OBruWkieabtOOCkueUs+OBl+WHuuOCi+OBk+OBqOOBr+OBp+OBjeOBvuOBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi5rOV5b6L44Gn5rG644G+44Gj44Gf5pel56iL44Gq44Gu44Gn5aSJ5pu044Gv44Gn44GN44G+44Gb44KTXCIsXG4gICAgICBcIuWQiOeQhueahOOBqueQhueUseOBjOOBguOCjOOBsOOAgeaXpeeoi+OBruWkieabtOOCkueUs+OBl+WHuuOCi+OBk+OBqOOBjOOBp+OBjeOBvuOBmVwiLFxuICAgICAgXCLnqI7nkIblo6vjgpLpgJrjgZjjgabjga7jgb/lpInmm7Tjga7nlLPlh7rjgYzjgafjgY3jgb7jgZlcIixcbiAgICAgIFwi5aSJ5pu044Gn44GN44KL44Gu44GvMeWbnumZkOOCiuOBp+OBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIuS6i+WJjemAmuefpeOBruaXpeeoi+OBr+OBguOBj+OBvuOBp+OAjOeUs+WHuuOAjeOBp+OBguOCiuOAgee0jeeojuiAheWBtOOBq+WQiOeQhueahOOBqueQhueUse+8iOe5geW/meacn+OAgeaxuueul+acn+OAgeS9k+iqv+S4jeiJr+OBquOBqe+8ieOBjOOBguOCi+WgtOWQiOOBr+aXpeeoi+OBruWkieabtOOCkuaxguOCgeOCi+OBk+OBqOOBjOOBp+OBjeOBvuOBmeOAguWbveeojuW6geOBruS6i+WLmemBi+WWtuaMh+mHneOBp+OCguOAjOe0jeeojuiAheOBruWQiOeQhueahOOBqumDveWQiOOCkuiAg+aFruOBmeOCi+OAjeOBqOOBleOCjOOBpuOBhOOBvuOBmeOAguWkieabtOWbnuaVsOOBq+azleeahOWItumZkOOBr+OBguOCiuOBvuOBm+OCk+OAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7pgJrliYfms5XnrKw3NOadoeOBrjnnrKwy6aCF44CB5Zu956iO5bqB5LqL5YuZ6YGL5Za25oyH6YedXCJcbiAgfSxcbiAge1xuICAgIGlkOiA4LFxuICAgIGNhdGVnb3J5OiBcIuS6i+WJjemAmuefpeODu+aXpeeoi1wiLFxuICAgIHF1ZXN0aW9uOiBcIuS6i+WJjemAmuefpeOBquOBl+OBq+eojuWLmeiqv+afu+OBjOihjOOCj+OCjOOCi+WgtOWQiO+8iOeEoeS6iOWRiuiqv+afu++8ieOBq+OBpOOBhOOBpuOAgeato+OBl+OBhOOCguOBruOBr+OBqeOCjOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi54Sh5LqI5ZGK6Kq/5p+744Gv5rOV5b6L5LiK56aB5q2i44GV44KM44Gm44GE44G+44GZXCIsXG4gICAgICBcIueEoeS6iOWRiuiqv+afu+OBruWgtOWQiOOBp+OCguS7u+aEj+iqv+afu+OBquOBruOBp+OAgeW4s+ewv+OCkuimi+OBm+OCi+e+qeWLmeOBr+OBguOCiuOBvuOBm+OCk1wiLFxuICAgICAgXCLkuovliY3pgJrnn6XjgpLjgZnjgovjgajmraPnorrjgarkuovlrp/jga7miormj6HjgYzlm7Dpm6PjgavjgarjgovjgajliKTmlq3jgZXjgozjgovloLTlkIjjgarjganjgavooYzjgo/jgozjgb7jgZlcIixcbiAgICAgIFwi54Sh5LqI5ZGK6Kq/5p+744GM6KGM44KP44KM44Gf44KJ44CB55u044Gh44Gr5byB6K235aOr44Gr6YCj57Wh44GX44Gq44GR44KM44Gw44Gq44KK44G+44Gb44KTXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDIsXG4gICAgZXhwbGFuYXRpb246IFwi5Zu956iO6YCa5YmH5rOV56ysNzTmnaHjga4xMOOBq+OCiOOCiuOAgeS6i+WJjemAmuefpeOCkuOBmeOCi+OBk+OBqOOBp+mBleazleODu+S4jeato+OBquihjOeCuuOCkuWuueaYk+OBq+OBl+OAgeato+eiuuOBquS6i+Wun+OBruaKiuaPoeOCkuWbsOmbo+OBq+OBmeOCi+OBiuOBneOCjOOBjOOBguOCi+WgtOWQiOOBquOBqeOBq+OBr+OAgeS6i+WJjemAmuefpeOCkuihjOOCj+OBmuOBq+iqv+afu+OBp+OBjeOCi+OBqOimj+WumuOBleOCjOOBpuOBhOOBvuOBmeOAguOBn+OBoOOBl+OAgeOBk+OCjOOCguS7u+aEj+iqv+afu+OBp+OBmeOBruOBp+OAgeizquWVj+aknOafu+aoqeOBq+WfuuOBpeOBj+WvvuW/nOOBr+WQjOanmOOBp+OBmeOAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7pgJrliYfms5XnrKw3NOadoeOBrjEwXCJcbiAgfSxcbiAge1xuICAgIGlkOiA5LFxuICAgIGNhdGVnb3J5OiBcIuS6i+WJjemAmuefpeODu+aXpeeoi1wiLFxuICAgIHF1ZXN0aW9uOiBcIuS6i+WJjemAmuefpeOCkuWPl+OBkeOBpuOBi+OCieiqv+afu+W9k+aXpeOBvuOBp+OBq+OAgee1jOWWtuiAheOBjOOBvuOBmuOChOOCi+OBueOBjeOBk+OBqOOBr+S9leOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi6YO95ZCI44Gu5oKq44GE5biz57C/44KE5pu46aGe44KS5Yem5YiG44GX44Gm44GK44GN44G+44GZXCIsXG4gICAgICBcIumhp+WVj+eojueQhuWjq+OBq+mAo+e1oeOBl+OAgeWvvuixoeacn+mWk+OBruW4s+ewv+OChOeUs+WRiuWGheWuueOCkuS4gOe3kuOBq+eiuuiqjeOBl+OBvuOBmVwiLFxuICAgICAgXCLlvpPmpa3lk6Hlhajlk6Hjgavoqr/mn7vjga7jgZPjgajjgpLkvJ3jgYjjgIHoqr/mn7vlrpjjgavjga/kvZXjgoLoqbHjgZXjgarjgYTjgojjgYbmjIfnpLrjgZfjgb7jgZlcIixcbiAgICAgIFwi5Y+W5byV5YWI44Gr6YCj57Wh44GX44Gm44CB5Y+N6Z2i6Kq/5p+744Gr5YKZ44GI44Gm44KC44KJ44GE44G+44GZXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDEsXG4gICAgZXhwbGFuYXRpb246IFwi5LqL5YmN6YCa55+l44KS5Y+X44GR44Gf44KJ44CB44G+44Ga6aGn5ZWP56iO55CG5aOr44Gr6YCj57Wh44GZ44KL44Gu44GM5pyA44KC6YeN6KaB44Gn44GZ44CC5a++6LGh56iO55uu44O75pyf6ZaT44Gu5biz57C/44KE55Sz5ZGK5pu444KS56iO55CG5aOr44Go5LiA57eS44Gr56K66KqN44GX44CB5LiN5piO54K544KS5LqL5YmN44Gr5pW055CG44GX44Gm44GK44GP44GT44Go44GM6YGp5YiH44Gq5a++5b+c44Gn44GZ44CC5biz57C/44Gu5Yem5YiG44Gv6Ki85oug6Zqg5ruF44Go44GX44Gm6YeN5Yqg566X56iO44Gu5a++6LGh44Go44Gq44KK5b6X44G+44GZ44GX44CB5b6T5qWt5ZOh44Gr5rKI6buZ44KS5oyH56S644GZ44KL44Gu44KC5LiN6Ieq54S244Gq5a++5b+c44Gn44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojuW6gSDnqI7li5noqr/mn7vmiYvntppGQVHvvIjkuIDoiKzntI3nqI7ogIXlkJHjgZHvvIlcIlxuICB9LFxuICB7XG4gICAgaWQ6IDEwLFxuICAgIGNhdGVnb3J5OiBcIuS6i+WJjemAmuefpeODu+aXpeeoi1wiLFxuICAgIHF1ZXN0aW9uOiBcIuS6i+WJjemAmuefpeOBp+OAjOWvvuixoeeojuebruOAjeOBjOazleS6uueojuOBqOmAmuefpeOBleOCjOOBn+WgtOWQiOOAgeiqv+afu+W9k+aXpeOBq+a2iOiyu+eojuOBruW4s+ewv+OCguimi+OCieOCjOOCi+OBk+OBqOOBr+OBguOCiuOBvuOBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi6YCa55+l44GV44KM44Gf56iO55uu5Lul5aSW44Gv57W25a++44Gr6Kq/5p+744GV44KM44G+44Gb44KTXCIsXG4gICAgICBcIumAmuefpeOBleOCjOOBn+eojuebruS7peWkluOCkuiqv+afu+OBmeOCi+WgtOWQiOOBr+OAgeaUueOCgeOBpuS6i+WJjemAmuefpeOBjOW/heimgeOBp+OBmVwiLFxuICAgICAgXCLoqr/mn7vjga7pgY7nqIvjgaflv4XopoHjgYzjgYLjgozjgbDjgIHpnZ7pgZXjgYznlpHjgo/jgozjgovku5bjga7nqI7nm67jgoLoqr/mn7vlr77osaHjgavjgarjgovjgZPjgajjgYzjgYLjgorjgb7jgZlcIixcbiAgICAgIFwi5LqL5YmN6YCa55+l44Gu56iO55uu44Gv5Y2Y44Gq44KL5Y+C6ICD44Gq44Gu44Gn44CB5YWo56iO55uu44GM5bi444Gr5a++6LGh44Gn44GZXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDIsXG4gICAgZXhwbGFuYXRpb246IFwi5Zu956iO6YCa5YmH5rOV56ysNzTmnaHjga4556ysNOmgheOBq+OCiOOCiuOAgeiqv+afu+OBrumBjueoi+OBp+WvvuixoeeojuebruS7peWkluOBq+OBpOOBhOOBpumdnumBle+8iOiqpOOCiuOChOS4jeato++8ieOBjOeWkeOCj+OCjOOCi+WgtOWQiOOBr+OAgeOBneOBrueojuebruOBq+OBpOOBhOOBpuOCguizquWVj+aknOafu+aoqeOBjOihjOS9v+OBleOCjOOCi+WPr+iDveaAp+OBjOOBguOCiuOBvuOBmeOAguOBn+OBoOOBl+OAgeOBneOBruWgtOWQiOOBr+iqv+afu+WvvuixoeOCkuWkieabtOOBmeOCi+aXqOOBruiqrOaYjuOBjOihjOOCj+OCjOOBvuOBmeOAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7pgJrliYfms5XnrKw3NOadoeOBrjnnrKw06aCFXCJcbiAgfSxcblxuICAvLyDilIDilIAg44Kr44OG44K044OqMzog6Kq/5p+75b2T5pel44Gu5a++5b+cIOKUgOKUgFxuICB7XG4gICAgaWQ6IDExLFxuICAgIGNhdGVnb3J5OiBcIuW9k+aXpeOBruWvvuW/nFwiLFxuICAgIHF1ZXN0aW9uOiBcIueojuWLmeiqv+afu+OBruW9k+aXpeOAgeiqv+afu+WumOOBi+OCieizquWVj+OCkuWPl+OBkeOBn+OBqOOBjeOBruWvvuW/nOOBqOOBl+OBpuOAgeacgOOCgumBqeWIh+OBquOCguOBruOBr+OBqeOCjOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi6LOq5ZWP44Gr44Gv44GZ44G544Gm5Y2z562U44GX44Gq44GR44KM44Gw44Gq44KK44G+44Gb44KTXCIsXG4gICAgICBcIuS4jeeiuuOBi+OBquOBk+OBqOOBr+OAjOeiuuiqjeOBl+OBpuW+jOaXpeWbnuetlOOBl+OBvuOBmeOAjeOBqOetlOOBiOOCi+OBruOBjOmBqeWIh+OBp+OBmVwiLFxuICAgICAgXCLpoafllY/nqI7nkIblo6vjgYzjgYTjgarjgYTloLTjgafos6rllY/jgavnrZTjgYjjgovnvqnli5njga/jgYLjgorjgb7jgZvjgpNcIixcbiAgICAgIFwi6Kq/5p+75a6Y44Gu6LOq5ZWP44Gv44GZ44G544Gm6Yyy6Z+z44GZ44KL5b+F6KaB44GM44GC44KK44G+44GZXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDEsXG4gICAgZXhwbGFuYXRpb246IFwi56iO5YuZ6Kq/5p+744Gn44Gv44Gd44Gu5aC044Gn5q2j56K644Gr5Zue562U44Gn44GN44Gq44GE5LqL6aCF44GM5Ye644Gm44GP44KL44GT44Go44Gv5b2T54S244Gn44GZ44CC5LiN56K644GL44Gq6KiY5oa244KE5puW5pin44Gq5YaF5a6544Gr44Gk44GE44Gm5o6o5ris44Gn562U44GI44KL44KI44KK44KC44CB44CM56K66KqN44GX44Gm5b6M5pel5q2j56K644Gr44GK562U44GI44GX44G+44GZ44CN44Go5Lyd44GI44KL5pa544GM6YGp5YiH44Gn44GZ44CC5puW5pin44Gq5Zue562U44Gv44GL44GI44Gj44Gm55aR5b+144KS5oub44GP5Y6f5Zug44Gr44Gq44KK44G+44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojuW6gSDnqI7li5noqr/mn7vmiYvntppGQVHvvIjkuIDoiKzntI3nqI7ogIXlkJHjgZHvvIlcIlxuICB9LFxuICB7XG4gICAgaWQ6IDEyLFxuICAgIGNhdGVnb3J5OiBcIuW9k+aXpeOBruWvvuW/nFwiLFxuICAgIHF1ZXN0aW9uOiBcIuiqv+afu+WumOOBjOW4s+ewv+abuOmhnuOBruOAjOeVmeOCgee9ruOBjeOAje+8iOmgkOOBi+OCiu+8ieOCkuaxguOCgeOBn+WgtOWQiOOAgeOBqeOBhuWvvuW/nOOBmeOBueOBjeOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi5rOV5b6L5LiK44Gu576p5YuZ44Gq44Gu44Gn44CB5b+F44Ga5b+c44GY44Gq44GR44KM44Gw44Gq44KK44G+44Gb44KTXCIsXG4gICAgICBcIuS4gOWIh+W/nOOBmOOCi+W/heimgeOBr+OBguOCiuOBvuOBm+OCk+OAguaWreOBo+OBpuOCgue9sOWJh+OBr+OBguOCiuOBvuOBm+OCk1wiLFxuICAgICAgXCLnlZnjgoHnva7jgY3jgavlv5zjgZjjgovjgYvjganjgYbjgYvjga/ku7vmhI/jgafjgZnjgYzjgIHmraPlvZPjgarnkIbnlLHjgarjgY/mi5LlkKbjgZnjgovjgajoqr/mn7vjgavmlK/pmpzjgpLjgY3jgZ/jgZnloLTlkIjjgYzjgYLjgorjgb7jgZlcIixcbiAgICAgIFwi55WZ44KB572u44GN44Gu5Luj44KP44KK44Gr44CB44Kz44OU44O844KS5rih44Gb44Gw5ZWP6aGM44GC44KK44G+44Gb44KTXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDIsXG4gICAgZXhwbGFuYXRpb246IFwi5biz57C/5pu46aGe44Gu55WZ44KB572u44GN77yI5LiA5pmC6aCQ44GL44KK77yJ44Gv44CB5Zu956iO6YCa5YmH5rOV56ysNzTmnaHjga4344Gr5Z+644Gl44GP44KC44Gu44Gn44CB6Kq/5p+744Gu5YaG5ruR44Gq5a6f5pa944Gu44Gf44KB44Gr6KGM44KP44KM44G+44GZ44CC55WZ44KB572u44GN44Gr5b+c44GY44KL44GL44Gp44GG44GL44Gv5Lu75oSP44Gn44GZ44GM44CB6Kq/5p+744G444Gu5Y2U5Yqb44Go44GX44Gm5ZCI55CG55qE44Gq56+E5Zuy44Gn5b+c44GY44KL44GT44Go44GM5a6f5YuZ5LiK44Gv5pyb44G+44GX44GE44Gn44GZ44CC5b+F6KaB44Gq5aC05ZCI44Gv44Kz44OU44O844Gu5o+Q5L6b44Gn5Luj5pu/44GZ44KL5Lqk5riJ44KC5Y+v6IO944Gn44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojumAmuWJh+azleesrDc05p2h44GuN1wiXG4gIH0sXG4gIHtcbiAgICBpZDogMTMsXG4gICAgY2F0ZWdvcnk6IFwi5b2T5pel44Gu5a++5b+cXCIsXG4gICAgcXVlc3Rpb246IFwi56iO5YuZ6Kq/5p+744Gu6Zqb44CB6Kq/5p+75a6Y44Gr6KaL44Gb44Gq44GR44KM44Gw44Gq44KJ44Gq44GE5pu46aGe44Go44GX44Gm44CB5q2j44GX44GE44KC44Gu44Gv44Gp44KM44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLoqr/mn7vlr77osaHmnJ/plpPjga7nt4/li5jlrprlhYPluLPjg7vku5XoqLPluLPjg7vpoJjlj47mm7jjg7voq4vmsYLmm7jjgarjganjga7luLPnsL/mm7jpoZ7jgafjgZlcIixcbiAgICAgIFwi6YCa5biz44Gu5Y6f5pys44Gu44G/44Gn44CB5biz57C/6aGe44Gv5LiN6KaB44Gn44GZXCIsXG4gICAgICBcIueiuuWumueUs+WRiuabuOOBruaOp+OBiOOBruOBv+OBp+i2s+OCiuOBvuOBmVwiLFxuICAgICAgXCLnqI7nkIblo6vjgYzkvZzmiJDjgZfjgZ/mm7jpoZ7jga7jgb/jgafjgIHnpL7lhoXmlofmm7jjga/opovjgZvjgovlv4XopoHjgYzjgYLjgorjgb7jgZvjgpNcIlxuICAgIF0sXG4gICAgY29ycmVjdDogMCxcbiAgICBleHBsYW5hdGlvbjogXCLnqI7li5noqr/mn7vjgafjga/jgIHms5XlrprluLPnsL/vvIjnt4/li5jlrprlhYPluLPjg7vku5XoqLPluLPvvInjgIHmsbrnrpfmm7jpoZ7jgIHpoJjlj47mm7jjg7voq4vmsYLmm7jjg7vlpZHntITmm7jnrYnjga7oqLzmhpHmm7jpoZ7jgIHpgJrluLPjgIHntabkuI7lj7DluLPjgarjganjgIHlj5blvJXjgavplqLjgZnjgovluLPnsL/mm7jpoZ7lhajoiKzjgYzoqr/mn7vlr77osaHjgajjgarjgorjgb7jgZnjgILml6XpoIPjgYvjgonmlbTnkIbjgZfjgabjgYrjgY/jgZPjgajjgYzph43opoHjgafjgZnjgIJcIixcbiAgICBzb3VyY2U6IFwi5Zu956iO6YCa5YmH5rOV56ysNzTmnaHjga4y44Cc56ysNzTmnaHjga4244CB5rOV5Lq656iO5rOV56ysMTUw5p2h44GuMlwiXG4gIH0sXG4gIHtcbiAgICBpZDogMTQsXG4gICAgY2F0ZWdvcnk6IFwi5b2T5pel44Gu5a++5b+cXCIsXG4gICAgcXVlc3Rpb246IFwi6Kq/5p+75Lit44Gr6Kq/5p+75a6Y44GM44OR44K944Kz44Oz44Gu44OH44O844K/44KS56K66KqN44GX44Gf44GE44Go6KiA44Gj44Gf5aC05ZCI44CB44Gp44GG5a++5b+c44GZ44G544GN44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLjg5Hjgr3jgrPjg7Pjga7jg4fjg7zjgr/jga/oqr/mn7vlr77osaHlpJbjgarjga7jgafjgIHopovjgZvjgovnvqnli5njga/jgYLjgorjgb7jgZvjgpNcIixcbiAgICAgIFwi6Kq/5p+75a6Y44Gr55u05o6l44OR44K944Kz44Oz44KS5pON5L2c44GV44Gb44Gq44GR44KM44Gw44Gq44KK44G+44Gb44KTXCIsXG4gICAgICBcIumbu+WtkOODh+ODvOOCv+OCguiqv+afu+WvvuixoeOBp+OBmeOAguiHquWIhuOBp+aTjeS9nOOBl+OBpueUu+mdouOCkuimi+OBm+OCi+OBi+OAgeWNsOWIt+OBl+OBpuaPkOekuuOBmeOCi+OBruOBjOmBqeWIh+OBp+OBmVwiLFxuICAgICAgXCLjg5Hjgr3jgrPjg7Pjga7jg4fjg7zjgr/jga/pm7vlrZDluLPnsL/kv53lrZjms5Xjga7lsYrlh7rjgpLjgZfjgabjgYTjgarjgZHjgozjgbDoqr/mn7vlr77osaHlpJbjgafjgZlcIlxuICAgIF0sXG4gICAgY29ycmVjdDogMixcbiAgICBleHBsYW5hdGlvbjogXCLpm7vlrZDluLPnsL/kv53lrZjms5Xjga7lsYrlh7rjga7mnInnhKHjgavjgYvjgYvjgo/jgonjgZrjgIHlj5blvJXjgavplqLjgZnjgovpm7vlrZDjg4fjg7zjgr/jgoLos6rllY/mpJzmn7vmqKnjga7lr77osaHjgafjgZnjgILjgZ/jgaDjgZfjgIHoqr/mn7vlrpjjgavnm7TmjqXjg5Hjgr3jgrPjg7PjgpLmk43kvZzjgZXjgZvjgovnvqnli5njga/jgarjgY/jgIHntI3nqI7ogIXoh6rouqvjgYzmk43kvZzjgZfjgablv4XopoHjgarjg4fjg7zjgr/jgpLnlLvpnaLjgafmj5DnpLrjgZfjgZ/jgorjgIHljbDliLfjgZfjgabmuKHjgZnjga7jgYzkuIDoiKznmoTjgarlr77lv5zjgafjgZnjgIJcIixcbiAgICBzb3VyY2U6IFwi5Zu956iO6YCa5YmH5rOV56ysNzTmnaHjga4y44CB6Zu75a2Q5biz57C/5L+d5a2Y5rOVXCJcbiAgfSxcbiAge1xuICAgIGlkOiAxNSxcbiAgICBjYXRlZ29yeTogXCLlvZPml6Xjga7lr77lv5xcIixcbiAgICBxdWVzdGlvbjogXCLoqr/mn7vlrpjjgYvjgonjgIzlj43pnaLoqr/mn7vjgpLooYzjgYbjgI3jgajoqIDjgo/jgozjgb7jgZfjgZ/jgILlj43pnaLoqr/mn7vjgajjga/kvZXjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuacrOekvuOBqOaUr+W6l+OBruS4oeaWueOCkuWQjOaZguOBq+iqv+afu+OBmeOCi+OBk+OBqOOBp+OBmVwiLFxuICAgICAgXCLoqr/mn7vjga7ntZDmnpzjgavjgaTjgYTjgabnqI7li5nnvbLlhoXpg6jjgaflho3norroqo3vvIjjg4Djg5bjg6vjg4Hjgqfjg4Pjgq/vvInjgZnjgovjgZPjgajjgafjgZlcIixcbiAgICAgIFwi5Y+W5byV5YWI44KE6YeR6J6N5qmf6Zai44Gq44Gp56ys5LiJ6ICF44Gr5a++44GX44Gm6KGM44GG6Kq/5p+744Gu44GT44Go44Gn44GZXCIsXG4gICAgICBcIuWJjeWbnuOBrueojuWLmeiqv+afu+OBrue1kOaenOOCkuWGjeW6puaknOiovOOBmeOCi+iqv+afu+OBruOBk+OBqOOBp+OBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAyLFxuICAgIGV4cGxhbmF0aW9uOiBcIuWPjemdouiqv+afu+OBqOOBr+OAgee0jeeojuiAheOBrueUs+WRiuWGheWuueOCkuaknOiovOOBmeOCi+OBn+OCgeOBq+OAgeOBneOBruWPluW8leWFiOOAgemHkeiejeapn+mWouOAgeWkluazqOWFiOOBquOBqeOBruesrOS4ieiAheOBq+WvvuOBl+OBpuihjOOCj+OCjOOCi+iqv+afu+OBp+OBmeOAguWPluW8leOBruWun+WcqOaAp+OChOmHkemhjeOBruato+eiuuaAp+OCkuijj+S7mOOBkeOCi+OBn+OCgeOBq+ihjOOCj+OCjOOBvuOBmeOAguWPjemdouiqv+afu+OBruWun+aWveOBr+azleW+i+OBp+iqjeOCgeOCieOCjOOBpuOBhOOBvuOBmeOBjOOAgeWbveeojuW6geOBr+W/heimgeacgOWwj+mZkOOBq+OBqOOBqeOCgeOCi+OCiOOBhumBi+WWtuaMh+mHneOCkuWumuOCgeOBpuOBhOOBvuOBmeOAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7luoEg6Kq/5p+75omL57aa44Gu5a6f5pa944Gr5b2T44Gf44Gj44Gm44Gu5Z+65pys55qE44Gq6ICD44GI5pa5562J44Gr44Gk44GE44Gm77yI5LqL5YuZ6YGL5Za25oyH6Yed77yJXCJcbiAgfSxcbiAge1xuICAgIGlkOiAxNixcbiAgICBjYXRlZ29yeTogXCLlvZPml6Xjga7lr77lv5xcIixcbiAgICBxdWVzdGlvbjogXCLnqI7li5noqr/mn7vkuK3jga7mmLzpo5/jgavjgaTjgYTjgabjgIHoqr/mn7vlrpjjgavlr77jgZfjgabpganliIfjgarlr77lv5zjga/jganjgozjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuiqv+afu+WumOOBq+OBiuW8geW9k+OChOOBiuiMtuOCkuWHuuOBmeOBruOBjOODnuODiuODvOOBp+OBmVwiLFxuICAgICAgXCLoqr/mn7vlrpjjgbjjga7mjqXlvoXnmoTjgarlr77lv5zjga/kuI3opoHjgafjgIHjgYrojLbnqIvluqbjga7mj5DkvpvjgafljYHliIbjgafjgZlcIixcbiAgICAgIFwi6Kq/5p+75a6Y44Gr6aOf5LqL44KS5o+Q5L6b44GZ44KL44Go6LSI6LOE44Gr44Gq44KL5Y+v6IO95oCn44GM44GC44KK44G+44GZXCIsXG4gICAgICBcIuiqv+afu+WumOOBqOS4gOe3kuOBq+Wklumjn+OBq+ihjOOBo+OBpuOAgeiJr+WlveOBqumWouS/guOCkuevieOBj+OBueOBjeOBp+OBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIuiqv+afu+WumOOBr+WbveWutuWFrOWLmeWToeOBp+OBguOCiuOAgee0jeeojuiAheOBi+OCiemBjuW6puOBquaOpeW+heOCkuWPl+OBkeOCi+OBk+OBqOOBr+OBp+OBjeOBvuOBm+OCk+OAguOBiuiMtueoi+W6puOBruaPkOS+m+OBr+S4gOiIrOeahOOBquODnuODiuODvOOBqOOBl+OBpuWVj+mhjOOBguOCiuOBvuOBm+OCk+OBjOOAgemrmOmhjeOBquOBiuW8geW9k+OCkueUqOaEj+OBl+OBn+OCiuOAgeWklumjn+OBq+iqmOOBo+OBn+OCiuOBmeOCi+W/heimgeOBr+OBvuOBo+OBn+OBj+OBguOCiuOBvuOBm+OCk+OAguiqv+afu+WumOiHqui6q+OCguaYvOmjn+OBr+iHquWIhuOBp+eUqOaEj+OBmeOCi+OBi+WkluOBq+mjn+OBueOBq+ihjOOBj+OBruOBjOmAmuW4uOOBp+OBmeOAglwiLFxuICAgIHNvdXJjZTogXCLlm73lrrblhazli5nlk6HlgKvnkIbms5Xjg7vlm73lrrblhazli5nlk6HlgKvnkIbopo/nqItcIlxuICB9LFxuXG4gIC8vIOKUgOKUgCDjgqvjg4bjgrTjg6o0OiDluLPnsL/jg7voqLzmhpHjga7mlbTlgpkg4pSA4pSAXG4gIHtcbiAgICBpZDogMTcsXG4gICAgY2F0ZWdvcnk6IFwi5biz57C/44O76Ki85oaRXCIsXG4gICAgcXVlc3Rpb246IFwi5rOV5Lq644GM5biz57C/5pu46aGe44KS5L+d5a2Y44GX44Gq44GR44KM44Gw44Gq44KJ44Gq44GE5pyf6ZaT44Gv44CB5Y6f5YmH44Go44GX44Gm5L2V5bm06ZaT44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCIz5bm06ZaTXCIsXG4gICAgICBcIjXlubTplpNcIixcbiAgICAgIFwiN+W5tOmWk1wiLFxuICAgICAgXCIxMOW5tOmWk1wiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAyLFxuICAgIGV4cGxhbmF0aW9uOiBcIuazleS6uueojuazleaWveihjOimj+WJh+esrDY35p2h44Gr44KI44KK44CB5rOV5Lq644Gv5biz57C/5pu46aGe77yI57eP5YuY5a6a5YWD5biz44CB5LuV6Kiz5biz44CB5qOa5Y246KGo44CB6LK45YCf5a++54Wn6KGo44CB5pCN55uK6KiI566X5pu444CB6aCY5Y+O5pu444CB6KuL5rGC5pu4562J77yJ44KS44CB44Gd44Gu5LqL5qWt5bm05bqm44Gu56K65a6a55Sz5ZGK5pu444Gu5o+Q5Ye65pyf6ZmQ44Gu57+M5pel44GL44KJN+W5tOmWk+S/neWtmOOBmeOCi+e+qeWLmeOBjOOBguOCiuOBvuOBmeOAguOBquOBiuOAgeasoOaQjemHkeOBrue5sOi2iuaOp+mZpOOCkumBqeeUqOOBmeOCi+WgtOWQiOOBrzEw5bm06ZaT44Gu5L+d5a2Y44GM5b+F6KaB44Gn44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuazleS6uueojuazleaWveihjOimj+WJh+esrDY35p2hXCJcbiAgfSxcbiAge1xuICAgIGlkOiAxOCxcbiAgICBjYXRlZ29yeTogXCLluLPnsL/jg7voqLzmhpFcIixcbiAgICBxdWVzdGlvbjogXCLpoJjlj47mm7jjgpLntJvlpLHjgZfjgabjgZfjgb7jgaPjgZ/loLTlkIjjgIHnqI7li5noqr/mn7vjgafjga/jganjgYbjgarjgorjgb7jgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIumgmOWPjuabuOOBjOOBquOBkeOCjOOBsOOAgeOBneOBrue1jOiyu+OBr+S4gOWIh+iqjeOCgeOCieOCjOOBvuOBm+OCk1wiLFxuICAgICAgXCLpoJjlj47mm7jjgYzjgarjgY/jgabjgoLjgIHku5bjga7oqLzmi6DvvIjpgJrluLPjgIHjg6Hjg7zjg6vjgIHlh7rph5HkvJ3npajjgarjganvvInjgaflj5blvJXjga7kuovlrp/jgpLoqLzmmI7jgafjgY3jgozjgbDoqo3jgoHjgonjgozjgovloLTlkIjjgYzjgYLjgorjgb7jgZlcIixcbiAgICAgIFwi6aCY5Y+O5pu444KS57Sb5aSx44GX44Gf5peo44Gu5pu46Z2i44KS56iO5YuZ572y44Gr5o+Q5Ye644GZ44KM44Gw5ZWP6aGM44GC44KK44G+44Gb44KTXCIsXG4gICAgICBcIumgmOWPjuabuOOBrue0m+WkseOBr+WNs+W6p+OBq+mHjeWKoOeul+eojuOBruWvvuixoeOBq+OBquOCiuOBvuOBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIumgmOWPjuabuOOBr+WPluW8leOCkuiovOaYjuOBmeOCi+mHjeimgeOBquiovOaLoOOBp+OBmeOBjOOAgee0m+WkseOBl+OBn+WgtOWQiOOBp+OCguOAgemAmuW4s+OBruW8leiQveOBl+iomOmMsuOAgeOCr+ODrOOCuOODg+ODiOOCq+ODvOODieaYjue0sOOAgeODoeODvOODq+OBruazqOaWh+eiuuiqjeOAgeWHuumHkeS8neelqOOBuOOBruiomOmMsuOBquOBqeOAgeikh+aVsOOBruijnOWujOeahOOBquiovOaLoOOBp+WPluW8leOBruS6i+Wun+OCkuWuouims+eahOOBq+iovOaYjuOBp+OBjeOCjOOBsOOAgee1jOiyu+OBqOOBl+OBpuiqjeOCgeOCieOCjOOCi+WPr+iDveaAp+OBjOOBguOCiuOBvuOBmeOAguOBn+OBoOOBl+OAgeaXpemgg+OBi+OCieiovOaGkeOBruaVtOeQhuODu+S/neeuoeOCkuW+ueW6leOBmeOCi+OBk+OBqOOBjOacgOOCgumHjeimgeOBp+OBmeOAglwiLFxuICAgIHNvdXJjZTogXCLms5XkurrnqI7ms5XnrKwyMuadoe+8iOaQjemHkeOBrumhjeOBrueul+WFpe+8ieOAgeWbveeojuS4jeacjeWvqeWIpOaJgOijgeaxuuS+i1wiXG4gIH0sXG4gIHtcbiAgICBpZDogMTksXG4gICAgY2F0ZWdvcnk6IFwi5biz57C/44O76Ki85oaRXCIsXG4gICAgcXVlc3Rpb246IFwi6Zu75a2Q5biz57C/5L+d5a2Y5rOV44Gr44GK44GE44Gm44CB6Zu75a2Q5Y+W5byV44OH44O844K/44Gu5L+d5a2Y44Gr44Gk44GE44Gm5q2j44GX44GE44KC44Gu44Gv44Gp44KM44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLpm7vlrZDlj5blvJXjga7jg4fjg7zjgr/jga/ljbDliLfjgZfjgabntJnjgafkv53lrZjjgZfjgabjgYrjgZHjgbDllY/poYzjgYLjgorjgb7jgZvjgpNcIixcbiAgICAgIFwiMjAyNOW5tDHmnIjku6XpmY3jgIHpm7vlrZDlj5blvJXjg4fjg7zjgr/jga/ljp/liYfjgajjgZfjgabpm7vlrZDjg4fjg7zjgr/jga7jgb7jgb7kv53lrZjjgZnjgovlv4XopoHjgYzjgYLjgorjgb7jgZlcIixcbiAgICAgIFwi6Zu75a2Q5biz57C/5L+d5a2Y5rOV44Gu5bGK5Ye644KS44GX44Gm44GE44Gq44GE5LqL5qWt6ICF44Gv6Zai5L+C44GC44KK44G+44Gb44KTXCIsXG4gICAgICBcIuODoeODvOODq+OBp+WPl+OBkeWPluOBo+OBn+iri+axguabuOOBr+mbu+WtkOWPluW8leOBq+ipsuW9k+OBl+OBvuOBm+OCk1wiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIjIwMjTlubTvvIjku6Tlkow25bm077yJMeaciDHml6Xku6XpmY3jgIHpm7vlrZDlj5blvJXvvIjjg6Hjg7zjg6vjgIHjgq/jg6njgqbjg4njgIFFREnnrYnjgafmjojlj5fjgZfjgZ/lj5blvJXmg4XloLHvvInjga7jg4fjg7zjgr/jga/jgIHljp/liYfjgajjgZfjgabpm7vlrZDjg4fjg7zjgr/jga7jgb7jgb7kv53lrZjjgZnjgovjgZPjgajjgYznvqnli5nljJbjgZXjgozjgb7jgZfjgZ/jgILlsYrlh7rjga7mnInnhKHjgavplqLkv4LjgarjgY/jgIHjgZnjgbnjgabjga7kuovmpa3ogIXjgYzlr77osaHjgafjgZnjgILjg6Hjg7zjg6vjgaflj5fjgZHlj5bjgaPjgZ/oq4vmsYLmm7jjg7vpoJjlj47mm7hQREbjgoLpm7vlrZDlj5blvJXjg4fjg7zjgr/jgavoqbLlvZPjgZfjgb7jgZnjgILjgZ/jgaDjgZfjgIHnm7jlvZPjga7nkIbnlLHjgYzjgYLjgovloLTlkIjjga7njLbkuojmjqrnva7jgoLjgYLjgorjgb7jgZnjgIJcIixcbiAgICBzb3VyY2U6IFwi6Zu75a2Q5biz57C/5L+d5a2Y5rOV56ysN+adoeOAgeWbveeojuW6gSDpm7vlrZDluLPnsL/nrYnkv53lrZjliLbluqbnibnoqK3jgrXjgqTjg4hcIlxuICB9LFxuICB7XG4gICAgaWQ6IDIwLFxuICAgIGNhdGVnb3J5OiBcIuW4s+ewv+ODu+iovOaGkVwiLFxuICAgIHF1ZXN0aW9uOiBcIuOCpOODs+ODnOOCpOOCueWItuW6puOBq+OBiuOBhOOBpuOAgeS7leWFpeeojumhjeaOp+mZpOOCkuWPl+OBkeOCi+OBn+OCgeOBq+W/heimgeOBquOCguOBruOBr+OBqeOCjOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi5b6T5p2l44Gu6KuL5rGC5pu444GM44GC44KM44Gw5Y2B5YiG44Gn44GZXCIsXG4gICAgICBcIumBqeagvOiri+axguabuO+8iOOCpOODs+ODnOOCpOOCue+8ieeZuuihjOS6i+alreiAheOBrueZu+mMsueVquWPt+OBjOiomOi8ieOBleOCjOOBn+iri+axguabuOetieOBjOW/heimgeOBp+OBmVwiLFxuICAgICAgXCLpioDooYzjga7mjK/ovrzmmI7ntLDmm7jjgYzjgYLjgozjgbDjgIHoq4vmsYLmm7jjga/kuI3opoHjgafjgZlcIixcbiAgICAgIFwi5bm06ZaT5Y+W5byV6aGN44GMMSwwMDDkuIflhobku6XkuIvjga7lj5blvJXlhYjjgYvjgonjga7ku5XlhaXjgozjga/mm7jpoZ7kuI3opoHjgafjgZlcIlxuICAgIF0sXG4gICAgY29ycmVjdDogMSxcbiAgICBleHBsYW5hdGlvbjogXCIyMDIz5bm077yI5Luk5ZKMNeW5tO+8iTEw5pyIMeaXpeOBq+mWi+Wni+OBleOCjOOBn+OCpOODs+ODnOOCpOOCueWItuW6puOBp+OBr+OAgeS7leWFpeeojumhjeaOp+mZpOOBrumBqeeUqOOCkuWPl+OBkeOCi+OBn+OCgeOBq+OAgemBqeagvOiri+axguabuO+8iOOCpOODs+ODnOOCpOOCue+8ieeZuuihjOS6i+alreiAheOBrueZu+mMsueVquWPt++8iFQrMTPmoYHjga7nlarlj7fvvInjgYzoqJjovInjgZXjgozjgZ/pganmoLzoq4vmsYLmm7jnrYnjga7kv53lrZjjgYzlv4XopoHjgafjgZnjgILnqI7li5noqr/mn7vjgafjgoLjgqTjg7Pjg5zjgqTjgrnjga7oqJjovInopoHku7bjga7lhYXotrPnirbms4Hjga/ph43opoHjgarjg4Hjgqfjg4Pjgq/jg53jgqTjg7Pjg4jjgajjgarjgaPjgabjgYTjgb7jgZnjgIJcIixcbiAgICBzb3VyY2U6IFwi5raI6LK756iO5rOV56ysMzDmnaHnrKw36aCF44CB5Zu956iO5bqBIOOCpOODs+ODnOOCpOOCueWItuW6pueJueioreOCteOCpOODiFwiXG4gIH0sXG4gIHtcbiAgICBpZDogMjEsXG4gICAgY2F0ZWdvcnk6IFwi5biz57C/44O76Ki85oaRXCIsXG4gICAgcXVlc3Rpb246IFwi6Zu75a2Q5biz57C/5L+d5a2Y5rOV44Gu44CM5qSc57Si6KaB5Lu244CN44Gr44Gk44GE44Gm44CB5q2j44GX44GE44KC44Gu44Gv44Gp44KM44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLjgZnjgbnjgabjga7kuovmpa3ogIXjgavmpJzntKLmqZ/og73jga7mlbTlgpnjgYzmsYLjgoHjgonjgozjgb7jgZlcIixcbiAgICAgIFwi5Z+65rqW5pyf6ZaT44Gu5aOy5LiK6auY44GMNSwwMDDkuIflhobku6XkuIvjgafjgIHjg4Djgqbjg7Pjg63jg7zjg4njga7msYLjgoHjgavlv5zjgZjjgonjgozjgovloLTlkIjjga/mpJzntKLopoHku7bjgYzkuI3opoHjgafjgZlcIixcbiAgICAgIFwi5qSc57Si6KaB5Lu244Go44Gv44CB44OH44O844K/44Gr44OR44K544Ov44O844OJ44KS44GL44GR44KL44GT44Go44Gn44GZXCIsXG4gICAgICBcIuaknOe0ouimgeS7tuOBrzIwMjTlubTjgavlu4PmraLjgZXjgozjgb7jgZfjgZ9cIlxuICAgIF0sXG4gICAgY29ycmVjdDogMSxcbiAgICBleHBsYW5hdGlvbjogXCLpm7vlrZDluLPnsL/kv53lrZjms5Xjgafjga/jgIHpm7vlrZDlj5blvJXjg4fjg7zjgr/jgavjgIzml6Xku5jjg7vph5HpoY3jg7vlj5blvJXlhYjjgI3jgafmpJzntKLjgafjgY3jgovmqZ/og73jgpLmsYLjgoHjgabjgYTjgb7jgZnjgYzjgIHln7rmupbmnJ/plpPvvIgy5pyf5YmN77yJ44Gu5aOy5LiK6auY44GMNSwwMDDkuIflhobku6XkuIvjga7kuovmpa3ogIXjgafjgIHnqI7li5noqr/mn7vmmYLjgavjg4fjg7zjgr/jga7jg4Djgqbjg7Pjg63jg7zjg4njga7msYLjgoHjgavlv5zjgZjjgonjgozjgovloLTlkIjjga/jgIHjgZPjga7mpJzntKLopoHku7bjgYzlhY3pmaTjgZXjgozjgb7jgZnjgILkuK3lsI/kvIHmpa3jgavjgajjgaPjgabjga/lrp/li5nkuIrjga7lpKfjgY3jgarosqDmi4Xou73muJvjgajjgarjgaPjgabjgYTjgb7jgZnjgIJcIixcbiAgICBzb3VyY2U6IFwi6Zu75a2Q5biz57C/5L+d5a2Y5rOV5pa96KGM6KaP5YmH56ysNeadoeesrDXpoIXjgIHlm73nqI7luoFGQVHvvIjpm7vlrZDlj5blvJXplqLkv4LvvIlcIlxuICB9LFxuXG4gIC8vIOKUgOKUgCDjgqvjg4bjgrTjg6o1OiDkv67mraPnlLPlkYrjg7vmm7TmraMg4pSA4pSAXG4gIHtcbiAgICBpZDogMjIsXG4gICAgY2F0ZWdvcnk6IFwi5L+u5q2j55Sz5ZGK44O75pu05q2jXCIsXG4gICAgcXVlc3Rpb246IFwi56iO5YuZ6Kq/5p+744Gu57WQ5p6c44CB55Sz5ZGK44Gr6Kqk44KK44GM6KaL44Gk44GL44Gj44Gf5aC05ZCI44CB44CM5L+u5q2j55Sz5ZGK44CN44Go44CM5pu05q2j44CN44Gu6YGV44GE44Gr44Gk44GE44Gm5q2j44GX44GE44KC44Gu44Gv44Gp44KM44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLkv67mraPnlLPlkYrjgajmm7TmraPjga/lkIzjgZjjgoLjga7jgafjgIHlkI3liY3jgYzpgZXjgYbjgaDjgZHjgafjgZlcIixcbiAgICAgIFwi5L+u5q2j55Sz5ZGK44Gv57SN56iO6ICF6Ieq6Lqr44GM6KGM44GG44KC44Gu44Gn44CB5pu05q2j44Gv56iO5YuZ572y44GM6IG35qip44Gn6KGM44GG44KC44Gu44Gn44GZXCIsXG4gICAgICBcIuS/ruato+eUs+WRiuOBr+eojueQhuWjq+OBjOihjOOBhOOAgeabtOato+OBr+e0jeeojuiAheacrOS6uuOBjOihjOOBhOOBvuOBmVwiLFxuICAgICAgXCLkv67mraPnlLPlkYrjga/miYDlvpfnqI7jgaDjgZHjgIHmm7TmraPjga/ms5XkurrnqI7jgaDjgZHjgavpgannlKjjgZXjgozjgb7jgZlcIlxuICAgIF0sXG4gICAgY29ycmVjdDogMSxcbiAgICBleHBsYW5hdGlvbjogXCLkv67mraPnlLPlkYrjga/jgIHntI3nqI7ogIXjgYzoh6rjgonoqqTjgorjgpLoqo3jgoHjgabmraPjgZfjgYTlhoXlrrnjgavoqILmraPjgZfjgZ/nlLPlkYrmm7jjgpLmj5Dlh7rjgZnjgovjgZPjgajjgafjgZnjgILkuIDmlrnjgIHmm7TmraPjga/nqI7li5nnvbLplbfjgYzogbfmqKnjgafnlLPlkYrlhoXlrrnjgpLmraPjgZfjgY/kv67mraPjgZnjgovlh6bliIbjgafjgZnjgILkv67mraPnlLPlkYrjgavlv5zjgZjjgarjgYTloLTlkIjjgIHnqI7li5nnvbLlgbTjga/mm7TmraPlh6bliIbjgpLooYzjgYTjgb7jgZnjgILkv67mraPnlLPlkYrjga/kuI3mnI3nlLPnq4vjgabjgYzjgafjgY3jgb7jgZvjgpPjgYzjgIHmm7TmraPlh6bliIbjgavlr77jgZfjgabjga/kuI3mnI3nlLPnq4vjgabjgYzlj6/og73jgajjgYTjgYbph43opoHjgarpgZXjgYTjgYzjgYLjgorjgb7jgZnjgIJcIixcbiAgICBzb3VyY2U6IFwi5Zu956iO6YCa5YmH5rOV56ysMjTmnaHvvIjmm7TmraPvvInjgIHnrKwxOeadoe+8iOS/ruato+eUs+WRiu+8iVwiXG4gIH0sXG4gIHtcbiAgICBpZDogMjMsXG4gICAgY2F0ZWdvcnk6IFwi5L+u5q2j55Sz5ZGK44O75pu05q2jXCIsXG4gICAgcXVlc3Rpb246IFwi6Kq/5p+75a6Y44GL44KJ5L+u5q2j55Sz5ZGK44KS5Yun44KB44KJ44KM44Gf5aC05ZCI44CB5b+F44Ga5b+c44GY44Gq44GR44KM44Gw44Gq44KK44G+44Gb44KT44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLjga/jgYTjgILoqr/mn7vlrpjjga7mjIfnpLrjgavjga/lv4XjgZrlvpPjgo/jgarjgZHjgozjgbDjgarjgorjgb7jgZvjgpNcIixcbiAgICAgIFwi44GE44GE44GI44CC5L+u5q2j55Sz5ZGK44Gv44GC44GP44G+44Gn5Lu75oSP44Gn44GC44KK44CB57SN5b6X44Gn44GN44Gq44GR44KM44Gw5b+c44GY44KL576p5YuZ44Gv44GC44KK44G+44Gb44KTXCIsXG4gICAgICBcIueojueQhuWjq+OBruWQjOaEj+OBjOOBguOCi+WgtOWQiOOBruOBv+OAgeaLkuWQpuOBp+OBjeOBvuOBmVwiLFxuICAgICAgXCLkuIDluqbkv67mraPnlLPlkYrjgpLli6fjgoHjgonjgozjgZ/jgonjgIEyNOaZgumWk+S7peWGheOBq+WbnuetlOOBl+OBquOBkeOCjOOBsOOBquOCiuOBvuOBm+OCk1wiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIuS/ruato+eUs+WRiuOBr+OBguOBj+OBvuOBp+e0jeeojuiAheOBruOAjOiHquS4u+eahOOBquihjOeCuuOAjeOBp+OBguOCiuOAgeW8t+WItuOBleOCjOOCi+OCguOBruOBp+OBr+OBguOCiuOBvuOBm+OCk+OAguWbveeojuW6geOBruS6i+WLmemBi+WWtuaMh+mHneOBp+OCguOAgeS/ruato+eUs+WRiuOBruWLp+WlqOOBq+mam+OBl+OBpuOBr+OAjOOBguOBj+OBvuOBp+e0jeeojuiAheOBruiHqueZuueahOOBquaEj+aAneOBq+WfuuOBpeOBj+OCguOBruOBp+OBguOCi+OAjeOBk+OBqOOCkuiqrOaYjuOBl+OAgeabtOato+OBruiri+axguOBjOOBp+OBjeOBquOBj+OBquOCi+aXqOOCguaVmeekuuOBmeOCi+OCiOOBhuWumuOCgeOCieOCjOOBpuOBhOOBvuOBmeOAgue0jeW+l+OBp+OBjeOBquOBhOWgtOWQiOOBr+W/nOOBmOOBmuOBq+abtOato+WHpuWIhuOCkuWPl+OBkeOAgeS4jeacjeeUs+eri+OBpuOCkuOBmeOCi+mBuOaKnuiCouOCguOBguOCiuOBvuOBmeOAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7pgJrliYfms5XnrKw3NOadoeOBrjEx56ysM+mgheOAgeWbveeojuW6geS6i+WLmemBi+WWtuaMh+mHnVwiXG4gIH0sXG4gIHtcbiAgICBpZDogMjQsXG4gICAgY2F0ZWdvcnk6IFwi5L+u5q2j55Sz5ZGK44O75pu05q2jXCIsXG4gICAgcXVlc3Rpb246IFwi44CM6Kq/5p+744Gu57WC5LqG44Gu6Zqb44Gu5omL57aa44CN44Go44GX44Gm44CB6Kq/5p+75a6Y44GM6KGM44GG44G544GN44GT44Go44Gv44Gp44KM44Gn44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLlj6PpoK3jgafntZDmnpzjgpLkvJ3jgYjjgozjgbDlrozkuobjgafjgZlcIixcbiAgICAgIFwi55Sz5ZGK44Gr5ZWP6aGM44GM44Gq44GL44Gj44Gf5aC05ZCI44Gv44CM5pu05q2j5rG65a6a562J44KS44GZ44G544GN44Go6KqN44KB44KJ44KM44Gq44GE44CN5peo44KS5pu46Z2i44Gn6YCa55+l44GX44G+44GZXCIsXG4gICAgICBcIuiqv+afu+e1kOaenOOCkuaWsOiBnuOBq+WFrOihqOOBl+OBvuOBmVwiLFxuICAgICAgXCLntZDmnpzjga/lvozml6XjgIHoo4HliKTmiYDjgYvjgonpgJrnn6XjgZXjgozjgb7jgZlcIlxuICAgIF0sXG4gICAgY29ycmVjdDogMSxcbiAgICBleHBsYW5hdGlvbjogXCLlm73nqI7pgJrliYfms5XnrKw3NOadoeOBrjEx56ysMemgheOBq+OCiOOCiuOAgeiqv+afu+OBrue1kOaenOOAgeabtOato+axuuWumuetieOCkuOBmeOBueOBjeOBqOiqjeOCgeOCieOCjOOBquOBhOWgtOWQiO+8iOeUs+WRiuWGheWuueOBq+WVj+mhjOOBjOOBquOBhOWgtOWQiO+8ieOBr+OAgeOBneOBruaXqOOCkuabuOmdouOBp+e0jeeojuiAheOBq+mAmuefpeOBl+OBquOBkeOCjOOBsOOBquOCiuOBvuOBm+OCk+OAguS4gOaWueOAgeS/ruato+eUs+WRiuOBruWLp+WlqOOChOabtOato+WHpuWIhuOCkuihjOOBhuWgtOWQiOOBr+OAgeOBneOBrueQhueUseOCguiqrOaYjuOBleOCjOOBvuOBmeOAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7pgJrliYfms5XnrKw3NOadoeOBrjExXCJcbiAgfSxcblxuICAvLyDilIDilIAg44Kr44OG44K044OqNjog5Yqg566X56iO44O75bu25rue56iOIOKUgOKUgFxuICB7XG4gICAgaWQ6IDI1LFxuICAgIGNhdGVnb3J5OiBcIuWKoOeul+eojuODu+W7tua7nueojlwiLFxuICAgIHF1ZXN0aW9uOiBcIumBjuWwkeeUs+WRiuWKoOeul+eojuOBrueojueOh+OBq+OBpOOBhOOBpuOAgeato+OBl+OBhOOCguOBruOBr+OBqeOCjOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi5LiA5b6LMjAl44Gn44GZXCIsXG4gICAgICBcIuS6i+WJjemAmuefpeWJjeOBruiHquS4u+S/ruato+OBquOCiTAl44CB5LqL5YmN6YCa55+l5b6M44Gq44KJNSXjgJwxNSXjgIHoqr/mn7vlvozjgarjgokxMCXjgJwxNSXjgafjgZlcIixcbiAgICAgIFwi5Yid5Zue44Gu6Kq/5p+744Gq44KJ5Yqg566X56iO44Gv5LiA5YiH44GL44GL44KK44G+44Gb44KTXCIsXG4gICAgICBcIueojueQhuWjq+OBjOOBhOOCjOOBsOWKoOeul+eojuOBr+WFjemZpOOBleOCjOOBvuOBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIumBjuWwkeeUs+WRiuWKoOeul+eojuOBr+OAgeS/ruato+eUs+WRiuOBruOCv+OCpOODn+ODs+OCsOOBq+OCiOOBo+OBpueojueOh+OBjOWkieOCj+OCiuOBvuOBmeOAguS6i+WJjemAmuefpeWJjeOBruiHquS4u+S/ruato+OBp+OBguOCjOOBsOWKoOeul+eojuOBr+OBi+OBi+OCiuOBvuOBm+OCk+OAguS6i+WJjemAmuefpeW+jOOAnOiqv+afu+OBq+OCiOOCi+abtOato+S6iOefpeWJjeOBruS/ruato+OBp+OBrzUl77yI5pyf6ZmQ5YaF55Sz5ZGK56iO6aGN6LaF6YGO5YiG44GvMTAl77yJ44CB6Kq/5p+744Gr44KI44KL5pu05q2j44KS5LqI55+l44GX44Gf5b6M44Gu5L+u5q2j44KE5pu05q2j5Yem5YiG44Gn44GvMTAl77yI5ZCMMTUl77yJ44GM6Kqy44GV44KM44G+44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojumAmuWJh+azleesrDY15p2h44CB5Yqg566X56iO5Yi25bqm44Gu5pS55q2j44Gu44GC44KJ44G+44GX77yI5Zu956iO5bqB77yJXCJcbiAgfSxcbiAge1xuICAgIGlkOiAyNixcbiAgICBjYXRlZ29yeTogXCLliqDnrpfnqI7jg7vlu7bmu57nqI5cIixcbiAgICBxdWVzdGlvbjogXCLph43liqDnrpfnqI7jgYzoqrLjgZXjgozjgovjga7jga/jgIHjganjga7jgojjgYbjgarloLTlkIjjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuioiOeul+ODn+OCueOBp+eUs+WRiumhjeOCkumWk+mBleOBiOOBn+WgtOWQiOOBp+OBmVwiLFxuICAgICAgXCLlo7LkuIrjga7oqIjkuIrmvI/jgozjgYzjgYLjgaPjgZ/loLTlkIjjga/oh6rli5XnmoTjgavph43liqDnrpfnqI7jga7lr77osaHjgafjgZlcIixcbiAgICAgIFwi5Luu6KOF44O76Zqg6JS977yI5aOy5LiK44Gu5oSP5Zuz55qE44Gq6Zmk5aSW44KE5p6256m657WM6LK744Gu6KiI5LiK44Gq44Gp77yJ44GM6KqN44KB44KJ44KM44Gf5aC05ZCI44Gn44GZXCIsXG4gICAgICBcIuS/ruato+eUs+WRiuOBq+W/nOOBmOOBquOBi+OBo+OBn+WgtOWQiOOBp+OBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAyLFxuICAgIGV4cGxhbmF0aW9uOiBcIumHjeWKoOeul+eojuOBr+OAgeWbveeojumAmuWJh+azleesrDY45p2h44Gr5Z+644Gl44GN44CB57SN56iO6ICF44GM44CM5Luu6KOF44O76Zqg6JS944CN44KS6KGM44Gj44Gf5aC05ZCI44Gr6Kqy44GV44KM44G+44GZ44CC5YW35L2T55qE44Gr44Gv44CB5aOy5LiK44KS5oSP5Zuz55qE44Gr6Zmk5aSW44GZ44KL44CB5p6256m644Gu57WM6LK744KS6KiI5LiK44GZ44KL44CB5LqM6YeN5biz57C/44KS5L2c5oiQ44GZ44KL44Gq44Gp44Gu5oKq6LOq44Gq6KGM54K644GM6Kmy5b2T44GX44G+44GZ44CC5Y2Y57SU44Gq6KiI566X44Of44K544KE6Kej6YeI44Gu55u46YGV44Gv6YeN5Yqg566X56iO44Gu5a++6LGh44Gr44Gv44Gq44KK44G+44Gb44KT44CC56iO546H44GvMzUl77yI54Sh55Sz5ZGK44Gu5aC05ZCI44GvNDAl77yJ44Go6Z2e5bi444Gr6YeN44GE44Oa44OK44Or44OG44Kj44Gn44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojumAmuWJh+azleesrDY45p2hXCJcbiAgfSxcbiAge1xuICAgIGlkOiAyNyxcbiAgICBjYXRlZ29yeTogXCLliqDnrpfnqI7jg7vlu7bmu57nqI5cIixcbiAgICBxdWVzdGlvbjogXCLlu7bmu57nqI7jgavjgaTjgYTjgabjgIHmraPjgZfjgYTjgoLjga7jga/jganjgozjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuS/ruato+eUs+WRiuOCkuOBmeOCjOOBsOW7tua7nueojuOBr+OBi+OBi+OCiuOBvuOBm+OCk1wiLFxuICAgICAgXCLlu7bmu57nqI7jga/ms5XlrprntI3mnJ/pmZDjga7nv4zml6XjgYvjgonlrozntI3jga7ml6Xjgb7jgafoqrLjgZXjgozjgb7jgZlcIixcbiAgICAgIFwi5bu25rue56iO44Gu56iO546H44Gv5bm0MSXlm7rlrprjgafjgZlcIixcbiAgICAgIFwi5YCL5Lq65LqL5qWt5Li744Gr44Gv5bu25rue56iO44Gv6Kqy44GV44KM44G+44Gb44KTXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDEsXG4gICAgZXhwbGFuYXRpb246IFwi5bu25rue56iO44Gv44CB56iO6YeR44KS5rOV5a6a57SN5pyf6ZmQ44G+44Gn44Gr5a6M57SN44GX44Gq44GL44Gj44Gf5aC05ZCI44Gr44CB44Gd44Gu57+M5pel44GL44KJ5a6M57SN44Gu5pel44G+44Gn44Gu5pel5pWw44Gr5b+c44GY44Gm6Kqy44GV44KM44G+44GZ44CC5L+u5q2j55Sz5ZGK44KS44GX44Gf5aC05ZCI44Gn44KC44CB5pys5p2l44Gu5rOV5a6a57SN5pyf6ZmQ44GL44KJ6YGh44Gj44Gm5bu25rue56iO44GM55m655Sf44GX44G+44GZ44CC56iO546H44Gv5bm044Gr44KI44Gj44Gm5aSJ5YuV44GX44CB57SN5pyf6ZmQ5b6MMuOBi+aciOS7peWGheOBqDLjgYvmnIjotoXjgafnqI7njofjgYznlbDjgarjgorjgb7jgZnjgILms5Xkurrjg7vlgIvkurrjgpLllY/jgo/jgZrpgannlKjjgZXjgozjgb7jgZnjgIJcIixcbiAgICBzb3VyY2U6IFwi5Zu956iO6YCa5YmH5rOV56ysNjDmnaFcIlxuICB9LFxuICB7XG4gICAgaWQ6IDI4LFxuICAgIGNhdGVnb3J5OiBcIuWKoOeul+eojuODu+W7tua7nueojlwiLFxuICAgIHF1ZXN0aW9uOiBcIueEoeeUs+WRiuWKoOeul+eojuOBjOiqsuOBleOCjOOCi+OBruOBr+OAgeOBqeOBruOCiOOBhuOBquWgtOWQiOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi55Sz5ZGK5pyf6ZmQ44KSMeaXpeOBp+OCgumBheOCjOOBn+WgtOWQiOOBq+iHquWLleeahOOBqzUwJeOBruWKoOeul+eojuOBjOiqsuOBleOCjOOBvuOBmVwiLFxuICAgICAgXCLnorrlrprnlLPlkYrmm7jjgpLms5XlrprmnJ/pmZDjgb7jgafjgavmj5Dlh7rjgZfjgarjgYvjgaPjgZ/loLTlkIjjgavoqrLjgZXjgozjgb7jgZnjgILnqI7njofjga/ljp/liYcxNSXjgJwyMCXjgafjgZlcIixcbiAgICAgIFwi54Sh55Sz5ZGK5Yqg566X56iO44Gv5YCL5Lq644Gr44Gu44G/6YGp55So44GV44KM44CB5rOV5Lq644Gr44Gv6YGp55So44GV44KM44G+44Gb44KTXCIsXG4gICAgICBcIuacn+mZkOW+jOeUs+WRiuOBp+OBguOBo+OBpuOCguOAgTHjgYvmnIjku6XlhoXjgavoh6rkuLvnmoTjgavnlLPlkYrjgZnjgozjgbDluLjjgavlhY3pmaTjgZXjgozjgb7jgZlcIlxuICAgIF0sXG4gICAgY29ycmVjdDogMSxcbiAgICBleHBsYW5hdGlvbjogXCLnhKHnlLPlkYrliqDnrpfnqI7jga/jgIHnorrlrprnlLPlkYrmm7jjgpLms5XlrprmnJ/pmZDjgb7jgafjgavmj5Dlh7rjgZfjgarjgYvjgaPjgZ/loLTlkIjjgavoqrLjgZXjgozjgb7jgZnjgILljp/liYfjgajjgZfjgabntI3ku5jjgZnjgbnjgY3nqI7poY3jgavlr77jgZfjgaYxNSXvvIg1MOS4h+WGhui2heOBrumDqOWIhuOBrzIwJe+8ieOBp+OBmeOAguOBn+OBoOOBl+OAgeacn+mZkOW+jOeUs+WRiuOBjOOAjOiqv+afu+OBruS6i+WJjemAmuefpeWJjeOAjeOBi+OBpOS4gOWumuOBruimgeS7tuOCkua6gOOBn+OBmeWgtOWQiOOBrzUl44Gr6Lu95rib44GV44KM44G+44GZ44CC5rOV5Lq644O75YCL5Lq644Gu5Lih5pa544Gr6YGp55So44GV44KM44G+44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojumAmuWJh+azleesrDY25p2hXCJcbiAgfSxcblxuICAvLyDilIDilIAg44Kr44OG44K044OqNzog5LiN5pyN55Sz56uL44GmIOKUgOKUgFxuICB7XG4gICAgaWQ6IDI5LFxuICAgIGNhdGVnb3J5OiBcIuS4jeacjeeUs+eri+OBplwiLFxuICAgIHF1ZXN0aW9uOiBcIueojuWLmee9suOBruabtOato+WHpuWIhuOBq+e0jeW+l+OBp+OBjeOBquOBhOWgtOWQiOOAgeacgOWIneOBq+OBqOOCi+OBueOBjeaJi+e2muOBr+OBqeOCjOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi55u044Gh44Gr6KOB5Yik5omA44Gr6Ki06Kif44KS5o+Q6LW344GX44G+44GZXCIsXG4gICAgICBcIuWHpuWIhuOBjOOBguOBo+OBn+OBk+OBqOOCkuefpeOBo+OBn+aXpeOBrue/jOaXpeOBi+OCiTPjgYvmnIjku6XlhoXjgavjgIzlho3oqr/mn7vjga7oq4vmsYLjgI3lj4jjga/jgIzlr6nmn7voq4vmsYLjgI3jgpLooYzjgYTjgb7jgZlcIixcbiAgICAgIFwi5Zu956iO5bqB6ZW35a6Y44Gr55u05o6l55Sz44GX5Ye644G+44GZXCIsXG4gICAgICBcIueojueQhuWjq+S8muOCkumAmuOBmOOBpueVsOitsOOCkueUs+OBl+eri+OBpuOBvuOBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIuabtOato+WHpuWIhuOBq+S4jeacjeOBjOOBguOCi+WgtOWQiOOBr+OAgeWHpuWIhuOBjOOBguOBo+OBn+OBk+OBqOOCkuefpeOBo+OBn+aXpeOBrue/jOaXpeOBi+OCiTPjgYvmnIjku6XlhoXjgavjgIHnqI7li5nnvbLplbfjgavlr77jgZnjgovjgIzlho3oqr/mn7vjga7oq4vmsYLjgI3jgYvjgIHlm73nqI7kuI3mnI3lr6nliKTmiYDjgavlr77jgZnjgovjgIzlr6nmn7voq4vmsYLjgI3jga7jgYTjgZrjgozjgYvjgpLpgbjmip7jgZfjgabooYzjgYTjgb7jgZnjgILljp/liYfjgajjgZfjgabjgIHkuI3mnI3nlLPnq4vjgabjga7miYvntprjgpLntYzjgZ/lvozjgafjgarjgZHjgozjgbDoo4HliKTvvIjoqLToqJ/vvInjgpLmj5DotbfjgZnjgovjgZPjgajjga/jgafjgY3jgb7jgZvjgpPvvIjkuI3mnI3nlLPnq4vjgabliY3nva7kuLvnvqnvvInjgIJcIixcbiAgICBzb3VyY2U6IFwi5Zu956iO6YCa5YmH5rOV56ysNzXmnaHjgIHnrKwxMTXmnaFcIlxuICB9LFxuICB7XG4gICAgaWQ6IDMwLFxuICAgIGNhdGVnb3J5OiBcIuS4jeacjeeUs+eri+OBplwiLFxuICAgIHF1ZXN0aW9uOiBcIuWbveeojuS4jeacjeWvqeWIpOaJgOOBq+OBpOOBhOOBpuOAgeato+OBl+OBhOOCguOBruOBr+OBqeOCjOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi56iO5YuZ572y44Gu5LiA6YOo6ZaA44Gn44GC44KK44CB54us56uL44GX44Gf57WE57mU44Gn44Gv44GC44KK44G+44Gb44KTXCIsXG4gICAgICBcIuijgeWIpOOBqOWQjOOBmOOBj+OAgeW8geitt+Wjq+OBp+OBquOBkeOCjOOBsOS7o+eQhuS6uuOBq+OBquOCjOOBvuOBm+OCk1wiLFxuICAgICAgXCLlm73nqI7luoHjga7nibnliKXjga7mqZ/plqLjgajjgZfjgaboqK3nva7jgZXjgozjgZ/jgIHnqI7li5nnvbLjgYvjgonni6znq4vjgZfjgZ/nrKzkuInogIXmqZ/plqLjgafjgZlcIixcbiAgICAgIFwi5a+p5p+76KuL5rGC44Gu57WQ5p6c44Gr5LiN5pyN44GM44GC44KL5aC05ZCI44Gv44CB5YaN5bqm5a+p5p+76KuL5rGC44KS6KGM44GE44G+44GZXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDIsXG4gICAgZXhwbGFuYXRpb246IFwi5Zu956iO5LiN5pyN5a+p5Yik5omA44Gv44CB5Zu956iO5bqB44Gu54m55Yil44Gu5qmf6Zai44Go44GX44Gm56iO5YuZ572y44GL44KJ54us56uL44GX44Gm6Kit572u44GV44KM44Gm44GK44KK44CB57SN56iO6ICF44Gu5q2j5b2T44Gq5qip5Yip5Yip55uK44Gu5pWR5riI44KS5Zuz44KL44Go44Go44KC44Gr44CB56iO5YuZ6KGM5pS/44Gu6YGp5q2j44Gq6YGL5Za244KS56K65L+d44GZ44KL44GT44Go44KS55uu55qE44Go44GX44Gm44GE44G+44GZ44CC5a+p5p+76KuL5rGC44Gr5a++44GZ44KL6KOB5rG644Gr5LiN5pyN44GM44GC44KL5aC05ZCI44Gv44CB6KOB5rG644GM44GC44Gj44Gf44GT44Go44KS55+l44Gj44Gf5pel44Gu57+M5pel44GL44KJNuOBi+aciOS7peWGheOBq+ijgeWIpOaJgOOBq+iotOion+OCkuaPkOi1t+OBp+OBjeOBvuOBmeOAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7pgJrliYfms5XnrKw3OOadoeOAgeesrDExNeadoVwiXG4gIH0sXG5cbiAgLy8g4pSA4pSAIOOCq+ODhuOCtOODqjg6IOWun+WLmeS4iuOBruazqOaEj+eCuSDilIDilIBcbiAge1xuICAgIGlkOiAzMSxcbiAgICBjYXRlZ29yeTogXCLlrp/li5njga7ms6jmhI/ngrlcIixcbiAgICBxdWVzdGlvbjogXCLnqI7li5noqr/mn7vjgafnibnjgavopovjgonjgozjgoTjgZnjgYTpoIXnm67jgajjgZfjgabjgIHmnIDjgoLoqbLlvZPjgZnjgovjgoLjga7jga/jganjgozjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuaWh+aIv+WFt+OBquOBqeOBruWwkemhjeOBqua2iOiAl+WTgeiyu1wiLFxuICAgICAgXCLlo7LkuIrjga7oqIjkuIrmmYLmnJ/jg7vkuqTpmpvosrvjg7vlvbnlk6HloLHphazjg7vlnKjluqvjga7oqZXkvqFcIixcbiAgICAgIFwi5q2j44GX44GP5Yem55CG44GV44KM44Gf5rib5L6h5YSf5Y206LK7XCIsXG4gICAgICBcIuazleWumuemj+WIqeiyu++8iOekvuS8muS/nemZuuaWmeOBruS8muekvuiyoOaLheWIhu+8iVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIueojuWLmeiqv+afu+OBp+mHjeeCueeahOOBq+ODgeOCp+ODg+OCr+OBleOCjOOCi+mgheebruOBr+OAgeWjsuS4iuOBruioiOS4iuaZguacn++8iOacn+OBmuOCjO+8ieOAgeS6pOmam+iyu+OBruS9v+mAlOOBqOaQjemHkeeul+WFpemZkOW6pumhjeOAgeW9ueWToeWgsemFrOOBruWumuacn+WQjOmhjeaAp+OAgeacn+acq+WcqOW6q+OBruipleS+oeOBp+OBmeOAguOBk+OCjOOCieOBr+aEj+Wbs+eahOODu+mdnuaEj+Wbs+eahOOBq+iqpOOCiuOBjOeUn+OBmOOChOOBmeOBj+OAgemHkemhjeeahOW9semfv+OCguWkp+OBjeOBhOOBn+OCgeOAgeiqv+afu+OBruedgOecvOeCueOBqOOBl+OBpuWbveeojuW6geOBruWGhemDqOizh+aWmeOBp+OCgumHjeimluOBleOCjOOBpuOBhOOBvuOBmeOAglwiLFxuICAgIHNvdXJjZTogXCLlm73nqI7luoEg5rOV5Lq656iO44Gu55Sz5ZGK5pu456K66KqN6KGo44CB56iO5YuZ6Kq/5p+7552A55y854K5XCJcbiAgfSxcbiAge1xuICAgIGlkOiAzMixcbiAgICBjYXRlZ29yeTogXCLlrp/li5njga7ms6jmhI/ngrlcIixcbiAgICBxdWVzdGlvbjogXCLlo7LkuIrjga7jgIzmnJ/jgZrjgozjgI3jgajjga/kvZXjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuWjsuS4iuOBrumHkemhjeOCkumWk+mBleOBiOOBpuioiOS4iuOBmeOCi+OBk+OBqOOBp+OBmVwiLFxuICAgICAgXCLlo7LkuIrjgpLmraPjgZfjgYTkuovmpa3lubTluqbjgavoqIjkuIrjgZvjgZrjgIHnv4zmnJ/jgavnubDjgorlu7bjgbnjgovjgZPjgajvvIjjgb7jgZ/jga/jgZ3jga7pgIbvvInjgafjgZlcIixcbiAgICAgIFwi5aOy5LiK44KS54++6YeR44Gn5Y+X44GR5Y+W44KJ44Ga44CB5o6b5aOy44KK44Gr44GZ44KL44GT44Go44Gn44GZXCIsXG4gICAgICBcIuWjsuS4iuOBrua2iOiyu+eojueOh+OCkumWk+mBleOBiOOCi+OBk+OBqOOBp+OBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIuacn+OBmuOCjOOBqOOBr+OAgeWjsuS4iu+8iOOBvuOBn+OBr+S7leWFpe+8ieOCkuacrOadpeioiOS4iuOBmeOBueOBjeS6i+alreW5tOW6puOBp+OBr+OBquOBj+OAgeWIpeOBruS6i+alreW5tOW6puOBq+ioiOS4iuOBl+OBpuOBl+OBvuOBhuOBk+OBqOOBp+OBmeOAguS+i+OBiOOBsOOAgTPmnIjmsbrnrpfms5XkurrjgYwz5pyI5Lit44Gr5byV44GN5rih44GX44Gf5ZWG5ZOB44Gu5aOy5LiK44KSNOaciOOBq+ioiOS4iuOBmeOCi+OCseODvOOCueOBjOipsuW9k+OBl+OBvuOBmeOAguaEj+Wbs+eahOOBp+OBquOBj+OBpuOCguOAgeeojuWLmeiqv+afu+OBp+OBr+mdnuW4uOOBq+OCiOOBj+aMh+aRmOOBleOCjOOCi+mgheebruOBp+OBmeOAguacn+acq+WJjeW+jOOBruWPluW8leOBr+eJueOBq+azqOaEj+OBjOW/heimgeOBp+OBmeOAglwiLFxuICAgIHNvdXJjZTogXCLms5XkurrnqI7ms5XnrKwyMuadoeOBrjLvvIjlj47nm4rjga7poY3vvInjgIHms5XkurrnqI7ln7rmnKzpgJrpgZQyLTEtMeOAnDItMS00XCJcbiAgfSxcbiAge1xuICAgIGlkOiAzMyxcbiAgICBjYXRlZ29yeTogXCLlrp/li5njga7ms6jmhI/ngrlcIixcbiAgICBxdWVzdGlvbjogXCLkuK3lsI/ms5Xkurrjga7kuqTpmpvosrvjgavjgaTjgYTjgabjgIHmkI3ph5HnrpflhaXjga7lj5bmibHjgYTjgajjgZfjgabmraPjgZfjgYTjgoLjga7jga/jganjgozjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuS6pOmam+iyu+OBr+WFqOmhjeaQjemHkeS4jeeul+WFpe+8iOe1jOiyu+OBq+OBquOCieOBquOBhO+8ieOBp+OBmVwiLFxuICAgICAgXCLlubTplpM4MDDkuIflhobjgb7jgaflhajpoY3mkI3ph5HnrpflhaXjgafjgY3jgb7jgZnvvIjos4fmnKzph5Ex5YSE5YaG5Lul5LiL44Gu5rOV5Lq644Gu5aC05ZCI77yJXCIsXG4gICAgICBcIjHku7bjgYLjgZ/jgoox5LiH5YaG5Lul5LiL44Gu6aOy6aOf6LK744Gu44G/5pCN6YeR566X5YWl44Gn44GN44G+44GZXCIsXG4gICAgICBcIuaOpeW+heOBruebuOaJi+OBjOWPluW8leWFiOOBruWgtOWQiOOBq+mZkOOCiuOAgeWFqOmhjeaQjemHkeeul+WFpeOBp+OBjeOBvuOBmVwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIuizh+acrOmHkTHlhITlhobku6XkuIvjga7kuK3lsI/ms5Xkurrjga/jgIHlubTplpM4MDDkuIflhobjgb7jgafjga7kuqTpmpvosrvjgpLlhajpoY3mkI3ph5HnrpflhaXjgafjgY3jgovnibnkvovmjqrnva7jgYzjgYLjgorjgb7jgZnvvIjnp5/nqI7nibnliKXmjqrnva7ms5XnrKw2MeadoeOBrjTvvInjgILjgb7jgZ/jgIEx5Lq644GC44Gf44KKMeS4h+WGhuS7peS4i++8iOS7pOWSjDblubTluqbmlLnmraPjgac1LDAwMOWGhuOBi+OCieW8leS4iuOBku+8ieOBrumjsumjn+iyu+OBr+S6pOmam+iyu+OBi+OCiemZpOWkluOBleOCjOOBvuOBmeOAguOBn+OBoOOBl+OAgeaOpeW+heOBruaXpeaZguODu+WgtOaJgOODu+ebuOaJi+WFiOODu+mHkemhjeODu+WPguWKoOS6uuaVsOetieOBruiomOmMsuOBjOW/heimgeOBp+OBmeOAglwiLFxuICAgIHNvdXJjZTogXCLnp5/nqI7nibnliKXmjqrnva7ms5XnrKw2MeadoeOBrjTjgIHku6Tlkow25bm05bqm56iO5Yi25pS55q2jXCJcbiAgfSxcbiAge1xuICAgIGlkOiAzNCxcbiAgICBjYXRlZ29yeTogXCLlrp/li5njga7ms6jmhI/ngrlcIixcbiAgICBxdWVzdGlvbjogXCLlvbnlk6HloLHphazjgavjgaTjgYTjgabjgIHnqI7li5noqr/mn7vjgafllY/poYzjgavjgZXjgozjgoTjgZnjgYTjg53jgqTjg7Pjg4jjga/jganjgozjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIuW9ueWToeWgsemFrOOBrumHkemhjeOBjOmrmOOBmeOBjuOCi+OBk+OBqO+8iOOBn+OBoOOBl+S4iumZkOOBr+azleW+i+OBp+axuuOBvuOBo+OBpuOBhOOBvuOBme+8iVwiLFxuICAgICAgXCLlrprmnJ/lkIzpoY3ntabkuI7jga7opoHku7bjgpLmuoDjgZ/jgZXjgarjgYTloLHphazjga7lpInmm7TvvIjmnJ/kuK3jgafjga7lopfmuJvpoY3jgarjganvvInjgafjgZlcIixcbiAgICAgIFwi5b255ZOh5aCx6YWs44KS6YqA6KGM5oyv6L6844Gn5pSv5omV44Gj44Gm44GE44KL44GT44GoXCIsXG4gICAgICBcIuW9ueWToeOBjOikh+aVsOOBhOOCi+WgtOWQiOOBq+WgsemFrOmhjeOBjOeVsOOBquOCi+OBk+OBqFwiXG4gICAgXSxcbiAgICBjb3JyZWN0OiAxLFxuICAgIGV4cGxhbmF0aW9uOiBcIuazleS6uueojuazleesrDM05p2h44Gr44KI44KK44CB5b255ZOh5aCx6YWs44GM5pCN6YeR566X5YWl44GV44KM44KL44Gf44KB44Gr44Gv44CM5a6a5pyf5ZCM6aGN57Wm5LiO44CN44CM5LqL5YmN56K65a6a5bGK5Ye657Wm5LiO44CN44CM5qWt57i+6YCj5YuV57Wm5LiO44CN44Gu44GE44Ga44KM44GL44Gu6KaB5Lu244KS5rqA44Gf44GZ5b+F6KaB44GM44GC44KK44G+44GZ44CC5pyA44KC44KI44GP5L2/44KP44KM44KL5a6a5pyf5ZCM6aGN57Wm5LiO44Gv44CB5q+O5pyI5ZCM6aGN44KS5pSv57Wm44GZ44KL44KC44Gu44Gn44GZ44GM44CB5pyf5Lit44Gn57WM5Za25Yik5pat44Gr44KI44KK5aKX6aGN44O75rib6aGN44GX44Gf5aC05ZCI44CB44Gd44Gu5aSJ5pu044GM6KqN44KB44KJ44KM44KL5pyf6ZaT77yI5Y6f5YmH44Go44GX44Gm5LqL5qWt5bm05bqm6ZaL5aeL5b6MM+OBi+aciOS7peWGhe+8ieOCkui2heOBiOOBpuOBhOOCi+OBqOOAgeaQjemHkeS4jeeul+WFpeOBqOOBleOCjOOCi+ODquOCueOCr+OBjOOBguOCiuOBvuOBmeOAglwiLFxuICAgIHNvdXJjZTogXCLms5XkurrnqI7ms5XnrKwzNOadoe+8iOW9ueWToee1puS4juOBruaQjemHkeS4jeeul+WFpe+8iVwiXG4gIH0sXG4gIHtcbiAgICBpZDogMzUsXG4gICAgY2F0ZWdvcnk6IFwi5a6f5YuZ44Gu5rOo5oSP54K5XCIsXG4gICAgcXVlc3Rpb246IFwi5YCL5Lq655qE44Gq5pSv5Ye644KS5Lya56S+44Gu57WM6LK744Go44GX44Gm5Yem55CG44GX44Gf5aC05ZCI44CB56iO5YuZ6Kq/5p+744Gn44Gv44Gp44GG44Gq44KK44G+44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLph5HpoY3jgYzlsI/jgZXjgZHjgozjgbDllY/poYzjgavjgarjgorjgb7jgZvjgpNcIixcbiAgICAgIFwi5b255ZOh6LOe5LiO44Go44GX44Gm6KqN5a6a44GV44KM44CB5rOV5Lq656iO44O75omA5b6X56iO44Gu5Lih5pa544Gn6L+95b6044GV44KM44KL5Y+v6IO95oCn44GM44GC44KK44G+44GZXCIsXG4gICAgICBcIuasoeOBruS6i+alreW5tOW6puOBp+S/ruato+OBmeOCjOOBsOWVj+mhjOOBguOCiuOBvuOBm+OCk1wiLFxuICAgICAgXCLlgIvkurrjgYvjgonkvJrnpL7jgavov5Tph5HjgZnjgozjgbDjgIHpgaHjgaPjgablj5bjgormtojjgZXjgozjgb7jgZlcIlxuICAgIF0sXG4gICAgY29ycmVjdDogMSxcbiAgICBleHBsYW5hdGlvbjogXCLlvbnlk6Hjga7lgIvkurrnmoTjgarmlK/lh7rjgpLkvJrnpL7jga7ntYzosrvjgajjgZfjgablh6bnkIbjgZfjgZ/loLTlkIjjgIHjgZ3jga7mlK/lh7rjga/ms5Xkurrjga7mkI3ph5HjgajjgZfjgaboqo3jgoHjgonjgozjgZrjgIHlvbnlk6Hjgavlr77jgZnjgovjgIzoqo3lrpros57kuI7jgI3vvIjlvbnlk6Hos57kuI7vvInjgajjgZfjgablj5bjgormibHjgo/jgozjgb7jgZnjgILjgZ3jga7ntZDmnpzjgIHms5XkurrlgbTjgafjga/mkI3ph5HkuI3nrpflhaXjgajjgarjgorms5XkurrnqI7jgYzlopfliqDjgZfjgIHlvbnlk6HlgIvkurrlgbTjgafjgoLntabkuI7miYDlvpfjgajjgZfjgabmiYDlvpfnqI7jg7vkvY/msJHnqI7jgYzoqrLnqI7jgZXjgozjgovjgajjgYTjgYbjgIzkuozph43jga7ov73lvrTjgI3jgYznmbrnlJ/jgZfjgb7jgZnjgILph5HpoY3jga7lpKflsI/jga/llY/jgYTjgb7jgZvjgpPjgIJcIixcbiAgICBzb3VyY2U6IFwi5rOV5Lq656iO5rOV56ysMzTmnaHjgIHmiYDlvpfnqI7ms5XnrKwyOOadoVwiXG4gIH0sXG5cbiAgLy8g4pSA4pSAIOOCq+ODhuOCtOODqjk6IOa2iOiyu+eojuOBruiqv+afuyDilIDilIBcbiAge1xuICAgIGlkOiAzNixcbiAgICBjYXRlZ29yeTogXCLmtojosrvnqI7jga7oqr/mn7tcIixcbiAgICBxdWVzdGlvbjogXCLmtojosrvnqI7jga7nqI7li5noqr/mn7vjgafnibnjgavms6jmhI/jgZnjgbnjgY3ngrnjga/jganjgozjgafjgZnjgYvvvJ9cIixcbiAgICBvcHRpb25zOiBbXG4gICAgICBcIua2iOiyu+eojuOBr+azleS6uueojuOBqOS4gOe3kuOBq+iqv+afu+OBleOCjOOCi+OBruOBp+OAgeWIpemAlOOBruWvvuetluOBr+S4jeimgeOBp+OBmVwiLFxuICAgICAgXCLku5XlhaXnqI7poY3mjqfpmaTjga7opoHku7bvvIjluLPnsL/jg7voq4vmsYLmm7jnrYnjga7kv53lrZjvvInjgYzmuoDjgZ/jgZXjgozjgabjgYTjgovjgYvjgYzph43ngrnjg4Hjgqfjg4Pjgq/jgZXjgozjgb7jgZlcIixcbiAgICAgIFwi5raI6LK756iO44Gv5aOy5LiKMSwwMDDkuIflhobku6XkuIvjgarjgonoqr/mn7vjga7lr77osaHlpJbjgafjgZlcIixcbiAgICAgIFwi57Ch5piT6Kqy56iO44KS6YG45oqe44GX44Gm44GE44KM44Gw44CB5raI6LK756iO44Gu6Kq/5p+744Gv6KGM44KP44KM44G+44Gb44KTXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDEsXG4gICAgZXhwbGFuYXRpb246IFwi5raI6LK756iO44Gu6Kq/5p+744Gn44Gv44CB5LuV5YWl56iO6aGN5o6n6Zmk44Gu6YGp55So6KaB5Lu244GM5pyA44KC6YeN6KaB44Gq44OB44Kn44OD44Kv44Od44Kk44Oz44OI44Gn44GZ44CC5YW35L2T55qE44Gr44Gv44CB5biz57C/44Gr5rOV5a6a6KiY6LyJ5LqL6aCF44GM6KiY6LyJ44GV44KM44Gm44GE44KL44GL44CB6KuL5rGC5pu4562J77yI44Kk44Oz44Oc44Kk44K55Yi25bqm44Gn44Gv6YGp5qC86KuL5rGC5pu477yJ44GM6YGp5YiH44Gr5L+d5a2Y44GV44KM44Gm44GE44KL44GL44GM56K66KqN44GV44KM44G+44GZ44CC6KaB5Lu244KS5rqA44Gf44GV44Gq44GE5LuV5YWl56iO6aGN5o6n6Zmk44Gv5ZCm6KqN44GV44KM44CB6L+95b6044GV44KM44KL44Oq44K544Kv44GM44GC44KK44G+44GZ44CCXCIsXG4gICAgc291cmNlOiBcIua2iOiyu+eojuazleesrDMw5p2h56ysN+mgheOAnOesrDnpoIVcIlxuICB9LFxuICB7XG4gICAgaWQ6IDM3LFxuICAgIGNhdGVnb3J5OiBcIua2iOiyu+eojuOBruiqv+afu1wiLFxuICAgIHF1ZXN0aW9uOiBcIuOCpOODs+ODnOOCpOOCueWItuW6puS4i+OBp+OAgeWFjeeojuS6i+alreiAheOBi+OCieOBruS7leWFpeOCjOOBq+OBpOOBhOOBpuato+OBl+OBhOOCguOBruOBr+OBqeOCjOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi5YWN56iO5LqL5qWt6ICF44GL44KJ44Gu5LuV5YWl44KM44Gv5LuV5YWl56iO6aGN5o6n6Zmk44GM5LiA5YiH44Gn44GN44G+44Gb44KTXCIsXG4gICAgICBcIue1jOmBjuaOque9ruOBqOOBl+OBpuOAgTIwMjblubQ55pyIMzDml6Xjgb7jgafjga/ku5XlhaXnqI7poY3jga44MCXjgpLmjqfpmaTjgafjgY3jgb7jgZlcIixcbiAgICAgIFwi5YWN56iO5LqL5qWt6ICF44GL44KJ5LuV5YWl44KM44Gf5aC05ZCI44Gn44KC44CB5b6T5p2l44Gp44GK44KKMTAwJeaOp+mZpOOBp+OBjeOBvuOBmVwiLFxuICAgICAgXCLlhY3nqI7kuovmpa3ogIXjgajjga7lj5blvJXoh6rkvZPjgYznpoHmraLjgZXjgozjgabjgYTjgb7jgZlcIlxuICAgIF0sXG4gICAgY29ycmVjdDogMSxcbiAgICBleHBsYW5hdGlvbjogXCLjgqTjg7Pjg5zjgqTjgrnliLbluqbjga7ntYzpgY7mjqrnva7jgajjgZfjgabjgIHlhY3nqI7kuovmpa3ogIXjgYvjgonjga7ku5XlhaXjgozjgavjgaTjgYTjgabjga/mrrXpmo7nmoTjgavmjqfpmaTlibLlkIjjgYznuK7lsI/jgZXjgozjgb7jgZnjgIIyMDIz5bm0MTDmnIjjgJwyMDI25bm0OeaciOOBrzgwJeaOp+mZpOOAgTIwMjblubQxMOaciOOAnDIwMjnlubQ55pyI44GvNTAl5o6n6Zmk44CB44Gd44KM5Lul6ZmN44Gv5o6n6Zmk5LiN5Y+v44Go44Gq44KK44G+44GZ44CC44GT44Gu57WM6YGO5o6q572u44Gv5biz57C/44Gr5LiA5a6a44Gu6KiY6LyJ44KS6KGM44GG44GT44Go44GM6KaB5Lu244Gn44GZ44CC56iO5YuZ6Kq/5p+744Gn44KC57WM6YGO5o6q572u44Gu6YGp55So44GM5q2j44GX44GE44GL56K66KqN44GV44KM44G+44GZ44CCXCIsXG4gICAgc291cmNlOiBcIua2iOiyu+eojuazlemZhOWJh+esrDUy5p2h44CB56ysNTPmnaHvvIjjgqTjg7Pjg5zjgqTjgrnliLbluqbntYzpgY7mjqrnva7vvIlcIlxuICB9LFxuXG4gIC8vIOKUgOKUgCDjgqvjg4bjgrTjg6oxMDog44Gd44Gu5LuW44Gu6YeN6KaB5LqL6aCFIOKUgOKUgFxuICB7XG4gICAgaWQ6IDM4LFxuICAgIGNhdGVnb3J5OiBcIuOBneOBruS7llwiLFxuICAgIHF1ZXN0aW9uOiBcIueojuWLmeiqv+afu+OBrue1kOaenOOCkuW+k+alreWToeOChOWPluW8leWFiOOBq+efpeOCieOCjOOCi+OBk+OBqOOBr+OBguOCiuOBvuOBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi56iO5YuZ572y44GM6Kq/5p+757WQ5p6c44KS5YWs6KGo44GZ44KL44GT44Go44GM44GC44KK44G+44GZXCIsXG4gICAgICBcIuiqv+afu+WumOOBq+OBr+WuiOenmOe+qeWLmeOBjOOBguOCiuOAgeiqv+afu+OBp+efpeOCiuW+l+OBn+aDheWgseOCkuesrOS4ieiAheOBq+a8j+OCieOBmeOBk+OBqOOBr+azleW+i+OBp+emgeOBmOOCieOCjOOBpuOBhOOBvuOBmVwiLFxuICAgICAgXCLlj5blvJXlhYjjgavjga/lj43pnaLoqr/mn7vjga7pmpvjgavoh6rnpL7jga7nlLPlkYrlhoXlrrnjgYzkvJ3jgYjjgonjgozjgb7jgZlcIixcbiAgICAgIFwi56iO5YuZ572y44Gv6Kq/5p+757WQ5p6c44KS5L+h55So5oOF5aCx5qmf6Zai44Gr5aCx5ZGK44GX44G+44GZXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDEsXG4gICAgZXhwbGFuYXRpb246IFwi6Kq/5p+75a6Y44Gr44Gv5Zu95a625YWs5YuZ5ZOh5rOV56ysMTAw5p2h44Gr5Z+644Gl44GP5a6I56eY576p5YuZ44GM44GC44KK44CB6IG35YuZ5LiK55+l44KK5b6X44Gf56eY5a+G44KS5ryP44KJ44GZ44GT44Go44Gv56aB5q2i44GV44KM44Gm44GE44G+44GZ44CC56iO5YuZ6Kq/5p+744Gu57WQ5p6c44GM5YWs6KGo44GV44KM44Gf44KK44CB5Y+W5byV5YWI44Gr6Ieq56S+44Gu55Sz5ZGK5YaF5a6544GM55u05o6l5Lyd44GI44KJ44KM44KL44GT44Go44Gv44GC44KK44G+44Gb44KT44CC5Y+N6Z2i6Kq/5p+744Gv44GC44GP44G+44Gn5Y+W5byV44Gu5LqL5a6f56K66KqN44GM55uu55qE44Gn44GC44KK44CB6Kq/5p+75a++6LGh5LyB5qWt44Gu55Sz5ZGK5YaF5a6544KS6ZaL56S644GZ44KL44KC44Gu44Gn44Gv44GC44KK44G+44Gb44KT44CCXCIsXG4gICAgc291cmNlOiBcIuWbveWutuWFrOWLmeWToeazleesrDEwMOadoe+8iOenmOWvhuOCkuWuiOOCi+e+qeWLme+8iVwiXG4gIH0sXG4gIHtcbiAgICBpZDogMzksXG4gICAgY2F0ZWdvcnk6IFwi44Gd44Gu5LuWXCIsXG4gICAgcXVlc3Rpb246IFwi56iO5YuZ6Kq/5p+744GM57WC5LqG44GX44Gf5b6M44CB5ZCM44GY5LqL6aCF44Gr44Gk44GE44Gm5YaN5bqm6Kq/5p+744GV44KM44KL44GT44Go44Gv44GC44KK44G+44GZ44GL77yfXCIsXG4gICAgb3B0aW9uczogW1xuICAgICAgXCLkuIDluqboqr/mn7vjgYzntYLjgo/jgaPjgZ/kuovpoIXjga/jgIHkuozluqbjgajoqr/mn7vjgZXjgozjgb7jgZvjgpPvvIjkuIDkuovkuI3lho3nkIbjga7ljp/liYfvvIlcIixcbiAgICAgIFwi5paw44Gf44Gq5oOF5aCx44GM44GC44KM44Gw44CB5ZCM44GY5LqL6aCF44Gr44Gk44GE44Gm5YaN6Kq/5p+744GV44KM44KL44GT44Go44GM44GC44KK44G+44GZXCIsXG4gICAgICBcIjPlubTntYzpgY7jgZnjgozjgbDlkIzjgZjkuovpoIXjgafjgoLlho3oqr/mn7vjgZXjgozjgb7jgZlcIixcbiAgICAgIFwi5YaN6Kq/5p+744Gv56iO5YuZ572y6ZW344Gu6Kix5Y+v44GM5LiN6KaB44Gn44CB44GE44Gk44Gn44KC6KGM44KP44KM44G+44GZXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDEsXG4gICAgZXhwbGFuYXRpb246IFwi5Zu956iO6YCa5YmH5rOV56ysNzTmnaHjga4xMeesrDbpoIXjgavjgojjgorjgIHoqr/mn7vntYLkuoblvozjgavjgIzmlrDjgZ/jgavlvpfjgonjgozjgZ/mg4XloLHjgI3jgavnhafjgonjgZfjgabpnZ7pgZXjgYzjgYLjgovjgajoqo3jgoHjgonjgozjgovloLTlkIjjga/jgIHlho3oqr/mn7vjgYzooYzjgo/jgozjgovjgZPjgajjgYzjgYLjgorjgb7jgZnjgILjgZ/jgaDjgZfjgIHlho3oqr/mn7vjgpLooYzjgYbjgavjga/nqI7li5nnvbLplbfjga7liKTmlq3jgYzlv4XopoHjgafjgYLjgorjgIHmraPlvZPjgarnkIbnlLHjgarjgY/nubDjgorov5TjgZflkIzjgZjkuovpoIXjgpLoqr/mn7vjgZnjgovjgZPjgajjga/oqo3jgoHjgonjgozjgabjgYTjgb7jgZvjgpPjgIJcIixcbiAgICBzb3VyY2U6IFwi5Zu956iO6YCa5YmH5rOV56ysNzTmnaHjga4xMeesrDbpoIVcIlxuICB9LFxuICB7XG4gICAgaWQ6IDQwLFxuICAgIGNhdGVnb3J5OiBcIuOBneOBruS7llwiLFxuICAgIHF1ZXN0aW9uOiBcIueojuWLmeiqv+afu+OBq+WCmeOBiOOBpuOAgeaXpemgg+OBi+OCiee1jOWWtuiAheOBjOacgOOCguW/g+OBjOOBkeOCi+OBueOBjeOBk+OBqOOBr+OBqeOCjOOBp+OBmeOBi++8n1wiLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIFwi56iO5YuZ572y44Go44Gu6Imv5aW944Gq5Lq66ZaT6Zai5L+C44KS56+J44GE44Gm44GK44GP44GT44Go44Gn44GZXCIsXG4gICAgICBcIuevgOeojuWvvuetluOCkuacgOWkp+mZkOOBq+a0u+eUqOOBl+OBpuOAgee0jeeojumhjeOCkualtemZkOOBvuOBp+a4m+OCieOBmeOBk+OBqOOBp+OBmVwiLFxuICAgICAgXCLpganmraPjgaroqJjluLPjgajoqLzmhpHjga7mlbTnkIbkv53nrqHjgpLml6XluLjnmoTjgavooYzjgYTjgIHpoafllY/nqI7nkIblo6vjgajlrprmnJ/nmoTjgavjgrPjg5/jg6Xjg4vjgrHjg7zjgrfjg6fjg7PjgpLjgajjgovjgZPjgajjgafjgZlcIixcbiAgICAgIFwi56iO5YuZ6Kq/5p+744GM5p2l44Gq44GE44KI44GG44CB5aOy5LiK44KS6Kq/5pW044GX44Gm55uu56uL44Gf44Gq44GE44KI44GG44Gr44GZ44KL44GT44Go44Gn44GZXCJcbiAgICBdLFxuICAgIGNvcnJlY3Q6IDIsXG4gICAgZXhwbGFuYXRpb246IFwi56iO5YuZ6Kq/5p+744G444Gu5pyA5ZaE44Gu5YKZ44GI44Gv44CB5pel44CF44Gu6YGp5q2j44Gq6KiY5biz44Go6Ki85oaR77yI6aCY5Y+O5pu444O76KuL5rGC5pu4562J77yJ44Gu5pW055CG5L+d566h44KS5b655bqV44GX44CB6aGn5ZWP56iO55CG5aOr44Go44Gu5a6a5pyf55qE44Gq44Kz44Of44Ol44OL44Kx44O844K344On44Oz44Gr44KI44Gj44Gm5q2j56K644Gq55Sz5ZGK44KS6KGM44GG44GT44Go44Gn44GZ44CC56iO5YuZ6Kq/5p+744Gv5q2j44GX44GE55Sz5ZGK44KS44GX44Gm44GE44KM44Gw5oGQ44KM44KL44KC44Gu44Gn44Gv44GC44KK44G+44Gb44KT44CC5aOy5LiK44Gu6Kq/5pW044Gv6ISx56iO6KGM54K644Gr44GC44Gf44KK44CB44GL44GI44Gj44Gm6YeN5aSn44Gq44Oq44K544Kv44KS5oub44GN44G+44GZ44CCXCIsXG4gICAgc291cmNlOiBcIuWbveeojuW6gSDnqI7li5noqr/mn7vmiYvntppGQVHvvIjkuIDoiKzntI3nqI7ogIXlkJHjgZHvvInjgIHms5XkurrnqI7ms5XnrKwxNTDmnaHjga4yXCJcbiAgfVxuXTtcblxuY29uc3QgQ0FURUdPUklFUyA9IFtcbiAgeyBrZXk6IFwi5Z+656SO55+l6K2YXCIsIGljb246IFwi8J+TmlwiLCBsYWJlbDogXCLln7rnpI7nn6XorZhcIiB9LFxuICB7IGtleTogXCLkuovliY3pgJrnn6Xjg7vml6XnqItcIiwgaWNvbjogXCLwn5OeXCIsIGxhYmVsOiBcIuS6i+WJjemAmuefpeODu+aXpeeoi1wiIH0sXG4gIHsga2V5OiBcIuW9k+aXpeOBruWvvuW/nFwiLCBpY29uOiBcIvCfj6JcIiwgbGFiZWw6IFwi5b2T5pel44Gu5a++5b+cXCIgfSxcbiAgeyBrZXk6IFwi5biz57C/44O76Ki85oaRXCIsIGljb246IFwi8J+Ti1wiLCBsYWJlbDogXCLluLPnsL/jg7voqLzmhpFcIiB9LFxuICB7IGtleTogXCLkv67mraPnlLPlkYrjg7vmm7TmraNcIiwgaWNvbjogXCLwn5OdXCIsIGxhYmVsOiBcIuS/ruato+eUs+WRiuODu+abtOato1wiIH0sXG4gIHsga2V5OiBcIuWKoOeul+eojuODu+W7tua7nueojlwiLCBpY29uOiBcIvCfkrBcIiwgbGFiZWw6IFwi5Yqg566X56iO44O75bu25rue56iOXCIgfSxcbiAgeyBrZXk6IFwi5LiN5pyN55Sz56uL44GmXCIsIGljb246IFwi4pqW77iPXCIsIGxhYmVsOiBcIuS4jeacjeeUs+eri+OBplwiIH0sXG4gIHsga2V5OiBcIuWun+WLmeOBruazqOaEj+eCuVwiLCBpY29uOiBcIuKaoO+4j1wiLCBsYWJlbDogXCLlrp/li5njga7ms6jmhI/ngrlcIiB9LFxuICB7IGtleTogXCLmtojosrvnqI7jga7oqr/mn7tcIiwgaWNvbjogXCLwn6e+XCIsIGxhYmVsOiBcIua2iOiyu+eojuOBruiqv+afu1wiIH0sXG4gIHsga2V5OiBcIuOBneOBruS7llwiLCBpY29uOiBcIvCfk4xcIiwgbGFiZWw6IFwi44Gd44Gu5LuWXCIgfVxuXTtcblxuY29uc3QgT1BUSU9OX0xBQkVMUyA9IFtcIkFcIiwgXCJCXCIsIFwiQ1wiLCBcIkRcIl07XG5cbmZ1bmN0aW9uIHNodWZmbGUoYXJyKSB7XG4gIGNvbnN0IGEgPSBbLi4uYXJyXTtcbiAgZm9yIChsZXQgaSA9IGEubGVuZ3RoIC0gMTsgaSA+IDA7IGktLSkge1xuICAgIGNvbnN0IGogPSBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAoaSArIDEpKTtcbiAgICBbYVtpXSwgYVtqXV0gPSBbYVtqXSwgYVtpXV07XG4gIH1cbiAgcmV0dXJuIGE7XG59XG5cbi8vID09PT09PT09PT09PT09PT1cbi8vIOODoeOCpOODs+OCouODl+ODqlxuLy8gPT09PT09PT09PT09PT09PVxuZnVuY3Rpb24gQXBwKCkge1xuICBjb25zdCBbc2NyZWVuLCBzZXRTY3JlZW5dID0gdXNlU3RhdGUoXCJzdGFydFwiKTsgLy8gc3RhcnQsIHF1aXosIHJlc3VsdCwgcmV2aWV3XG4gIGNvbnN0IFtzZWxlY3RlZENhdGVnb3J5LCBzZXRTZWxlY3RlZENhdGVnb3J5XSA9IHVzZVN0YXRlKFwiYWxsXCIpO1xuICBjb25zdCBbcXVlc3Rpb25zLCBzZXRRdWVzdGlvbnNdID0gdXNlU3RhdGUoW10pO1xuICBjb25zdCBbY3VycmVudElkeCwgc2V0Q3VycmVudElkeF0gPSB1c2VTdGF0ZSgwKTtcbiAgY29uc3QgW3NlbGVjdGVkLCBzZXRTZWxlY3RlZF0gPSB1c2VTdGF0ZShudWxsKTtcbiAgY29uc3QgW2Fuc3dlcmVkLCBzZXRBbnN3ZXJlZF0gPSB1c2VTdGF0ZShmYWxzZSk7XG4gIGNvbnN0IFtyZXN1bHRzLCBzZXRSZXN1bHRzXSA9IHVzZVN0YXRlKFtdKTtcblxuICBjb25zdCBjYXRlZ29yeUNvdW50ID0gdXNlTWVtbygoKSA9PiB7XG4gICAgY29uc3QgY291bnRzID0ge307XG4gICAgUVVFU1RJT05TLmZvckVhY2gocSA9PiB7XG4gICAgICBjb3VudHNbcS5jYXRlZ29yeV0gPSAoY291bnRzW3EuY2F0ZWdvcnldIHx8IDApICsgMTtcbiAgICB9KTtcbiAgICByZXR1cm4gY291bnRzO1xuICB9LCBbXSk7XG5cbiAgY29uc3Qgc3RhcnRRdWl6ID0gdXNlQ2FsbGJhY2soKCkgPT4ge1xuICAgIGxldCBxcztcbiAgICBpZiAoc2VsZWN0ZWRDYXRlZ29yeSA9PT0gXCJhbGxcIikge1xuICAgICAgcXMgPSBzaHVmZmxlKFFVRVNUSU9OUyk7XG4gICAgfSBlbHNlIHtcbiAgICAgIHFzID0gc2h1ZmZsZShRVUVTVElPTlMuZmlsdGVyKHEgPT4gcS5jYXRlZ29yeSA9PT0gc2VsZWN0ZWRDYXRlZ29yeSkpO1xuICAgIH1cbiAgICBzZXRRdWVzdGlvbnMocXMpO1xuICAgIHNldEN1cnJlbnRJZHgoMCk7XG4gICAgc2V0U2VsZWN0ZWQobnVsbCk7XG4gICAgc2V0QW5zd2VyZWQoZmFsc2UpO1xuICAgIHNldFJlc3VsdHMoW10pO1xuICAgIHNldFNjcmVlbihcInF1aXpcIik7XG4gIH0sIFtzZWxlY3RlZENhdGVnb3J5XSk7XG5cbiAgY29uc3QgaGFuZGxlU2VsZWN0ID0gdXNlQ2FsbGJhY2soKGlkeCkgPT4ge1xuICAgIGlmIChhbnN3ZXJlZCkgcmV0dXJuO1xuICAgIHNldFNlbGVjdGVkKGlkeCk7XG4gICAgc2V0QW5zd2VyZWQodHJ1ZSk7XG4gICAgc2V0UmVzdWx0cyhwcmV2ID0+IFsuLi5wcmV2LCB7XG4gICAgICBxdWVzdGlvbjogcXVlc3Rpb25zW2N1cnJlbnRJZHhdLFxuICAgICAgc2VsZWN0ZWRJZHg6IGlkeCxcbiAgICAgIGlzQ29ycmVjdDogaWR4ID09PSBxdWVzdGlvbnNbY3VycmVudElkeF0uY29ycmVjdFxuICAgIH1dKTtcbiAgfSwgW2Fuc3dlcmVkLCBxdWVzdGlvbnMsIGN1cnJlbnRJZHhdKTtcblxuICBjb25zdCBuZXh0UXVlc3Rpb24gPSB1c2VDYWxsYmFjaygoKSA9PiB7XG4gICAgaWYgKGN1cnJlbnRJZHggKyAxID49IHF1ZXN0aW9ucy5sZW5ndGgpIHtcbiAgICAgIHNldFNjcmVlbihcInJlc3VsdFwiKTtcbiAgICB9IGVsc2Uge1xuICAgICAgc2V0Q3VycmVudElkeChwcmV2ID0+IHByZXYgKyAxKTtcbiAgICAgIHNldFNlbGVjdGVkKG51bGwpO1xuICAgICAgc2V0QW5zd2VyZWQoZmFsc2UpO1xuICAgIH1cbiAgfSwgW2N1cnJlbnRJZHgsIHF1ZXN0aW9ucy5sZW5ndGhdKTtcblxuICBjb25zdCBjb3JyZWN0Q291bnQgPSByZXN1bHRzLmZpbHRlcihyID0+IHIuaXNDb3JyZWN0KS5sZW5ndGg7XG4gIGNvbnN0IHRvdGFsQ291bnQgPSByZXN1bHRzLmxlbmd0aDtcbiAgY29uc3Qgc2NvcmVQZXJjZW50ID0gdG90YWxDb3VudCA+IDAgPyBNYXRoLnJvdW5kKChjb3JyZWN0Q291bnQgLyB0b3RhbENvdW50KSAqIDEwMCkgOiAwO1xuXG4gIGNvbnN0IGNhdGVnb3J5UmVzdWx0cyA9IHVzZU1lbW8oKCkgPT4ge1xuICAgIGNvbnN0IG1hcCA9IHt9O1xuICAgIHJlc3VsdHMuZm9yRWFjaChyID0+IHtcbiAgICAgIGNvbnN0IGNhdCA9IHIucXVlc3Rpb24uY2F0ZWdvcnk7XG4gICAgICBpZiAoIW1hcFtjYXRdKSBtYXBbY2F0XSA9IHsgY29ycmVjdDogMCwgdG90YWw6IDAgfTtcbiAgICAgIG1hcFtjYXRdLnRvdGFsKys7XG4gICAgICBpZiAoci5pc0NvcnJlY3QpIG1hcFtjYXRdLmNvcnJlY3QrKztcbiAgICB9KTtcbiAgICByZXR1cm4gbWFwO1xuICB9LCBbcmVzdWx0c10pO1xuXG4gIC8vIOOCueOCv+ODvOODiOeUu+mdolxuICBpZiAoc2NyZWVuID09PSBcInN0YXJ0XCIpIHtcbiAgICByZXR1cm4gKFxuICAgICAgPGRpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJoZWFkZXJcIj5cbiAgICAgICAgICA8aDE+56iO5YuZ6Kq/5p+7IFEmQSDjgq/jgqTjgro8L2gxPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3VidGl0bGVcIj7kuK3lsI/kvIHmpa3ntYzllrbogIXjga7jgZ/jgoHjga7lrp/ot7XjgqzjgqTjg4k8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzdGFydC1zY3JlZW5cIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibG9nb1wiPvCflI08L2Rpdj5cbiAgICAgICAgICAgIDxoMj7nqI7li5noqr/mn7vjga7lr77lv5zlipvjgpLjg4Hjgqfjg4Pjgq/vvIE8L2gyPlxuICAgICAgICAgICAgPHA+5Zu956iO5bqB44Gu5YWs5byP5oOF5aCx44Gr5Z+644Gl44GE44Gf5YWoe1FVRVNUSU9OUy5sZW5ndGh95ZWP44Gu5a6f6Le155qE44Gq44Kv44Kk44K644Gn44GZ44CCPGJyLz7jgqvjg4bjgrTjg6rjgpLpgbjjgpPjgafjgIE05oqe5ZWP6aGM44Gr5oyR5oim44GX44Gm44G/44G+44GX44KH44GG44CCPC9wPlxuXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNhdGVnb3J5LWdyaWRcIj5cbiAgICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YGNhdGVnb3J5LWNhcmQgJHtzZWxlY3RlZENhdGVnb3J5ID09PSBcImFsbFwiID8gXCJzZWxlY3RlZFwiIDogXCJcIn1gfVxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNlbGVjdGVkQ2F0ZWdvcnkoXCJhbGxcIil9XG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImljb25cIj7wn46vPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJsYWJlbFwiPuWFqOOCq+ODhuOCtOODqjwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY291bnRcIj7lhah7UVVFU1RJT05TLmxlbmd0aH3llY88L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIHtDQVRFR09SSUVTLm1hcChjYXQgPT4gKFxuICAgICAgICAgICAgICAgIDxkaXZcbiAgICAgICAgICAgICAgICAgIGtleT17Y2F0LmtleX1cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YGNhdGVnb3J5LWNhcmQgJHtzZWxlY3RlZENhdGVnb3J5ID09PSBjYXQua2V5ID8gXCJzZWxlY3RlZFwiIDogXCJcIn1gfVxuICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2VsZWN0ZWRDYXRlZ29yeShjYXQua2V5KX1cbiAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImljb25cIj57Y2F0Lmljb259PC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImxhYmVsXCI+e2NhdC5sYWJlbH08L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY291bnRcIj57Y2F0ZWdvcnlDb3VudFtjYXQua2V5XSB8fCAwfeWVjzwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cImJ0biBidG4tcHJpbWFyeVwiIG9uQ2xpY2s9e3N0YXJ0UXVpen0+XG4gICAgICAgICAgICAgIOOCr+OCpOOCuuOCkuOCueOCv+ODvOODiCDihpJcbiAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmb290ZXJcIj5cbiAgICAgICAgICAgIDxwPuacrOOCouODl+ODquOBr+OAgeWbveeojuW6geWFrOW8j+aDheWgseOBq+WfuuOBpeOBhOOBpuS9nOaIkOOBl+OBpuOBhOOBvuOBmeOAgjxici8+XG4gICAgICAgICAgICDlj4LnhafvvJo8YSBocmVmPVwiaHR0cHM6Ly93d3cubnRhLmdvLmpwL2luZm9ybWF0aW9uL290aGVyL2RhdGEvaDI0L25vemVpa2Fua3lvL2lwcGFuMDIuaHRtXCIgdGFyZ2V0PVwiX2JsYW5rXCIgcmVsPVwibm9vcGVuZXJcIj7lm73nqI7luoEg56iO5YuZ6Kq/5p+75omL57aaRkFRPC9hPjwvcD5cbiAgICAgICAgICAgIDxwIHN0eWxlPXt7bWFyZ2luVG9wOiBcIjhweFwifX0+wqkgMjAyNiDmnpfnqI7nkIblo6vnpL7lirTlo6vkuovli5nmiYA8L3A+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgKTtcbiAgfVxuXG4gIC8vIOOCr+OCpOOCuueUu+mdolxuICBpZiAoc2NyZWVuID09PSBcInF1aXpcIikge1xuICAgIGNvbnN0IHEgPSBxdWVzdGlvbnNbY3VycmVudElkeF07XG4gICAgY29uc3QgcHJvZ3Jlc3MgPSAoKGN1cnJlbnRJZHggKyAoYW5zd2VyZWQgPyAxIDogMCkpIC8gcXVlc3Rpb25zLmxlbmd0aCkgKiAxMDA7XG4gICAgY29uc3QgY2F0SW5mbyA9IENBVEVHT1JJRVMuZmluZChjID0+IGMua2V5ID09PSBxLmNhdGVnb3J5KTtcblxuICAgIHJldHVybiAoXG4gICAgICA8ZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImhlYWRlclwiPlxuICAgICAgICAgIDxoMT7nqI7li5noqr/mn7sgUSZBIOOCr+OCpOOCujwvaDE+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNvbnRhaW5lclwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicHJvZ3Jlc3Mtc2VjdGlvblwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwcm9ncmVzcy1pbmZvXCI+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImNhdGVnb3J5LXRhZ1wiPntjYXRJbmZvID8gY2F0SW5mby5pY29uIDogXCLwn5OLXCJ9IHtxLmNhdGVnb3J5fTwvc3Bhbj5cbiAgICAgICAgICAgICAgPHNwYW4+e2N1cnJlbnRJZHggKyAxfSAvIHtxdWVzdGlvbnMubGVuZ3RofTwvc3Bhbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwcm9ncmVzcy1iYXJcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwcm9ncmVzcy1maWxsXCIgc3R5bGU9e3t3aWR0aDogYCR7cHJvZ3Jlc3N9JWB9fT48L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJxdWVzdGlvbi1jYXJkXCIga2V5PXtxLmlkfT5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicXVlc3Rpb24tbnVtYmVyXCI+56yse2N1cnJlbnRJZHggKyAxfeWVjzwvZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJxdWVzdGlvbi10ZXh0XCI+e3EucXVlc3Rpb259PC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwib3B0aW9uc1wiPlxuICAgICAgICAgICAgICB7cS5vcHRpb25zLm1hcCgob3B0LCBpZHgpID0+IHtcbiAgICAgICAgICAgICAgICBsZXQgY2xzID0gXCJvcHRpb24tYnRuXCI7XG4gICAgICAgICAgICAgICAgaWYgKGFuc3dlcmVkKSB7XG4gICAgICAgICAgICAgICAgICBjbHMgKz0gXCIgZGlzYWJsZWRcIjtcbiAgICAgICAgICAgICAgICAgIGlmIChpZHggPT09IHEuY29ycmVjdCkgY2xzICs9IFwiIGNvcnJlY3RcIjtcbiAgICAgICAgICAgICAgICAgIGVsc2UgaWYgKGlkeCA9PT0gc2VsZWN0ZWQgJiYgaWR4ICE9PSBxLmNvcnJlY3QpIGNscyArPSBcIiB3cm9uZ1wiO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgICAgICAgPGJ1dHRvbiBrZXk9e2lkeH0gY2xhc3NOYW1lPXtjbHN9IG9uQ2xpY2s9eygpID0+IGhhbmRsZVNlbGVjdChpZHgpfT5cbiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwib3B0aW9uLWxhYmVsXCI+e09QVElPTl9MQUJFTFNbaWR4XX08L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuPntvcHR9PC9zcGFuPlxuICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgICAgfSl9XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAge2Fuc3dlcmVkICYmIChcbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJleHBsYW5hdGlvblwiPlxuICAgICAgICAgICAgICAgIDxoND57c2VsZWN0ZWQgPT09IHEuY29ycmVjdCA/IFwi4pyFIOato+ino+OBp+OBme+8gVwiIDogXCLinYwg5LiN5q2j6Kej44Gn44GZXCJ9PC9oND5cbiAgICAgICAgICAgICAgICA8cD57cS5leHBsYW5hdGlvbn08L3A+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzb3VyY2VcIj7wn5OWIOagueaLoO+8mntxLnNvdXJjZX08L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApfVxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAge2Fuc3dlcmVkICYmIChcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibmV4dC1idG4tYXJlYVwiPlxuICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cImJ0biBidG4tcHJpbWFyeSBidG4tc21cIiBvbkNsaWNrPXtuZXh0UXVlc3Rpb259PlxuICAgICAgICAgICAgICAgIHtjdXJyZW50SWR4ICsgMSA+PSBxdWVzdGlvbnMubGVuZ3RoID8gXCLntZDmnpzjgpLopovjgosg4oaSXCIgOiBcIuasoeOBruWVj+mhjCDihpJcIn1cbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApfVxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgICk7XG4gIH1cblxuICAvLyDntZDmnpznlLvpnaJcbiAgaWYgKHNjcmVlbiA9PT0gXCJyZXN1bHRcIikge1xuICAgIGNvbnN0IHNjb3JlQ2xhc3MgPSBzY29yZVBlcmNlbnQgPj0gODAgPyBcInNjb3JlLWhpZ2hcIiA6IHNjb3JlUGVyY2VudCA+PSA1MCA/IFwic2NvcmUtbWlkXCIgOiBcInNjb3JlLWxvd1wiO1xuICAgIGNvbnN0IGdldE1lc3NhZ2UgPSAoKSA9PiB7XG4gICAgICBpZiAoc2NvcmVQZXJjZW50ID49IDkwKSByZXR1cm4geyB0aXRsZTogXCLntKDmmbTjgonjgZfjgYTvvIFcIiwgZGV0YWlsOiBcIueojuWLmeiqv+afu+OBq+WvvuOBmeOCi+a3seOBhOeQhuino+OCkuOBiuaMgeOBoeOBp+OBmeOAguOBk+OBruefpeitmOOCkuaXpeW4uOOBrue1jOWWtuOBq+OCgua0u+OBi+OBl+OBpuOBj+OBoOOBleOBhOOAglwiIH07XG4gICAgICBpZiAoc2NvcmVQZXJjZW50ID49IDcwKSByZXR1cm4geyB0aXRsZTogXCLjgojjgY/jgafjgY3jgb7jgZfjgZ/vvIFcIiwgZGV0YWlsOiBcIuWfuuacrOeahOOBquefpeitmOOBr+OBl+OBo+OBi+OCiuOBqOi6q+OBq+OBpOOBhOOBpuOBhOOBvuOBmeOAgumWk+mBleOBiOOBn+WVj+mhjOOCkuW+qee/kuOBl+OBpuOAgeOBleOCieOBq+eQhuino+OCkua3seOCgeOBvuOBl+OCh+OBhuOAglwiIH07XG4gICAgICBpZiAoc2NvcmVQZXJjZW50ID49IDUwKSByZXR1cm4geyB0aXRsZTogXCLjgoLjgYblsJHjgZfjgafjgZnvvIFcIiwgZGV0YWlsOiBcIuOBhOOBj+OBpOOBi+OBrumHjeimgeOBquODneOCpOODs+ODiOOCkuimi+ebtOOBmeW/heimgeOBjOOBguOCiuOBvuOBmeOAguino+iqrOOCkuOCiOOBj+iqreOCk+OBp+OAgeato+OBl+OBhOefpeitmOOCkui6q+OBq+OBpOOBkeOBvuOBl+OCh+OBhuOAglwiIH07XG4gICAgICByZXR1cm4geyB0aXRsZTogXCLlvqnnv5LjgYzlv4XopoHjgafjgZlcIiwgZGV0YWlsOiBcIueojuWLmeiqv+afu+OBruWfuuacrOeahOOBquefpeitmOOCkuS9k+ezu+eahOOBq+WtpuOBs+ebtOOBmeOBk+OBqOOCkuOBiuWLp+OCgeOBl+OBvuOBmeOAgumhp+WVj+eojueQhuWjq+OBq+OCguOBlOebuOirh+OBj+OBoOOBleOBhOOAglwiIH07XG4gICAgfTtcbiAgICBjb25zdCBtc2cgPSBnZXRNZXNzYWdlKCk7XG5cbiAgICByZXR1cm4gKFxuICAgICAgPGRpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJoZWFkZXJcIj5cbiAgICAgICAgICA8aDE+56iO5YuZ6Kq/5p+7IFEmQSDjgq/jgqTjgro8L2gxPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb250YWluZXJcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlc3VsdC1zY3JlZW5cIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVzdWx0LWNhcmRcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e2BzY29yZS1jaXJjbGUgJHtzY29yZUNsYXNzfWB9PlxuICAgICAgICAgICAgICAgIHtzY29yZVBlcmNlbnR9XG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibGFiZWxcIj7ngrk8L3NwYW4+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlc3VsdC1tZXNzYWdlXCI+e21zZy50aXRsZX08L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJyZXN1bHQtZGV0YWlsXCI+XG4gICAgICAgICAgICAgICAge3RvdGFsQ291bnR95ZWP5LitIHtjb3JyZWN0Q291bnR95ZWP5q2j6Kej44CA77yI5q2j562U546HIHtzY29yZVBlcmNlbnR9Je+8iVxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPHAgc3R5bGU9e3tmb250U2l6ZTogXCIwLjlyZW1cIiwgY29sb3I6IFwiIzdmOGM4ZFwifX0+e21zZy5kZXRhaWx9PC9wPlxuXG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVzdWx0LWJyZWFrZG93blwiPlxuICAgICAgICAgICAgICAgIDxoND7jgqvjg4bjgrTjg6rliKXjga7miJDnuL48L2g0PlxuICAgICAgICAgICAgICAgIHtPYmplY3QuZW50cmllcyhjYXRlZ29yeVJlc3VsdHMpLm1hcCgoW2NhdCwgZGF0YV0pID0+IChcbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYnJlYWtkb3duLWl0ZW1cIiBrZXk9e2NhdH0+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImNhdC1uYW1lXCI+e0NBVEVHT1JJRVMuZmluZChjID0+IGMua2V5ID09PSBjYXQpPy5pY29ufSB7Y2F0fTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiY2F0LXNjb3JlXCI+e2RhdGEuY29ycmVjdH0gLyB7ZGF0YS50b3RhbH3vvIh7TWF0aC5yb3VuZCgoZGF0YS5jb3JyZWN0IC8gZGF0YS50b3RhbCkgKiAxMDApfSXvvIk8L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJidG4tZ3JvdXBcIj5cbiAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJidG4gYnRuLXByaW1hcnkgYnRuLXNtXCIgb25DbGljaz17KCkgPT4gc2V0U2NyZWVuKFwicmV2aWV3XCIpfT5cbiAgICAgICAgICAgICAgICDop6PnrZTjgpLmjK/jgorov5TjgotcbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiYnRuIGJ0bi1vdXRsaW5lIGJ0bi1zbVwiIG9uQ2xpY2s9eygpID0+IHsgc2V0U2NyZWVuKFwic3RhcnRcIik7IHNldFNlbGVjdGVkQ2F0ZWdvcnkoXCJhbGxcIik7IH19PlxuICAgICAgICAgICAgICAgIOODiOODg+ODl+OBq+aIu+OCi1xuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmb290ZXJcIj5cbiAgICAgICAgICAgIDxwPsKpIDIwMjYg5p6X56iO55CG5aOr56S+5Yq05aOr5LqL5YuZ5omAPC9wPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgICk7XG4gIH1cblxuICAvLyDmjK/jgorov5TjgornlLvpnaJcbiAgaWYgKHNjcmVlbiA9PT0gXCJyZXZpZXdcIikge1xuICAgIHJldHVybiAoXG4gICAgICA8ZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImhlYWRlclwiPlxuICAgICAgICAgIDxoMT7op6PnrZTjga7mjK/jgorov5Tjgoo8L2gxPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb250YWluZXJcIj5cbiAgICAgICAgICB7cmVzdWx0cy5tYXAoKHIsIGkpID0+IChcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmV2aWV3LWl0ZW1cIiBrZXk9e2l9PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInEtaGVhZGVyXCI+XG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPXtgYmFkZ2UgJHtyLmlzQ29ycmVjdCA/IFwiYmFkZ2UtY29ycmVjdFwiIDogXCJiYWRnZS13cm9uZ1wifWB9PlxuICAgICAgICAgICAgICAgICAge3IuaXNDb3JyZWN0ID8gXCLmraPop6NcIiA6IFwi5LiN5q2j6KejXCJ9XG4gICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgIDxzcGFuIHN0eWxlPXt7Zm9udFNpemU6IFwiMC44cmVtXCIsIGNvbG9yOiBcIiM3ZjhjOGRcIn19PuesrHtpICsgMX3llY/vvZx7ci5xdWVzdGlvbi5jYXRlZ29yeX08L3NwYW4+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInEtdGV4dFwiPntyLnF1ZXN0aW9uLnF1ZXN0aW9ufTwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImFuc3dlci1pbmZvXCI+XG4gICAgICAgICAgICAgICAg44GC44Gq44Gf44Gu5Zue562U77yae09QVElPTl9MQUJFTFNbci5zZWxlY3RlZElkeF19LiB7ci5xdWVzdGlvbi5vcHRpb25zW3Iuc2VsZWN0ZWRJZHhdfTxici8+XG4gICAgICAgICAgICAgICAgPHN0cm9uZz7mraPop6PvvJp7T1BUSU9OX0xBQkVMU1tyLnF1ZXN0aW9uLmNvcnJlY3RdfS4ge3IucXVlc3Rpb24ub3B0aW9uc1tyLnF1ZXN0aW9uLmNvcnJlY3RdfTwvc3Ryb25nPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJleHAtdGV4dFwiPntyLnF1ZXN0aW9uLmV4cGxhbmF0aW9ufTxici8+PHNwYW4gc3R5bGU9e3tmb250U2l6ZTogXCIwLjc4cmVtXCIsIGNvbG9yOiBcIiM5NWE1YTZcIn19PvCfk5Yge3IucXVlc3Rpb24uc291cmNlfTwvc3Bhbj48L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICkpfVxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmFjay10b3BcIj5cbiAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiYnRuIGJ0bi1vdXRsaW5lIGJ0bi1zbVwiIG9uQ2xpY2s9eygpID0+IHNldFNjcmVlbihcInJlc3VsdFwiKX0+XG4gICAgICAgICAgICAgIOKGkCDntZDmnpzjgavmiLvjgotcbiAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAge1wiIFwifVxuICAgICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJidG4gYnRuLXByaW1hcnkgYnRuLXNtXCIgb25DbGljaz17KCkgPT4geyBzZXRTY3JlZW4oXCJzdGFydFwiKTsgc2V0U2VsZWN0ZWRDYXRlZ29yeShcImFsbFwiKTsgfX0+XG4gICAgICAgICAgICAgIOODiOODg+ODl+OBq+aIu+OCi1xuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmb290ZXJcIj5cbiAgICAgICAgICAgIDxwPsKpIDIwMjYg5p6X56iO55CG5aOr56S+5Yq05aOr5LqL5YuZ5omAPC9wPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgICk7XG4gIH1cblxuICByZXR1cm4gbnVsbDtcbn1cblxuUmVhY3RET00uY3JlYXRlUm9vdChkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcInJvb3RcIikpLnJlbmRlcig8QXBwIC8+KTtcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQ0EsSUFBQUEsTUFBQSxHQUEyQ0MsS0FBSztFQUF4Q0MsUUFBUSxHQUFBRixNQUFBLENBQVJFLFFBQVE7RUFBRUMsV0FBVyxHQUFBSCxNQUFBLENBQVhHLFdBQVc7RUFBRUMsT0FBTyxHQUFBSixNQUFBLENBQVBJLE9BQU87O0FBRXRDO0FBQ0E7QUFDQTtBQUNBLElBQU1DLFNBQVMsR0FBRztBQUNoQjtBQUNB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</script></head>
+<body>
+<div id="root"><div><div class="header"><h1>税務調査 Q&amp;A クイズ</h1><div class="subtitle">中小企業経営者のための実践ガイド</div></div><div class="container"><div class="start-screen"><div class="logo">🔍</div><h2>税務調査の対応力をチェック！</h2><p>国税庁の公式情報に基づいた全40問の実践的なクイズです。<br>カテゴリを選んで、4択問題に挑戦してみましょう。</p><div class="category-grid"><div class="category-card selected"><div class="icon">🎯</div><div class="label">全カテゴリ</div><div class="count">全40問</div></div><div class="category-card "><div class="icon">📚</div><div class="label">基礎知識</div><div class="count">6問</div></div><div class="category-card "><div class="icon">📞</div><div class="label">事前通知・日程</div><div class="count">4問</div></div><div class="category-card "><div class="icon">🏢</div><div class="label">当日の対応</div><div class="count">6問</div></div><div class="category-card "><div class="icon">📋</div><div class="label">帳簿・証憑</div><div class="count">5問</div></div><div class="category-card "><div class="icon">📝</div><div class="label">修正申告・更正</div><div class="count">3問</div></div><div class="category-card "><div class="icon">💰</div><div class="label">加算税・延滞税</div><div class="count">4問</div></div><div class="category-card "><div class="icon">⚖️</div><div class="label">不服申立て</div><div class="count">2問</div></div><div class="category-card "><div class="icon">⚠️</div><div class="label">実務の注意点</div><div class="count">5問</div></div><div class="category-card "><div class="icon">🧾</div><div class="label">消費税の調査</div><div class="count">2問</div></div><div class="category-card "><div class="icon">📌</div><div class="label">その他</div><div class="count">3問</div></div></div><button class="btn btn-primary">クイズをスタート →</button></div><div class="footer"><p>本アプリは、国税庁公式情報に基づいて作成しています。<br>参照：<a href="https://www.nta.go.jp/information/other/data/h24/nozeikankyo/ippan02.htm" target="_blank" rel="noopener">国税庁 税務調査手続FAQ</a></p><p style="margin-top: 8px;">© 2026 林税理士社労士事務所</p></div></div></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script type="text/babel">
+const { useState, useCallback, useMemo } = React;
+
+// ==========================================
+// 問題データベース（国税庁公式情報に基づく）
+// ==========================================
+const QUESTIONS = [
+  // ── カテゴリ1: 税務調査の基礎知識 ──
+  {
+    id: 1,
+    category: "基礎知識",
+    question: "税務調査の「事前通知」について、正しいものはどれですか？",
+    options: [
+      "事前通知は法律上の義務ではなく、税務署の任意で行われます",
+      "原則として調査開始前に、納税者と税理士の双方に通知されます",
+      "事前通知は必ず書面（郵送）で届きます",
+      "事前通知から調査開始まで、必ず1か月以上の猶予があります"
+    ],
+    correct: 1,
+    explanation: "国税通則法第74条の9により、実地調査を行う場合は原則として、調査開始日前までに相当の時間的余裕をおいて、納税者本人と税務代理人（顧問税理士）の双方に、電話等で事前通知が行われます。ただし、違法・不正が疑われる場合には無予告調査もあり得ます。",
+    source: "国税通則法第74条の9（国税庁 税務調査手続FAQ）"
+  },
+  {
+    id: 2,
+    category: "基礎知識",
+    question: "事前通知で伝えられる内容として、法律で定められていないものはどれですか？",
+    options: [
+      "調査の開始日時",
+      "調査の対象となる税目",
+      "調査の対象となる期間",
+      "予想される追徴税額"
+    ],
+    correct: 3,
+    explanation: "事前通知では、調査開始日時・場所・対象税目・対象期間・調査の目的・対象となる帳簿書類などが伝えられます。しかし、追徴税額の予想は通知事項に含まれていません。調査は申告内容の確認が目的であり、最初から追徴を前提としたものではありません。",
+    source: "国税通則法第74条の9第1項各号"
+  },
+  {
+    id: 3,
+    category: "基礎知識",
+    question: "税務調査における調査官の「質問検査権」について、正しいものはどれですか？",
+    options: [
+      "調査官は納税者の自宅に無断で立ち入ることができます",
+      "調査官は帳簿書類の提示を求める権限がありますが、強制力はありません",
+      "質問検査権に基づく質問に対して正当な理由なく拒否すると罰則があります",
+      "調査官は金庫や引き出しを勝手に開けて確認することができます"
+    ],
+    correct: 2,
+    explanation: "国税通則法第74条の2に基づく質問検査権は「任意調査」ですが、正当な理由なく質問への回答を拒否したり、偽りの答弁をした場合は、1年以下の懲役又は50万円以下の罰金が科される可能性があります（同法第128条）。ただし、あくまで任意調査であり、強制的な捜索はできません。",
+    source: "国税通則法第74条の2、第128条"
+  },
+  {
+    id: 4,
+    category: "基礎知識",
+    question: "税務調査の種類として、一般的に行われるものはどれですか？",
+    options: [
+      "任意調査（実地調査）のみです",
+      "強制調査（マルサ）のみです",
+      "任意調査と強制調査の2種類があります",
+      "書面調査・任意調査・強制調査の3種類があります"
+    ],
+    correct: 2,
+    explanation: "税務調査には大きく分けて「任意調査」と「強制調査」があります。中小企業に対して行われるのはほとんどが任意調査です。強制調査（いわゆる「マルサ」）は、国税犯則取締法に基づき裁判所の令状を得て行うもので、巨額の脱税が疑われる場合に限られます。",
+    source: "国税通則法第7章の2、国税犯則取締法"
+  },
+  {
+    id: 5,
+    category: "基礎知識",
+    question: "税務調査の対象期間は原則として何年分ですか？",
+    options: [
+      "直近1年分",
+      "直近3年分",
+      "直近5年分",
+      "直近7年分"
+    ],
+    correct: 1,
+    explanation: "税務調査の対象期間は原則として直近3年分（3事業年度分）です。ただし、調査の過程で不正が発見された場合は5年分に延長され、仮装・隠蔽（いわゆる脱税行為）がある場合には最大7年分まで遡及されることがあります。",
+    source: "国税通則法第70条（更正・決定等の期間制限）"
+  },
+  {
+    id: 6,
+    category: "基礎知識",
+    question: "税務署が法人に対して税務調査を行う頻度の目安として、実態に最も近いものはどれですか？",
+    options: [
+      "毎年必ず全法人に調査が入ります",
+      "概ね3年〜5年に1回程度です",
+      "設立後10年間は調査がありません",
+      "売上1億円未満の法人は調査対象外です"
+    ],
+    correct: 1,
+    explanation: "税務調査の実施頻度に明確な法定基準はありませんが、一般的に3年〜5年に1回程度のペースで実地調査が行われることが多いとされています。ただし、申告内容に不審な点がある場合や、業種・規模によっては短い間隔で調査が行われることもあります。売上規模による免除はありません。",
+    source: "国税庁 令和6事務年度 法人税等の調査事績の概要"
+  },
+
+  // ── カテゴリ2: 事前通知・日程調整 ──
+  {
+    id: 7,
+    category: "事前通知・日程",
+    question: "税務調査の事前通知を受けた際、調査日程の変更を申し出ることはできますか？",
+    options: [
+      "法律で決まった日程なので変更はできません",
+      "合理的な理由があれば、日程の変更を申し出ることができます",
+      "税理士を通じてのみ変更の申出ができます",
+      "変更できるのは1回限りです"
+    ],
+    correct: 1,
+    explanation: "事前通知の日程はあくまで「申出」であり、納税者側に合理的な理由（繁忙期、決算期、体調不良など）がある場合は日程の変更を求めることができます。国税庁の事務運営指針でも「納税者の合理的な都合を考慮する」とされています。変更回数に法的制限はありません。",
+    source: "国税通則法第74条の9第2項、国税庁事務運営指針"
+  },
+  {
+    id: 8,
+    category: "事前通知・日程",
+    question: "事前通知なしに税務調査が行われる場合（無予告調査）について、正しいものはどれですか？",
+    options: [
+      "無予告調査は法律上禁止されています",
+      "無予告調査の場合でも任意調査なので、帳簿を見せる義務はありません",
+      "事前通知をすると正確な事実の把握が困難になると判断される場合などに行われます",
+      "無予告調査が行われたら、直ちに弁護士に連絡しなければなりません"
+    ],
+    correct: 2,
+    explanation: "国税通則法第74条の10により、事前通知をすることで違法・不正な行為を容易にし、正確な事実の把握を困難にするおそれがある場合などには、事前通知を行わずに調査できると規定されています。ただし、これも任意調査ですので、質問検査権に基づく対応は同様です。",
+    source: "国税通則法第74条の10"
+  },
+  {
+    id: 9,
+    category: "事前通知・日程",
+    question: "事前通知を受けてから調査当日までに、経営者がまずやるべきことは何ですか？",
+    options: [
+      "都合の悪い帳簿や書類を処分しておきます",
+      "顧問税理士に連絡し、対象期間の帳簿や申告内容を一緒に確認します",
+      "従業員全員に調査のことを伝え、調査官には何も話さないよう指示します",
+      "取引先に連絡して、反面調査に備えてもらいます"
+    ],
+    correct: 1,
+    explanation: "事前通知を受けたら、まず顧問税理士に連絡するのが最も重要です。対象税目・期間の帳簿や申告書を税理士と一緒に確認し、不明点を事前に整理しておくことが適切な対応です。帳簿の処分は証拠隠滅として重加算税の対象となり得ますし、従業員に沈黙を指示するのも不自然な対応です。",
+    source: "国税庁 税務調査手続FAQ（一般納税者向け）"
+  },
+  {
+    id: 10,
+    category: "事前通知・日程",
+    question: "事前通知で「対象税目」が法人税と通知された場合、調査当日に消費税の帳簿も見られることはありますか？",
+    options: [
+      "通知された税目以外は絶対に調査されません",
+      "通知された税目以外を調査する場合は、改めて事前通知が必要です",
+      "調査の過程で必要があれば、非違が疑われる他の税目も調査対象になることがあります",
+      "事前通知の税目は単なる参考なので、全税目が常に対象です"
+    ],
+    correct: 2,
+    explanation: "国税通則法第74条の9第4項により、調査の過程で対象税目以外について非違（誤りや不正）が疑われる場合は、その税目についても質問検査権が行使される可能性があります。ただし、その場合は調査対象を変更する旨の説明が行われます。",
+    source: "国税通則法第74条の9第4項"
+  },
+
+  // ── カテゴリ3: 調査当日の対応 ──
+  {
+    id: 11,
+    category: "当日の対応",
+    question: "税務調査の当日、調査官から質問を受けたときの対応として、最も適切なものはどれですか？",
+    options: [
+      "質問にはすべて即答しなければなりません",
+      "不確かなことは「確認して後日回答します」と答えるのが適切です",
+      "顧問税理士がいない場で質問に答える義務はありません",
+      "調査官の質問はすべて録音する必要があります"
+    ],
+    correct: 1,
+    explanation: "税務調査ではその場で正確に回答できない事項が出てくることは当然です。不確かな記憶や曖昧な内容について推測で答えるよりも、「確認して後日正確にお答えします」と伝える方が適切です。曖昧な回答はかえって疑念を招く原因になります。",
+    source: "国税庁 税務調査手続FAQ（一般納税者向け）"
+  },
+  {
+    id: 12,
+    category: "当日の対応",
+    question: "調査官が帳簿書類の「留め置き」（預かり）を求めた場合、どう対応すべきですか？",
+    options: [
+      "法律上の義務なので、必ず応じなければなりません",
+      "一切応じる必要はありません。断っても罰則はありません",
+      "留め置きに応じるかどうかは任意ですが、正当な理由なく拒否すると調査に支障をきたす場合があります",
+      "留め置きの代わりに、コピーを渡せば問題ありません"
+    ],
+    correct: 2,
+    explanation: "帳簿書類の留め置き（一時預かり）は、国税通則法第74条の7に基づくもので、調査の円滑な実施のために行われます。留め置きに応じるかどうかは任意ですが、調査への協力として合理的な範囲で応じることが実務上は望ましいです。必要な場合はコピーの提供で代替する交渉も可能です。",
+    source: "国税通則法第74条の7"
+  },
+  {
+    id: 13,
+    category: "当日の対応",
+    question: "税務調査の際、調査官に見せなければならない書類として、正しいものはどれですか？",
+    options: [
+      "調査対象期間の総勘定元帳・仕訳帳・領収書・請求書などの帳簿書類です",
+      "通帳の原本のみで、帳簿類は不要です",
+      "確定申告書の控えのみで足ります",
+      "税理士が作成した書類のみで、社内文書は見せる必要がありません"
+    ],
+    correct: 0,
+    explanation: "税務調査では、法定帳簿（総勘定元帳・仕訳帳）、決算書類、領収書・請求書・契約書等の証憑書類、通帳、給与台帳など、取引に関する帳簿書類全般が調査対象となります。日頃から整理しておくことが重要です。",
+    source: "国税通則法第74条の2〜第74条の6、法人税法第150条の2"
+  },
+  {
+    id: 14,
+    category: "当日の対応",
+    question: "調査中に調査官がパソコンのデータを確認したいと言った場合、どう対応すべきですか？",
+    options: [
+      "パソコンのデータは調査対象外なので、見せる義務はありません",
+      "調査官に直接パソコンを操作させなければなりません",
+      "電子データも調査対象です。自分で操作して画面を見せるか、印刷して提示するのが適切です",
+      "パソコンのデータは電子帳簿保存法の届出をしていなければ調査対象外です"
+    ],
+    correct: 2,
+    explanation: "電子帳簿保存法の届出の有無にかかわらず、取引に関する電子データも質問検査権の対象です。ただし、調査官に直接パソコンを操作させる義務はなく、納税者自身が操作して必要なデータを画面で提示したり、印刷して渡すのが一般的な対応です。",
+    source: "国税通則法第74条の2、電子帳簿保存法"
+  },
+  {
+    id: 15,
+    category: "当日の対応",
+    question: "調査官から「反面調査を行う」と言われました。反面調査とは何ですか？",
+    options: [
+      "本社と支店の両方を同時に調査することです",
+      "調査の結果について税務署内部で再確認（ダブルチェック）することです",
+      "取引先や金融機関など第三者に対して行う調査のことです",
+      "前回の税務調査の結果を再度検証する調査のことです"
+    ],
+    correct: 2,
+    explanation: "反面調査とは、納税者の申告内容を検証するために、その取引先、金融機関、外注先などの第三者に対して行われる調査です。取引の実在性や金額の正確性を裏付けるために行われます。反面調査の実施は法律で認められていますが、国税庁は必要最小限にとどめるよう運営指針を定めています。",
+    source: "国税庁 調査手続の実施に当たっての基本的な考え方等について（事務運営指針）"
+  },
+  {
+    id: 16,
+    category: "当日の対応",
+    question: "税務調査中の昼食について、調査官に対して適切な対応はどれですか？",
+    options: [
+      "調査官にお弁当やお茶を出すのがマナーです",
+      "調査官への接待的な対応は不要で、お茶程度の提供で十分です",
+      "調査官に食事を提供すると贈賄になる可能性があります",
+      "調査官と一緒に外食に行って、良好な関係を築くべきです"
+    ],
+    correct: 1,
+    explanation: "調査官は国家公務員であり、納税者から過度な接待を受けることはできません。お茶程度の提供は一般的なマナーとして問題ありませんが、高額なお弁当を用意したり、外食に誘ったりする必要はまったくありません。調査官自身も昼食は自分で用意するか外に食べに行くのが通常です。",
+    source: "国家公務員倫理法・国家公務員倫理規程"
+  },
+
+  // ── カテゴリ4: 帳簿・証憑の整備 ──
+  {
+    id: 17,
+    category: "帳簿・証憑",
+    question: "法人が帳簿書類を保存しなければならない期間は、原則として何年間ですか？",
+    options: [
+      "3年間",
+      "5年間",
+      "7年間",
+      "10年間"
+    ],
+    correct: 2,
+    explanation: "法人税法施行規則第67条により、法人は帳簿書類（総勘定元帳、仕訳帳、棚卸表、貸借対照表、損益計算書、領収書、請求書等）を、その事業年度の確定申告書の提出期限の翌日から7年間保存する義務があります。なお、欠損金の繰越控除を適用する場合は10年間の保存が必要です。",
+    source: "法人税法施行規則第67条"
+  },
+  {
+    id: 18,
+    category: "帳簿・証憑",
+    question: "領収書を紛失してしまった場合、税務調査ではどうなりますか？",
+    options: [
+      "領収書がなければ、その経費は一切認められません",
+      "領収書がなくても、他の証拠（通帳、メール、出金伝票など）で取引の事実を証明できれば認められる場合があります",
+      "領収書を紛失した旨の書面を税務署に提出すれば問題ありません",
+      "領収書の紛失は即座に重加算税の対象になります"
+    ],
+    correct: 1,
+    explanation: "領収書は取引を証明する重要な証拠ですが、紛失した場合でも、通帳の引落し記録、クレジットカード明細、メールの注文確認、出金伝票への記録など、複数の補完的な証拠で取引の事実を客観的に証明できれば、経費として認められる可能性があります。ただし、日頃から証憑の整理・保管を徹底することが最も重要です。",
+    source: "法人税法第22条（損金の額の算入）、国税不服審判所裁決例"
+  },
+  {
+    id: 19,
+    category: "帳簿・証憑",
+    question: "電子帳簿保存法において、電子取引データの保存について正しいものはどれですか？",
+    options: [
+      "電子取引のデータは印刷して紙で保存しておけば問題ありません",
+      "2024年1月以降、電子取引データは原則として電子データのまま保存する必要があります",
+      "電子帳簿保存法の届出をしていない事業者は関係ありません",
+      "メールで受け取った請求書は電子取引に該当しません"
+    ],
+    correct: 1,
+    explanation: "2024年（令和6年）1月1日以降、電子取引（メール、クラウド、EDI等で授受した取引情報）のデータは、原則として電子データのまま保存することが義務化されました。届出の有無に関係なく、すべての事業者が対象です。メールで受け取った請求書・領収書PDFも電子取引データに該当します。ただし、相当の理由がある場合の猶予措置もあります。",
+    source: "電子帳簿保存法第7条、国税庁 電子帳簿等保存制度特設サイト"
+  },
+  {
+    id: 20,
+    category: "帳簿・証憑",
+    question: "インボイス制度において、仕入税額控除を受けるために必要なものはどれですか？",
+    options: [
+      "従来の請求書があれば十分です",
+      "適格請求書（インボイス）発行事業者の登録番号が記載された請求書等が必要です",
+      "銀行の振込明細書があれば、請求書は不要です",
+      "年間取引額が1,000万円以下の取引先からの仕入れは書類不要です"
+    ],
+    correct: 1,
+    explanation: "2023年（令和5年）10月1日に開始されたインボイス制度では、仕入税額控除の適用を受けるために、適格請求書（インボイス）発行事業者の登録番号（T+13桁の番号）が記載された適格請求書等の保存が必要です。税務調査でもインボイスの記載要件の充足状況は重要なチェックポイントとなっています。",
+    source: "消費税法第30条第7項、国税庁 インボイス制度特設サイト"
+  },
+  {
+    id: 21,
+    category: "帳簿・証憑",
+    question: "電子帳簿保存法の「検索要件」について、正しいものはどれですか？",
+    options: [
+      "すべての事業者に検索機能の整備が求められます",
+      "基準期間の売上高が5,000万円以下で、ダウンロードの求めに応じられる場合は検索要件が不要です",
+      "検索要件とは、データにパスワードをかけることです",
+      "検索要件は2024年に廃止されました"
+    ],
+    correct: 1,
+    explanation: "電子帳簿保存法では、電子取引データに「日付・金額・取引先」で検索できる機能を求めていますが、基準期間（2期前）の売上高が5,000万円以下の事業者で、税務調査時にデータのダウンロードの求めに応じられる場合は、この検索要件が免除されます。中小企業にとっては実務上の大きな負担軽減となっています。",
+    source: "電子帳簿保存法施行規則第5条第5項、国税庁FAQ（電子取引関係）"
+  },
+
+  // ── カテゴリ5: 修正申告・更正 ──
+  {
+    id: 22,
+    category: "修正申告・更正",
+    question: "税務調査の結果、申告に誤りが見つかった場合、「修正申告」と「更正」の違いについて正しいものはどれですか？",
+    options: [
+      "修正申告と更正は同じもので、名前が違うだけです",
+      "修正申告は納税者自身が行うもので、更正は税務署が職権で行うものです",
+      "修正申告は税理士が行い、更正は納税者本人が行います",
+      "修正申告は所得税だけ、更正は法人税だけに適用されます"
+    ],
+    correct: 1,
+    explanation: "修正申告は、納税者が自ら誤りを認めて正しい内容に訂正した申告書を提出することです。一方、更正は税務署長が職権で申告内容を正しく修正する処分です。修正申告に応じない場合、税務署側は更正処分を行います。修正申告は不服申立てができませんが、更正処分に対しては不服申立てが可能という重要な違いがあります。",
+    source: "国税通則法第24条（更正）、第19条（修正申告）"
+  },
+  {
+    id: 23,
+    category: "修正申告・更正",
+    question: "調査官から修正申告を勧められた場合、必ず応じなければなりませんか？",
+    options: [
+      "はい。調査官の指示には必ず従わなければなりません",
+      "いいえ。修正申告はあくまで任意であり、納得できなければ応じる義務はありません",
+      "税理士の同意がある場合のみ、拒否できます",
+      "一度修正申告を勧められたら、24時間以内に回答しなければなりません"
+    ],
+    correct: 1,
+    explanation: "修正申告はあくまで納税者の「自主的な行為」であり、強制されるものではありません。国税庁の事務運営指針でも、修正申告の勧奨に際しては「あくまで納税者の自発的な意思に基づくものである」ことを説明し、更正の請求ができなくなる旨も教示するよう定められています。納得できない場合は応じずに更正処分を受け、不服申立てをする選択肢もあります。",
+    source: "国税通則法第74条の11第3項、国税庁事務運営指針"
+  },
+  {
+    id: 24,
+    category: "修正申告・更正",
+    question: "「調査の終了の際の手続」として、調査官が行うべきことはどれですか？",
+    options: [
+      "口頭で結果を伝えれば完了です",
+      "申告に問題がなかった場合は「更正決定等をすべきと認められない」旨を書面で通知します",
+      "調査結果を新聞に公表します",
+      "結果は後日、裁判所から通知されます"
+    ],
+    correct: 1,
+    explanation: "国税通則法第74条の11第1項により、調査の結果、更正決定等をすべきと認められない場合（申告内容に問題がない場合）は、その旨を書面で納税者に通知しなければなりません。一方、修正申告の勧奨や更正処分を行う場合は、その理由も説明されます。",
+    source: "国税通則法第74条の11"
+  },
+
+  // ── カテゴリ6: 加算税・延滞税 ──
+  {
+    id: 25,
+    category: "加算税・延滞税",
+    question: "過少申告加算税の税率について、正しいものはどれですか？",
+    options: [
+      "一律20%です",
+      "事前通知前の自主修正なら0%、事前通知後なら5%〜15%、調査後なら10%〜15%です",
+      "初回の調査なら加算税は一切かかりません",
+      "税理士がいれば加算税は免除されます"
+    ],
+    correct: 1,
+    explanation: "過少申告加算税は、修正申告のタイミングによって税率が変わります。事前通知前の自主修正であれば加算税はかかりません。事前通知後〜調査による更正予知前の修正では5%（期限内申告税額超過分は10%）、調査による更正を予知した後の修正や更正処分では10%（同15%）が課されます。",
+    source: "国税通則法第65条、加算税制度の改正のあらまし（国税庁）"
+  },
+  {
+    id: 26,
+    category: "加算税・延滞税",
+    question: "重加算税が課されるのは、どのような場合ですか？",
+    options: [
+      "計算ミスで申告額を間違えた場合です",
+      "売上の計上漏れがあった場合は自動的に重加算税の対象です",
+      "仮装・隠蔽（売上の意図的な除外や架空経費の計上など）が認められた場合です",
+      "修正申告に応じなかった場合です"
+    ],
+    correct: 2,
+    explanation: "重加算税は、国税通則法第68条に基づき、納税者が「仮装・隠蔽」を行った場合に課されます。具体的には、売上を意図的に除外する、架空の経費を計上する、二重帳簿を作成するなどの悪質な行為が該当します。単純な計算ミスや解釈の相違は重加算税の対象にはなりません。税率は35%（無申告の場合は40%）と非常に重いペナルティです。",
+    source: "国税通則法第68条"
+  },
+  {
+    id: 27,
+    category: "加算税・延滞税",
+    question: "延滞税について、正しいものはどれですか？",
+    options: [
+      "修正申告をすれば延滞税はかかりません",
+      "延滞税は法定納期限の翌日から完納の日まで課されます",
+      "延滞税の税率は年1%固定です",
+      "個人事業主には延滞税は課されません"
+    ],
+    correct: 1,
+    explanation: "延滞税は、税金を法定納期限までに完納しなかった場合に、その翌日から完納の日までの日数に応じて課されます。修正申告をした場合でも、本来の法定納期限から遡って延滞税が発生します。税率は年によって変動し、納期限後2か月以内と2か月超で税率が異なります。法人・個人を問わず適用されます。",
+    source: "国税通則法第60条"
+  },
+  {
+    id: 28,
+    category: "加算税・延滞税",
+    question: "無申告加算税が課されるのは、どのような場合ですか？",
+    options: [
+      "申告期限を1日でも遅れた場合に自動的に50%の加算税が課されます",
+      "確定申告書を法定期限までに提出しなかった場合に課されます。税率は原則15%〜20%です",
+      "無申告加算税は個人にのみ適用され、法人には適用されません",
+      "期限後申告であっても、1か月以内に自主的に申告すれば常に免除されます"
+    ],
+    correct: 1,
+    explanation: "無申告加算税は、確定申告書を法定期限までに提出しなかった場合に課されます。原則として納付すべき税額に対して15%（50万円超の部分は20%）です。ただし、期限後申告が「調査の事前通知前」かつ一定の要件を満たす場合は5%に軽減されます。法人・個人の両方に適用されます。",
+    source: "国税通則法第66条"
+  },
+
+  // ── カテゴリ7: 不服申立て ──
+  {
+    id: 29,
+    category: "不服申立て",
+    question: "税務署の更正処分に納得できない場合、最初にとるべき手続はどれですか？",
+    options: [
+      "直ちに裁判所に訴訟を提起します",
+      "処分があったことを知った日の翌日から3か月以内に「再調査の請求」又は「審査請求」を行います",
+      "国税庁長官に直接申し出ます",
+      "税理士会を通じて異議を申し立てます"
+    ],
+    correct: 1,
+    explanation: "更正処分に不服がある場合は、処分があったことを知った日の翌日から3か月以内に、税務署長に対する「再調査の請求」か、国税不服審判所に対する「審査請求」のいずれかを選択して行います。原則として、不服申立ての手続を経た後でなければ裁判（訴訟）を提起することはできません（不服申立て前置主義）。",
+    source: "国税通則法第75条、第115条"
+  },
+  {
+    id: 30,
+    category: "不服申立て",
+    question: "国税不服審判所について、正しいものはどれですか？",
+    options: [
+      "税務署の一部門であり、独立した組織ではありません",
+      "裁判と同じく、弁護士でなければ代理人になれません",
+      "国税庁の特別の機関として設置された、税務署から独立した第三者機関です",
+      "審査請求の結果に不服がある場合は、再度審査請求を行います"
+    ],
+    correct: 2,
+    explanation: "国税不服審判所は、国税庁の特別の機関として税務署から独立して設置されており、納税者の正当な権利利益の救済を図るとともに、税務行政の適正な運営を確保することを目的としています。審査請求に対する裁決に不服がある場合は、裁決があったことを知った日の翌日から6か月以内に裁判所に訴訟を提起できます。",
+    source: "国税通則法第78条、第115条"
+  },
+
+  // ── カテゴリ8: 実務上の注意点 ──
+  {
+    id: 31,
+    category: "実務の注意点",
+    question: "税務調査で特に見られやすい項目として、最も該当するものはどれですか？",
+    options: [
+      "文房具などの少額な消耗品費",
+      "売上の計上時期・交際費・役員報酬・在庫の評価",
+      "正しく処理された減価償却費",
+      "法定福利費（社会保険料の会社負担分）"
+    ],
+    correct: 1,
+    explanation: "税務調査で重点的にチェックされる項目は、売上の計上時期（期ずれ）、交際費の使途と損金算入限度額、役員報酬の定期同額性、期末在庫の評価です。これらは意図的・非意図的に誤りが生じやすく、金額的影響も大きいため、調査の着眼点として国税庁の内部資料でも重視されています。",
+    source: "国税庁 法人税の申告書確認表、税務調査着眼点"
+  },
+  {
+    id: 32,
+    category: "実務の注意点",
+    question: "売上の「期ずれ」とは何ですか？",
+    options: [
+      "売上の金額を間違えて計上することです",
+      "売上を正しい事業年度に計上せず、翌期に繰り延べること（またはその逆）です",
+      "売上を現金で受け取らず、掛売りにすることです",
+      "売上の消費税率を間違えることです"
+    ],
+    correct: 1,
+    explanation: "期ずれとは、売上（または仕入）を本来計上すべき事業年度ではなく、別の事業年度に計上してしまうことです。例えば、3月決算法人が3月中に引き渡した商品の売上を4月に計上するケースが該当します。意図的でなくても、税務調査では非常によく指摘される項目です。期末前後の取引は特に注意が必要です。",
+    source: "法人税法第22条の2（収益の額）、法人税基本通達2-1-1〜2-1-4"
+  },
+  {
+    id: 33,
+    category: "実務の注意点",
+    question: "中小法人の交際費について、損金算入の取扱いとして正しいものはどれですか？",
+    options: [
+      "交際費は全額損金不算入（経費にならない）です",
+      "年間800万円まで全額損金算入できます（資本金1億円以下の法人の場合）",
+      "1件あたり1万円以下の飲食費のみ損金算入できます",
+      "接待の相手が取引先の場合に限り、全額損金算入できます"
+    ],
+    correct: 1,
+    explanation: "資本金1億円以下の中小法人は、年間800万円までの交際費を全額損金算入できる特例措置があります（租税特別措置法第61条の4）。また、1人あたり1万円以下（令和6年度改正で5,000円から引上げ）の飲食費は交際費から除外されます。ただし、接待の日時・場所・相手先・金額・参加人数等の記録が必要です。",
+    source: "租税特別措置法第61条の4、令和6年度税制改正"
+  },
+  {
+    id: 34,
+    category: "実務の注意点",
+    question: "役員報酬について、税務調査で問題にされやすいポイントはどれですか？",
+    options: [
+      "役員報酬の金額が高すぎること（ただし上限は法律で決まっています）",
+      "定期同額給与の要件を満たさない報酬の変更（期中での増減額など）です",
+      "役員報酬を銀行振込で支払っていること",
+      "役員が複数いる場合に報酬額が異なること"
+    ],
+    correct: 1,
+    explanation: "法人税法第34条により、役員報酬が損金算入されるためには「定期同額給与」「事前確定届出給与」「業績連動給与」のいずれかの要件を満たす必要があります。最もよく使われる定期同額給与は、毎月同額を支給するものですが、期中で経営判断により増額・減額した場合、その変更が認められる期間（原則として事業年度開始後3か月以内）を超えていると、損金不算入とされるリスクがあります。",
+    source: "法人税法第34条（役員給与の損金不算入）"
+  },
+  {
+    id: 35,
+    category: "実務の注意点",
+    question: "個人的な支出を会社の経費として処理した場合、税務調査ではどうなりますか？",
+    options: [
+      "金額が小さければ問題になりません",
+      "役員賞与として認定され、法人税・所得税の両方で追徴される可能性があります",
+      "次の事業年度で修正すれば問題ありません",
+      "個人から会社に返金すれば、遡って取り消されます"
+    ],
+    correct: 1,
+    explanation: "役員の個人的な支出を会社の経費として処理した場合、その支出は法人の損金として認められず、役員に対する「認定賞与」（役員賞与）として取り扱われます。その結果、法人側では損金不算入となり法人税が増加し、役員個人側でも給与所得として所得税・住民税が課税されるという「二重の追徴」が発生します。金額の大小は問いません。",
+    source: "法人税法第34条、所得税法第28条"
+  },
+
+  // ── カテゴリ9: 消費税の調査 ──
+  {
+    id: 36,
+    category: "消費税の調査",
+    question: "消費税の税務調査で特に注意すべき点はどれですか？",
+    options: [
+      "消費税は法人税と一緒に調査されるので、別途の対策は不要です",
+      "仕入税額控除の要件（帳簿・請求書等の保存）が満たされているかが重点チェックされます",
+      "消費税は売上1,000万円以下なら調査の対象外です",
+      "簡易課税を選択していれば、消費税の調査は行われません"
+    ],
+    correct: 1,
+    explanation: "消費税の調査では、仕入税額控除の適用要件が最も重要なチェックポイントです。具体的には、帳簿に法定記載事項が記載されているか、請求書等（インボイス制度では適格請求書）が適切に保存されているかが確認されます。要件を満たさない仕入税額控除は否認され、追徴されるリスクがあります。",
+    source: "消費税法第30条第7項〜第9項"
+  },
+  {
+    id: 37,
+    category: "消費税の調査",
+    question: "インボイス制度下で、免税事業者からの仕入れについて正しいものはどれですか？",
+    options: [
+      "免税事業者からの仕入れは仕入税額控除が一切できません",
+      "経過措置として、2026年9月30日までは仕入税額の80%を控除できます",
+      "免税事業者から仕入れた場合でも、従来どおり100%控除できます",
+      "免税事業者との取引自体が禁止されています"
+    ],
+    correct: 1,
+    explanation: "インボイス制度の経過措置として、免税事業者からの仕入れについては段階的に控除割合が縮小されます。2023年10月〜2026年9月は80%控除、2026年10月〜2029年9月は50%控除、それ以降は控除不可となります。この経過措置は帳簿に一定の記載を行うことが要件です。税務調査でも経過措置の適用が正しいか確認されます。",
+    source: "消費税法附則第52条、第53条（インボイス制度経過措置）"
+  },
+
+  // ── カテゴリ10: その他の重要事項 ──
+  {
+    id: 38,
+    category: "その他",
+    question: "税務調査の結果を従業員や取引先に知られることはありますか？",
+    options: [
+      "税務署が調査結果を公表することがあります",
+      "調査官には守秘義務があり、調査で知り得た情報を第三者に漏らすことは法律で禁じられています",
+      "取引先には反面調査の際に自社の申告内容が伝えられます",
+      "税務署は調査結果を信用情報機関に報告します"
+    ],
+    correct: 1,
+    explanation: "調査官には国家公務員法第100条に基づく守秘義務があり、職務上知り得た秘密を漏らすことは禁止されています。税務調査の結果が公表されたり、取引先に自社の申告内容が直接伝えられることはありません。反面調査はあくまで取引の事実確認が目的であり、調査対象企業の申告内容を開示するものではありません。",
+    source: "国家公務員法第100条（秘密を守る義務）"
+  },
+  {
+    id: 39,
+    category: "その他",
+    question: "税務調査が終了した後、同じ事項について再度調査されることはありますか？",
+    options: [
+      "一度調査が終わった事項は、二度と調査されません（一事不再理の原則）",
+      "新たな情報があれば、同じ事項について再調査されることがあります",
+      "3年経過すれば同じ事項でも再調査されます",
+      "再調査は税務署長の許可が不要で、いつでも行われます"
+    ],
+    correct: 1,
+    explanation: "国税通則法第74条の11第6項により、調査終了後に「新たに得られた情報」に照らして非違があると認められる場合は、再調査が行われることがあります。ただし、再調査を行うには税務署長の判断が必要であり、正当な理由なく繰り返し同じ事項を調査することは認められていません。",
+    source: "国税通則法第74条の11第6項"
+  },
+  {
+    id: 40,
+    category: "その他",
+    question: "税務調査に備えて、日頃から経営者が最も心がけるべきことはどれですか？",
+    options: [
+      "税務署との良好な人間関係を築いておくことです",
+      "節税対策を最大限に活用して、納税額を極限まで減らすことです",
+      "適正な記帳と証憑の整理保管を日常的に行い、顧問税理士と定期的にコミュニケーションをとることです",
+      "税務調査が来ないよう、売上を調整して目立たないようにすることです"
+    ],
+    correct: 2,
+    explanation: "税務調査への最善の備えは、日々の適正な記帳と証憑（領収書・請求書等）の整理保管を徹底し、顧問税理士との定期的なコミュニケーションによって正確な申告を行うことです。税務調査は正しい申告をしていれば恐れるものではありません。売上の調整は脱税行為にあたり、かえって重大なリスクを招きます。",
+    source: "国税庁 税務調査手続FAQ（一般納税者向け）、法人税法第150条の2"
+  }
+];
+
+const CATEGORIES = [
+  { key: "基礎知識", icon: "📚", label: "基礎知識" },
+  { key: "事前通知・日程", icon: "📞", label: "事前通知・日程" },
+  { key: "当日の対応", icon: "🏢", label: "当日の対応" },
+  { key: "帳簿・証憑", icon: "📋", label: "帳簿・証憑" },
+  { key: "修正申告・更正", icon: "📝", label: "修正申告・更正" },
+  { key: "加算税・延滞税", icon: "💰", label: "加算税・延滞税" },
+  { key: "不服申立て", icon: "⚖️", label: "不服申立て" },
+  { key: "実務の注意点", icon: "⚠️", label: "実務の注意点" },
+  { key: "消費税の調査", icon: "🧾", label: "消費税の調査" },
+  { key: "その他", icon: "📌", label: "その他" }
+];
+
+const OPTION_LABELS = ["A", "B", "C", "D"];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ================
+// メインアプリ
+// ================
+function App() {
+  const [screen, setScreen] = useState("start"); // start, quiz, result, review
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [questions, setQuestions] = useState([]);
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [selected, setSelected] = useState(null);
+  const [answered, setAnswered] = useState(false);
+  const [results, setResults] = useState([]);
+
+  const categoryCount = useMemo(() => {
+    const counts = {};
+    QUESTIONS.forEach(q => {
+      counts[q.category] = (counts[q.category] || 0) + 1;
+    });
+    return counts;
+  }, []);
+
+  const startQuiz = useCallback(() => {
+    let qs;
+    if (selectedCategory === "all") {
+      qs = shuffle(QUESTIONS);
+    } else {
+      qs = shuffle(QUESTIONS.filter(q => q.category === selectedCategory));
+    }
+    setQuestions(qs);
+    setCurrentIdx(0);
+    setSelected(null);
+    setAnswered(false);
+    setResults([]);
+    setScreen("quiz");
+  }, [selectedCategory]);
+
+  const handleSelect = useCallback((idx) => {
+    if (answered) return;
+    setSelected(idx);
+    setAnswered(true);
+    setResults(prev => [...prev, {
+      question: questions[currentIdx],
+      selectedIdx: idx,
+      isCorrect: idx === questions[currentIdx].correct
+    }]);
+  }, [answered, questions, currentIdx]);
+
+  const nextQuestion = useCallback(() => {
+    if (currentIdx + 1 >= questions.length) {
+      setScreen("result");
+    } else {
+      setCurrentIdx(prev => prev + 1);
+      setSelected(null);
+      setAnswered(false);
+    }
+  }, [currentIdx, questions.length]);
+
+  const correctCount = results.filter(r => r.isCorrect).length;
+  const totalCount = results.length;
+  const scorePercent = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
+
+  const categoryResults = useMemo(() => {
+    const map = {};
+    results.forEach(r => {
+      const cat = r.question.category;
+      if (!map[cat]) map[cat] = { correct: 0, total: 0 };
+      map[cat].total++;
+      if (r.isCorrect) map[cat].correct++;
+    });
+    return map;
+  }, [results]);
+
+  // スタート画面
+  if (screen === "start") {
+    return (
+      <div>
+        <div className="header">
+          <h1>税務調査 Q&A クイズ</h1>
+          <div className="subtitle">中小企業経営者のための実践ガイド</div>
+        </div>
+        <div className="container">
+          <div className="start-screen">
+            <div className="logo">🔍</div>
+            <h2>税務調査の対応力をチェック！</h2>
+            <p>国税庁の公式情報に基づいた全{QUESTIONS.length}問の実践的なクイズです。<br/>カテゴリを選んで、4択問題に挑戦してみましょう。</p>
+
+            <div className="category-grid">
+              <div
+                className={`category-card ${selectedCategory === "all" ? "selected" : ""}`}
+                onClick={() => setSelectedCategory("all")}
+              >
+                <div className="icon">🎯</div>
+                <div className="label">全カテゴリ</div>
+                <div className="count">全{QUESTIONS.length}問</div>
+              </div>
+              {CATEGORIES.map(cat => (
+                <div
+                  key={cat.key}
+                  className={`category-card ${selectedCategory === cat.key ? "selected" : ""}`}
+                  onClick={() => setSelectedCategory(cat.key)}
+                >
+                  <div className="icon">{cat.icon}</div>
+                  <div className="label">{cat.label}</div>
+                  <div className="count">{categoryCount[cat.key] || 0}問</div>
+                </div>
+              ))}
+            </div>
+
+            <button className="btn btn-primary" onClick={startQuiz}>
+              クイズをスタート →
+            </button>
+          </div>
+
+          <div className="footer">
+            <p>本アプリは、国税庁公式情報に基づいて作成しています。<br/>
+            参照：<a href="https://www.nta.go.jp/information/other/data/h24/nozeikankyo/ippan02.htm" target="_blank" rel="noopener">国税庁 税務調査手続FAQ</a></p>
+            <p style={{marginTop: "8px"}}>© 2026 林税理士社労士事務所</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // クイズ画面
+  if (screen === "quiz") {
+    const q = questions[currentIdx];
+    const progress = ((currentIdx + (answered ? 1 : 0)) / questions.length) * 100;
+    const catInfo = CATEGORIES.find(c => c.key === q.category);
+
+    return (
+      <div>
+        <div className="header">
+          <h1>税務調査 Q&A クイズ</h1>
+        </div>
+        <div className="container">
+          <div className="progress-section">
+            <div className="progress-info">
+              <span className="category-tag">{catInfo ? catInfo.icon : "📋"} {q.category}</span>
+              <span>{currentIdx + 1} / {questions.length}</span>
+            </div>
+            <div className="progress-bar">
+              <div className="progress-fill" style={{width: `${progress}%`}}></div>
+            </div>
+          </div>
+
+          <div className="question-card" key={q.id}>
+            <div className="question-number">第{currentIdx + 1}問</div>
+            <div className="question-text">{q.question}</div>
+
+            <div className="options">
+              {q.options.map((opt, idx) => {
+                let cls = "option-btn";
+                if (answered) {
+                  cls += " disabled";
+                  if (idx === q.correct) cls += " correct";
+                  else if (idx === selected && idx !== q.correct) cls += " wrong";
+                }
+                return (
+                  <button key={idx} className={cls} onClick={() => handleSelect(idx)}>
+                    <span className="option-label">{OPTION_LABELS[idx]}</span>
+                    <span>{opt}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {answered && (
+              <div className="explanation">
+                <h4>{selected === q.correct ? "✅ 正解です！" : "❌ 不正解です"}</h4>
+                <p>{q.explanation}</p>
+                <div className="source">📖 根拠：{q.source}</div>
+              </div>
+            )}
+          </div>
+
+          {answered && (
+            <div className="next-btn-area">
+              <button className="btn btn-primary btn-sm" onClick={nextQuestion}>
+                {currentIdx + 1 >= questions.length ? "結果を見る →" : "次の問題 →"}
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // 結果画面
+  if (screen === "result") {
+    const scoreClass = scorePercent >= 80 ? "score-high" : scorePercent >= 50 ? "score-mid" : "score-low";
+    const getMessage = () => {
+      if (scorePercent >= 90) return { title: "素晴らしい！", detail: "税務調査に対する深い理解をお持ちです。この知識を日常の経営にも活かしてください。" };
+      if (scorePercent >= 70) return { title: "よくできました！", detail: "基本的な知識はしっかりと身についています。間違えた問題を復習して、さらに理解を深めましょう。" };
+      if (scorePercent >= 50) return { title: "もう少しです！", detail: "いくつかの重要なポイントを見直す必要があります。解説をよく読んで、正しい知識を身につけましょう。" };
+      return { title: "復習が必要です", detail: "税務調査の基本的な知識を体系的に学び直すことをお勧めします。顧問税理士にもご相談ください。" };
+    };
+    const msg = getMessage();
+
+    return (
+      <div>
+        <div className="header">
+          <h1>税務調査 Q&A クイズ</h1>
+        </div>
+        <div className="container">
+          <div className="result-screen">
+            <div className="result-card">
+              <div className={`score-circle ${scoreClass}`}>
+                {scorePercent}
+                <span className="label">点</span>
+              </div>
+              <div className="result-message">{msg.title}</div>
+              <div className="result-detail">
+                {totalCount}問中 {correctCount}問正解　（正答率 {scorePercent}%）
+              </div>
+              <p style={{fontSize: "0.9rem", color: "#7f8c8d"}}>{msg.detail}</p>
+
+              <div className="result-breakdown">
+                <h4>カテゴリ別の成績</h4>
+                {Object.entries(categoryResults).map(([cat, data]) => (
+                  <div className="breakdown-item" key={cat}>
+                    <span className="cat-name">{CATEGORIES.find(c => c.key === cat)?.icon} {cat}</span>
+                    <span className="cat-score">{data.correct} / {data.total}（{Math.round((data.correct / data.total) * 100)}%）</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="btn-group">
+              <button className="btn btn-primary btn-sm" onClick={() => setScreen("review")}>
+                解答を振り返る
+              </button>
+              <button className="btn btn-outline btn-sm" onClick={() => { setScreen("start"); setSelectedCategory("all"); }}>
+                トップに戻る
+              </button>
+            </div>
+          </div>
+
+          <div className="footer">
+            <p>© 2026 林税理士社労士事務所</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 振り返り画面
+  if (screen === "review") {
+    return (
+      <div>
+        <div className="header">
+          <h1>解答の振り返り</h1>
+        </div>
+        <div className="container">
+          {results.map((r, i) => (
+            <div className="review-item" key={i}>
+              <div className="q-header">
+                <span className={`badge ${r.isCorrect ? "badge-correct" : "badge-wrong"}`}>
+                  {r.isCorrect ? "正解" : "不正解"}
+                </span>
+                <span style={{fontSize: "0.8rem", color: "#7f8c8d"}}>第{i + 1}問｜{r.question.category}</span>
+              </div>
+              <div className="q-text">{r.question.question}</div>
+              <div className="answer-info">
+                あなたの回答：{OPTION_LABELS[r.selectedIdx]}. {r.question.options[r.selectedIdx]}<br/>
+                <strong>正解：{OPTION_LABELS[r.question.correct]}. {r.question.options[r.question.correct]}</strong>
+              </div>
+              <div className="exp-text">{r.question.explanation}<br/><span style={{fontSize: "0.78rem", color: "#95a5a6"}}>📖 {r.question.source}</span></div>
+            </div>
+          ))}
+          <div className="back-top">
+            <button className="btn btn-outline btn-sm" onClick={() => setScreen("result")}>
+              ← 結果に戻る
+            </button>
+            {" "}
+            <button className="btn btn-primary btn-sm" onClick={() => { setScreen("start"); setSelectedCategory("all"); }}>
+              トップに戻る
+            </button>
+          </div>
+          <div className="footer">
+            <p>© 2026 林税理士社労士事務所</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return null;
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+
+</body></html>

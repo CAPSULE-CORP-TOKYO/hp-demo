@@ -1,0 +1,1682 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>就業規則改定まるごとアプリ</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.2.3/docx.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<style>
+:root {
+  --primary: #1a56db;
+  --primary-light: #e8eefb;
+  --primary-dark: #1040a0;
+  --success: #059669;
+  --success-light: #d1fae5;
+  --warning: #d97706;
+  --warning-light: #fef3c7;
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-900);
+  line-height: 1.7;
+}
+
+.app-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 24px 32px;
+  box-shadow: var(--shadow-lg);
+}
+
+.app-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.app-header p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Stepper */
+.stepper {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  background: white;
+  padding: 16px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-size: 14px;
+  color: var(--gray-500);
+  transition: all 0.3s;
+}
+
+.step-item.active { color: var(--primary); font-weight: 600; }
+.step-item.completed { color: var(--success); }
+
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  border: 2px solid var(--gray-300);
+  flex-shrink: 0;
+}
+
+.step-item.active .step-num {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.step-item.completed .step-num {
+  border-color: var(--success);
+  background: var(--success);
+  color: white;
+}
+
+.step-arrow {
+  color: var(--gray-300);
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+/* Panels */
+.panel {
+  display: none;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.panel.active { display: block; }
+
+.panel h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--gray-900);
+}
+
+.panel-desc {
+  color: var(--gray-500);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* Upload area */
+.upload-area {
+  border: 2px dashed var(--gray-300);
+  border-radius: var(--radius);
+  padding: 48px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: var(--gray-50);
+}
+
+.upload-area:hover, .upload-area.dragover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.upload-area p { margin: 4px 0; }
+.upload-main { font-size: 16px; font-weight: 600; }
+.upload-sub { font-size: 13px; color: var(--gray-500); }
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--success-light);
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.file-info .icon { font-size: 24px; }
+.file-name { font-weight: 600; font-size: 14px; }
+.file-size { font-size: 12px; color: var(--gray-500); }
+
+/* Checkboxes and options */
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.option-card {
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option-card:hover { border-color: var(--primary); }
+.option-card.selected { border-color: var(--primary); background: var(--primary-light); }
+
+.option-card h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.option-card p {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.checkbox-indicator {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-300);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.option-card.selected .checkbox-indicator {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+/* Results */
+.result-section {
+  margin-bottom: 24px;
+}
+
+.result-section h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.finding-card {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 4px solid;
+}
+
+.finding-card.critical {
+  background: var(--danger-light);
+  border-color: var(--danger);
+}
+
+.finding-card.warning {
+  background: var(--warning-light);
+  border-color: var(--warning);
+}
+
+.finding-card.info {
+  background: var(--primary-light);
+  border-color: var(--primary);
+}
+
+.finding-card.ok {
+  background: var(--success-light);
+  border-color: var(--success);
+}
+
+.finding-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.finding-detail {
+  font-size: 13px;
+  color: var(--gray-700);
+}
+
+.finding-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.tag-critical { background: var(--danger); color: white; }
+.tag-warning { background: var(--warning); color: white; }
+.tag-info { background: var(--primary); color: white; }
+.tag-ok { background: var(--success); color: white; }
+
+/* Clause preview */
+.clause-preview {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 2;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.clause-preview .article-title {
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-top: 16px;
+}
+
+.clause-preview .article-title:first-child { margin-top: 0; }
+
+.clause-preview .clause-text {
+  margin-left: 1em;
+}
+
+.clause-added {
+  background: #dcfce7;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.clause-changed {
+  background: #fef9c3;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-primary:disabled { background: var(--gray-300); cursor: not-allowed; }
+
+.btn-outline {
+  background: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-outline:hover { background: var(--primary-light); }
+
+.btn-success {
+  background: var(--success);
+  color: white;
+}
+
+.btn-success:hover { background: #047857; }
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: flex-end;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--success));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Loading overlay */
+.loading-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.9);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.loading-overlay.active { display: flex; }
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--gray-200);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Accordion */
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.accordion-header:hover { background: var(--gray-100); }
+
+.accordion-body {
+  display: none;
+  padding: 0 16px 16px;
+}
+
+.accordion-body.open { display: block; }
+
+/* Tabs */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--gray-200);
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-500);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 16px; }
+  .panel { padding: 20px; }
+  .option-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stepper { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div class="container" style="padding:0;">
+    <h1>就業規則改定まるごとアプリ</h1>
+    <p>厚生労働省モデル就業規則準拠 ｜ 最新法改正対応 ｜ 業務改善助成金・キャリアアップ助成金対応</p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Stepper -->
+  <div class="stepper" id="stepper">
+    <div class="step-item active" data-step="1">
+      <div class="step-num">1</div>
+      <span>ファイル読込</span>
+    </div>
+    <div class="step-arrow">▶</div>
+    <div class="step-item" data-step="2">
+      <div class="step-num">2</div>
+      <span>改定オプション</span>
+    </div>
+    <div class="step-arrow">▶</div>
+    <div class="step-item" data-step="3">
+      <div class="step-num">3</div>
+      <span>診断結果</span>
+    </div>
+    <div class="step-arrow">▶</div>
+    <div class="step-item" data-step="4">
+      <div class="step-num">4</div>
+      <span>改定案確認</span>
+    </div>
+    <div class="step-arrow">▶</div>
+    <div class="step-item" data-step="5">
+      <div class="step-num">5</div>
+      <span>Word出力</span>
+    </div>
+  </div>
+
+  <!-- Step 1: File Upload -->
+  <div class="panel active" id="panel-1">
+    <h2>現行の就業規則をアップロードしてください</h2>
+    <p class="panel-desc">Word形式（.docx）のファイルに対応しています。テキストを自動で読み取り、条文の構造を解析します。</p>
+
+    <div class="upload-area" id="uploadArea">
+      <div class="upload-icon">📄</div>
+      <p class="upload-main">ファイルをドラッグ＆ドロップ、またはクリックして選択</p>
+      <p class="upload-sub">対応形式：.docx（Word文書）</p>
+      <input type="file" id="fileInput" accept=".docx" style="display: none;">
+    </div>
+
+    <div id="fileInfo" style="display:none;">
+      <div class="file-info">
+        <span class="icon">✅</span>
+        <div>
+          <div class="file-name" id="fileName"></div>
+          <div class="file-size" id="fileSize"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="parsePreview" style="display:none; margin-top:20px;">
+      <h3 style="font-size:15px; margin-bottom:8px;">読み取り結果プレビュー</h3>
+      <div class="clause-preview" id="textPreview" style="max-height:300px;"></div>
+      <p style="font-size:12px; color:var(--gray-500); margin-top:8px;" id="charCount"></p>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-primary" id="btnToStep2" disabled="">次へ：改定オプション選択 ▶</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Options -->
+  <div class="panel" id="panel-2">
+    <h2>改定オプションを選択してください</h2>
+    <p class="panel-desc">適用したい項目をすべて選択してください。複数選択が可能です。</p>
+
+    <h3 style="font-size:15px; margin-bottom:12px; color:var(--primary);">■ 法改正対応</h3>
+    <div class="option-grid" style="margin-bottom:24px;">
+      <div class="option-card selected" data-option="latest-model">
+        <h3><span class="checkbox-indicator">✓</span>厚労省モデル就業規則準拠チェック</h3>
+        <p>最新のモデル就業規則（令和5年7月版）の構成・内容と比較し、不足している規定を洗い出します。</p>
+      </div>
+      <div class="option-card selected" data-option="childcare-2025">
+        <h3><span class="checkbox-indicator">✓</span>育児・介護休業法改正（2025年4月施行）</h3>
+        <p>子の看護休暇の拡大、テレワーク措置義務化、個別周知義務など最新改正に対応します。</p>
+      </div>
+      <div class="option-card selected" data-option="labor-condition-2024">
+        <h3><span class="checkbox-indicator">✓</span>労働条件明示ルール改正（2024年4月施行）</h3>
+        <p>就業場所・業務の変更の範囲、無期転換申込権に関する明示義務に対応します。</p>
+      </div>
+      <div class="option-card" data-option="harassment">
+        <h3><span class="checkbox-indicator"></span>ハラスメント防止規定の強化</h3>
+        <p>カスタマーハラスメント対策の努力義務化（2025年改正）に対応した規定を追加します。</p>
+      </div>
+      <div class="option-card" data-option="side-job">
+        <h3><span class="checkbox-indicator"></span>副業・兼業規定の整備</h3>
+        <p>厚労省ガイドラインに沿った副業・兼業の届出制・許可制の規定を整備します。</p>
+      </div>
+      <div class="option-card" data-option="telework">
+        <h3><span class="checkbox-indicator"></span>テレワーク勤務規定の整備</h3>
+        <p>在宅勤務の定義、勤務場所、費用負担、情報セキュリティ等の規定を追加します。</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:15px; margin-bottom:12px; color:var(--success);">■ 助成金対応条文の自動挿入</h3>
+    <div class="option-grid" style="margin-bottom:24px;">
+      <div class="option-card" data-option="career-up">
+        <h3><span class="checkbox-indicator"></span>キャリアアップ助成金（正社員化コース）</h3>
+        <p>正社員転換制度、賞与・退職金・昇給制度、有期雇用労働者の定義等の規定を挿入します。令和7年度最新要件に対応しています。</p>
+      </div>
+      <div class="option-card" data-option="gyomu-kaizen">
+        <h3><span class="checkbox-indicator"></span>業務改善助成金</h3>
+        <p>事業場内最低賃金の定め、賃金引上げ計画に関する規定を挿入します。令和7年度要件に対応しています。</p>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-outline" onclick="goToStep(1)">◀ 戻る</button>
+      <button class="btn btn-primary" id="btnToStep3">診断を実行する ▶</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Diagnosis Results -->
+  <div class="panel" id="panel-3">
+    <h2>診断結果</h2>
+    <p class="panel-desc">現行の就業規則を分析した結果です。改善が必要な項目を確認してください。</p>
+
+    <div class="stats-grid" id="statsGrid"></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <p style="font-size:13px; color:var(--gray-500); margin-bottom:24px;" id="progressText"></p>
+
+    <div class="tab-bar" id="diagTabBar">
+      <button class="tab-btn active" data-tab="all">すべて</button>
+      <button class="tab-btn" data-tab="critical">要対応</button>
+      <button class="tab-btn" data-tab="warning">推奨</button>
+      <button class="tab-btn" data-tab="info">参考</button>
+    </div>
+
+    <div id="diagResults"></div>
+
+    <div class="btn-group">
+      <button class="btn btn-outline" onclick="goToStep(2)">◀ 戻る</button>
+      <button class="btn btn-primary" id="btnToStep4">改定案を生成する ▶</button>
+    </div>
+  </div>
+
+  <!-- Step 4: Draft Review -->
+  <div class="panel" id="panel-4">
+    <h2>改定案の確認</h2>
+    <p class="panel-desc">以下の改定案をご確認ください。各条文の追加・変更箇所がハイライト表示されています。</p>
+
+    <div class="tab-bar" id="draftTabBar">
+      <button class="tab-btn active" data-tab="amended">改定後（全文）</button>
+      <button class="tab-btn" data-tab="changes">変更箇所一覧</button>
+      <button class="tab-btn" data-tab="subsidy">助成金対応条文</button>
+    </div>
+
+    <div class="tab-content active" id="tab-amended">
+      <div class="clause-preview" id="amendedText" style="max-height:600px;"></div>
+    </div>
+
+    <div class="tab-content" id="tab-changes">
+      <div id="changesList"></div>
+    </div>
+
+    <div class="tab-content" id="tab-subsidy">
+      <div id="subsidyList"></div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-outline" onclick="goToStep(3)">◀ 戻る</button>
+      <button class="btn btn-primary" id="btnToStep5">Word出力へ ▶</button>
+    </div>
+  </div>
+
+  <!-- Step 5: Export -->
+  <div class="panel" id="panel-5">
+    <h2>Word文書として出力</h2>
+    <p class="panel-desc">改定後の就業規則をWord(.docx)形式でダウンロードします。</p>
+
+    <div style="text-align:center; padding:40px;">
+      <div style="font-size:64px; margin-bottom:16px;">📋</div>
+      <h3 style="margin-bottom:8px;">改定就業規則のWord出力</h3>
+      <p style="color:var(--gray-500); margin-bottom:24px;">改定案の内容がWord文書として出力されます。<br>出力後は専門家（社会保険労務士等）による最終確認を推奨します。</p>
+      <button class="btn btn-success" id="btnExport" style="font-size:16px; padding:16px 48px;">
+        Word文書をダウンロード
+      </button>
+      <p style="font-size:12px; color:var(--gray-500); margin-top:16px;">
+        ※ 本ツールの出力は参考情報です。助成金申請前に必ず管轄の労働局等にご確認ください。
+      </p>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-outline" onclick="goToStep(4)">◀ 戻る</button>
+    </div>
+  </div>
+</div>
+
+<!-- Loading overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p id="loadingText">解析中です...</p>
+</div>
+
+<script>
+// ==========================================
+// アプリケーション全体の状態管理
+// ==========================================
+const AppState = {
+  currentStep: 1,
+  uploadedText: '',
+  selectedOptions: new Set(['latest-model', 'childcare-2025', 'labor-condition-2024']),
+  diagFindings: [],
+  amendedClauses: [],
+  subsidyClauses: [],
+  originalStructure: [],
+  parsedChapters: []
+};
+
+// ==========================================
+// モデル就業規則の構造定義（厚労省 令和5年7月版準拠）
+// ==========================================
+const MODEL_STRUCTURE = [
+  { chapter: 1, title: '総則', articles: [
+    { num: 1, title: '目的', keywords: ['目的', '本規則'] },
+    { num: 2, title: '適用範囲', keywords: ['適用', '範囲', '労働者'] },
+    { num: 3, title: '規則の遵守', keywords: ['遵守', '義務'] }
+  ]},
+  { chapter: 2, title: '採用、異動等', articles: [
+    { num: 4, title: '採用手続', keywords: ['採用', '提出', '書類'] },
+    { num: 5, title: '採用時の提出書類', keywords: ['提出書類', '履歴書'] },
+    { num: 6, title: '試用期間', keywords: ['試用期間'] },
+    { num: 7, title: '労働条件の明示', keywords: ['労働条件', '明示', '通知'] },
+    { num: 8, title: '人事異動', keywords: ['異動', '転勤', '配置転換', '出向'] },
+    { num: 9, title: '休職', keywords: ['休職', '復職'] }
+  ]},
+  { chapter: 3, title: '服務規律', articles: [
+    { num: 10, title: '服務', keywords: ['服務', '服務規律'] },
+    { num: 11, title: '遵守事項', keywords: ['遵守事項', '禁止'] },
+    { num: 12, title: 'セクシュアルハラスメントの禁止', keywords: ['セクハラ', 'セクシュアル'] },
+    { num: 13, title: '妊娠・出産・育児休業等に関するハラスメントの禁止', keywords: ['マタハラ', 'マタニティ', '妊娠', '出産'] },
+    { num: 14, title: 'パワーハラスメントの禁止', keywords: ['パワハラ', 'パワーハラスメント'] },
+    { num: 15, title: '個人情報保護', keywords: ['個人情報', 'プライバシー'] },
+    { num: 16, title: '始業及び終業時刻の記録', keywords: ['始業', '終業', '記録', '出退勤'] },
+    { num: 17, title: '遅刻、早退、欠勤等', keywords: ['遅刻', '早退', '欠勤'] }
+  ]},
+  { chapter: 4, title: '労働時間、休憩及び休日', articles: [
+    { num: 18, title: '労働時間', keywords: ['労働時間', '所定労働'] },
+    { num: 19, title: '休憩時間', keywords: ['休憩'] },
+    { num: 20, title: '休日', keywords: ['休日', '法定休日'] },
+    { num: 21, title: '時間外及び休日労働', keywords: ['時間外', '残業', '休日労働', '36協定'] }
+  ]},
+  { chapter: 5, title: '休暇等', articles: [
+    { num: 22, title: '年次有給休暇', keywords: ['年次有給', '有給休暇', '年休'] },
+    { num: 23, title: '年次有給休暇の時間単位での付与', keywords: ['時間単位', '時間年休'] },
+    { num: 24, title: '産前産後の休業', keywords: ['産前産後', '産休'] },
+    { num: 25, title: '母性健康管理の措置', keywords: ['母性健康', '妊娠中'] },
+    { num: 26, title: '育児休業', keywords: ['育児休業', '育休'] },
+    { num: 27, title: '介護休業', keywords: ['介護休業', '介護休暇'] },
+    { num: 28, title: '子の看護休暇', keywords: ['看護休暇', '子の看護'] },
+    { num: 29, title: '介護休暇', keywords: ['介護休暇'] },
+    { num: 30, title: '育児・介護のための所定外労働の制限', keywords: ['所定外労働', '制限'] },
+    { num: 31, title: '育児・介護のための時間外労働の制限', keywords: ['時間外労働の制限'] },
+    { num: 32, title: '育児・介護のための深夜業の制限', keywords: ['深夜業', '制限'] },
+    { num: 33, title: '育児短時間勤務', keywords: ['短時間勤務', '育児短時間'] },
+    { num: 34, title: '介護短時間勤務', keywords: ['介護短時間'] },
+    { num: 35, title: '出生時育児休業（産後パパ育休）', keywords: ['出生時育児', '産後パパ', 'パパ育休'] },
+    { num: 36, title: '慶弔休暇等', keywords: ['慶弔', '特別休暇', '忌引'] }
+  ]},
+  { chapter: 6, title: '賃金', articles: [
+    { num: 37, title: '賃金の構成', keywords: ['賃金', '構成', '基本給', '手当'] },
+    { num: 38, title: '基本給', keywords: ['基本給'] },
+    { num: 39, title: '家族手当', keywords: ['家族手当'] },
+    { num: 40, title: '通勤手当', keywords: ['通勤手当'] },
+    { num: 41, title: '役付手当', keywords: ['役付手当', '役職手当'] },
+    { num: 42, title: '技能・資格手当', keywords: ['技能手当', '資格手当'] },
+    { num: 43, title: '精皆勤手当', keywords: ['精皆勤', '皆勤手当'] },
+    { num: 44, title: '時間外労働手当', keywords: ['時間外労働手当', '残業手当'] },
+    { num: 45, title: '休日労働手当', keywords: ['休日労働手当'] },
+    { num: 46, title: '深夜労働手当', keywords: ['深夜労働手当', '深夜手当'] },
+    { num: 47, title: '賃金の計算期間及び支払日', keywords: ['計算期間', '支払日', '締め日'] },
+    { num: 48, title: '賃金の支払と控除', keywords: ['支払', '控除'] },
+    { num: 49, title: '賃金の非常時払い', keywords: ['非常時払'] },
+    { num: 50, title: '昇給', keywords: ['昇給'] },
+    { num: 51, title: '賞与', keywords: ['賞与', 'ボーナス'] }
+  ]},
+  { chapter: 7, title: '定年、退職及び解雇', articles: [
+    { num: 52, title: '定年等', keywords: ['定年'] },
+    { num: 53, title: '退職', keywords: ['退職', '自己都合'] },
+    { num: 54, title: '解雇', keywords: ['解雇', '懲戒解雇'] },
+    { num: 55, title: '解雇制限', keywords: ['解雇制限', '解雇予告'] }
+  ]},
+  { chapter: 8, title: '退職金', articles: [
+    { num: 56, title: '退職金の支給', keywords: ['退職金', '退職手当'] },
+    { num: 57, title: '退職金の額', keywords: ['退職金の額', '退職金計算'] },
+    { num: 58, title: '退職金の支払方法及び支払時期', keywords: ['退職金の支払'] }
+  ]},
+  { chapter: 9, title: '無期労働契約への転換', articles: [
+    { num: 59, title: '無期労働契約への転換', keywords: ['無期転換', '無期労働契約'] }
+  ]},
+  { chapter: 10, title: '安全衛生及び災害補償', articles: [
+    { num: 60, title: '遵守義務', keywords: ['安全衛生', '安全'] },
+    { num: 61, title: '就業禁止', keywords: ['就業禁止', '伝染病'] },
+    { num: 62, title: '健康診断', keywords: ['健康診断'] },
+    { num: 63, title: '長時間労働者に対する面接指導', keywords: ['面接指導', '長時間労働'] },
+    { num: 64, title: 'ストレスチェック', keywords: ['ストレスチェック'] },
+    { num: 65, title: '安全衛生教育', keywords: ['安全衛生教育'] },
+    { num: 66, title: '災害補償', keywords: ['災害補償', '労災'] }
+  ]},
+  { chapter: 11, title: '職業訓練', articles: [
+    { num: 67, title: '教育訓練', keywords: ['教育訓練', '職業訓練', '研修'] }
+  ]},
+  { chapter: 12, title: '表彰及び制裁', articles: [
+    { num: 68, title: '表彰', keywords: ['表彰'] },
+    { num: 69, title: '懲戒の種類', keywords: ['懲戒', '種類', '戒告', '減給', '出勤停止'] },
+    { num: 70, title: '懲戒の事由', keywords: ['懲戒事由', '懲戒の事由'] }
+  ]},
+  { chapter: 13, title: '副業・兼業', articles: [
+    { num: 71, title: '副業・兼業', keywords: ['副業', '兼業'] }
+  ]}
+];
+
+// ==========================================
+// 法改正チェック項目データベース
+// ==========================================
+const LAW_AMENDMENTS = {
+  'childcare-2025': {
+    title: '育児・介護休業法改正（2025年4月施行）',
+    checks: [
+      {
+        id: 'childcare-nursing',
+        title: '子の看護休暇の拡大',
+        keywords: ['看護休暇'],
+        required: '対象を「小学校3年生修了まで」に拡大。取得理由に「感染症に伴う学級閉鎖」「入学式・卒業式等の行事参加」を追加。名称を「子の看護等休暇」に変更。',
+        severity: 'critical',
+        clause: '（子の看護等休暇）\n第○条　小学校3年生の学年末に達するまでの子を養育する従業員は、負傷し、もしくは疾病にかかった当該子の世話をするために、または当該子に予防接種もしくは健康診断を受けさせるために、もしくは当該子が感染症に伴う学級閉鎖等になった場合において、または当該子の入園式、卒園式、入学式その他これに準ずる行事に出席するために、1年間につき5日（当該子が2人以上の場合は10日）を限度として、子の看護等休暇を取得することができます。'
+      },
+      {
+        id: 'childcare-telework',
+        title: '育児のためのテレワーク措置',
+        keywords: ['テレワーク', '在宅勤務', '育児'],
+        required: '3歳未満の子を養育する労働者がテレワークを選択できる措置が事業主の努力義務に。短時間勤務の代替措置としてもテレワークを追加。',
+        severity: 'warning',
+        clause: '（育児のためのテレワーク）\n第○条　3歳に満たない子を養育する従業員が申し出た場合には、会社は在宅勤務その他のテレワークにより就業させることができる措置を講ずるよう努めるものとします。\n2　育児のための短時間勤務制度を利用することが困難な従業員については、テレワークをその代替措置として利用することができるものとします。'
+      },
+      {
+        id: 'childcare-overtime-limit',
+        title: '残業免除の対象拡大',
+        keywords: ['所定外労働', '残業免除', '制限'],
+        required: '所定外労働の制限（残業免除）の対象を「小学校就学前」の子を養育する労働者に拡大。',
+        severity: 'critical',
+        clause: '（育児のための所定外労働の制限）\n第○条　小学校就学の始期に達するまでの子を養育する従業員が当該子を養育するために申し出た場合には、事業の正常な運営に支障がある場合を除き、所定労働時間を超えて労働させることはありません。'
+      },
+      {
+        id: 'childcare-individual-notice',
+        title: '育児休業等の個別周知・意向確認',
+        keywords: ['個別周知', '意向確認'],
+        required: '妊娠・出産等の申出をした労働者に対して、育児休業制度等の個別周知と取得意向の確認を行う義務。面談・書面等の方法で実施。',
+        severity: 'warning',
+        clause: ''
+      },
+      {
+        id: 'childcare-flexible-work',
+        title: '柔軟な働き方を実現するための措置',
+        keywords: ['柔軟な働き方', '短時間勤務', 'フレックス'],
+        required: '3歳から小学校就学前の子を養育する労働者に対し、始業時刻等の変更、テレワーク、短時間勤務、新たな休暇の付与等から2以上の措置を事業主が講じる義務。',
+        severity: 'critical',
+        clause: '（育児期の柔軟な働き方に関する措置）\n第○条　3歳以上小学校就学の始期に達するまでの子を養育する従業員に対し、会社は次の各号に掲げる措置のうち2以上の措置を講じるものとします。\n一　始業時刻又は終業時刻の変更\n二　テレワーク（月10日以上）\n三　育児のための短時間勤務制度\n四　新たな休暇の付与（年10日以上）\n五　その他会社が定める措置\n2　前項の措置の適用を受けようとする従業員は、適用開始予定日の1か月前までに所定の書面により会社に申し出なければなりません。'
+      }
+    ]
+  },
+  'labor-condition-2024': {
+    title: '労働条件明示ルール改正（2024年4月施行）',
+    checks: [
+      {
+        id: 'work-location-change',
+        title: '就業場所・業務の変更の範囲の明示',
+        keywords: ['就業場所', '業務の変更', '変更の範囲'],
+        required: '労働契約締結時・更新時に、就業場所及び業務の「変更の範囲」を明示する義務。',
+        severity: 'critical',
+        clause: '（労働条件の明示）\n第○条　会社は、労働者の採用に際し、次の事項を書面の交付により明示するものとします。\n（中略）\n六　就業の場所及び従事すべき業務に関する事項（これらの変更の範囲を含む。）'
+      },
+      {
+        id: 'muki-tenkan-info',
+        title: '無期転換申込機会等の明示',
+        keywords: ['無期転換', '申込機会', '転換後の労働条件'],
+        required: '有期契約更新時に、無期転換申込機会があること及び転換後の労働条件を明示する義務。',
+        severity: 'critical',
+        clause: ''
+      }
+    ]
+  },
+  'harassment': {
+    title: 'ハラスメント防止規定の強化',
+    checks: [
+      {
+        id: 'customer-harassment',
+        title: 'カスタマーハラスメント対策',
+        keywords: ['カスタマーハラスメント', '顧客', '取引先'],
+        required: '顧客・取引先等からの著しい迷惑行為（カスタマーハラスメント）に対する対策を事業主が講じる努力義務。',
+        severity: 'warning',
+        clause: '（カスタマーハラスメントへの対応）\n第○条　会社は、顧客、取引先その他の第三者（以下「顧客等」という。）から、従業員に対して行われる著しい迷惑行為（暴行、脅迫、ひどい暴言、著しく不当な要求等）により、従業員の就業環境が害されることのないよう、次の措置を講じるものとします。\n一　カスタマーハラスメントに関する対応方針の明確化及び従業員への周知\n二　カスタマーハラスメントに関する相談窓口の設置\n三　被害を受けた従業員への配慮のための措置\n四　カスタマーハラスメントの原因や背景となる要因の分析及び改善'
+      }
+    ]
+  },
+  'side-job': {
+    title: '副業・兼業規定の整備',
+    checks: [
+      {
+        id: 'side-job-rule',
+        title: '副業・兼業規定',
+        keywords: ['副業', '兼業'],
+        required: '厚労省ガイドラインに沿い、原則許可制（届出制）とする規定を整備。労働時間管理・健康管理の規定も必要。',
+        severity: 'warning',
+        clause: '（副業・兼業）\n第○条　従業員は、勤務時間外において、他の会社等の業務に従事することができます。\n2　従業員は、前項の業務に従事するにあたっては、事前に会社に所定の届出を行わなければなりません。\n3　会社は、従業員からの前項の届出に基づき、当該従業員が副業・兼業に従事することにより、次の各号のいずれかに該当する場合には、これを禁止又は制限することができます。\n一　労務提供上の支障がある場合\n二　企業秘密が漏洩する場合\n三　会社の名誉や信用を損なう行為や、信頼関係を破壊する行為がある場合\n四　競業により、企業の利益を害する場合'
+      }
+    ]
+  },
+  'telework': {
+    title: 'テレワーク勤務規定の整備',
+    checks: [
+      {
+        id: 'telework-rule',
+        title: 'テレワーク勤務規定',
+        keywords: ['テレワーク', '在宅勤務', 'リモートワーク'],
+        required: 'テレワークの定義、対象者、申請手続き、勤務時間管理、費用負担、情報セキュリティに関する規定を整備。',
+        severity: 'warning',
+        clause: '（テレワーク勤務）\n第○条　会社は、業務の性質上可能な場合において、従業員の申出により、自宅その他会社が認める場所において勤務させること（以下「テレワーク勤務」という。）ができるものとします。\n2　テレワーク勤務を希望する従業員は、所定の申請書を事前に提出し、会社の許可を得なければなりません。\n3　テレワーク勤務時の労働時間は、原則として就業規則に定める所定労働時間によるものとします。\n4　テレワーク勤務に必要な通信費、光熱費等の費用負担については、別途定めるところによります。\n5　従業員はテレワーク勤務時において、会社の情報セキュリティに関する規程を遵守しなければなりません。'
+      }
+    ]
+  }
+};
+
+// ==========================================
+// キャリアアップ助成金 対応条文テンプレート（令和7年度版）
+// ==========================================
+const CAREER_UP_CLAUSES = [
+  {
+    id: 'cu-employee-types',
+    title: '雇用区分の定義（正規・有期・無期の明確化）',
+    chapter: '総則',
+    importance: '必須',
+    description: 'キャリアアップ助成金の申請には、正規雇用労働者と非正規雇用労働者の雇用区分が就業規則上で明確に区別されている必要があります。',
+    clause: '（従業員の区分）\n第○条　会社の従業員の区分は、次のとおりとします。\n一　正規雇用労働者（以下「正社員」という。）　期間の定めのない労働契約を締結し、会社が定める所定労働時間の全時間にわたって勤務する者であって、長期雇用を前提とし、賞与又は退職金の制度及び昇給が適用される者をいいます。\n二　契約社員　期間の定めのある労働契約を締結した者をいいます。\n三　パートタイム労働者　期間の定めのある労働契約を締結し、1週間の所定労働時間が正社員に比べ短い者をいいます。\n四　無期雇用労働者　期間の定めのない労働契約を締結した者のうち、正社員以外の者をいいます。\n2　前項第2号から第4号に掲げる者を総称して「非正規雇用労働者」といいます。\n3　非正規雇用労働者には、正社員と異なる賃金の額又は計算方法を適用するものとします。具体的な賃金体系は個別の労働契約又は別に定める賃金規程によります。'
+  },
+  {
+    id: 'cu-conversion',
+    title: '正社員転換制度',
+    chapter: '採用、異動等',
+    importance: '必須',
+    description: '有期雇用・無期雇用労働者を正社員に転換する制度を就業規則に明文化する必要があります。転換の手続き、要件、時期を具体的に規定します。',
+    clause: '（正社員への転換）\n第○条　勤続〇年以上の者又は有期労働契約を反復更新し通算〇年以上の者で、本人が希望する場合は、正社員に転換させることがあります。\n2　正社員への転換を希望する者は、所定の申出書を会社に提出するものとします。\n3　会社は、前項の申出があった場合、次の各号に掲げる要件を満たす者について、面接試験その他の選考を行い、合格した者を正社員に転換するものとします。\n一　転換を希望する意思を表明した者であること\n二　所属長の推薦があること又は一定の人事評価を得ていること\n三　面接試験又は筆記試験に合格した者であること\n4　正社員への転換時期は、原則として毎年4月1日又は10月1日とします。ただし、会社が認めた場合にはこの限りではありません。\n5　転換した者の賃金及び労働条件については、正社員に適用される就業規則、賃金規程及びその他の規程によるものとします。なお、転換後6か月間の賃金は、転換前6か月間の賃金と比較して3％以上増額するものとします。\n6　正社員に転換した者について、試用期間は設けないものとします。'
+  },
+  {
+    id: 'cu-bonus',
+    title: '賞与規定（正社員対象）',
+    chapter: '賃金',
+    importance: '必須（賞与又は退職金のいずれか）',
+    description: '令和7年度の要件では、正規雇用労働者には「賞与又は退職金の制度」と「昇給」の両方が適用される必要があります。',
+    clause: '（賞与）\n第○条　賞与は、原則として下記の算定対象期間に在籍した正社員に対し、会社の業績等を勘案して下記の支給日に支給します。ただし、会社の業績の著しい低下その他やむを得ない事由がある場合には、支給時期を延期し、又は支給しないことがあります。\n\n　算定対象期間　　　　支給日\n　4月1日～9月30日　　12月○日\n　10月1日～3月31日　　6月○日\n\n2　前項の賞与の額は、会社の業績及び従業員の勤務成績等を考慮して各人ごとに決定するものとします。\n3　非正規雇用労働者に対する賞与の取扱いは、個別の労働契約又は別に定めるところによるものとし、正社員と異なる基準を適用することがあります。'
+  },
+  {
+    id: 'cu-raise',
+    title: '昇給規定（正社員対象）',
+    chapter: '賃金',
+    importance: '必須',
+    description: '正規雇用労働者には昇給制度が適用される必要があります。',
+    clause: '（昇給）\n第○条　昇給は、毎年○月に正社員について、勤務成績等を勘案して行うものとします。ただし、会社の業績の著しい低下その他やむを得ない事由がある場合には、行わないことがあります。\n2　昇給額は、従業員の勤務成績等を考慮して各人ごとに決定するものとします。\n3　非正規雇用労働者の昇給については、個別の労働契約又は別に定めるところによります。'
+  },
+  {
+    id: 'cu-retirement-benefit',
+    title: '退職金規定（正社員対象）',
+    chapter: '退職金',
+    importance: '必須（賞与又は退職金のいずれか）',
+    description: '賞与制度を設けない場合は、退職金制度が必須です。正社員に退職金制度が適用されることを明記します。',
+    clause: '（退職金の支給）\n第○条　勤続○年以上の正社員が退職し又は解雇されたときは、この章に定めるところにより退職金を支給します。ただし、懲戒解雇された者には、退職金の全部又は一部を支給しないことがあります。\n2　前項の退職金の額は、退職又は解雇時の基本給の額に、勤続年数に応じて別に定める支給率を乗じて得た額とします。\n3　非正規雇用労働者の退職金については、個別の労働契約又は別に定めるところによります。'
+  }
+];
+
+// ==========================================
+// 業務改善助成金 対応条文テンプレート（令和7年度版）
+// ==========================================
+const GYOMU_KAIZEN_CLAUSES = [
+  {
+    id: 'gk-min-wage',
+    title: '事業場内最低賃金の規定',
+    chapter: '賃金',
+    importance: '必須',
+    description: '業務改善助成金の申請には、事業場内で最も低い賃金（事業場内最低賃金）を就業規則に明記し、30円以上引き上げることが必要です。',
+    clause: '（事業場内最低賃金）\n第○条　会社は、当事業場において雇用する全ての労働者に適用する最低賃金額（以下「事業場内最低賃金」という。）を、時間額○○○円と定めます。\n2　会社は、前項の事業場内最低賃金を下回る賃金で労働者を雇用しないものとします。\n3　事業場内最低賃金の額は、地域別最低賃金及び特定（産業別）最低賃金を上回るものでなければなりません。\n4　会社は、事業場内最低賃金の額を見直す場合には、所定の手続きに従い就業規則の変更届出を行うものとします。'
+  },
+  {
+    id: 'gk-wage-increase',
+    title: '賃金引上げ計画に関する規定',
+    chapter: '賃金',
+    importance: '必須',
+    description: '引上げ後の賃金額を就業規則に定め、引上げは一度に行う必要があります（段階的引上げは不可）。',
+    clause: '（賃金の引上げ）\n第○条　会社は、生産性の向上及び従業員の処遇改善を図るため、必要に応じて賃金の引上げを実施するものとします。\n2　前項の賃金の引上げにあたっては、事業場内最低賃金を30円以上引き上げることを基本とし、引上げ後の賃金額を就業規則に反映するものとします。\n3　賃金の引上げは、一度に行うものとし、複数回に分割して引き上げる方法はとらないものとします。'
+  }
+];
+
+// ==========================================
+// ファイルアップロード処理
+// ==========================================
+const uploadArea = document.getElementById('uploadArea');
+const fileInput = document.getElementById('fileInput');
+
+uploadArea.addEventListener('click', () => fileInput.click());
+uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+uploadArea.addEventListener('drop', (e) => {
+  e.preventDefault();
+  uploadArea.classList.remove('dragover');
+  if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change', (e) => { if (e.target.files.length > 0) handleFile(e.target.files[0]); });
+
+async function handleFile(file) {
+  if (!file.name.endsWith('.docx')) {
+    alert('Word形式（.docx）のファイルのみ対応しています。');
+    return;
+  }
+
+  showLoading('ファイルを読み込んでいます...');
+
+  document.getElementById('fileName').textContent = file.name;
+  document.getElementById('fileSize').textContent = (file.size / 1024).toFixed(1) + ' KB';
+  document.getElementById('fileInfo').style.display = 'block';
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const result = await mammoth.extractRawText({ arrayBuffer });
+    AppState.uploadedText = result.value;
+
+    const preview = document.getElementById('textPreview');
+    const lines = result.value.split('\n').filter(l => l.trim());
+    preview.textContent = lines.slice(0, 50).join('\n') + (lines.length > 50 ? '\n...(以下省略)' : '');
+    document.getElementById('charCount').textContent = `全${result.value.length.toLocaleString()}文字 / ${lines.length}行を読み取りました`;
+    document.getElementById('parsePreview').style.display = 'block';
+    document.getElementById('btnToStep2').disabled = false;
+
+    parseChapters(result.value);
+  } catch (err) {
+    alert('ファイルの読み込みに失敗しました：' + err.message);
+  }
+  hideLoading();
+}
+
+function parseChapters(text) {
+  const lines = text.split('\n');
+  AppState.parsedChapters = [];
+  let currentChapter = null;
+
+  for (const line of lines) {
+    const chMatch = line.match(/第\s*(\d+|[一二三四五六七八九十]+)\s*章\s*(.+)/);
+    if (chMatch) {
+      currentChapter = { title: line.trim(), articles: [], rawText: '' };
+      AppState.parsedChapters.push(currentChapter);
+    }
+    if (currentChapter) {
+      currentChapter.rawText += line + '\n';
+      const artMatch = line.match(/第\s*(\d+|[一二三四五六七八九十百]+)\s*条/);
+      if (artMatch) {
+        currentChapter.articles.push(line.trim());
+      }
+    }
+  }
+}
+
+// ==========================================
+// オプション選択処理
+// ==========================================
+document.querySelectorAll('.option-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const opt = card.dataset.option;
+    if (AppState.selectedOptions.has(opt)) {
+      AppState.selectedOptions.delete(opt);
+      card.classList.remove('selected');
+      card.querySelector('.checkbox-indicator').textContent = '';
+    } else {
+      AppState.selectedOptions.add(opt);
+      card.classList.add('selected');
+      card.querySelector('.checkbox-indicator').textContent = '✓';
+    }
+  });
+});
+
+// ==========================================
+// 診断エンジン
+// ==========================================
+function runDiagnosis() {
+  showLoading('就業規則を診断しています...');
+  AppState.diagFindings = [];
+  const text = AppState.uploadedText.toLowerCase();
+
+  // 1) モデル就業規則との構造比較
+  if (AppState.selectedOptions.has('latest-model')) {
+    for (const chapter of MODEL_STRUCTURE) {
+      for (const article of chapter.articles) {
+        const found = article.keywords.some(kw => text.includes(kw.toLowerCase()));
+        if (!found) {
+          AppState.diagFindings.push({
+            severity: 'warning',
+            category: 'モデル就業規則',
+            title: `第${chapter.chapter}章「${chapter.title}」- ${article.title}の規定が見当たりません`,
+            detail: `厚生労働省モデル就業規則の第${article.num}条「${article.title}」に相当する規定が、現行の就業規則から検出できませんでした。追加を検討してください。`,
+            relatedArticle: article
+          });
+        }
+      }
+    }
+
+    // 追加のチェック：必須事項の確認
+    const mandatoryChecks = [
+      { kw: ['始業', '終業', '労働時間'], msg: '始業・終業時刻（労働基準法第89条第1号）' },
+      { kw: ['休憩'], msg: '休憩時間（労働基準法第89条第1号）' },
+      { kw: ['休日'], msg: '休日（労働基準法第89条第1号）' },
+      { kw: ['賃金', '給与', '基本給'], msg: '賃金の決定・計算・支払方法（労働基準法第89条第2号）' },
+      { kw: ['退職', '解雇'], msg: '退職に関する事項（労働基準法第89条第3号）' }
+    ];
+
+    for (const check of mandatoryChecks) {
+      if (!check.kw.some(kw => text.includes(kw))) {
+        AppState.diagFindings.push({
+          severity: 'critical',
+          category: '絶対的必要記載事項',
+          title: `${check.msg}の規定が見当たりません`,
+          detail: '労働基準法第89条により、常時10人以上の労働者を使用する事業場では必ず記載しなければならない事項です。'
+        });
+      }
+    }
+  }
+
+  // 2) 法改正対応チェック
+  for (const [optKey, amendment] of Object.entries(LAW_AMENDMENTS)) {
+    if (!AppState.selectedOptions.has(optKey)) continue;
+    for (const check of amendment.checks) {
+      const found = check.keywords.some(kw => text.includes(kw.toLowerCase()));
+      if (!found) {
+        AppState.diagFindings.push({
+          severity: check.severity,
+          category: amendment.title,
+          title: check.title + 'の規定が不足しています',
+          detail: check.required,
+          suggestedClause: check.clause
+        });
+      } else {
+        // キーワードは見つかったが内容が最新か確認
+        AppState.diagFindings.push({
+          severity: 'info',
+          category: amendment.title,
+          title: check.title + 'に関する規定が確認されました',
+          detail: '規定は存在しますが、最新の法改正内容に合致しているか、内容を確認してください。' + check.required
+        });
+      }
+    }
+  }
+
+  // 3) キャリアアップ助成金チェック
+  if (AppState.selectedOptions.has('career-up')) {
+    const cuChecks = [
+      { keywords: ['正社員', '正規雇用', '正規従業員'], title: '正規雇用労働者の定義', severity: 'critical' },
+      { keywords: ['転換', '正社員化', '登用'], title: '正社員転換制度の規定', severity: 'critical' },
+      { keywords: ['賞与', 'ボーナス'], title: '賞与制度の規定', severity: 'critical' },
+      { keywords: ['昇給'], title: '昇給制度の規定', severity: 'critical' },
+      { keywords: ['有期', '契約社員', 'パート'], title: '非正規雇用労働者の雇用区分定義', severity: 'critical' }
+    ];
+
+    for (const check of cuChecks) {
+      const found = check.keywords.some(kw => text.includes(kw.toLowerCase()));
+      if (!found) {
+        AppState.diagFindings.push({
+          severity: check.severity,
+          category: 'キャリアアップ助成金',
+          title: `${check.title}が見当たりません`,
+          detail: 'キャリアアップ助成金（正社員化コース）の申請には、この規定が就業規則に明記されている必要があります。'
+        });
+      }
+    }
+
+    // 退職金チェック（賞与がない場合は退職金が必須）
+    const hasBonus = ['賞与', 'ボーナス'].some(kw => text.includes(kw));
+    const hasRetirement = ['退職金', '退職手当'].some(kw => text.includes(kw));
+    if (!hasBonus && !hasRetirement) {
+      AppState.diagFindings.push({
+        severity: 'critical',
+        category: 'キャリアアップ助成金',
+        title: '賞与又は退職金の規定が見当たりません',
+        detail: '令和7年度の要件では、正規雇用労働者に「賞与又は退職金の制度」と「昇給」が適用される必要があります。賞与と退職金のいずれか一方は必須です。'
+      });
+    }
+  }
+
+  // 4) 業務改善助成金チェック
+  if (AppState.selectedOptions.has('gyomu-kaizen')) {
+    const gkChecks = [
+      { keywords: ['最低賃金', '事業場内最低'], title: '事業場内最低賃金の規定', severity: 'critical' },
+      { keywords: ['賃金', '給与', '時給', '基本給'], title: '賃金額の明示', severity: 'warning' }
+    ];
+
+    for (const check of gkChecks) {
+      const found = check.keywords.some(kw => text.includes(kw.toLowerCase()));
+      if (!found) {
+        AppState.diagFindings.push({
+          severity: check.severity,
+          category: '業務改善助成金',
+          title: `${check.title}が見当たりません`,
+          detail: '業務改善助成金の申請には、引上げ後の事業場内最低賃金額を就業規則に定める必要があります。'
+        });
+      }
+    }
+  }
+
+  // 結果の並び替え
+  const sevOrder = { critical: 0, warning: 1, info: 2, ok: 3 };
+  AppState.diagFindings.sort((a, b) => sevOrder[a.severity] - sevOrder[b.severity]);
+
+  renderDiagResults();
+  hideLoading();
+}
+
+function renderDiagResults() {
+  const counts = { critical: 0, warning: 0, info: 0 };
+  AppState.diagFindings.forEach(f => { if (counts[f.severity] !== undefined) counts[f.severity]++; });
+
+  const statsGrid = document.getElementById('statsGrid');
+  statsGrid.innerHTML = `
+    <div class="stat-card" style="background:var(--danger-light);">
+      <div class="stat-num" style="color:var(--danger);">${counts.critical}</div>
+      <div class="stat-label">要対応（重要）</div>
+    </div>
+    <div class="stat-card" style="background:var(--warning-light);">
+      <div class="stat-num" style="color:var(--warning);">${counts.warning}</div>
+      <div class="stat-label">推奨改定</div>
+    </div>
+    <div class="stat-card" style="background:var(--primary-light);">
+      <div class="stat-num" style="color:var(--primary);">${counts.info}</div>
+      <div class="stat-label">確認事項</div>
+    </div>
+    <div class="stat-card" style="background:var(--success-light);">
+      <div class="stat-num" style="color:var(--success);">${AppState.parsedChapters.length}</div>
+      <div class="stat-label">検出された章</div>
+    </div>
+  `;
+
+  const total = counts.critical + counts.warning + counts.info;
+  const score = total > 0 ? Math.max(10, Math.round(100 - (counts.critical * 5 + counts.warning * 2 + counts.info * 0.5))) : 100;
+  document.getElementById('progressFill').style.width = score + '%';
+  document.getElementById('progressText').textContent = `現行就業規則の適合度スコア：${score}点 / 100点`;
+
+  renderFindings('all');
+
+  // Tab events
+  document.querySelectorAll('#diagTabBar .tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#diagTabBar .tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderFindings(btn.dataset.tab);
+    });
+  });
+}
+
+function renderFindings(filter) {
+  const container = document.getElementById('diagResults');
+  const findings = filter === 'all' ? AppState.diagFindings : AppState.diagFindings.filter(f => f.severity === filter);
+
+  if (findings.length === 0) {
+    container.innerHTML = '<p style="text-align:center; color:var(--gray-500); padding:24px;">該当する項目はありません。</p>';
+    return;
+  }
+
+  // Group by category
+  const groups = {};
+  findings.forEach(f => {
+    if (!groups[f.category]) groups[f.category] = [];
+    groups[f.category].push(f);
+  });
+
+  let html = '';
+  for (const [cat, items] of Object.entries(groups)) {
+    html += `<div class="result-section"><h3>${cat}</h3>`;
+    for (const item of items) {
+      const sevLabel = { critical: '要対応', warning: '推奨', info: '参考', ok: '適合' }[item.severity];
+      const tagClass = 'tag-' + item.severity;
+      html += `
+        <div class="finding-card ${item.severity}">
+          <div class="finding-title"><span class="finding-tag ${tagClass}">${sevLabel}</span>${item.title}</div>
+          <div class="finding-detail">${item.detail}</div>
+          ${item.suggestedClause ? '<div style="margin-top:8px;"><details><summary style="cursor:pointer; font-size:13px; color:var(--primary); font-weight:600;">改定案を表示</summary><div class="clause-preview" style="margin-top:8px; white-space:pre-wrap;">' + escapeHtml(item.suggestedClause) + '</div></details></div>' : ''}
+        </div>`;
+    }
+    html += '</div>';
+  }
+  container.innerHTML = html;
+}
+
+// ==========================================
+// 改定案生成エンジン
+// ==========================================
+function generateAmendedDraft() {
+  showLoading('改定案を生成しています...');
+  AppState.amendedClauses = [];
+  AppState.subsidyClauses = [];
+
+  let amendedText = AppState.uploadedText;
+
+  // 法改正対応の条文を収集
+  const changesToInsert = [];
+
+  for (const [optKey, amendment] of Object.entries(LAW_AMENDMENTS)) {
+    if (!AppState.selectedOptions.has(optKey)) continue;
+    for (const check of amendment.checks) {
+      if (check.clause) {
+        const found = check.keywords.some(kw => AppState.uploadedText.toLowerCase().includes(kw.toLowerCase()));
+        if (!found) {
+          changesToInsert.push({
+            type: 'add',
+            category: amendment.title,
+            title: check.title,
+            clause: check.clause,
+            reason: check.required
+          });
+        }
+      }
+    }
+  }
+
+  // キャリアアップ助成金条文
+  if (AppState.selectedOptions.has('career-up')) {
+    for (const cu of CAREER_UP_CLAUSES) {
+      AppState.subsidyClauses.push({
+        type: 'subsidy-career-up',
+        ...cu
+      });
+      changesToInsert.push({
+        type: 'add-subsidy',
+        category: 'キャリアアップ助成金（正社員化コース）',
+        title: cu.title,
+        clause: cu.clause,
+        reason: cu.description,
+        importance: cu.importance
+      });
+    }
+  }
+
+  // 業務改善助成金条文
+  if (AppState.selectedOptions.has('gyomu-kaizen')) {
+    for (const gk of GYOMU_KAIZEN_CLAUSES) {
+      AppState.subsidyClauses.push({
+        type: 'subsidy-gyomu-kaizen',
+        ...gk
+      });
+      changesToInsert.push({
+        type: 'add-subsidy',
+        category: '業務改善助成金',
+        title: gk.title,
+        clause: gk.clause,
+        reason: gk.description,
+        importance: gk.importance
+      });
+    }
+  }
+
+  AppState.amendedClauses = changesToInsert;
+
+  // 改定後全文の生成
+  let fullAmended = AppState.uploadedText;
+  let appendix = '\n\n';
+
+  // 追加条文を末尾にまとめて追加
+  const lawAdditions = changesToInsert.filter(c => c.type === 'add');
+  const subsidyAdditions = changesToInsert.filter(c => c.type === 'add-subsidy');
+
+  if (lawAdditions.length > 0) {
+    appendix += '═══════════════════════════════════════\n';
+    appendix += '【法改正対応 追加条文】\n';
+    appendix += '═══════════════════════════════════════\n\n';
+    for (const item of lawAdditions) {
+      appendix += `【${item.category}】\n`;
+      appendix += item.clause + '\n\n';
+    }
+  }
+
+  if (subsidyAdditions.length > 0) {
+    appendix += '═══════════════════════════════════════\n';
+    appendix += '【助成金対応 追加・改定条文】\n';
+    appendix += '═══════════════════════════════════════\n\n';
+    for (const item of subsidyAdditions) {
+      appendix += `【${item.category} - ${item.title}】（${item.importance}）\n`;
+      appendix += item.clause + '\n\n';
+    }
+  }
+
+  fullAmended += appendix;
+
+  // 表示
+  renderAmendedDraft(fullAmended);
+  renderChangesList();
+  renderSubsidyList();
+  hideLoading();
+}
+
+function renderAmendedDraft(text) {
+  const container = document.getElementById('amendedText');
+  container.innerHTML = '<pre style="white-space:pre-wrap; font-family:inherit; line-height:2;">' + escapeHtml(text) + '</pre>';
+}
+
+function renderChangesList() {
+  const container = document.getElementById('changesList');
+  const changes = AppState.amendedClauses;
+
+  if (changes.length === 0) {
+    container.innerHTML = '<p style="text-align:center; color:var(--gray-500); padding:24px;">変更箇所はありません。</p>';
+    return;
+  }
+
+  let html = '';
+  for (const change of changes) {
+    const icon = change.type === 'add' ? '➕' : '📋';
+    html += `
+      <div class="finding-card info" style="border-color:var(--primary);">
+        <div class="finding-title">${icon} ${change.category} - ${change.title}</div>
+        <div class="finding-detail">${change.reason}</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer; font-size:13px; color:var(--primary); font-weight:600;">追加条文を表示</summary>
+          <div class="clause-preview" style="margin-top:8px; white-space:pre-wrap;">${escapeHtml(change.clause)}</div>
+        </details>
+      </div>`;
+  }
+  container.innerHTML = html;
+}
+
+function renderSubsidyList() {
+  const container = document.getElementById('subsidyList');
+
+  if (AppState.subsidyClauses.length === 0) {
+    container.innerHTML = '<p style="text-align:center; color:var(--gray-500); padding:24px;">助成金対応条文は選択されていません。ステップ2で助成金オプションを選択してください。</p>';
+    return;
+  }
+
+  let html = '';
+  // キャリアアップ助成金
+  const cuItems = AppState.subsidyClauses.filter(c => c.type === 'subsidy-career-up');
+  if (cuItems.length > 0) {
+    html += '<div class="result-section"><h3 style="color:var(--success);">キャリアアップ助成金（正社員化コース）対応条文</h3>';
+    html += '<p style="font-size:13px; color:var(--gray-500); margin-bottom:12px;">令和7年度の要件に基づき、以下の条文を就業規則に追加・反映する必要があります。</p>';
+    for (const item of cuItems) {
+      html += `
+        <div class="finding-card ok" style="border-color:var(--success);">
+          <div class="finding-title"><span class="finding-tag tag-ok">${item.importance}</span>${item.title}（${item.chapter}）</div>
+          <div class="finding-detail">${item.description}</div>
+          <div class="clause-preview" style="margin-top:8px; white-space:pre-wrap;">${escapeHtml(item.clause)}</div>
+        </div>`;
+    }
+    html += '</div>';
+  }
+
+  // 業務改善助成金
+  const gkItems = AppState.subsidyClauses.filter(c => c.type === 'subsidy-gyomu-kaizen');
+  if (gkItems.length > 0) {
+    html += '<div class="result-section"><h3 style="color:var(--success);">業務改善助成金 対応条文</h3>';
+    html += '<p style="font-size:13px; color:var(--gray-500); margin-bottom:12px;">令和7年度の要件に基づき、以下の条文を就業規則に追加・反映する必要があります。</p>';
+    for (const item of gkItems) {
+      html += `
+        <div class="finding-card ok" style="border-color:var(--success);">
+          <div class="finding-title"><span class="finding-tag tag-ok">${item.importance}</span>${item.title}（${item.chapter}）</div>
+          <div class="finding-detail">${item.description}</div>
+          <div class="clause-preview" style="margin-top:8px; white-space:pre-wrap;">${escapeHtml(item.clause)}</div>
+        </div>`;
+    }
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
+}
+
+// ==========================================
+// Word出力エンジン（docx.js）
+// ==========================================
+async function exportToWord() {
+  showLoading('Word文書を生成しています...');
+
+  const { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, BorderStyle, TabStopPosition, TabStopType } = docx;
+
+  const children = [];
+
+  // タイトル
+  children.push(new Paragraph({
+    children: [new TextRun({ text: '就業規則（改定案）', bold: true, size: 32, font: 'ＭＳ ゴシック' })],
+    alignment: AlignmentType.CENTER,
+    spacing: { after: 400 }
+  }));
+
+  children.push(new Paragraph({
+    children: [new TextRun({ text: `改定日：${new Date().toLocaleDateString('ja-JP')}`, size: 20, color: '666666', font: 'ＭＳ 明朝' })],
+    alignment: AlignmentType.CENTER,
+    spacing: { after: 600 }
+  }));
+
+  // 元の就業規則テキスト
+  const originalLines = AppState.uploadedText.split('\n');
+  for (const line of originalLines) {
+    if (!line.trim()) {
+      children.push(new Paragraph({ children: [], spacing: { after: 100 } }));
+      continue;
+    }
+
+    const isChapter = /第\s*(\d+|[一二三四五六七八九十]+)\s*章/.test(line);
+    const isArticle = /第\s*(\d+|[一二三四五六七八九十百]+)\s*条/.test(line);
+
+    if (isChapter) {
+      children.push(new Paragraph({
+        children: [new TextRun({ text: line.trim(), bold: true, size: 24, font: 'ＭＳ ゴシック' })],
+        heading: HeadingLevel.HEADING_2,
+        spacing: { before: 400, after: 200 }
+      }));
+    } else if (isArticle) {
+      children.push(new Paragraph({
+        children: [new TextRun({ text: line.trim(), bold: true, size: 21, font: 'ＭＳ 明朝' })],
+        spacing: { before: 200, after: 100 }
+      }));
+    } else {
+      children.push(new Paragraph({
+        children: [new TextRun({ text: line.trim(), size: 21, font: 'ＭＳ 明朝' })],
+        spacing: { after: 60 }
+      }));
+    }
+  }
+
+  // 法改正対応条文
+  const lawAdditions = AppState.amendedClauses.filter(c => c.type === 'add');
+  if (lawAdditions.length > 0) {
+    children.push(new Paragraph({ children: [], spacing: { after: 400 } }));
+    children.push(new Paragraph({
+      children: [new TextRun({ text: '【法改正対応 追加条文】', bold: true, size: 24, font: 'ＭＳ ゴシック', color: '1a56db' })],
+      spacing: { before: 600, after: 200 },
+      border: { bottom: { color: '1a56db', space: 4, size: 6, style: BorderStyle.SINGLE } }
+    }));
+
+    for (const item of lawAdditions) {
+      children.push(new Paragraph({
+        children: [new TextRun({ text: `【${item.category}】`, bold: true, size: 21, font: 'ＭＳ ゴシック', color: '333333' })],
+        spacing: { before: 300, after: 100 }
+      }));
+
+      const clauseLines = item.clause.split('\n');
+      for (const cl of clauseLines) {
+        children.push(new Paragraph({
+          children: [new TextRun({ text: cl, size: 21, font: 'ＭＳ 明朝' })],
+          spacing: { after: 60 }
+        }));
+      }
+    }
+  }
+
+  // 助成金対応条文
+  const subsidyAdditions = AppState.amendedClauses.filter(c => c.type === 'add-subsidy');
+  if (subsidyAdditions.length > 0) {
+    children.push(new Paragraph({ children: [], spacing: { after: 400 } }));
+    children.push(new Paragraph({
+      children: [new TextRun({ text: '【助成金対応 追加・改定条文】', bold: true, size: 24, font: 'ＭＳ ゴシック', color: '059669' })],
+      spacing: { before: 600, after: 200 },
+      border: { bottom: { color: '059669', space: 4, size: 6, style: BorderStyle.SINGLE } }
+    }));
+
+    for (const item of subsidyAdditions) {
+      children.push(new Paragraph({
+        children: [
+          new TextRun({ text: `【${item.category}】`, bold: true, size: 21, font: 'ＭＳ ゴシック', color: '059669' }),
+          new TextRun({ text: ` ${item.title}（${item.importance}）`, size: 21, font: 'ＭＳ 明朝' })
+        ],
+        spacing: { before: 300, after: 100 }
+      }));
+
+      children.push(new Paragraph({
+        children: [new TextRun({ text: item.reason, size: 18, font: 'ＭＳ 明朝', italics: true, color: '666666' })],
+        spacing: { after: 100 }
+      }));
+
+      const clauseLines = item.clause.split('\n');
+      for (const cl of clauseLines) {
+        children.push(new Paragraph({
+          children: [new TextRun({ text: cl, size: 21, font: 'ＭＳ 明朝' })],
+          spacing: { after: 60 }
+        }));
+      }
+    }
+  }
+
+  // 免責事項
+  children.push(new Paragraph({ children: [], spacing: { after: 600 } }));
+  children.push(new Paragraph({
+    children: [new TextRun({ text: '【注意事項】', bold: true, size: 18, font: 'ＭＳ ゴシック', color: '999999' })],
+    spacing: { after: 100 }
+  }));
+  children.push(new Paragraph({
+    children: [new TextRun({
+      text: '本文書はAIにより自動生成された改定案です。法的な助言や最終的な専門的判断を提供するものではありません。助成金の申請前には、管轄の労働局、ハローワーク又は社会保険労務士等の専門家に必ずご確認ください。',
+      size: 16, font: 'ＭＳ 明朝', color: '999999'
+    })],
+    spacing: { after: 60 }
+  }));
+
+  const doc = new Document({
+    sections: [{ children }]
+  });
+
+  try {
+    const blob = await Packer.toBlob(doc);
+    saveAs(blob, `就業規則_改定案_${new Date().toISOString().slice(0,10)}.docx`);
+  } catch (err) {
+    alert('Word出力に失敗しました：' + err.message);
+  }
+  hideLoading();
+}
+
+// ==========================================
+// ナビゲーション制御
+// ==========================================
+function goToStep(step) {
+  AppState.currentStep = step;
+
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(`panel-${step}`).classList.add('active');
+
+  document.querySelectorAll('.step-item').forEach(s => {
+    const sStep = parseInt(s.dataset.step);
+    s.classList.remove('active', 'completed');
+    if (sStep === step) s.classList.add('active');
+    else if (sStep < step) s.classList.add('completed');
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Tab switching for draft panel
+document.querySelectorAll('#draftTabBar .tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#draftTabBar .tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#panel-4 .tab-content').forEach(tc => tc.classList.remove('active'));
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Button events
+document.getElementById('btnToStep2').addEventListener('click', () => goToStep(2));
+document.getElementById('btnToStep3').addEventListener('click', () => { goToStep(3); setTimeout(runDiagnosis, 100); });
+document.getElementById('btnToStep4').addEventListener('click', () => { goToStep(4); setTimeout(generateAmendedDraft, 100); });
+document.getElementById('btnToStep5').addEventListener('click', () => goToStep(5));
+document.getElementById('btnExport').addEventListener('click', exportToWord);
+
+// ==========================================
+// ユーティリティ
+// ==========================================
+function showLoading(msg) {
+  document.getElementById('loadingText').textContent = msg || '処理中です...';
+  document.getElementById('loadingOverlay').classList.add('active');
+}
+
+function hideLoading() {
+  document.getElementById('loadingOverlay').classList.remove('active');
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+</script>
+
+
+
+</body></html>

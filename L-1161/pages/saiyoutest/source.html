@@ -1,0 +1,540 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>採用アンケート</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif; background: #f0f2f5; color: #333; }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+  /* ヘッダー */
+  .header { background: linear-gradient(135deg, #1a237e, #283593); color: white; padding: 30px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
+  .header h1 { font-size: 24px; margin-bottom: 8px; }
+  .header p { font-size: 14px; opacity: 0.9; }
+
+  /* タイマーバー */
+  .timer-bar { background: white; border-radius: 12px; padding: 16px 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 10px; z-index: 100; }
+  .timer { font-size: 28px; font-weight: bold; color: #1a237e; }
+  .timer.warning { color: #e65100; }
+  .timer.danger { color: #c62828; animation: blink 1s infinite; }
+  @keyframes blink { 50% { opacity: 0.5; } }
+  .progress-info { font-size: 14px; color: #666; }
+  .progress-bar-wrap { width: 200px; height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #1a237e, #3f51b5); border-radius: 4px; transition: width 0.3s; }
+
+  /* スタート画面 */
+  .start-screen { background: white; border-radius: 12px; padding: 40px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .start-screen h2 { font-size: 22px; margin-bottom: 20px; color: #1a237e; }
+  .start-screen .notice { background: #fff3e0; border-left: 4px solid #e65100; padding: 16px; margin: 20px 0; text-align: left; border-radius: 0 8px 8px 0; font-size: 14px; line-height: 1.8; }
+  .start-screen .notice strong { color: #e65100; }
+  .name-input { margin: 20px 0; }
+  .name-input label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 16px; }
+  .name-input input { padding: 12px 16px; font-size: 16px; border: 2px solid #ccc; border-radius: 8px; width: 300px; max-width: 100%; }
+  .name-input input:focus { border-color: #1a237e; outline: none; }
+  .btn-start { background: linear-gradient(135deg, #1a237e, #283593); color: white; border: none; padding: 16px 48px; font-size: 18px; border-radius: 8px; cursor: pointer; margin-top: 20px; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-start:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,35,126,0.4); }
+  .btn-start:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  /* 質問カード */
+  .question-card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: border-left 0.3s; border-left: 4px solid transparent; }
+  .question-card.answered { border-left-color: #4caf50; }
+  .question-card.unanswered { border-left-color: #e0e0e0; }
+  .question-num { display: inline-block; background: #1a237e; color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-bottom: 10px; }
+  .question-text { font-size: 16px; font-weight: 500; margin-bottom: 14px; line-height: 1.6; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .option-label { display: flex; align-items: center; padding: 12px 16px; border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-size: 15px; }
+  .option-label:hover { background: #e8eaf6; border-color: #9fa8da; }
+  .option-label.selected { background: #e8eaf6; border-color: #1a237e; }
+  .option-label input[type="radio"] { margin-right: 12px; accent-color: #1a237e; width: 18px; height: 18px; }
+
+  /* 論文式 */
+  .essay-section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #e65100; }
+  .essay-section h3 { color: #e65100; margin-bottom: 12px; font-size: 18px; }
+  .essay-section .essay-prompt { background: #fff3e0; padding: 16px; border-radius: 8px; margin-bottom: 16px; line-height: 1.8; font-size: 15px; }
+  .essay-section textarea { width: 100%; min-height: 200px; padding: 16px; font-size: 15px; border: 2px solid #ccc; border-radius: 8px; resize: vertical; font-family: inherit; line-height: 1.8; }
+  .essay-section textarea:focus { border-color: #e65100; outline: none; }
+  .char-count { text-align: right; font-size: 13px; color: #999; margin-top: 4px; }
+
+  /* 提出ボタン */
+  .submit-area { text-align: center; margin: 30px 0; }
+  .btn-submit { background: linear-gradient(135deg, #c62828, #e53935); color: white; border: none; padding: 16px 48px; font-size: 18px; border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(198,40,40,0.4); }
+  .btn-submit:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  /* 結果画面（管理者用） */
+  .result-screen { background: white; border-radius: 12px; padding: 40px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .result-score { font-size: 64px; font-weight: bold; margin: 20px 0; }
+  .result-label { font-size: 28px; font-weight: bold; padding: 12px 32px; border-radius: 8px; display: inline-block; margin: 10px 0 20px; }
+  .result-hire { background: #e8f5e9; color: #2e7d32; }
+  .result-consider { background: #fff3e0; color: #e65100; }
+  .result-reject { background: #ffebee; color: #c62828; }
+
+  /* 完了画面（受験者用） */
+  .complete-screen { background: white; border-radius: 12px; padding: 60px 40px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .complete-screen .check-icon { font-size: 64px; margin-bottom: 20px; }
+  .complete-screen h2 { font-size: 24px; color: #1a237e; margin-bottom: 16px; }
+  .complete-screen p { font-size: 16px; color: #666; line-height: 1.8; }
+
+  /* 管理者パスワード入力 */
+  .admin-panel { margin-top: 30px; padding-top: 30px; border-top: 2px dashed #e0e0e0; }
+  .admin-panel h3 { font-size: 16px; color: #999; margin-bottom: 12px; }
+  .admin-panel input { padding: 10px 16px; border: 2px solid #ccc; border-radius: 8px; font-size: 14px; margin-right: 8px; }
+  .admin-panel button { padding: 10px 20px; background: #1a237e; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; }
+
+  /* 論文回答表示 */
+  .essay-display { background: #f5f5f5; padding: 20px; border-radius: 8px; margin-top: 20px; text-align: left; white-space: pre-wrap; line-height: 1.8; font-size: 15px; }
+  .essay-display-title { font-weight: bold; color: #e65100; margin-bottom: 8px; font-size: 16px; text-align: left; }
+
+  /* タイムアップ */
+  .timeup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+  .timeup-modal { background: white; border-radius: 12px; padding: 40px; text-align: center; max-width: 400px; }
+  .timeup-modal h2 { color: #c62828; font-size: 24px; margin-bottom: 12px; }
+  .timeup-modal p { color: #666; margin-bottom: 20px; }
+
+  /* 未回答警告 */
+  .unanswered-warning { background: #ffebee; border: 2px solid #c62828; border-radius: 8px; padding: 16px; margin-bottom: 20px; color: #c62828; text-align: center; font-weight: bold; }
+
+  @media (max-width: 600px) {
+    .container { padding: 10px; }
+    .header { padding: 20px; }
+    .header h1 { font-size: 20px; }
+    .timer-bar { flex-wrap: wrap; gap: 8px; }
+    .timer { font-size: 22px; }
+    .option-label { font-size: 14px; padding: 10px 12px; }
+    .name-input input { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="app">
+    <div class="header">
+      <h1>採用アンケート</h1>
+      <p>100点満点 ／ 制限時間 5分</p>
+    </div>
+    <div class="start-screen">
+      <h2>採用適性アンケート</h2>
+      <div class="notice">
+        <strong>【注意事項】</strong><br>
+        ・このテストは採用人事のみに利用するものであり、決して他の目的には使用しません。<br>
+        ・採用に関して収集した個人情報は第三者に決して開示せず、責任をもって処理いたします。<br>
+        ・制限時間は<strong>5分</strong>です。考えずに正直にお答えください。<br>
+        ・下記の件について必ず正直にお答えください。<br>
+        ・<strong>採用後、事実と異なるケースが生じた場合、解雇となる場合があります。</strong><br>
+        ・選択式50問＋論文式1問です。
+      </div>
+      <div class="name-input">
+        <label>お名前を入力してください</label>
+        <input type="text" id="nameInput" placeholder="例：山田太郎" value="" style="">
+      </div>
+      <button class="btn-start" id="btnStart" disabled="">テスト開始</button>
+    </div>
+  </div>
+
+<script>
+// ==================== 問題データ ====================
+const questions = [
+  { q: "解雇歴または会社都合退職履歴がある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "メンタル疾患歴がある　メンタルで休んだことがある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "３年未満の職歴が３つ以上ある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "大学などを途中退学している。大学受験の経験がない", options: ["あてはまる", "あてはまらない"], correct: 2, points: 2 },
+  { q: "労働基準監督署や弁護士などに訴えた経験や訴えようとしたことがある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "遅刻や病欠が年５回以上ある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "愛嬌があるがおっちょこちょいとかぬけていると言われたことがある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "仕事が早いと言われたことがある。入力スピードが速い", options: ["当てはまる", "当てはまらない"], correct: 1, points: 2 },
+  { q: "机の周りや車の中は雑然としているほうだ", options: ["当てはまる", "当てはまらない"], correct: 2, points: 2 },
+  { q: "前の職場をやめた理由は", options: ["自分のせいである", "前職や上司のせいだと思う"], correct: 1, points: 2 },
+  { q: "人と話すよりパソコンの前で黙々と仕事をするのが好きな方だ", options: ["当てはまる", "当てはまらない"], correct: 2, points: 2 },
+  { q: "残業手当も出るしじっくり残業したい方だ", options: ["そう思う", "そうは思わない"], correct: 2, points: 2 },
+  { q: "前の職場をやめた理由は", options: ["会社や会社の人のせいである", "自分にも原因があると思う"], correct: 2, points: 2 },
+  { q: "人と話すとき目を合わすのが苦手だ", options: ["どちらかというとそうだ", "そうではないと思う"], correct: 2, points: 2 },
+  { q: "職場で悪口、つげ口、陰口を言ったことがある", options: ["あまりない", "よくある"], correct: 1, points: 2 },
+  { q: "自分はコミュニケーション能力が高いほうだ", options: ["どちらかというとそうだ", "どちらかというと違う"], correct: 1, points: 2 },
+  { q: "職場で仕事のできない人にきつく当たる方だ", options: ["どちらかというとそうだ", "当てはまらない"], correct: 2, points: 2 },
+  { q: "人からやや反抗的、喧嘩っぱやい、怒りやすい性格といわれたことがある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "一流大学や一流企業出身のプライドがある", options: ["どちらかというとあるし給与にも影響がある", "会社に入ったら学歴や社歴は関係ないと思う"], correct: 2, points: 2 },
+  { q: "単純な作業より責任のある困難な仕事がやりたい", options: ["難しい仕事や責任のある仕事はどちらかというとやりたくない", "困難な仕事もやり遂げた達成感を味わいたい方だ"], correct: 2, points: 2 },
+  { q: "人と沢山会うパーティなどは苦手だ", options: ["そう思う", "そうは思わない"], correct: 2, points: 2 },
+  { q: "営業やサービス業が好きだ", options: ["好きな方だ", "どちらかというと嫌いだ"], correct: 1, points: 2 },
+  { q: "パソコンに対する苦手意識がある", options: ["当てはまる", "当てはまらない"], correct: 2, points: 2 },
+  { q: "周りの人が困っていたら自ら助ける方だ", options: ["どちらかというと当てはまる", "どちらかというと当てはまらない"], correct: 1, points: 2 },
+  { q: "約束や時間を守るほうだ", options: ["約束や時間を守る方だ", "約束や時間を守れないことがよくある"], correct: 1, points: 2 },
+  { q: "現在服薬している薬または通院している病気がある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "真面目だと言われる。さぼらない方だ", options: ["当てはまる", "どちらかというと当てはまらない"], correct: 1, points: 2 },
+  { q: "皆勤賞をとったことがある", options: ["ある", "ない"], correct: 1, points: 2 },
+  { q: "挨拶の仕方は", options: ["目を合わせてこちらから大きな声でする", "挨拶をされたら挨拶をする"], correct: 1, points: 2 },
+  { q: "公私の区別はきちんとしている　経費は", options: ["きちんとしている。経費は必ず上司の伺いをたてる", "携帯やPCを私用で就業時間中に使ったことがある"], correct: 1, points: 2 },
+  { q: "人に頼まれると嫌と言えないタイプだ", options: ["当てはまる", "当てはまらない"], correct: 1, points: 2 },
+  { q: "ポジティブで明るいタイプである", options: ["当てはまる　いわれたこともある", "どちらかというとネガティブなほうだ"], correct: 1, points: 2 },
+  { q: "上司のパワハラに悩んだことがある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "仕事のできない人をいじめたくなる", options: ["どちらかというとそうだ", "そうは思わない"], correct: 2, points: 2 },
+  { q: "お金に対する強い要求がある", options: ["どちらかというとそうだ", "そうは思わない"], correct: 2, points: 2 },
+  { q: "仕事よりも大事なものがある", options: ["そう思う", "そうは思わない"], correct: 2, points: 2 },
+  { q: "コンプライアンスに反することは嫌いだ", options: ["どちらかというとそうだ", "そうは思わない"], correct: 1, points: 2 },
+  { q: "心身ともに健康である", options: ["当てはまる", "当てはまらない"], correct: 1, points: 2 },
+  { q: "職場ではまず第一に教育が充実していることを望む", options: ["職場で教えてもらう事は当然だ", "自分から学ぶ姿勢が肝心だ"], correct: 2, points: 2 },
+  { q: "新しい事にチャレンジすることが好きだ", options: ["当てはまる", "どちらかというと毎日同じことが望ましい"], correct: 1, points: 2 },
+  { q: "分からないことがあったら", options: ["まず調べてから聞く", "すぐに人に聞く"], correct: 1, points: 2 },
+  { q: "うつ病になったことがある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "数字を扱うのが苦手だ", options: ["当てはまる", "当てはまらない"], correct: 2, points: 2 },
+  { q: "臨機応変に対応できる", options: ["当てはまる", "やや当てはまらない"], correct: 1, points: 2 },
+  { q: "雑用仕事はやりたくない", options: ["当てはまる", "当てはまらない"], correct: 2, points: 2 },
+  { q: "我慢できないことは口に出す方だ", options: ["当てはまる", "当てはまらない"], correct: 2, points: 2 },
+  { q: "自分のせいで他の人が仕事をやめたことがある", options: ["ある", "ない"], correct: 2, points: 2 },
+  { q: "仕事の優先順位を決められないことがある", options: ["よくある", "ない"], correct: 2, points: 2 },
+  { q: "ミスが多い　よく間違えたり忘れ物が多い", options: ["やや当てはまる", "当てはまらない"], correct: 2, points: 2 },
+  { q: "整理整頓が得意な方だ", options: ["当てはまる", "やや当てはまらない"], correct: 1, points: 2 }
+];
+
+const TOTAL_TIME = 300; // 5分 = 300秒
+const MAX_SCORE = 100;
+const ADMIN_PASSWORD = "saiyou2026"; // 管理者パスワード
+
+// ==================== アプリ状態 ====================
+let state = {
+  phase: 'start', // start | test | complete | result
+  name: '',
+  answers: new Array(questions.length).fill(null),
+  essayAnswer: '',
+  timeLeft: TOTAL_TIME,
+  timerInterval: null,
+  score: null,
+  submittedAt: null
+};
+
+// ==================== レンダリング ====================
+function render() {
+  const app = document.getElementById('app');
+  switch (state.phase) {
+    case 'start': app.innerHTML = renderStart(); break;
+    case 'test': app.innerHTML = renderTest(); break;
+    case 'complete': app.innerHTML = renderComplete(); break;
+    case 'result': app.innerHTML = renderResult(); break;
+  }
+  attachEvents();
+}
+
+function renderStart() {
+  return `
+    <div class="header">
+      <h1>採用アンケート</h1>
+      <p>100点満点 ／ 制限時間 5分</p>
+    </div>
+    <div class="start-screen">
+      <h2>採用適性アンケート</h2>
+      <div class="notice">
+        <strong>【注意事項】</strong><br>
+        ・このテストは採用人事のみに利用するものであり、決して他の目的には使用しません。<br>
+        ・採用に関して収集した個人情報は第三者に決して開示せず、責任をもって処理いたします。<br>
+        ・制限時間は<strong>5分</strong>です。考えずに正直にお答えください。<br>
+        ・下記の件について必ず正直にお答えください。<br>
+        ・<strong>採用後、事実と異なるケースが生じた場合、解雇となる場合があります。</strong><br>
+        ・選択式50問＋論文式1問です。
+      </div>
+      <div class="name-input">
+        <label>お名前を入力してください</label>
+        <input type="text" id="nameInput" placeholder="例：山田太郎" value="${state.name}">
+      </div>
+      <button class="btn-start" id="btnStart" ${state.name.trim() ? '' : 'disabled'}>テスト開始</button>
+    </div>
+  `;
+}
+
+function formatTime(seconds) {
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return `${m}:${String(s).padStart(2, '0')}`;
+}
+
+function renderTest() {
+  const answered = state.answers.filter(a => a !== null).length;
+  const progress = Math.round((answered / questions.length) * 100);
+  const timerClass = state.timeLeft <= 30 ? 'danger' : state.timeLeft <= 60 ? 'warning' : '';
+
+  let html = `
+    <div class="header">
+      <h1>採用アンケート</h1>
+      <p>${state.name} 様</p>
+    </div>
+    <div class="timer-bar">
+      <div>
+        <div class="timer ${timerClass}">${formatTime(state.timeLeft)}</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="progress-info">回答済み ${answered} / ${questions.length} 問</div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" style="width:${progress}%"></div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // 選択式問題
+  questions.forEach((q, i) => {
+    const isAnswered = state.answers[i] !== null;
+    html += `
+      <div class="question-card ${isAnswered ? 'answered' : 'unanswered'}">
+        <span class="question-num">問 ${i + 1}</span>
+        <div class="question-text">${q.q}</div>
+        <div class="options">
+          ${q.options.map((opt, oi) => `
+            <label class="option-label ${state.answers[i] === (oi + 1) ? 'selected' : ''}">
+              <input type="radio" name="q${i}" value="${oi + 1}" ${state.answers[i] === (oi + 1) ? 'checked' : ''}>
+              ${opt}
+            </label>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  });
+
+  // 論文式問題
+  html += `
+    <div class="essay-section">
+      <h3>【論文式】問 51</h3>
+      <div class="essay-prompt">
+        あなたが今までの職業経験等で<strong>一番困ったこと</strong>はなんですか？<br>
+        その時あなたは<strong>どうしました</strong>か？<br>
+        その後どのように自分のしたことで<strong>改善しました</strong>か？<br>
+        <strong>具体的に</strong>書いてください。
+      </div>
+      <textarea id="essayInput" placeholder="具体的な経験を記述してください...">${state.essayAnswer}</textarea>
+      <div class="char-count" id="charCount">${state.essayAnswer.length} 文字</div>
+    </div>
+  `;
+
+  // 提出ボタン
+  html += `
+    <div class="submit-area">
+      <button class="btn-submit" id="btnSubmit">回答を提出する</button>
+    </div>
+  `;
+
+  return html;
+}
+
+function renderComplete() {
+  return `
+    <div class="header">
+      <h1>採用アンケート</h1>
+    </div>
+    <div class="complete-screen">
+      <div class="check-icon">&#10004;</div>
+      <h2>ご回答ありがとうございました</h2>
+      <p>
+        ${state.name} 様のアンケートは正常に送信されました。<br>
+        結果は後日、採用担当者よりご連絡いたします。<br><br>
+        お忙しいところご協力いただき、誠にありがとうございました。
+      </p>
+      <div class="admin-panel">
+        <h3>管理者用（結果確認）</h3>
+        <input type="password" id="adminPass" placeholder="管理者パスワード">
+        <button id="btnAdmin">確認</button>
+        <p id="adminError" style="color:#c62828;font-size:13px;margin-top:8px;"></p>
+      </div>
+    </div>
+  `;
+}
+
+function renderResult() {
+  const score = state.score;
+  let label, labelClass;
+  if (score > 70) {
+    label = '採用';
+    labelClass = 'result-hire';
+  } else if (score > 60) {
+    label = '要検討';
+    labelClass = 'result-consider';
+  } else {
+    label = '不採用';
+    labelClass = 'result-reject';
+  }
+
+  let detailRows = '';
+  questions.forEach((q, i) => {
+    const userAns = state.answers[i];
+    const isCorrect = userAns === q.correct;
+    const earnedPts = isCorrect ? q.points : 0;
+    const userAnsText = userAns ? q.options[userAns - 1] : '未回答';
+    const correctAnsText = q.options[q.correct - 1];
+    detailRows += `
+      <tr style="background:${isCorrect ? '#e8f5e9' : '#ffebee'}">
+        <td style="padding:6px 10px;border:1px solid #ddd;text-align:center;">${i + 1}</td>
+        <td style="padding:6px 10px;border:1px solid #ddd;font-size:13px;">${q.q}</td>
+        <td style="padding:6px 10px;border:1px solid #ddd;font-size:13px;">${userAnsText}</td>
+        <td style="padding:6px 10px;border:1px solid #ddd;font-size:13px;">${correctAnsText}</td>
+        <td style="padding:6px 10px;border:1px solid #ddd;text-align:center;font-weight:bold;">${earnedPts}/${q.points}</td>
+      </tr>
+    `;
+  });
+
+  return `
+    <div class="header">
+      <h1>採用アンケート ― 管理者用結果</h1>
+    </div>
+    <div class="result-screen">
+      <p style="font-size:18px;color:#666;">受験者：<strong>${state.name}</strong></p>
+      <p style="font-size:14px;color:#999;">提出日時：${state.submittedAt}</p>
+      <div class="result-score" style="color:${labelClass === 'result-hire' ? '#2e7d32' : labelClass === 'result-consider' ? '#e65100' : '#c62828'}">${score} 点</div>
+      <div class="result-label ${labelClass}">${label}</div>
+      <p style="font-size:14px;color:#999;margin-top:8px;">
+        （60点以下：不採用 ／ 60点超70点以下：要検討 ／ 70点超：採用）
+      </p>
+
+      <div class="essay-display-title" style="margin-top:30px;">【論文式回答】</div>
+      <div class="essay-display">${state.essayAnswer || '（未記入）'}</div>
+
+      <div style="margin-top:30px;text-align:left;overflow-x:auto;">
+        <h3 style="margin-bottom:12px;font-size:16px;color:#333;">回答詳細</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+          <thead>
+            <tr style="background:#1a237e;color:white;">
+              <th style="padding:8px;border:1px solid #ddd;">No.</th>
+              <th style="padding:8px;border:1px solid #ddd;">質問</th>
+              <th style="padding:8px;border:1px solid #ddd;">回答</th>
+              <th style="padding:8px;border:1px solid #ddd;">正解</th>
+              <th style="padding:8px;border:1px solid #ddd;">得点</th>
+            </tr>
+          </thead>
+          <tbody>${detailRows}</tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:30px;">
+        <button class="btn-start" onclick="location.reload()">新しいテストを開始</button>
+      </div>
+    </div>
+  `;
+}
+
+// ==================== イベント ====================
+function attachEvents() {
+  // スタート画面
+  const nameInput = document.getElementById('nameInput');
+  if (nameInput) {
+    nameInput.addEventListener('input', (e) => {
+      state.name = e.target.value;
+      const btn = document.getElementById('btnStart');
+      btn.disabled = !state.name.trim();
+    });
+    nameInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && state.name.trim()) startTest();
+    });
+  }
+  const btnStart = document.getElementById('btnStart');
+  if (btnStart) btnStart.addEventListener('click', startTest);
+
+  // テスト画面
+  questions.forEach((_, i) => {
+    const radios = document.querySelectorAll(`input[name="q${i}"]`);
+    radios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        state.answers[i] = parseInt(e.target.value);
+        // ラベル更新
+        const labels = radio.closest('.options').querySelectorAll('.option-label');
+        labels.forEach(l => l.classList.remove('selected'));
+        radio.closest('.option-label').classList.add('selected');
+        // カード更新
+        radio.closest('.question-card').classList.remove('unanswered');
+        radio.closest('.question-card').classList.add('answered');
+        // プログレス更新
+        updateProgress();
+      });
+    });
+  });
+
+  const essayInput = document.getElementById('essayInput');
+  if (essayInput) {
+    essayInput.addEventListener('input', (e) => {
+      state.essayAnswer = e.target.value;
+      document.getElementById('charCount').textContent = e.target.value.length + ' 文字';
+    });
+  }
+
+  const btnSubmit = document.getElementById('btnSubmit');
+  if (btnSubmit) btnSubmit.addEventListener('click', submitTest);
+
+  // 管理者パネル
+  const btnAdmin = document.getElementById('btnAdmin');
+  if (btnAdmin) {
+    btnAdmin.addEventListener('click', () => {
+      const pass = document.getElementById('adminPass').value;
+      if (pass === ADMIN_PASSWORD) {
+        state.phase = 'result';
+        render();
+      } else {
+        document.getElementById('adminError').textContent = 'パスワードが正しくありません';
+      }
+    });
+    document.getElementById('adminPass').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') btnAdmin.click();
+    });
+  }
+}
+
+function updateProgress() {
+  const answered = state.answers.filter(a => a !== null).length;
+  const progress = Math.round((answered / questions.length) * 100);
+  const info = document.querySelector('.progress-info');
+  const fill = document.querySelector('.progress-bar-fill');
+  if (info) info.textContent = `回答済み ${answered} / ${questions.length} 問`;
+  if (fill) fill.style.width = progress + '%';
+}
+
+// ==================== タイマー ====================
+function startTest() {
+  state.phase = 'test';
+  state.timeLeft = TOTAL_TIME;
+  render();
+  state.timerInterval = setInterval(() => {
+    state.timeLeft--;
+    const timerEl = document.querySelector('.timer');
+    if (timerEl) {
+      timerEl.textContent = formatTime(state.timeLeft);
+      timerEl.className = 'timer' + (state.timeLeft <= 30 ? ' danger' : state.timeLeft <= 60 ? ' warning' : '');
+    }
+    if (state.timeLeft <= 0) {
+      clearInterval(state.timerInterval);
+      autoSubmit();
+    }
+  }, 1000);
+}
+
+function autoSubmit() {
+  calculateScore();
+  state.submittedAt = new Date().toLocaleString('ja-JP');
+  state.phase = 'complete';
+  render();
+}
+
+function submitTest() {
+  const unanswered = state.answers.filter(a => a === null).length;
+  if (unanswered > 0) {
+    const proceed = confirm(`未回答の問題が ${unanswered} 問あります。このまま提出しますか？`);
+    if (!proceed) return;
+  }
+  clearInterval(state.timerInterval);
+  calculateScore();
+  state.submittedAt = new Date().toLocaleString('ja-JP');
+  state.phase = 'complete';
+  render();
+}
+
+function calculateScore() {
+  let score = 0;
+  questions.forEach((q, i) => {
+    if (state.answers[i] === q.correct) {
+      score += q.points;
+    }
+  });
+  state.score = score;
+}
+
+// ==================== 初期化 ====================
+render();
+</script>
+
+
+
+</body></html>
