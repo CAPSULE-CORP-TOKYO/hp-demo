@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士法人 北見会計</title>
+<meta name="description" content="税務・財務・会計コンサルティング・相続・事業承継などあらゆる専門分野からお客さまをサポートいたします。">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --color-primary: #2B4C7E;
+  --color-primary-dark: #1E3A5F;
+  --color-primary-light: #3D6499;
+  --color-accent: #C8A96E;
+  --color-accent-light: #D4B896;
+  --color-base: #F7F7F7;
+  --color-white: #FFFFFF;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-border: #E0E0E0;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  --font-serif: 'Noto Serif JP', serif;
+  --container-max: 1120px;
+  --container-px: 24px;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  line-height: 1.8;
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+.container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--color-white);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.header-top {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.header-top .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-main {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.header-main .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.header-nav { display: flex; align-items: center; gap: 32px; }
+
+.header-nav a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  position: relative;
+  transition: color 0.3s;
+}
+
+.header-nav a:hover { color: var(--color-primary); }
+
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.3s;
+}
+
+.header-nav a:hover::after { width: 100%; }
+
+.header-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: background 0.3s;
+}
+
+.header-cta-btn:hover { background: var(--color-primary); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-primary);
+  transition: all 0.3s;
+}
+
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(43, 76, 126, 0.97);
+  z-index: 1050;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+.mobile-nav.active { display: flex; }
+
+.mobile-nav a {
+  color: var(--color-white);
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.mobile-nav a:hover { color: var(--color-accent); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  margin-top: 100px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80') center/cover no-repeat;
+  opacity: 0.2;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 6px 20px;
+  border-radius: 2px;
+  margin-bottom: 24px;
+  letter-spacing: 0.1em;
+}
+
+.hero h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* ===== SECTION COMMON ===== */
+.section-title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-title .en {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-title h2 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent);
+  margin: 16px auto 0;
+}
+
+/* ===== POLICY ===== */
+.policy {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: var(--color-white);
+}
+
+.policy-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.policy-inner h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.policy-inner p {
+  font-size: 0.9375rem;
+  color: var(--color-text-light);
+  line-height: 2;
+}
+
+/* ===== SERVICES ===== */
+.services {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: var(--color-base);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.service-card-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.service-card-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(transparent, rgba(43,76,126,0.4));
+}
+
+.service-card-body {
+  padding: 24px;
+}
+
+.service-card-body .en-label {
+  font-size: 0.6875rem;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.service-card-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.service-card-body p {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* Service Detail Accordion */
+.service-detail {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: var(--color-white);
+}
+
+.accordion-group { max-width: 800px; margin: 0 auto; }
+
+.accordion-item {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--color-white);
+  cursor: pointer;
+  transition: background 0.3s;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-sans);
+}
+
+.accordion-header:hover { background: var(--color-base); }
+
+.accordion-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.accordion-header .toggle-icon {
+  font-size: 1.25rem;
+  color: var(--color-accent);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.accordion-item.active .toggle-icon { transform: rotate(180deg); }
+
+.accordion-body {
+  display: none;
+  padding: 0 20px 20px;
+}
+
+.accordion-item.active .accordion-body { display: block; }
+
+.accordion-body p {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.accordion-body h4 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.accordion-body ul { padding-left: 1.2em; }
+.accordion-body ul li {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 2;
+  position: relative;
+  padding-left: 16px;
+}
+.accordion-body ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.9em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* ===== COMPANY ===== */
+.company {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: var(--color-base);
+}
+
+.message-block {
+  max-width: 800px;
+  margin: 0 auto 48px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.message-photo {
+  flex-shrink: 0;
+  width: 180px;
+}
+
+.message-photo img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.message-text h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.message-text p {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 2;
+  margin-bottom: 12px;
+}
+
+.message-text .signature {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+/* Members */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.member-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.member-card .member-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 16px;
+}
+
+.member-card .member-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.member-card .titles {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.member-card h4 {
+  font-size: 1.125rem;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.member-card .name-en {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin-bottom: 12px;
+}
+
+.member-card .reg-info {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.member-card .career {
+  text-align: left;
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+.member-card .career-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+/* Company Profile Table */
+.profile-table {
+  max-width: 800px;
+  margin: 0 auto 48px;
+  background: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.profile-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table th,
+.profile-table td {
+  padding: 16px 20px;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.profile-table th {
+  width: 160px;
+  background: var(--color-base);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.profile-table tr:last-child th,
+.profile-table tr:last-child td { border-bottom: none; }
+
+/* Affiliations */
+.affiliations {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.affiliations h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.affiliations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.affiliation-item {
+  background: var(--color-white);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+
+.affiliation-item img { max-height: 48px; width: auto; }
+
+/* ===== FAQ ===== */
+.faq {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: var(--color-white);
+}
+
+.faq-category {
+  max-width: 800px;
+  margin: 0 auto 32px;
+}
+
+.faq-category h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-accent);
+  margin-bottom: 16px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.faq-item:last-child { border-bottom: none; }
+
+.faq-q {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.faq-q .q-mark {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.faq-a {
+  display: none;
+  margin-top: 12px;
+  padding-left: 40px;
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+.faq-item.active .faq-a { display: block; }
+
+/* ===== ACCESS ===== */
+.access {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: var(--color-base);
+}
+
+.access-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.access-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.access-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.access-card .address {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.access-card .transport h4 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+  margin-top: 12px;
+}
+
+.access-card .transport p {
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.contact .section-title .en { color: var(--color-accent-light); }
+.contact .section-title h2 { color: var(--color-white); }
+.contact .section-title::after { background: var(--color-accent-light); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 700px;
+  margin: 0 auto 32px;
+}
+
+.contact-phone {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.contact-phone .label {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 8px;
+}
+
+.contact-phone .number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+}
+
+.contact-phone .number a { color: var(--color-white); }
+
+.contact-phone .hours {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 8px;
+}
+
+.contact-email {
+  text-align: center;
+}
+
+.contact-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 14px 36px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background 0.3s;
+}
+
+.contact-email-btn:hover { background: #b89558; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--color-primary-dark);
+  color: rgba(255,255,255,0.7);
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+.footer-logo img {
+  height: 36px;
+  width: auto;
+  margin-bottom: 16px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-info {
+  font-size: 0.75rem;
+  line-height: 1.8;
+}
+
+.footer-nav { display: flex; gap: 24px; }
+
+.footer-nav a {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover { color: var(--color-white); }
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.6875rem;
+  color: rgba(255,255,255,0.4);
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== MOBILE CTA BAR ===== */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: var(--color-white);
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.12);
+  padding: 10px 16px;
+}
+
+.mobile-cta-inner {
+  display: flex;
+  gap: 8px;
+}
+
+.mobile-cta-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.mobile-cta-tel {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.mobile-cta-mail {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .members-grid { grid-template-columns: repeat(3, 1fr); }
+  .affiliations-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .header-nav { display: none; }
+  .header-cta-btn { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav-visible .mobile-nav { display: flex; }
+  .mobile-cta { display: block; }
+
+  .hero { min-height: 480px; margin-top: 80px; }
+  .hero h2 { font-size: 1.75rem; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card-img { height: 160px; }
+
+  .message-block { flex-direction: column; align-items: center; text-align: center; }
+  .message-photo { width: 140px; }
+  .message-text .signature { text-align: center; }
+
+  .members-grid { grid-template-columns: 1fr; }
+
+  .profile-table th {
+    display: block;
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 4px;
+  }
+  .profile-table td {
+    display: block;
+    padding-top: 4px;
+  }
+
+  .affiliations-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .access-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+
+  .footer-inner { flex-direction: column; gap: 24px; }
+  .footer-nav { flex-wrap: wrap; gap: 16px; }
+
+  body { padding-bottom: 64px; }
+
+  .section-title { margin-bottom: 32px; }
+  .section-title h2 { font-size: 1.5rem; }
+}
+
+@media (min-width: 769px) {
+  .policy { padding-top: 80px; padding-bottom: 80px; }
+  .services { padding-top: 80px; padding-bottom: 80px; }
+  .service-detail { padding-top: 80px; padding-bottom: 80px; }
+  .company { padding-top: 80px; padding-bottom: 80px; }
+  .faq { padding-top: 80px; padding-bottom: 80px; }
+  .access { padding-top: 80px; padding-bottom: 80px; }
+  .contact { padding-top: 80px; padding-bottom: 80px; }
+  .section-title { margin-bottom: 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="container">
+      お客様にとって最も信頼できるパートナーであり続けます
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container">
+      <a href="#" class="header-logo">
+        <img src="images/logo03.png" alt="税理士法人 北見会計">
+      </a>
+      <nav class="header-nav">
+        <a href="#hero">ホーム</a>
+        <a href="#services">業務内容</a>
+        <a href="#company">会社案内</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact" class="header-cta-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          メールでのお問い合わせ
+        </a>
+      </nav>
+      <button class="hamburger" aria-label="メニュー" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#hero" onclick="closeMenu()">ホーム</a>
+  <a href="#services" onclick="closeMenu()">業務内容</a>
+  <a href="#company" onclick="closeMenu()">会社案内</a>
+  <a href="#faq" onclick="closeMenu()">よくある質問</a>
+  <a href="#access" onclick="closeMenu()">アクセス</a>
+  <a href="#contact" onclick="closeMenu()">お問い合わせ</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <span class="hero-badge">創業40年</span>
+    <h2>信頼と実績で、<br>未来を支える経営パートナー</h2>
+    <p>税務・財務・会計コンサルティング・相続・事業承継など<br>あらゆる専門分野からお客さまをサポートいたします。</p>
+  </div>
+</section>
+
+<!-- POLICY -->
+<section class="policy" id="policy">
+  <div class="container">
+    <div class="policy-inner">
+      <span class="section-title"><span class="en">our policy</span></span>
+      <h3>常にお客さま目線で<br>向き合うことで<br>これからも選ばれ続けます。</h3>
+      <p>親切丁寧な対応を評価いただき、お客さまからのご紹介を数多くいただいております。<br>お客さまと真摯に向き合い、深く理解し、未来を見据えたご提案を続けてきました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">service</span>
+      <h2>業務内容</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-img" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80')"></div>
+        <div class="service-card-body">
+          <div class="en-label">Accounting / Tax / Finance</div>
+          <h3>会計・税務・財務</h3>
+          <p>個人の確定申告、法人の決算・税務申告、税務調査対応に至るまで、会計・税務に関するすべての業務をお手伝いさせて頂きます。</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80')"></div>
+        <div class="service-card-body">
+          <div class="en-label">Consulting</div>
+          <h3>コンサルティング</h3>
+          <p>資金調達、業務フローの最適化、内部統制構築、そしてM&A等の事業再編などを通して企業価値を高めるご提案をいたします。</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80')"></div>
+        <div class="service-card-body">
+          <div class="en-label">Inheritance</div>
+          <h3>相続・事業承継</h3>
+          <p>安心した相続の実現のため、後継者への円滑な事業承継の実現のために、経験豊富な専門家がお客様ごとに最適なご提案をいたします。</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80')"></div>
+        <div class="service-card-body">
+          <div class="en-label">Audit</div>
+          <h3>監査</h3>
+          <p>会社法監査・学校法人監査・社会福祉法人監査などの監査業務を、それぞれの法律・会計基準に従い、効率よく正確に実施いたします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE DETAIL -->
+<section class="service-detail" id="service-detail">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">service detail</span>
+      <h2>業務詳細</h2>
+    </div>
+    <div class="accordion-group">
+      <!-- 会計・税務・財務 -->
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>会計・税務・財務</h3>
+          <span class="toggle-icon">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p>お客様に関わる、税務業務、財務業務の全般を、サポートさせていただきます。</p>
+          <p>個人の確定申告、法人の決算・税務申告、税務調査対応に至るまで、会計・税務に関するすべての業務をお手伝いさせて頂きます。</p>
+          <p>当社では、経験豊富でノウハウのある専門家によりお客様のニーズに応じた会計サービスを提供しております。常にタイムリーな情報を提供し、綿密なコミュニケーションを基本に、きめ細やかな対応を心がけています。</p>
+          <h4>取り扱い業務</h4>
+          <ul>
+            <li>記帳代行</li>
+            <li>個人事業主の確定申告</li>
+            <li>給与計算</li>
+            <li>不動産オーナーの確定申告</li>
+            <li>決算書・申告書の作成</li>
+            <li>土地建物を譲渡した方の確定申告</li>
+            <li>税務調査の立会</li>
+            <li>その他、会計、税務に関する一切の業務</li>
+          </ul>
+        </div>
+      </div>
+      <!-- コンサルティング -->
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>コンサルティング</h3>
+          <span class="toggle-icon">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p>お客様の経営状況を理解した上で、最適なご提案をいたします。</p>
+          <p>資金調達、財務・会計プロセスの最適化、内部統制構築、そしてM&A等の事業再編などを通して企業価値を高めるご提案をいたします。</p>
+          <p>企業の成長のステージや事業規模にあわせて、それぞれが抱える問題を解決できるようクオリティの高いサービスを提供いたします。</p>
+          <p>また、当社は経済産業省から認定を受けた経営革新等支援機関として、補助金・税制・資金調達等の面でサポートをすることが可能です。</p>
+          <h4>取り扱い業務</h4>
+          <ul>
+            <li>創業支援</li>
+            <li>クラウド会計導入支援</li>
+            <li>資金調達・助成金のサポート</li>
+            <li>認定経営革新等支援機関としての支援業務</li>
+            <li>内部統制構築支援</li>
+            <li>財務デューデリジェンス</li>
+            <li>経営計画に関するコンサルティング</li>
+            <li>資本政策に関するコンサルティング</li>
+            <li>組織再編に関するコンサルティング</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 相続・事業承継 -->
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>相続・事業承継</h3>
+          <span class="toggle-icon">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p>トラブルなく後継者へと引継ぎができるよう計画から実行、承継後のフォローまでサポートいたします。</p>
+          <p>安心した相続の実現のために、経験豊富な専門家が相続発生前の対策から相続後のアフターフォローまでお手伝いさせて頂きます。</p>
+          <p>また、会社が発展し存続し続けるために、オーナー様の思いや個別事情に応じた円滑な事業承継をサポートいたします。</p>
+          <p>これまで蓄積した多くの知識や経験をもとに、この分野に強い外部の専門家とも連携しながら円滑な相続・事業承継を実現するために様々な分野から手厚くサポートいたします。</p>
+          <h4>取り扱い業務</h4>
+          <ul>
+            <li>相続税、贈与税の申告</li>
+            <li>相続税の概算シミュレーション</li>
+            <li>節税のご提案</li>
+            <li>遺産分割協議書・遺言書作成支援</li>
+            <li>各種名義変更手続き</li>
+            <li>財産評価・自己株式対策</li>
+            <li>事業承継スキームの立案、実行支援</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 監査 -->
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>監査</h3>
+          <span class="toggle-icon">&#9660;</span>
+        </button>
+        <div class="accordion-body">
+          <p>幅広い監査ノウハウをもとに、高品質なサービスをご提供いたします。</p>
+          <p>会社法監査・学校法人監査・社会福祉法人監査などの監査業務を、それぞれの法律・会計基準に従い、効率よく正確に実施いたします。</p>
+          <p>当社では、経験豊富な監査責任者が監査現場に多く赴き、クライアントとの対話を密に行うことにより信頼関係を築き、円滑な監査業務を遂行することを心がけています。</p>
+          <p>会計に関する高度な専門知識だけでなく、ビジネス環境とクライアント自体を深く理解することを大切に、1社1社ご丁寧なお付き合いをさせて頂きます。</p>
+          <h4>取り扱い業務</h4>
+          <ul>
+            <li>会社法監査</li>
+            <li>学校法人監査</li>
+            <li>社会福祉法人監査</li>
+            <li>一般労働者派遣事業に係る監査証明</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company" id="company">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">company</span>
+      <h2>会社案内</h2>
+    </div>
+
+    <!-- Message -->
+    <div class="message-block">
+      <div class="message-photo">
+        <img src="images/pic_staff01.jpg" alt="北見 喜隆">
+      </div>
+      <div class="message-text">
+        <h3>代表のごあいさつ</h3>
+        <p>昭和55年、北見会計事務所として創業以来、お客さまのお話を伺い、お客さまの気持ちに寄り添い、お客さまと一緒に問題を解決してきました。</p>
+        <p>また、職業専門家としてプロフェショナルとしての意識と不断の研磨を通じて、より高いレベルのサービス提供を心掛けてきました。</p>
+        <p>これからもより一層多様化するニーズに、お客さまと共に真摯に向き合い、的確で迅速なサービスをご提供し続けられるよう、役職員一同、更なる研鑽を重ねて参る所存でございます。</p>
+        <div class="signature">
+          税理士法人北見会計<br>代表社員　北見喜隆
+        </div>
+      </div>
+    </div>
+
+    <!-- Members -->
+    <div class="section-title" style="margin-top: 16px;">
+      <span class="en">partner</span>
+      <h2>社員税理士</h2>
+    </div>
+    <div class="members-grid">
+      <div class="member-card">
+        <div class="member-icon">
+          <img src="images/pic_staff01.jpg" alt="北見 喜隆">
+        </div>
+        <div class="titles">公認会計士 / 税理士</div>
+        <h4>北見 喜隆</h4>
+        <div class="name-en">Yoshitaka Kitami</div>
+        <div class="reg-info">公認会計士登録番号：6642<br>税理士登録番号：45759</div>
+        <div class="career-label">経歴</div>
+        <div class="career">
+          立教大学経済学部卒業<br>
+          ピート・マーウィック・ミチェル会計士事務所（現:有限責任あずさ監査法人）入所<br>
+          昭和55年に日立市にて北見会計事務所を開設<br>
+          会計事務所運営の傍ら、アスカ監査法人及び東陽監査法人にて代表社員を歴任<br>
+          税理士法人北見会計を設立
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-icon">
+          <img src="images/pic_staff02.jpg" alt="北見 赳夫">
+        </div>
+        <div class="titles">公認会計士 / 税理士</div>
+        <h4>北見 赳夫</h4>
+        <div class="name-en">Takeo Kitami</div>
+        <div class="reg-info">公認会計士登録番号：38961<br>税理士登録番号：141122</div>
+        <div class="career-label">経歴</div>
+        <div class="career">
+          慶應義塾大学経済学部卒業<br>
+          税理士法人山田＆パートナーズにて、税務顧問の他、財務デューデリジェンス・企業価値評価業務に従事<br>
+          東陽監査法人にて、会社法・金融商品取引法監査の他、学校法人監査に従事<br>
+          北見赳夫税理士事務所を開設<br>
+          税理士法人北見会計を設立
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-icon" style="background: var(--color-primary); font-size: 1.5rem; color: white;">北</div>
+        <div class="titles">税理士</div>
+        <h4>北見 芳史郎</h4>
+        <div class="name-en">Yoshiro Kitami</div>
+        <div class="reg-info">税理士登録番号：134344</div>
+        <div class="career-label">経歴</div>
+        <div class="career">
+          立教大学経済学部卒業<br>
+          辻・本郷税理士法人にて、一部上場企業から中小企業まで幅広い企業の税務顧問を担当<br>
+          みずほ銀行・大手証券会社にて富裕層の相続・事業承継コンサルティングに従事<br>
+          北見芳史郎税理士事務所を開設<br>
+          税理士法人北見会計を設立
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Table -->
+    <div class="section-title" style="margin-top: 16px;">
+      <span class="en">company profile</span>
+      <h2>会社概要</h2>
+    </div>
+    <div class="profile-table">
+      <table>
+        <tr><th>名称</th><td>税理士法人 北見会計<br>北見公認会計士事務所</td></tr>
+        <tr><th>所在地</th><td>【日立オフィス】<br>〒317-0073  茨城県日立市幸町2丁目15番地4号<br><br>【東京オフィス】<br>〒110-0008  東京都台東区池之端2-1-35-1609</td></tr>
+        <tr><th>沿革</th><td>昭和55年 北見会計事務所開業<br>令和2年12月 税理士法人北見会計に組織変更</td></tr>
+        <tr><th>代表者</th><td>北見喜隆 北見赳夫 北見芳史郎</td></tr>
+        <tr><th>税理士法人番号</th><td>第5046号（関東信越税理会、東京税理士会）</td></tr>
+        <tr><th>社員数</th><td>10名（令和2年12月現在）</td></tr>
+        <tr><th>有資格者</th><td>公認会計士2名／税理士4名</td></tr>
+        <tr><th>メール</th><td><a href="mailto:info@kitami-tax.com" style="color: var(--color-primary);">info@kitami-tax.com</a></td></tr>
+      </table>
+    </div>
+
+    <!-- Affiliations -->
+    <div class="affiliations">
+      <div class="section-title">
+        <span class="en">member organization</span>
+        <h2>加盟団体</h2>
+      </div>
+      <div class="affiliations-grid">
+        <div class="affiliation-item"><img src="images/img_bnr07.png" alt="関東信越税理士会"></div>
+        <div class="affiliation-item"><img src="images/img_bnr06.png" alt="東京税理士会"></div>
+        <div class="affiliation-item"><img src="images/img_bnr08.png" alt="日本公認会計士協会"></div>
+        <div class="affiliation-item"><img src="images/img_bnr01.png" alt="経営革新等支援機関"></div>
+        <div class="affiliation-item"><img src="images/img_bnr02.png" alt="野村資産承継研究会"></div>
+        <div class="affiliation-item"><img src="images/img_bnr03.png" alt="TKC全国会"></div>
+        <div class="affiliation-item"><img src="images/img_bnr04.png" alt="MFクラウド公認メンバー"></div>
+        <div class="affiliation-item"><img src="images/img_bnr05.png" alt="freee 認定アドバイザー"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
+
+    <div class="faq-category">
+      <h3>はじめて税理士をお探しの方</h3>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="q-mark">Q</span><span>税理士にお願いしたことがないのですが、どのようなことをしてくれるのですか？</span></div>
+        <div class="faq-a">税理士は、税理士法に定められた独占業務として、納税者の税務相談に応じ、納税者の代わりに税務書類を作成・提出し、税務調査があれば立会いをします。また、税務申告の前提となる日々の会計業務を通じ、節税対策や資金繰りなどさまざまなご相談に応じます。</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="q-mark">Q</span><span>開業したばかりでなにをどうしていいかわかりません。</span></div>
+        <div class="faq-a">もちろん大丈夫です。開業時の届出から、経理体制の構築、会計ソフトの導入まですべてお任せください。また、記帳代行も対応していますので、余裕のない場合はご利用ください。</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="q-mark">Q</span><span>融資や資金繰りの相談はできますか？</span></div>
+        <div class="faq-a">もちろん可能です。試算表を作成し、金融機関へ説明のできる書類を作成します。必要であればご面談にも同行いたします。</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="q-mark">Q</span><span>顧問税理士をお願いすると、毎月の顧問料はどれくらいになりますか？</span></div>
+        <div class="faq-a">具体的な報酬は、売上規模や業種、従業員数、打合せの頻度、記帳代行の有無などによって異なります。ご相談やお見積りは無料ですので、お気軽にお問合せください。</div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h3>相続についてお悩みの方</h3>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="q-mark">Q</span><span>相続税の申告が必要かどうか教えてもらえますか？</span></div>
+        <div class="faq-a">試算いたしますので、お気軽にご相談ください。財産や家族構成等をヒアリングさせて頂き、必要であれば生前の相続税の対策までアドバイスいたします。</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="q-mark">Q</span><span>生前の相続税対策について相談できますか？</span></div>
+        <div class="faq-a">まずは現状で相続税がいくらかかるかを試算した上で、相続税額の軽減対策・納税資金の確保・遺産分割で揉めないためのアドバイスなどをさせて頂きます。その中で各対策のリスクや注意点を慎重に検討し、それぞれのお客様にあった対策を計画的に実行する支援をいたします。</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="q-mark">Q</span><span>相続が発生したけれど、何から手を付けていいかわかりません。</span></div>
+        <div class="faq-a">相続税の申告期限は相続発生日から10ヵ月以内であり、亡くなった方に一定の所得がある場合には相続発生日から4ヵ月以内に準確定申告を提出する必要があります。また、相続の放棄や限定承認する場合には家庭裁判所に3ヵ月以内にその旨を申述しなければなりません。<br><br>弊社では、まず最後までの流れを丁寧に説明させて頂き、いつまでに何を行うかスケジュールを明示した上で、お手伝いをさせて頂きます。<br><br>また、相続に強い司法書士や弁護士、不動産会社などと提携しておりますので、遺産分割、預金の引き出し、不動産の登記まで、ワンストップでお手伝いすることが可能です。</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="q-mark">Q</span><span>相続税の申告報酬はどれくらいになりますか？</span></div>
+        <div class="faq-a">財産の状況、相続人の数などにより異なりますが、通常は財産総額の0.5%～1%になることが多いです。ご相談やお見積りは無料ですので、お気軽にお問合せください。</div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h3>その他</h3>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="q-mark">Q</span><span>「会計事務所」「税理士事務所」「税理士法人」の違いは何ですか？</span></div>
+        <div class="faq-a">「会計事務所」という名称は俗称、または通称です。法律上は「山田太郎税理士事務所」というように個人名を冠にする名称が正式名称です。税理士が個人で事務所を開業すると「税理士事務所」となり、2名以上の税理士で設立した場合、特別法人「税理士法人」となります。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">access</span>
+      <h2>アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <div class="access-card">
+        <h3>日立オフィス</h3>
+        <div class="address">〒317-0073<br>茨城県日立市幸町2丁目15番地4号</div>
+        <div class="transport">
+          <h4>電車でお越しの方</h4>
+          <p>JR常磐線「日立駅」徒歩8分</p>
+          <h4>お車でお越しの方</h4>
+          <p>駐車場2台あり</p>
+        </div>
+      </div>
+      <div class="access-card">
+        <h3>東京オフィス</h3>
+        <div class="address">〒110-0008<br>東京都台東区池之端2-1-35-1609</div>
+        <div class="transport">
+          <h4>電車でお越しの方</h4>
+          <p>千代田線「根津駅」　徒歩4分<br>
+          千代田線「湯島駅」　徒歩11分<br>
+          京成本線「京成上野駅」　徒歩10分<br>
+          JR線・銀座線・日比谷線「上野駅」　徒歩15分<br>
+          JR線「御徒町駅」　徒歩17分</p>
+          <h4>お車でお越しの方</h4>
+          <p>近くにコインパーキングあり</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">contact</span>
+      <h2>お問い合わせ</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-phone">
+        <div class="label">日立オフィスへのお電話</div>
+        <div class="number"><a href="tel:0294-23-3966">0294-23-3966</a></div>
+        <div class="hours">受付時間：9：00～17：00（土日祝休み）</div>
+      </div>
+      <div class="contact-phone">
+        <div class="label">東京オフィスへのお電話</div>
+        <div class="number"><a href="tel:03-6826-2380">03-6826-2380</a></div>
+        <div class="hours">受付時間：9：00～17：00（土日祝休み）</div>
+      </div>
+    </div>
+    <div class="contact-email">
+      <a href="mailto:info@kitami-tax.com" class="contact-email-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        メールでのお問い合わせ
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">
+          <img src="images/logo04.png" alt="税理士法人 北見会計">
+        </div>
+        <div class="footer-info">
+          【日立オフィス】<br>
+          〒317-0073 茨城県日立市幸町2丁目15番4号<br>
+          TEL：<a href="tel:0294-23-3966">0294-23-3966</a><br><br>
+          【東京オフィス】<br>
+          〒110-0008 東京都台東区池之端2-1-35-1609<br>
+          TEL：<a href="tel:03-6826-2380">03-6826-2380</a>
+        </div>
+      </div>
+      <nav class="footer-nav">
+        <a href="#hero">ホーム</a>
+        <a href="#services">業務内容</a>
+        <a href="#company">会社案内</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#access">アクセス</a>
+      </nav>
+    </div>
+    <div class="footer-copyright">
+      &copy;2020 税理士法人 北見会計/北見公認会計士事務所
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE CTA BAR -->
+<div class="mobile-cta">
+  <div class="mobile-cta-inner">
+    <a href="tel:0294-23-3966" class="mobile-cta-btn mobile-cta-tel">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      電話する
+    </a>
+    <a href="mailto:info@kitami-tax.com" class="mobile-cta-btn mobile-cta-mail">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      お問い合わせ
+    </a>
+  </div>
+</div>
+
+<script>
+function toggleMenu() {
+  const btn = document.querySelector('.hamburger');
+  const nav = document.getElementById('mobileNav');
+  btn.classList.toggle('active');
+  nav.classList.toggle('active');
+  document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+}
+
+function closeMenu() {
+  const btn = document.querySelector('.hamburger');
+  const nav = document.getElementById('mobileNav');
+  btn.classList.remove('active');
+  nav.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function toggleAccordion(header) {
+  const item = header.parentElement;
+  const wasActive = item.classList.contains('active');
+  item.classList.toggle('active');
+}
+
+function toggleFaq(item) {
+  item.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
