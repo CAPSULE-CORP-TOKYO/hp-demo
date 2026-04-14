@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>山形の税理士 | クラウド会計に強い井上公認会計士事務所</title>
+<meta name="description" content="井上公認会計士事務所では、東北トップクラスの公認会計士・税理士が税務顧問のほか、経理代行サポート・クラウド導入支援をサポートしています">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --primary: #2F7D4E;
+    --primary-dark: #1F5F3A;
+    --accent: #F0B400;
+    --ink: #111827;
+    --ink-soft: #4B5563;
+    --line: #E5E7EB;
+    --bg: #FFFFFF;
+    --bg-soft: #F5F7F5;
+    --shadow: 0 8px 24px rgba(17,24,39,0.08);
+    --shadow-sm: 0 2px 6px rgba(17,24,39,0.06);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    font-family:"Noto Sans JP","Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:64px; /* mobile CTA bar space */
+  }
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:none;background:none}
+  h1,h2,h3,h4{font-weight:700;line-height:1.3;margin:0}
+
+  .container{
+    max-width:1200px;
+    margin:0 auto;
+    padding-left:24px;
+    padding-right:24px;
+  }
+  .eyebrow{
+    font-family:"Inter",sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--primary);
+    display:inline-block;
+  }
+  .section-title{
+    font-size:28px;
+    margin-top:8px;
+    margin-bottom:32px;
+    letter-spacing:0.02em;
+  }
+  .section-title small{
+    display:block;
+    font-family:"Inter",sans-serif;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--primary);
+    margin-bottom:6px;
+  }
+
+  /* ============ Header ============ */
+  .site-header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,0.96);
+    backdrop-filter:saturate(160%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;gap:16px;
+    padding-top:14px;padding-bottom:14px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;flex:1 1 auto;min-width:0}
+  .brand img{height:36px;width:auto}
+  .brand .brand-text{font-weight:700;font-size:15px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nav-desktop{display:none;align-items:center;gap:28px}
+  .nav-desktop a{font-size:14px;font-weight:500;color:var(--ink);transition:color .2s}
+  .nav-desktop a:hover{color:var(--primary)}
+  .header-cta{display:none;align-items:center;gap:10px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:12px 22px;border-radius:999px;
+    font-weight:700;font-size:14px;letter-spacing:0.02em;
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-outline{background:#fff;color:var(--primary);border:1.5px solid var(--primary)}
+  .btn-outline:hover{background:var(--primary);color:#fff}
+  .hamburger{
+    display:inline-flex;flex-direction:column;gap:4px;
+    width:42px;height:42px;align-items:center;justify-content:center;
+    border-radius:8px;border:1px solid var(--line);
+  }
+  .hamburger span{width:18px;height:2px;background:var(--ink);transition:transform .25s, opacity .2s}
+  .hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .mobile-nav{
+    display:none;
+    position:fixed;inset:64px 0 0 0;
+    background:#fff;
+    padding:32px 24px;
+    overflow-y:auto;
+    z-index:99;
+  }
+  .mobile-nav.open{display:block}
+  .mobile-nav a{display:block;padding:16px 0;border-bottom:1px solid var(--line);font-weight:600}
+  .mobile-nav .btn{margin-top:24px;width:100%}
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;
+    padding-top:48px;
+    padding-bottom:64px;
+    background:linear-gradient(180deg,#F5F7F5 0%,#FFFFFF 100%);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1fr;gap:32px;align-items:center;
+  }
+  .hero-copy .eyebrow{margin-bottom:14px}
+  .hero-copy h1{
+    font-size:34px;line-height:1.25;margin-bottom:20px;
+    letter-spacing:0.01em;
+  }
+  .hero-copy h1 .accent{color:var(--primary)}
+  .hero-copy h1 .no2{
+    display:inline-block;
+    font-family:"Inter",sans-serif;
+    font-size:1.15em;
+    color:var(--primary);
+    font-weight:800;
+  }
+  .hero-copy p.lead{
+    color:var(--ink-soft);
+    font-size:15px;line-height:1.9;
+    margin:0 0 28px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .hero-tel{
+    display:inline-flex;align-items:center;gap:8px;
+    font-weight:700;font-size:15px;color:var(--primary-dark);
+    padding:12px 20px;border-radius:999px;border:1.5px solid var(--primary);
+    background:#fff;
+  }
+  .hero-tel .tel-sub{font-size:11px;font-weight:500;color:var(--ink-soft);display:block;line-height:1.3}
+  .hero-visuals{
+    display:grid;grid-template-columns:2fr 1fr;gap:12px;
+  }
+  .hero-visuals .big{
+    grid-row:span 2;
+    border-radius:20px;overflow:hidden;box-shadow:var(--shadow);
+    aspect-ratio:4/5;
+  }
+  .hero-visuals .big img{width:100%;height:100%;object-fit:cover}
+  .hero-visuals .small{
+    border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);
+    aspect-ratio:4/3;
+  }
+  .hero-visuals .small img{width:100%;height:100%;object-fit:cover}
+  .hero-chips{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;
+  }
+  .hero-chips span{
+    font-size:12px;font-weight:600;
+    padding:7px 14px;border-radius:999px;
+    background:#fff;border:1px solid var(--line);color:var(--primary-dark);
+  }
+
+  /* ============ Section base ============ */
+  section{
+    padding-top:64px;padding-bottom:64px;
+  }
+  .section-lede{
+    color:var(--ink-soft);
+    font-size:15px;line-height:1.9;
+    max-width:760px;margin:0 0 40px;
+  }
+
+  /* ============ News ============ */
+  .news{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .news-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:24px}
+  .news-list{display:grid;gap:0;border-top:1px solid var(--line)}
+  .news-item{
+    display:grid;grid-template-columns:1fr;gap:4px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+    transition:padding-left .2s ease;
+  }
+  .news-item:hover{padding-left:8px}
+  .news-meta{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--ink-soft)}
+  .news-meta time{font-family:"Inter",sans-serif;font-weight:600;color:var(--primary-dark)}
+  .news-tag{
+    padding:3px 10px;border-radius:999px;
+    background:var(--bg-soft);color:var(--primary-dark);font-weight:600;
+    font-size:11px;letter-spacing:0.04em;
+  }
+  .news-item h3{font-size:15px;font-weight:600;line-height:1.6;color:var(--ink)}
+
+  /* ============ Vision ============ */
+  .vision{background:var(--bg-soft)}
+  .vision-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+  .vision-copy h2{font-size:28px;margin-bottom:20px}
+  .vision-copy .big-no2{
+    font-family:"Inter",sans-serif;
+    font-size:72px;line-height:1;color:var(--primary);font-weight:800;
+    display:block;margin-bottom:8px;
+  }
+  .vision-copy p{color:var(--ink-soft);line-height:2;font-size:14.5px;white-space:pre-line}
+  .vision-photo{
+    border-radius:20px;overflow:hidden;box-shadow:var(--shadow);
+    aspect-ratio:4/5;max-width:460px;margin:0 auto;
+  }
+  .vision-photo img{width:100%;height:100%;object-fit:cover}
+
+  /* ============ Feature (5 values) ============ */
+  .feature{background:#fff}
+  .feature-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:32px}
+  .feature-card{
+    padding:28px 24px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    position:relative;
+  }
+  .feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--primary)}
+  .value-badge{
+    width:56px;height:56px;border-radius:50%;
+    background:linear-gradient(135deg,var(--primary) 0%, var(--primary-dark) 100%);
+    color:#fff;
+    font-family:"Inter",sans-serif;font-weight:800;font-size:24px;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;
+    box-shadow:0 6px 18px rgba(47,125,78,0.28);
+  }
+  .feature-card h3{
+    font-family:"Inter",sans-serif;
+    font-size:20px;font-weight:700;color:var(--ink);
+    margin-bottom:10px;letter-spacing:0.02em;
+  }
+  .feature-card p{font-size:14px;line-height:1.9;color:var(--ink-soft);margin:0}
+
+  /* ============ Services ============ */
+  .services{background:var(--bg-soft)}
+  .services-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
+  .service-card{
+    display:flex;flex-direction:column;gap:10px;
+    padding:26px 22px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .service-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .service-icon{
+    width:44px;height:44px;border-radius:12px;
+    background:rgba(47,125,78,0.1);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--primary-dark);
+  }
+  .service-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .service-card h3{font-size:17px;font-weight:700;color:var(--ink)}
+  .service-card p{font-size:13.5px;line-height:1.85;color:var(--ink-soft);margin:0}
+
+  /* ============ About ============ */
+  .about{
+    position:relative;
+    background:#111827;color:#fff;
+    overflow:hidden;
+  }
+  .about::before{
+    content:"";position:absolute;inset:0;
+    background:url("images/bgimg_about.jpg") center/cover no-repeat;
+    opacity:0.22;
+  }
+  .about .container{position:relative;z-index:1}
+  .about .section-title{color:#fff}
+  .about .section-title small{color:#9EDBB1}
+  .about-grid{
+    display:grid;grid-template-columns:1fr;gap:0;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:20px;
+    overflow:hidden;
+  }
+  .about-row{
+    display:grid;grid-template-columns:1fr;gap:4px;
+    padding:18px 22px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .about-row:last-child{border-bottom:none}
+  .about-row dt{
+    font-family:"Inter",sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:0.08em;
+    text-transform:uppercase;color:#9EDBB1;
+  }
+  .about-row dd{
+    margin:0;font-size:14px;line-height:1.8;color:#F5F7F5;
+    white-space:pre-line;
+  }
+
+  /* ============ Member ============ */
+  .member{background:#fff}
+  .member-hero{
+    border-radius:20px;overflow:hidden;
+    box-shadow:var(--shadow);
+    margin-bottom:36px;
+  }
+  .member-hero img{width:100%;height:auto;display:block}
+  .member-message{
+    display:grid;grid-template-columns:1fr;gap:24px;
+    padding:28px 24px;
+    background:var(--bg-soft);
+    border-radius:20px;
+    border:1px solid var(--line);
+  }
+  .member-profile{
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;
+  }
+  .member-profile img{
+    width:120px;height:120px;border-radius:50%;object-fit:cover;
+    box-shadow:var(--shadow-sm);
+  }
+  .member-profile .name{font-size:20px;font-weight:700;color:var(--ink)}
+  .member-profile .name small{display:block;font-family:"Inter",sans-serif;font-weight:500;font-size:12px;color:var(--ink-soft);margin-top:4px;letter-spacing:0.08em}
+  .member-profile .title{font-size:12px;color:var(--primary-dark);font-weight:600}
+  .member-profile .creds{font-size:11.5px;color:var(--ink-soft);line-height:1.7}
+  .member-message p{font-size:14px;line-height:2;color:var(--ink-soft);margin:0 0 14px}
+  .member-message p:last-child{margin-bottom:0}
+
+  /* ============ Recruit ============ */
+  .recruit{
+    position:relative;color:#fff;overflow:hidden;
+    background:#1F5F3A;
+  }
+  .recruit::before{
+    content:"";position:absolute;inset:0;
+    background:url("images/t_recruit_img.jpg") center/cover no-repeat;
+    opacity:0.28;
+  }
+  .recruit .container{position:relative;z-index:1;text-align:center}
+  .recruit .eyebrow{color:#9EDBB1}
+  .recruit h2{font-size:26px;margin:8px 0 16px;color:#fff;line-height:1.5}
+  .recruit p{font-size:14px;color:#E5F3EA;margin:0 0 28px;line-height:1.9}
+  .recruit .btn-primary{background:#fff;color:var(--primary-dark)}
+  .recruit .btn-primary:hover{background:#F0B400;color:var(--ink)}
+
+  /* ============ Contact ============ */
+  .contact{
+    position:relative;background:#fff;overflow:hidden;
+  }
+  .contact::before{
+    content:"";position:absolute;inset:0;
+    background:url("images/bgimg_contact.jpg") center/cover no-repeat;
+    opacity:0.08;
+  }
+  .contact .container{position:relative;z-index:1}
+  .contact-box{
+    max-width:780px;margin:32px auto 0;
+    padding:36px 28px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    text-align:center;
+  }
+  .contact-tel{
+    display:inline-flex;flex-direction:column;align-items:center;gap:4px;
+    padding:24px 36px;
+    background:var(--bg-soft);
+    border-radius:18px;
+    margin:20px 0;
+  }
+  .contact-tel .num{
+    font-family:"Inter",sans-serif;
+    font-size:34px;font-weight:800;color:var(--primary-dark);
+    letter-spacing:0.02em;
+    line-height:1;
+  }
+  .contact-tel .label{font-size:11px;letter-spacing:0.18em;color:var(--ink-soft);text-transform:uppercase;font-weight:600}
+  .contact-tel .hours{font-size:12px;color:var(--ink-soft);margin-top:6px}
+  .contact-note{
+    font-size:12.5px;color:var(--ink-soft);line-height:1.9;
+    text-align:left;max-width:640px;margin:24px auto 0;
+    background:var(--bg-soft);padding:18px 20px;border-radius:12px;
+  }
+
+  /* ============ Footer ============ */
+  .site-footer{
+    background:#0B1220;color:#E5F3EA;
+    padding-top:56px;padding-bottom:32px;
+  }
+  .footer-grid{display:grid;grid-template-columns:1fr;gap:32px}
+  .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .footer-brand img{height:34px;filter:brightness(0) invert(1)}
+  .footer-about p{font-size:13px;line-height:1.9;color:#B0C4B8;margin:0}
+  .footer-col h4{font-size:12px;font-family:"Inter",sans-serif;letter-spacing:0.1em;color:#9EDBB1;text-transform:uppercase;margin-bottom:14px}
+  .footer-col a{display:block;font-size:13px;padding:6px 0;color:#E5F3EA;opacity:0.8;transition:opacity .2s}
+  .footer-col a:hover{opacity:1;color:#fff}
+  .footer-contact p{font-size:13px;color:#B0C4B8;line-height:1.9;margin:0 0 4px}
+  .footer-contact .ft-tel{color:#fff;font-family:"Inter",sans-serif;font-size:22px;font-weight:700;letter-spacing:0.02em}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);
+    margin-top:40px;padding-top:20px;
+    display:flex;flex-direction:column;gap:8px;align-items:flex-start;
+    font-size:12px;color:#9EA9A0;
+  }
+
+  /* ============ Mobile sticky CTA ============ */
+  .mobile-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:90;
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    background:#fff;border-top:1px solid var(--line);
+    box-shadow:0 -4px 14px rgba(17,24,39,0.08);
+  }
+  .mobile-cta a{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    padding:16px 12px;font-weight:700;font-size:14px;
+  }
+  .mobile-cta .call{color:var(--primary-dark)}
+  .mobile-cta .form{background:var(--primary);color:#fff}
+
+  /* ============ Responsive ============ */
+  @media (min-width:768px){
+    .container{padding-left:32px;padding-right:32px}
+    .section-title{font-size:32px;margin-bottom:40px}
+    section{padding-top:88px;padding-bottom:88px}
+    body{padding-bottom:0}
+    .mobile-cta{display:none}
+    .hero{padding-top:72px;padding-bottom:88px}
+    .hero-grid{grid-template-columns:1.1fr 1fr;gap:48px}
+    .hero-copy h1{font-size:44px}
+    .hero-visuals{grid-template-columns:1.2fr 1fr;gap:14px}
+    .vision-grid{grid-template-columns:1.1fr 1fr;gap:48px}
+    .vision-copy h2{font-size:34px}
+    .vision-copy .big-no2{font-size:96px}
+    .feature-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+    .services-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+    .about-grid{grid-template-columns:1fr 1fr}
+    .about-row{grid-template-columns:130px 1fr;gap:16px;padding:20px 28px}
+    .about-row dt{padding-top:2px}
+    .member-message{grid-template-columns:220px 1fr;gap:36px;padding:40px 44px;align-items:start}
+    .member-profile{text-align:left;align-items:flex-start}
+    .recruit h2{font-size:32px}
+    .contact-box{padding:48px 48px}
+    .contact-tel .num{font-size:42px}
+    .footer-grid{grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
+    .footer-bottom{flex-direction:row;justify-content:space-between;align-items:center}
+  }
+  @media (min-width:1024px){
+    .nav-desktop{display:flex}
+    .header-cta{display:flex}
+    .hamburger{display:none}
+    .hero-copy h1{font-size:52px}
+    .feature-grid{grid-template-columns:repeat(3,1fr)}
+    .feature-grid .feature-card:nth-child(4),
+    .feature-grid .feature-card:nth-child(5){grid-column:auto}
+    .services-grid{grid-template-columns:repeat(3,1fr)}
+    .section-title{font-size:36px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ Header ============ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top">
+      <img src="images/logo.svg" alt="井上公認会計士事務所 クローバーコンサルティング株式会社">
+    </a>
+    <nav class="nav-desktop" aria-label="グローバルナビ">
+      <a href="#feature">特徴</a>
+      <a href="#vision">理念</a>
+      <a href="#services">サービス</a>
+      <a href="#member">メンバー紹介</a>
+      <a href="#about">事務所概要</a>
+      <a href="#news">お知らせ</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-ghost" href="#recruit">採用情報</a>
+      <a class="btn btn-primary" href="#contact">お問い合わせ・ご相談はこちら</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="モバイルナビ">
+    <a href="#feature">特徴</a>
+    <a href="#vision">理念</a>
+    <a href="#services">サービス</a>
+    <a href="#member">メンバー紹介</a>
+    <a href="#about">事務所概要</a>
+    <a href="#news">お知らせ</a>
+    <a href="#recruit">採用情報</a>
+    <a class="btn btn-primary" href="#contact">お問い合わせ・ご相談はこちら</a>
+  </nav>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Yamagata × Cloud Accounting</span>
+        <h1>
+          世界一の<span class="no2">No.2</span>を目指す<br>
+          プロフェッショナル<br>
+          <span class="accent">会計チーム</span>
+        </h1>
+        <p class="lead">
+          若さとITの力で顧客のビジネスを加速させる<br>
+          東北の会計事務所
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">お問い合わせ・ご相談はこちら</a>
+          <a class="hero-tel" href="tel:0236667966">
+            <span>
+              023-666-7966
+              <span class="tel-sub">受付時間9：00〜17：00（土日祝を除く）</span>
+            </span>
+          </a>
+        </div>
+        <div class="hero-chips">
+          <span>#クラウド会計NO.1</span>
+          <span>#世界一のNo.2</span>
+          <span>#フットワークの軽さ</span>
+          <span>#若い力</span>
+          <span>#チャレンジ</span>
+          <span>#専門家集団</span>
+          <span>#経理代行</span>
+          <span>#フリーアドレス</span>
+          <span>#7時間勤務</span>
+        </div>
+      </div>
+      <div class="hero-visuals">
+        <div class="big"><img src="images/t-mv_1.jpg" alt="井上公認会計士事務所 スタッフ集合写真"></div>
+        <div class="small"><img src="images/t-mv_2.jpg" alt="代表がお客様と面談する様子"></div>
+        <div class="small"><img src="images/t-mv_3.jpg" alt="スタッフによるミーティング風景"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ News ============ -->
+<section class="news" id="news">
+  <div class="container">
+    <div class="news-header">
+      <h2 class="section-title" style="margin-bottom:0">
+        <small>News</small>
+        最新情報やお知らせ
+      </h2>
+      <a class="btn btn-outline" href="#news">お知らせ一覧へ</a>
+    </div>
+    <div class="news-list">
+      <article class="news-item">
+        <div class="news-meta"><time>2026.4.08</time><span class="news-tag">お知らせ</span></div>
+        <h3>新年度スタート！新しい仲間とランチ会＆決算慰労会を開催しました</h3>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><time>2026.4.01</time><span class="news-tag">お知らせ</span></div>
+        <h3>夢を形に、数字を力に。分店展開を最高のスタートにするためのチェックリスト</h3>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><time>2026.3.27</time><span class="news-tag">お知らせ</span></div>
+        <h3>【アキヒサ君、日本を動かす準備中】#3 会計ソフトの違いと会計事務所選び！</h3>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><time>2026.3.20</time><span class="news-tag">お知らせ</span></div>
+        <h3>早く行くか、遠くへ行くか。【#正直になってよかったこと】</h3>
+      </article>
+      <article class="news-item">
+        <div class="news-meta"><time>2026.3.11</time><span class="news-tag">お知らせ</span></div>
+        <h3>スタッフインタビュー#26</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Vision ============ -->
+<section class="vision" id="vision">
+  <div class="container">
+    <div class="vision-grid">
+      <div class="vision-copy">
+        <span class="eyebrow">Vision</span>
+        <h2>経営者を支える<br>世界一のNo.2</h2>
+        <span class="big-no2">No.2</span>
+        <p>私たちはお客様のビジネスを経理・財務の観点でサポートする会計事務所です。
+とくにIT活用やクラウド会計に力を入れており、その導入数は東北トップクラス。
+経営者を支える世界一のNo.2を目指して、お客様のビジネスを加速させるために、当事者意識をもって日々サポートします。
+
+世界一の経理担当ではなく世界一のNo.2。
+これが私たち井上公認会計士事務所の目指す未来です。</p>
+      </div>
+      <div class="vision-photo">
+        <img src="images/t_vision_img1.png" alt="代表 井上哲寿 が業務に取り組む様子">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Feature (5 values) ============ -->
+<section class="feature" id="feature">
+  <div class="container">
+    <h2 class="section-title">
+      <small>Our Feature</small>
+      わたしたちの強み
+    </h2>
+    <p class="section-lede">私たち井上会計は5つのバリューに基づきお客様の事業に貢献するべく日々努力しています。会計事務所として経理業務はもちろんですが、事業全体が良くなるために経営者によりそった行動を心がけております。</p>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="value-badge">S</div>
+        <h3>Speed</h3>
+        <p>クラウド会計の導入率は東北随一。軽快なフットワークと迅速なレスポンスで、経営判断を強力にサポートします。</p>
+      </article>
+      <article class="feature-card">
+        <div class="value-badge">T</div>
+        <h3>Together</h3>
+        <p>お客様の目標に共感し、伴走しながら事業成長をサポート。密なコミュニケーションで共に歩みます。</p>
+      </article>
+      <article class="feature-card">
+        <div class="value-badge">C</div>
+        <h3>Challenge</h3>
+        <p>変化を恐れず、新技術に積極的に挑戦。AIの経験を活かして、お客様にも新たな価値を提供します。</p>
+      </article>
+      <article class="feature-card">
+        <div class="value-badge">S</div>
+        <h3>Simple</h3>
+        <p>「わかりやすさ」と「伝わること」を最優先に。専門用語を避け、誰でも理解できる言葉で説明します。</p>
+      </article>
+      <article class="feature-card">
+        <div class="value-badge">F</div>
+        <h3>Fun</h3>
+        <p>お客様との楽しい関係を大切に、笑顔あふれる環境で仕事に取り組みます。SNSで日常の様子も発信中！</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Services ============ -->
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">
+      <small>Service</small>
+      井上公認会計士事務所の業務内容
+    </h2>
+    <p class="section-lede">井上会計では事業フェーズにより様々な体制でクライアント様のサポートを行っています。いつでも相談できる身近なパートナーとして「わかりやすく、丁寧に」サポート。以下のサービスをご用意しています。</p>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></div>
+        <h3>税務顧問</h3>
+        <p>法人の決算、個人事業主の確定申告などの税務顧問業務を行っています。税金の計算をするだけではなく、顧問税理士としてお客様の抱える経営のお悩み解決のサポートをします。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
+        <h3>経理体制構築支援</h3>
+        <p>会社の経理業務をラクにすることで業務の効率化を図るとともに、よりスピーディーに業務を進められるように、経理体制の構築をサポートします。財務情報を経営に活かすため、クラウド会計システムや、それと自動連携を図ることができる最新のSaaSをフル活用したバックオフィス構築支援を行います。これにより、限られた人材でも会社の経理体制をしっかり整えることができるようになります。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>経理アウトソーシング</h3>
+        <p>経理担当者が急に退職してしまった、又は出産のため1年間休職することになった、といった状況になってしまっても大丈夫です。リソースの関係で自社で経理業務を遂行することが難しい場合は、経理業務の一部をアウトソースの形で当事務所が行うことで、貴社の業務をしっかりサポートします。記帳、給与計算、支払管理、請求管理など、貴社の実情に合わせ、必要なサポートを組み合わせて、ご提供しております。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 4 4 5-5"/></svg></div>
+        <h3>事業再生支援</h3>
+        <p>業績の悪化や資金繰りへの課題等により特別な金融支援が必要とされる会社に対して、事業再生支援業務を行います。今後金融支援を受けるうえでの土台となる財務内容及び事業内容を、公認会計士の専門的知識を駆使し、第三者の立場から適切に診断いたします。また、経営者の皆様と一緒に今後の経営改善計画の策定を支援し、金融機関に対する借入金の返済交渉、バンクミーティングの開催、その後の伴走支援も含めてサポートいたします。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 21v-7a8 8 0 0 1 16 0v7"/><path d="M2 21h20"/><circle cx="12" cy="8" r="3"/></svg></div>
+        <h3>非営利法人の会計・監査</h3>
+        <p>通常の株式会社のみならず、社会福祉法人、学校法人、公益法人、宗教法人といった非営利法人の会計・税務顧問業務を数多く行っています。また、法令の要請により公認会計士の監査証明が必要とされる場合には、会計監査業務にも対応しております。大手監査法人出身の公認会計士が、豊富な知識・経験を生かし、効果的で効率的な税務・経営支援を行います。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>創業支援・資金調達サポート</h3>
+        <p>これから新しく会社を設立したい、とお考えの方向けに、当事務所では創業支援パッケージという商品をご用意しています。クラウド会計ソフトを利用して、コストを掛けずにスピーディーに、そしてカンタンに会社設立を行うことができます。また、設立後、経営が軌道に乗るまでの期間の会計帳簿の作成や税務顧問業務について、通常よりもリーズナブルな料金体系をご用意しています。このほか、金融機関から融資を受けたい、というお客様向けに、資金調達のためのサポートとして、金融機関のご紹介や同行訪問、経営計画の策定支援なども行っております。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4v10l-8 4-8-4V7z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></div>
+        <h3>事業承継サポート</h3>
+        <p>企業のライフサイクルの中では、経営者の交代による後継者へのバトンタッチ、あるいは第三者への事業の譲渡といった事業承継の局面が必ず訪れます。経営者の皆様と一緒に、事業を維持継続する方法や従業員の雇用を守る方法を考え、また税務上のリスクも踏まえたうえで、企業にとって最適な事業承継のスキームのご提案、サポートを行っております。M&Aを行う際の企業価値評価業務についても、豊富な経験を有する公認会計士がしっかりと対応します。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>ファンドの会計</h3>
+        <p>通常の株式会社とは異なるファンド形態の組織（匿名組合、投資事業組合、その他SPCなど）について、長年の経験を有する公認会計士による会計・税務業務のサポートを実施しています。これらのファンドは、そのスキームによって適用となる法律や会計基準、が異なることから、公認会計士・税理士の中でも対応できる人が非常に限られています。当事務所では、ファンド会計・税務に関して豊富な経験を有する公認会計士・税理士が在籍していますので、安心してご相談ください。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>相続・贈与・譲渡所得など</h3>
+        <p>相続税や贈与税の申告、土地・建物・株式などの譲渡による所得税の申告など、特定のタイミングで発生する一時的な税務についても、当事務所ではスポットでのご相談を承っております。専門的な知識が必要なこれらの手続きについて、「初めてで何をすればいいのか分からない」という方にも安心してご相談いただけるよう、丁寧かつわかりやすい説明を心がけています。必要書類の確認から申告書の作成・提出まで、一貫してサポートいたします。初回面談は無料ですので、まずはお気軽にご相談ください。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ About ============ -->
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="section-title">
+      <small>About Us</small>
+      事務所概要
+    </h2>
+    <dl class="about-grid">
+      <div class="about-row"><dt>事務所名</dt><dd>井上公認会計士事務所／井上哲寿税理士事務所
+クローバーコンサルティング株式会社</dd></div>
+      <div class="about-row"><dt>開業日</dt><dd>2012年7月1日</dd></div>
+      <div class="about-row"><dt>代表者</dt><dd>井上 哲寿</dd></div>
+      <div class="about-row"><dt>住所</dt><dd>〒990-0043
+山形県山形市本町2-4-3 本町ビル2F</dd></div>
+      <div class="about-row"><dt>電話番号</dt><dd><a href="tel:0236667966" style="color:#fff;text-decoration:underline">023-666-7966</a></dd></div>
+      <div class="about-row"><dt>FAX番号</dt><dd>023-666-7967</dd></div>
+      <div class="about-row"><dt>職員数</dt><dd>22名（男10名女12名）
+公認会計士4名(非常勤含む)
+税理士　2名
+税理士試験科目合格者　2名
+M&Aシニアエキスパート　2名
+マネーフォワードクラウド経理財務領域マスター　5名</dd></div>
+      <div class="about-row"><dt>労働時間</dt><dd>フレックスタイム制を採用しています。
+（月間所定労働時間：140時間）</dd></div>
+      <div class="about-row"><dt>年間休日</dt><dd>124日
+完全週休二日制
+その他の休日：祝日、年末年始（12/30～1/3）、お盆休み（8/13～15）
+※２月の祝日（2/11,2/23）のみ事務所カレンダーで平日扱いとなります。</dd></div>
+      <div class="about-row"><dt>退職金制度</dt><dd>あり（中小企業退職金共済制度）</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ Member ============ -->
+<section class="member" id="member">
+  <div class="container">
+    <h2 class="section-title">
+      <small>Member</small>
+      メンバー紹介
+    </h2>
+    <p class="section-lede">井上会計で働くユニークなメンバーを紹介します。</p>
+    <div class="member-hero">
+      <img src="images/t_member_img.jpg" alt="井上公認会計士事務所 スタッフ集合写真">
+    </div>
+    <div class="member-message">
+      <div class="member-profile">
+        <img src="images/m_img1.png" alt="代表 井上哲寿">
+        <div>
+          <div class="name">井上 哲寿<small>Akihisa Inoue</small></div>
+          <div class="title">井上公認会計士事務所　所長</div>
+          <div class="creds">公認会計士・税理士<br>証券アナリスト<br>M&Aシニアエキスパート</div>
+        </div>
+      </div>
+      <div>
+        <p>井上公認会計士事務所のホームページをご覧いただき、誠にありがとうございます。</p>
+        <p>当事務所は、山形市を中心として、東北地方及び日本全国のお客様の会計・税務相談、監業査務、経営計画の策定、内部統制の構築支援、連結決算、事業承継やM&Aのサポート等を実施しています。</p>
+        <p>まずはお客様の業績向上にお役に立てることを第一に、経営助言、資金調達、税金対策など、様々なサポートを実施するとともに、お客様と一緒になって問題解決に取り組んでいきたいと考えております。</p>
+        <p>また、当事務所が強みとしているのは、ITリテラシーが高く、フットワークの軽い若手スタッフのみで構成されている点です。会計を取り巻く環境は日進月歩。常に最新鋭の技術をキャッチアップし、お客様の業務改善、効率化などに役に立てるようなサービスを心掛けています。</p>
+        <p>生まれ育った山形を、そして日本経済を少しでも元気にしたい、そんな思いを胸に、誠心誠意業務に取り組んで参ります。当事務所のサポートが、御社の発展に少しでも貢献できれば幸いです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Recruit ============ -->
+<section class="recruit" id="recruit">
+  <div class="container">
+    <span class="eyebrow">Recruit</span>
+    <h2>私たちとともに、<br>世界一のNo.2を目指しませんか？</h2>
+    <p>採用情報</p>
+    <a class="btn btn-primary" href="#contact">お問い合わせ・ご相談はこちら</a>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center">
+      <small>Contact</small>
+      まずは1度ご相談ください
+    </h2>
+    <p class="section-lede" style="text-align:center;margin-left:auto;margin-right:auto">電話やフォームなどお好きな方法でお気軽にご相談ください。オンライン面談も承っております。</p>
+    <div class="contact-box">
+      <p style="font-size:14px;color:var(--ink-soft);margin:0">お電話でのお問い合わせはこちら</p>
+      <a class="contact-tel" href="tel:0236667966">
+        <span class="label">TEL</span>
+        <span class="num">023-666-7966</span>
+        <span class="hours">受付時間9：00〜17：00（土日祝を除く）</span>
+      </a>
+      <div>
+        <a class="btn btn-primary" href="#contact">お問い合わせ・ご相談はこちら</a>
+      </div>
+      <p class="contact-note">当事務所のサービスに関するお問合せを受付けております。お受付したお問合せに対して、すぐ回答できない、もしくは回答できない場合もございますので、お急ぎの方はお手数ですがお電話にてお問い合わせください。<br>※誠に恐れ入りますが、営業を目的としたお問い合わせはご遠慮ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="footer-brand">
+          <img src="images/logo.svg" alt="井上公認会計士事務所">
+        </div>
+        <p>山形の税理士。クラウド会計に強い井上公認会計士事務所。東北トップクラスの公認会計士・税理士が税務顧問のほか、経理代行サポート・クラウド導入支援をサポートしています。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">税務顧問</a>
+        <a href="#services">経理体制構築支援</a>
+        <a href="#services">経理アウトソーシング</a>
+        <a href="#services">事業再生支援</a>
+        <a href="#services">非営利法人の会計監査</a>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#feature">特徴</a>
+        <a href="#vision">理念</a>
+        <a href="#member">メンバー紹介</a>
+        <a href="#about">事務所概要</a>
+        <a href="#news">お知らせ</a>
+        <a href="#recruit">採用情報</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>〒990-0043<br>山形県山形市本町2-4-3 本町ビル2F</p>
+        <p><a class="ft-tel" href="tel:0236667966">023-666-7966</a></p>
+        <p>受付時間9：00〜17：00（土日祝を除く）</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>©井上公認会計士事務所</span>
+      <span>プライバシーポリシー</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ Mobile sticky CTA ============ -->
+<div class="mobile-cta">
+  <a class="call" href="tel:0236667966">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    023-666-7966
+  </a>
+  <a class="form" href="#contact">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    お問い合わせ
+  </a>
+</div>
+
+<script>
+  (function(){
+    var btn = document.getElementById('hamburger');
+    var nav = document.getElementById('mobileNav');
+    if(!btn || !nav) return;
+    btn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
