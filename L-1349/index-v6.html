@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>若松税理士事務所｜税務申告、税務相談、記帳代行｜栃木県下都賀郡</title>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  line-height: 1.8;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== VARIABLES ===== */
+:root {
+  --color-main: #F5A0B0;
+  --color-main-light: #FDE8ED;
+  --color-main-dark: #D87A8E;
+  --color-sub: #FFF5C3;
+  --color-sub-light: #FFFBE6;
+  --color-accent: #C8A0D8;
+  --color-accent-dark: #A87CC0;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-bg: #fff;
+  --color-bg-alt: #FDF8F9;
+  --font-serif: 'Noto Serif JP', serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  --container-max: 1080px;
+  --section-py-mobile: 64px;
+  --section-py-desktop: 88px;
+  --container-px-mobile: 24px;
+  --container-px-desktop: 40px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-px-mobile);
+  padding-right: var(--container-px-mobile);
+}
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--container-px-desktop);
+    padding-right: var(--container-px-desktop);
+  }
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  backdrop-filter: blur(8px);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-logo img {
+  height: 36px;
+  width: auto;
+}
+.header-logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-main-dark);
+  letter-spacing: 0.05em;
+}
+@media (min-width: 768px) {
+  .header-inner { height: 72px; }
+  .header-logo img { height: 42px; }
+  .header-logo-text { font-size: 1.25rem; }
+}
+
+/* ===== NAV ===== */
+.nav-desktop {
+  display: none;
+}
+.nav-desktop a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-desktop a:hover {
+  background: var(--color-main-light);
+  color: var(--color-main-dark);
+}
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+/* ===== HAMBURGER ===== */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+@media (min-width: 768px) {
+  .hamburger { display: none; }
+}
+
+/* ===== MOBILE NAV ===== */
+.nav-mobile {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  z-index: 999;
+}
+.nav-mobile.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.nav-mobile a {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.nav-mobile a:hover { background: var(--color-main-light); }
+
+/* ===== SECTION COMMON ===== */
+.section {
+  padding-top: var(--section-py-mobile);
+  padding-bottom: var(--section-py-mobile);
+}
+@media (min-width: 768px) {
+  .section {
+    padding-top: var(--section-py-desktop);
+    padding-bottom: var(--section-py-desktop);
+  }
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-main-dark);
+  margin-bottom: 32px;
+  letter-spacing: 0.04em;
+}
+.section-title small {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 4px;
+}
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 44px;
+  }
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background: linear-gradient(135deg, var(--color-main-light) 0%, var(--color-sub-light) 50%, #f3e8f9 100%);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200,160,216,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245,160,176,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 680px;
+  padding-left: var(--container-px-mobile);
+  padding-right: var(--container-px-mobile);
+}
+.hero-sub {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-main-dark);
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+.hero-heading {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: 28px;
+}
+.hero-desc {
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--color-text-light);
+  margin-bottom: 36px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(200,160,216,0.35);
+  transition: background 0.2s, transform 0.2s;
+}
+.hero-cta:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-2px);
+}
+@media (min-width: 768px) {
+  .hero { min-height: 80vh; padding-top: 140px; padding-bottom: 100px; }
+  .hero-heading { font-size: 2.4rem; }
+  .hero-sub { font-size: 1.05rem; }
+  .hero-desc { font-size: 1rem; }
+  .hero-content {
+    padding-left: var(--container-px-desktop);
+    padding-right: var(--container-px-desktop);
+  }
+}
+
+/* ===== ABOUT ===== */
+.about { background: var(--color-bg); }
+.about-text {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 2.1;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+/* ===== SERVICES ===== */
+.services { background: var(--color-bg-alt); }
+.services-intro {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--color-text-light);
+}
+.service-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  .service-cards { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+}
+.service-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 28px 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+}
+.service-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+.service-card-icon.bookkeeping { background: var(--color-main-light); color: var(--color-main-dark); }
+.service-card-icon.tax-filing { background: var(--color-sub); color: #C4A040; }
+.service-card-icon.consulting { background: #EDE4F3; color: var(--color-accent-dark); }
+.service-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 14px;
+}
+.service-card p {
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--color-text-light);
+}
+.service-card ul {
+  margin-top: 12px;
+  padding-left: 1.2em;
+  list-style: disc;
+}
+.service-card ul li {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+/* ===== PRICE TABLE ===== */
+.price { background: var(--color-bg); }
+.price-intro {
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--color-text-light);
+  margin-bottom: 36px;
+}
+.price-tables {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 768px) {
+  .price-tables { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+}
+.price-table-wrap {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.price-table-wrap h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-main-dark);
+  text-align: center;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--color-main-light);
+}
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.price-table th, .price-table td {
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  text-align: left;
+  border-bottom: 1px solid #f0e8eb;
+}
+.price-table th {
+  font-weight: 700;
+  color: var(--color-text);
+  background: var(--color-bg-alt);
+}
+.price-table td {
+  color: var(--color-text-light);
+}
+.price-table td:last-child {
+  text-align: right;
+  font-weight: 500;
+  color: var(--color-main-dark);
+}
+
+/* ===== OFFICE ===== */
+.office { background: var(--color-bg-alt); }
+.office-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 768px) {
+  .office-content { grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+}
+.office-image-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.office-image-wrap img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.office-info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.office-info-table th, .office-info-table td {
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f0e8eb;
+  vertical-align: top;
+}
+.office-info-table th {
+  font-weight: 700;
+  color: var(--color-main-dark);
+  white-space: nowrap;
+  width: 100px;
+  background: var(--color-bg-alt);
+  border-radius: 4px;
+}
+.office-info-table td {
+  color: var(--color-text-light);
+}
+
+/* ===== CAREER ===== */
+.career {
+  margin-top: 40px;
+}
+.career h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-main-dark);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.career-timeline {
+  max-width: 560px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 24px;
+}
+.career-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-main-light);
+}
+.career-item {
+  position: relative;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+.career-item::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-main);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px var(--color-main-light);
+}
+.career-year {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  margin-bottom: 2px;
+}
+.career-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* ===== ACCESS ===== */
+.access { background: var(--color-bg); }
+.access-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+@media (min-width: 768px) {
+  .access-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+.access-info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.access-info-table th, .access-info-table td {
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f0e8eb;
+  vertical-align: top;
+}
+.access-info-table th {
+  font-weight: 700;
+  color: var(--color-main-dark);
+  white-space: nowrap;
+  width: 90px;
+}
+.access-info-table td {
+  color: var(--color-text-light);
+}
+.access-map {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.access-map iframe {
+  width: 100%;
+  height: 280px;
+  border: 0;
+}
+@media (min-width: 768px) {
+  .access-map iframe { height: 340px; }
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  background: linear-gradient(135deg, var(--color-main-light) 0%, #f3e8f9 100%);
+}
+.contact-inner {
+  text-align: center;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+}
+.contact-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  text-align: center;
+}
+.contact-card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.contact-card-label {
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  margin-bottom: 6px;
+}
+.contact-card a {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-main-dark);
+}
+.contact-card .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  transition: background 0.2s;
+}
+.contact-card .btn:hover { background: var(--color-accent-dark); }
+
+.contact-detail {
+  margin-top: 28px;
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--color-text-light);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #2D2328;
+  color: rgba(255,255,255,0.7);
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+@media (min-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+.footer-info h4 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.footer-info p {
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+@media (min-width: 768px) {
+  .footer-nav { justify-content: flex-end; align-content: start; }
+}
+.footer-nav a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.2s;
+}
+.footer-nav a:hover { color: #fff; }
+.footer-copy {
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ===== MOBILE CTA BAR ===== */
+.mobile-cta {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+  padding: 8px 12px;
+  gap: 8px;
+}
+.mobile-cta a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 8px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
+}
+.mobile-cta .cta-tel {
+  background: var(--color-main);
+  color: #fff;
+}
+.mobile-cta .cta-contact {
+  background: var(--color-accent);
+  color: #fff;
+}
+@media (min-width: 769px) {
+  .mobile-cta { display: none; }
+}
+
+/* ===== MOBILE BOTTOM SPACING ===== */
+@media (max-width: 768px) {
+  .footer { padding-bottom: 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#hero" class="header-logo">
+      <img src="images/logo-2.png" alt="若松税理士事務所" width="120" height="36">
+      <span class="header-logo-text">若松税理士事務所</span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#hero">ホーム</a>
+      <a href="#services">サービス内容</a>
+      <a href="#office">事務所紹介</a>
+      <a href="#access">アクセス</a>
+    </nav>
+    <button class="hamburger" aria-label="メニュー" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== MOBILE NAV ===== -->
+<nav class="nav-mobile" aria-hidden="true">
+  <a href="#hero">ホーム</a>
+  <a href="#services">サービス内容</a>
+  <a href="#office">事務所紹介</a>
+  <a href="#access">アクセス</a>
+  <a href="#contact">お問い合わせ</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-sub">税務申告、税務相談、記帳代行 お任せください</p>
+    <h1 class="hero-heading">税に悩むこの目に映る<br>皆さんの一助になります</h1>
+    <p class="hero-desc">税務申告や会計帳簿処理、その他諸々の手続き、会社経営は分からないことばかりだと思います。小さな疑問でも構いません。法人様、個人様を問わず対応しております。地味に作業が大変な会計帳簿の記帳代行もお引き受けしています。まずは無料で行なっております税務相談にお越しください。専門家の立場からお一人お一人の状況に合わせた柔軟なサービスをご提供いたします。</p>
+    <a href="#contact" class="hero-cta">お問い合わせはこちら &#8594;</a>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section services" id="services">
+  <div class="container">
+    <h2 class="section-title">サービス内容<small>Service</small></h2>
+    <p class="services-intro">税理士は税法分野における国民のための弁護士です！<br>税務調査対応はもちろん、いざというときの頼れる存在になれたらうれしいです。<br>たくさんお話をさせていただき家族のような存在になれたらと思っています。</p>
+    <div class="service-cards">
+      <!-- 記帳代行 -->
+      <div class="service-card">
+        <div class="service-card-icon bookkeeping">&#128221;</div>
+        <h3>記帳代行</h3>
+        <p>お客様からお預かりした会計資料をもとに税理士が記帳処理を行い、総勘定元帳・試算表・財務諸表などを作成いたします。</p>
+        <p>近年どんどん煩雑になっていっている記帳処理。専門的な知識でもって帳簿の作成を代行し、日々の会計処理作業をサポートいたします。</p>
+      </div>
+      <!-- 税務申告 -->
+      <div class="service-card">
+        <div class="service-card-icon tax-filing">&#128196;</div>
+        <h3>税務申告</h3>
+        <p>税には、公的機関が税の金額を計算してくれるものと、自ら申告書を作成して申告納付するものと、二通りあります。税理士がサポートするのは後者です。</p>
+        <p>税の申告は複雑で難解であり、毎年少しずつ変わります。たとえ慣れたとしてもご自身で申告書を作成することは不安なものです。税の専門家として適切な申告書を作成・申告いたします。</p>
+        <ul>
+          <li>個人の方は所得税の確定申告</li>
+          <li>法人の方は法人税の確定申告</li>
+          <li>消費税の申告</li>
+          <li>従業員の方の年末調整</li>
+          <li>相続税・贈与税の申告　など</li>
+        </ul>
+      </div>
+      <!-- 税務相談 -->
+      <div class="service-card">
+        <div class="service-card-icon consulting">&#128172;</div>
+        <h3>税務相談</h3>
+        <p>税に関して、こんなときはどうしたらいい？や、どんなことができるのだろう？にお答えいたします。経営相談含めお持ちよりください。普段より記帳代行等で携わらせていただけるとよりご事情に合ったアドバイスができるものと思っています。</p>
+        <ul>
+          <li>経理業務相談・支援</li>
+          <li>確定申告相談</li>
+          <li>新規設立支援</li>
+          <li>資金繰り相談</li>
+          <li>相続対策相談</li>
+          <li>事業承継相談・支援　など</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICE TABLE ===== -->
+<section class="section price" id="price">
+  <div class="container">
+    <h2 class="section-title">料金表<small>Price</small></h2>
+    <p class="price-intro">報酬料金についてはご依頼内容・ご事情に応じ柔軟に対応いたします。ご相談ください。</p>
+    <div class="price-tables">
+      <!-- 個人 -->
+      <div class="price-table-wrap">
+        <h3>個人のお客様</h3>
+        <table class="price-table">
+          <thead>
+            <tr><th>年間売上高</th><th>年間顧問料（税抜）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>（軽微な申告）</td><td>20,000円～</td></tr>
+            <tr><td>1,000万円未満</td><td>50,000円～</td></tr>
+            <tr><td>5,000万円未満</td><td>120,000円～</td></tr>
+            <tr><td>1億円未満</td><td>360,000円～</td></tr>
+            <tr><td>3億円未満</td><td>480,000円～</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 法人 -->
+      <div class="price-table-wrap">
+        <h3>法人のお客様</h3>
+        <table class="price-table">
+          <thead>
+            <tr><th>年間売上高</th><th>月間顧問料（税抜）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1,000万円未満</td><td>15,000円～</td></tr>
+            <tr><td>5,000万円未満</td><td>20,000円～</td></tr>
+            <tr><td>1億円未満</td><td>30,000円～</td></tr>
+            <tr><td>3億円未満</td><td>40,000円～</td></tr>
+            <tr><td>5億円未満</td><td>60,000円～</td></tr>
+            <tr><td>10億円未満</td><td>100,000円～</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFICE ===== -->
+<section class="section office" id="office">
+  <div class="container">
+    <h2 class="section-title">事務所紹介<small>Office</small></h2>
+    <div class="office-content">
+      <div>
+        <table class="office-info-table">
+          <tr><th>名称</th><td>若松税理士事務所</td></tr>
+          <tr><th>代表</th><td>税理士　若松 里美</td></tr>
+          <tr><th>所在地</th><td>〒329-0111<br>栃木県下都賀郡野木町丸林389番地5<br>サンハイツノギ101号室</td></tr>
+          <tr><th>TEL/FAX</th><td>0280-67-0390</td></tr>
+          <tr><th>職員数</th><td>2名(税理士1名)</td></tr>
+          <tr><th>業務内容</th><td>税務・会計業務　一般</td></tr>
+          <tr><th>開業年月日</th><td>令和5年7月26日</td></tr>
+        </table>
+      </div>
+      <div class="office-image-wrap">
+        <img src="images/office01.jpg" alt="若松税理士事務所" width="600" height="450">
+      </div>
+    </div>
+
+    <div class="career">
+      <h3>経歴</h3>
+      <div class="career-timeline">
+        <div class="career-item">
+          <div class="career-desc">出身地　茨城県古河市</div>
+        </div>
+        <div class="career-item">
+          <div class="career-year">平成21年3月</div>
+          <div class="career-desc">東京理科大学経営学部経営学科　卒業</div>
+        </div>
+        <div class="career-item">
+          <div class="career-year">平成23年3月</div>
+          <div class="career-desc">日本大学大学院法学研究科公法学専攻　卒業</div>
+        </div>
+        <div class="career-item">
+          <div class="career-year">平成29年12月</div>
+          <div class="career-desc">税理士試験合格</div>
+        </div>
+        <div class="career-item">
+          <div class="career-year">令和5年7月</div>
+          <div class="career-desc">税理士法人サクセス退職　独立開業</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACCESS ===== -->
+<section class="section access" id="access">
+  <div class="container">
+    <h2 class="section-title">アクセス<small>Access</small></h2>
+    <div class="access-content">
+      <div>
+        <table class="access-info-table">
+          <tr><th>住所</th><td>〒329-0111<br>栃木県下都賀郡野木町丸林３８９−５<br>サンハイツノギ101</td></tr>
+          <tr><th>TEL</th><td><a href="tel:0280-67-0390">0280-67-0390</a></td></tr>
+          <tr><th>最寄り駅</th><td>JR宇都宮線野木駅西口より徒歩5分</td></tr>
+          <tr><th>駐車場</th><td>5台分（事務所前に併設）</td></tr>
+        </table>
+      </div>
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.5!2d139.7!3d36.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f4bad4b6469e7%3A0x8c0604d7f21343005e!2z6Iul5p2-56iO55CG5aOr5LqL5YuZ5omA!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="若松税理士事務所 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section contact" id="contact">
+  <div class="container contact-inner">
+    <h2 class="section-title">お問い合わせ<small>Contact</small></h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-card-icon">&#128222;</div>
+        <div class="contact-card-label">お電話でのお問い合わせ</div>
+        <a href="tel:0280-67-0390">0280-67-0390</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">&#9993;</div>
+        <div class="contact-card-label">メールでのお問い合わせ</div>
+        <a href="https://s12wakamatsu.com/inquiry/" class="btn" target="_blank" rel="noopener">メールでお問い合わせ</a>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <p>〒329-0111　栃木県下都賀郡野木町丸林３８９−５　サンハイツノギ101</p>
+      <p>【営業時間】9:00～17:00　【定休日】毎週土・日曜日、祝日</p>
+      <p>TEL：0280-67-0390　FAX：0280-67-0390</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <h4>若松税理士事務所</h4>
+        <p>〒329-0111<br>栃木県下都賀郡野木町丸林３８９−５<br>サンハイツノギ101</p>
+        <p>TEL：0280-67-0390</p>
+        <p>【営業時間】9:00～17:00</p>
+        <p>【定休日】毎週土・日曜日、祝日</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#hero">ホーム</a>
+        <a href="#services">サービス内容</a>
+        <a href="#office">事務所紹介</a>
+        <a href="#access">アクセス</a>
+        <a href="https://s12wakamatsu.com/inquiry/" target="_blank" rel="noopener">お問い合わせ</a>
+        <a href="https://s12wakamatsu.com/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>
+      </nav>
+    </div>
+    <p class="footer-copy">&copy; 2026 若松税理士事務所</p>
+  </div>
+</footer>
+
+<!-- ===== MOBILE CTA BAR ===== -->
+<div class="mobile-cta">
+  <a href="tel:0280-67-0390" class="cta-tel">&#128222; 電話する</a>
+  <a href="https://s12wakamatsu.com/inquiry/" class="cta-contact" target="_blank" rel="noopener">&#9993; お問い合わせ</a>
+</div>
+
+<!-- ===== JS: Hamburger Toggle ===== -->
+<script>
+(function(){
+  var btn = document.querySelector('.hamburger');
+  var nav = document.querySelector('.nav-mobile');
+  var links = nav.querySelectorAll('a');
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.classList.toggle('active');
+    btn.setAttribute('aria-expanded', open);
+    nav.setAttribute('aria-hidden', !open);
+  });
+  links.forEach(function(link){
+    link.addEventListener('click', function(){
+      nav.classList.remove('open');
+      btn.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+      nav.setAttribute('aria-hidden', 'true');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
