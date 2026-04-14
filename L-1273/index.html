@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吉久保税理士事務所｜茨城県日立市</title>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & BASE ============ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333333;
+  background-color: #FFFFFF;
+  line-height: 1.8;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: #4A90D9; text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.75; }
+ul { list-style: none; }
+
+/* ============ LAYOUT ============ */
+.container {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ============ HEADER ============ */
+.header {
+  background-color: #333333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+.header-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+.header-nav {
+  display: flex;
+  gap: 32px;
+}
+.header-nav a {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+}
+.header-nav a:hover { opacity: 0.7; }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  z-index: 110;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #FFFFFF;
+  position: absolute;
+  left: 4px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger span:nth-child(1) { top: 8px; }
+.hamburger span:nth-child(2) { top: 15px; }
+.hamburger span:nth-child(3) { top: 22px; }
+.hamburger.active span:nth-child(1) { top: 15px; transform: rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { top: 15px; transform: rotate(-45deg); }
+
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+  .header-nav {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: #333333;
+    flex-direction: column;
+    padding-top: 24px;
+    padding-bottom: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .header-nav.open { display: flex; }
+  .header-nav a { font-size: 16px; }
+}
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(51,51,51,0.75) 0%, rgba(51,51,51,0.5) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  .hero { min-height: 560px; }
+  .hero-title { font-size: 36px; }
+}
+@media (min-width: 1024px) {
+  .hero-title { font-size: 42px; }
+}
+
+/* ============ SECTION COMMON ============ */
+.section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+@media (min-width: 768px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #333333;
+}
+.section-title-en {
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #999999;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .section-title { margin-bottom: 48px; }
+}
+
+/* ============ ABOUT ============ */
+.about { background-color: #FAFAFA; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+@media (min-width: 768px) {
+  .about-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+}
+.about-image {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.about-table tr {
+  border-bottom: 1px solid #E5E5E5;
+}
+.about-table th {
+  font-weight: 500;
+  font-size: 14px;
+  color: #666666;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-right: 16px;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: top;
+  width: 100px;
+}
+.about-table td {
+  font-size: 15px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  color: #333333;
+}
+.about-table td a {
+  color: #4A90D9;
+  word-break: break-all;
+}
+
+/* ============ TOPICS ============ */
+.topics-list {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.topics-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E5E5E5;
+}
+.topics-item:first-child { border-top: 1px solid #E5E5E5; }
+.topics-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+  background-color: #4A90D9;
+  padding: 2px 10px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+.topics-date {
+  display: inline-block;
+  font-size: 13px;
+  color: #999999;
+  margin-left: 8px;
+}
+.topics-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333333;
+}
+
+/* ============ CONTACT ============ */
+.contact {
+  background-color: #333333;
+  color: #FFFFFF;
+}
+.contact .section-title { color: #FFFFFF; }
+.contact .section-title-en { color: rgba(255,255,255,0.5); }
+.contact-info {
+  text-align: center;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-tel {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+.contact-tel a { color: #FFFFFF; }
+@media (min-width: 768px) {
+  .contact-tel { font-size: 40px; }
+}
+.contact-address {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+.contact-email {
+  font-size: 14px;
+}
+.contact-email a { color: #4A90D9; }
+.contact-cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 40px;
+  background-color: #4A90D9;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+.contact-cta:hover { background-color: #3A7BC8; opacity: 1; }
+
+/* ============ FOOTER ============ */
+.footer {
+  background-color: #222222;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.footer-inner {
+  text-align: center;
+}
+.footer-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+.footer-address {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+.footer-links a:hover { color: #FFFFFF; }
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ============ MOBILE CTA BAR ============ */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background-color: #FFFFFF;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (max-width: 768px) {
+  .mobile-cta { display: flex; gap: 10px; }
+  body { padding-bottom: 72px; }
+}
+.mobile-cta-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+.mobile-cta-tel {
+  background-color: #333333;
+  color: #FFFFFF;
+}
+.mobile-cta-contact {
+  background-color: #4A90D9;
+  color: #FFFFFF;
+}
+</style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="header">
+  <div class="container">
+    <div class="header-logo">吉久保税理士事務所</div>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="header-nav" id="headerNav">
+      <a href="#about">事務所案内</a>
+      <a href="#topics">お知らせ</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">茨城県日立市で税理士をお探しなら<br>吉久保税理士事務所</h1>
+    <p class="hero-sub">吉久保税理士事務所</p>
+  </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section class="section about" id="about">
+  <div class="container">
+    <h2 class="section-title">事務所案内<span class="section-title-en">Office information</span></h2>
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="事務所イメージ" loading="lazy">
+      </div>
+      <div>
+        <table class="about-table">
+          <tr>
+            <th>事務所名</th>
+            <td>吉久保税理士事務所</td>
+          </tr>
+          <tr>
+            <th>所長</th>
+            <td>吉久保　貢治</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>〒317-0072<br>茨城県日立市弁天町1丁目4番9号DIビル</td>
+          </tr>
+          <tr>
+            <th>TEL</th>
+            <td><a href="tel:0294-87-6720">0294(87)6720</a></td>
+          </tr>
+          <tr>
+            <th>FAX</th>
+            <td>0294(87)6721</td>
+          </tr>
+          <tr>
+            <th>E-mail</th>
+            <td><a href="mailto:info@yoshikubo-tax.com">info@yoshikubo-tax.com</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TOPICS ====== -->
+<section class="section" id="topics">
+  <div class="container">
+    <h2 class="section-title">お知らせ<span class="section-title-en">Topics</span></h2>
+    <div class="topics-list">
+      <div class="topics-item">
+        <span class="topics-label">TOPICS</span>
+        <p class="topics-text">ホームページを公開しました。</p>
+      </div>
+      <div class="topics-item">
+        <span class="topics-label">ニュース</span>
+        <span class="topics-date">2026/04/14</span>
+        <p class="topics-text">IPA　中小企業の情報セキュリティ対策ガイドライン更新</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">お問い合わせ<span class="section-title-en">Contact</span></h2>
+    <div class="contact-info">
+      <div class="contact-tel"><a href="tel:0294-87-6720">0294(87)6720</a></div>
+      <p class="contact-address">〒317-0072<br>茨城県日立市弁天町1丁目4番9号DIビル</p>
+      <p class="contact-email">E-mail: <a href="mailto:info@yoshikubo-tax.com">info@yoshikubo-tax.com</a></p>
+      <a href="mailto:info@yoshikubo-tax.com" class="contact-cta">メールでお問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-name">吉久保税理士事務所</div>
+      <p class="footer-address">〒317-0072 茨城県日立市弁天町1丁目4番9号DIビル<br>TEL：0294(87)6720　　FAX：0294(87)6721</p>
+      <div class="footer-links">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">当サイトのご利用について</a>
+      </div>
+      <p class="footer-copy">2022 吉久保税理士事務所. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== MOBILE CTA BAR ====== -->
+<div class="mobile-cta">
+  <a href="tel:0294-87-6720" class="mobile-cta-btn mobile-cta-tel">&#9742; 電話する</a>
+  <a href="mailto:info@yoshikubo-tax.com" class="mobile-cta-btn mobile-cta-contact">&#9993; お問い合わせ</a>
+</div>
+
+<!-- ====== JS ====== -->
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var nav = document.getElementById('headerNav');
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('active');
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      btn.classList.remove('active');
+      nav.classList.remove('open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
