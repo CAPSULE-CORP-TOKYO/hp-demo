@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年度 社会保険・所得税シミュレーター</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f0f2f5; padding: 20px; line-height: 1.6; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #1a73e8; font-size: 1.4rem; margin-bottom: 25px; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
+        .result-box { margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 10px; border: 1px solid #e1e4e8; }
+        .result-row { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid #eee; }
+        .highlight { font-weight: bold; color: #d93025; }
+        .net-pay { font-size: 1.3rem; color: #188038; border-bottom: none; margin-top: 15px; padding-top: 10px; border-top: 2px solid #188038; }
+        .footer-note { font-size: 0.75rem; color: #777; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>2026年度 給与手取り計算</h1>
+
+    <div class="input-group">
+        <label>勤務地の都道府県</label>
+        <select id="pref" onchange="calc()"><option value="0.1017">北海道</option><option value="0.0978">青森県</option><option value="0.0965">岩手県</option><option value="0.0974">宮城県</option><option value="0.101">秋田県</option><option value="0.097">山形県</option><option value="0.0967">福島県</option><option value="0.0964">茨城県</option><option value="0.0964">栃木県</option><option value="0.0965">群馬県</option><option value="0.0968">埼玉県</option><option value="0.0965">千葉県</option><option value="0.098">東京都</option><option value="0.097">神奈川県</option><option value="0.0921">新潟県</option><option value="0.0945">富山県</option><option value="0.0961">石川県</option><option value="0.097">福井県</option><option value="0.0972">山梨県</option><option value="0.0955">長野県</option><option value="0.0975">岐阜県</option><option value="0.0962">静岡県</option><option value="0.0972">愛知県</option><option value="0.0974">三重県</option><option value="0.097">滋賀県</option><option value="0.1001">京都府</option><option value="0.1">大阪府</option><option value="0.1002">兵庫県</option><option value="0.0999">奈良県</option><option value="0.1001">和歌山県</option><option value="0.0978">鳥取県</option><option value="0.0974">島根県</option><option value="0.0981">岡山県</option><option value="0.0981">広島県</option><option value="0.0991">山口県</option><option value="0.101">徳島県</option><option value="0.1011">香川県</option><option value="0.0993">愛媛県</option><option value="0.1018">高知県</option><option value="0.1011">福岡県</option><option value="0.1042">佐賀県</option><option value="0.1011">長崎県</option><option value="0.101">熊本県</option><option value="0.101">大分県</option><option value="0.0978">宮崎県</option><option value="0.101">鹿児島県</option><option value="0.0989">沖縄県</option></select>
+    </div>
+
+    <div class="input-group">
+        <label>額面月収（総支給額）</label>
+        <input type="number" id="salary" value="300000" step="10000" oninput="calc()" style="">
+    </div>
+
+    <div class="input-group">
+        <label>年齢区分</label>
+        <select id="age" onchange="calc()">
+            <option value="0">40歳未満 / 65歳以上</option>
+            <option value="0.0081">40歳〜64歳（介護保険あり）</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>扶養家族数（所得税計算用）</label>
+        <input type="number" id="dependents" value="0" min="0" max="10" oninput="calc()" style="">
+    </div>
+
+    <div class="result-box">
+        <div class="result-row"><span>健康保険料</span><span id="res-health">14,700 円</span></div>
+        <div class="result-row"><span>介護保険料</span><span id="res-nursing">0 円</span></div>
+        <div class="result-row"><span>厚生年金</span><span id="res-pension">27,450 円</span></div>
+        <div class="result-row"><span>雇用保険料</span><span id="res-emp">1,650 円</span></div>
+        <div class="result-row"><span>子育て支援金</span><span id="res-child">345 円</span></div>
+        <div class="result-row highlight"><span>所得税（概算）</span><span id="res-tax">8,392 円</span></div>
+        <div class="result-row net-pay"><span>推定手取り額</span><span id="res-net">247,463 円</span></div>
+    </div>
+
+    <p class="footer-note">
+        ※2026年4月時点の概算料率（健康保険: 都道府県別、厚生年金: 18.3%、雇用保険: 0.55%、支援金: 0.115%）を使用。<br>
+        ※所得税は「給与所得者の源泉徴収税額表」の簡易計算式に基づきます。住民税は含みません。
+    </p>
+</div>
+
+<script>
+// 47都道府県の健康保険料率（令和8年度想定・折半前合計）
+const prefData = {
+    "北海道": 0.1017, "青森県": 0.0978, "岩手県": 0.0965, "宮城県": 0.0974, "秋田県": 0.1010, "山形県": 0.0970, "福島県": 0.0967,
+    "茨城県": 0.0964, "栃木県": 0.0964, "群馬県": 0.0965, "埼玉県": 0.0968, "千葉県": 0.0965, "東京都": 0.0980, "神奈川県": 0.0970,
+    "新潟県": 0.0921, "富山県": 0.0945, "石川県": 0.0961, "福井県": 0.0970, "山梨県": 0.0972, "長野県": 0.0955, "岐阜県": 0.0975,
+    "静岡県": 0.0962, "愛知県": 0.0972, "三重県": 0.0974, "滋賀県": 0.0970, "京都府": 0.1001, "大阪府": 0.1000, "兵庫県": 0.1002,
+    "奈良県": 0.0999, "和歌山県": 0.1001, "鳥取県": 0.0978, "島根県": 0.0974, "岡山県": 0.0981, "広島県": 0.0981, "山口県": 0.0991,
+    "徳島県": 0.1010, "香川県": 0.1011, "愛媛県": 0.0993, "高知県": 0.1018, "福岡県": 0.1011, "佐賀県": 0.1042, "長崎県": 0.1011,
+    "熊本県": 0.1010, "大分県": 0.1010, "宮崎県": 0.0978, "鹿児島県": 0.1010, "沖縄県": 0.0989
+};
+
+// 初期化：都道府県セレクトボックスの生成
+const prefSelect = document.getElementById('pref');
+for (let pref in prefData) {
+    let opt = document.createElement('option');
+    opt.value = prefData[pref];
+    opt.innerHTML = pref;
+    if(pref === "東京都") opt.selected = true;
+    prefSelect.appendChild(opt);
+}
+
+function calc() {
+    const salary = parseFloat(document.getElementById('salary').value) || 0;
+    const healthRateTotal = parseFloat(document.getElementById('pref').value);
+    const nursingRate = parseFloat(document.getElementById('age').value);
+    const dependents = parseInt(document.getElementById('dependents').value) || 0;
+
+    // 1. 社会保険料計算 (本人負担 = 折半)
+    const health = Math.floor(salary * (healthRateTotal / 2));
+    const nursing = Math.floor(salary * nursingRate);
+    const pension = Math.floor(salary * (0.183 / 2));
+    const emp = Math.floor(salary * 0.0055); // 雇用保険(一般)
+    const child = Math.floor(salary * 0.00115); // 子育て支援金(想定)
+    const totalShakai = health + nursing + pension + emp + child;
+
+    // 2. 所得税計算 (簡易ロジック)
+    // 社会保険料控除後の金額
+    const afterShakai = salary - totalShakai;
+    // 基礎的な税率計算 (簡易的な月額表ベースの近似式)
+    // 実際は扶養控除等があるが、ここでは簡略化して計算
+    let taxable = afterShakai - (dependents * 31666); // 扶養1人につき約3.1万円控除
+    let tax = 0;
+    if (taxable > 88000) {
+        // 年収に応じた概算税率（5%〜）を適用
+        tax = Math.floor((taxable - 88000) * 0.05); 
+    }
+    if (tax < 0) tax = 0;
+
+    // 表示反映
+    document.getElementById('res-health').innerText = health.toLocaleString() + " 円";
+    document.getElementById('res-nursing').innerText = nursing.toLocaleString() + " 円";
+    document.getElementById('res-pension').innerText = pension.toLocaleString() + " 円";
+    document.getElementById('res-emp').innerText = emp.toLocaleString() + " 円";
+    document.getElementById('res-child').innerText = child.toLocaleString() + " 円";
+    document.getElementById('res-tax').innerText = tax.toLocaleString() + " 円";
+    document.getElementById('res-net').innerText = (salary - totalShakai - tax).toLocaleString() + " 円";
+}
+
+// 実行
+calc();
+</script>
+
+
+</body></html>
