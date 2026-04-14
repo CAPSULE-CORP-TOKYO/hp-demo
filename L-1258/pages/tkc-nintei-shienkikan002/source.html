@@ -1,0 +1,131 @@
+<html><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        ムービーライブラリ 視聴ページ    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1360">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store">
+    <link rel="stylesheet" href="/ml3/tkcaohp/templete/default/css/myStyle.css?202503211030" type="text/css" media="all">
+    <link rel="stylesheet" href="/ml3/tkcaohp/templete/default/css/common.css?202503211030" type="text/css" media="all">
+    <link rel="stylesheet" href="/ml3/tkcaohp/templete/default/css/header.css?202503211030" type="text/css" media="all">
+    <link rel="stylesheet" href="/ml3/tkcaohp/templete/default/css/footer.css?202503211030" type="text/css" media="all">
+    <link rel="stylesheet" href="/ml3/tkcaohp/templete/default/css/sidenav.css?202503211030" type="text/css" media="all">
+    <link rel="stylesheet" href="/ml3/tkcaohp/templete/default/css/layout.css?202503211030" type="text/css" media="all">
+    <link rel="stylesheet" href="/ml3/tkcaohp/templete/default/theme/default/css/theme.css?202503211030" type="text/css" media="all">    <link rel="stylesheet" href="/ml3/tkcaohp/user/movie/css/watch.css?202503211030" type="text/css" media="all">
+    <link rel="stylesheet" href="css/guest.css?202503211030" type="text/css" media="all">
+        <link rel="stylesheet" href="/ml3/tkcaohp/common/js/jquery-ui.css?202503211030" type="text/css">
+    <script type="text/javascript" src="/ml3/tkcaohp/common/js/jquery.js?202503211030"></script>
+    <script type="text/javascript" src="/ml3/tkcaohp/common/js/pathUtils.js?202503211030"></script>
+    <script type="text/javascript" src="/ml3/tkcaohp/user/guest/js/dspGuest.js?202503211030"></script>
+    <script type="text/javascript">
+        $(function() {
+            var objDspGuest = new dspGuest();
+            $('#authDialog').css({
+                'height': 'auto',
+                'margin': 'auto',
+                'top': ($(window).height() - $('#authDialog').height()) / 2,
+            });
+            
+            // 認証ダイアログ閉じるボタンクリックハンドラ
+            $('#btn_close').on('click', function() {
+                $('#authDialog')[0].close();
+                $('.ui-widget-overlay').remove();
+            });
+
+            // 認証ダイアログ視聴ボタンクリックハンドラ
+            $('#btn_auth').on('click', function() {
+                var strTicketId = pathUtils.getUrlParamValue('tid');
+                var strUserName = $('input#input_name').val();
+                var strPassword = $('input#input_pw').val();
+
+                objDspGuest.authTicket(strTicketId, strUserName, strPassword);
+            });
+
+            // 説明文添付ファイル名クリックハンドラ
+            $(document).on('click', 'a.dl_explan_file', function() {
+                objDspGuest.downloadExplanAttachmentFile($(this).attr('id'), $('input#guest_name').val());
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="all-wrap" style="background-color:#FFFFFF;">
+    <header class="not-login" style="background-color:#EEEEEE;">
+        <div class="header__wrap">
+            <div class="header__flex-container">
+                <div class="header__flex-item">
+                    <div class="logo">
+                                                    <img src="/ml3/tkcaohp/common/fileread.php?md=1&amp;c=220&amp;dt=0" alt="" class="logo-img">
+                                            </div>
+                </div>
+                            </div>
+        </div>
+    </header>
+    <!-- main -->
+    <main>
+
+        <!-- メインエリア -->
+        <div class="media-content-area">
+            <div class="media-content-area__main-column">
+                                    <!-- プレイヤーを囲む枠 -->
+                    <div id="wrapStillSlide">
+                        <!-- プレイヤー -->
+                        <div id="mediaContainer" class="media-container">
+                            <div class="media-container-wrap">
+                                <div id="cont" class="for-supports-not-aspect-ratio">
+                                    		<iframe class="iframePlayer" width="850" height="480" scrolling="no" src="https://ml.visuamall.com/webapp/sns/?cid=51&amp;tid=48a09ac328dba271f11a08f6f89a8533eb2658e715da923032f2df9dd45a9d29&amp;width=100%&amp;height=auto&amp;did=ml3&amp;sid=tkcaohp&amp;poster=6&amp;other=a%3A10%3A%7Bs%3A3%3A%22uid%22%3Bs%3A3%3A%22220%22%3Bs%3A3%3A%22aid%22%3Bi%3A-11%3Bs%3A2%3A%22an%22%3Bs%3A12%3A%22%E5%85%B1%E6%9C%89%E5%86%8D%E7%94%9F%22%3Bs%3A4%3A%22cgid%22%3Bs%3A0%3A%22%22%3Bs%3A4%3A%22sflg%22%3Bi%3A0%3Bs%3A5%3A%22cnflg%22%3Bi%3A1%3Bs%3A3%3A%22mid%22%3Bs%3A2%3A%2251%22%3Bs%3A4%3A%22geid%22%3Bs%3A4%3A%223687%22%3Bs%3A16%3A%22embeddedMemberId%22%3Bs%3A0%3A%22%22%3Bs%3A2%3A%22sk%22%3Bs%3A64%3A%2227ba287e1a7cac007bbd1aec558e8eace2e65c22d06f4a96d87dde30efea77b5%22%3B%7D&amp;playrate=1&amp;seek=0&amp;cdndomain=mlcdn_visuamall_com&amp;bitrateType=single" allowfullscreen=""></iframe>                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- コンテンツのメタ情報表示 -->
+                    <div id="movieinfo" class="media-content-area__meta-container">
+                        <h1 class="media-content-area__title">当事務所が認定支援機関として貴社をご支援します！</h1>
+                        <div class="meta-info-primary-section meta-primary-info">
+                            <div class="meta-primary-info__left-area">
+                                <!-- 投稿者情報 -->
+                                <div class="meta-item content-post-user">
+                                    <span class="contributor">
+                                        <span class="trim-avatar">
+                                            <img src="/ml3/tkcaohp/common/fileread.php?param=r4sJb-O-g8m9lIQkNR3nKH0OVOnU5G_raJNO_AMtYPisjS2GVd92T_E5ri8rvcZL&amp;iv=9TA626AIMgXTCbu2Vg9IAg..&amp;dt=0" alt="">
+                                        </span>
+                                        <span class="post-user-name">株式会社TKC&nbsp;</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="meta-primary-info__right-area"></div>
+                        </div>
+                        <div class="meta-info-primary-section meta-secondary-info">
+                            <div class="meta-item content-property">
+                                                                <!-- 投稿日 -->
+                                <dl class="meta-item-date">
+                                    <dt>投稿日</dt>
+                                    <dd>2018/01/25</dd>
+                                </dl>
+                            </div>
+                        </div>
+                                                    <!-- コンテンツの説明 -->
+                            <div class="meta-info-primary-section">
+                                <div class="explain-text">
+                                    毎月の資金繰りに苦労されている中小企業のために、国の支援事業が実施されています。                                </div>
+                            </div>
+                                                                    </div>
+                                <input type="hidden" id="guest_name" value="共有再生" style="">
+                <input type="hidden" name="msg_ajax_http_error" value="通信エラーが発生しました。&lt;br/&gt;お手数ですがもう一度やり直してください。" style="">
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="background-color:#000000;">
+    <div class="footer-wrap">
+        <div class="copyright">
+                                                     Copyright © 2026 TKC Corporation All Rights Reserved.        </div>
+                    <a href="https://help.ml.visuamall.com/hc/ja/articles/47432239121689" class="sitepolicy" target="_blank" rel="noopener noreferrer">サイトポリシー</a>
+            </div>
+</footer>
+</div>
+
+
+</body></html>
