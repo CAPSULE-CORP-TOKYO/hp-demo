@@ -1,0 +1,580 @@
+<!DOCTYPE html><html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" lang="ja"><!--<![endif]--><head>
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<style>
+
+    .default-font-Gothic {
+      font-family: メイリオ, Meiryo, ヒラギノ角ゴ Pro W3, Hiragino Kaku Gothic Pro, Osaka, ＭＳ Ｐゴシック, sans-serif;
+    }
+    .slider-wrapper.default-font-Gothic .nivo-caption {
+      font-family: メイリオ, Meiryo, ヒラギノ角ゴ Pro W3, Hiragino Kaku Gothic Pro, Osaka, ＭＳ Ｐゴシック, sans-serif;
+    }
+  
+
+    .default-font-MingDynastyBody {
+      font-family: ヒラギノ明朝 Pro W6, Hiragino Mincho Pro, HGS明朝E, ＭＳ Ｐ明朝, serif;
+    }
+    .slider-wrapper.default-font-MingDynastyBody .nivo-caption {
+      font-family: ヒラギノ明朝 Pro W6, Hiragino Mincho Pro, HGS明朝E, ＭＳ Ｐ明朝, serif;
+    }
+  
+
+    .default-font-RoundLetters {
+      font-family: Lucida Grande, segoe UI, ヒラギノ丸ゴ ProN W4, Hiragino Maru Gothic Pro, HG丸ゴシックM-PRO, HGMaruGothicMPRO, メイリオ, Meiryo, Verdana, Arial, sans-serif;
+    }
+    .slider-wrapper.default-font-RoundLetters .nivo-caption {
+      font-family: Lucida Grande, segoe UI, ヒラギノ丸ゴ ProN W4, Hiragino Maru Gothic Pro, HG丸ゴシックM-PRO, HGMaruGothicMPRO, メイリオ, Meiryo, Verdana, Arial, sans-serif;
+    }
+  
+
+    .default-font-SemiCursiveScript {
+      font-family: HG行書体, HGP行書体, cursive;
+    }
+    .slider-wrapper.default-font-SemiCursiveScript .nivo-caption {
+      font-family: HG行書体, HGP行書体, cursive;
+    }
+  
+
+    .default-font-SansSerif {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    .slider-wrapper.default-font-SansSerif .nivo-caption {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+  
+
+    .default-font-Serif {
+      font-family: Times New Roman, Times, serif;
+    }
+    .slider-wrapper.default-font-Serif .nivo-caption {
+      font-family: Times New Roman, Times, serif;
+    }
+  
+
+    .default-font-Monospace {
+      font-family: Courier, monospace;
+    }
+    .slider-wrapper.default-font-Monospace .nivo-caption {
+      font-family: Courier, monospace;
+    }
+  
+
+    .default-font-Cursive {
+      font-family: Zapf Chancery, cursive;
+    }
+    .slider-wrapper.default-font-Cursive .nivo-caption {
+      font-family: Zapf Chancery, cursive;
+    }
+  
+</style>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      
+
+      
+
+  <title>証憑保存機能 | 岩手県一関市の熊谷税務会計事務所</title>
+  <meta name="description" content="電子取引データ(PDF等)や紙の証憑を読み込み、TKCのデータセンター(TISC)に電子データとして保存するサービスです。保存したデータはTKCの会計ソフトに連携し、仕訳入力に活用できます。">
+  <meta name="keywords" content="証憑,FX,自計化,AI,電子取引">
+  <meta name="viewport" content="width=device-width">
+  <link id="base-css" rel="stylesheet" href="/design/css/base.css?v=4.3.18">
+  
+  <link id="common-css" rel="stylesheet" href="/design/css/common.css?v=4.3.18">
+  <link id="layout-css" rel="stylesheet" href="/design/layoutC2/css/layout.css?v=4.3.18">
+  <link id="global-navi-A011" rel="stylesheet" href="/design/css/global-navi/global-navi-A011.css"><link id="heading-A005" rel="stylesheet" href="/design/css/heading/heading-A005.css"><link id="heading-F010" rel="stylesheet" href="/design/css/heading/heading-F010.css"><link id="heading-C001" rel="stylesheet" href="/design/css/heading/heading-C001.css">
+<link rel="stylesheet" id="site-width-wide-css" href="/design/css/site-width-wide.css">
+<style id="cms-bg-style" type="text/css">
+div.bg-img {background-image: url(/material/lib04/28149588.jpg);
+}
+</style>
+<style id="cms-bg-mainvisual-style" type="text/css">
+</style>
+<style id="cms-other-style" type="text/css">
+div.border {
+                        border-top: 5px solid #626262;
+}
+div.wrapper {
+                        padding-top: 5px;
+}
+</style>
+<style id="cms-color-style" type="text/css">
+div.outer { color: #333333; }
+div.outer a { color: #028351; }
+div.outer a:hover { color: #60c353; }
+[data-module-type*=editable] table th { background-color: #ffffff; color: #333333; }
+[data-module-type*=editable] table td { background-color: #ffffff; color: #333333; }
+[data-module-type*=editable] .table-bordered th,
+                        [data-module-type*=editable] .table-bordered td { border: 1px solid #dddddd; }
+                        [data-module-type*=editable] .table-bordered tbody:first-child tr:first-child th,
+                        [data-module-type*=editable] .table-bordered tbody:first-child tr:first-child td { border-top: 1px solid #dddddd; }
+                        [data-module-type*=editable] .table-underline th,
+                        [data-module-type*=editable] .table-underline td { border-bottom: 1px solid #dddddd; }
+[data-module-type*=editable] hr { border-top: 1px solid #dddddd; }
+[data-module-type*=calendar] table th { color: #ffffff; }[data-module-type*=calendar] table th { background-color: #5E5E5E; }[data-module-type*=calendar] table td:not(:has(.holiday)) { color: #333333; }[data-module-type*=calendar] .calendar-table tbody tr.cl-day-status td .cl-day.holiday { color: #FE3E44; }[data-module-type*=calendar] .calendar-table tbody tr.cl-day-status td .cl-day.sunday { color: #FE3E44; }[data-module-type*=calendar] table.calendar-table thead tr.day-of-week th { border-bottom-color: #cccccc; }[data-module-type*=calendar] table.calendar-table tbody tr.cl-day-status td { border-color: #cccccc; }[data-module-type*=calendar] .ex-column { color: #333333; }[data-module-type*=calendar] .ex-column { background-color: #ffffff; }div#g-translate-wrap { background-color: #ffffff; }
+div#g-translate-title { color: #333333; }
+ol#breadcrumb li { color: #333333; }
+ol#breadcrumb li a { color: #0088cc; }
+ol#breadcrumb li a:hover { color: #005580; }
+</style>
+<style id="cms-header-footer-style" type="text/css">
+header div#header-logo a { color: #f09202;}
+header div#header-logo a:hover { color: #f09202;}
+header div.area-text-h1 { color: #333333;}
+footer [data-module-type=footer-logo] a { color: #333333;}
+footer [data-module-type=footer-logo] a:hover { color: #333333;}
+footer ul#footer-link-list li a, footer #footer-privacy-link a { color: #666666;}
+footer ul#footer-link-list li a:hover, footer #footer-privacy-link a:hover { color: #7f7e7e;}
+footer address#footer-copyright { color: #333333; text-align: right;}
+</style>
+
+<link id="print-css" rel="stylesheet" href="/design/css/print.css?v=4.3.18" media="print">
+  <div class="fit-vids-style">­<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style></div><script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/ee507a59/www-widgetapi.vflset/www-widgetapi.js" async=""></script><script src="https://connect.facebook.net/ja_JP/bundle/sdk.js/" async="" crossorigin="anonymous"></script><script id="facebook-jssdk" src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&amp;appId=450106218517457&amp;version=v23.0"></script><script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script><script type="text/javascript" async="" defer="" src="/common/sp.js"></script><script id="base-js" src="/design/js/base.js?v=4.3.18"></script>
+
+
+
+      <script type="text/javascript">
+        var T2P_siteKey = 'kumagaikaikei';
+        var T2P_pagePath = 'tkc-tds';
+        var _snaq = _snaq || [];
+        var hostname = location.host
+        _snaq.push(['setCollectorUrl', hostname + '/tracker']);
+        _snaq.push(['setAppId', 'kumagaikaikei:tkc-tds']);
+        _snaq.push(['setCookieDomain', '']);
+        _snaq.push(['trackPageView']);
+
+        (function() {
+          var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+          sp.src = '/common/sp.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+        })();
+        </script>
+  
+
+
+<style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:lucida grande,tahoma,verdana,arial,"hiragino kaku gothic pro",meiryo,"ms pgothic",sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{0%{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+
+.fb_dialog{background:#525252b3;position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:700;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v4/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v4/ya/r/3rhSv5V8j3o.gif) #fff no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:#0006;inset:0;min-height:100%;position:absolute;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba),to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:#fff 0 1px 1px -1px inset;color:#fff;font:700 14px Helvetica,sans-serif;text-overflow:ellipsis;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2),to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:700 12px Helvetica,sans-serif;margin:2px -12px;padding:2px 6px 3px;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:700;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v4/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4A4A4A;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4A4A4A;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v4/y2/r/onuUJj0tCqE.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+</style><script charset="utf-8" src="https://platform.twitter.com/js/button.856debeac157d9669cf51e73a08fbc93.js"></script></head>
+<body data-font="timezone" data-timezone="ja" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+
+  
+
+<div id="bg-img" class="bg-img bg-full bg-position-center-center bg-scroll" style="height: 900px;"><div id="bg-img-color-pat" class="bg-img-color-pat   " style="width: 2000px; height: 1120px;"></div></div>
+
+
+
+<div id="border" class="border" data-top="5" data-bottom="0" style="height: 5213px;"></div>
+<div id="outer" class="outer">
+    <div id="wrapper" class="wrapper">
+      <div id="container" class="container container-size-wide">
+        <div class="header-wrap">
+          <header>
+            <!--▼スマートフォン用メニュー-->
+            <div class="visible-phone">
+              <div class="navbar">
+                <!-- ▼ボタン -->
+                <a class="btn btn-navbar " data-toggle="collapse" data-target=".nav-collapse"><img src="/design/images/common/btn-sp-menu.png" alt="MENU"></a>
+                <!-- ▲ボタン -->
+                <div class="container">
+                  <div class="nav-collapse collapse">
+                    <nav class="global-nav-side-simple-yellowgreen">
+                      <ul id="global-nav-s"><li><a href="https://www.tkcnf.com/kumagaikaikei/index">トップページ</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/info">お知らせ</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/service">業務案内</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/access">交通案内</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/philosophy">経営理念</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-system-qa" target="_blank">TKCシステムQ&amp;A</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-inheritance-simulation">相続税額の早見表</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-tokureijigyoshokei">円滑な事業承継を支援</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-on-demand001">経営改善オンデマンド講座</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-hozyokin">補助金・助成金・融資情報</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-menu8-003">社会福祉法人の皆様へ</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-administrative-information">経営者オススメ情報</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-management-qa">Q&amp;A経営相談</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/privacy">特定個人情報取扱基本方針</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-social-welfare001">社会福祉法人会計Q&amp;A</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/mynumber">マイナンバー制度</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/ickcinfo">関連会社</a></li>
+</ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--▲スマートフォン用メニュー-->
+            <div class="row-fluid">
+              <div class="area-text-h1 text-h1-upper" data-role="content-h1-upper"><div class="text-align-h1"></div></div>
+              <div class="header-inner clearfix" data-role="header"><div class=" span6" data-module-type="cell"><div class="header-inner-content" data-module-type="header-logo"><div class="site-name logo-left" id="header-logo" data-param="熊谷会計事務所、一関市,税理士" data-align="left"><h1><a href="https://www.tkcnf.com/kumagaikaikei/"><img width="315" height="63" alt="熊谷会計事務所、一関市,税理士" src="/library/5714af4106a93b22516ec2e0/607ea0ea00aaa84d049e5b93.png"></a></h1></div></div></div><div class=" span6" data-module-type="cell"><div class="header-inner-content" data-module-type="paragraph-editable">
+  <div data-layout="1">
+    <div>
+      <p style="text-align: right;">
+      岩手県一関市上大槻街4-52 ウィズ内
+      <br><font face="Lucida Grande, segoe UI, ヒラギノ丸ゴ ProN W4, Hiragino Maru Gothic Pro, HG丸ゴシックM-PRO, HGMaruGothicMPRO, メイリオ, Meiryo, Verdana, Arial, sans-serif"><b>TEL <font size="4"><span class="tel-link" href="tel:0191232359" data-tel="0191232359">0191-23-2359</span></font></b></font><br><font color="#ffffff" size="2" style="background-color: rgb(155, 187, 89);">　<font color="#ffffff"><a href="" data-page-id="571707595a982b65260010eb" data-page-path="inquiry" data-heading-id=""><font color="#ffffff">✉ お問合せ</font></a>　</font></font></p>
+    </div>
+  </div>
+</div></div></div>
+              <div class="area-text-h1 text-h1-bottom" data-role="content-h1-bottom"><div class="text-align-h1"></div></div>
+            </div>
+          </header>
+        </div>
+        <div class="row global-nav-upper-wrap">
+          <div class="span12">
+            <nav class="hidden-phone global-nav-upper-simple-yellowgreen global-nav-upper-item5">
+              <ul id="global-nav1" class="global-nav-upper "><li><a href="https://www.tkcnf.com/kumagaikaikei/index">トップページ</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/info">お知らせ</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/service">業務案内</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/access">交通案内</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/philosophy">経営理念</a></li>
+</ul>
+            </nav>
+          </div>
+        </div>
+        <!-- パンくずリストここから -->
+        <div class="row breadcrumb-wrap">
+          <div class="span12">
+            
+          </div>
+        </div>
+        <!-- パンくずリストここまで -->
+        <div class="row outside-main-visual-wrap">
+          <div class="span12">
+            
+          </div>
+        </div>
+        <div class="row flex-box">
+          <div class="span3 flex-priority2">
+            <nav class="hidden-phone global-nav-side-simple-yellowgreen">
+              <ul id="global-nav2" class="global-nav-side"><li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-system-qa" target="_blank">TKCシステムQ&amp;A</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-inheritance-simulation">相続税額の早見表</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-tokureijigyoshokei">円滑な事業承継を支援</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-on-demand001">経営改善オンデマンド講座</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-hozyokin">補助金・助成金・融資情報</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-menu8-003">社会福祉法人の皆様へ</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-administrative-information">経営者オススメ情報</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-management-qa">Q&amp;A経営相談</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/privacy">特定個人情報取扱基本方針</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/tkc-social-welfare001">社会福祉法人会計Q&amp;A</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/mynumber">マイナンバー制度</a></li>
+<li><a href="https://www.tkcnf.com/kumagaikaikei/ickcinfo">関連会社</a></li>
+</ul>
+            </nav>
+            <div id="socialbar" class="off" style="display:none;"><ul id="snsbar"><li class="fb-btn">
+    <div class="fb-like fb_iframe_widget" data-href="https://www.tkcnf.com/kumagaikaikei/tkc-tds" data-width="50" data-layout="button_count" data-show-faces="false" data-send="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=450106218517457&amp;container_width=0&amp;href=https%3A%2F%2Fwww.tkcnf.com%2Fkumagaikaikei%2Ftkc-tds&amp;layout=button_count&amp;locale=ja_JP&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=50"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="ff91072ccad393d1b" width="50px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v23.0/plugins/like.php?app_id=450106218517457&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df34ea4f400e0399a4%26domain%3Dwww.tkcnf.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.tkcnf.com%252Ff4e6b357515c70cf3%26relation%3Dparent.parent&amp;container_width=0&amp;href=https%3A%2F%2Fwww.tkcnf.com%2Fkumagaikaikei%2Ftkc-tds&amp;layout=button_count&amp;locale=ja_JP&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=50" style="border: none; visibility: visible; width: 0px; height: 0px;"></iframe></span></div>
+  </li><li class="tw-btn">
+    <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="X Post Button" src="https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.ja.html#dnt=false&amp;id=twitter-widget-0&amp;lang=ja&amp;original_referer=https%3A%2F%2Fwww.tkcnf.com%2Fkumagaikaikei%2Ftkc-tds&amp;size=m&amp;text=%E8%A8%BC%E6%86%91%E4%BF%9D%E5%AD%98%E6%A9%9F%E8%83%BD%20%7C%20%E5%B2%A9%E6%89%8B%E7%9C%8C%E4%B8%80%E9%96%A2%E5%B8%82%E3%81%AE%E7%86%8A%E8%B0%B7%E7%A8%8E%E5%8B%99%E4%BC%9A%E8%A8%88%E4%BA%8B%E5%8B%99%E6%89%80&amp;time=1776145232118&amp;type=share&amp;url=https%3A%2F%2Fwww.tkcnf.com%2Fkumagaikaikei%2Ftkc-tds" data-url="https://www.tkcnf.com/kumagaikaikei/tkc-tds" style="position: static; visibility: visible; width: 77px; height: 20px;"></iframe>
+  </li></ul>
+    <!-- twitter -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- facebook -->
+    <script>
+      var FbResource = {
+        fbAppId:"450106218517457",
+        fbVersion:"v23.0",
+        FBinit:function(){
+          FB.init({
+            appId:FbResource.fbAppId,
+            xfbml:true,
+            version:FbResource.fbVersion
+          })
+        }
+      };
+      (function(d, s, id) {
+        var version = FbResource.fbVersion;
+        var appId = FbResource.fbAppId;
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId="+appId+"&version="+version;
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <style>
+      ul#snsbar {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      ul#snsbar:after {
+        content: " ";
+        display: block;
+        clear: both;
+      }
+      ul#snsbar li {
+        float: left;
+        margin: 0;
+        padding: 0;
+        margin-right: 10px;
+        height: 30px;
+      }
+      ul#snsbar .pluginCountButton {
+        display: none;
+      }
+      ul#snsbar iframe.twitter-share-button {
+        visibility: visible !important;
+        position: static !important;
+        height: 20px !important;
+      }
+    </style>
+  </div>
+            <div data-role="left-sidebar"><div data-module-type="map-original">
+  <iframe width="100%" height="200" src="https://www.google.com/maps/embed/v1/place?language=ja&amp;q=%E5%B2%A9%E6%89%8B%E7%9C%8C%E4%B8%80%E9%96%A2%E5%B8%82%E4%B8%8A%E5%A4%A7%E6%A7%BB%E8%A1%97%EF%BC%94%EF%BC%8D%EF%BC%95%EF%BC%92&amp;zoom=17&amp;key=AIzaSyBELgItfVodS3ThPdrIsX4vbOE4Hb3MVUE" frameborder="0" allowfullscreen="" style="border: 0px currentColor; border-image: none;"></iframe>
+</div><div data-module-type="image-editable">
+  <div data-layout="1">
+    <div>
+      <img ondragstart="return false;" onselectstart="return false;" oncontextmenu="return false;" src="/library/5714af4106a93b22516ec2e0/5a436505ae90813f5bc19efd.gif" unselectable="on">
+    </div>
+  </div>
+</div><div data-module-type="image-editable">
+  <div data-layout="1">
+    <div>
+      <a ondragstart="return false;" href="https://www.tkc.jp/fx/bank/finance/movie/" target="_blank"><img ondragstart="return false;" onselectstart="return false;" oncontextmenu="return false;" src="/library/5714af4106a93b22516ec2e0/6086a035f16f7d624341439e.jpg" unselectable="on"></a>
+    </div>
+  </div>
+</div><div data-module-type="image-editable"><div data-layout="1">
+    <div>
+      <a ondragstart="return false;" data-auto-update-category="supportOrg" href="https://www.tkcnf.com/kumagaikaikei/tkc-on-demand001"><img ondragstart="return false;" onselectstart="return false;" oncontextmenu="return false;" src="/material/lib03/5b90c9fe502a53ee34cdfe3e.png" unselectable="on"></a>
+    </div>
+  </div>
+</div><div data-module-type="image-editable">
+  <div data-layout="1">
+    <div>
+      <img ondragstart="return false;" onselectstart="return false;" oncontextmenu="return false;" src="/library/5714af4106a93b22516ec2e0/6082b33be867df6d39111456.png" unselectable="on">
+    </div>
+  </div>
+</div><div data-module-type="image-editable">
+  <div data-layout="1">
+    <div>
+      <a ondragstart="return false;" href="https://www.tkc.jp/tkcnf/" target="_blank"><img ondragstart="return false;" onselectstart="return false;" oncontextmenu="return false;" src="/library/5714af4106a93b22516ec2e0/6082b537e676efc60a2b1f00.png" unselectable="on"></a>
+    </div>
+  </div>
+</div><div data-module-type="image-editable">
+  <div data-layout="1">
+    <div>
+      <img ondragstart="return false;" onselectstart="return false;" oncontextmenu="return false;" src="/library/5714af4106a93b22516ec2e0/6082b33b4d00d08650e772b5.png" unselectable="on">
+    </div>
+  </div>
+</div></div>
+          </div>
+          <div class="span9 flex-priority1" data-role="contents"><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="heading"><h2 class="design-tmpl h2-A005-yellowgreen" data-default-color="black" data-default-design="simple" data-design-class="h2-A010-aqua">証憑保存機能</h2></div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="image-editable"><div data-layout="1"><div><img src="/library/5656ef252d0fbe3c300c1ef4/67ff55491d21e42b047887c2.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" title="" alt="証憑保存機能"></div> </div> </div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="heading"><h3 class="design-tmpl h3-F010-black" id="ttl-top" data-default-color="black" data-default-design="simple" data-design-class="h3-A010-aqua">証憑保存機能の概要</h3></div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable">
+  <div data-layout="1">
+    <div>
+      <p>電子取引データ(PDF等)や紙の証憑を電子データとして保存。<br>証憑から読み取ったデータを活用して、仕訳データをかんたんに生成できます。<br>インボイスを保存する際に、適格請求書発行事業者の登録番号をチェックして実在性を確認する機能も搭載しています。<br>さらに、ペポルインボイス(デジタルインボイス)の受信・保存と仕訳データの生成も可能です。<br>請求書等の保存と仕訳の入力にかかる手間やコストを大幅に削減し、経理事務の効率化をご支援します。</p><p><font size="2">※電子取引データ…電子取引の取引情報に係る電磁的記録<br></font>※ペポルインボイス…TKCでは、ペポルネットワークを通して送受信を行うJP PINTに基づくXML 形式のデジタルインボイスを「ペポルインボイス」と定義しています。</p>
+    </div>
+  </div>
+</div><div data-module-type="image-editable">
+  <div data-layout="1">
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/68008ecc139b4178b6c37a85.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" alt="証憑保存機能イメージ">
+    </div>
+  </div>
+</div><div data-module-type="paragraph-editable"><div data-layout="1">
+    <div>
+      <p style="text-align: right;"><a href="#ttl-top" data-content-category="tkcSystem">
+      ▲ 戻る</a></p>
+    </div>
+  </div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="heading"><h3 class="design-tmpl h3-F010-black" id="ttl-movie" data-default-color="black" data-default-design="simple" data-design-class="h3-A010-aqua">導入のメリットを動画でご紹介</h3></div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1" data-sp-layout="off"><div><p style="text-align: center;"><font size="3">2分でわかる！FXシリーズ「証憑保存機能」</font><br><b style=""><font size="4">経理事務が驚くほど快適に</font></b></p></div></div></div><div data-module-type="html-editable">
+  <div class="tag"><div style="margin: 0px auto; width: calc(80%); position: relative;">
+    <div style="height: 0px; padding-bottom: 56.24%;">
+        <iframe width="100%" height="100%" src="https://ml.visuamall.com/ml3/scg/api/embedded/?em=MHQbgX3P85r8z-YgtX0S1w..ZzGTHXlXUAsxQwoi-Yw_Xw.." frameborder="0" scrolling="no" style="left: 0px; top: 0px; position: absolute;" allowfullscreen="" sandbox="allow-same-origin allow-scripts"></iframe>
+    </div>
+</div>
+</div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1" data-sp-layout="off"><div><p><br></p></div></div></div></div></div><div class="row" data-module-type="container"><div class=" span4" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1" data-sp-layout="off"><div><p style="text-align: center;"><font size="3">パソコンでの保存が <b>“かんたん”</b></font></p></div></div></div><div data-module-type="image-editable"><div data-layout="1"><div class="image-style-frame-hover"><a ondragstart="return false;" target="_blank" href="https://ml.visuamall.com/ml3/scg/api/embedded/?em=I3cQ3PT6yDdddiiUIiQK0w..LHZxk_VZn-bstMsoi3dJOg.." data-external-link-type="url"><img src="/library/5656ef252d0fbe3c300c1ef4/683d143e17b8354339ab21ee.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="image-style-frame" title="" alt="FXシリーズ「証憑保存機能」パソコンでの保存が “かんたん”"></a></div> </div> </div></div><div class=" span1" data-module-type="cell"></div><div class=" span4" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1" data-sp-layout="off"><div><p style="text-align: center;"><font size="3">スマホでの保存も <b>“かんたん”</b></font></p></div></div></div><div data-module-type="image-editable"><div data-layout="1"><div class="image-style-frame-hover"><a ondragstart="return false;" target="_blank" href="https://ml.visuamall.com/ml3/scg/api/embedded/?em=HpC_BLgGg_7a9vJyMeTPfQ..CoMX9sMDZtjNd_iietIYuw.." data-external-link-type="url"><img src="/library/5656ef252d0fbe3c300c1ef4/687843429c1030785aebe690.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="image-style-frame" title="" alt="FXシリーズ「証憑保存機能」スマホでの保存も “かんたん”"></a></div> </div> </div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1" data-sp-layout="off"><div><p><br></p></div></div></div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1" data-sp-layout="off"><div><p style="text-align: right;"><a href="https://www.tkcnf.com/kumagaikaikei/tkc-ebooks-invoice" class="" data-content-category="helpInfo">＞ 「電子帳簿保存法・インボイス制度」の詳細はこちら</a></p></div></div></div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1">
+    <div>
+      <p style="text-align: right;"><a href="#ttl-top" data-content-category="tkcSystem">
+      ▲ 戻る</a></p>
+    </div>
+  </div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="heading"><h3 class="design-tmpl h3-F010-black" id="ttl-tokucho" data-default-color="black" data-default-design="simple" data-design-class="h3-A010-aqua">証憑保存機能の特長</h3></div><div data-module-type="pwithimg-editable">
+  <div data-layout="c3">
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/6167b8b502c8ec9d05ced136.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" alt="電子取引データの保存に対応">
+      <div>
+        <p style="text-align: center;"><font size="3"><b>電子取引データの保存に対応</b></font></p><p style="text-align: left;">メールやECサイト等で受け取った請求書や領収書のPDF等を読み込み、電子取引データとして保存できます。また、「取引先名」「日付」「金額」「消費税」など証憑の内容を読み取り、仕訳の基礎データとして利用できます。</p>
+      </div>
+    </div>
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/6167b841da1ff2990513af40.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" alt="紙の証憑もかんたんデータ保存">
+      <div>
+        <p style="text-align: center;"><b><font size="3">紙の証憑もかんたんデータ保存</font></b></p><p>紙で受け取った請求書や領収書等をスキャンし、電子データとして保存できます。また、「取引先名」「日付」「金額」「消費税」など証憑の内容を読み取り、仕訳の基礎データとして利用できます。</p>
+      </div>
+    </div>
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/6167b84a2d84fdb10585e404.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" alt="いつでもスマホからデータ保存">
+      <div>
+        <p style="text-align: center;"><b><font size="3">いつでもスマホからデータ保存</font></b></p><p>証憑をスマホで撮影して電子データとして保存できます。自宅・外出先・営業所など、場所を選びません。撮影した証憑は、経理担当者がリアルタイムに確認できるため、迅速な経理処理につながります。</p>
+      </div>
+    </div>
+  </div>
+</div><div data-module-type="pwithimg-editable">
+  <div data-layout="c3">
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/61c9896d9c6ea909071c1799.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" alt="仕訳をかんたん入力">
+      <div>
+        <p style="text-align: center;"><font size="3"><b>仕訳をかんたん入力</b></font><br></p><p>読み取ったデータ※と過去の入力履歴を組み合わせて効率的に仕訳を入力できます。入力した内容をシステムが学習するため、使えば使うほど便利になります。ペポルインボイスを受信する場合は、OCR不要でより正確に仕訳を生成できるため、さらに省力化を図れます。<br></p><p>※取引先名、日付、金額、消費税等</p>
+      </div>
+    </div>
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/6167b8b875fb4e9827b885eb.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" alt="証憑と仕訳を並べて確認">
+      <div>
+        <p style="text-align: center;"><font size="3"><b>証憑と仕訳を並べて確認</b></font><br></p><p>証憑と仕訳を紐付けているため、1つの画面で並べて確認できます。証憑を探す手間がなくなり、チェック業務を効率化できます。<br></p>
+      </div>
+    </div>
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/6167b8bb5be8be0c06ec7896.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" alt="ファイリングや保存場所は不要">
+      <div>
+        <p style="text-align: center;"><font size="3"><b>ファイリングや保存場所は不要</b></font><br></p><p>紙の原本は後で廃棄できるため、ペーパーレス化を図れます。面倒なファイリング作業や紙の保存場所は必要ありません。証憑の電子データは、TKCのデータセンター(TISC)で安全に保存します。</p><p><font size="2">※紙の原本の破棄には一定の要件があります。</font><br></p>
+      </div>
+    </div>
+  </div>
+</div><div data-module-type="paragraph-editable"><div data-layout="1">
+    <div>
+      <p style="text-align: right;"><a href="#ttl-top" data-content-category="tkcSystem">
+      ▲ 戻る</a></p>
+    </div>
+  </div>
+</div><div data-module-type="heading"><h3 id="ttl-ai" class="design-tmpl h3-F010-black" data-default-design="simple" data-default-color="black" data-design-class="h3-A010-aqua">人工知能(AI)による高い読み取り精度で入力の手間を大幅に削減</h3></div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable">
+  <div data-layout="1">
+    <div><p style="text-align: right;"><font size="2">※「領収書等AI読取りオプション」のご利用が必要です。</font></p></div>
+  </div>
+</div><div data-module-type="pwithimg-editable">
+  <div data-layout="r1">
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/6167c60175fb4e9827b8899f.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" style="width: 40%;" alt="領収書・請求書">
+      <div>
+        <p><b><font size="3">
+          90％超の高い読み取り精度
+        </font></b></p><p>領収書に手書きで記載された日付・取引金額や、背景に色や模様がある請求書等の記載内容を、高い精度で読み取ることができます。補正入力の手間を削減し、スキャン業務を効率化できます。</p><p><font size="2">※すべての⽂字を完璧に読み取れるわけではありません。<br>※読み取り精度の数値は、株式会社TKCで⾏った検証結果に基づきます。</font><font size="1"><br></font></p>
+      </div>
+    </div>
+  </div>
+</div><div data-module-type="pwithimg-editable"><div data-layout="r1">
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/6167c6087e44de09060627d4.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" style="width: 40%;" alt="複数税率の証憑読み取り">
+      <div>
+        <p><font size="3"><b>税率別の取引金額や消費税額等を読み取り可能</b></font><br></p><p>1枚の証憑に複数の税率が混在する場合でも、税率別の金額、消費税等を読み取ることができます。読み取った税率別の金額は、仕訳に反映します。</p><p><font size="2">※税率別の仕訳への反映は、TKCの会計ソフト「<a href="https://www.tkcnf.com/kumagaikaikei/tkc-fxcloud" class="" data-content-category="tkcSystem" ondragstart="return false;" style="">FXクラウドシリーズ</a>」が対象です。</font></p>
+      </div>
+    </div>
+  </div>
+</div><div data-module-type="paragraph-editable"><div data-layout="1">
+    <div>
+      <p style="text-align: right;"><a href="#ttl-top" data-content-category="tkcSystem">
+      ▲ 戻る</a></p>
+    </div>
+  </div>
+</div><div data-module-type="heading"><h3 id="ttl-scana" class="design-tmpl h3-F010-black" data-default-design="simple" data-default-color="black" data-design-class="h3-A010-aqua">電子取引データの保存に対応しているから安心</h3></div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable">
+  <div data-layout="1">
+    <div><p>取引先等から受領した電子取引データは、訂正削除の記録が残る（または訂正削除できない）等、一定の要件を満たしたシステムに保存する等の対応が求められます。<br></p></div>
+  </div>
+</div><div data-module-type="pwithimg-editable">
+  <div data-layout="r1">
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/61c98474f01c11e80569893c.png" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" class="" alt="FXシリーズの「証憑保存機能」">
+      <div><p><font size="3"><b>FXシリーズの「証憑保存機能」をご利用いただくことで、電子取引データ保存への対応は万全です！</b></font></p>
+      </div>
+    </div>
+  </div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1">
+    <div>
+      <p style="text-align: right;"><a href="#ttl-top" data-content-category="tkcSystem">
+      ▲ 戻る</a></p>
+    </div>
+  </div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="heading"><h3 class="design-tmpl h3-F010-black" id="ttl-tisc" data-default-color="black" data-default-design="simple" data-design-class="h3-A010-aqua">安全・安心・便利を実現するクラウドサービスの拠点TKCデータセンター（TISC）</h3></div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable">
+  <div data-layout="1">
+    <div>
+      <p>データは、TKCデータセンター（TISC）に保存するので、安全・安心です！
+      </p>
+    </div>
+  </div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span5" data-module-type="cell"><div data-module-type="paragraph-editable">
+  <div data-layout="1">
+    <div>
+      <p>平成15年10月の開設以来、TKCでは、当事務所とその関与先企業、地方公共団体、中堅・大企業が、安全かつ安心なICT環境で情報システムを利用し、万一の事態にも業務を維持・継続させることができるようTISCを運営しています。</p><p>その最大の特長は、災害に強い堅牢な建物や最高度の情報セキュリティ対策などインフラ面の整備に加え、TKC社員が24時間365日サービスの稼働状況を監視するなど運用面でも万全な体制をとっていることです。このTISCを拠点として、“ 安全・安心・便利”なクラウドサービスを提供しています。<br></p>
+    </div>
+  </div>
+</div></div><div class=" span4" data-module-type="cell"><div data-module-type="html-editable">
+  <div class="tag"><div style="margin: 0px auto; width: calc(100%); position: relative;">
+    <div style="height: 0px; padding-bottom: 56.24%;">
+        <iframe width="100%" height="100%" src="https://ml.visuamall.com/ml3/tkcaohp/api/embedded/?em=ViXMOiivZVg4Tti6R0QQWQ..a9lZ80tle8T-IOhXrn3VjQ.." frameborder="0" scrolling="no" style="left: 0px; top: 0px; position: absolute;" allowfullscreen="" sandbox="allow-same-origin allow-scripts"></iframe>
+    </div>
+</div></div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="heading"><h4 class="design-tmpl h4-C001-black" data-default-color="black" data-default-design="simple" data-design-class="h4-A010-blue">認証取得への取り組み</h4></div></div></div><div class="row" data-module-type="container"><div class=" span5" data-module-type="cell"><div data-module-type="paragraph-editable">
+  <div data-layout="1">
+    <div>
+      <p>TKCデータセンター（TISC）では、お客さまが業務を委託される際に客観的な評価ができるよう、ISOなどの標準規格の認証を取得しています。<br></p><p></p><ol><li>ISO／IEC27001：情報セキュリティマネジメントシステム認証</li><li>ISO／IEC27017：ISMSクラウドセキュリティ認証</li><li>ISO／IEC20000：ITサービスマネジメントシステム認証</li></ol>
+    </div>
+  </div>
+</div></div><div class=" span4" data-module-type="cell"><div data-module-type="image-editable">
+  <div data-layout="1">
+    <div>
+      <img src="/library/5656ef252d0fbe3c300c1ef4/66a9c4bda8ded5c3250a3ddf.png" class="" alt="TKCデータセンター（TISC）" unselectable="on" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
+    </div>
+  </div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1">
+    <div>
+      <p style="text-align: right;"><a href="#ttl-top" data-content-category="tkcSystem">
+      ▲ 戻る</a></p>
+    </div>
+  </div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="heading"><h3 class="design-tmpl h3-F010-black" data-default-color="black" data-default-design="simple" data-design-class="h3-A010-aqua">当事務所がシステムの導入を支援します</h3></div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable">
+  <div data-layout="1">
+    <div>
+      <p>当事務所が、システムの導入から運用までサポートします。<br>当事務所までお気軽にお問合せください。</p>
+    </div>
+  </div>
+</div></div></div><div class="row" data-module-type="container"><div class=" span9" data-module-type="cell"><div data-module-type="paragraph-editable"><div data-layout="1">
+    <div>
+      <p style="text-align: right;"><a href="#ttl-top" data-content-category="tkcSystem">
+      ▲ 戻る</a></p>
+    </div>
+  </div>
+</div></div></div></div>
+        </div>
+        <footer>
+          <div data-role="footer"></div>
+          <div id="footer-privacy-link" class="footer-policy"><div id="footer-privacyPolicy"></div></div>
+          <address id="footer-copyright">Copyright (c) 2025 - 2026 kumagai accounting office All Rights Reserved.</address>
+        
+</footer>
+      </div>
+    </div>
+  </div>
+  <div id="fixed-bnr-wrap"></div>
+  <div id="site-modal-wrap"></div>
+
+
+
+<script src="/common/js/jquery.lazyload.min.js"></script>
+<script>
+$(function() {
+  $("img.lazy", "[data-role=main-visual]").lazyload({
+    effect: "fadeIn",
+    threshold: 200
+  });
+  $("img.lazy", "[data-role=contents]").lazyload({
+    effect: "fadeIn",
+    threshold: 200
+  });
+  $("img.lazy", "[data-role$=sidebar]").lazyload({
+    effect: "fadeIn",
+    threshold: 200
+  });
+  $("img.lazy", "[data-role=footer]").lazyload({
+    effect: "fadeIn",
+    threshold: 200
+  });
+});
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+
+
+
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.2f70fb173b9000da126c79afe2098f02.html?origin=https%3A%2F%2Fwww.tkcnf.com" title="Twitter settings iframe" style="display: none;"></iframe><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe"></iframe></body></html>
