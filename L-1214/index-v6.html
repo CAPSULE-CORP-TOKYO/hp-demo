@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士法人 スバル合同会計 仙台事務所</title>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ====== RESET & BASE ====== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.8;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ====== COLORS ====== */
+:root {
+  --primary: #00B4A0;
+  --primary-dark: #009688;
+  --primary-light: #e0f7f4;
+  --text: #333333;
+  --text-light: #666666;
+  --bg-light: #F5F5F5;
+  --white: #ffffff;
+  --accent: #00B4A0;
+}
+
+/* ====== CONTAINER ====== */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ====== HEADER ====== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.header-logo img {
+  height: 36px;
+  width: auto;
+}
+.header-logo span {
+  display: none;
+}
+.header-nav {
+  display: none;
+}
+.header-nav.active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.header-nav a {
+  display: block;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 0.2s;
+}
+.header-nav a:hover {
+  color: var(--primary);
+}
+.header-cta {
+  display: none;
+}
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ====== HERO ====== */
+.hero {
+  position: relative;
+  padding-top: 134px;
+  padding-bottom: 64px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80') center/cover no-repeat;
+  opacity: 0.15;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+  padding: 6px 20px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 30px;
+}
+.hero h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.hero p {
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.9;
+  margin-bottom: 32px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: var(--white);
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* ====== SECTION COMMON ====== */
+.section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.section-alt {
+  background: var(--bg-light);
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.section-title h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.section-title .en {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--primary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ====== GREETING ====== */
+.greeting-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.greeting-photo {
+  text-align: center;
+}
+.greeting-photo img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 20px rgba(0,180,160,0.15);
+}
+.greeting-text h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.greeting-text p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+.greeting-name {
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+.greeting-name .role {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+.greeting-name .name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.greeting-name .name-en {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+}
+
+/* ====== STAFF ====== */
+.staff-card {
+  text-align: center;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.staff-card img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.staff-card .name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.staff-card .comment {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* ====== SERVICES ====== */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.service-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 4px solid var(--primary);
+}
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.service-card .icon {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.service-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ====== NEWS ====== */
+.news-list {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.news-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+  align-items: baseline;
+}
+.news-item:last-child {
+  border-bottom: none;
+}
+.news-date {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 500;
+  min-width: 90px;
+}
+.news-title {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ====== ACCESS ====== */
+.access-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.access-map {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.access-map iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+.access-info-note {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+.access-table {
+  width: 100%;
+}
+.access-table tr {
+  border-bottom: 1px solid #eee;
+}
+.access-table th {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 12px 0;
+  width: 100px;
+  text-align: left;
+  vertical-align: top;
+}
+.access-table td {
+  font-size: 0.9rem;
+  color: var(--text);
+  padding: 12px 0;
+}
+.access-table a[href^="tel:"] {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ====== CONTACT CTA ====== */
+.contact-cta {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+  text-align: center;
+}
+.contact-cta h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.contact-cta p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 32px;
+}
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+.btn-tel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+.btn-tel .label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  display: block;
+  opacity: 0.8;
+}
+.btn-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 40px;
+  background: var(--white);
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: transform 0.2s;
+}
+.btn-contact:hover {
+  transform: translateY(-2px);
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  background: #2c2c2c;
+  color: rgba(255,255,255,0.7);
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+.footer-logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.footer-logo img {
+  height: 40px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+.footer-offices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  font-size: 0.75rem;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-offices span {
+  white-space: nowrap;
+}
+.footer-copy {
+  text-align: center;
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+/* ====== MOBILE FIXED CTA ====== */
+.mobile-cta {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+}
+.mobile-cta a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+.mobile-cta .cta-tel {
+  background: var(--primary);
+  color: var(--white);
+}
+.mobile-cta .cta-form {
+  background: var(--white);
+  color: var(--primary);
+  border-top: 2px solid var(--primary);
+}
+.footer {
+  padding-bottom: 80px;
+}
+
+/* ====== DESKTOP (768px+) ====== */
+@media (min-width: 768px) {
+  .hamburger { display: none; }
+  .header-nav {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    gap: 0;
+  }
+  .header-nav a {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+  .hero {
+    padding-top: 170px;
+    padding-bottom: 100px;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  .hero p {
+    font-size: 1.15rem;
+  }
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .section-title {
+    margin-bottom: 40px;
+  }
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+  .greeting-grid {
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .access-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .access-map iframe {
+    height: 360px;
+  }
+  .contact-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+  }
+  .contact-cta {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .contact-cta h2 {
+    font-size: 1.8rem;
+  }
+  .mobile-cta {
+    display: none;
+  }
+  .footer {
+    padding-bottom: 24px;
+  }
+}
+
+/* ====== WIDE DESKTOP (1024px+) ====== */
+@media (min-width: 1024px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  .section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .section-title {
+    margin-bottom: 48px;
+  }
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="header-logo">
+      <img src="images/header-subaru-logo.png" alt="税理士法人 スバル合同会計">
+    </a>
+    <nav class="header-nav" id="nav">
+      <a href="#greeting">所長挨拶</a>
+      <a href="#services">業務案内</a>
+      <a href="#staff">スタッフ</a>
+      <a href="#news">お知らせ</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <a href="tel:022-346-8559" class="header-cta">&#9742; 022-346-8559</a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="container hero-content">
+    <span class="hero-label">SENDAI OFFICE</span>
+    <h1>仙台事務所</h1>
+    <p>確定申告や税金のことなど、税金の専門家にご相談を！</p>
+    <a href="#contact" class="hero-cta">無料相談はこちら &#8594;</a>
+  </div>
+</section>
+
+<!-- ====== GREETING ====== -->
+<section class="section" id="greeting">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">Greeting</span>
+      <h2>所長挨拶</h2>
+    </div>
+    <div class="greeting-grid">
+      <div class="greeting-photo">
+        <img src="images/062main.jpeg" alt="三木 陽介" loading="lazy">
+      </div>
+      <div class="greeting-text">
+        <h3>地元の皆さんに愛される存在になれるよう日々精進いたします。</h3>
+        <p>経験を生かし地元の皆さんに愛される存在になれるよう日々精進いたしますので、まずは、お気軽にお問い合わせ下さい。よろしくお願いいたします。</p>
+        <div class="greeting-name">
+          <p class="role">仙台事務所 所長　税理士</p>
+          <p class="name">三木 陽介</p>
+          <p class="name-en">Yousuke Miki</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">Service</span>
+      <h2>業務案内</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">&#128196;</div>
+        <h3>起業・法人設立</h3>
+        <p>個人と法人での起業の違いの説明から、開業までの多角的な支援まで</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">&#128200;</div>
+        <h3>税務顧問・調査対応</h3>
+        <p>打合せを大切にし、試算表から丁寧に現状と未来をご説明</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">&#128221;</div>
+        <h3>記帳代行・給与計算</h3>
+        <p>事業・経営に専念いただくため、負担となる給与計算や会計帳簿の作成を代行</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">&#9729;</div>
+        <h3>クラウド会計支援</h3>
+        <p>クラウド・フィンテックを活用した、会計ソフトの導入や活用も対応</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">&#127968;</div>
+        <h3>相続税対策</h3>
+        <p>長年の経験と最新の税法知識で相続税・資産税もお任せを</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">&#129309;</div>
+        <h3>事業承継・M&amp;A</h3>
+        <p>専門業者との提携と膨大な情報量でお客さまの求める結果を目指します</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">&#128176;</div>
+        <h3>融資・資金調達</h3>
+        <p>日本政策金融公庫との強力タッグで、銀行への融資書類の提出を支援</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">&#127775;</div>
+        <h3>ワンストップ支援</h3>
+        <p>外部提携ではなく、グループ内にそろっているので、相談対応は窓口ひとつ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STAFF ====== -->
+<section class="section" id="staff">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">Staff</span>
+      <h2>スタッフ紹介</h2>
+    </div>
+    <div class="staff-card">
+      <img src="images/062sub.jpeg" alt="小山 渉" loading="lazy">
+      <p class="name">小山 渉</p>
+      <p class="comment">まずはお気軽にご相談ください</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== NEWS ====== -->
+<section class="section section-alt" id="news">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">News</span>
+      <h2>お知らせ</h2>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-date">2023.12.06</span>
+        <span class="news-title">マネーイズム新連載「税理士Voice！お金×経営の話」に掲載されました。</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2023.08.07</span>
+        <span class="news-title">スバル合同会計リクルートサイトOPEN</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2020.08.21</span>
+        <span class="news-title">【求人募集】随時面接実施中・ご応募ください！</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2020.06.01</span>
+        <span class="news-title">新型コロナ対策【融資・助成金・税金】相談受付中！</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2019.03.01</span>
+        <span class="news-title">テレビCMを制作しました！！【フジテレビ系列にて放映】</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ACCESS ====== -->
+<section class="section" id="access">
+  <div class="container">
+    <div class="section-title">
+      <span class="en">Access</span>
+      <h2>アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.0!2d140.8816!3d38.3264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8981378606828b%3A0x996838425ab19763!2z44K544OQ44Or5ZCI5ZCM5Lya6KiI5LuZ5Y-w5LqL5YuZ5omA!5e0!3m2!1sja!2sjp!4v1" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <div class="access-detail">
+        <p class="access-info-note">オフィス21泉の306号室が当事務所です。</p>
+        <table class="access-table">
+          <tr>
+            <th>交通</th>
+            <td>泉中央駅 徒歩7分</td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td>〒981-3133<br>宮城県仙台市泉区泉中央3丁目18-4<br>オフィス21泉306</td>
+          </tr>
+          <tr>
+            <th>TEL</th>
+            <td><a href="tel:022-346-8559">022-346-8559</a></td>
+          </tr>
+          <tr>
+            <th>FAX</th>
+            <td>050-3153-0744</td>
+          </tr>
+          <tr>
+            <th>受付</th>
+            <td>9:00 - 17:00（土・日・祝は定休日）</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT CTA ====== -->
+<section class="contact-cta" id="contact">
+  <div class="container">
+    <h2>無料相談はこちら</h2>
+    <p>受付：9:00 - 17:00（土・日・祝は定休日）</p>
+    <div class="contact-buttons">
+      <a href="tel:022-346-8559" class="btn-tel">
+        <span>&#9742;</span>
+        <span>
+          <span class="label">電話窓口はこちら</span>
+          022-346-8559
+        </span>
+      </a>
+      <a href="https://subaru-tax.com/contact/" class="btn-contact" target="_blank" rel="noopener">お問い合わせ &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">
+      <img src="images/subaru-square.png" alt="税理士法人 スバル合同会計">
+    </div>
+    <div class="footer-offices">
+      <span>東京事務所</span>
+      <span>長岡事務所</span>
+      <span>周南事務所</span>
+      <span>桑名事務所</span>
+      <span>仙台事務所</span>
+      <span>福山事務所</span>
+      <span>北九州事務所</span>
+      <span>浜松事務所</span>
+      <span>福岡事務所</span>
+      <span>札幌事務所</span>
+      <span>名古屋事務所</span>
+      <span>大宮事務所</span>
+      <span>千葉事務所</span>
+      <span>大阪事務所</span>
+      <span>柏崎事務所</span>
+    </div>
+    <p class="footer-copy">Copyright &copy; SUBARU tax adviser. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ====== MOBILE FIXED CTA ====== -->
+<div class="mobile-cta">
+  <a href="tel:022-346-8559" class="cta-tel">&#9742; 電話する</a>
+  <a href="https://subaru-tax.com/contact/" class="cta-form" target="_blank" rel="noopener">&#9993; お問い合わせ</a>
+</div>
+
+<!-- ====== JS: Hamburger Toggle ====== -->
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var nav = document.getElementById('nav');
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+  // Close nav on link click
+  var links = nav.querySelectorAll('a');
+  for(var i=0;i<links.length;i++){
+    links[i].addEventListener('click', function(){
+      btn.classList.remove('active');
+      nav.classList.remove('active');
+    });
+  }
+})();
+</script>
+</body>
+</html>
