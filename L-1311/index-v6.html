@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>後藤会計事務所 | 茨城県水戸市</title>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #2D3748;
+  line-height: 1.8;
+  font-size: 16px;
+  background: #fff;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ===== VARIABLES ===== */
+:root {
+  --primary: #C85A7C;
+  --primary-light: #F7E4EA;
+  --primary-dark: #A8425F;
+  --sub: #4A5568;
+  --accent: #48BB78;
+  --accent-dark: #38A169;
+  --bg-light: #FAF5F7;
+  --bg-white: #FFFFFF;
+  --text-main: #2D3748;
+  --text-light: #718096;
+  --border: #E2E8F0;
+  --container-max: 1080px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ===== SECTION ===== */
+section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 32px;
+  text-align: center;
+}
+.section-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: -24px;
+  margin-bottom: 32px;
+  letter-spacing: 0.1em;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.header-logo img {
+  height: 40px;
+  width: auto;
+}
+.header-logo-text {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+.header-logo-sub {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  display: block;
+  margin-top: -2px;
+}
+.nav-desktop { display: flex; gap: 28px; }
+.nav-desktop a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--sub);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-desktop a:hover { color: var(--primary); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--sub);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 16px 0;
+}
+.nav-mobile.open { display: block; }
+.nav-mobile a {
+  display: block;
+  padding: 12px 24px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--sub);
+  transition: background 0.2s;
+}
+.nav-mobile a:hover { background: var(--bg-light); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary-light) 0%, #fff 60%);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+  z-index: 0;
+}
+.hero .container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.hero-content { flex: 1; }
+.hero-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 24px;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.hero-cta:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.hero-image {
+  flex: 0 0 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(200,90,124,0.15);
+}
+.hero-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* ===== ABOUT ===== */
+.about { background: var(--bg-white); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.about-greeting-card {
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 32px;
+}
+.about-greeting-card h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+.about-greeting-card .owner-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 3px solid var(--primary-light);
+}
+.about-greeting-card p {
+  font-size: 0.9375rem;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.about-info h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.info-table tr { border-bottom: 1px solid var(--border); }
+.info-table th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--text-light);
+  padding: 12px 0;
+  width: 100px;
+  vertical-align: top;
+}
+.info-table td {
+  font-size: 0.9375rem;
+  padding: 12px 0;
+  color: var(--text-main);
+}
+.info-table a[href^="tel:"] {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ===== PHILOSOPHY ===== */
+.philosophy { background: var(--bg-light); }
+.philosophy-content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.philosophy-image {
+  width: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.philosophy-image img {
+  width: 100%;
+  height: auto;
+}
+.philosophy-text h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 16px;
+}
+.philosophy-text p {
+  font-size: 0.9375rem;
+  line-height: 2;
+  color: var(--sub);
+  margin-bottom: 16px;
+}
+.philosophy-group-photo {
+  margin-top: 40px;
+  text-align: center;
+}
+.philosophy-group-photo img {
+  max-width: 600px;
+  border-radius: 12px;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.accordion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 8px;
+}
+.accordion-toggle:hover { background: var(--primary); color: #fff; }
+.accordion-body {
+  display: none;
+  margin-top: 20px;
+  padding: 24px;
+  background: var(--bg-white);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary);
+}
+.accordion-body.open { display: block; }
+.accordion-body p,
+.accordion-body li {
+  font-size: 0.875rem;
+  line-height: 2;
+  color: var(--sub);
+}
+.accordion-body li { margin-bottom: 4px; }
+
+/* ===== SERVICES ===== */
+.services { background: var(--bg-white); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.service-card {
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 28px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.service-card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: #fff;
+  font-size: 1.25rem;
+}
+.service-card h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+.service-card p {
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+/* accounting services sub-list */
+.service-sublist { margin-top: 24px; }
+.service-sublist h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+.service-sublist ul li {
+  font-size: 0.9375rem;
+  color: var(--sub);
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.service-sublist ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* ===== ACCESS ===== */
+.access { background: var(--bg-light); }
+.access-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.access-map {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.access-map iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+}
+.access-info h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+.access-detail {
+  font-size: 0.9375rem;
+  line-height: 2;
+  color: var(--sub);
+}
+.access-detail strong {
+  display: block;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-top: 12px;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  text-align: center;
+}
+.contact .section-title { color: #fff; }
+.contact-sub {
+  font-size: 1rem;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+.contact-grid {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contact-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 28px 36px;
+  text-align: center;
+  min-width: 260px;
+}
+.contact-card-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+.contact-card-value {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.contact-card-value a { color: #fff; }
+.contact-card-value a:hover { text-decoration: underline; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #1A202C;
+  color: #A0AEC0;
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+.footer-brand h3 {
+  font-family: 'Noto Serif JP', serif;
+  color: #fff;
+  font-size: 1.125rem;
+  margin-bottom: 12px;
+}
+.footer-brand p {
+  font-size: 0.8125rem;
+  line-height: 1.8;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.footer-nav a {
+  font-size: 0.8125rem;
+  color: #A0AEC0;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+.footer-nav a:hover { color: #fff; }
+.footer-bottom {
+  border-top: 1px solid #2D3748;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #718096;
+}
+
+/* ===== MOBILE CTA BAR ===== */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+  padding: 10px 16px;
+}
+.mobile-cta-bar .cta-buttons {
+  display: flex;
+  gap: 10px;
+}
+.mobile-cta-bar .cta-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.cta-btn-tel {
+  background: var(--primary);
+  color: #fff;
+}
+.cta-btn-contact {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-desktop { display: none; }
+  .hamburger { display: flex; }
+  .mobile-cta-bar { display: block; }
+
+  .hero { padding-top: 48px; padding-bottom: 48px; }
+  .hero .container { flex-direction: column; gap: 32px; }
+  .hero-title { font-size: 1.75rem; }
+  .hero-image { flex: none; width: 100%; }
+  .hero-image img { height: 220px; }
+
+  section { padding-top: 48px; padding-bottom: 48px; }
+  .section-title { font-size: 1.5rem; margin-bottom: 24px; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .philosophy-content { grid-template-columns: 1fr; gap: 24px; }
+  .philosophy-image { width: 160px; margin: 0 auto; }
+  .services-grid { grid-template-columns: 1fr; }
+  .access-content { grid-template-columns: 1fr; gap: 24px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-nav { grid-template-columns: repeat(2, 1fr); }
+
+  body { padding-bottom: 72px; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-image { flex: 0 0 320px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1025px) {
+  section { padding-top: 80px; padding-bottom: 80px; }
+  .section-title { margin-bottom: 48px; }
+  .hero { padding-top: 100px; padding-bottom: 100px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="container">
+    <a href="#" class="header-logo">
+      <img src="images/logo.gif" alt="後藤会計事務所" width="120" height="40">
+      <div>
+        <span class="header-logo-text">後藤会計事務所</span>
+        <span class="header-logo-sub">Goto Accounting Office</span>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#about">事務所紹介</a>
+      <a href="#philosophy">経営理念</a>
+      <a href="#services">業務案内</a>
+      <a href="#access">交通案内</a>
+      <a href="#contact">お問合せ</a>
+    </nav>
+    <button class="hamburger" aria-label="メニュー" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="mobileNav">
+    <a href="#about">事務所紹介</a>
+    <a href="#philosophy">経営理念</a>
+    <a href="#services">業務案内</a>
+    <a href="#access">交通案内</a>
+    <a href="#contact">お問合せ</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">関東信越税理士会所属</span>
+      <h1 class="hero-title">貴社の黒字決算と<br>経営承継を支援いたします。</h1>
+      <p class="hero-sub">新しい時代を先取りする皆様のパートナーとして、お役に立てればと思います。</p>
+      <a href="tel:029-224-2252" class="hero-cta">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.1.31.03.66-.25 1.01l-2.2 2.21z"/></svg>
+        029-224-2252
+      </a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop&q=80" alt="税務・会計サポートのイメージ" width="800" height="600">
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="section-title">事務所紹介</h2>
+    <p class="section-subtitle">ABOUT US</p>
+    <div class="about-grid">
+      <div class="about-greeting-card">
+        <img src="images/owner.jpg" alt="所長" class="owner-photo" width="120" height="120">
+        <h3>所長挨拶</h3>
+        <p>私は税理士事務所を開設してから今日まで、多方面の顧問先のお客様と信頼の絆を築いていくことを重点においてきました。<br><br>税務、会計はもちろん他の些細なことでもお悩みごとがございましたらお気軽に当事務所までご相談下さい。プライバシーを守り、一生懸命お客様に満足していただくように努力させていただきます。</p>
+      </div>
+      <div class="about-info">
+        <h3>事務所概要</h3>
+        <table class="info-table">
+          <tr><th>事務所名</th><td>後藤会計事務所</td></tr>
+          <tr><th>所在地</th><td>茨城県水戸市吉沼町679－1</td></tr>
+          <tr><th>電話番号</th><td><a href="tel:029-224-2252">0292-24-2252</a></td></tr>
+          <tr><th>FAX番号</th><td>0292-31-6845</td></tr>
+          <tr>
+            <th>業務内容</th>
+            <td>
+              ・税務・会計・決算に関する業務<br>
+              ・独立、開業に関する業務<br>
+              ・経営相談・経営コンサルティング
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHILOSOPHY ===== -->
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <h2 class="section-title">経営理念</h2>
+    <p class="section-subtitle">PHILOSOPHY</p>
+    <div class="philosophy-content">
+      <div class="philosophy-image">
+        <img src="images/jiririта.png" alt="自利利他" width="200" height="200">
+      </div>
+      <div class="philosophy-text">
+        <h3>「自利利他」の理念の実践とは</h3>
+        <p>ＴＫＣ全国会の基本理念である「自利利他」について、ＴＫＣ全国会創設者飯塚毅は次のように述べています。</p>
+        <button class="accordion-toggle" onclick="toggleAccordion('philosophy-detail')">
+          詳しく見る
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+        </button>
+        <div class="accordion-body" id="philosophy-detail">
+          <p>大乗仏教の経論には「自利利他」の語が実に頻繁に登場する。解釈にも諸説がある。その中で私は「自利とは利他をいう」（最澄伝教大師伝）と解するのが最も正しいと信ずる。</p>
+          <p>仏教哲学の精髄は「相即の論理」である。般若心経は「色即是空」と説くが、それは「色」を滅して「空」に至るのではなく、「色そのままに空」であるという真理を表現している。</p>
+          <p>同様に「自利とは利他をいう」とは、「利他」のまっただ中で「自利」を覚知すること、すなわち「自利即利他」の意味である。他の説のごとく「自利と、利他と」といった並列の関係ではない。</p>
+          <p>そう解すれば自利の「自」は、単に想念としての自己を指すものではないことが分かるだろう。それは己の主体、すなわち主人公である。</p>
+          <p>また、利他の「他」もただ他者の意ではない。己の五体はもちろん、眼耳鼻舌身意の「意」さえ含む一切の客体をいう。</p>
+          <p>世のため人のため、つまり会計人なら、職員や関与先、社会のために精進努力の生活に徹すること、それがそのまま自利すなわち本当の自分の喜びであり幸福なのだ。</p>
+          <p>そのような心境に立ち至り、かかる本物の人物となって社会と大衆に奉仕することができれば、人は心からの生き甲斐を感じるはずである。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <h3 style="font-family: 'Noto Serif JP', serif; font-size: 1.125rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 16px; text-align: center;">ＴＫＣ会計人の行動指針</h3>
+      <p style="font-size: 0.9375rem; color: var(--sub); text-align: center; margin-bottom: 16px;">毎月、会計専門家が貴社を訪問し、次の業務を支援します。</p>
+      <div style="text-align: center;">
+        <button class="accordion-toggle" onclick="toggleAccordion('guidelines-detail')">
+          行動指針を見る
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+        </button>
+      </div>
+      <div class="accordion-body" id="guidelines-detail">
+        <p><strong>1.貴社の永続的な繁栄のために、活力を生む経営革新を支援します。</strong></p>
+        <ul>
+          <li>1-1.同業他社（黒字・優良企業）と比較して、次期の目標設定を支援します。</li>
+          <li>1-2.目標必達のために、短期・中期経営計画をご一緒に練り上げます。</li>
+          <li>1-3.確実に目標達成できているか、毎月検証し、分かりやすく報告します。</li>
+          <li>1-4.１人当たりの賃金は高く、労働分配率は低い経営の実現を支援します。</li>
+        </ul>
+        <p style="margin-top: 12px;"><strong>2.毎期、黒字決算を実現する社内のメカニズムづくりを提案します。</strong></p>
+        <ul>
+          <li>2-1.法令に完全準拠した会計帳簿書類の作成を支援します。</li>
+          <li>2-2.迅速かつ正確に月次決算を実施し、前月までの業績を報告します。</li>
+          <li>2-3.期末３か月前には戦略的決算対策を実施し、次の打ち手を検討します。</li>
+          <li>2-4.自己資本比率とキャッシュフローの改善を目標に経営アドバイスします。</li>
+        </ul>
+        <p style="margin-top: 12px;"><strong>3.地元の金融機関や得意先／仕入先からの信頼度アップに貢献します。</strong></p>
+        <ul>
+          <li>3-1.外部に公開する決算書が正しい手続きで作成されたことを証明します。</li>
+          <li>3-2.前月末までの試算表（B/S、P/L）を、速やかに提出できるようにします。</li>
+          <li>3-3.会計記帳においては、過去記録の修正・改ざんを完全に防止します。</li>
+          <li>3-4.コンプライアンス（法令・規範遵守）を重視する経営風土が定着します。</li>
+        </ul>
+        <p style="margin-top: 12px;"><strong>4.税務のプロフェッショナルとして法令に基づく的確なアドバイスをします。</strong></p>
+        <ul>
+          <li>4-1.専門家として、税法を分かりやすく解説し、正しい税務対策を提案します。</li>
+          <li>4-2.正しい税務申告のために（税理士法第33条の2による）書面添付を実践します。</li>
+          <li>4-3.最新の税法等に基づき土地・自社株等を評価し、事業承継を支援します。</li>
+          <li>4-4.個人の財産運用における税務上のご質問にも的確にお答えします。</li>
+        </ul>
+        <p style="margin-top: 12px;"><strong>5.ＩＴ経営革命をサポートします。</strong></p>
+        <ul>
+          <li>5-1.ビジネスに役立つインターネットとデータベースの有効活用を提案します。</li>
+          <li>5-2.会計ソフト（FX2）により、月次決算から日次決算への移行を実現します。</li>
+          <li>5-3.部門別の貢献利益、商品グループ別の利益動向が正確に把握できます。</li>
+          <li>5-4.ネットワークによる本支店の業績管理、リアルタイム経営を実現します。</li>
+        </ul>
+        <p style="margin-top: 12px;"><strong>6.創業・ベンチャー起業・事業転換・株式公開を支援します。</strong></p>
+        <ul>
+          <li>6-1.小売店から専門病院までのベスト・ビジネスモデルを提示します。</li>
+          <li>6-2.採算性と投資効率の観点から信頼される創業計画づくりに貢献します。</li>
+          <li>6-3.経営者が事業に専念できるように、社内の諸制度を整備します。</li>
+          <li>6-4.専門家として、創業者の立場に立った株式公開プランを提案します。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="philosophy-group-photo">
+      <img src="images/tkc_group.png" alt="TKC全国会" width="600">
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">業務案内</h2>
+    <p class="section-subtitle">SERVICES</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        </div>
+        <h3>記帳指導</h3>
+        <p>原則、毎月1回訪問し、記帳指導をさせて頂きます。会計ソフトの導入を検討しておられる場合には、選定から操作指導に至るまで丁寧にアドバイスさせて頂きます。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+        <h3>記帳代行</h3>
+        <p>現金出納帳、伝票、給与台帳などの資料をお客様の方で作成していただき、当社で会計ソフトへ入力し、仕訳日記帳、月次試算表、総勘定元帳、貸借対照表、損益計算書などの書類を作成いたします。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <h3>税務調査立会い</h3>
+        <p>当方のスタッフもご一緒させていただき、本来支払うべき税金以上に請求されることがないよう、また、問題を指摘された場合の調整代行をいたします。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+        <h3>決算業務</h3>
+        <p>決算指導及び、税務署、都道府県、市町村提出用の各種申告書を作成いたします。</p>
+      </div>
+    </div>
+    <div class="service-sublist">
+      <h3>会計業務</h3>
+      <ul>
+        <li>月次決算のご指導（巡回監査）</li>
+        <li>会計処理のご指導</li>
+        <li>会計システム導入のご支援</li>
+        <li>決算事前対策のご指導</li>
+        <li>節税に関するご支援</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACCESS ===== -->
+<section class="access" id="access">
+  <div class="container">
+    <h2 class="section-title">交通案内</h2>
+    <p class="section-subtitle">ACCESS</p>
+    <div class="access-content">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.5!2d140.4!3d36.37!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602225005e59a791%3A0x684a5917dc829a2b!2z5b6M6Jek5Lya6KiI5LqL5YuZ5omA!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="後藤会計事務所の地図"></iframe>
+      </div>
+      <div class="access-info">
+        <h3>駅や目印からの道案内</h3>
+        <div class="access-detail">
+          <strong>所在地</strong>
+          茨城県水戸市吉沼町679－1
+          <strong>電話番号</strong>
+          <a href="tel:029-224-2252">0292-24-2252</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">お問合せ</h2>
+    <p class="contact-sub">お気軽にお問合せください。</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <p class="contact-card-label">お電話</p>
+        <p class="contact-card-value"><a href="tel:029-224-2252">0292-24-2252</a></p>
+      </div>
+      <div class="contact-card">
+        <p class="contact-card-label">メール</p>
+        <p class="contact-card-value"><a href="mailto:gotoh-susumu@tkcnf.or.jp">gotoh-susumu@tkcnf.or.jp</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>後藤会計事務所</h3>
+        <p>茨城県水戸市吉沼町679－1<br>
+        TEL: <a href="tel:029-224-2252" style="color:#A0AEC0;">0292-24-2252</a><br>
+        FAX: 0292-31-6845<br>
+        <a href="mailto:gotoh-susumu@tkcnf.or.jp" style="color:#A0AEC0;">gotoh-susumu@tkcnf.or.jp</a></p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#about">事務所紹介</a>
+        <a href="#philosophy">経営理念</a>
+        <a href="#services">業務案内</a>
+        <a href="#access">交通案内</a>
+        <a href="#contact">お問合せ</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      後藤会計事務所 All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MOBILE CTA BAR ===== -->
+<div class="mobile-cta-bar">
+  <div class="cta-buttons">
+    <a href="tel:029-224-2252" class="cta-btn cta-btn-tel">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.1.31.03.66-.25 1.01l-2.2 2.21z"/></svg>
+      電話する
+    </a>
+    <a href="#contact" class="cta-btn cta-btn-contact">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      お問合せ
+    </a>
+  </div>
+</div>
+
+<!-- ===== JS ===== -->
+<script>
+// Hamburger toggle
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+hamburgerBtn.addEventListener('click', function() {
+  this.classList.toggle('active');
+  mobileNav.classList.toggle('open');
+});
+// Close mobile nav on link click
+mobileNav.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    hamburgerBtn.classList.remove('active');
+    mobileNav.classList.remove('open');
+  });
+});
+// Accordion toggle
+function toggleAccordion(id) {
+  var body = document.getElementById(id);
+  body.classList.toggle('open');
+}
+</script>
+</body>
+</html>
