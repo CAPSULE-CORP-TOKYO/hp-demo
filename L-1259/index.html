@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>森宏一税理士事務所｜歯科 税理士、歯科経営、歯科開業のことなら仙台</title>
+<meta name="description" content="歯科（歯医者）専門の税理士事務所、森宏一税理士事務所へ。歯科経営・歯科開業のご相談はお気軽に。">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<!-- noindex -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans JP',sans-serif;color:#333;line-height:1.8;background:#fff}
+img{max-width:100%;height:auto;display:block}
+a{color:#3B6EA5;text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.75}
+ul,ol{list-style:none}
+
+/* ===== VARIABLES ===== */
+:root{
+  --main:#3B6EA5;
+  --main-dark:#2C5580;
+  --sub:#F5F7FA;
+  --accent:#E8913A;
+  --accent-hover:#D07E2E;
+  --text:#333;
+  --text-light:#666;
+  --white:#fff;
+  --border:#E0E4E8;
+  --radius:8px;
+  --shadow:0 2px 12px rgba(0,0,0,.08);
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1100px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:24px;
+  padding-right:24px;
+}
+
+/* ===== SECTION ===== */
+.section{
+  padding-top:64px;
+  padding-bottom:64px;
+}
+.section--alt{background:var(--sub)}
+.section-title{
+  font-family:'Noto Serif JP',serif;
+  font-size:1.625rem;
+  font-weight:700;
+  color:var(--main);
+  text-align:center;
+  margin-bottom:32px;
+  position:relative;
+}
+.section-title::after{
+  content:'';
+  display:block;
+  width:48px;
+  height:3px;
+  background:var(--accent);
+  margin:12px auto 0;
+  border-radius:2px;
+}
+
+/* ===== HEADER ===== */
+.header{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.header__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-top:12px;
+  padding-bottom:12px;
+}
+.header__logo{
+  font-family:'Noto Serif JP',serif;
+  font-size:1.25rem;
+  font-weight:700;
+  color:var(--main);
+  white-space:nowrap;
+}
+.header__logo small{
+  display:block;
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:.7rem;
+  font-weight:400;
+  color:var(--text-light);
+}
+.header__right{display:flex;align-items:center;gap:20px}
+.header__tel{
+  font-family:'Noto Serif JP',serif;
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--main);
+  white-space:nowrap;
+}
+.header__tel-label{font-size:.7rem;font-weight:400;color:var(--text-light);margin-right:4px}
+.header__cta{
+  display:inline-block;
+  background:var(--accent);
+  color:var(--white);
+  font-size:.85rem;
+  font-weight:700;
+  padding:8px 20px;
+  border-radius:var(--radius);
+  white-space:nowrap;
+}
+.header__cta:hover{background:var(--accent-hover);opacity:1}
+
+/* NAV */
+.nav{background:var(--main)}
+.nav__list{
+  display:flex;
+  justify-content:center;
+  gap:0;
+}
+.nav__item a{
+  display:block;
+  color:var(--white);
+  font-size:.85rem;
+  font-weight:500;
+  padding:10px 20px;
+  transition:background .2s;
+}
+.nav__item a:hover{background:var(--main-dark);opacity:1}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  width:32px;
+  height:32px;
+  position:relative;
+  z-index:200;
+}
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after{
+  display:block;
+  width:24px;
+  height:2px;
+  background:var(--main);
+  border-radius:2px;
+  position:absolute;
+  left:4px;
+  transition:transform .3s,opacity .3s;
+}
+.hamburger span{top:15px}
+.hamburger span::before{content:'';top:-8px}
+.hamburger span::after{content:'';top:8px}
+.hamburger.active span{background:transparent}
+.hamburger.active span::before{top:0;transform:rotate(45deg)}
+.hamburger.active span::after{top:0;transform:rotate(-45deg)}
+
+@media(max-width:768px){
+  .hamburger{display:block}
+  .nav{
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    background:rgba(59,110,165,.97);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .3s;
+    z-index:150;
+  }
+  .nav.open{opacity:1;pointer-events:auto}
+  .nav__list{flex-direction:column;align-items:center;gap:8px}
+  .nav__item a{font-size:1.1rem;padding:14px 32px}
+  .header__tel{display:none}
+  .header__cta{display:none}
+}
+
+/* ===== HERO ===== */
+.hero{
+  background:linear-gradient(135deg,#3B6EA5 0%,#2C5580 60%,#1E3A5F 100%);
+  color:var(--white);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-50%;right:-20%;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);
+  border-radius:50%;
+}
+.hero__inner{
+  padding-top:80px;
+  padding-bottom:80px;
+  position:relative;
+  z-index:1;
+  text-align:center;
+}
+.hero__catch{
+  font-family:'Noto Serif JP',serif;
+  font-size:2rem;
+  font-weight:700;
+  line-height:1.5;
+  margin-bottom:16px;
+}
+.hero__sub{
+  font-size:1.05rem;
+  opacity:.9;
+  margin-bottom:32px;
+}
+.hero__cta-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  font-size:1rem;
+  font-weight:700;
+  padding:14px 32px;
+  border-radius:var(--radius);
+  transition:background .2s,transform .1s;
+}
+.btn:active{transform:scale(.97)}
+.btn--accent{background:var(--accent);color:var(--white)}
+.btn--accent:hover{background:var(--accent-hover);opacity:1}
+.btn--outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.6)}
+.btn--outline:hover{background:rgba(255,255,255,.15);opacity:1}
+
+@media(min-width:769px){
+  .hero__inner{padding-top:100px;padding-bottom:100px}
+  .hero__catch{font-size:2.5rem}
+}
+
+/* ===== GREETING ===== */
+.greeting__inner{
+  display:flex;
+  gap:40px;
+  align-items:flex-start;
+}
+.greeting__photo{
+  flex:0 0 200px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.greeting__text{flex:1}
+.greeting__text h3{
+  font-family:'Noto Serif JP',serif;
+  font-size:1.25rem;
+  color:var(--main);
+  margin-bottom:16px;
+}
+.greeting__text p{
+  font-size:.95rem;
+  color:var(--text);
+  margin-bottom:12px;
+}
+@media(max-width:768px){
+  .greeting__inner{flex-direction:column;align-items:center}
+  .greeting__photo{flex:0 0 auto;width:180px}
+}
+
+/* ===== BANNER CTA ===== */
+.banner-cta{
+  background:var(--sub);
+  border:2px solid var(--main);
+  border-radius:var(--radius);
+  padding:32px;
+  text-align:center;
+  margin-top:40px;
+}
+.banner-cta h3{
+  font-family:'Noto Serif JP',serif;
+  font-size:1.2rem;
+  color:var(--main);
+  margin-bottom:16px;
+}
+.banner-cta ul{
+  text-align:left;
+  display:inline-block;
+  margin-bottom:16px;
+}
+.banner-cta li{
+  font-size:.95rem;
+  color:var(--text);
+  padding:4px 0;
+  padding-left:1.2em;
+  position:relative;
+}
+.banner-cta li::before{
+  content:'\2022';
+  color:var(--accent);
+  font-weight:700;
+  position:absolute;
+  left:0;
+}
+.banner-cta__bottom{
+  font-size:1rem;
+  font-weight:700;
+  color:var(--accent);
+}
+
+/* ===== FEATURES ===== */
+.features__grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.feature-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:32px 24px;
+  box-shadow:var(--shadow);
+  border-top:4px solid var(--main);
+}
+.feature-card__num{
+  display:inline-block;
+  font-family:'Noto Serif JP',serif;
+  font-size:.8rem;
+  font-weight:700;
+  color:var(--accent);
+  background:rgba(232,145,58,.1);
+  padding:4px 12px;
+  border-radius:20px;
+  margin-bottom:12px;
+}
+.feature-card h3{
+  font-family:'Noto Serif JP',serif;
+  font-size:1.05rem;
+  font-weight:700;
+  color:var(--main);
+  margin-bottom:12px;
+  line-height:1.5;
+}
+.feature-card p{
+  font-size:.9rem;
+  color:var(--text);
+  line-height:1.8;
+}
+@media(max-width:768px){
+  .features__grid{grid-template-columns:1fr;gap:20px}
+}
+
+/* ===== SERVICES ===== */
+.services__grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+.service-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:28px 24px;
+  box-shadow:var(--shadow);
+  border-left:4px solid var(--main);
+  cursor:pointer;
+  transition:box-shadow .2s;
+}
+.service-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.service-card__header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+.service-card__icon{
+  width:48px;height:48px;
+  background:var(--sub);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+  flex-shrink:0;
+}
+.service-card__toggle{
+  width:28px;height:28px;
+  border-radius:50%;
+  background:var(--sub);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;
+  color:var(--main);
+  transition:transform .3s;
+}
+.service-card.open .service-card__toggle{transform:rotate(180deg)}
+.service-card h3{
+  font-family:'Noto Serif JP',serif;
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--main);
+  margin-bottom:8px;
+}
+.service-card__summary{font-size:.9rem;color:var(--text-light)}
+.service-card__detail{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+}
+.service-card.open .service-card__detail{max-height:2000px}
+.service-card__detail-inner{
+  padding-top:16px;
+  border-top:1px solid var(--border);
+  margin-top:16px;
+  font-size:.9rem;
+  color:var(--text);
+  line-height:1.9;
+}
+.service-card__detail-inner h4{
+  font-weight:700;
+  color:var(--main);
+  margin-top:16px;
+  margin-bottom:8px;
+  font-size:.95rem;
+}
+.service-card__detail-inner p{margin-bottom:10px}
+.service-card__detail-inner ul{margin-bottom:10px;padding-left:1.2em}
+.service-card__detail-inner li{position:relative;padding-left:1em;margin-bottom:4px}
+.service-card__detail-inner li::before{content:'\25CF';color:var(--accent);font-size:.6rem;position:absolute;left:0;top:.4em}
+.service-card__detail-inner img{
+  margin:16px auto;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+@media(max-width:768px){
+  .services__grid{grid-template-columns:1fr}
+}
+
+/* ===== OFFICE ===== */
+.office-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.office-table th{
+  background:var(--sub);
+  text-align:left;
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+  font-weight:500;
+  white-space:nowrap;
+  width:30%;
+  color:var(--main);
+}
+.office-table td{
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+}
+
+/* ===== ACCESS ===== */
+.access__inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  align-items:start;
+}
+.access__info h3{
+  font-family:'Noto Serif JP',serif;
+  font-size:1.1rem;
+  color:var(--main);
+  margin-bottom:16px;
+}
+.access__info dl{font-size:.9rem}
+.access__info dt{font-weight:700;color:var(--main);margin-top:12px}
+.access__info dd{color:var(--text);margin-top:4px}
+.access__map{
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.access__map iframe{width:100%;height:300px;border:0}
+@media(max-width:768px){
+  .access__inner{grid-template-columns:1fr}
+}
+
+/* ===== INSIGHTS ===== */
+.insights__grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.insight-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:24px 20px;
+  box-shadow:var(--shadow);
+}
+.insight-card__num{
+  font-family:'Noto Serif JP',serif;
+  font-size:.75rem;
+  font-weight:700;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+.insight-card h4{
+  font-size:.95rem;
+  font-weight:700;
+  color:var(--main);
+  margin-bottom:8px;
+  line-height:1.5;
+}
+.insight-card p{font-size:.85rem;color:var(--text);line-height:1.8}
+@media(max-width:768px){
+  .insights__grid{grid-template-columns:1fr}
+}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--main);color:var(--white)}
+.contact .section-title{color:var(--white)}
+.contact .section-title::after{background:var(--accent)}
+.contact__inner{text-align:center}
+.contact__desc{font-size:.95rem;opacity:.9;margin-bottom:24px;line-height:1.8}
+.contact__tel{
+  font-family:'Noto Serif JP',serif;
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.contact__tel a{color:var(--white)}
+.contact__note{font-size:.85rem;opacity:.7;margin-bottom:24px}
+.contact__buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:#1E2A38;
+  color:rgba(255,255,255,.7);
+  padding-top:32px;
+  padding-bottom:32px;
+  text-align:center;
+  font-size:.8rem;
+}
+
+/* ===== MOBILE CTA BAR ===== */
+.mobile-cta{
+  display:none;
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:var(--white);
+  box-shadow:0 -2px 12px rgba(0,0,0,.15);
+  z-index:100;
+  padding:8px 16px;
+}
+.mobile-cta__inner{display:flex;gap:8px}
+.mobile-cta__btn{
+  flex:1;
+  text-align:center;
+  font-size:.85rem;
+  font-weight:700;
+  padding:12px 8px;
+  border-radius:var(--radius);
+}
+.mobile-cta__btn--tel{background:var(--main);color:var(--white)}
+.mobile-cta__btn--form{background:var(--accent);color:var(--white)}
+@media(max-width:768px){
+  .mobile-cta{display:block}
+  body{padding-bottom:72px}
+}
+
+/* ===== UTILITY ===== */
+.text-accent{color:var(--accent)}
+.mt-0{margin-top:0}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="container header__inner">
+    <div class="header__logo">
+      <small>歯科専門の税理士事務所</small>
+      森宏一税理士事務所
+    </div>
+    <div class="header__right">
+      <div class="header__tel">
+        <span class="header__tel-label">ご相談</span>
+        <a href="tel:022-797-1155">022-797-1155</a>
+      </div>
+      <a href="#contact" class="header__cta">お問い合わせ</a>
+      <button class="hamburger" aria-label="メニュー" onclick="toggleMenu()">
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav" id="nav">
+    <ul class="nav__list">
+      <li class="nav__item"><a href="#greeting" onclick="closeMenu()">ごあいさつ</a></li>
+      <li class="nav__item"><a href="#features" onclick="closeMenu()">事業所概要</a></li>
+      <li class="nav__item"><a href="#services" onclick="closeMenu()">業務内容</a></li>
+      <li class="nav__item"><a href="#office" onclick="closeMenu()">事務所概要</a></li>
+      <li class="nav__item"><a href="#access" onclick="closeMenu()">アクセス</a></li>
+      <li class="nav__item"><a href="#contact" onclick="closeMenu()">お問い合わせ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container hero__inner">
+    <h1 class="hero__catch">歯科 税理士、歯科経営、歯科開業のことなら<br>仙台の森宏一税理士事務所</h1>
+    <p class="hero__sub">新規開業のご相談、歯科医院経営のことならお任せください！</p>
+    <div class="hero__cta-group">
+      <a href="tel:022-797-1155" class="btn btn--accent">022-797-1155</a>
+      <a href="#contact" class="btn btn--outline">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GREETING ===== -->
+<section class="section" id="greeting">
+  <div class="container">
+    <h2 class="section-title">ごあいさつ</h2>
+    <div class="greeting__inner">
+      <div class="greeting__photo">
+        <img src="images/m_01.png" alt="税理士 森宏一" width="200" height="260">
+      </div>
+      <div class="greeting__text">
+        <h3>はじめまして、税理士の森 宏一 です。</h3>
+        <p>当事務所は、歯科に特化し、歯科ならではの経営目標をもとに医院経営を支援してまいりました。ブレーンの中には経営者の話を聞かないで一方的に話をする人がいます。私の場合は先生方の話を聞いた上で、ぼそっと意見を述べる程度でありますが、先生方の良き相談相手になることが、私の一番の仕事であると確信しております。</p>
+      </div>
+    </div>
+
+    <!-- Banner CTA -->
+    <div class="banner-cta">
+      <h3>ご開業をお志す先生へ</h3>
+      <ul>
+        <li>その事業計画書は大丈夫ですか？</li>
+        <li>借入れの返済は含まれていますか？</li>
+        <li>1日の見込み患者数は適正ですか？</li>
+        <li>設備投資が過大になっていませんか？</li>
+      </ul>
+      <p class="banner-cta__bottom">少しでも不安がある先生はご相談下さい</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section section--alt" id="features">
+  <div class="container">
+    <h2 class="section-title">私たちの特徴</h2>
+    <div class="features__grid">
+      <div class="feature-card">
+        <span class="feature-card__num">point 1</span>
+        <h3>"業種に特化することの必要性"</h3>
+        <p>税金と経営は密接に関係しています。しかし、税理士は、税金の専門家ですが経営の専門家ではありません。そこで、業種に特化することで、専門知識を身に着けることを試みました。当事務所は、院長先生方から良い情報（良い機材、増患のための方策）、悪い情報（失敗事例）などの情報提供を頂き、経営相談の際、先生方に適した情報を提供し増患対策や問題解決の補佐役を担っております。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-card__num">point 2</span>
+        <h3>"ブレーンの必要性"</h3>
+        <p>院長先生も歯科医院を開業後は、経営の知識を身に付ける間もなく、治療の傍ら経営者として経理、人事労務、経営管理にも目を向け医院の舵取りを担って行くことになります。一国一城の主であるがゆえに、様々な悩みが生じますが、同業者に相談するのも気が引け意外と相談するブレーンが少なく孤独なものであります。その問題を解決するブレーンの一人として、確固たる信念を持って院長先生をサポートします。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-card__num">point 3</span>
+        <h3>"計画的な開業準備の必要性"</h3>
+        <p>勤務医をしながら開業準備をすることは、どうしても業者任せになり開業してからレイアウトや設備などの面で後悔することが多々見受けられます。そのような問題を解決するためには、ある程度長期間での準備を進めることが重要になってきます。「開業支援」につきましては、時代背景を考慮しつつ調達資金の可能額を把握し、それに見合った投資額の予算配分を行い、その予算を基に金融機関や各業者との打ち合わせに望みます。院長先生が使用したい設備で開業できるように、各業者とのしがらみのない開業支援を目指しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="section-title">業務内容</h2>
+    <div class="services__grid">
+
+      <!-- 経営支援 -->
+      <div class="service-card" onclick="toggleCard(this)">
+        <div class="service-card__header">
+          <div class="service-card__icon">&#x1F4CA;</div>
+          <div class="service-card__toggle">&#x25BC;</div>
+        </div>
+        <h3>経営支援</h3>
+        <p class="service-card__summary">時代の変化を織り込み感動できる歯科医院経営をサポートします</p>
+        <div class="service-card__detail">
+          <div class="service-card__detail-inner">
+            <h4>経営相談</h4>
+            <ul>
+              <li>経営に関する具体的な悩み相談をカウンセリングにより解決していきます</li>
+              <li>歯科医院に特化しているノウハウを生かし、先生方のニーズに沿ったご提案をします</li>
+              <li>院長先生の将来のビジョンをお聞きし、目標を達成するためのアドバイスを行います</li>
+            </ul>
+            <h4>資金調達、資金繰りの相談</h4>
+            <ul>
+              <li>月次試算表（損益計算書・貸借対照表）に基づき、目標収入の設定、資金余裕額の算定を行い、使えるお金を把握し提案します</li>
+              <li>予算管理を基に資金調達を進め、投資（人的投資、設備投資、技術投資）の意思決定への助言をいたします</li>
+              <li>今なにをすべきなのか！にお答えします</li>
+            </ul>
+            <p>※経費をどう見るか：<br>収入 ― 経費 ＝ 利益 ⇒ 収入 ― 投資 ＝ 利益<br>経費を投資と考えることにより、利益を得るために投資する<br>投資には「人的投資」「設備投資」「技術投資」の考えのもとに、状況に応じて意思決定をすることが大事です。</p>
+            <h4>キャッシュフロー経営（収支のバランスを考える経営）</h4>
+            <p>脱どんぶり経営を目指して</p>
+            <p>歯科医院経営の戦略には、使えるお金を把握して診療に望むことが必要不可欠です。収支構造図を作成することで、収入と支出のバランスを把握し、資金余裕額を認識するためのサポートを行っております。</p>
+            <h4>魅力ある豊かな歯科医院を目指して</h4>
+            <p>10年後、20年後は、どんな医院でありたいか、ビジョンを達成するために、患者さんに向き合う姿勢、スタッフモチベーションアップのスローガンとしてカンパニースピリッツにこだわる姿勢を貫いてこそ医院の繁栄が見えてきます。</p>
+            <p>この目的を達成するためには、これまでのようなどんぶり経営ではなりません。お金で悩まないで診療に専念できる経営体質を作り上げて行く必要があります。キャッシュフロー経営（収支のバランスを考える経営）により、使えるお金をきちんと把握することが大事です。収支構造図を作成することにより、使えるお金を明確に区分し認識することができます。</p>
+            <img src="images/vision.png" alt="魅力ある歯科医院を目指したビジョン" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- 会計支援 -->
+      <div class="service-card" onclick="toggleCard(this)">
+        <div class="service-card__header">
+          <div class="service-card__icon">&#x1F4D2;</div>
+          <div class="service-card__toggle">&#x25BC;</div>
+        </div>
+        <h3>会計支援</h3>
+        <p class="service-card__summary">会計帳簿から財務に関する様々な相談に応じます</p>
+        <div class="service-card__detail">
+          <div class="service-card__detail-inner">
+            <p>自分の医院を把握するには日々の会計から！！</p>
+            <p>帳簿作成が初めての方でも一からサポートします！！</p>
+            <p>日々の業務は女性スタッフがサポートします！！</p>
+            <h4>記帳指導・専従者(奥様)へのサポート</h4>
+            <ul>
+              <li>詳細に明瞭な会計帳簿を作成できるようにサポートします</li>
+              <li>初歩的な帳簿の記入方法から、領収書等の資料管理についても分かりやすくご説明いたします</li>
+              <li>女性スタッフが多数在籍しており、専従者へのこまやかな対応を目指しています</li>
+            </ul>
+            <h4>財務相談</h4>
+            <p>「私の医院は資金的な余裕があるのだろうか？」<br>「経費として使えるお金はどのくらいあるの？」<br>そんな不安や疑問を一緒に解決し、今後の経営についてアドバイスさせていただきます</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 税務支援 -->
+      <div class="service-card" onclick="toggleCard(this)">
+        <div class="service-card__header">
+          <div class="service-card__icon">&#x1F4CB;</div>
+          <div class="service-card__toggle">&#x25BC;</div>
+        </div>
+        <h3>税務支援</h3>
+        <p class="service-card__summary">税理士に依頼する目的は「税務申告だけですか？」当事務所は、経営管理を含めて、総合的なアドバイスを目指しております</p>
+        <div class="service-card__detail">
+          <div class="service-card__detail-inner">
+            <p>今、一番大事なことは、資金管理（キャッシュフロー）です。すなわち、使えるお金がいくらかを把握することです。次に、大事なことは労務管理であり、スタッフが働きやすい環境を作りあげることです。そして、経営が軌道に乗って資金余裕額が発生したところで、節税対策、最後に税務申告という流れになります。この流れの中で、的確にアドバイスすることを心掛けております。</p>
+            <h4>税務顧問</h4>
+            <ul>
+              <li>税務に関する相談や各種届出書の作成</li>
+              <li>所得税、法人税、消費税、贈与税等の申告書の作成</li>
+              <li>税務調査の立会</li>
+            </ul>
+            <h4>決算業務</h4>
+            <p>決算業務に従事する場合は、3つの視点からの取り組みを心掛けております</p>
+            <ul>
+              <li>管理会計的視点により、経営の実態を把握する</li>
+              <li>財務会計的視点により、金融機関対策として、財務状態を把握する</li>
+              <li>税務会計的視点により、税務・節税対策として、申告書作成に取り組んでいます</li>
+            </ul>
+            <p>決算・税務申告を行う場合、業種特有の注意ポイントが存在します。当事務所は資料回収期限を定めているため他の事務所よりも回収が厳しいと思います。早期に回収し、各視点から時間をかけて業務に取り組んでおりますので、その点はご理解をいただければと思うしだいです。</p>
+            <p>毎年、各先生方のご理解とご協力のもとに決算・税務申告が完了することに感謝しております。</p>
+            <img src="images/g_12-c.png" alt="税務支援のご案内" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- 開業支援 -->
+      <div class="service-card" onclick="toggleCard(this)">
+        <div class="service-card__header">
+          <div class="service-card__icon">&#x1F3E5;</div>
+          <div class="service-card__toggle">&#x25BC;</div>
+        </div>
+        <h3>開業支援</h3>
+        <p class="service-card__summary">魅力ある豊かな歯科医院を目指して、絶対に揺るがない信念のもとにアドバイスいたします</p>
+        <div class="service-card__detail">
+          <div class="service-card__detail-inner">
+            <p>開業支援につきましては、時代背景を考慮しアドバイスをすると共に、院長先生が使用したい設備で開院できるように、各業者とのしがらみのない開業支援を目指しています。</p>
+            <p>開業をするにあたり、２年前から動いている先生もいます。開業の意思をお持ちになられたら早目にご相談することをお勧めします。</p>
+            <p>不動産業者、歯科商店、建築・内装業者の紹介、社会保険労務士の紹介、先生のビジョンに合わせた医院を創るためのお手伝いをいたします。</p>
+            <h4>スケジュール</h4>
+            <ul>
+              <li>１，開業の意思決定：開業時期の目標を決めてビジョンを明確にする。</li>
+              <li>２，ブレーンの確保：開業を志し、医院を運営して行く上で、各専門のブレーンの確保が重要になります。</li>
+              <li>３，開業地の決定：一戸建て、テナント、ショッピングモール等、選択肢は様々ですが、個々の特徴を把握し、院長のビジョンに合った選択が大事です。不動産取引については、各種法令に基づく法規制があるので、信頼できる土地建物取引業者へ依頼する。</li>
+              <li>４，建物建築・内装工事などについては、医院建築は建築基準法を順守することは勿論、医療法等の関連法令を順守することであり、医院建築を多く手がけている業者を選択する方が望ましい。なぜなら、一般建築とは異なり、構造や設備設計のみならず、医療機器の特性・動作を充分に考慮に入れなければならないからである。</li>
+            </ul>
+            <img src="images/sch3.jpg" alt="医院開業スケジュール" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSIGHTS ===== -->
+<section class="section section--alt" id="insights">
+  <div class="container">
+    <h2 class="section-title">繁栄している歯科医院の特徴</h2>
+    <div class="insights__grid">
+      <div class="insight-card">
+        <p class="insight-card__num">point 1</p>
+        <h4>"ちょっと一言から"</h4>
+        <p>繁栄している歯科医院がある。そこでは、ユニットに座っている初診の患者に、担当する医師がマスクをとって声をかける。「こんにちは、私があなたを担当する小田島です。どうぞよろしく」穏やかな口調でこう言われると、患者はホッとして心を開き、その瞬間に説得されたも同然の状態になる。そうなると患者が次の患者を口コミで連れてきてくれ、この医院は大繁昌している。</p>
+      </div>
+      <div class="insight-card">
+        <p class="insight-card__num">point 2</p>
+        <h4>"チームワーク医療の実現"</h4>
+        <p>チームワーク医療それは、時代の流れに対応した診療スタイルの確立により、夢を現実にすることが可能になります。また、一番大事なのは、情熱と情報提供であります。これからの医院の繁栄には、特別な特効薬はありませんが、同じスタートラインに立って、院長先生の情熱とスタッフの力を借りて、患者さんへの情報提供が医院繁栄のキーワードになっています。</p>
+      </div>
+      <div class="insight-card">
+        <p class="insight-card__num">point 3</p>
+        <h4>"予防中心の診療スタイルに"</h4>
+        <p>定期的に予防で通院して頂くと経営が安定していきます。また、予防の患者さんが増えていくとデンタルIQが高くなり、自然と私費の治療へと移行していきます。そのために衛生士と患者さんの時間をしっかり取りましょう。衛生士が1枠1時間で1日6人の患者さんを見られるスタイルが理想です。</p>
+      </div>
+      <div class="insight-card">
+        <p class="insight-card__num">point 4</p>
+        <h4>"ユニット増設とスタッフは先行投資"</h4>
+        <p>意思決定のアドバイスを受けられているでしょうか？投資すべきタイミングを逃してしまうと成長が難しくなります。ユニット増設は立地や患者さんの動向にもよりますが、1日に入れられる最大予約数の７割ぐらいまで患者さんが来たら考えられると良いでしょう。</p>
+      </div>
+      <div class="insight-card">
+        <p class="insight-card__num">point 5</p>
+        <h4>"衛生士がアポイントを取る"</h4>
+        <p>当たり前のことですが、衛生士の離職しない医院は繁昌しています。衛生士が患者さんのアポイントを取る仕組みを作ると、自分で調整できるため子育て中の衛生士でも離職せず働き続けることができます。</p>
+      </div>
+      <div class="insight-card">
+        <p class="insight-card__num">point 6</p>
+        <h4>"スタッフの戦略なくして医院の成功なし"</h4>
+        <p>従業員にとっての最大の繁栄とは、単に高い給料を得るというだけでなく、最高能率を発揮できるようにして生来の能力の許すかぎりの最高の仕事ができるようにすることであり、それができるような仕事の与え方が、給料を高くすることよりもむしろ大事であり、女性スタッフに「夢」と「ロマン」を与えることができる医院は繁昌します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFICE ===== -->
+<section class="section" id="office">
+  <div class="container">
+    <h2 class="section-title">事務所概要</h2>
+    <table class="office-table">
+      <tr><th>事務所名</th><td>森 宏一税理士事務所</td></tr>
+      <tr><th>税理士</th><td>森 宏一（もり ひろかず）</td></tr>
+      <tr><th>加盟団体・役職</th><td>東北税理士会 仙台南支部<br>日本税理士会連合会</td></tr>
+      <tr><th>所在地</th><td>〒982-0023 仙台市太白区鹿野3丁目20番15号</td></tr>
+      <tr><th>電話番号</th><td><a href="tel:022-797-1155">022-797-1155</a></td></tr>
+      <tr><th>FAX</th><td>022-797-1151</td></tr>
+      <tr><th>営業時間</th><td>平日（月曜日〜金曜日）9：00〜17：00</td></tr>
+      <tr><th>定休日</th><td>土・日・祝日</td></tr>
+      <tr><th>業務内容</th><td>経営支援（経営相談、資金繰り相談、キャッシュフロー経営の相談）<br>会計支援（記帳指導、財務相談）<br>税務支援（税務相談、税務申告書作成、節税対策、税務調査立会）<br>開業支援（開業相談、事業計画作成、金融機関・各業者との交渉）</td></tr>
+      <tr><th>人数</th><td>10名</td></tr>
+      <tr><th>対応システム</th><td>ミロク情報サービス</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== ACCESS ===== -->
+<section class="section section--alt" id="access">
+  <div class="container">
+    <h2 class="section-title">アクセス</h2>
+    <div class="access__inner">
+      <div class="access__info">
+        <dl>
+          <dt>所在地</dt>
+          <dd>〒982-0023 仙台市太白区鹿野3丁目20番15号</dd>
+          <dt>電話番号</dt>
+          <dd><a href="tel:022-797-1155">022-797-1155</a></dd>
+          <dt>地下鉄でお越しの方</dt>
+          <dd>仙台市営地下鉄南北線・長町南駅 西出口3番 徒歩10分</dd>
+          <dt>お車でお越しの方</dt>
+          <dd>仙台市太白区役所から２分</dd>
+          <dt>駐車場</dt>
+          <dd>駐車場あり（2台）</dd>
+        </dl>
+      </div>
+      <div class="access__map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.5!2d140.87!3d38.23!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f762bf2a639958b%3A0x6be79acb54b10e29!2z5qOu5a6P5LiA56iO55CG5aOr5LqL5YuZ5omA!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section contact" id="contact">
+  <div class="container contact__inner">
+    <h2 class="section-title">お問い合わせ</h2>
+    <p class="contact__desc">
+      ・経営を安定させるための相談がしたい<br>
+      ・いくらお金が使えるか、資金繰りの相談がしたい<br>
+      ・設備投資の時期やタイミング、資金調達の方法を相談したい<br>
+      ・開業準備を進める手順をどうすればいいのか相談したい
+    </p>
+    <p class="contact__desc">現在の経営状況から一歩脱出し、資金繰りで悩まない診療中心の経営体制を確立するためには、どのような方策があるのか、スタッフやユニット増減のタイミング、診療設備の入れ替えや診療室改装の時期と投資額、さらには資金調達の方法など、このような課題に対応した経営支援相談を行っております。</p>
+    <p class="contact__desc">※収支構造図の説明やセカンドオピニオンをご希望の方、歯科医院について、わからない点やご相談などございましたら、お電話もしくはお問合せフォームからお気軽にご連絡ください。</p>
+    <div class="contact__tel">
+      <a href="tel:022-797-1155">022-797-1155</a>
+    </div>
+    <p class="contact__note">※昨今の厳しい状況にあっても「意識の変化」と「人財」や「設備」への投資によって、経営改善には無限の可能性が秘められております。</p>
+    <div class="contact__buttons">
+      <a href="tel:022-797-1155" class="btn btn--accent">電話で相談する</a>
+      <a href="http://www.mori-kaikei.info/contact.html" class="btn btn--outline" target="_blank" rel="noopener">お問い合わせフォーム</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <p>Copyright c 森宏一税理士事務所. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ===== MOBILE CTA BAR ===== -->
+<div class="mobile-cta">
+  <div class="mobile-cta__inner">
+    <a href="tel:022-797-1155" class="mobile-cta__btn mobile-cta__btn--tel">022-797-1155</a>
+    <a href="#contact" class="mobile-cta__btn mobile-cta__btn--form">お問い合わせ</a>
+  </div>
+</div>
+
+<!-- ===== JS ===== -->
+<script>
+function toggleMenu(){
+  document.getElementById('nav').classList.toggle('open');
+  document.querySelector('.hamburger').classList.toggle('active');
+}
+function closeMenu(){
+  document.getElementById('nav').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+}
+function toggleCard(el){el.classList.toggle('open')}
+</script>
+</body>
+</html>
