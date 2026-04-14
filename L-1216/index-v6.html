@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>税理士法人s.m.consulting</title>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & BASE ============ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  background: #fff;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+/* ============ VARIABLES ============ */
+:root {
+  --color-primary: #1a1a2e;
+  --color-primary-light: #2d2d4a;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-bg-light: #f8f9fa;
+  --color-bg-section: #f0f2f5;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-border: #e0e0e0;
+  --font-serif: 'Noto Serif JP', serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  --container-max: 1100px;
+  --container-px: 24px;
+}
+
+/* ============ CONTAINER ============ */
+.container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+/* ============ SECTION ============ */
+.section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.section--alt {
+  background: var(--color-bg-light);
+}
+.section--dark {
+  background: var(--color-primary);
+  color: #fff;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 32px;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+.section-title span {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.section--dark .section-title {
+  color: #fff;
+}
+.section--dark .section-title span {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ============ HEADER ============ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow 0.3s;
+}
+.header.scrolled {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header__logo img {
+  height: 28px;
+  width: auto;
+}
+.header__nav {
+  display: none;
+}
+.header__nav ul {
+  display: flex;
+  gap: 28px;
+}
+.header__nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.header__nav a:hover {
+  color: var(--color-accent);
+}
+.header__cta {
+  display: none;
+}
+.header__cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.header__cta a:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: #fff;
+  z-index: 999;
+  overflow-y: auto;
+  padding-top: 24px;
+  padding-bottom: 100px;
+}
+.mobile-menu.active { display: block; }
+.mobile-menu ul { padding-left: 24px; padding-right: 24px; }
+.mobile-menu li {
+  border-bottom: 1px solid var(--color-border);
+}
+.mobile-menu a {
+  display: block;
+  padding: 16px 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.mobile-menu__tel {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.mobile-menu__tel a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  margin-top: 70px;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80') center/cover no-repeat;
+  opacity: 0.15;
+}
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.hero__tagline {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.hero__sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
+.hero__cta:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ============ PHILOSOPHY ============ */
+.philosophy__quote {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-primary);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.philosophy__body {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--color-text);
+}
+.philosophy__body p { margin-bottom: 16px; }
+
+/* ============ SERVICES ============ */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.service-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.service-tag:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 8px rgba(37,99,235,0.1);
+}
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.industry-section {
+  margin-top: 40px;
+  text-align: center;
+}
+.industry-section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+.industry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.industry-tag {
+  background: var(--color-bg-light);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+/* ============ PROFILE ============ */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.profile-card__img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  margin-bottom: 24px;
+  border: 4px solid var(--color-bg-light);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.profile-card__role {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.profile-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+.profile-card__history {
+  text-align: left;
+  font-size: 0.85rem;
+  line-height: 2;
+  color: var(--color-text-light);
+  max-width: 480px;
+}
+.profile-card__history p {
+  margin-bottom: 4px;
+}
+
+/* ============ VISION ============ */
+.vision__text {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+/* ============ FEATURES ============ */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.feature-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.2s;
+}
+.feature-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.feature-card__icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+.feature-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+.feature-card__desc {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+/* ============ SMC CORP ============ */
+.smc-corp {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.smc-corp__intro {
+  font-size: 0.95rem;
+  line-height: 2;
+  margin-bottom: 32px;
+}
+.smc-corp__subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+.merit-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.merit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-accent);
+}
+.merit-item__icon {
+  color: var(--color-accent);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.merit-item__text {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.smc-corp__detail {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: var(--color-text);
+}
+.smc-corp__services {
+  margin-top: 32px;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+.smc-corp__services h4 {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.smc-corp__info {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* ============ PARTNERS ============ */
+.partners-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.partner-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.2s;
+}
+.partner-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.partner-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+.partner-card__services {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+.partner-card__address {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+.partner-card__detail {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+/* Accordion for long partner details */
+.accordion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  cursor: pointer;
+  margin-top: 8px;
+  transition: border-color 0.2s;
+}
+.accordion-toggle:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.accordion-content {
+  display: none;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+.accordion-content.active { display: block; }
+
+/* ============ INTERNSHIP ============ */
+.intern-info {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.intern-info__desc {
+  font-size: 0.95rem;
+  line-height: 2;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.intern-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.intern-table th,
+.intern-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+.intern-table th {
+  width: 120px;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: var(--color-bg-light);
+  white-space: nowrap;
+}
+
+/* ============ WOMEN INITIATIVE ============ */
+.women-init {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.women-init__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.women-init__header img {
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.women-init__body {
+  font-size: 0.9rem;
+  line-height: 2;
+}
+.women-init__body p { margin-bottom: 16px; }
+.women-init__body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: var(--color-primary);
+}
+.women-init__cert {
+  text-align: center;
+  margin-top: 32px;
+}
+.women-init__cert img {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+.women-init__csr {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+/* ============ CONTACT ============ */
+.contact-section {
+  text-align: center;
+}
+.contact-section__lead {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: rgba(255,255,255,0.9);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+.contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.contact-btn--tel {
+  background: #fff;
+  color: var(--color-primary);
+}
+.contact-btn--mail {
+  background: var(--color-accent);
+  color: #fff;
+}
+.contact-info {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  margin-top: 16px;
+}
+.contact-note {
+  margin-top: 24px;
+  padding: 16px 24px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+.contact-parking {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+
+/* ============ PRIVACY ============ */
+.privacy-section {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.privacy-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.privacy-toggle:hover { background: #e8eaed; }
+.privacy-toggle__arrow {
+  transition: transform 0.3s;
+  font-size: 0.8rem;
+}
+.privacy-toggle.active .privacy-toggle__arrow { transform: rotate(180deg); }
+.privacy-body {
+  display: none;
+  padding: 24px;
+  font-size: 0.9rem;
+  line-height: 2;
+}
+.privacy-body.active { display: block; }
+.privacy-body h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: var(--color-primary);
+}
+.privacy-body h3:first-child { margin-top: 0; }
+.privacy-body p { margin-bottom: 12px; }
+.privacy-body ul { margin-bottom: 12px; padding-left: 20px; }
+.privacy-body li { list-style: disc; margin-bottom: 4px; }
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--color-primary);
+  color: rgba(255,255,255,0.7);
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+.footer__inner {
+  text-align: center;
+}
+.footer__logo {
+  margin-bottom: 16px;
+}
+.footer__logo img {
+  height: 24px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  filter: brightness(0) invert(1);
+}
+.footer__address {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+.footer__reg {
+  font-size: 0.8rem;
+  margin-bottom: 24px;
+}
+.footer__copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 24px;
+}
+
+/* ============ MOBILE CTA BAR ============ */
+.mobile-cta {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 998;
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+}
+.mobile-cta a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+.mobile-cta__tel {
+  background: var(--color-primary);
+  color: #fff;
+}
+.mobile-cta__mail {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ============ DESKTOP ============ */
+@media (min-width: 768px) {
+  .hamburger { display: none; }
+  .header__nav { display: block; }
+  .header__cta { display: block; }
+  .mobile-menu { display: none !important; }
+  .mobile-cta { display: none; }
+
+  .section {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 44px;
+  }
+
+  .hero { min-height: 600px; }
+  .hero__tagline { font-size: 2rem; }
+  .hero__sub { font-size: 1rem; }
+
+  .philosophy__quote { font-size: 1.4rem; }
+
+  .service-tags { gap: 12px; }
+
+  .profile-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .feature-card { padding: 36px 28px; }
+
+  .partners-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 520px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .section-title { margin-bottom: 48px; }
+
+  .hero { min-height: 640px; }
+  .hero__tagline { font-size: 2.2rem; }
+
+  .features-grid { gap: 28px; }
+
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============ BODY PADDING FOR FIXED HEADER ============ */
+body { padding-bottom: 68px; }
+@media (min-width: 768px) {
+  body { padding-bottom: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#" class="header__logo">
+      <img src="images/logo_b.png" alt="税理士法人s.m.consulting">
+    </a>
+    <nav class="header__nav">
+      <ul>
+        <li><a href="#philosophy">経営理念</a></li>
+        <li><a href="#services">業務内容</a></li>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#partners">パートナー</a></li>
+        <li><a href="#internship">インターンシップ</a></li>
+        <li><a href="#contact">お問合わせ</a></li>
+      </ul>
+    </nav>
+    <div class="header__cta">
+      <a href="tel:022-346-6479">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        022-346-6479
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#philosophy" class="mobile-nav-link">経営理念</a></li>
+    <li><a href="#services" class="mobile-nav-link">業務内容</a></li>
+    <li><a href="#profile" class="mobile-nav-link">プロフィール</a></li>
+    <li><a href="#partners" class="mobile-nav-link">パートナー</a></li>
+    <li><a href="#internship" class="mobile-nav-link">インターンシップ</a></li>
+    <li><a href="#contact" class="mobile-nav-link">お問合わせ</a></li>
+  </ul>
+  <div class="mobile-menu__tel">
+    <a href="tel:022-346-6479">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      022-346-6479
+    </a>
+  </div>
+</div>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero__content">
+    <p class="hero__tagline">１社でも、１ヶ月でも<br>継続できる企業力を<br>経営者と共に考え育みましょう</p>
+    <p class="hero__sub">個人事業や法人の会計、税務、確定申告から経営アドバイスまで税理士が親身に対応いたします</p>
+    <a href="#contact" class="hero__cta">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      お問合わせ
+    </a>
+  </div>
+</section>
+
+<!-- ====== PHILOSOPHY ====== -->
+<section class="section" id="philosophy">
+  <div class="container">
+    <h2 class="section-title">経営理念<span>Corporate Principles</span></h2>
+    <p class="philosophy__quote">「１社でも、１ヶ月でも継続できる企業力を<br>経営者と共に考え育みましょう」</p>
+    <div class="philosophy__body">
+      <p>なぜ、多くの経営者は会社の経営成績や資産状況を深く知らず、会計事務所に依存してしまうのかと。</p>
+      <p>それは昔から数字に関しては、経営者の仕事でないと社会的に認識されてきたからだとおもいます。</p>
+      <p>例えば、銀行から借入れをする際には、「会計事務所に試算表と資金繰り表等を作ってもらって提出して下さい」と銀行の方から言われると、経営者はその様な書類は、会計事務所が作成するものと錯覚してしまいます。</p>
+      <p>ですが、会計事務所は、その会社の経営者ではないので資金繰表までわかる筈がないのです。</p>
+      <p>全企業の９９．７％は小中零細企業です。</p>
+      <p>この小中零細企業の中の１社でも多くの企業が社会に必要な企業となれるための良きパートナーでありたいと思っております。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section class="section section--alt" id="services">
+  <div class="container">
+    <h2 class="section-title">業務内容<span>Work</span></h2>
+    <div class="service-tags">
+      <span class="service-tag">会計業務</span>
+      <span class="service-tag">税務代理業務</span>
+      <span class="service-tag">税務書類作成</span>
+      <span class="service-tag">税務相談</span>
+      <span class="service-tag">相続税・贈与税</span>
+      <span class="service-tag">事業継承</span>
+      <span class="service-tag">独立・開業支援</span>
+      <span class="service-tag">電子申告</span>
+      <span class="service-tag">年末調整</span>
+      <span class="service-tag">給与計算</span>
+      <span class="service-tag">経営コンサル</span>
+      <span class="service-tag">ITコンサル</span>
+      <span class="service-tag">M&A</span>
+    </div>
+    <div class="industry-section">
+      <h3>既契約業種</h3>
+      <div class="industry-tags">
+        <span class="industry-tag">不動産業</span>
+        <span class="industry-tag">農業</span>
+        <span class="industry-tag">建設業</span>
+        <span class="industry-tag">製造業</span>
+        <span class="industry-tag">飲食業</span>
+        <span class="industry-tag">運送業</span>
+        <span class="industry-tag">金融業</span>
+        <span class="industry-tag">広告代理店業</span>
+        <span class="industry-tag">中古車販売業</span>
+        <span class="industry-tag">卸売・小売業</span>
+        <span class="industry-tag">サービス業</span>
+        <span class="industry-tag">個人</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROFILE ====== -->
+<section class="section" id="profile">
+  <div class="container">
+    <h2 class="section-title">プロフィール<span>Profile</span></h2>
+    <div class="profile-grid">
+      <!-- Takahashi -->
+      <div class="profile-card">
+        <img src="images/takahashi.jpg" alt="弁護士・税理士 髙橋和聖" class="profile-card__img">
+        <p class="profile-card__role">代表社員税理士</p>
+        <h3 class="profile-card__name">弁護士・税理士　髙橋和聖</h3>
+        <div class="profile-card__history">
+          <p>宮城県遠田郡美里町（旧小牛田）出身</p>
+          <p>東北学院中・高</p>
+          <p>東北大学法学部、同法科大学院卒業</p>
+          <p>神戸での司法修習を経て、仙台弁護士会に弁護士登録（弁護士番号38020）</p>
+          <p>平成20年12月　五橋協同法律事務所へ入所、高橋實先生に師事</p>
+          <p>平成24年　9月　独立開業のため同事務所を退所</p>
+          <p>平成24年10月　結の杜総合法律事務所を開設</p>
+          <p>平成27年　4月　税理士登録（第129632号）</p>
+          <p>平成27年　9月　仙台青葉学院短期大学　非常勤講師</p>
+          <p>平成28年　1月　経営革新等支援機関に認定</p>
+          <p>平成28年12月　税理士法人s.m.consultingの社員税理士に就任</p>
+          <p>平成29年　5月　弁護士法人結の杜総合法律事務所を設立，代表社員に就任</p>
+          <p>平成30年　4月　税理士法人s.m.consultingの代表社員税理士に就任</p>
+        </div>
+      </div>
+      <!-- Nagaki -->
+      <div class="profile-card">
+        <img src="images/nagaki.jpg" alt="税理士 長岐禎介" class="profile-card__img">
+        <p class="profile-card__role">社員税理士</p>
+        <h3 class="profile-card__name">長岐禎介</h3>
+        <div class="profile-card__history">
+          <p>秋田県北秋田市（旧鷹巣町）出身</p>
+          <p>秋田県立大館鳳鳴高校卒業</p>
+          <p>東北学院大学経済学部二部経済学科卒業</p>
+          <p>国税庁監察官</p>
+          <p>税務署副署長</p>
+          <p>国税局総務部主任税務相談官</p>
+          <p>国税局徴収部主任国税訟務官</p>
+          <p>税務署長　歴任</p>
+          <p>平成25年12月　税理士登録（第126072号）</p>
+          <p>平成26年11月　税理士法人東京パートナーズ仙台事務所 社員税理士就任</p>
+          <p>令和元年7月　税理士法人s.m.consulting 社員税理士就任</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== VISION ====== -->
+<section class="section section--alt" id="vision">
+  <div class="container">
+    <h2 class="section-title">経営ビジョン<span>The Management Vision</span></h2>
+    <div class="vision__text">
+      <p>全企業の99.7％が中小零細企業です。</p>
+      <p>この中小零細企業の中の１社でも多くの企業が社会に必要な企業となれるために良きパートナーでありたいと思っています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FEATURES ====== -->
+<section class="section" id="features">
+  <div class="container">
+    <h2 class="section-title">弊社サービスの特徴<span>Service</span></h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-card__icon">&#x1F5FE;</div>
+        <h3 class="feature-card__title">東北６県対応</h3>
+        <p class="feature-card__desc">宮城県を拠点に東北6県を広くカバーいたします</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">&#x1F4AC;</div>
+        <h3 class="feature-card__title">単発のご相談にも対応</h3>
+        <p class="feature-card__desc">顧問契約前のスポット相談にも対応可能です</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">&#x1F4CB;</div>
+        <h3 class="feature-card__title">事業計画によるご提案</h3>
+        <p class="feature-card__desc">数値に基づいた具体的な経営提案を行います</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">&#x1F4B0;</div>
+        <h3 class="feature-card__title">コスト管理等のご相談</h3>
+        <p class="feature-card__desc">経費削減・コスト最適化をサポートいたします</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">&#x1F91D;</div>
+        <h3 class="feature-card__title">各ビジネスパートナーによるスピード対応</h3>
+        <p class="feature-card__desc">弁護士・司法書士・社労士等と連携した迅速な対応</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SMC CORP ====== -->
+<section class="section section--alt" id="smc-corp">
+  <div class="container">
+    <h2 class="section-title">株式会社s.m.consulting<span>Group Company</span></h2>
+    <div class="smc-corp">
+      <p class="smc-corp__intro">１社でも多くの企業が社会に必要な企業となれるための<br>良きパートナーでありたい</p>
+
+      <div class="smc-corp__services">
+        <h4>業務内容</h4>
+        <p>・経営コンサルタント事業<br>
+        ・企業経営の診断と指導に関する業務<br>
+        ・会計諸帳簿の整理、計算、分析及び決算書類の支援業務</p>
+      </div>
+
+      <div style="margin-top:32px;">
+        <p class="smc-corp__detail">2023年12月22日、経済産業省より、中小企業経営力強化支援法に、基づく「経営革新等支援機関」（第83号）に認定されました</p>
+      </div>
+
+      <p class="smc-corp__subtitle" style="margin-top:32px;">認定支援機関として、お客様に還元できるメリットは？</p>
+      <p class="smc-corp__detail">認定支援機関は主に中小企業の事業計画の策定及びその実施の支援に関与でき、様々な形で、資金調達に役立てることができます。</p>
+
+      <div class="merit-list" style="margin-top:20px;">
+        <div class="merit-item">
+          <span class="merit-item__icon">&#10003;</span>
+          <span class="merit-item__text">信用保証協会の保証料の減額</span>
+        </div>
+        <div class="merit-item">
+          <span class="merit-item__icon">&#10003;</span>
+          <span class="merit-item__text">低金利・長期の融資制度の利用</span>
+        </div>
+        <div class="merit-item">
+          <span class="merit-item__icon">&#10003;</span>
+          <span class="merit-item__text">法認定に基づいた補助金の申請と利用</span>
+        </div>
+      </div>
+
+      <p class="smc-corp__detail">弊社では、中小企業の経営安定化を目指し、経営状況分析、現状の把握、課題の抽出を通じ、改善の方向性を明確にした上で方針に沿った事業計画の作成を支援し、その進捗についてもアドバイスを行っております。</p>
+      <p class="smc-corp__detail" style="margin-top:16px;">このような一貫した業務改善サービスの提供が実現できるのは、弁護士法人結の杜総合法律事務所、税理士法人s.m.consultingとコンサルティング会社の併設しリーガルチェック、タスクチェックも同時に行い事業計画の策定支援を専門的に行っている弊社ならではと自負しております。</p>
+
+      <div class="smc-corp__info">
+        <p>&lt;設立年月日&gt;　平成２２年３月１９日<br>
+        &lt;従業員&gt;　10名<br>
+        &lt;所在地&gt;<br>
+        〒981-3133 宮城県仙台市泉区泉中央1丁目28-22プレジデントシティビル1F<br>
+        TEL 022-346-6987　　FAX 022-346-6990<br>
+        E-Mail：<a href="mailto:info@s-m-consul.com" style="color:var(--color-accent);">info@s-m-consul.com</a><br>
+        登録番号T1370001019142</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PARTNERS ====== -->
+<section class="section" id="partners">
+  <div class="container">
+    <h2 class="section-title">ビジネスパートナー<span>Business Partner</span></h2>
+    <div class="partners-grid">
+
+      <!-- 結の杜総合法律事務所 -->
+      <div class="partner-card">
+        <h3 class="partner-card__name">結の杜総合法律事務所</h3>
+        <div class="partner-card__services">
+          多重債務問題 / 債務整理手続一般（過払金請求等、任意整理、過払金返還請求、自己破産、民事再生） / 企業法務全般 / 法人倒産処理 / 不動産関係 / 税務訴訟 / 消費者問題（悪徳商法等） / 一般民事事件 / 家事事件（離婚事件、遺言・遺産相続、家庭問題） / 交通事故 / 著作権 / 労働事件（労働者側、使用者側） / フランチャイズ関係 / 刑事事件 / 顧問弁護士
+        </div>
+        <div class="partner-card__address">
+          〒980-0022　宮城県仙台市青葉区五橋一丁目１番１７号仙台ビルディング駅前館９階<br>
+          TEL 022-797-0741　FAX 022-797-0641<br>
+          E-mail k-takahashi@yuinomori-law.com<br>
+          URL <a href="http://www.yuinomori-law.com" style="color:var(--color-accent);">http://www.yuinomori-law.com</a><br>
+          登録番号T1370005009247
+        </div>
+      </div>
+
+      <!-- 千葉恵理子司法書士事務所 -->
+      <div class="partner-card">
+        <h3 class="partner-card__name">千葉恵理子司法書士事務所</h3>
+        <div class="partner-card__services">
+          ・不動産登記 ・商業・法人登記 ・相続登記・遺言 ・成年後見 ・裁判所提出書類の作成、簡裁代理（少額訴訟・本人訴訟） ・債務整理（自己破産・任意整理・特定調停・個人再生） ・供託の手続き<br>
+          ※相談・書類作成のみも承ります。
+        </div>
+        <div class="partner-card__detail">
+          <button class="accordion-toggle" onclick="toggleAccordion(this)">成年後見や遺言について <span>&#9660;</span></button>
+          <div class="accordion-content">
+            <p>成年後見制度：認知症など判断能力の不十分な方の財産管理や身上監護を、後見人等が、家庭裁判所の監督を受けながら行います。また、判断能力が十分なうちに自分で後見人を決めておく任意後見制度もあります。いわば生前の財産管理に関する制度です。</p>
+            <p>遺言：自分の遺産を、どのように相続させるかの意思表示です。特に子供がいない場合や相続人間に争いが起こりそうなときなどは必要性が高いといえます。遺言の形式は法定されており、これに反すると無効となってしまいます。死後の財産処分のための制度です。</p>
+          </div>
+        </div>
+        <div class="partner-card__address">
+          〒984-0052　宮城県仙台市若林区連坊一丁目10番19号<br>
+          TEL022-292-7025　FAX022-292-7026
+        </div>
+      </div>
+
+      <!-- 社会保険労務士法人PERSIST -->
+      <div class="partner-card">
+        <h3 class="partner-card__name">社会保険労務士法人PERSIST / 株式会社CONSIST / 引地行政書士事務所</h3>
+        <div class="partner-card__services">
+          ・助成金申請 ・就業規則作成サポート ・人事労務相談 ・社会保険等手続 ・届出代行 ・給与計算代行 ・監督署調査対応 ・法人設立
+        </div>
+        <div class="partner-card__address">
+          〒984-0051　宮城県仙台市宮城野区榴岡4-3-10仙台TBビル5F<br>
+          TEL022-762-7511　FAX022-762-7512<br>
+          E-mail：info@persister.jp<br>
+          登録番号T9370005004091
+        </div>
+      </div>
+
+      <!-- 社会保険労務士法人ヴァース -->
+      <div class="partner-card">
+        <h3 class="partner-card__name">社会保険労務士法人ヴァース</h3>
+        <div class="partner-card__services">
+          ・労働社会保険に関する諸手続き ・就業規則の作成 ・各種助成金申請業務 ・労務リスクに関するコンサルティング ・障害年金に関するアドバイス及び申請業務
+        </div>
+        <div class="partner-card__address">
+          〒102-0072　東京都千代田区飯田橋3-4-3　坂田ビル3階<br>
+          〒980-0022　宮城県仙台市青葉区五橋2-11-1-1F<br>
+          TEL　03-3556-1646　FAX　050-3588-8220<br>
+          E-Mail:masumi@sr-verse.jp<br>
+          URL <a href="http://sr-verse.jp/" style="color:var(--color-accent);">http://sr-verse.jp/</a><br>
+          登録番号（東京）T8370005002625<br>
+          登録番号（仙台）T2370005010261
+        </div>
+      </div>
+
+      <!-- 行政書士福島知行法務事務所 -->
+      <div class="partner-card">
+        <h3 class="partner-card__name">行政書士福島知行法務事務所</h3>
+        <div class="partner-card__services">
+          【法人】法人・会社の設立手続代行 / 土地利用に関すること / 営業許可に関すること / 入管・帰化に関すること / 建設・環境に関すること / 内容証明・事実証明に関すること / 権利義務に関すること / 著作権に関すること<br>
+          【個人】自動車に関すること / 遺言・相続に関すること / 交通事故に関すること
+        </div>
+        <div class="partner-card__detail">
+          <button class="accordion-toggle" onclick="toggleAccordion(this)">業務内容の詳細 <span>&#9660;</span></button>
+          <div class="accordion-content">
+            <p>・土地利用に関すること<br>農地に建物や施設を造る場合は、農地法に基づく農地転用等の土地利用に関する官公庁の許認可が必要です。これらの許認可手続を行うためには、現況調査や実地調査に基づく図面作成などの高度な知識と技能が必要とされるケースがあります。行政書士は、これら土地利用関係の許認可手続の専門家です。</p>
+            <p>・営業許可に関すること<br>公衆衛生の観点から、食品を製造・販売したり、飲食店を営業するには食品営業許可が必要です。例えば、レストランや喫茶店などを始めたい場合は、食品営業許可申請書を保健所に提出し、許可を受けなければなりません。また、風俗営業許可が必要な店舗には、カフェ、料理店、ラウンジ、クラブ、パブ、ゲームセンター（遊技場）、マージャン店、パチンコ店などがあります。風俗営業許可はしばしばラブホテルや個室型あるいは派遣型のファッションヘルスの開業に必要な許可であると誤認されることもありますが、これらは性風俗特殊営業という別の届出制営業となります。　営業に関する許可は数多くありますので、行政書士にお尋ねください。</p>
+          </div>
+        </div>
+        <div class="partner-card__address">
+          〒989-1601 宮城県柴田郡柴田町船岡中央３丁目１７番１２号パワーズビル２Ｆ<br>
+          TEL0224-59-3277　FAX0224-87-6027<br>
+          E-Mail：1379tom@if-n.ne.jp
+        </div>
+      </div>
+
+      <!-- 行政書士事務所SPARROW等 -->
+      <div class="partner-card">
+        <h3 class="partner-card__name">行政書士事務所SPARROW（認定経営革新等支援機関） / 吉崎一樹海事代理士事務所 / 株式会社Nexusリアルティ&サービシズ</h3>
+        <div class="partner-card__services">
+          ・各業種許認可、在留資格申請、補助金申請サポート ・相続・ライフエンディング ・不動産コンサルティング、デューデリジェンス、不動産投資顧問業 ・船員労務コンサル、船舶・海事関連業務
+        </div>
+        <div class="partner-card__address">
+          〒980-0802　宮城県仙台市青葉区二日町8番30号　BAU二日町1F<br>
+          〒981-0905　宮城県仙台市青葉区小松島四丁目16番5－402号<br>
+          TEL・FAX　022-343-7395
+        </div>
+      </div>
+
+      <!-- 株式会社エスエムティ -->
+      <div class="partner-card">
+        <h3 class="partner-card__name">株式会社エスエムティ</h3>
+        <div class="partner-card__services">
+          ・ホームページ制作 ・WEBコンサルティング ・システム（CMS）開発 ・運用・プロモーション
+        </div>
+        <div class="partner-card__address">
+          〒980-0014 宮城県仙台市青葉区本町1丁目11-2　SK仙台ビル301<br>
+          TEL：022-217-1232　FAX：022-217-1242<br>
+          URL <a href="https://www.smt-net.co.jp" style="color:var(--color-accent);">https://www.smt-net.co.jp</a>
+        </div>
+      </div>
+
+      <!-- ひえぬき不動産鑑定投資顧問 -->
+      <div class="partner-card">
+        <h3 class="partner-card__name">ひえぬき不動産鑑定投資顧問</h3>
+        <div class="partner-card__services">
+          ・不動産鑑定業（宮城県知事(2)第97号） ・不動産投資顧問業（国土交通大臣一般-第1247号） ・宅地建物取引業（宮城県知事(1)第7165号）
+        </div>
+        <div class="partner-card__address">
+          〒980-0021　宮城県仙台市青葉区中央三丁目１０番１２号　平和住宅情報センタービル２階<br>
+          TEL　022-796-2983　FAX　022-796-2984<br>
+          E-mail：hienuki.nobuhiro@cocoa.plala.or.jp
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== INTERNSHIP ====== -->
+<section class="section section--alt" id="internship">
+  <div class="container">
+    <h2 class="section-title">インターンシップ制度<span>Internship Institutional</span></h2>
+    <div class="intern-info">
+      <p class="intern-info__desc">宮城県内の大学在籍者対象に５日間の研修を実施しています。<br>経営・コンサルティング・税務のキャリアを目指している大学生に研修を通して、自身の将来のビジョンや意識の向上を培ってもらいたいという想いの事業です。</p>
+      <table class="intern-table">
+        <tr><th>応募資格</th><td>宮城県内の４年制大学在籍者</td></tr>
+        <tr><th>研修期間</th><td>５日間</td></tr>
+        <tr><th>研修時間</th><td>9：30～18：30</td></tr>
+        <tr><th>研修先</th><td>仙台市泉区泉中央1丁目28-22プレジデントシティビル1F</td></tr>
+        <tr><th>応募方法</th><td>お問合わせフォームまたは電話にて応募→面接</td></tr>
+        <tr><th>その他</th><td>研修期間中通勤手当有</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ====== WOMEN INITIATIVE ====== -->
+<section class="section" id="women-initiative">
+  <div class="container">
+    <h2 class="section-title">女性のチカラを活かす企業認証<span>Women's Empowerment</span></h2>
+    <div class="women-init">
+      <div class="women-init__header">
+        <img src="images/josei_header.jpg" alt="女性のチカラは企業の力">
+      </div>
+      <div class="women-init__body">
+        <p>s.m.consultingは、令和6年11月1日付けで宮城県が実施している「女性のチカラを生かす企業認定制度」（注）において、認証を受けましたので、下記のとおりお知らせいたします。</p>
+        <p>当事務所では、今後とも社員が仕事と家庭生活を両立し、キャリアアップに対する意欲を持ちながら、その能力を十分に発揮できる環境の整備に取り組んでまいります。</p>
+        <p style="font-size:0.85rem;color:var(--color-text-light);">注．「女性のチカラを活かす企業認証制度」とは、女性の登用・配置状況や仕事と家庭の両立支援等の取組みについて、一定基準を満たした場合に宮城県知事が認証する制度です。</p>
+
+        <h3>女性の活躍推進に向けた主な取組みについて</h3>
+        <p>当事務所では、女性が職場において能力を十分に発揮できるような、より働きやすい職場づくりに向けた積極的な取組みを実施しています。社員が急な家庭の事情等で休暇が必要になった時にも対応ができるように、1つのクライアントに対し2名の担当者を配置する体制を整えています。</p>
+        <p>また、介護は誰もが直面する課題であり、介護をしながら働き続けるためにも、働き方の見直しは重要であると考え、社員を対象とした仕事と介護の両立のためのセミナーを開催しており、前もって介護に対する心掛けを周知することで、社員の就業継続を図っています。</p>
+      </div>
+      <div class="women-init__cert">
+        <img src="images/ninsho.jpg" alt="女性のチカラを活かす企業 認証書">
+      </div>
+      <div class="women-init__csr">
+        <strong>フードドライブ支援事業（FD）｜仙台市社会福祉協議会</strong><br>
+        弊社の取り組みはこちら
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section class="section section--dark" id="contact">
+  <div class="container">
+    <h2 class="section-title">お問合わせ<span>Contact</span></h2>
+    <div class="contact-section">
+      <p class="contact-section__lead">各種お気軽にお問合わせ下さい</p>
+      <div class="contact-grid">
+        <a href="tel:022-346-6479" class="contact-btn contact-btn--tel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          022-346-6479
+        </a>
+        <a href="mailto:info@s-m-consul.com" class="contact-btn contact-btn--mail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          メールで問合わせ
+        </a>
+      </div>
+      <div class="contact-info">
+        <p>〒981-3133 宮城県仙台市泉区泉中央1丁目28-22プレジデントシティビル1F</p>
+        <p>TEL 022-346-6479　FAX 022-346-6990</p>
+        <p>E-Mail：info@s-m-consul.com</p>
+      </div>
+      <div class="contact-note">
+        <p>メールを確実にお受け取りいただくために<br>s-m-consul.com こちらのドメイン「指定受信許可」の設定をお願いします。<br>また、迷惑メールフォルダに届くことがあります。</p>
+      </div>
+      <p class="contact-parking">ビルに来客用の駐車場がございません。大変恐れ入りますが、近隣のコインパーキングや七北田公園駐車場をご利用くださいますようお願い申し上げます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PRIVACY ====== -->
+<section class="section" id="privacy">
+  <div class="container">
+    <div class="privacy-section">
+      <button class="privacy-toggle" onclick="togglePrivacy(this)">
+        個人情報の取り扱いについて
+        <span class="privacy-toggle__arrow">&#9660;</span>
+      </button>
+      <div class="privacy-body">
+        <h3>個人情報の利用目的</h3>
+        <p>お客さまからお預かりした個人情報は、当社からのご連絡や業務のご案内やご質問に対する回答として、電子メールや資料のご送付に利用いたします。</p>
+        <h3>個人情報の第三者への開示・提供の禁止</h3>
+        <p>当社は、お客さまよりお預かりした個人情報を適切に管理し、次のいずれかに該当する場合を除き、個人情報を第三者に開示いたしません。</p>
+        <ul>
+          <li>お客さまの同意がある場合</li>
+          <li>法令に基づき開示することが必要である場合</li>
+        </ul>
+        <h3>ご本人の照会</h3>
+        <p>お客さまがご本人の個人情報の照会・修正・削除などをご希望される場合には、ご本人であることを確認の上、対応させていただきます。</p>
+        <h3>法令、規範の遵守と見直し</h3>
+        <p>当社は、保有する個人情報に関して適用される日本の法令、その他規範を遵守するとともに、本ポリシーの内容を適宜見直し、その改善に努めます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__logo">
+      <img src="images/logo_b.png" alt="税理士法人s.m.consulting">
+    </div>
+    <p class="footer__address">〒981-3133　仙台市泉区泉中央1丁目28-22プレジデントシティビル1F</p>
+    <p class="footer__reg">登録番号　T5370005009128</p>
+    <p class="footer__copy">Copyright s.m.consulting.All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ====== MOBILE CTA BAR ====== -->
+<div class="mobile-cta">
+  <a href="tel:022-346-6479" class="mobile-cta__tel">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    電話する
+  </a>
+  <a href="mailto:info@s-m-consul.com" class="mobile-cta__mail">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    メール
+  </a>
+</div>
+
+<!-- ====== JS ====== -->
+<script>
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+// Close mobile menu on nav click
+document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+  link.addEventListener('click', function() {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+// Header shadow on scroll
+window.addEventListener('scroll', function() {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+});
+// Accordion toggle
+function toggleAccordion(btn) {
+  var content = btn.nextElementSibling;
+  content.classList.toggle('active');
+  btn.querySelector('span').textContent = content.classList.contains('active') ? '\u25B2' : '\u25BC';
+}
+// Privacy toggle
+function togglePrivacy(btn) {
+  btn.classList.toggle('active');
+  btn.nextElementSibling.classList.toggle('active');
+}
+</script>
+</body>
+</html>
