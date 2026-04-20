@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>井上学会計事務所 | 岐阜県大垣市 公認会計士・税理士</title>
+<meta name="description" content="岐阜県大垣市の井上学会計事務所。公認会計士・税理士 井上学。貴社の経営動向と課題を分析し、発展のための方策を共に考えます。MAS業務・公認会計士監査・財務分析。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6G7DTDPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7D6G7DTDPP');
+</script>
+<style>
+  /* ===== Reset / Base ===== */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
+    color:#1A2733;background:#FFFFFF;line-height:1.75;font-size:15px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none;transition:color .2s}
+  a:hover{color:#C9A24A}
+  h1,h2,h3,h4{font-family:'Noto Serif JP',serif;font-weight:700;line-height:1.4;letter-spacing:.02em}
+  ul{list-style:none}
+
+  :root{
+    --primary:#1E4F87;
+    --primary-dark:#16385E;
+    --secondary:#6FA8DC;
+    --base:#FFFFFF;
+    --base-alt:#F7F9FC;
+    --accent:#C9A24A;
+    --accent-dark:#A8842E;
+    --text:#1A2733;
+    --text-muted:#5A6778;
+    --border:#E1E7EF;
+  }
+
+  /* ===== Container ===== */
+  .container{
+    width:100%;max-width:1180px;margin:0 auto;
+    padding-left:24px;padding-right:24px;
+  }
+  @media (min-width:1024px){
+    .container{padding-left:40px;padding-right:40px}
+  }
+
+  /* ===== Section ===== */
+  section{padding-top:64px;padding-bottom:64px}
+  @media (min-width:1024px){
+    section{padding-top:100px;padding-bottom:100px}
+  }
+  .section-title{
+    font-size:28px;text-align:center;margin-bottom:12px;color:var(--primary-dark);
+  }
+  @media (min-width:1024px){
+    .section-title{font-size:36px}
+  }
+  .section-title::after{
+    content:"";display:block;width:48px;height:2px;background:var(--accent);
+    margin:20px auto 0;
+  }
+  .section-lead{
+    text-align:center;color:var(--text-muted);font-size:14px;
+    margin-bottom:32px;
+  }
+  @media (min-width:1024px){
+    .section-lead{margin-bottom:48px;font-size:15px}
+  }
+
+  /* ===== Header ===== */
+  .header{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
+  }
+  .header__inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  @media (min-width:1024px){
+    .header__inner{height:80px}
+  }
+  .header__logo img{height:36px;width:auto}
+  @media (min-width:1024px){
+    .header__logo img{height:44px}
+  }
+  .header__nav{display:none}
+  @media (min-width:1024px){
+    .header__nav{display:flex;align-items:center;gap:28px}
+    .header__nav a{font-size:14px;font-weight:500;color:var(--text)}
+    .header__nav a:hover{color:var(--primary)}
+  }
+  .header__tel{display:none}
+  @media (min-width:1024px){
+    .header__tel{
+      display:inline-flex;align-items:center;gap:8px;
+      font-family:'Noto Serif JP',serif;font-weight:700;font-size:18px;color:var(--primary-dark);
+    }
+    .header__tel svg{width:18px;height:18px;fill:var(--accent)}
+  }
+  .header__burger{
+    background:none;border:none;cursor:pointer;padding:8px;
+    display:flex;flex-direction:column;gap:5px;
+  }
+  @media (min-width:1024px){.header__burger{display:none}}
+  .header__burger span{width:26px;height:2px;background:var(--primary-dark);transition:transform .3s,opacity .3s}
+  .header__burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .header__burger.is-open span:nth-child(2){opacity:0}
+  .header__burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .drawer{
+    position:fixed;top:64px;left:0;right:0;
+    height:calc(100vh - 64px);height:calc(100dvh - 64px);
+    background:#fff;padding:32px 24px;overflow-y:auto;
+    transform:translateY(-110%);
+    visibility:hidden;opacity:0;pointer-events:none;
+    transition:transform .35s ease,opacity .3s ease,visibility .35s;
+    z-index:40;
+    border-top:1px solid var(--border);
+  }
+  .drawer.is-open{
+    transform:translateY(0);
+    visibility:visible;opacity:1;pointer-events:auto;
+  }
+  @media (min-width:1024px){
+    .drawer{display:none}
+  }
+  .drawer ul{display:flex;flex-direction:column;gap:4px}
+  .drawer a{
+    display:block;padding:14px 8px;font-size:15px;font-weight:500;
+    border-bottom:1px solid var(--border);color:var(--text);
+  }
+  .drawer .drawer-tel{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:24px;padding:16px;background:var(--primary);color:#fff;
+    border-radius:8px;font-family:'Noto Serif JP',serif;font-weight:700;font-size:18px;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;padding-top:56px;padding-bottom:56px;
+    background:linear-gradient(135deg,#F7F9FC 0%,#E8F0FB 100%);
+    overflow:hidden;
+  }
+  @media (min-width:1024px){
+    .hero{padding-top:96px;padding-bottom:96px}
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 85% 20%,rgba(201,162,74,.08) 0%,transparent 50%),
+      radial-gradient(circle at 15% 80%,rgba(30,79,135,.08) 0%,transparent 50%);
+    pointer-events:none;
+  }
+  .hero__inner{
+    position:relative;display:grid;gap:40px;
+    grid-template-columns:1fr;align-items:center;
+  }
+  @media (min-width:768px){
+    .hero__inner{grid-template-columns:1.3fr 1fr;gap:56px}
+  }
+  .hero__label{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.15em;
+    color:var(--accent-dark);margin-bottom:14px;
+  }
+  .hero__title{
+    font-size:28px;line-height:1.45;color:var(--primary-dark);margin-bottom:24px;
+  }
+  @media (min-width:768px){
+    .hero__title{font-size:38px}
+  }
+  @media (min-width:1024px){
+    .hero__title{font-size:44px}
+  }
+  .hero__body{
+    font-size:15px;color:var(--text);margin-bottom:28px;line-height:1.9;
+  }
+  @media (min-width:1024px){
+    .hero__body{font-size:16px}
+  }
+  .hero__ctas{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 24px;font-size:14px;font-weight:700;
+    border-radius:4px;transition:transform .2s,box-shadow .2s,background .2s;
+    border:none;cursor:pointer;font-family:inherit;
+    min-height:48px;
+  }
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-primary:hover{background:var(--primary-dark);color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(30,79,135,.2)}
+  .btn-accent{background:var(--accent);color:#fff}
+  .btn-accent:hover{background:var(--accent-dark);color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,162,74,.25)}
+  .btn-outline{border:1.5px solid var(--primary);color:var(--primary);background:#fff}
+  .btn-outline:hover{background:var(--primary);color:#fff}
+  .btn svg{width:16px;height:16px;fill:currentColor}
+
+  .hero__media{
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero__photo{
+    width:100%;max-width:340px;
+    border-radius:8px;overflow:hidden;
+    box-shadow:0 24px 60px -12px rgba(30,79,135,.25);
+    position:relative;
+  }
+  .hero__photo img{width:100%;height:auto;display:block}
+  .hero__photo-caption{
+    padding:16px 20px;background:#fff;
+    border-top:3px solid var(--accent);
+  }
+  .hero__photo-caption small{
+    display:block;font-size:12px;color:var(--text-muted);letter-spacing:.1em;margin-bottom:4px;
+  }
+  .hero__photo-caption strong{
+    font-family:'Noto Serif JP',serif;font-size:16px;color:var(--primary-dark);
+  }
+
+  /* ===== Strengths ===== */
+  .strengths{background:var(--base-alt)}
+  .strengths__grid{
+    display:grid;gap:24px;grid-template-columns:1fr;
+  }
+  @media (min-width:768px){
+    .strengths__grid{grid-template-columns:repeat(3,1fr);gap:28px}
+  }
+  .strength-card{
+    background:#fff;padding:32px 24px;border-radius:6px;
+    border-top:3px solid var(--accent);
+    box-shadow:0 2px 12px rgba(22,56,94,.05);
+    display:flex;flex-direction:column;
+  }
+  @media (min-width:1024px){
+    .strength-card{padding:40px 32px}
+  }
+  .strength-card__icon{
+    width:48px;height:48px;border-radius:50%;
+    background:rgba(30,79,135,.08);color:var(--primary);
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+  }
+  .strength-card__icon svg{width:24px;height:24px;fill:currentColor}
+  .strength-card__title{
+    font-size:18px;color:var(--primary-dark);margin-bottom:14px;line-height:1.5;
+  }
+  .strength-card__body{
+    font-size:14px;color:var(--text);line-height:1.85;
+  }
+  .strength-card__footer{
+    margin-top:20px;padding-top:16px;border-top:1px dashed var(--border);
+    display:flex;align-items:center;gap:10px;
+  }
+  .strength-card__footer img{height:22px;width:auto}
+  .strength-card__footer span{font-size:12px;color:var(--text-muted)}
+
+  /* ===== About ===== */
+  .about__inner{
+    display:grid;gap:40px;grid-template-columns:1fr;
+  }
+  @media (min-width:768px){
+    .about__inner{grid-template-columns:280px 1fr;gap:48px;align-items:start}
+  }
+  .about__photo{
+    width:100%;max-width:280px;margin:0 auto;
+    border-radius:6px;overflow:hidden;
+    box-shadow:0 12px 36px -8px rgba(30,79,135,.2);
+  }
+  .about__photo-name{
+    padding:14px 20px;background:var(--primary-dark);color:#fff;
+    text-align:center;
+  }
+  .about__photo-name small{display:block;font-size:11px;opacity:.8;letter-spacing:.1em;margin-bottom:4px}
+  .about__photo-name strong{font-family:'Noto Serif JP',serif;font-size:17px}
+
+  .about__heading{
+    font-size:22px;color:var(--primary-dark);margin-bottom:16px;
+  }
+  @media (min-width:1024px){
+    .about__heading{font-size:26px}
+  }
+  .about__message{
+    font-size:15px;line-height:1.95;margin-bottom:32px;color:var(--text);
+  }
+  .about__subheading{
+    font-family:'Noto Serif JP',serif;font-weight:700;font-size:17px;
+    color:var(--primary-dark);margin-top:32px;margin-bottom:14px;
+    padding-left:12px;border-left:3px solid var(--accent);
+  }
+  .about__table{
+    width:100%;font-size:14px;border-collapse:collapse;
+    margin-bottom:12px;
+  }
+  .about__table th,.about__table td{
+    padding:10px 12px;vertical-align:top;text-align:left;
+    border-bottom:1px solid var(--border);
+  }
+  .about__table th{
+    width:7em;font-weight:500;color:var(--text-muted);white-space:nowrap;
+  }
+  .about__table td{color:var(--text);line-height:1.85}
+  .about__table td ul{display:flex;flex-direction:column;gap:4px}
+  .about__table td ul li::before{content:"・";color:var(--accent-dark)}
+  .about__quals{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;
+  }
+  .about__quals span{
+    display:inline-block;padding:6px 14px;font-size:12px;
+    background:rgba(30,79,135,.08);color:var(--primary-dark);
+    border-radius:99px;font-weight:500;
+  }
+
+  /* ===== Services ===== */
+  .services{background:var(--base-alt)}
+  .services__grid{
+    display:grid;gap:20px;grid-template-columns:1fr;
+  }
+  @media (min-width:768px){
+    .services__grid{grid-template-columns:repeat(2,1fr);gap:24px}
+  }
+  @media (min-width:1024px){
+    .services__grid{grid-template-columns:repeat(3,1fr)}
+  }
+  .service-card{
+    background:#fff;padding:28px 24px;border-radius:6px;
+    border:1px solid var(--border);
+    transition:transform .2s,box-shadow .2s,border-color .2s;
+    display:flex;flex-direction:column;position:relative;
+  }
+  .service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px -8px rgba(30,79,135,.15);
+    border-color:var(--accent);
+  }
+  .service-card__head{
+    display:flex;align-items:center;gap:14px;margin-bottom:12px;
+  }
+  .service-card__icon{
+    width:48px;height:48px;flex-shrink:0;
+    background:linear-gradient(135deg,#EAF2FB 0%,#F7F9FC 100%);
+    border-radius:8px;
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--primary);
+  }
+  .service-card__icon svg{width:26px;height:26px;display:block}
+  .service-card__num{
+    font-family:'Noto Serif JP',serif;font-size:28px;font-weight:700;
+    color:var(--accent);line-height:1;
+  }
+  .service-card__title{
+    font-size:18px;color:var(--primary-dark);margin-bottom:14px;
+  }
+  .service-card__body{
+    font-size:14px;line-height:1.85;color:var(--text);
+  }
+  .service-card__body ul{display:flex;flex-direction:column;gap:6px}
+  .service-card__body li{padding-left:14px;position:relative}
+  .service-card__body li::before{
+    content:"";position:absolute;left:0;top:.7em;
+    width:6px;height:6px;background:var(--accent);border-radius:50%;
+  }
+  .service-card__body p{margin-top:4px}
+
+  .services__fa{
+    margin-top:48px;padding:32px 24px;background:#fff;
+    border-radius:6px;border-left:4px solid var(--primary);
+  }
+  @media (min-width:1024px){
+    .services__fa{padding:40px 48px;margin-top:64px}
+  }
+  .services__fa-title{
+    font-size:20px;color:var(--primary-dark);margin-bottom:10px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .services__fa-title::before{
+    content:"";display:inline-block;width:28px;height:28px;flex-shrink:0;
+    background-color:var(--primary);
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M3 3v18h18'/><path d='M7 15l4-4 3 3 5-6'/></svg>") no-repeat center / contain;
+    mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M3 3v18h18'/><path d='M7 15l4-4 3 3 5-6'/></svg>") no-repeat center / contain;
+  }
+  .services__fa-lead{
+    font-size:14px;color:var(--text-muted);margin-bottom:20px;line-height:1.85;
+  }
+  .services__fa-steps{
+    display:grid;gap:16px;grid-template-columns:1fr;
+  }
+  @media (min-width:768px){
+    .services__fa-steps{grid-template-columns:repeat(3,1fr)}
+  }
+  .services__fa-step{
+    padding:18px 16px;background:var(--base-alt);border-radius:6px;font-size:13px;
+    line-height:1.75;border-top:3px solid var(--accent);
+  }
+  .services__fa-step strong{
+    display:block;font-family:'Noto Serif JP',serif;color:var(--primary);
+    font-size:22px;margin-bottom:6px;line-height:1;
+  }
+  .services__fa-note{
+    margin-top:20px;padding-top:20px;border-top:1px dashed var(--border);
+    font-size:13px;color:var(--text-muted);line-height:1.85;
+  }
+
+  /* ===== Philosophy ===== */
+  .philosophy__intro{
+    text-align:center;font-size:15px;color:var(--text-muted);
+    margin-bottom:32px;line-height:1.9;
+  }
+  .accordion{
+    max-width:820px;margin:0 auto;
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .accordion details{
+    border:1px solid var(--border);border-radius:6px;
+    background:#fff;overflow:hidden;
+  }
+  .accordion summary{
+    padding:18px 20px;cursor:pointer;font-weight:700;font-size:15px;
+    color:var(--primary-dark);display:flex;justify-content:space-between;align-items:center;
+    font-family:'Noto Serif JP',serif;
+    list-style:none;
+  }
+  .accordion summary::-webkit-details-marker{display:none}
+  .accordion summary::after{
+    content:"＋";color:var(--accent);font-weight:700;font-size:18px;transition:transform .2s;
+  }
+  .accordion details[open] summary::after{content:"−"}
+  .accordion__body{
+    padding:0 20px 20px;font-size:14px;line-height:1.95;color:var(--text);
+  }
+  .accordion__body p+p{margin-top:10px}
+
+  /* ===== Achievement ===== */
+  .achievement{background:var(--primary-dark);color:#fff;text-align:center}
+  .achievement .section-title{color:#fff}
+  .achievement .section-title::after{background:var(--accent)}
+  .achievement__inner{
+    display:flex;flex-direction:column;align-items:center;gap:24px;
+  }
+  .achievement__image{
+    width:160px;border-radius:4px;overflow:hidden;
+    box-shadow:0 12px 36px rgba(0,0,0,.3);
+  }
+  @media (min-width:768px){
+    .achievement__image{width:200px}
+  }
+  .achievement__text{
+    font-size:15px;line-height:1.9;max-width:640px;
+  }
+  @media (min-width:1024px){
+    .achievement__text{font-size:16px}
+  }
+  .achievement__note{
+    font-size:12px;opacity:.7;margin-top:8px;
+  }
+
+  /* ===== Office ===== */
+  .office__table{
+    width:100%;border-collapse:collapse;font-size:14px;
+    background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden;
+  }
+  .office__table th,.office__table td{
+    padding:16px 18px;text-align:left;border-bottom:1px solid var(--border);
+    vertical-align:top;line-height:1.85;
+  }
+  .office__table tr:last-child th,.office__table tr:last-child td{border-bottom:none}
+  .office__table th{
+    width:9em;background:var(--base-alt);color:var(--primary-dark);
+    font-weight:700;white-space:nowrap;
+  }
+  @media (max-width:767px){
+    .office__table th,.office__table td{display:block;width:100%;padding:12px 16px}
+    .office__table th{border-bottom:none;padding-bottom:4px;font-size:12px}
+    .office__table td{padding-top:0;padding-bottom:14px}
+  }
+  .office__table ul{display:flex;flex-direction:column;gap:4px}
+  .office__table li::before{content:"・"}
+  .office__footnote{
+    text-align:right;margin-top:16px;font-size:13px;color:var(--text-muted);
+  }
+
+  /* ===== Access ===== */
+  .access{background:var(--base-alt)}
+  .access__inner{
+    display:grid;gap:24px;grid-template-columns:1fr;
+  }
+  @media (min-width:768px){
+    .access__inner{grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+  }
+  .access__map-wrap{display:flex;flex-direction:column;gap:12px}
+  .access__map{
+    width:100%;aspect-ratio:4/3;border:1px solid var(--border);
+    border-radius:6px;overflow:hidden;background:#fff;
+    display:block;position:relative;
+  }
+  .access__map img{width:100%;height:100%;object-fit:cover;display:block}
+  .access__map-attr{
+    position:absolute;right:6px;bottom:6px;
+    font-size:10px;color:#444;background:rgba(255,255,255,.82);
+    padding:2px 6px;border-radius:3px;letter-spacing:.02em;
+  }
+  .access__map-attr a{color:inherit;text-decoration:underline}
+  .access__map-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    align-self:flex-start;
+    padding:10px 18px;font-size:14px;font-weight:600;
+    color:#fff;background:var(--primary);text-decoration:none;
+    border-radius:4px;transition:background .2s;
+  }
+  .access__map-btn:hover{background:var(--primary-dark)}
+  .access__info{
+    background:#fff;padding:28px 24px;border-radius:6px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  @media (min-width:1024px){
+    .access__info{padding:36px 32px}
+  }
+  .access__heading{
+    font-size:18px;color:var(--primary-dark);margin-bottom:16px;
+  }
+  .access__list{
+    display:flex;flex-direction:column;gap:10px;margin-bottom:20px;
+  }
+  .access__list li{
+    padding-left:18px;position:relative;font-size:14px;line-height:1.75;
+  }
+  .access__list li::before{
+    content:"◆";position:absolute;left:0;color:var(--accent);font-size:10px;
+  }
+  .access__address{
+    margin-top:8px;padding-top:16px;border-top:1px dashed var(--border);
+    font-size:14px;line-height:1.85;
+  }
+  .access__address dt{
+    font-size:12px;color:var(--text-muted);margin-bottom:2px;
+  }
+  .access__address dd{margin-bottom:10px}
+
+  /* ===== Contact ===== */
+  .contact{text-align:center;background:linear-gradient(135deg,#F7F9FC 0%,#E8F0FB 100%)}
+  .contact__lead{
+    font-size:16px;color:var(--text);margin-bottom:32px;line-height:1.85;
+  }
+  @media (min-width:1024px){
+    .contact__lead{font-size:18px}
+  }
+  .contact__actions{
+    display:flex;flex-direction:column;gap:16px;align-items:stretch;
+    max-width:640px;margin:0 auto;
+  }
+  @media (min-width:768px){
+    .contact__actions{
+      flex-direction:row;justify-content:center;align-items:stretch;
+      max-width:780px;gap:20px;
+    }
+  }
+  .contact__tel{
+    display:inline-flex;flex-direction:column;align-items:center;gap:4px;
+    padding:20px 28px;background:#fff;border:2px solid var(--primary);
+    border-radius:6px;min-width:300px;flex:1 1 auto;
+    white-space:nowrap;
+  }
+  .contact__tel small{font-size:12px;color:var(--text-muted);letter-spacing:.1em}
+  .contact__tel strong{
+    font-family:'Noto Serif JP',serif;font-weight:700;font-size:26px;
+    color:var(--primary-dark);letter-spacing:.02em;white-space:nowrap;
+  }
+  .contact__tel span{font-size:13px;color:var(--text-muted);white-space:nowrap}
+  .contact__email{
+    display:inline-flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:4px;
+    padding:20px 28px;background:var(--primary);color:#fff;
+    border-radius:6px;min-width:300px;flex:1 1 auto;
+    transition:background .2s;white-space:nowrap;overflow:hidden;
+  }
+  .contact__email:hover{background:var(--primary-dark);color:#fff}
+  .contact__email small{font-size:12px;opacity:.85;letter-spacing:.1em}
+  .contact__email strong{
+    font-size:15px;font-weight:700;white-space:nowrap;letter-spacing:.01em;
+  }
+  @media (max-width:767px){
+    .contact__tel,.contact__email{min-width:0;width:100%}
+    .contact__email strong{font-size:14px}
+  }
+
+  /* ===== Footer ===== */
+  .footer{background:var(--primary-dark);color:#CBD6E4;padding:56px 0 96px}
+  @media (min-width:1024px){
+    .footer{padding:72px 0 48px}
+  }
+  .footer__inner{
+    display:flex;flex-direction:column;gap:28px;
+  }
+  @media (min-width:1024px){
+    .footer__inner{flex-direction:row;justify-content:space-between;align-items:flex-start;gap:48px}
+  }
+  .footer__brand img{height:40px;width:auto;filter:brightness(0) invert(1) opacity(.95);margin-bottom:16px}
+  .footer__brand-name{
+    font-family:'Noto Serif JP',serif;font-size:18px;color:#fff;margin-bottom:8px;
+  }
+  .footer__brand p{font-size:13px;line-height:1.85;color:#A9B7C9}
+  .footer__info{font-size:13px;line-height:1.95}
+  .footer__info dt{color:#A9B7C9;font-size:11px;letter-spacing:.1em;margin-top:10px}
+  .footer__info dt:first-child{margin-top:0}
+  .footer__info dd{color:#E4EAF2}
+  .footer__info a:hover{color:var(--accent)}
+  .footer__tkc{
+    display:flex;align-items:center;gap:10px;margin-top:20px;
+    font-size:12px;color:#A9B7C9;
+  }
+  .footer__tkc img{height:22px;width:auto}
+  .footer__bottom{
+    margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);
+    font-size:12px;color:#8B99AC;display:flex;flex-direction:column;gap:8px;
+  }
+  @media (min-width:768px){
+    .footer__bottom{flex-direction:row;justify-content:space-between;align-items:center}
+  }
+
+  /* ===== Mobile sticky CTA ===== */
+  .mobile-cta{
+    position:fixed;bottom:0;left:0;right:0;z-index:40;
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:var(--primary-dark);
+    box-shadow:0 -4px 20px rgba(0,0,0,.12);
+  }
+  @media (min-width:1024px){.mobile-cta{display:none}}
+  .mobile-cta a{
+    padding:14px 8px;text-align:center;font-weight:700;font-size:13px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    min-height:60px;color:#fff;
+  }
+  .mobile-cta a:first-child{background:var(--primary)}
+  .mobile-cta a:last-child{background:var(--accent)}
+  .mobile-cta a:hover{color:#fff}
+  .mobile-cta small{display:block;font-size:10px;opacity:.85;letter-spacing:.05em}
+  .mobile-cta strong{font-family:'Noto Serif JP',serif;font-size:16px}
+
+  /* utilities */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+
+<!-- ============ Header ============ -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="#" class="header__logo" aria-label="井上学会計事務所">
+      <img src="images/logo.gif" alt="井上学会計事務所">
+    </a>
+    <nav class="header__nav" aria-label="メインナビゲーション">
+      <a href="#about">事務所紹介</a>
+      <a href="#services">業務案内</a>
+      <a href="#philosophy">経営理念</a>
+      <a href="#office">事務所概要</a>
+      <a href="#access">交通案内</a>
+      <a href="#contact">お問合せ</a>
+    </nav>
+    <a href="tel:0584732347" class="header__tel" aria-label="電話番号 0584-73-2347">
+      <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.21a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
+      0584-73-2347
+    </a>
+    <button class="header__burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="drawer" id="drawer" aria-label="モバイルメニュー">
+    <ul>
+      <li><a href="#about">事務所紹介</a></li>
+      <li><a href="#services">業務案内</a></li>
+      <li><a href="#philosophy">経営理念</a></li>
+      <li><a href="#office">事務所概要</a></li>
+      <li><a href="#access">交通案内</a></li>
+      <li><a href="#contact">お問合せ</a></li>
+    </ul>
+    <a href="tel:0584732347" class="drawer-tel">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.21a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
+      0584-73-2347
+    </a>
+  </nav>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <span class="hero__label">GIFU / OGAKI — CPA &amp; TAX</span>
+      <h1 class="hero__title">あなたの街の経営アドバイザー<br>井上学会計事務所</h1>
+      <p class="hero__body">岐阜県大垣市　井上学会計事務所です。貴社の経営動向と課題を分析し、貴社の更なる発展のための方策を、貴社と共に考えます。まずは、お気軽に当事務所までご相談ください。</p>
+      <div class="hero__ctas">
+        <a href="#contact" class="btn btn-accent">お問合せはこちら</a>
+        <a href="tel:0584732347" class="btn btn-outline">
+          <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.21a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
+          0584-73-2347
+        </a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <figure class="hero__photo">
+        <img src="images/president.jpg" alt="所長 井上学">
+        <figcaption class="hero__photo-caption">
+          <small>所長</small>
+          <strong>公認会計士・税理士　井上学</strong>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Strengths ============ -->
+<section class="strengths">
+  <div class="container">
+    <h2 class="section-title">当事務所の特長</h2>
+    <p class="section-lead">信頼・実績・地域貢献で、貴社の永続的な繁栄を支えます。</p>
+    <div class="strengths__grid">
+
+      <article class="strength-card">
+        <div class="strength-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7v6c0 5.55 3.84 10.74 10 12 6.16-1.26 10-6.45 10-12V7L12 2z"/></svg>
+        </div>
+        <h3 class="strength-card__title">ＴＫＣ全国会会員</h3>
+        <p class="strength-card__body">ＴＫＣ全国会は、租税正義の実現をめざし関与先企業の永続的繁栄に奉仕するわが国最大級の職業会計人集団です。</p>
+        <div class="strength-card__footer">
+          <img src="images/tkc-logo.gif" alt="ＴＫＣ全国会">
+          <span>井上学会計事務所はＴＫＣ全国会会員です</span>
+        </div>
+      </article>
+
+      <article class="strength-card">
+        <div class="strength-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 3h4v18H3V3zm6 6h4v12H9V9zm6-4h4v16h-4V5z"/></svg>
+        </div>
+        <h3 class="strength-card__title">経営アドバイザリーサービス（MAS＝Management Advisory Service）</h3>
+        <p class="strength-card__body">財務的分析を起点に、経営者と共に、課題の把握と解決</p>
+      </article>
+
+      <article class="strength-card">
+        <div class="strength-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        </div>
+        <h3 class="strength-card__title">公認会計士監査業務</h3>
+        <p class="strength-card__body">法定監査（会社法に基づく監査・学校法人監査・労働組合監査等）／任意監査</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ About ============ -->
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="section-title">事務所紹介</h2>
+    <p class="section-lead">所長挨拶・経歴・所属団体</p>
+
+    <div class="about__inner">
+      <figure class="about__photo">
+        <img src="images/president.jpg" alt="所長 井上学">
+        <figcaption class="about__photo-name">
+          <small>公認会計士・税理士</small>
+          <strong>井上 学</strong>
+        </figcaption>
+      </figure>
+
+      <div class="about__body">
+        <h3 class="about__heading">所長挨拶</h3>
+        <p class="about__message">当事務所は会計業務、税務業務、経営アドバイザリーサービス（MAS）業務、公認会計士監査業務を通じて関与先企業及び地域社会に貢献することを目指しています。</p>
+
+        <h3 class="about__subheading">所長経歴</h3>
+        <table class="about__table">
+          <tbody>
+            <tr>
+              <th>生年月日</th>
+              <td>昭和39年12月10日生</td>
+            </tr>
+            <tr>
+              <th>学歴</th>
+              <td>
+                昭和58年 3月　岐阜県立大垣北高等学校卒業<br>
+                昭和62年 3月　関西大学商学部卒業
+              </td>
+            </tr>
+            <tr>
+              <th>職歴等</th>
+              <td>
+                平成 5年10月　大原簿記専門学校名古屋校入社　公認会計士課　原価計算講師<br>
+                平成 6年10月　中央監査法人入社<br>
+                平成11年 4月　公認会計士登録<br>
+                平成19年 7月　あずさ監査法人入社<br>
+                平成24年 8月　田邊雅範税理士事務所入社<br>
+                平成24年 9月　税理士登録<br>
+                平成26年11月　井上学会計事務所開設<br>
+                平成26年12月　TKC全国会入会
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="about__subheading">所属団体・資格・論文・著書など</h3>
+        <ul style="font-size:14px;line-height:1.95;padding-left:4px;display:flex;flex-direction:column;gap:4px">
+          <li>・ＴＫＣ全国会所属</li>
+          <li>・岐阜県立下呂温泉病院　監事（現）</li>
+          <li>・公益財団法人岐阜県市町村振興協会　監事（現）</li>
+          <li>・日本公認会計士協会東海会監事（元）</li>
+          <li>・中小企業庁　岐阜県よろず支援拠点　コーディネーター（現）</li>
+          <li>・岐阜県商工会連合会　プッシュ型事業承継支援強化事業　地方事務局　ブロックコーディネーター（元）</li>
+          <li>・日本公認会計士協会　中小企業施策調査会　企画専門委員会　専門委員（元）</li>
+          <li>・日本公認会計士協会　中小企業施策調査会　事業承継支援専門委員会　専門委員（元）</li>
+          <li>・大垣市社会福祉課専門員（元）</li>
+          <li>・日本公認会計士協会東海会　学校法人委員会委員（元）</li>
+        </ul>
+
+        <div class="about__quals">
+          <span>公認会計士</span>
+          <span>税理士</span>
+          <span>認定経営革新等支援機関</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Services ============ -->
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">業務案内</h2>
+    <p class="section-lead">中小企業の皆様の経営を多角的にサポートいたします。</p>
+
+    <div class="services__grid">
+
+      <article class="service-card">
+        <div class="service-card__head">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 13h3"/><path d="M8 17h3"/><path d="M14 13h3"/><path d="M14 17h3"/></svg>
+          </span>
+          <div class="service-card__num">01</div>
+        </div>
+        <h3 class="service-card__title">会計業務</h3>
+        <div class="service-card__body">
+          <ul>
+            <li>記帳指導、記帳支援</li>
+            <li>会計制度の整備</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__head">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
+          </span>
+          <div class="service-card__num">02</div>
+        </div>
+        <h3 class="service-card__title">税務業務</h3>
+        <div class="service-card__body">
+          <ul>
+            <li>法人税、所得税、相続税など申告書作成</li>
+            <li>節税相談</li>
+            <li>税務調査立会</li>
+            <li>相続対策プランニング</li>
+            <li>事業承継プランニング</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__head">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/><circle cx="7" cy="15" r="1.2" fill="currentColor"/><circle cx="11" cy="11" r="1.2" fill="currentColor"/><circle cx="14" cy="14" r="1.2" fill="currentColor"/><circle cx="19" cy="8" r="1.2" fill="currentColor"/></svg>
+          </span>
+          <div class="service-card__num">03</div>
+        </div>
+        <h3 class="service-card__title">経営アドバイザリーサービス（MAS＝Management Advisory Service）</h3>
+        <div class="service-card__body">
+          <ul>
+            <li>財務的分析を起点に、経営者と共に、課題の把握と解決</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__head">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <div class="service-card__num">04</div>
+        </div>
+        <h3 class="service-card__title">公認会計士監査業務</h3>
+        <div class="service-card__body">
+          <ul>
+            <li>法定監査（会社法に基づく監査・学校法人監査・労働組合監査等）</li>
+            <li>任意監査</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__head">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M15 20c0-2.5 2-4 4-4s3 1 3 3"/></svg>
+          </span>
+          <div class="service-card__num">05</div>
+        </div>
+        <h3 class="service-card__title">その他</h3>
+        <div class="service-card__body">
+          <ul>
+            <li>提携企業のご紹介</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="services__fa">
+      <h3 class="services__fa-title">財務分析サービス</h3>
+      <p class="services__fa-lead">会計事務所を変えていただかなくても受けられるコンサルティングサービス。セカンドオピニオンとしてご活用ください。</p>
+      <div class="services__fa-steps">
+        <div class="services__fa-step"><strong>①</strong>貴社の現在、過去の決算書、経営環境をベースに財務分析を行います。</div>
+        <div class="services__fa-step"><strong>②</strong>貴社の現状分析を行い、貴社の強み、弱みを把握します。</div>
+        <div class="services__fa-step"><strong>③</strong>貴社の経営課題の把握を行います。</div>
+      </div>
+      <p class="services__fa-note">特に売上が低迷している、ここ数年、赤字経営が続いている会社様は早期に経営分析を行い自社の経営状況を客観的に認識することが必要です。どこに手を打てば利益がでるか、提案いたします。</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ Philosophy ============ -->
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <h2 class="section-title">経営理念</h2>
+    <p class="philosophy__intro">事務所の経営理念について</p>
+
+    <div class="accordion">
+
+      <details open>
+        <summary>１．会計・税務・経営アドバイザリーサービス（MAS）業務</summary>
+        <div class="accordion__body">
+          <p>我事務所はＴＫＣ全国会の基本理念である「自利利他」の理念の実践を目指すこと。</p>
+          <p>我事務所は関与先企業の発展に寄与することを希求し、その目的に向かって業務を推進すること。</p>
+          <p>我事務所はその業務を通じて、租税正義実現の為最善をつくすこと。</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>２．公認会計士監査業務</summary>
+        <div class="accordion__body">
+          <p>我事務所が公認会計士監査業務を通じて関与先企業の財務書類に独立した立場から社会的信頼性を付与すること。</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>３．地域社会貢献</summary>
+        <div class="accordion__body">
+          <p>我事務所はその存在をもって、地域社会発展に貢献すること。</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>行動指針・行動基準</summary>
+        <div class="accordion__body">
+          <p><strong>１．会計業務・税務業務・経営アドバイザリーサービス（MAS）業務</strong><br>「自利利他」の理念の実践とＴＫＣ会計人の行動指針に基づき行動します。</p>
+          <p><strong>２．公認会計士監査業務</strong><br>監査及び会計の専門家として、独立した立場において、財務書類その他の財務に関する情報の信頼性を確保することにより、会社等の公正な事業活動、投資者及び債権者の保護等を図り、もつて国民経済の健全な発展に寄与することを使命とする。</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Achievement ============ -->
+<section class="achievement">
+  <div class="container achievement__inner">
+    <h2 class="section-title">掲載実績</h2>
+    <figure class="achievement__image">
+      <img src="images/colombus.jpg" alt="月刊コロンブス">
+    </figure>
+    <p class="achievement__text">月刊コロンブスに支援事例として取り上げられました。</p>
+    <p class="achievement__note">※画像をクリックで拡大できます。</p>
+  </div>
+</section>
+
+<!-- ============ Office ============ -->
+<section class="office" id="office">
+  <div class="container">
+    <h2 class="section-title">事務所概要</h2>
+    <p class="section-lead">井上学会計事務所の基本情報</p>
+
+    <table class="office__table">
+      <tbody>
+        <tr>
+          <th>事務所名</th>
+          <td>井上学会計事務所</td>
+        </tr>
+        <tr>
+          <th>所長名</th>
+          <td>公認会計士・税理士　井上学</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>岐阜県　大垣市木戸町200番地101</td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td>
+            <a href="tel:0584732347">0584-73-2347</a>　／　携帯：<a href="tel:09041162048">090-4116-2048</a>
+          </td>
+        </tr>
+        <tr>
+          <th>FAX番号</th>
+          <td>0584-71-8565</td>
+        </tr>
+        <tr>
+          <th>業務内容</th>
+          <td>
+            <ul>
+              <li>税務・会計・決算に関する業務</li>
+              <li>独立、開業に関する業務</li>
+              <li>経営アドバイザリーサービス（MAS）業務</li>
+              <li>公認会計士監査業務</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="office__footnote">名古屋税理士会所属</p>
+  </div>
+</section>
+
+<!-- ============ Access ============ -->
+<section class="access" id="access">
+  <div class="container">
+    <h2 class="section-title">交通案内</h2>
+    <p class="section-lead">JR 大垣駅より徒歩12分　／　養老鉄道 室駅より徒歩2分</p>
+
+    <div class="access__inner">
+      <div class="access__map-wrap">
+        <div class="access__map">
+          <img src="images/access-map.png" alt="井上学税理士事務所 地図（岐阜県大垣市木戸町200-101）" loading="lazy">
+          <span class="access__map-attr">Map &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</span>
+        </div>
+        <a class="access__map-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%B2%90%E9%98%9C%E7%9C%8C%E5%A4%A7%E5%9E%A3%E5%B8%82%E6%9C%A8%E6%88%B8%E7%94%BA200-101" target="_blank" rel="noopener">Google マップで開く</a>
+      </div>
+      <div class="access__info">
+        <h3 class="access__heading">駅や目印からの道案内</h3>
+        <ul class="access__list">
+          <li>JR　大垣駅より徒歩12分</li>
+          <li>養老鉄道　室駅より徒歩2分</li>
+        </ul>
+        <dl class="access__address">
+          <dt>所在地</dt>
+          <dd>岐阜県　大垣市木戸町200番地101</dd>
+          <dt>電話番号</dt>
+          <dd><a href="tel:0584732347">0584-73-2347</a>　／　携帯：<a href="tel:09041162048">090-4116-2048</a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">お問合せ</h2>
+    <p class="contact__lead">お気軽にお問合せください。</p>
+    <div class="contact__actions">
+      <span class="contact__tel">
+        <small>TEL</small>
+        <strong>0584-73-2347</strong>
+        <span>携帯：090-4116-2048</span>
+      </span>
+      <a href="mailto:manabuinoue@tkcnf.or.jp" class="contact__email">
+        <small>EMAIL</small>
+        <strong>manabuinoue@tkcnf.or.jp</strong>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <img src="images/logo.gif" alt="井上学会計事務所">
+      <div class="footer__brand-name">井上学会計事務所</div>
+      <p>岐阜県大垣市の公認会計士・税理士事務所。貴社の経営動向と課題を分析し、貴社の更なる発展のための方策を、貴社と共に考えます。</p>
+      <div class="footer__tkc">
+        <img src="images/tkc-logo.gif" alt="ＴＫＣ全国会">
+        <span>ＴＫＣ全国会会員／名古屋税理士会所属</span>
+      </div>
+    </div>
+    <dl class="footer__info">
+      <dt>事務所名</dt><dd>井上学会計事務所</dd>
+      <dt>所在地</dt><dd>岐阜県　大垣市木戸町200番地101</dd>
+      <dt>TEL</dt><dd><a href="tel:0584732347">0584-73-2347</a>　／　携帯：<a href="tel:09041162048">090-4116-2048</a></dd>
+      <dt>FAX</dt><dd>0584-71-8565</dd>
+      <dt>E-mail</dt><dd><a href="mailto:manabuinoue@tkcnf.or.jp">manabuinoue@tkcnf.or.jp</a></dd>
+    </dl>
+  </div>
+  <div class="container footer__bottom">
+    <small>© 井上学会計事務所</small>
+    <small>個人情報保護方針</small>
+  </div>
+</footer>
+
+<!-- ============ Mobile sticky CTA ============ -->
+<div class="mobile-cta">
+  <a href="tel:0584732347">
+    <small>TEL</small>
+    <strong>0584-73-2347</strong>
+  </a>
+  <a href="#contact">
+    <small>お気軽にお問合せ</small>
+    <strong>お問合せ</strong>
+  </a>
+</div>
+
+<script>
+  (function(){
+    var burger=document.getElementById('burger');
+    var drawer=document.getElementById('drawer');
+    if(!burger||!drawer)return;
+    burger.addEventListener('click',function(){
+      var open=drawer.classList.toggle('is-open');
+      burger.classList.toggle('is-open',open);
+      burger.setAttribute('aria-expanded',open?'true':'false');
+    });
+    drawer.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(){
+        drawer.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
